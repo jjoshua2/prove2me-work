@@ -1,0 +1,86 @@
+name: Halfspace routing proof
+
+on:
+  push:
+    branches: [chatgpt/halfspace-routing]
+
+concurrency:
+  group: halfspace-routing-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Read current public theorem state
+        run: |
+          python3 - <<'PY'
+          import datetime,json,pathlib,urllib.request
+          from html.parser import HTMLParser
+          out=pathlib.Path('halfspace_packet');out.mkdir(exist_ok=True)
+          class Text(HTMLParser):
+            def __init__(self):super().__init__();self.parts=[];self.skip=0
+            def handle_starttag(self,t,a):
+              if t in ('script','style'):self.skip+=1
+            def handle_endtag(self,t):
+              if t in ('script','style'):self.skip=max(0,self.skip-1)
+            def handle_data(self,s):
+              if not self.skip and s.strip():self.parts.append(s.strip())
+          urls={'open_leaf':'https://prove2.me/theorems/33fc334e-e05b-4090-ac49-f83fd94d9305','mission':'https://prove2.me/missions/The%20Polynomial%20Hirsch%20Conjecture','related_api':'https://prove2.me/api/v1/theorems?q=cut&env=c5ea00351c28e24afc9f0f84379aa41082b1188f&limit=100'}
+          report={'fetched_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'reads':[]}
+          for name,url in urls.items():
+            row={'name':name,'url':url}
+            try:
+              with urllib.request.urlopen(url,timeout=25) as response:row['http_status']=response.status;raw=response.read().decode()
+              p=Text();p.feed(raw);text='\n'.join(p.parts);(out/(name+'.txt')).write_text(text)
+              row['text_file']=name+'.txt'
+              start=max(0,text.find('Frontier')) if name=='mission' else 0
+              print(name,text[start:start+1200])
+            except Exception as exc:row['error']=str(exc);print(name,repr(exc))
+            report['reads'].append(row)
+          (out/'live-frontier.json').write_text(json.dumps(report,indent=2)+'\n')
+          PY
+      - name: Install elan
+        run: |
+          if [ ! -x "$HOME/.elan/bin/elan" ]; then
+            curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y
+          fi
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Fetch pinned Mathlib cache
+        run: ~/.elan/bin/lake exe cache get
+      - name: Compile clipping and no-loss cut access
+        run: |
+          set -o pipefail
+          ~/.elan/bin/lake build Solutions.PolynomialHalfspaceAccessSubmission 2>&1 | tee halfspace_packet/build.log
+      - name: Independently audit exact proof files
+        run: |
+          python3 scripts/bundle_halfspace.py
+          python3 - <<'PY'
+          import hashlib,json,pathlib,re,subprocess,time
+          out=pathlib.Path('halfspace_packet');report={}
+          allowed={'propext','Classical.choice','Quot.sound'}
+          for name in ['solution.lean','standalone.lean']:
+            path=out/name;start=time.monotonic()
+            p=subprocess.run([str(pathlib.Path.home()/'.elan/bin/lake'),'env','lean',str(path)],text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,timeout=280)
+            seconds=time.monotonic()-start;(out/(name+'.log')).write_text(p.stdout);print(p.stdout)
+            if p.returncode:raise SystemExit(p.returncode)
+            found=re.search(r"'solution' depends on axioms:\s*\[([^]]*)\]",p.stdout)
+            if not found:raise RuntimeError('Missing axiom report')
+            axioms={s.strip() for s in found.group(1).split(',') if s.strip()}
+            if not axioms<=allowed:raise RuntimeError('Unexpected axioms '+repr(axioms-allowed))
+            report[name]={'compiled':True,'seconds':round(seconds,4),'lines':len(path.read_text().splitlines()),'bytes':path.stat().st_size,'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'axioms':sorted(axioms)}
+          (out/'verification.json').write_text(json.dumps(report,indent=2)+'\n')
+          print('EXACT_PACKET_VERIFIED',json.dumps(report))
+          PY
+      - name: Upload exact packet and evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: halfspace-routing-proof-packet
+          path: halfspace_packet/
+          if-no-files-found: error
