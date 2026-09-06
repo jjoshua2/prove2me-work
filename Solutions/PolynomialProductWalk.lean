@@ -154,9 +154,9 @@ theorem diamLE_pi [Fintype ι]
         · simpa only [Finset.sum_insert his] using hwstep
   intro u hu v hv
   have hu' : ∀ i, u i ∈ extremePoints ℝ (P i) := by
-    simpa only [Set.extremePoints_pi, Set.mem_univ_pi] using hu
+    simpa only [extremePoints_pi, Set.mem_univ_pi] using hu
   have hv' : ∀ i, v i ∈ extremePoints ℝ (P i) := by
-    simpa only [Set.extremePoints_pi, Set.mem_univ_pi] using hv
+    simpa only [extremePoints_pi, Set.mem_univ_pi] using hv
   exact hwalk Finset.univ u v hu' hv' (fun i hi => False.elim (hi (Finset.mem_univ i)))
 
 #print axioms diamLE_pi
