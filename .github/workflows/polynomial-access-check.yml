@@ -1,0 +1,22 @@
+name: Polynomial access Lean check
+
+on:
+  push:
+    branches: [chatgpt/polynomial-access]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install elan
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Fetch Mathlib cache
+        run: ~/.elan/bin/lake exe cache get
+      - name: Build imported theorem stubs
+        run: ~/.elan/bin/lake build Definitions.Def_Hirsch_model Theorems.Thm_Hirsch_larman_bound Theorems.Thm_Hirsch_dimension_three_bound
+      - name: Compile face-access baselines
+        run: ~/.elan/bin/lake env lean Solutions/PolynomialFaceAccessBench.lean
