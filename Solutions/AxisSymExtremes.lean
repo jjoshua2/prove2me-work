@@ -15,7 +15,18 @@ lemma inner_embed_any
     (z : EuclideanSpace ℝ (Fin (d + 1))) :
     ⟪Hirsch.embed c s, z⟫ =
       ⟪c, Hirsch.proj z⟫ + s * z (Fin.last d) := by
-  rw [← embed_proj z, inner_embed]
+  calc
+    ⟪Hirsch.embed c s, z⟫ =
+        ⟪Hirsch.embed c s, Hirsch.embed (Hirsch.proj z) (z (Fin.last d))⟫ := by
+          rw [embed_proj z]
+    _ = ⟪c, Hirsch.proj z⟫ + s * z (Fin.last d) := inner_embed _ _ _ _
+
+lemma embed_zero_zero : Hirsch.embed (0 : EuclideanSpace ℝ (Fin d)) 0 = 0 := by
+  ext i
+  refine Fin.lastCases ?_ ?_ i
+  · simp [embed_last]
+  · intro j
+    simp [embed_castSucc]
 
 /-- At the endpoint incident to the wedge foot, the two copies of the foot
 facet have opposite new-coordinate coefficients.  They force the new
@@ -50,7 +61,7 @@ lemma foot_apex_extreme
         simpa [symPerturbB, sym_inner_castSucc_zero] using hf
       have h := hz f.castSucc hactive
       rw [symPerturbA_castSucc] at h
-      simp [hfg, inner_embed_any, y, t] at h
+      simp [hfg, inner_embed_any] at h
       exact h
     have hminus : ⟪c f, y⟫ - t = 0 := by
       have hactive :
@@ -74,12 +85,17 @@ lemma foot_apex_extreme
         simpa [symPerturbB, sym_inner_castSucc_zero] using hi
       have h := hz i.castSucc hactive
       rw [symPerturbA_castSucc] at h
-      simp [hig, inner_embed_any, y, t, ht] at h
-      exact h
+      by_cases hif : i = f
+      · subst i
+        simp [hig, inner_embed_any, ht] at h
+        exact h
+      · simp [hig, hif, inner_embed_any] at h
+        exact h
     have hy : y = 0 := holdzero y hyactive
     calc
       z = Hirsch.embed y t := (embed_proj z).symm
-      _ = 0 := by simp [hy, ht, Hirsch.embed]
+      _ = Hirsch.embed 0 0 := by rw [hy, ht]
+      _ = 0 := embed_zero_zero
 
 /-- At the endpoint whose active facet `g` is tilted, all the other active
 normals first kill the old-coordinate displacement.  The nonzero tilt of `g`
@@ -116,7 +132,7 @@ lemma perturbed_apex_extreme
         simpa [symPerturbB, sym_inner_castSucc_zero] using hi
       have h := hz i.castSucc hactive
       rw [symPerturbA_castSucc] at h
-      simp [hig, hif, inner_embed_any, y, t] at h
+      simp [hig, hif, inner_embed_any] at h
       exact h
     have hy : y = 0 := hrem y hyactive
     have hgactive :
@@ -125,11 +141,12 @@ lemma perturbed_apex_extreme
       simpa [symPerturbB, sym_inner_castSucc_zero] using hg
     have hgt := hz g.castSucc hgactive
     rw [symPerturbA_castSucc] at hgt
-    simp [inner_embed_any, y, t, hy] at hgt
+    simp [inner_embed_any, hy] at hgt
     have ht : t = 0 := by
-      exact (mul_eq_zero.mp hgt).resolve_left hε
+      exact hgt.resolve_left hε
     calc
       z = Hirsch.embed y t := (embed_proj z).symm
-      _ = 0 := by simp [hy, ht, Hirsch.embed]
+      _ = Hirsch.embed 0 0 := by rw [hy, ht]
+      _ = 0 := embed_zero_zero
 
 end HirschAxisSym
