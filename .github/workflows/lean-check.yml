@@ -28,8 +28,10 @@ jobs:
         run: ~/.elan/bin/lake exe cache get
       - name: Build imported definitions
         run: ~/.elan/bin/lake build Definitions.Def_Hirsch_model Definitions.Def_Hirsch_wedge
-      - name: Compile source-faithful symmetric front
-        run: ~/.elan/bin/lake env lean Solutions/AxisSymScratch.lean
+      - name: Build symmetric core
+        run: ~/.elan/bin/lake build Solutions.AxisSymScratch
+      - name: Compile symmetric endpoint-extremality lemmas
+        run: ~/.elan/bin/lake env lean Solutions/AxisSymExtremes.lean
       - name: Build product proof modules
         run: ~/.elan/bin/lake build Solutions.AxisProductScratch Solutions.AxisProductEdges Solutions.AxisWalkCompression
       - name: Compile complete redundant-row branch
