@@ -11,14 +11,21 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-      - name: Install elan
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.elan
+            .lake/packages
+          key: lean430-c5ea003-v1
+      - name: Install elan if needed
         run: |
-          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y
+          if [ ! -x "$HOME/.elan/bin/elan" ]; then
+            curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y
+          fi
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
       - name: Fetch Mathlib cache
         run: ~/.elan/bin/lake exe cache get
-      - name: Compile axis glue
-        run: ~/.elan/bin/lake env lean Solutions/Sol_Hirsch_spindle_one_step_axis.lean
+      - name: Build imported definitions
+        run: ~/.elan/bin/lake build Definitions.Def_Hirsch_model Definitions.Def_Hirsch_wedge
       - name: Compile axis scratch
-        if: ${{ hashFiles('Solutions/AxisScratch.lean') != '' }}
         run: ~/.elan/bin/lake env lean Solutions/AxisScratch.lean
