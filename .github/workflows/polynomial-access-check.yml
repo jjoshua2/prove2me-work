@@ -59,3 +59,6 @@ jobs:
       - name: Compile separated midpoint interior geometry
         continue-on-error: true
         run: ~/.elan/bin/lake env lean Solutions/PolynomialSeparatedInterior.lean
+      - name: Compile excess common-face rank bound
+        continue-on-error: true
+        run: ~/.elan/bin/lake env lean Solutions/PolynomialExcessFaceRank.lean
