@@ -61,14 +61,14 @@ lemma HirschClip.compact_extreme_ge
     constructor
     · exact fun hy => hy.1
     · intro hy
-      exact ⟨hy, hpmax y hy⟩
+      exact ⟨hy, hpmax hy⟩
   have hface : IsExtreme ℝ Q F := by
     simpa only [hretain] using cut_face_isExtreme Q c ⟪c, p⟫
   refine ⟨v, hface.extremePoints_subset_extremePoints hvF, ?_⟩
   have hvmax : ⟪c, v⟫ = ⟪c, p⟫ := hvF.1.2
   calc
     b ≤ ⟪c, x⟫ := hxc
-    _ ≤ ⟪c, p⟫ := hpmax x hx
+    _ ≤ ⟪c, p⟫ := hpmax hx
     _ = ⟪c, v⟫ := hvmax.symm
 
 /-- The full clipped diameter is bounded by outer diameter plus cut-face
