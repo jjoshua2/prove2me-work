@@ -113,7 +113,7 @@ lemma exists_removable_active
         simp only [Pi.add_apply, add_smul, Finset.sum_add_distrib]
       map_smul' := by
         intro s q
-        simp only [Pi.smul_apply, smul_eq_mul, mul_smul, Finset.smul_sum] }
+        simp [Pi.smul_apply, Finset.smul_sum, mul_smul] }
   have hnotinj : ¬ Function.Injective F := by
     intro hinj
     have hle := LinearMap.finrank_le_finrank_of_injective hinj
@@ -131,7 +131,7 @@ lemma exists_removable_active
   obtain ⟨q, hqker, hq0⟩ := Submodule.exists_mem_ne_zero_of_ne_bot hker
   have hex : ∃ ig : active, q ig ≠ 0 := by
     by_contra h
-    push_neg at h
+    push Not at h
     apply hq0
     funext i
     exact h i
@@ -143,7 +143,7 @@ lemma exists_removable_active
   have hsum : (∑ i : active, q i * ⟪c i.1, y⟫) = 0 := by
     have hF0 : F q = 0 := LinearMap.mem_ker.1 hqker
     have h := congrArg (fun z : EuclideanSpace ℝ (Fin d) => ⟪z, y⟫) hF0
-    simpa [F, inner_sum_left, inner_smul_left] using h
+    simpa [F, sum_inner, real_inner_smul_left] using h
   have hsingle : (∑ i : active, q i * ⟪c i.1, y⟫) =
       q ig * ⟪c g, y⟫ := by
     apply Finset.sum_eq_single ig
