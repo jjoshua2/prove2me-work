@@ -27,6 +27,7 @@ lemma retained_edge
   intro x hx
   refine ⟨hadj.2.subset hx, ?_⟩
   obtain ⟨α, β, hα, hβ, hαβ, rfl⟩ := hx
+  change ⟪c, α • p + β • q⟫ ≤ b
   rw [inner_combo]
   have h1 := mul_le_mul_of_nonneg_left hp hα
   have h2 := mul_le_mul_of_nonneg_left hq hβ
@@ -95,17 +96,14 @@ lemma clip_crossing_edge
       exact hcomb
   have hpz : p ≠ z := by
     intro h
-    have h' := congrArg (fun x : EuclideanSpace ℝ (Fin d) => ⟪c, x⟫) h
-    rw [hz] at h'
-    exact hp.ne h'
+    exact hp.ne ((congrArg (fun x : EuclideanSpace ℝ (Fin d) => ⟪c, x⟫) h).trans hz)
   refine ⟨z, hz, hpz, ?_, ?_⟩
   · intro w hw
-    have h := heq ▸ hw
-    exact ⟨hadj.2.subset h.1, h.2⟩
+    rw [heq] at hw
+    exact ⟨hadj.2.subset hw.1, hw.2⟩
   · intro x hx y hy w hw hop
-    have hw' : w ∈ segment ℝ p q ∧ ⟪c, w⟫ ≤ b := heq ▸ hw
-    rw [heq]
-    exact ⟨hadj.2.left_mem_of_mem_openSegment hx.1 hy.1 hw'.1 hop, hx.2⟩
+    rw [heq] at hw ⊢
+    exact ⟨hadj.2.left_mem_of_mem_openSegment hx.1 hy.1 hw.1 hop, hx.2⟩
 
 #print axioms clip_crossing_edge
 
