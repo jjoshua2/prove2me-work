@@ -25,10 +25,9 @@ lemma inner_embed (x y : EuclideanSpace ℝ (Fin d)) (t s : ℝ) :
     Fin.snoc_castSucc, Fin.snoc_last]
   ring
 
-/-- One-sided coordinate form of the perturbed wedge used for the axis step.
-`f` is a row tight at the height-zero apex, while `g` is a row tight at the
-lifted apex.  The `g` right-hand side is shifted so that the lifted apex is
-still tight after tilting that row. -/
+/-- Preliminary one-sided coordinate model.  This is kept only as a small
+incidence sanity-check while the source-faithful symmetric perturbed wedge is
+formalized below. -/
 noncomputable def stepA
     (c : Fin n → EuclideanSpace ℝ (Fin d)) (f g : Fin n) :
     Fin (n + 1) → EuclideanSpace ℝ (Fin (d + 1)) :=
@@ -60,9 +59,6 @@ lemma stepB_castSucc (g i : Fin n) :
 lemma stepB_last (g : Fin n) : stepB g (Fin.last n) = 0 := by
   simp [stepB, Fin.snoc_last]
 
-/-- The elementary spindle-incidence part of the corrected construction.
-Unlike the old draft child, the two new apices are at different heights, so
-no newly-added row is tight at both. -/
 lemma step_spindle_incidence
     (c : Fin n → EuclideanSpace ℝ (Fin d))
     (u v : EuclideanSpace ℝ (Fin d)) (f g : Fin n)
@@ -78,7 +74,7 @@ lemma step_spindle_incidence
     V ∈ Hpoly (stepA c f g) (stepB g) ∧
     ∀ j, (⟪stepA c f g j, U⟫ = stepB g j) ↔
       ⟪stepA c f g j, V⟫ ≠ stepB g j := by
-  have hfv : ⟪c f, v⟫ = -1 := by rw [hanti f, hf]; norm_num
+  have hfv : ⟪c f, v⟫ = -1 := by simpa [hf] using hanti f
   have hgu : ⟪c g, u⟫ = -1 := by
     have h := hanti g
     linarith
@@ -96,6 +92,7 @@ lemma step_spindle_incidence
       by_cases hig : i = g
       · subst i
         simp [inner_embed, hgu]
+        norm_num
       · by_cases hif : i = f
         · subst i
           simp [hig, inner_embed, hf]
@@ -110,6 +107,7 @@ lemma step_spindle_incidence
         by_cases hig : i = g
         · subst i
           simp [inner_embed, hg]
+          norm_num
         · by_cases hif : i = f
           · subst i
             simp [hig, inner_embed, hfv]
@@ -123,9 +121,11 @@ lemma step_spindle_incidence
         by_cases hig : i = g
         · subst i
           simp [inner_embed, hg, hgu]
+          norm_num
         · by_cases hif : i = f
           · subst i
             simp [hig, inner_embed, hf, hfv]
-        · simpa [hig, hif, inner_embed] using hxor i
+          · rw [if_neg hig, if_neg hif, if_neg hig]
+            simpa [inner_embed] using hxor i
 
 end HirschAxisScratch
