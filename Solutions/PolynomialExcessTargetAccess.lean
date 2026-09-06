@@ -1,7 +1,7 @@
 import Mathlib
 import Theorems.Thm_Hirsch_larman_bound
 import Theorems.Thm_Hirsch_nonzero_supporting_row_of_distinct_extremes
-import Solutions.PolynomialBalancedOneStep
+import Solutions.PolynomialAdjEndpoints
 import Solutions.PolynomialCommonFaceLarman
 
 open scoped RealInnerProductSpace
@@ -14,19 +14,6 @@ noncomputable section
 namespace HirschPolynomialAccess
 
 variable {d n : ℕ}
-
-lemma adj_symm
-    (P : Set (EuclideanSpace ℝ (Fin d)))
-    {x y : EuclideanSpace ℝ (Fin d)}
-    (h : Adj P x y) : Adj P y x := by
-  refine ⟨h.1.symm, ?_⟩
-  simpa [segment_symm] using h.2
-
-lemma adj_left_extreme
-    (P : Set (EuclideanSpace ℝ (Fin d)))
-    {x y : EuclideanSpace ℝ (Fin d)}
-    (h : Adj P x y) : x ∈ extremePoints ℝ P :=
-  adj_right_extreme P (adj_symm P h)
 
 /-- Along any padded walk, if a predicate is false at the start and true at
 the end, there is a first genuine edge crossing from false to true. -/
