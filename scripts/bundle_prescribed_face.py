@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Create two reproducible proof packets. No authenticated writes or publication."""
+"""Bundle two exact proofs. This script never publishes or uses credentials."""
 from __future__ import annotations
 import hashlib
 import json
@@ -11,15 +11,17 @@ OUT = ROOT / 'prescribed_packet'
 PIN = 'c5ea00351c28e24afc9f0f84379aa41082b1188f'
 CONFIGS = [
     ('access', 'Solutions.PolynomialPrescribedFaceSubmission',
-     'Hirsch.given_supporting_face_access_of_boundary_new_rank',
-     'Prescribed supporting-face access under a boundary-local new-normal rank bound',
+     'Hirsch.given_supporting_face_access_of_boundary_residual_rank',
+     'Prescribed supporting-face access under a boundary-local residual-rank bound',
      'Let P be a bounded H-polytope described by n inequalities, with vertices u,v. '
      'Fix a describing row i tight at v. At every edge x-z entering its supporting '
-     'face from outside, assume that all nonzero normals active at x but not at u '
-     'are contained in some subspace K of dimension at most r. K may depend on x,z. '
+     'face from outside, let C_x be the span of normals tight at both u and x. '
+     'Assume that every nonzero normal active at x but not at u belongs to K+C_x '
+     'for some subspace K of dimension at most r. K may depend on x,z. '
      'Then an extreme point on THAT prescribed supporting face is reachable from '
-     'u in at most n*2^max(r-3,0)+1 padded edge steps. Normals of other target rows '
-     'are included if newly active: neutral rank alone is not this hypothesis. '
+     'u in at most n*2^max(r-3,0)+1 padded edge steps. Components in the common '
+     'normal span are free; other newly active target rows are not excluded. '
+     'The condition is required only at predecessors of boundary-crossing edges. '
      'No endpoint separation or distinctness is needed. This is a restricted '
      'access theorem, not a proof of the unconditional polynomial Hirsch leaf.'),
     ('exposure', 'Solutions.PolynomialVertexExposureSubmission',

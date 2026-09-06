@@ -1,5 +1,6 @@
 import Mathlib
 import Solutions.PolynomialLocalRankAccessCore
+import Solutions.PolynomialResidualRank
 
 open scoped RealInnerProductSpace
 open Set Hirsch HirschPolynomialAccess
@@ -11,11 +12,9 @@ noncomputable section
 namespace HirschPrescribed
 
 /-- A first-contact shortening theorem for an arbitrary designated target set.
-Only predecessors of edges entering that set need a rank hypothesis. The
-controlled normals are all newly active normals relative to the fixed source,
-not just normals neutral relative to a distinguished target vertex.
-This geometric core has no imported diameter theorem. -/
-theorem target_set_access_of_boundary_new_rank_core
+Only predecessors of edges entering that set need a bound on the dimension
+of their common-source face. This geometric core has no diameter imports. -/
+theorem target_set_access_of_boundary_face_dim_core
     (d n r B : ℕ)
     (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
     (hbd : Bornology.IsBounded (Hpoly a b))
@@ -23,9 +22,7 @@ theorem target_set_access_of_boundary_new_rank_core
     (hu : u ∈ extremePoints ℝ (Hpoly a b))
     (T : EuclideanSpace ℝ (Fin d) → Prop) (hTv : T v)
     (hboundary : ∀ x z, Adj (Hpoly a b) x z → ¬ T x → T z →
-      ∃ K : Submodule ℝ (EuclideanSpace ℝ (Fin d)),
-        Module.finrank ℝ K ≤ r ∧
-        ∀ j, a j ≠ 0 → ⟪a j, x⟫ = b j → ⟪a j, u⟫ ≠ b j → a j ∈ K)
+      commonFaceDim a b u x ≤ r)
     (hconnect : ∃ D : ℕ, ∃ wg : ℕ → EuclideanSpace ℝ (Fin d),
       wg 0 = u ∧ wg D = v ∧
       ∀ j < D, wg j = wg (j + 1) ∨ Adj (Hpoly a b) (wg j) (wg (j + 1)))
@@ -52,9 +49,7 @@ theorem target_set_access_of_boundary_new_rank_core
   have hxz' : Adj (Hpoly a b) x z := hxz
   have hxext : x ∈ extremePoints ℝ (Hpoly a b) := adj_left_extreme _ hxz'
   have hzext : z ∈ extremePoints ℝ (Hpoly a b) := adj_right_extreme _ hxz'
-  obtain ⟨K, hKr, hK⟩ := hboundary x z hxz' hxavoid hztarget
-  have hdim : commonFaceDim a b u x ≤ r :=
-    (common_direction_finrank_le_new_active_subspace a b u x hxext K hK).trans hKr
+  have hdim : commonFaceDim a b u x ≤ r := hboundary x z hxz' hxavoid hztarget
   have hQne : (Hpoly (commonFaceA a b u x) (commonFaceB a b u x)).Nonempty := by
     obtain ⟨q, hq, _⟩ := commonFacePoint_surjOn a b u x
       (commonFace_u_mem a b u x hu.1)
@@ -86,6 +81,6 @@ theorem target_set_access_of_boundary_new_rank_core
         exact if_neg (by omega)
       exact Or.inr (by simpa only [hleft, hright] using hxz')
 
-#print axioms target_set_access_of_boundary_new_rank_core
+#print axioms target_set_access_of_boundary_face_dim_core
 
 end HirschPrescribed

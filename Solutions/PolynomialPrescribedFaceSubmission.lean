@@ -4,17 +4,17 @@ import Theorems.Thm_Hirsch_larman_bound
 import Solutions.PolynomialPrescribedFaceCore
 
 open scoped RealInnerProductSpace
-open Set Hirsch HirschPrescribed
+open Set Hirsch HirschPrescribed HirschPolynomialAccess
 
 set_option maxHeartbeats 5000000
 
 noncomputable section
 
 /-- Access to the specified supporting row i, not an existentially chosen row.
-Only vertices directly outside that face need a local rank-r subspace, but it
-must contain ALL normals newly active there relative to u. Neutral rank alone
-is not sufficient for this hypothesis. This is a restricted theorem, not an
-unconditional polynomial diameter result. -/
+Only vertices directly outside that face need a local residual-rank bound.
+Components in the span of normals active at both u and x may be discarded.
+All other newly active normals, including other target rows, must be controlled.
+This is a restricted theorem, not an unconditional polynomial diameter result. -/
 theorem solution
     (d n r : ℕ)
     (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
@@ -27,7 +27,9 @@ theorem solution
       ⟪a i, x⟫ ≠ b i → ⟪a i, z⟫ = b i →
       ∃ K : Submodule ℝ (EuclideanSpace ℝ (Fin d)),
         Module.finrank ℝ K ≤ r ∧
-        ∀ j, a j ≠ 0 → ⟪a j, x⟫ = b j → ⟪a j, u⟫ ≠ b j → a j ∈ K) :
+        ∀ j, a j ≠ 0 → ⟪a j, x⟫ = b j → ⟪a j, u⟫ ≠ b j →
+          a j ∈ K ⊔ Submodule.span ℝ
+            (a '' {k | ⟪a k, u⟫ = b k ∧ ⟪a k, x⟫ = b k})) :
     ∃ z : EuclideanSpace ℝ (Fin d),
       z ∈ extremePoints ℝ (Hpoly a b) ∧ ⟪a i, z⟫ = b i ∧
       ∃ w : ℕ → EuclideanSpace ℝ (Fin d),
@@ -52,7 +54,7 @@ theorem solution
     have hAB : A ≤ B := Nat.mul_le_mul_left n
       (Nat.pow_le_pow_right (by omega) (Nat.sub_le_sub_right her 3))
     let wp : ℕ → EuclideanSpace ℝ (Fin e) := fun j => w (min j A)
-    refine ⟨wp, ?_, ?_, ?_⟩
+    refine ⟨wp, ?_, ?_ , ?_⟩
     · change w (min 0 A) = p
       rw [Nat.zero_min]
       exact hw0
@@ -67,7 +69,13 @@ theorem solution
       · have hAj : A ≤ j := by omega
         have hAj1 : A ≤ j + 1 := by omega
         exact Or.inl (by simp only [wp, Nat.min_eq_right hAj, Nat.min_eq_right hAj1])
-  exact target_set_access_of_boundary_new_rank_core d n r (n * 2 ^ (r - 3))
-    a b hbd u v hu (fun x => ⟪a i, x⟫ = b i) hiv hboundary hconnect hlow
+  have hdim : ∀ x z, Adj (Hpoly a b) x z →
+      ⟪a i, x⟫ ≠ b i → ⟪a i, z⟫ = b i → commonFaceDim a b u x ≤ r := by
+    intro x z hxz hxi hzi
+    obtain ⟨K, hKr, hK⟩ := hboundary x z hxz hxi hzi
+    exact (common_direction_finrank_le_residual_new_subspace d n a b u x
+      (adj_left_extreme _ hxz) K hK).trans hKr
+  exact target_set_access_of_boundary_face_dim_core d n r (n * 2 ^ (r - 3))
+    a b hbd u v hu (fun x => ⟪a i, x⟫ = b i) hiv hdim hconnect hlow
 
 #print axioms solution
