@@ -1,6 +1,6 @@
 import Mathlib
 import Definitions.Def_Hirsch_model
-import Theorems.Thm_Hirsch_vertex_tight_rows_span
+import Solutions.PolynomialVertexSpan
 
 open scoped RealInnerProductSpace
 open Set Module Hirsch
@@ -14,7 +14,7 @@ namespace HirschPolynomialAccess
 variable {d n : ℕ}
 
 /-- An extreme point in ambient dimension `d` has at least `d` distinct
-nonzero tight rows in any finite H-description.  Zero normal rows do not
+nonzero tight rows in any finite H-description. Zero normal rows do not
 contribute to the spanning condition. -/
 lemma nonzero_tight_rows_card_ge_dim
     (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
@@ -60,13 +60,12 @@ lemma nonzero_tight_rows_card_ge_dim
         simp [S, haj, hj]
       have hTy : T y = 0 := LinearMap.mem_ker.1 hyker
       have hcoord := congrFun hTy ⟨j, hjS⟩
-      simpa [T] using hcoord
-  have hyz := Hirsch.vertex_tight_rows_span d n a b x hx y hyorth
+      change ⟪a j, y⟫ = 0 at hcoord
+      exact hcoord
+  have hyz := vertex_tight_rows_span_checked d n a b x hx y hyorth
   exact hy0 hyz
 
-/-- The separation hypothesis in the polynomial face-access leaf forces the
-nonzero tight-row sets of the two vertices to be disjoint.  Since each set has
-at least `d` rows, the H-description necessarily has at least `2d` rows. -/
+/-- Separated extreme vertices require at least `2d` describing rows. -/
 lemma separated_extremes_n_ge_two_d
     (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
     (u v : EuclideanSpace ℝ (Fin d))
