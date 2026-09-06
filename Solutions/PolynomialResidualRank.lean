@@ -42,7 +42,9 @@ theorem common_direction_finrank_le_residual_new_subspace
       rw [map_sub, hyz, sub_self]
     let A : Submodule ℝ (EuclideanSpace ℝ (Fin d)) :=
       { carrier := {k | ⟪k, (q : EuclideanSpace ℝ (Fin d))⟫ = 0}
-        zero_mem' := inner_zero_left
+        zero_mem' := by
+          change ⟪(0 : EuclideanSpace ℝ (Fin d)), (q : EuclideanSpace ℝ (Fin d))⟫ = 0
+          exact inner_zero_left _
         add_mem' := by
           intro k l hk hl
           change ⟪k + l, (q : EuclideanSpace ℝ (Fin d))⟫ = 0
