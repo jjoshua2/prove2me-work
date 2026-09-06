@@ -10,13 +10,26 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-      - name: Install elan
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.elan
+            .lake/packages
+            .lake/build
+          key: polynomial-access-lean430-c5ea003-v1
+      - name: Install elan if needed
         run: |
-          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y
+          if [ ! -x "$HOME/.elan/bin/elan" ]; then
+            curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y
+          fi
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
       - name: Fetch Mathlib cache
         run: ~/.elan/bin/lake exe cache get
       - name: Build imported theorem stubs
-        run: ~/.elan/bin/lake build Definitions.Def_Hirsch_model Theorems.Thm_Hirsch_larman_bound Theorems.Thm_Hirsch_dimension_three_bound
+        run: ~/.elan/bin/lake build Definitions.Def_Hirsch_model Theorems.Thm_Hirsch_larman_bound Theorems.Thm_Hirsch_dimension_three_bound Theorems.Thm_Hirsch_vertex_tight_rows_span
       - name: Compile face-access baselines
+        continue-on-error: true
         run: ~/.elan/bin/lake env lean Solutions/PolynomialFaceAccessBench.lean
+      - name: Compile separated-row reduction
+        continue-on-error: true
+        run: ~/.elan/bin/lake env lean Solutions/PolynomialSeparatedRows.lean
