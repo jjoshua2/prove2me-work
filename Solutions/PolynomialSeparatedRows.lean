@@ -95,8 +95,11 @@ lemma separated_extremes_n_ge_two_d
   have hsum : SU.card + SV.card = (SU ∪ SV).card := by
     simpa using (Finset.card_union_of_disjoint hdisj).symm
   have hunion : (SU ∪ SV).card ≤ n := by
-    have hsub : SU ∪ SV ⊆ Finset.univ := by simp
-    exact Finset.card_le_card hsub
+    have hsub : SU ∪ SV ⊆ (Finset.univ : Finset (Fin n)) := by simp
+    calc
+      (SU ∪ SV).card ≤ (Finset.univ : Finset (Fin n)).card :=
+        Finset.card_le_card hsub
+      _ = n := by simp
   omega
 
 end HirschPolynomialAccess
