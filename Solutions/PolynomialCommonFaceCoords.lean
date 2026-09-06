@@ -88,7 +88,7 @@ lemma commonFacePoint_sub
     commonFacePoint a b u x q - u = commonFaceLift a b u x q := by
   simp [commonFacePoint]
 
-/-- Exact coordinate model of the common source face.  All original rows are
+/-- Exact coordinate model of the common source face. All original rows are
 kept; common tight rows simply restrict to zero inequalities. -/
 lemma mem_commonFace_coord_iff
     (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
@@ -139,9 +139,12 @@ lemma commonFacePoint_surjOn
   let wy : commonDirection a b u x := ⟨y - u, hdir⟩
   let q := commonFaceRepr a b u x wy
   have hpoint : commonFacePoint a b u x q = y := by
-    dsimp [q, wy, commonFacePoint, commonFaceLift]
-    rw [LinearIsometry.comp_apply]
-    simp
+    change u + (((commonFaceRepr a b u x).symm
+      ((commonFaceRepr a b u x) wy) : commonDirection a b u x) :
+      EuclideanSpace ℝ (Fin d)) = y
+    rw [(commonFaceRepr a b u x).symm_apply_apply]
+    change u + (y - u) = y
+    abel
   have hq : q ∈ Hpoly (commonFaceA a b u x) (commonFaceB a b u x) :=
     (mem_commonFace_coord_iff a b u x q).2 (hpoint ▸ hy)
   exact ⟨q, hq, hpoint⟩
