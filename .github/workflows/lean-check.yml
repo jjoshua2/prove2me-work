@@ -1,0 +1,21 @@
+name: Lean check
+
+on:
+  push:
+    branches: [chatgpt/spindle-axis]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install elan
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Fetch Mathlib cache
+        run: ~/.elan/bin/lake exe cache get
+      - name: Build
+        run: ~/.elan/bin/lake build
