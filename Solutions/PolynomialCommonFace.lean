@@ -93,16 +93,20 @@ lemma mem_commonFace_iff_sub_mem_commonDirection
     have hyi : ⟪a ii.1, y⟫ = b ii.1 := hy.2 ii.1 hiC
     have hui : ⟪a ii.1, u⟫ = b ii.1 :=
       (Finset.mem_filter.1 hiC).2.2.1
-    simp [rowEvalMap, inner_sub_right, hyi, hui]
+    change ⟪a ii.1, y - u⟫ = 0
+    rw [inner_sub_right, hyi, hui]
+    ring
   · rintro ⟨hyP, hdir⟩
     refine ⟨hyP, ?_⟩
     intro i hiC
     have hker : rowEvalMap a (commonSourceRows a b u x) (y - u) = 0 :=
       LinearMap.mem_ker.1 hdir
-    have hcoord := congrFun hker ⟨i, hiC⟩
+    have hcoord : ⟪a i, y - u⟫ = 0 := by
+      change (rowEvalMap a (commonSourceRows a b u x) (y - u)) ⟨i, hiC⟩ = 0
+      exact congrFun hker ⟨i, hiC⟩
     have hui : ⟪a i, u⟫ = b i :=
       (Finset.mem_filter.1 hiC).2.2.1
-    simp [rowEvalMap, inner_sub_right, hui] at hcoord
+    rw [inner_sub_right, hui] at hcoord
     linarith
 
 lemma commonFace_extremePoints_subset_parent
