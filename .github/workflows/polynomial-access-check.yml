@@ -56,3 +56,6 @@ jobs:
       - name: Compile strict existential target-access reduction
         continue-on-error: true
         run: ~/.elan/bin/lake env lean Solutions/PolynomialTargetHardRegimeReduction.lean
+      - name: Compile separated midpoint interior geometry
+        continue-on-error: true
+        run: ~/.elan/bin/lake env lean Solutions/PolynomialSeparatedInterior.lean
