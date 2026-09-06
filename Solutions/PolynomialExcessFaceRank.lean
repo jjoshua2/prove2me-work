@@ -80,9 +80,9 @@ lemma common_direction_finrank_le_neutral_card
       simpa [rowEvalMap] using hcoord
     have hqNeutral : ∀ i, i ∈ N → ⟪a i, (q : EuclideanSpace ℝ (Fin d))⟫ = 0 := by
       intro i hiN
-      have hcoord := congrFun hTq ⟨i, hiN⟩
-      dsimp [T, rowEvalMap] at hcoord
-      exact hcoord
+      change T q ⟨i, hiN⟩ = 0
+      rw [hTq]
+      rfl
     have hqTight : ∀ i, ⟪a i, x⟫ = b i →
         ⟪a i, (q : EuclideanSpace ℝ (Fin d))⟫ = 0 := by
       intro i hix
