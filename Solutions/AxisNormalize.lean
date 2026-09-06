@@ -40,8 +40,8 @@ lemma rhs_pos
     exact lt_of_le_of_ne hnonneg (by
       intro hb0
       apply hVnot
-      rw [hVval, hb0]
-      norm_num)
+      rw [hVval]
+      linarith)
   · have hV : ⟪a i, v⟫ = b i := by
       by_contra hVnot
       exact hU ((hspindle i).2 hVnot)
@@ -55,8 +55,8 @@ lemma rhs_pos
     exact lt_of_le_of_ne hnonneg (by
       intro hb0
       apply hU
-      rw [hUval, hb0]
-      norm_num)
+      rw [hUval]
+      linarith)
 
 lemma norm_inner
     (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
@@ -110,8 +110,13 @@ lemma norm_spindle
     ∀ i, (⟪normA a b i, u⟫ = 1) ↔ ⟪normA a b i, v⟫ ≠ 1 := by
   intro i
   rw [norm_tight_iff a b hb i u]
-  rw [not_congr (norm_tight_iff a b hb i v)]
-  exact hspindle i
+  constructor
+  · intro hU hVnorm
+    exact (hspindle i).1 hU ((norm_tight_iff a b hb i v).1 hVnorm)
+  · intro hVnorm
+    apply (hspindle i).2
+    intro hV
+    exact hVnorm ((norm_tight_iff a b hb i v).2 hV)
 
 lemma norm_endpoint_values
     (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
@@ -167,7 +172,7 @@ lemma extreme_has_tight
     (hx : x ∈ extremePoints ℝ (Hpoly a b)) :
     ∃ i, ⟪a i, x⟫ = b i := by
   by_contra h
-  push_neg at h
+  push Not at h
   let j : Fin d := ⟨0, hd⟩
   let y : EuclideanSpace ℝ (Fin d) := EuclideanSpace.single j (1 : ℝ)
   have hy : y = 0 := HirschAxisActive.extreme_tight_orthogonal hx (by
