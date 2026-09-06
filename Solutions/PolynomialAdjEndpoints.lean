@@ -49,10 +49,8 @@ lemma adj_right_extreme
     linarith [hcoeff]
   rw [hB] at hlin1
   have hlin : (s * a + t * c) • (u - z) = 0 := by
-    calc
-      (s * a + t * c) • (u - z) =
-          (s * a + t * c) • u + (-(t * c) + -(s * a)) • z := by module
-      _ = 0 := hlin1
+    rw [smul_sub, sub_eq_add_neg]
+    simpa only [neg_smul] using hlin1
   have hcoef : s * a + t * c = 0 :=
     (smul_eq_zero.mp hlin).resolve_right (sub_ne_zero.mpr huz)
   have ha0 : a = 0 := by
