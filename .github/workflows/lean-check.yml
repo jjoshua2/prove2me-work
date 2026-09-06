@@ -33,6 +33,8 @@ jobs:
         run: ~/.elan/bin/lake env lean Solutions/AxisSymSelect.lean
       - name: Compile small-tilt boundedness
         run: ~/.elan/bin/lake env lean Solutions/AxisSymBounded.lean
+      - name: Compile zero-tilt vertical edge geometry
+        run: ~/.elan/bin/lake env lean Solutions/AxisSymZero.lean
       - name: Compile irredundant facet witnesses
         run: ~/.elan/bin/lake env lean Solutions/AxisIrredundant.lean
       - name: Build product proof modules
