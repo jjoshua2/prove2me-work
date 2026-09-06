@@ -68,11 +68,13 @@ lemma cut_face_isExtreme
   refine ⟨hx.1, ?_⟩
   obtain ⟨α, β, hα, hβ, hαβ, hcombo⟩ := hop
   have heq : α * ⟪c, x⟫ + β * ⟪c, y⟫ = b := by
-    have h := hz.2
+    have h : ⟪c, z⟫ = b := hz.2
     rw [← hcombo, inner_combo] at h
     exact h
   have hxle : ⟪c, x⟫ ≤ b := hx.2
   have hyle : ⟪c, y⟫ ≤ b := hy.2
+  have hweight : α * b + β * b = b := by
+    rw [← add_mul, hαβ, one_mul]
   have hprod : α * (b - ⟪c, x⟫) = 0 := by
     nlinarith [mul_nonneg hα.le (sub_nonneg.mpr hxle),
       mul_nonneg hβ.le (sub_nonneg.mpr hyle)]
