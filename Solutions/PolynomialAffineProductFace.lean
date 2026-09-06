@@ -63,8 +63,8 @@ lemma walk_via_affine_face
     extreme_preimage f hinj Q P hface.subset hqx (by simpa only [hfx] using hx)
   obtain ⟨wq, hw0, hwB, hws⟩ := hD qu heu qx hex
   refine ⟨fun j => f (wq j), ?_, ?_, ?_⟩
-  · rw [hw0, hfu]
-  · rw [hwB, hfx]
+  · exact (congrArg f hw0).trans hfu
+  · exact (congrArg f hwB).trans hfx
   · intro j hj
     rcases hws j hj with h | h
     · exact Or.inl (congrArg f h)

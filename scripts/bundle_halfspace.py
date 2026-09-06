@@ -39,17 +39,17 @@ source=(ROOT/(TARGET.replace('.', '/')+'.lean')).read_text()
 signature=source.split('theorem solution',1)[1].split(':= by',1)[0].strip()
 problem={'env':PIN,'problems':[{
     'theorem_name':NAME,
-    'theorem_title':'A halfspace cut inherits an outer diameter budget for reaching its new face',
+    'theorem_title':'Every clipped-polytope vertex reaches the new cut face within the outer diameter budget',
     'preamble':'import Mathlib\nimport Definitions.Def_Hirsch_model\nopen scoped RealInnerProductSpace\nopen Set Hirsch',
     'formal_statement':'theorem '+NAME+'\n    '+signature+' := by sorry',
     'natural_language_statement':
-      'Let Q be a subset of R^d with padded vertex-edge diameter at most B. Let u be an extreme point of Q satisfying <c,u><=b and let v be an extreme point of Q satisfying b<=<c,v>. '
-      'Then in P=Q intersect {x:<c,x><=b}, an extreme point on the SPECIFIED new cut plane <c,x>=b is reachable from u in at most B padded edge steps. '
-      'If u is on the cut, use a constant walk. Otherwise follow any B-step Q-walk to v until its first contact or crossing, retain its earlier edges and clip the crossing edge at the cut plane. '
-      'The bound has no additive loss. The outer walk need not be monotone. The hypothesis explicitly requires that the source was a vertex of Q, not merely a vertex created by clipping. '
+      'Let Q be a convex subset of R^d with padded vertex-edge diameter at most B, and let v be an extreme point of Q satisfying b<=<c,v>. '
+      'Put P=Q intersect {x:<c,x><=b}. From EVERY extreme point u of P, an extreme point on the SPECIFIED cut plane <c,x>=b is reachable within B padded P-edge steps. '
+      'There is no additive loss, factorization assumption, or low-rank assumption. A vertex of P lying strictly below the plane is proved to have been an extreme point of Q; if u is on the plane the constant walk suffices. '
+      'For an original vertex below the plane, follow a B-step Q-walk to v until its first contact or crossing, retain the earlier edges, and clip that last edge. The outer walk need not be monotone. '
       'The conclusion does not select a particular cut-face vertex, does not concern an arbitrary old supporting face, and does not bound the entire diameter of P. '
-      'No convexity or boundedness assumption is separately needed for this path-transfer statement because actual Adj edges and the outer diameter hypothesis supply the required geometry.',
-    'source':'Working derivation for the Polynomial Hirsch mission. jjoshua2/prove2me-work branch chatgpt/halfspace-routing; exact segment clipping and first-crossing proof. No literature-priority claim.',
+      'No separate boundedness assumption is needed beyond the stated outer diameter and vertex hypotheses.',
+    'source':'Working derivation for the Polynomial Hirsch mission. jjoshua2/prove2me-work branch chatgpt/halfspace-routing; strict-cut vertex classification, exact segment clipping, and first-crossing proof. No literature-priority claim.',
     'tags':['convex-geometry','polytopes','supporting-face']}]}
 (OUT/'problem.json').write_text(json.dumps(problem,indent=2,ensure_ascii=False)+'\n')
 (OUT/'manifest.json').write_text(json.dumps({'mathlib_rev':PIN,'files':manifest,'imports':sorted(imports),'solution_sha256':hashlib.sha256(proof.encode()).hexdigest()},indent=2)+'\n')
@@ -62,8 +62,9 @@ axioms. problem.json carries the platform-required placeholder for a new
 problem declaration; this is not present in either proof file.
 
 This theorem transfers an ASSUMED outer diameter budget to the specified new
-cut face, from a retained original vertex. It does not prove the unrestricted
-polynomial Hirsch leaf or a diameter bound for the whole clipped polytope.
+cut face from every vertex of the clipped set. Convexity shows that a clipped
+vertex off the plane is an original outer vertex. It does not prove the
+unrestricted polynomial Hirsch leaf or a full clipped-polytope diameter bound.
 An authorized local agent should check for equivalent public results and
 submit the checked bytes in the recorded environment only if appropriate.
 The bundler performs no API writes.

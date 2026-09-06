@@ -1,6 +1,7 @@
 import Mathlib
 import Definitions.Def_Hirsch_model
 import Solutions.PolynomialHalfspaceEdge
+import Solutions.PolynomialHalfspaceVertex
 import Solutions.PolynomialAdjEndpoints
 
 open scoped RealInnerProductSpace
@@ -10,12 +11,9 @@ set_option maxHeartbeats 4000000
 
 noncomputable section
 
-/-- A diameter bound of an outer polytope routes a retained original vertex
-to a specified new cut face within the SAME budget. Stop the outer walk at
-its first cut-plane crossing and clip that last edge. The outer walk need not
-be monotone and the clipped polytope need not be a product or low rank.
-The target here is the cut plane, not an arbitrary old face or a chosen vertex. -/
-theorem solution
+/-- From a retained original vertex, stop an outer edge walk at its first
+cut-plane crossing. This helper does not require convexity of the outer set. -/
+theorem HirschCut.outer_vertex_cut_access
     (d B : ℕ) (Q : Set (EuclideanSpace ℝ (Fin d)))
     (c : EuclideanSpace ℝ (Fin d)) (b : ℝ)
     (u v : EuclideanSpace ℝ (Fin d))
@@ -88,5 +86,30 @@ theorem solution
       · have h0 : ¬ l ≤ j := by omega
         have h1 : ¬ l + 1 ≤ j := by omega
         exact Or.inl (by simp only [wp, if_neg h0, if_neg h1])
+
+/-- Every vertex of a halfspace-clipped convex set reaches the specified cut
+plane within the outer diameter budget. Vertices newly created by the cut
+are already on the target plane; a vertex strictly inside is an original
+outer vertex. This is cut-face access, not a bound on the full cut diameter. -/
+theorem solution
+    (d B : ℕ) (Q : Set (EuclideanSpace ℝ (Fin d)))
+    (hconv : Convex ℝ Q)
+    (c : EuclideanSpace ℝ (Fin d)) (b : ℝ)
+    (u : EuclideanSpace ℝ (Fin d))
+    (hu : u ∈ extremePoints ℝ (Q ∩ {x | ⟪c, x⟫ ≤ b}))
+    (v : EuclideanSpace ℝ (Fin d))
+    (hv : v ∈ extremePoints ℝ Q) (hvge : b ≤ ⟪c, v⟫)
+    (hD : DiamLE Q B) :
+    ∃ z : EuclideanSpace ℝ (Fin d),
+      z ∈ extremePoints ℝ (Q ∩ {x | ⟪c, x⟫ ≤ b}) ∧ ⟪c, z⟫ = b ∧
+      ∃ w : ℕ → EuclideanSpace ℝ (Fin d),
+        w 0 = u ∧ w B = z ∧
+        ∀ j < B, w j = w (j + 1) ∨
+          Adj (Q ∩ {x | ⟪c, x⟫ ≤ b}) (w j) (w (j + 1)) := by
+  by_cases huEq : ⟪c, u⟫ = b
+  · exact ⟨u, hu, huEq, fun _ => u, rfl, rfl, fun _ _ => Or.inl rfl⟩
+  have huLt : ⟪c, u⟫ < b := lt_of_le_of_ne hu.1.2 huEq
+  have huQ := strict_cut_extreme_to_parent Q hconv c b hu huLt
+  exact outer_vertex_cut_access d B Q c b u v huQ hu.1.2 hv hvge hD
 
 #print axioms solution
