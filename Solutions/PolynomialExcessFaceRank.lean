@@ -81,7 +81,8 @@ lemma common_direction_finrank_le_neutral_card
     have hqNeutral : ∀ i, i ∈ N → ⟪a i, (q : EuclideanSpace ℝ (Fin d))⟫ = 0 := by
       intro i hiN
       have hcoord := congrFun hTq ⟨i, hiN⟩
-      simpa [T, rowEvalMap] using hcoord
+      change ⟪a i, (q : EuclideanSpace ℝ (Fin d))⟫ = 0 at hcoord
+      exact hcoord
     have hqTight : ∀ i, ⟪a i, x⟫ = b i →
         ⟪a i, (q : EuclideanSpace ℝ (Fin d))⟫ = 0 := by
       intro i hix
@@ -153,11 +154,16 @@ lemma neutral_card_le_excess
   have hcardUnion : (SU ∪ SV).card = SU.card + SV.card :=
     Finset.card_union_of_disjoint hUV
   have htotal : (SU ∪ SV ∪ N).card ≤ n := by
-    have hsub : SU ∪ SV ∪ N ⊆ Finset.univ := by simp
-    simpa using Finset.card_le_card hsub
+    have hsub : SU ∪ SV ∪ N ⊆ (Finset.univ : Finset (Fin n)) := by simp
+    calc
+      (SU ∪ SV ∪ N).card ≤ (Finset.univ : Finset (Fin n)).card :=
+        Finset.card_le_card hsub
+      _ = n := by simp
   have hthree : (SU ∪ SV ∪ N).card = SU.card + SV.card + N.card := by
     rw [Finset.card_union_of_disjoint hdisj, hcardUnion]
   rw [hthree] at htotal
+  have h2d : 2 * d ≤ n :=
+    separated_extremes_n_ge_two_d a b u v hu hv hsep
   omega
 
 /-- Combined quantitative form: every target-avoiding extreme vertex shares
