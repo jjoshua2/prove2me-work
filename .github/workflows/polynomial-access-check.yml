@@ -4,7 +4,59 @@ on:
   push:
     branches: [chatgpt/polynomial-access]
 
+concurrency:
+  group: polynomial-access-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
 jobs:
+  live-frontier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Read public Prove2Me frontier
+        run: |
+          python3 - <<'PY'
+          import datetime, json, urllib.request, urllib.error
+          print('FETCHED_AT', datetime.datetime.now(datetime.timezone.utc).isoformat())
+          base = 'https://prove2.me'
+          paths = [
+            '/api/v1/theorems/33fc334e-e05b-4090-ac49-f83fd94d9305',
+            '/api/v1/theorems?q=Hirsch&limit=200&env=c5ea00351c28e24afc9f0f84379aa41082b1188f',
+            '/missions/The%20Polynomial%20Hirsch%20Conjecture',
+          ]
+          for path in paths:
+            print('\nPUBLIC_URL', base + path)
+            try:
+              with urllib.request.urlopen(base + path, timeout=30) as response:
+                data = response.read().decode('utf-8')
+                print('HTTP_STATUS', response.status)
+              try:
+                obj = json.loads(data)
+                if isinstance(obj, dict) and 'theorems' in obj:
+                  print('TOTAL', obj.get('total'))
+                  for t in obj['theorems']:
+                    print(json.dumps({k:t.get(k) for k in ['theorem_id','theorem_name','status','deprecated_at','mathlib_rev']}, ensure_ascii=False))
+                else:
+                  print(json.dumps(obj, ensure_ascii=False)[:40000])
+              except json.JSONDecodeError:
+                from html.parser import HTMLParser
+                class Text(HTMLParser):
+                  def __init__(self):
+                    super().__init__(); self.parts=[]; self.skip=0
+                  def handle_starttag(self, tag, attrs):
+                    if tag in ('script','style'): self.skip += 1
+                  def handle_endtag(self, tag):
+                    if tag in ('script','style'): self.skip = max(0,self.skip-1)
+                  def handle_data(self, value):
+                    if not self.skip and value.strip(): self.parts.append(value.strip())
+                p=Text(); p.feed(data)
+                print('\n'.join(p.parts)[:50000])
+            except Exception as exc:
+              print(type(exc).__name__, str(exc))
+          PY
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 20
