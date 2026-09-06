@@ -33,35 +33,33 @@ lemma adj_right_extreme
   obtain ⟨a, b, ha, hb, hab, hx⟩ := hxseg
   obtain ⟨c, e, hc, he, hce, hy⟩ := hyseg
   obtain ⟨s, t, hs, ht, hst, hxy⟩ := hzopen
-  have hcoef : s * a + t * c = 0 := by
-    have hlin : (s * a + t * c) • (u - z) = 0 := by
-      rw [← hxy, ← hx, ← hy]
-      module
-    rcases smul_eq_zero.mp hlin with hzero | hdir
-    · exact hzero
-    · exact False.elim (huz (sub_eq_zero.mp hdir))
-  by_cases hs0 : s = 0
-  · have ht1 : t = 1 := by linarith
-    have : y = z := by
-      rw [hs0, zero_smul, zero_add, ht1, one_smul] at hxy
-      exact hxy
-    exact this.symm
-  by_cases ht0 : t = 0
-  · have hs1 : s = 1 := by linarith
-    have : x = z := by
-      rw [ht0, zero_smul, add_zero, hs1, one_smul] at hxy
-      exact hxy
-    exact this.symm
-  have hspos : 0 < s := lt_of_le_of_ne hs (Ne.symm hs0)
-  have htpos : 0 < t := lt_of_le_of_ne ht (Ne.symm ht0)
-  have ha0 : a = 0 := by nlinarith
-  have hc0 : c = 0 := by nlinarith
-  have hb1 : b = 1 := by linarith
-  have he1 : e = 1 := by linarith
-  have hxz : x = z := by
-    rw [ha0, zero_smul, zero_add, hb1, one_smul] at hx
-    exact hx.symm
-  exact hxz
+  have hcoeff : s * a + t * c + (s * b + t * e) = 1 := by
+    calc
+      s * a + t * c + (s * b + t * e) = s * (a + b) + t * (c + e) := by ring
+      _ = s * 1 + t * 1 := by rw [hab, hce]
+      _ = 1 := by linarith
+  have hlin0 : s • x + t • y - z = 0 := sub_eq_zero.mpr hxy
+  rw [← hx, ← hy] at hlin0
+  have hrewrite :
+      s • (a • u + b • z) + t • (c • u + e • z) - z =
+        (s * a + t * c) • u + (s * b + t * e - 1) • z := by
+    module
+  have hlin1 :
+      (s * a + t * c) • u + (s * b + t * e - 1) • z = 0 := by
+    rw [← hrewrite]
+    exact hlin0
+  have hB : s * b + t * e - 1 = -(s * a + t * c) := by
+    linarith [hcoeff]
+  rw [hB] at hlin1
+  have hlin : (s * a + t * c) • (u - z) = 0 := by
+    simpa [smul_sub, sub_eq_add_neg] using hlin1
+  have hcoef : s * a + t * c = 0 :=
+    (smul_eq_zero.mp hlin).resolve_right (sub_ne_zero.mpr huz)
+  have ha0 : a = 0 := by
+    nlinarith [mul_nonneg ht.le hc]
+  have hb1 : b = 1 := by linarith [hab]
+  rw [ha0, zero_smul, zero_add, hb1, one_smul] at hx
+  exact hx.symm
 
 /-- A padded walk between distinct endpoints contains a first genuine edge,
 and that edge leaves its starting vertex. -/
@@ -157,7 +155,7 @@ theorem balanced_separated_some_target_facet_one_step
     have hunion : (SU ∪ SV).card = SU.card + SV.card :=
       Finset.card_union_of_disjoint hdisj
     have hle : (SU ∪ SV).card ≤ 2 * d := by
-      have hsub : SU ∪ SV ⊆ Finset.univ := by simp
+      have hsub : SU ∪ SV ⊆ (Finset.univ : Finset (Fin (2 * d))) := by simp
       simpa using Finset.card_le_card hsub
     omega
   have hUcard : SU.card = d := by omega
@@ -165,7 +163,7 @@ theorem balanced_separated_some_target_facet_one_step
   have hcover : SU ∪ SV = Finset.univ := by
     apply Finset.eq_univ_of_card
     rw [Finset.card_union_of_disjoint hdisj, hUcard, hVcard]
-    simp
+    omega
   have hne : (Hpoly a b).Nonempty := ⟨u, hu.1⟩
   obtain ⟨w, hw0, hwB, hwstep⟩ :=
     Hirsch.larman_bound d (2 * d) a b hne hbd u hu v hv
@@ -188,9 +186,9 @@ theorem balanced_separated_some_target_facet_one_step
       rcases Finset.mem_union.1 hiuniv with hiU | hiV
       · exact hiU
       · exact False.elim (hzNoV i hiV hi.2)
-    have hcards : SZ.card = SU.card := by omega
-    have hZU : SZ = SU := Finset.Subset.antisymm hZsub (by
-      exact Finset.eq_of_subset_of_card_le hZsub (by omega) |>.symm ▸ Finset.Subset.rfl)
+    have hZle : SZ.card ≤ SU.card := Finset.card_le_card hZsub
+    have hZU : SZ = SU :=
+      Finset.eq_of_subset_of_card_le hZsub (by omega)
     have horth : ∀ j, ⟪a j, u⟫ = b j → ⟪a j, z - u⟫ = 0 := by
       intro j hju
       by_cases haj : a j = 0
