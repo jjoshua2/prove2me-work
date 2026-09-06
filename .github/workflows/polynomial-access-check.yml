@@ -19,43 +19,25 @@ jobs:
       - name: Read public Prove2Me frontier
         run: |
           python3 - <<'PY'
-          import datetime, json, urllib.request, urllib.error
+          import datetime, urllib.request
+          from html.parser import HTMLParser
           print('FETCHED_AT', datetime.datetime.now(datetime.timezone.utc).isoformat())
-          base = 'https://prove2.me'
-          paths = [
-            '/api/v1/theorems/33fc334e-e05b-4090-ac49-f83fd94d9305',
-            '/api/v1/theorems?q=Hirsch&limit=200&env=c5ea00351c28e24afc9f0f84379aa41082b1188f',
-            '/missions/The%20Polynomial%20Hirsch%20Conjecture',
-          ]
-          for path in paths:
-            print('\nPUBLIC_URL', base + path)
-            try:
-              with urllib.request.urlopen(base + path, timeout=30) as response:
-                data = response.read().decode('utf-8')
-                print('HTTP_STATUS', response.status)
-              try:
-                obj = json.loads(data)
-                if isinstance(obj, dict) and 'theorems' in obj:
-                  print('TOTAL', obj.get('total'))
-                  for t in obj['theorems']:
-                    print(json.dumps({k:t.get(k) for k in ['theorem_id','theorem_name','status','deprecated_at','mathlib_rev']}, ensure_ascii=False))
-                else:
-                  print(json.dumps(obj, ensure_ascii=False)[:40000])
-              except json.JSONDecodeError:
-                from html.parser import HTMLParser
-                class Text(HTMLParser):
-                  def __init__(self):
-                    super().__init__(); self.parts=[]; self.skip=0
-                  def handle_starttag(self, tag, attrs):
-                    if tag in ('script','style'): self.skip += 1
-                  def handle_endtag(self, tag):
-                    if tag in ('script','style'): self.skip = max(0,self.skip-1)
-                  def handle_data(self, value):
-                    if not self.skip and value.strip(): self.parts.append(value.strip())
-                p=Text(); p.feed(data)
-                print('\n'.join(p.parts)[:50000])
-            except Exception as exc:
-              print(type(exc).__name__, str(exc))
+          url='https://prove2.me/missions/The%20Polynomial%20Hirsch%20Conjecture'
+          class Text(HTMLParser):
+            def __init__(self):
+              super().__init__(); self.parts=[]; self.skip=0
+            def handle_starttag(self, tag, attrs):
+              if tag in ('script','style'): self.skip += 1
+            def handle_endtag(self, tag):
+              if tag in ('script','style'): self.skip = max(0,self.skip-1)
+            def handle_data(self, value):
+              if not self.skip and value.strip(): self.parts.append(value.strip())
+          with urllib.request.urlopen(url, timeout=30) as response:
+            p=Text(); p.feed(response.read().decode('utf-8'))
+          text='\n'.join(p.parts)
+          start=text.find('Frontier')
+          if start < 0: raise RuntimeError('Frontier not found on live mission page')
+          print(text[start:start+1500])
           PY
   build:
     runs-on: ubuntu-latest
@@ -70,5 +52,41 @@ jobs:
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
       - name: Fetch Mathlib cache
         run: ~/.elan/bin/lake exe cache get
-      - name: Build double-hard reduction and dependencies
-        run: ~/.elan/bin/lake build Solutions.PolynomialTargetDoubleHardReduction
+      - name: Build geometric theorem without admitted imports
+        run: |
+          set -o pipefail
+          mkdir -p submission_packet
+          ~/.elan/bin/lake build Solutions.PolynomialLowDimFaceSubmission 2>&1 | tee submission_packet/geometry-build.log
+      - name: Bundle and independently audit exact submission files
+        run: |
+          python3 scripts/bundle_polynomial_face.py
+          python3 - <<'PY'
+          import hashlib, json, pathlib, re, subprocess
+          out=pathlib.Path('submission_packet')
+          allowed={'propext','Classical.choice','Quot.sound'}
+          report={}
+          for name in ['solution.lean','standalone.lean']:
+            p=out/name
+            run=subprocess.run([str(pathlib.Path.home()/'.elan/bin/lake'),'env','lean',str(p)], text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+            (out/(name+'.audit.log')).write_text(run.stdout)
+            print(run.stdout)
+            if run.returncode: raise SystemExit(run.returncode)
+            found=re.search(r"'solution' depends on axioms:\s*\[([^]]*)\]", run.stdout)
+            if not found: raise RuntimeError('Missing solution axiom report for '+name)
+            axioms={x.strip() for x in found.group(1).split(',') if x.strip()}
+            if not axioms <= allowed: raise RuntimeError('Unexpected axioms: '+repr(axioms-allowed))
+            report[name]={'compiled':True,'axioms':sorted(axioms),'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}
+          (out/'verification.json').write_text(json.dumps(report,indent=2)+'\n')
+          print('GEOMETRIC_PACKET_VERIFIED',json.dumps(report))
+          PY
+      - name: Build double-hard target-access reduction and dependencies
+        run: |
+          set -o pipefail
+          ~/.elan/bin/lake build Solutions.PolynomialTargetDoubleHardReduction 2>&1 | tee submission_packet/target-access-build.log
+      - name: Upload proof packet and verification logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: polynomial-face-proof-packet
+          path: submission_packet/
+          if-no-files-found: warn
