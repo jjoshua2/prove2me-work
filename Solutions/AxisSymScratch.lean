@@ -76,11 +76,7 @@ lemma sym_inner_castSucc_zero
     (x : EuclideanSpace ℝ (Fin d)) (i : Fin n) :
     ⟪symPerturbA c f g ε i.castSucc, Hirsch.embed x 0⟫ = ⟪c i, x⟫ := by
   rw [symPerturbA_castSucc]
-  by_cases hig : i = g
-  · simp [hig, inner_embed]
-  · by_cases hif : i = f
-    · simp [hig, hif, inner_embed]
-    · simp [hig, hif, inner_embed]
+  split_ifs <;> simp [inner_embed]
 
 lemma sym_inner_last_zero
     (c : Fin n → EuclideanSpace ℝ (Fin d)) (f g : Fin n) (ε : ℝ)
@@ -146,7 +142,18 @@ lemma extreme_of_active_orthogonal
       have h := congrArg (fun z : EuclideanSpace ℝ (Fin k) => ⟪A i, z⟫) hcomb
       simpa [inner_add_right, inner_smul_right, hix] using h
     have hp_eq : ⟪A i, p⟫ = B i := by
-      nlinarith
+      apply le_antisymm hp_le
+      by_contra h
+      have hp_lt : ⟪A i, p⟫ < B i := lt_of_not_ge h
+      have hpw : α * ⟪A i, p⟫ < α * B i :=
+        mul_lt_mul_of_pos_left hp_lt hα
+      have hqw : β * ⟪A i, q⟫ ≤ β * B i :=
+        mul_le_mul_of_nonneg_left hq_le hβ.le
+      have hsum : α * ⟪A i, p⟫ + β * ⟪A i, q⟫ <
+          α * B i + β * B i := add_lt_add_of_lt_of_le hpw hqw
+      have hrhs : α * B i + β * B i = B i := by
+        rw [← add_mul, hαβ, one_mul]
+      linarith
     simp [inner_sub_right, hp_eq, hix]
   exact sub_eq_zero.mp (hzero (p - x) horth)
 
