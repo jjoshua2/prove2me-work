@@ -16,8 +16,8 @@ jobs:
           path: |
             ~/.elan
             .lake/packages
-          key: lean430-c5ea003-v1
-          save-always: true
+            .lake/build
+          key: lean430-c5ea003-v2
       - name: Install elan if needed
         run: |
           if [ ! -x "$HOME/.elan/bin/elan" ]; then
@@ -28,5 +28,7 @@ jobs:
         run: ~/.elan/bin/lake exe cache get
       - name: Build imported definitions
         run: ~/.elan/bin/lake build Definitions.Def_Hirsch_model Definitions.Def_Hirsch_wedge
-      - name: Compile source-faithful axis scratch
+      - name: Compile source-faithful symmetric front
         run: ~/.elan/bin/lake env lean Solutions/AxisSymScratch.lean
+      - name: Compile redundant-row product front
+        run: ~/.elan/bin/lake env lean Solutions/AxisProductScratch.lean
