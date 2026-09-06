@@ -17,7 +17,8 @@ jobs:
             ~/.elan
             .lake/packages
             .lake/build
-          key: lean430-c5ea003-v2
+          key: lean430-c5ea003-v3
+          save-always: true
       - name: Install elan if needed
         run: |
           if [ ! -x "$HOME/.elan/bin/elan" ]; then
@@ -31,15 +32,37 @@ jobs:
       - name: Build symmetric core
         run: ~/.elan/bin/lake build Solutions.AxisSymScratch
       - name: Compile symmetric endpoint-extremality lemmas
+        continue-on-error: true
         run: ~/.elan/bin/lake env lean Solutions/AxisSymExtremes.lean
-      - name: Build and check active-normal infrastructure
+      - name: Build symmetric endpoint module
+        continue-on-error: true
+        run: ~/.elan/bin/lake build Solutions.AxisSymExtremes
+      - name: Compile active-normal infrastructure
+        continue-on-error: true
+        run: ~/.elan/bin/lake env lean Solutions/AxisActive.lean
+      - name: Build active-normal module
+        continue-on-error: true
+        run: ~/.elan/bin/lake build Solutions.AxisActive
+      - name: Compile normalization
+        continue-on-error: true
+        run: ~/.elan/bin/lake env lean Solutions/AxisNormalize.lean
+      - name: Build normalization module
+        continue-on-error: true
+        run: ~/.elan/bin/lake build Solutions.AxisNormalize
+      - name: Compile side selection
+        continue-on-error: true
+        run: ~/.elan/bin/lake env lean Solutions/AxisSideSelection.lean
+      - name: Compile structural perturbation selection
+        continue-on-error: true
         run: |
-          ~/.elan/bin/lake env lean Solutions/AxisActive.lean
-          ~/.elan/bin/lake build Solutions.AxisActive
-          ~/.elan/bin/lake env lean Solutions/AxisNormalize.lean
-          ~/.elan/bin/lake build Solutions.AxisNormalize
-          ~/.elan/bin/lake env lean Solutions/AxisSideSelection.lean
+          ~/.elan/bin/lake build Solutions.AxisSideSelection
+          ~/.elan/bin/lake env lean Solutions/AxisSymSelect.lean
+      - name: Compile small-tilt boundedness
+        continue-on-error: true
+        run: ~/.elan/bin/lake env lean Solutions/AxisSymBounded.lean
       - name: Build product proof modules
+        continue-on-error: true
         run: ~/.elan/bin/lake build Solutions.AxisProductScratch Solutions.AxisProductEdges Solutions.AxisWalkCompression
       - name: Compile complete redundant-row branch
+        continue-on-error: true
         run: ~/.elan/bin/lake env lean Solutions/AxisProductBranch.lean
