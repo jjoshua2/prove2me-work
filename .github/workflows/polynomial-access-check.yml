@@ -26,7 +26,7 @@ jobs:
       - name: Fetch Mathlib cache
         run: ~/.elan/bin/lake exe cache get
       - name: Build imported theorem stubs
-        run: ~/.elan/bin/lake build Definitions.Def_Hirsch_model Theorems.Thm_Hirsch_larman_bound Theorems.Thm_Hirsch_dimension_three_bound Theorems.Thm_Hirsch_vertex_tight_rows_span
+        run: ~/.elan/bin/lake build Definitions.Def_Hirsch_model Theorems.Thm_Hirsch_larman_bound Theorems.Thm_Hirsch_dimension_three_bound Theorems.Thm_Hirsch_vertex_tight_rows_span Theorems.Thm_Hirsch_nonzero_supporting_row_of_distinct_extremes
       - name: Build face-access baseline module
         continue-on-error: true
         run: |
@@ -42,7 +42,7 @@ jobs:
         run: |
           ~/.elan/bin/lake env lean Solutions/PolynomialAccessPadding.lean
           ~/.elan/bin/lake build Solutions.PolynomialAccessPadding
-      - name: Compile hard-regime reduction
+      - name: Compile specified hard-regime reduction
         continue-on-error: true
         run: ~/.elan/bin/lake env lean Solutions/PolynomialHardRegimeReduction.lean
       - name: Build balanced one-edge target access
@@ -53,3 +53,6 @@ jobs:
       - name: Compile general first-edge dichotomy
         continue-on-error: true
         run: ~/.elan/bin/lake env lean Solutions/PolynomialFirstEdge.lean
+      - name: Compile strict existential target-access reduction
+        continue-on-error: true
+        run: ~/.elan/bin/lake env lean Solutions/PolynomialTargetHardRegimeReduction.lean
