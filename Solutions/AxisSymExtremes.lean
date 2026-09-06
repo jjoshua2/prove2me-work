@@ -87,9 +87,12 @@ lemma foot_apex_extreme
       rw [symPerturbA_castSucc] at h
       by_cases hif : i = f
       · subst i
-        simp [hig, inner_embed_any, ht] at h
-        exact h
+        simp [hig, inner_embed_any] at h
+        change ⟪c f, y⟫ + t = 0 at h
+        rw [ht] at h
+        simpa using h
       · simp [hig, hif, inner_embed_any] at h
+        change ⟪c i, y⟫ = 0 at h
         exact h
     have hy : y = 0 := holdzero y hyactive
     calc
@@ -133,6 +136,7 @@ lemma perturbed_apex_extreme
       have h := hz i.castSucc hactive
       rw [symPerturbA_castSucc] at h
       simp [hig, hif, inner_embed_any] at h
+      change ⟪c i, y⟫ = 0 at h
       exact h
     have hy : y = 0 := hrem y hyactive
     have hgactive :
@@ -141,9 +145,10 @@ lemma perturbed_apex_extreme
       simpa [symPerturbB, sym_inner_castSucc_zero] using hg
     have hgt := hz g.castSucc hgactive
     rw [symPerturbA_castSucc] at hgt
-    simp [inner_embed_any, hy] at hgt
-    have ht : t = 0 := by
-      exact hgt.resolve_left hε
+    simp [inner_embed_any] at hgt
+    change ⟪c g, y⟫ + ε * t = 0 at hgt
+    have hprod : ε * t = 0 := by simpa [hy] using hgt
+    have ht : t = 0 := (mul_eq_zero.mp hprod).resolve_left hε
     calc
       z = Hirsch.embed y t := (embed_proj z).symm
       _ = Hirsch.embed 0 0 := by rw [hy, ht]
