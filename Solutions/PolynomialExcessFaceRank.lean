@@ -81,7 +81,7 @@ lemma common_direction_finrank_le_neutral_card
     have hqNeutral : ∀ i, i ∈ N → ⟪a i, (q : EuclideanSpace ℝ (Fin d))⟫ = 0 := by
       intro i hiN
       have hcoord := congrFun hTq ⟨i, hiN⟩
-      change ⟪a i, (q : EuclideanSpace ℝ (Fin d))⟫ = 0 at hcoord
+      dsimp [T, rowEvalMap] at hcoord
       exact hcoord
     have hqTight : ∀ i, ⟪a i, x⟫ = b i →
         ⟪a i, (q : EuclideanSpace ℝ (Fin d))⟫ = 0 := by
@@ -164,6 +164,7 @@ lemma neutral_card_le_excess
   rw [hthree] at htotal
   have h2d : 2 * d ≤ n :=
     separated_extremes_n_ge_two_d a b u v hu hv hsep
+  change N.card ≤ n - 2 * d
   omega
 
 /-- Combined quantitative form: every target-avoiding extreme vertex shares
