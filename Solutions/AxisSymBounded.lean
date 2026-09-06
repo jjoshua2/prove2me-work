@@ -55,7 +55,8 @@ lemma sym_bounded_small
   let M : ℝ := 1 + ‖c f‖ * C0
   have hM1 : 1 ≤ M := by
     dsimp [M]
-    positivity
+    have hprod : 0 ≤ ‖c f‖ * C0 := mul_nonneg (norm_nonneg _) hC0
+    linarith
   have hM : 0 < M := lt_of_lt_of_le zero_lt_one hM1
   let δ : ℝ := 1 / M
   have hδ : 0 < δ := by positivity
@@ -119,9 +120,9 @@ lemma sym_bounded_small
       let s : ℝ := -t
       have hs : 0 < s := by dsimp [s]; linarith
       have hs0 : 0 ≤ s := hs.le
-      let λ : ℝ := ε * s
-      have hλ0 : 0 ≤ λ := mul_nonneg hε0 hs0
-      let D : ℝ := 2 + λ
+      let lam : ℝ := ε * s
+      have hlam0 : 0 ≤ lam := mul_nonneg hε0 hs0
+      let D : ℝ := 2 + lam
       have hD : 0 < D := by dsimp [D]; linarith
       have hfold : ⟪c f, x⟫ ≤ 1 := by linarith
       have hix : ∀ i, i ≠ g → ⟪c i, x⟫ ≤ 1 := by
@@ -129,14 +130,14 @@ lemma sym_bounded_small
         by_cases hif : i = f
         · simpa [hif] using hfold
         · exact hother i hif hig
-      have hgx : ⟪c g, x⟫ ≤ 1 + λ := by
-        dsimp [λ, s]
+      have hgx : ⟪c g, x⟫ ≤ 1 + lam := by
+        dsimp [lam, s]
         linarith
       let y : EuclideanSpace ℝ (Fin d) :=
-        D⁻¹ • ((2 : ℝ) • x + λ • u)
+        D⁻¹ • ((2 : ℝ) • x + lam • u)
       have hyP : y ∈ Hpoly c (fun _ => (1 : ℝ)) := by
         intro i
-        have hnum : 2 * ⟪c i, x⟫ + λ * ⟪c i, u⟫ ≤ D := by
+        have hnum : 2 * ⟪c i, x⟫ + lam * ⟪c i, u⟫ ≤ D := by
           by_cases hig : i = g
           · subst i
             have hu := hgu
@@ -145,9 +146,9 @@ lemma sym_bounded_small
           · have hxi := hix i hig
             have hui := huP i
             dsimp [D]
-            nlinarith [mul_nonneg hλ0 (sub_nonneg.2 hui)]
+            nlinarith [mul_nonneg hlam0 (sub_nonneg.2 hui)]
         have hinner : ⟪c i, y⟫ = D⁻¹ *
-            (2 * ⟪c i, x⟫ + λ * ⟪c i, u⟫) := by
+            (2 * ⟪c i, x⟫ + lam * ⟪c i, u⟫) := by
           simp [y, inner_smul_right, inner_add_right]
           ring
         rw [hinner]
@@ -167,9 +168,9 @@ lemma sym_bounded_small
         have hneg : -⟪c f, y⟫ ≤ |⟪c f, y⟫| := neg_le_abs _
         dsimp [A, M]
         linarith
-      have hrel : D * ⟪c f, y⟫ = 2 * ⟪c f, x⟫ + λ := by
+      have hrel : D * ⟪c f, y⟫ = 2 * ⟪c f, x⟫ + lam := by
         have hinner : ⟪c f, y⟫ = D⁻¹ *
-            (2 * ⟪c f, x⟫ + λ * ⟪c f, u⟫) := by
+            (2 * ⟪c f, x⟫ + lam * ⟪c f, u⟫) := by
           simp [y, inner_smul_right, inner_add_right]
           ring
         rw [hfu] at hinner
@@ -186,33 +187,33 @@ lemma sym_bounded_small
         have := mul_le_mul_of_nonneg_right hAε hs0
         simpa [mul_assoc] using this
       have hsM : s ≤ 2 * M := by
-        dsimp [D, λ, A, s] at hrel hfminus
+        dsimp [D, lam, A, s] at hrel hfminus
         have hAs : A ≤ M := hAM
         nlinarith
-      have hλ2 : λ ≤ 2 := by
-        dsimp [λ]
+      have hlam2 : lam ≤ 2 := by
+        dsimp [lam]
         have h := mul_le_mul_of_nonneg_left hsM hε0
         have hεM' : ε * M ≤ 1 := hεM
         nlinarith
-      have hxy : (2 : ℝ) • x = D • y - λ • u := by
+      have hxy : (2 : ℝ) • x = D • y - lam • u := by
         dsimp [y]
         have hD0 : D ≠ 0 := hD.ne'
         module
-      have hnorm2 : 2 * ‖x‖ ≤ D * ‖y‖ + λ * ‖u‖ := by
+      have hnorm2 : 2 * ‖x‖ ≤ D * ‖y‖ + lam * ‖u‖ := by
         calc
           2 * ‖x‖ = ‖(2 : ℝ) • x‖ := by simp
-          _ = ‖D • y - λ • u‖ := by rw [hxy]
-          _ ≤ ‖D • y‖ + ‖λ • u‖ := norm_sub_le _ _
-          _ = D * ‖y‖ + λ * ‖u‖ := by
-            simp [abs_of_nonneg hD.le, abs_of_nonneg hλ0]
+          _ = ‖D • y - lam • u‖ := by rw [hxy]
+          _ ≤ ‖D • y‖ + ‖lam • u‖ := norm_sub_le _ _
+          _ = D * ‖y‖ + lam * ‖u‖ := by
+            simp [abs_of_nonneg hD.le, abs_of_nonneg hlam0]
       have hD4 : D ≤ 4 := by dsimp [D]; linarith
       have hnormX : ‖x‖ ≤ X := by
         have hDy : D * ‖y‖ ≤ 4 * C0 :=
           calc
             D * ‖y‖ ≤ D * C0 := mul_le_mul_of_nonneg_left hyC hD.le
             _ ≤ 4 * C0 := mul_le_mul_of_nonneg_right hD4 hC0
-        have hλu : λ * ‖u‖ ≤ 2 * ‖u‖ :=
-          mul_le_mul_of_nonneg_right hλ2 (norm_nonneg u)
+        have hlamu : lam * ‖u‖ ≤ 2 * ‖u‖ :=
+          mul_le_mul_of_nonneg_right hlam2 (norm_nonneg u)
         dsimp [X]
         nlinarith
       have htlow : -T ≤ t := by
