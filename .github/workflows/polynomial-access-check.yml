@@ -82,6 +82,11 @@ jobs:
         run: |
           ~/.elan/bin/lake env lean Solutions/PolynomialCommonFaceTransport.lean
           ~/.elan/bin/lake build Solutions.PolynomialCommonFaceTransport
-      - name: Compile common-face Larman walk
+      - name: Build common-face Larman walk
         continue-on-error: true
-        run: ~/.elan/bin/lake env lean Solutions/PolynomialCommonFaceLarman.lean
+        run: |
+          ~/.elan/bin/lake env lean Solutions/PolynomialCommonFaceLarman.lean
+          ~/.elan/bin/lake build Solutions.PolynomialCommonFaceLarman
+      - name: Compile excess-parameter target-facet access
+        continue-on-error: true
+        run: ~/.elan/bin/lake env lean Solutions/PolynomialExcessTargetAccess.lean
