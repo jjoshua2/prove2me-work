@@ -30,6 +30,12 @@ jobs:
       - name: Compile generic direction infrastructure
         continue-on-error: true
         run: ~/.elan/bin/lake env lean Solutions/AxisGenericLinear.lean
+      - name: Compile active-edge infrastructure
+        continue-on-error: true
+        run: |
+          ~/.elan/bin/lake env lean Solutions/AxisLocalPerturb.lean
+          ~/.elan/bin/lake build Solutions.AxisLocalPerturb
+          ~/.elan/bin/lake env lean Solutions/AxisEdgeActive.lean
       - name: Build symmetric structural front
         continue-on-error: true
         run: ~/.elan/bin/lake build Solutions.AxisSymScratch Solutions.AxisSymExtremes Solutions.AxisActive Solutions.AxisNormalize Solutions.AxisSideSelection
