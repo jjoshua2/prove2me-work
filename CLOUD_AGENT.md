@@ -38,3 +38,5 @@ Current Lean pin (change these if the next mission uses a different environment)
 
 - `origin` → `prove2me/prove2me_workspace` (template; do not push mission work there)
 - `mine` → this repo
+
+See [`STATUS.md`](STATUS.md) for the live mission frontier (Santos is already Proved; the remaining leaf is polynomial face-access).
