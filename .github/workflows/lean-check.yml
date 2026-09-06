@@ -36,9 +36,14 @@ jobs:
       - name: Compile small-tilt boundedness
         continue-on-error: true
         run: ~/.elan/bin/lake env lean Solutions/AxisSymBounded.lean
-      - name: Compile zero-tilt vertical edge geometry
+      - name: Build zero-tilt geometry
         continue-on-error: true
-        run: ~/.elan/bin/lake env lean Solutions/AxisSymZero.lean
+        run: |
+          ~/.elan/bin/lake env lean Solutions/AxisSymZero.lean
+          ~/.elan/bin/lake build Solutions.AxisSymZero
+      - name: Compile zero-wedge edge projection
+        continue-on-error: true
+        run: ~/.elan/bin/lake env lean Solutions/AxisSymZeroEdges.lean
       - name: Compile irredundant facet witnesses
         continue-on-error: true
         run: ~/.elan/bin/lake env lean Solutions/AxisIrredundant.lean
