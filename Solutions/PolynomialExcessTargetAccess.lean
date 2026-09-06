@@ -1,6 +1,5 @@
 import Mathlib
 import Theorems.Thm_Hirsch_larman_bound
-import Theorems.Thm_Hirsch_nonzero_supporting_row_of_distinct_extremes
 import Solutions.PolynomialAdjEndpoints
 import Solutions.PolynomialCommonFaceLarman
 
@@ -15,8 +14,8 @@ namespace HirschPolynomialAccess
 
 variable {d n : ℕ}
 
-/-- Along any padded walk, if a predicate is false at the start and true at
-the end, there is a first genuine edge crossing from false to true. -/
+/-- Along any padded walk, a predicate false at the start and true at the end
+has a first genuine edge crossing from false to true. -/
 lemma first_hit_edge
     (P : Set (EuclideanSpace ℝ (Fin d)))
     (T : EuclideanSpace ℝ (Fin d) → Prop) [DecidablePred T]
@@ -50,11 +49,10 @@ lemma first_hit_edge
     · exact hadj
   exact ⟨j, hjB, hjnot, hjnext, hadj⟩
 
-/-- A separated pair reaches some nonzero facet incident to the target in a
-number of steps exponential only in the facet excess `n - 2*d`.
-
-This is not the polynomial Hirsch conjecture, but it strictly sharpens the
-ambient-dimension Larman bound on exactly the target-access problem. -/
+/-- A separated pair reaches some nonzero target supporting row in a number
+of steps exponential only in the row excess `n - 2*d`. This improves the
+ambient-dimension Larman estimate in small-excess regimes, not uniformly.
+It is not a polynomial Hirsch proof or access to an arbitrarily prescribed row. -/
 theorem target_facet_access_excess_bound
     (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
     (hbd : Bornology.IsBounded (Hpoly a b))
@@ -81,8 +79,18 @@ theorem target_facet_access_excess_bound
     rcases hsep i hai with hnu | hnv
     · exact hnu hiu
     · exact hnv hiv
-  obtain ⟨it, hait, hitv⟩ :=
-    Hirsch.nonzero_supporting_row_of_distinct_extremes d n a b hbd u hu v hv huv
+  have hexTarget : ∃ i : Fin n, a i ≠ 0 ∧ ⟪a i, v⟫ = b i := by
+    by_contra hn
+    have hrowzero : ∀ i, ⟪a i, v⟫ = b i → a i = 0 := by
+      intro i hit
+      by_contra hne
+      exact hn ⟨i, hne, hit⟩
+    have horth : ∀ i, ⟪a i, v⟫ = b i → ⟪a i, u - v⟫ = 0 := by
+      intro i hit
+      rw [hrowzero i hit, inner_zero_left]
+    have hdiff := vertex_tight_rows_span_checked d n a b v hv (u - v) horth
+    exact huv (sub_eq_zero.mp hdiff)
+  obtain ⟨it, hait, hitv⟩ := hexTarget
   have hTv : T v := ⟨it, hait, hitv, hitv⟩
   have hPne : P.Nonempty := ⟨u, hu.1⟩
   obtain ⟨wg, hwg0, hwgB, hwgstep⟩ :=
@@ -111,8 +119,8 @@ theorem target_facet_access_excess_bound
   · simpa [z] using hiz
   · have h0L : 0 ≤ L := Nat.zero_le _
     simp [w, h0L, hw00]
-  · have hnle : ¬ L + 1 ≤ L := by omega
-    simp [w, hnle]
+  · change (if L + 1 ≤ L then w0 (L + 1) else z) = z
+    exact if_neg (by omega)
   · intro k hk
     by_cases hkL : k < L
     · have hkle : k ≤ L := by omega
@@ -123,9 +131,12 @@ theorem target_facet_access_excess_bound
       have hLle : L ≤ L := le_rfl
       have hLnle : ¬ L + 1 ≤ L := by omega
       have hleft : w L = x := by
-        simp [w, hLle, L]
-        simpa [L] using hw0x
-      have hright : w (L + 1) = z := by simp [w, hLnle]
+        change (if L ≤ L then w0 L else z) = x
+        rw [if_pos hLle]
+        exact hw0x
+      have hright : w (L + 1) = z := by
+        change (if L + 1 ≤ L then w0 (L + 1) else z) = z
+        exact if_neg hLnle
       exact Or.inr (by simpa [hleft, hright] using hxz')
 
 end HirschPolynomialAccess
