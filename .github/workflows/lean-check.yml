@@ -32,6 +32,13 @@ jobs:
         run: ~/.elan/bin/lake build Solutions.AxisSymScratch
       - name: Compile symmetric endpoint-extremality lemmas
         run: ~/.elan/bin/lake env lean Solutions/AxisSymExtremes.lean
+      - name: Build and check active-normal infrastructure
+        run: |
+          ~/.elan/bin/lake env lean Solutions/AxisActive.lean
+          ~/.elan/bin/lake build Solutions.AxisActive
+          ~/.elan/bin/lake env lean Solutions/AxisNormalize.lean
+          ~/.elan/bin/lake build Solutions.AxisNormalize
+          ~/.elan/bin/lake env lean Solutions/AxisSideSelection.lean
       - name: Build product proof modules
         run: ~/.elan/bin/lake build Solutions.AxisProductScratch Solutions.AxisProductEdges Solutions.AxisWalkCompression
       - name: Compile complete redundant-row branch
