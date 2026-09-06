@@ -8,13 +8,15 @@ open Set Hirsch
 
 namespace HirschPolynomialAccess
 
-/-- `DiamLE` is monotone in its step budget because stationary steps are
-allowed.  We pad a shorter walk by freezing it at its endpoint. -/
-lemma diamLE_mono {E : Type*} [AddCommGroup E] [Module ℝ E]
-    (P : Set E) {B B' : ℕ} (hBB' : B ≤ B')
-    (hD : DiamLE P B) : DiamLE P B' := by
-  intro u hu v hv
-  obtain ⟨w, hw0, hwB, hwstep⟩ := hD u hu v hv
+/-- Pad a finite walk to any larger budget by freezing it at its endpoint. -/
+lemma pad_walk {E : Type*} (R : E → E → Prop)
+    {u z : E} {B B' : ℕ} (hBB' : B ≤ B')
+    (w : ℕ → E)
+    (hw0 : w 0 = u) (hwB : w B = z)
+    (hwstep : ∀ j < B, w j = w (j + 1) ∨ R (w j) (w (j + 1))) :
+    ∃ w' : ℕ → E,
+      w' 0 = u ∧ w' B' = z ∧
+      ∀ j < B', w' j = w' (j + 1) ∨ R (w' j) (w' (j + 1)) := by
   let w' : ℕ → E := fun j => w (min j B)
   refine ⟨w', ?_, ?_, ?_⟩
   · simpa [w'] using hw0
@@ -28,6 +30,23 @@ lemma diamLE_mono {E : Type*} [AddCommGroup E] [Module ℝ E]
     · have hBj : B ≤ j := by omega
       have hBsucc : B ≤ j + 1 := by omega
       exact Or.inl (by simp [w', Nat.min_eq_right hBj, Nat.min_eq_right hBsucc])
+
+/-- `DiamLE` is monotone in its step budget because stationary steps are
+allowed. -/
+lemma diamLE_mono {E : Type*} [AddCommGroup E] [Module ℝ E]
+    (P : Set E) {B B' : ℕ} (hBB' : B ≤ B')
+    (hD : DiamLE P B) : DiamLE P B' := by
+  intro u hu v hv
+  obtain ⟨w, hw0, hwB, hwstep⟩ := hD u hu v hv
+  exact pad_walk (Adj P) hBB' w hw0 hwB hwstep
+
+/-- Powers of a natural base at least one are monotone when the exponent is
+increased by a natural amount. -/
+lemma nat_pow_le_pow_add (N k r : ℕ) (hN : 1 ≤ N) :
+    N ^ k ≤ N ^ (k + r) := by
+  rw [pow_add]
+  have hr : 1 ≤ N ^ r := one_le_pow₀ hN
+  simpa using Nat.mul_le_mul_left (N ^ k) hr
 
 /-- Larman already proves a quadratic specified-face access bound on the
 regime `2^(d-3) ≤ n`.  Thus the genuinely open part of the polynomial leaf can
