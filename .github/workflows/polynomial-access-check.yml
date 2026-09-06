@@ -32,9 +32,16 @@ jobs:
         run: |
           ~/.elan/bin/lake env lean Solutions/PolynomialFaceAccessBench.lean
           ~/.elan/bin/lake build Solutions.PolynomialFaceAccessBench
-      - name: Compile separated-row reduction
+      - name: Build separated-row reduction
         continue-on-error: true
-        run: ~/.elan/bin/lake env lean Solutions/PolynomialSeparatedRows.lean
-      - name: Compile Larman easy-regime reduction
+        run: |
+          ~/.elan/bin/lake env lean Solutions/PolynomialSeparatedRows.lean
+          ~/.elan/bin/lake build Solutions.PolynomialSeparatedRows
+      - name: Build Larman easy-regime reduction
         continue-on-error: true
-        run: ~/.elan/bin/lake env lean Solutions/PolynomialAccessPadding.lean
+        run: |
+          ~/.elan/bin/lake env lean Solutions/PolynomialAccessPadding.lean
+          ~/.elan/bin/lake build Solutions.PolynomialAccessPadding
+      - name: Compile hard-regime reduction
+        continue-on-error: true
+        run: ~/.elan/bin/lake env lean Solutions/PolynomialHardRegimeReduction.lean
