@@ -76,13 +76,12 @@ lemma common_direction_finrank_le_neutral_card
       intro i hiC
       have hker : (rowEvalMap a C) (q : EuclideanSpace ℝ (Fin d)) = 0 :=
         LinearMap.mem_ker.1 q.2
-      have hcoord := congrFun hker ⟨i, hiC⟩
-      simpa [rowEvalMap] using hcoord
+      change (rowEvalMap a C) (q : EuclideanSpace ℝ (Fin d)) ⟨i, hiC⟩ = 0
+      exact congrFun hker ⟨i, hiC⟩
     have hqNeutral : ∀ i, i ∈ N → ⟪a i, (q : EuclideanSpace ℝ (Fin d))⟫ = 0 := by
       intro i hiN
       change T q ⟨i, hiN⟩ = 0
-      rw [hTq]
-      rfl
+      exact congrFun hTq ⟨i, hiN⟩
     have hqTight : ∀ i, ⟪a i, x⟫ = b i →
         ⟪a i, (q : EuclideanSpace ℝ (Fin d))⟫ = 0 := by
       intro i hix
