@@ -1,0 +1,111 @@
+name: Local neutral rank proof
+
+on:
+  push:
+    branches: [chatgpt/local-neutral-rank]
+
+concurrency:
+  group: local-neutral-rank-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Read public Prove2Me state
+        continue-on-error: true
+        run: |
+          python3 - <<'PY'
+          import datetime, json, pathlib, urllib.request, urllib.error
+          from html.parser import HTMLParser
+          out=pathlib.Path('local_rank_packet'); out.mkdir(exist_ok=True)
+          report={'fetched_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'reads':[]}
+          class Text(HTMLParser):
+            def __init__(self):
+              super().__init__(); self.parts=[]; self.skip=0
+            def handle_starttag(self, tag, attrs):
+              if tag in ('script','style'): self.skip += 1
+            def handle_endtag(self, tag):
+              if tag in ('script','style'): self.skip=max(0,self.skip-1)
+            def handle_data(self, s):
+              if not self.skip and s.strip(): self.parts.append(s.strip())
+          urls={
+            'accepted_rank_one_api':'https://prove2.me/api/v1/theorems/b00a957b-6355-4fce-8083-b53825b2270d',
+            'open_leaf_api':'https://prove2.me/api/v1/theorems/33fc334e-e05b-4090-ac49-f83fd94d9305',
+            'accepted_rank_one_page':'https://prove2.me/theorems/b00a957b-6355-4fce-8083-b53825b2270d',
+            'open_leaf_page':'https://prove2.me/theorems/33fc334e-e05b-4090-ac49-f83fd94d9305',
+            'mission':'https://prove2.me/missions/The%20Polynomial%20Hirsch%20Conjecture',
+            'rank_related_search':'https://prove2.me/api/v1/theorems?q=neutral&env=c5ea00351c28e24afc9f0f84379aa41082b1188f&limit=50'
+          }
+          for name,url in urls.items():
+            row={'name':name,'url':url}
+            try:
+              with urllib.request.urlopen(url,timeout=25) as r:
+                raw=r.read().decode('utf-8'); row['http_status']=r.status
+                if 'json' in r.headers.get('Content-Type',''):
+                  data=json.loads(raw); row['data']=data
+                  print(name,json.dumps(data,ensure_ascii=False)[:10000])
+                else:
+                  p=Text(); p.feed(raw); text='\n'.join(p.parts)
+                  (out/(name+'.txt')).write_text(text)
+                  row['text_file']=name+'.txt'
+                  start=text.find('Frontier') if name=='mission' else 0
+                  print(name,text[max(start,0):max(start,0)+6000])
+            except Exception as e:
+              row['error']=str(e); print(name,'FETCH_ERROR',e)
+            report['reads'].append(row)
+          (out/'live-frontier.json').write_text(json.dumps(report,indent=2,ensure_ascii=False)+'\n')
+          PY
+      - name: Install elan
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Fetch pinned Mathlib cache
+        run: ~/.elan/bin/lake exe cache get
+      - name: Compile admission-free geometric core
+        run: |
+          set -o pipefail
+          mkdir -p local_rank_packet
+          ~/.elan/bin/lake build Solutions.PolynomialLocalRankAccessCore 2>&1 | tee local_rank_packet/core-build.log
+      - name: Compile final proof against the public Larman stub
+        run: |
+          set -o pipefail
+          ~/.elan/bin/lake build Solutions.PolynomialLocalRankSubmission 2>&1 | tee local_rank_packet/submission-build.log
+      - name: Bundle and check exact submission bytes
+        run: |
+          python3 scripts/bundle_local_neutral_rank.py
+          python3 - <<'PY'
+          import hashlib,json,pathlib,re,subprocess,time
+          out=pathlib.Path('local_rank_packet'); p=out/'solution.lean'
+          start=time.monotonic()
+          run=subprocess.run([str(pathlib.Path.home()/'.elan/bin/lake'),'env','lean',str(p)],text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,timeout=290)
+          elapsed=time.monotonic()-start
+          (out/'solution.audit.log').write_text(run.stdout)
+          print(run.stdout)
+          if run.returncode: raise SystemExit(run.returncode)
+          allowed={'propext','Classical.choice','Quot.sound'}
+          names=['HirschPolynomialAccess.target_face_access_of_local_neutral_rank_core','solution']
+          found={}
+          for name in names:
+            match=re.search(re.escape("'"+name+"' depends on axioms:")+r'\s*\[([^]]*)\]',run.stdout)
+            if not match: raise RuntimeError('Missing axiom report: '+name)
+            axioms={x.strip() for x in match.group(1).split(',') if x.strip()}
+            permitted=allowed if name!='solution' else allowed|{'sorryAx'}
+            if not axioms <= permitted: raise RuntimeError('Unexpected axioms: '+repr(axioms-permitted))
+            found[name]=sorted(axioms)
+          record={'compiled':True,'elapsed_seconds':elapsed,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'axioms':found,'public_theorem_dependencies':['Hirsch.larman_bound'],'platform_submitted':False,'note':'Core is admission-free. Final file uses public Proved Larman via the local stub; platform must resolve that import.'}
+          (out/'verification.json').write_text(json.dumps(record,indent=2)+'\n')
+          print('LOCAL_RANK_PACKET_VERIFIED',json.dumps(record))
+          PY
+      - name: Upload exact proof packet and evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: local-neutral-rank-proof-packet
+          path: local_rank_packet/
+          if-no-files-found: warn
