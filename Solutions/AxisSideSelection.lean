@@ -37,7 +37,7 @@ lemma choose_foot_and_removable
   have hsum : SU.card + SV.card = n := by
     have hcard := Finset.card_union_add_card_inter SU SV
     rw [hcover, hinter] at hcard
-    simpa using hcard
+    simpa using hcard.symm
   by_cases hVlarge : d < SV.card
   · obtain ⟨g, hgV, hrem⟩ :=
       HirschAxisActive.exists_removable_active c SV hVlarge hVzero
