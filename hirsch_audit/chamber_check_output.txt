@@ -1,0 +1,12 @@
+{
+  "basis_count": 2002,
+  "basis_status_counts": {
+    "feasible": 212,
+    "infeasible": 1006,
+    "singular": 784
+  },
+  "chamber_vertex_count": 60,
+  "chamber_vertices_with_at_least_five_original_active_rows": 20,
+  "sign_orbit_checks": 6400,
+  "level_step_certificate_valid": true
+}

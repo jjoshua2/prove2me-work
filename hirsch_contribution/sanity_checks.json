@@ -1,0 +1,570 @@
+{
+  "status": "passed",
+  "arithmetic": "exact rational",
+  "limitation": "Finite sanity checks, not a general or formal proof.",
+  "single_wedges": [
+    {
+      "case": "zero_dim_tight_and_slack",
+      "row": 0,
+      "original_vertices": 1,
+      "lifted_vertices": 1,
+      "original_diameter": 0,
+      "lifted_diameter": 0
+    },
+    {
+      "case": "zero_dim_tight_and_slack",
+      "row": 1,
+      "original_vertices": 1,
+      "lifted_vertices": 2,
+      "original_diameter": 0,
+      "lifted_diameter": 1
+    },
+    {
+      "case": "interval",
+      "row": 0,
+      "original_vertices": 2,
+      "lifted_vertices": 3,
+      "original_diameter": 1,
+      "lifted_diameter": 1
+    },
+    {
+      "case": "interval",
+      "row": 1,
+      "original_vertices": 2,
+      "lifted_vertices": 3,
+      "original_diameter": 1,
+      "lifted_diameter": 1
+    },
+    {
+      "case": "triangle",
+      "row": 0,
+      "original_vertices": 3,
+      "lifted_vertices": 4,
+      "original_diameter": 1,
+      "lifted_diameter": 1
+    },
+    {
+      "case": "triangle",
+      "row": 1,
+      "original_vertices": 3,
+      "lifted_vertices": 4,
+      "original_diameter": 1,
+      "lifted_diameter": 1
+    },
+    {
+      "case": "triangle",
+      "row": 2,
+      "original_vertices": 3,
+      "lifted_vertices": 4,
+      "original_diameter": 1,
+      "lifted_diameter": 1
+    },
+    {
+      "case": "square",
+      "row": 0,
+      "original_vertices": 4,
+      "lifted_vertices": 6,
+      "original_diameter": 2,
+      "lifted_diameter": 2
+    },
+    {
+      "case": "square",
+      "row": 1,
+      "original_vertices": 4,
+      "lifted_vertices": 6,
+      "original_diameter": 2,
+      "lifted_diameter": 2
+    },
+    {
+      "case": "square",
+      "row": 2,
+      "original_vertices": 4,
+      "lifted_vertices": 6,
+      "original_diameter": 2,
+      "lifted_diameter": 2
+    },
+    {
+      "case": "square",
+      "row": 3,
+      "original_vertices": 4,
+      "lifted_vertices": 6,
+      "original_diameter": 2,
+      "lifted_diameter": 2
+    },
+    {
+      "case": "hexagon",
+      "row": 0,
+      "original_vertices": 6,
+      "lifted_vertices": 10,
+      "original_diameter": 3,
+      "lifted_diameter": 3
+    },
+    {
+      "case": "hexagon",
+      "row": 1,
+      "original_vertices": 6,
+      "lifted_vertices": 10,
+      "original_diameter": 3,
+      "lifted_diameter": 3
+    },
+    {
+      "case": "hexagon",
+      "row": 2,
+      "original_vertices": 6,
+      "lifted_vertices": 10,
+      "original_diameter": 3,
+      "lifted_diameter": 3
+    },
+    {
+      "case": "hexagon",
+      "row": 3,
+      "original_vertices": 6,
+      "lifted_vertices": 10,
+      "original_diameter": 3,
+      "lifted_diameter": 3
+    },
+    {
+      "case": "hexagon",
+      "row": 4,
+      "original_vertices": 6,
+      "lifted_vertices": 10,
+      "original_diameter": 3,
+      "lifted_diameter": 3
+    },
+    {
+      "case": "hexagon",
+      "row": 5,
+      "original_vertices": 6,
+      "lifted_vertices": 10,
+      "original_diameter": 3,
+      "lifted_diameter": 3
+    },
+    {
+      "case": "singleton_ambient_two",
+      "row": 0,
+      "original_vertices": 1,
+      "lifted_vertices": 1,
+      "original_diameter": 0,
+      "lifted_diameter": 0
+    },
+    {
+      "case": "singleton_ambient_two",
+      "row": 1,
+      "original_vertices": 1,
+      "lifted_vertices": 1,
+      "original_diameter": 0,
+      "lifted_diameter": 0
+    },
+    {
+      "case": "singleton_ambient_two",
+      "row": 2,
+      "original_vertices": 1,
+      "lifted_vertices": 1,
+      "original_diameter": 0,
+      "lifted_diameter": 0
+    },
+    {
+      "case": "singleton_ambient_two",
+      "row": 3,
+      "original_vertices": 1,
+      "lifted_vertices": 1,
+      "original_diameter": 0,
+      "lifted_diameter": 0
+    },
+    {
+      "case": "segment_ambient_two",
+      "row": 0,
+      "original_vertices": 2,
+      "lifted_vertices": 3,
+      "original_diameter": 1,
+      "lifted_diameter": 1
+    },
+    {
+      "case": "segment_ambient_two",
+      "row": 1,
+      "original_vertices": 2,
+      "lifted_vertices": 3,
+      "original_diameter": 1,
+      "lifted_diameter": 1
+    },
+    {
+      "case": "segment_ambient_two",
+      "row": 2,
+      "original_vertices": 2,
+      "lifted_vertices": 2,
+      "original_diameter": 1,
+      "lifted_diameter": 1
+    },
+    {
+      "case": "segment_ambient_two",
+      "row": 3,
+      "original_vertices": 2,
+      "lifted_vertices": 2,
+      "original_diameter": 1,
+      "lifted_diameter": 1
+    },
+    {
+      "case": "square_redundant_positive",
+      "row": 0,
+      "original_vertices": 4,
+      "lifted_vertices": 6,
+      "original_diameter": 2,
+      "lifted_diameter": 2
+    },
+    {
+      "case": "square_redundant_positive",
+      "row": 1,
+      "original_vertices": 4,
+      "lifted_vertices": 6,
+      "original_diameter": 2,
+      "lifted_diameter": 2
+    },
+    {
+      "case": "square_redundant_positive",
+      "row": 2,
+      "original_vertices": 4,
+      "lifted_vertices": 6,
+      "original_diameter": 2,
+      "lifted_diameter": 2
+    },
+    {
+      "case": "square_redundant_positive",
+      "row": 3,
+      "original_vertices": 4,
+      "lifted_vertices": 6,
+      "original_diameter": 2,
+      "lifted_diameter": 2
+    },
+    {
+      "case": "square_redundant_positive",
+      "row": 4,
+      "original_vertices": 4,
+      "lifted_vertices": 8,
+      "original_diameter": 2,
+      "lifted_diameter": 3
+    },
+    {
+      "case": "square_redundant_tight",
+      "row": 0,
+      "original_vertices": 4,
+      "lifted_vertices": 6,
+      "original_diameter": 2,
+      "lifted_diameter": 2
+    },
+    {
+      "case": "square_redundant_tight",
+      "row": 1,
+      "original_vertices": 4,
+      "lifted_vertices": 6,
+      "original_diameter": 2,
+      "lifted_diameter": 2
+    },
+    {
+      "case": "square_redundant_tight",
+      "row": 2,
+      "original_vertices": 4,
+      "lifted_vertices": 6,
+      "original_diameter": 2,
+      "lifted_diameter": 2
+    },
+    {
+      "case": "square_redundant_tight",
+      "row": 3,
+      "original_vertices": 4,
+      "lifted_vertices": 6,
+      "original_diameter": 2,
+      "lifted_diameter": 2
+    },
+    {
+      "case": "square_redundant_tight",
+      "row": 4,
+      "original_vertices": 4,
+      "lifted_vertices": 4,
+      "original_diameter": 2,
+      "lifted_diameter": 2
+    },
+    {
+      "case": "square_row_tight_at_vertex",
+      "row": 0,
+      "original_vertices": 4,
+      "lifted_vertices": 6,
+      "original_diameter": 2,
+      "lifted_diameter": 2
+    },
+    {
+      "case": "square_row_tight_at_vertex",
+      "row": 1,
+      "original_vertices": 4,
+      "lifted_vertices": 6,
+      "original_diameter": 2,
+      "lifted_diameter": 2
+    },
+    {
+      "case": "square_row_tight_at_vertex",
+      "row": 2,
+      "original_vertices": 4,
+      "lifted_vertices": 6,
+      "original_diameter": 2,
+      "lifted_diameter": 2
+    },
+    {
+      "case": "square_row_tight_at_vertex",
+      "row": 3,
+      "original_vertices": 4,
+      "lifted_vertices": 6,
+      "original_diameter": 2,
+      "lifted_diameter": 2
+    },
+    {
+      "case": "square_row_tight_at_vertex",
+      "row": 4,
+      "original_vertices": 4,
+      "lifted_vertices": 7,
+      "original_diameter": 2,
+      "lifted_diameter": 2
+    },
+    {
+      "case": "tetrahedron",
+      "row": 0,
+      "original_vertices": 4,
+      "lifted_vertices": 5,
+      "original_diameter": 1,
+      "lifted_diameter": 1
+    },
+    {
+      "case": "tetrahedron",
+      "row": 1,
+      "original_vertices": 4,
+      "lifted_vertices": 5,
+      "original_diameter": 1,
+      "lifted_diameter": 1
+    },
+    {
+      "case": "tetrahedron",
+      "row": 2,
+      "original_vertices": 4,
+      "lifted_vertices": 5,
+      "original_diameter": 1,
+      "lifted_diameter": 1
+    },
+    {
+      "case": "tetrahedron",
+      "row": 3,
+      "original_vertices": 4,
+      "lifted_vertices": 5,
+      "original_diameter": 1,
+      "lifted_diameter": 1
+    },
+    {
+      "case": "octahedron",
+      "row": 0,
+      "original_vertices": 6,
+      "lifted_vertices": 9,
+      "original_diameter": 2,
+      "lifted_diameter": 2
+    },
+    {
+      "case": "octahedron",
+      "row": 1,
+      "original_vertices": 6,
+      "lifted_vertices": 9,
+      "original_diameter": 2,
+      "lifted_diameter": 2
+    },
+    {
+      "case": "octahedron",
+      "row": 2,
+      "original_vertices": 6,
+      "lifted_vertices": 9,
+      "original_diameter": 2,
+      "lifted_diameter": 2
+    },
+    {
+      "case": "octahedron",
+      "row": 3,
+      "original_vertices": 6,
+      "lifted_vertices": 9,
+      "original_diameter": 2,
+      "lifted_diameter": 2
+    },
+    {
+      "case": "octahedron",
+      "row": 4,
+      "original_vertices": 6,
+      "lifted_vertices": 9,
+      "original_diameter": 2,
+      "lifted_diameter": 2
+    },
+    {
+      "case": "octahedron",
+      "row": 5,
+      "original_vertices": 6,
+      "lifted_vertices": 9,
+      "original_diameter": 2,
+      "lifted_diameter": 2
+    },
+    {
+      "case": "octahedron",
+      "row": 6,
+      "original_vertices": 6,
+      "lifted_vertices": 9,
+      "original_diameter": 2,
+      "lifted_diameter": 2
+    },
+    {
+      "case": "octahedron",
+      "row": 7,
+      "original_vertices": 6,
+      "lifted_vertices": 9,
+      "original_diameter": 2,
+      "lifted_diameter": 2
+    }
+  ],
+  "balanced_systems": [
+    {
+      "case": "zero_dim_no_rows",
+      "original_dimension": 0,
+      "original_rows": 0,
+      "balanced_dimension": 0,
+      "balanced_rows": 0,
+      "original_vertices": 1,
+      "lifted_vertices": 1,
+      "original_diameter": 0,
+      "lifted_diameter": 0
+    },
+    {
+      "case": "zero_dim_tight_and_slack",
+      "original_dimension": 0,
+      "original_rows": 2,
+      "balanced_dimension": 2,
+      "balanced_rows": 4,
+      "original_vertices": 1,
+      "lifted_vertices": 1,
+      "original_diameter": 0,
+      "lifted_diameter": 0
+    },
+    {
+      "case": "interval",
+      "original_dimension": 1,
+      "original_rows": 2,
+      "balanced_dimension": 1,
+      "balanced_rows": 2,
+      "original_vertices": 2,
+      "lifted_vertices": 2,
+      "original_diameter": 1,
+      "lifted_diameter": 1
+    },
+    {
+      "case": "triangle",
+      "original_dimension": 2,
+      "original_rows": 3,
+      "balanced_dimension": 2,
+      "balanced_rows": 4,
+      "original_vertices": 3,
+      "lifted_vertices": 3,
+      "original_diameter": 1,
+      "lifted_diameter": 1
+    },
+    {
+      "case": "square",
+      "original_dimension": 2,
+      "original_rows": 4,
+      "balanced_dimension": 2,
+      "balanced_rows": 4,
+      "original_vertices": 4,
+      "lifted_vertices": 4,
+      "original_diameter": 2,
+      "lifted_diameter": 2
+    },
+    {
+      "case": "hexagon",
+      "original_dimension": 2,
+      "original_rows": 6,
+      "balanced_dimension": 4,
+      "balanced_rows": 8,
+      "original_vertices": 6,
+      "lifted_vertices": 14,
+      "original_diameter": 3,
+      "lifted_diameter": 3
+    },
+    {
+      "case": "singleton_ambient_two",
+      "original_dimension": 2,
+      "original_rows": 4,
+      "balanced_dimension": 2,
+      "balanced_rows": 4,
+      "original_vertices": 1,
+      "lifted_vertices": 1,
+      "original_diameter": 0,
+      "lifted_diameter": 0
+    },
+    {
+      "case": "segment_ambient_two",
+      "original_dimension": 2,
+      "original_rows": 4,
+      "balanced_dimension": 2,
+      "balanced_rows": 4,
+      "original_vertices": 2,
+      "lifted_vertices": 2,
+      "original_diameter": 1,
+      "lifted_diameter": 1
+    },
+    {
+      "case": "square_redundant_positive",
+      "original_dimension": 2,
+      "original_rows": 5,
+      "balanced_dimension": 3,
+      "balanced_rows": 6,
+      "original_vertices": 4,
+      "lifted_vertices": 6,
+      "original_diameter": 2,
+      "lifted_diameter": 2
+    },
+    {
+      "case": "square_redundant_tight",
+      "original_dimension": 2,
+      "original_rows": 5,
+      "balanced_dimension": 3,
+      "balanced_rows": 6,
+      "original_vertices": 4,
+      "lifted_vertices": 6,
+      "original_diameter": 2,
+      "lifted_diameter": 2
+    },
+    {
+      "case": "square_row_tight_at_vertex",
+      "original_dimension": 2,
+      "original_rows": 5,
+      "balanced_dimension": 3,
+      "balanced_rows": 6,
+      "original_vertices": 4,
+      "lifted_vertices": 6,
+      "original_diameter": 2,
+      "lifted_diameter": 2
+    },
+    {
+      "case": "tetrahedron",
+      "original_dimension": 3,
+      "original_rows": 4,
+      "balanced_dimension": 3,
+      "balanced_rows": 6,
+      "original_vertices": 4,
+      "lifted_vertices": 4,
+      "original_diameter": 1,
+      "lifted_diameter": 1
+    },
+    {
+      "case": "octahedron",
+      "original_dimension": 3,
+      "original_rows": 8,
+      "balanced_dimension": 5,
+      "balanced_rows": 10,
+      "original_vertices": 6,
+      "lifted_vertices": 12,
+      "original_diameter": 2,
+      "lifted_diameter": 2
+    }
+  ],
+  "single_wedge_count": 52,
+  "balanced_system_count": 13
+}

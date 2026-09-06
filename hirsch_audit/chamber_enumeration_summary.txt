@@ -1,0 +1,1 @@
+bases 2002 singular 784 infeasible 1006 feasible 212 distinct_vertices 60

@@ -1,0 +1,32 @@
+{
+  "vertex_count": 274,
+  "edge_count": 720,
+  "u_index": 137,
+  "v_index": 136,
+  "apex_distance": 6,
+  "layers_from_u": {
+    "0": 1,
+    "1": 40,
+    "2": 64,
+    "3": 64,
+    "4": 64,
+    "5": 32,
+    "6": 9
+  },
+  "apex_neighbor_counts": [
+    40,
+    40
+  ],
+  "distance_between_apex_neighbor_sets": 4,
+  "six_edge_path_indices": [
+    137,
+    74,
+    8,
+    118,
+    92,
+    116,
+    136
+  ],
+  "sign_orbit_count": 20,
+  "quotient_edge_count": 52
+}
