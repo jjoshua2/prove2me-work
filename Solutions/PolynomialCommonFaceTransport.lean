@@ -106,7 +106,9 @@ lemma commonFace_coord_adj_to_face
     have hrQ : r ∈ Q := hadj.2.subset hrseg
     have hrF : commonFacePoint a b u x r ∈ commonFace a b u x :=
       (mem_commonFace_coord_iff a b u x r).1 hrQ
-    simpa [commonFaceAffineMap_apply] using hry ▸ hrF
+    have hry' : commonFacePoint a b u x r = y := by
+      simpa only [commonFaceAffineMap_apply] using hry
+    exact hry' ▸ hrF
   · intro y hyF z hzF w hwseg hwopen
     obtain ⟨r, hrQ, hry⟩ := commonFacePoint_surjOn a b u x hyF
     obtain ⟨s, hsQ, hsz⟩ := commonFacePoint_surjOn a b u x hzF
