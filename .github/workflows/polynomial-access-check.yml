@@ -18,5 +18,5 @@ jobs:
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
       - name: Fetch Mathlib cache
         run: ~/.elan/bin/lake exe cache get
-      - name: Build excess-parameter target access and dependencies
-        run: ~/.elan/bin/lake build Solutions.PolynomialExcessTargetAccess
+      - name: Build double-hard reduction and dependencies
+        run: ~/.elan/bin/lake build Solutions.PolynomialTargetDoubleHardReduction
