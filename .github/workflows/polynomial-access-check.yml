@@ -45,3 +45,6 @@ jobs:
       - name: Compile hard-regime reduction
         continue-on-error: true
         run: ~/.elan/bin/lake env lean Solutions/PolynomialHardRegimeReduction.lean
+      - name: Compile balanced one-edge target access
+        continue-on-error: true
+        run: ~/.elan/bin/lake env lean Solutions/PolynomialBalancedOneStep.lean
