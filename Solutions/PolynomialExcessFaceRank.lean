@@ -1,6 +1,5 @@
 import Mathlib
 import Definitions.Def_Hirsch_model
-import Theorems.Thm_Hirsch_vertex_tight_rows_span
 import Solutions.PolynomialSeparatedRows
 
 open scoped RealInnerProductSpace
@@ -39,77 +38,100 @@ noncomputable def rowEvalMap
       funext i
       simp [inner_smul_right] }
 
-/-- The direction space of the common source face through `u` and `x`: all
-directions orthogonal to every nonzero row tight at both vertices. -/
+/-- Directions annihilating every nonzero row active at both `u` and `x`. -/
 noncomputable def commonDirection
     (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
     (u x : EuclideanSpace ℝ (Fin d)) :
     Submodule ℝ (EuclideanSpace ℝ (Fin d)) :=
   (rowEvalMap a (commonSourceRows a b u x)).ker
 
-/-- If `x` has not touched any nonzero target row, evaluation on the neutral
-rows is injective on the common-source direction space.  Hence that face has
-linear dimension at most the number of neutral rows. -/
+/-- Neutral-row evaluation is injective on the common-source directions of
+any target-avoiding vertex. Separation and extremality of `u,v` are not needed. -/
+lemma neutral_eval_injective
+    (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
+    (u v x : EuclideanSpace ℝ (Fin d))
+    (hx : x ∈ extremePoints ℝ (Hpoly a b))
+    (havoid : ∀ i, a i ≠ 0 →
+      ⟪a i, v⟫ = b i → ⟪a i, x⟫ ≠ b i) :
+    Function.Injective
+      ((rowEvalMap a (neutralRows a b u v)).domRestrict
+        (commonDirection a b u x)) := by
+  classical
+  let C := commonSourceRows a b u x
+  let N := neutralRows a b u v
+  let W := commonDirection a b u x
+  let T : W →ₗ[ℝ] (N → ℝ) := (rowEvalMap a N).domRestrict W
+  change Function.Injective T
+  intro y z hyz
+  apply Subtype.ext
+  let q : W := y - z
+  have hTq : T q = 0 := by
+    rw [map_sub, hyz, sub_self]
+  have hqCommon : ∀ i, i ∈ C → ⟪a i, (q : EuclideanSpace ℝ (Fin d))⟫ = 0 := by
+    intro i hiC
+    have hker : (rowEvalMap a C) (q : EuclideanSpace ℝ (Fin d)) = 0 :=
+      LinearMap.mem_ker.1 q.2
+    change (rowEvalMap a C) (q : EuclideanSpace ℝ (Fin d)) ⟨i, hiC⟩ = 0
+    exact congrFun hker ⟨i, hiC⟩
+  have hqNeutral : ∀ i, i ∈ N → ⟪a i, (q : EuclideanSpace ℝ (Fin d))⟫ = 0 := by
+    intro i hiN
+    change T q ⟨i, hiN⟩ = 0
+    exact congrFun hTq ⟨i, hiN⟩
+  have hqTight : ∀ i, ⟪a i, x⟫ = b i →
+      ⟪a i, (q : EuclideanSpace ℝ (Fin d))⟫ = 0 := by
+    intro i hix
+    by_cases hai : a i = 0
+    · simp [hai]
+    by_cases hiu : ⟪a i, u⟫ = b i
+    · have hiC : i ∈ C := by
+        simp [C, commonSourceRows, hai, hiu, hix]
+      exact hqCommon i hiC
+    · have hiv : ⟪a i, v⟫ ≠ b i := by
+        intro hivEq
+        exact (havoid i hai hivEq) hix
+      have hiN : i ∈ N := by
+        simp [N, neutralRows, hai, hiu, hiv]
+      exact hqNeutral i hiN
+  have hq0 := vertex_tight_rows_span_checked d n a b x hx
+    (q : EuclideanSpace ℝ (Fin d)) hqTight
+  change (y : EuclideanSpace ℝ (Fin d)) - (z : EuclideanSpace ℝ (Fin d)) = 0 at hq0
+  exact sub_eq_zero.mp hq0
+
+/-- Sharper than counting neutral rows: linearly dependent rows cost only
+the rank of their joint evaluation map. -/
+lemma common_direction_finrank_le_neutral_rank
+    (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
+    (u v x : EuclideanSpace ℝ (Fin d))
+    (hx : x ∈ extremePoints ℝ (Hpoly a b))
+    (havoid : ∀ i, a i ≠ 0 →
+      ⟪a i, v⟫ = b i → ⟪a i, x⟫ ≠ b i) :
+    Module.finrank ℝ (commonDirection a b u x) ≤
+      Module.finrank ℝ (rowEvalMap a (neutralRows a b u v)).range := by
+  let W := commonDirection a b u x
+  let R := rowEvalMap a (neutralRows a b u v)
+  let T : W →ₗ[ℝ] R.range := R.rangeRestrict.comp W.subtype
+  have hTin : Function.Injective T := by
+    intro y z h
+    apply neutral_eval_injective a b u v x hx havoid
+    exact congrArg Subtype.val h
+  exact LinearMap.finrank_le_finrank_of_injective hTin
+
+/-- The original neutral-count estimate, now deduced from an explicit injective map. -/
 lemma common_direction_finrank_le_neutral_card
     (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
     (u v x : EuclideanSpace ℝ (Fin d))
     (hx : x ∈ extremePoints ℝ (Hpoly a b))
-    (hsep : ∀ i, a i ≠ 0 →
+    (_hsep : ∀ i, a i ≠ 0 →
       ⟪a i, u⟫ ≠ b i ∨ ⟪a i, v⟫ ≠ b i)
     (havoid : ∀ i, a i ≠ 0 →
       ⟪a i, v⟫ = b i → ⟪a i, x⟫ ≠ b i) :
     Module.finrank ℝ (commonDirection a b u x) ≤
       (neutralRows a b u v).card := by
-  classical
-  let C := commonSourceRows a b u x
-  let N := neutralRows a b u v
-  let W := commonDirection a b u x
-  let T : W →ₗ[ℝ] (N → ℝ) :=
-    (rowEvalMap a N).domRestrict W
-  have hTinj : Function.Injective T := by
-    intro y z hyz
-    apply Subtype.ext
-    let q : W := y - z
-    have hTq : T q = 0 := by
-      rw [map_sub, hyz, sub_self]
-    have hqCommon : ∀ i, i ∈ C → ⟪a i, (q : EuclideanSpace ℝ (Fin d))⟫ = 0 := by
-      intro i hiC
-      have hker : (rowEvalMap a C) (q : EuclideanSpace ℝ (Fin d)) = 0 :=
-        LinearMap.mem_ker.1 q.2
-      change (rowEvalMap a C) (q : EuclideanSpace ℝ (Fin d)) ⟨i, hiC⟩ = 0
-      exact congrFun hker ⟨i, hiC⟩
-    have hqNeutral : ∀ i, i ∈ N → ⟪a i, (q : EuclideanSpace ℝ (Fin d))⟫ = 0 := by
-      intro i hiN
-      change T q ⟨i, hiN⟩ = 0
-      exact congrFun hTq ⟨i, hiN⟩
-    have hqTight : ∀ i, ⟪a i, x⟫ = b i →
-        ⟪a i, (q : EuclideanSpace ℝ (Fin d))⟫ = 0 := by
-      intro i hix
-      by_cases hai : a i = 0
-      · simp [hai]
-      by_cases hiu : ⟪a i, u⟫ = b i
-      · have hiC : i ∈ C := by
-          simp [C, commonSourceRows, hai, hiu, hix]
-        exact hqCommon i hiC
-      · have hiv : ⟪a i, v⟫ ≠ b i := by
-          by_contra hivEq
-          exact (havoid i hai hivEq) hix
-        have hiN : i ∈ N := by
-          simp [N, neutralRows, hai, hiu, hiv]
-        exact hqNeutral i hiN
-    have hq0 := Hirsch.vertex_tight_rows_span d n a b x hx
-      (q : EuclideanSpace ℝ (Fin d)) hqTight
-    exact sub_eq_zero.mp (Subtype.ext_iff.mp (show q = 0 by
-      apply Subtype.ext
-      exact hq0))
-  have hle := LinearMap.finrank_le_finrank_of_injective hTinj
-  have hcod : Module.finrank ℝ (N → ℝ) = N.card := by
-    simp [Fintype.card_coe]
-  simpa [W, N, hcod] using hle
+  have hle := LinearMap.finrank_le_finrank_of_injective
+    (neutral_eval_injective a b u v x hx havoid)
+  simpa using hle
 
-/-- The neutral rows are disjoint from the nonzero tight sets at both
-separated endpoints.  Since each endpoint has at least `d` such rows, there
-are at most `n - 2*d` neutral rows. -/
+/-- There are at most `n - 2*d` neutral rows for separated extreme endpoints. -/
 lemma neutral_card_le_excess
     (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
     (u v : EuclideanSpace ℝ (Fin d))
@@ -139,17 +161,12 @@ lemma neutral_card_le_excess
   have hUN : Disjoint SU N := by
     refine Finset.disjoint_left.2 ?_
     intro i hiU hiN
-    have hu' := (Finset.mem_filter.1 hiU).2
-    have hn' := (Finset.mem_filter.1 hiN).2
-    exact hn'.2.1 hu'.2
+    exact (Finset.mem_filter.1 hiN).2.2.1 (Finset.mem_filter.1 hiU).2.2
   have hVN : Disjoint SV N := by
     refine Finset.disjoint_left.2 ?_
     intro i hiV hiN
-    have hv' := (Finset.mem_filter.1 hiV).2
-    have hn' := (Finset.mem_filter.1 hiN).2
-    exact hn'.2.2 hv'.2
-  have hdisj : Disjoint (SU ∪ SV) N := by
-    exact Finset.disjoint_union_left.2 ⟨hUN, hVN⟩
+    exact (Finset.mem_filter.1 hiN).2.2.2 (Finset.mem_filter.1 hiV).2.2
+  have hdisj : Disjoint (SU ∪ SV) N := Finset.disjoint_union_left.2 ⟨hUN, hVN⟩
   have hcardUnion : (SU ∪ SV).card = SU.card + SV.card :=
     Finset.card_union_of_disjoint hUV
   have htotal : (SU ∪ SV ∪ N).card ≤ n := by
@@ -158,17 +175,11 @@ lemma neutral_card_le_excess
       (SU ∪ SV ∪ N).card ≤ (Finset.univ : Finset (Fin n)).card :=
         Finset.card_le_card hsub
       _ = n := by simp
-  have hthree : (SU ∪ SV ∪ N).card = SU.card + SV.card + N.card := by
-    rw [Finset.card_union_of_disjoint hdisj, hcardUnion]
-  rw [hthree] at htotal
-  have h2d : 2 * d ≤ n :=
-    separated_extremes_n_ge_two_d a b u v hu hv hsep
+  rw [Finset.card_union_of_disjoint hdisj, hcardUnion] at htotal
+  have h2d : 2 * d ≤ n := separated_extremes_n_ge_two_d a b u v hu hv hsep
   change N.card ≤ n - 2 * d
   omega
 
-/-- Combined quantitative form: every target-avoiding extreme vertex shares
-with `u` a common-source face whose direction space has dimension at most the
-facet excess `n - 2*d`. -/
 lemma common_direction_finrank_le_excess
     (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
     (u v x : EuclideanSpace ℝ (Fin d))
@@ -182,5 +193,8 @@ lemma common_direction_finrank_le_excess
     Module.finrank ℝ (commonDirection a b u x) ≤ n - 2 * d :=
   (common_direction_finrank_le_neutral_card a b u v x hx hsep havoid).trans
     (neutral_card_le_excess a b u v hu hv hsep)
+
+#print axioms common_direction_finrank_le_neutral_rank
+#print axioms common_direction_finrank_le_excess
 
 end HirschPolynomialAccess
