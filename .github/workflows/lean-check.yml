@@ -30,7 +30,7 @@ jobs:
         run: ~/.elan/bin/lake build Definitions.Def_Hirsch_model Definitions.Def_Hirsch_wedge
       - name: Compile source-faithful symmetric front
         run: ~/.elan/bin/lake env lean Solutions/AxisSymScratch.lean
-      - name: Build redundant-row product core
-        run: ~/.elan/bin/lake build Solutions.AxisProductScratch
-      - name: Compile product edge lemmas
-        run: ~/.elan/bin/lake env lean Solutions/AxisProductEdges.lean
+      - name: Build product proof modules
+        run: ~/.elan/bin/lake build Solutions.AxisProductScratch Solutions.AxisProductEdges Solutions.AxisWalkCompression
+      - name: Compile complete redundant-row branch
+        run: ~/.elan/bin/lake env lean Solutions/AxisProductBranch.lean
