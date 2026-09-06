@@ -72,6 +72,11 @@ jobs:
       - name: Probe common-face coordinates
         continue-on-error: true
         run: ~/.elan/bin/lake env lean Solutions/PolynomialCoordProbe.lean
-      - name: Compile common-face coordinate H-polytope
+      - name: Build common-face coordinate H-polytope
         continue-on-error: true
-        run: ~/.elan/bin/lake env lean Solutions/PolynomialCommonFaceCoords.lean
+        run: |
+          ~/.elan/bin/lake env lean Solutions/PolynomialCommonFaceCoords.lean
+          ~/.elan/bin/lake build Solutions.PolynomialCommonFaceCoords
+      - name: Compile common-face affine transport
+        continue-on-error: true
+        run: ~/.elan/bin/lake env lean Solutions/PolynomialCommonFaceTransport.lean
