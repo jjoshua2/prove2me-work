@@ -27,6 +27,9 @@ jobs:
         run: ~/.elan/bin/lake exe cache get
       - name: Build imported definitions
         run: ~/.elan/bin/lake build Definitions.Def_Hirsch_model Definitions.Def_Hirsch_wedge
+      - name: Compile generic direction infrastructure
+        continue-on-error: true
+        run: ~/.elan/bin/lake env lean Solutions/AxisGenericLinear.lean
       - name: Build symmetric structural front
         continue-on-error: true
         run: ~/.elan/bin/lake build Solutions.AxisSymScratch Solutions.AxisSymExtremes Solutions.AxisActive Solutions.AxisNormalize Solutions.AxisSideSelection
