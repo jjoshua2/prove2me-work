@@ -1,5 +1,5 @@
 import Mathlib
-import Solutions.AxisSymScratch
+import Solutions.AxisSymExtremes
 
 open scoped RealInnerProductSpace
 open Set WithLp EuclideanSpace Hirsch
