@@ -4,6 +4,8 @@ import Solutions.AxisSymExtremes
 open scoped RealInnerProductSpace
 open Set WithLp EuclideanSpace Hirsch
 
+set_option maxHeartbeats 8000000
+
 noncomputable section
 
 namespace HirschAxisSym
@@ -178,7 +180,7 @@ lemma sym_bounded_small
         field_simp [hD.ne'] at this
         simpa using this
       have hAε : A * ε ≤ 1 := by
-        have h := mul_le_mul hAM hεδ hM.le hA0
+        have h := mul_le_mul hAM hεδ hε0 hM.le
         have hδM : M * δ = 1 := by
           dsimp [δ]
           field_simp [hM.ne']
@@ -196,16 +198,24 @@ lemma sym_bounded_small
         have hεM' : ε * M ≤ 1 := hεM
         nlinarith
       have hxy : (2 : ℝ) • x = D • y - lam • u := by
-        dsimp [y]
-        have hD0 : D ≠ 0 := hD.ne'
+        have hDy : D • y = (2 : ℝ) • x + lam • u := by
+          dsimp [y]
+          rw [smul_smul, mul_inv_cancel₀ hD.ne', one_smul]
+        rw [hDy]
         module
       have hnorm2 : 2 * ‖x‖ ≤ D * ‖y‖ + lam * ‖u‖ := by
+        have hnorm2x : ‖(2 : ℝ) • x‖ = 2 * ‖x‖ := by
+          rw [norm_smul]
+          norm_num
+        have hnormDy : ‖D • y‖ = D * ‖y‖ := by
+          rw [norm_smul, Real.norm_eq_abs, abs_of_pos hD]
+        have hnormlamu : ‖lam • u‖ = lam * ‖u‖ := by
+          rw [norm_smul, Real.norm_eq_abs, abs_of_nonneg hlam0]
         calc
-          2 * ‖x‖ = ‖(2 : ℝ) • x‖ := by simp
+          2 * ‖x‖ = ‖(2 : ℝ) • x‖ := hnorm2x.symm
           _ = ‖D • y - lam • u‖ := by rw [hxy]
           _ ≤ ‖D • y‖ + ‖lam • u‖ := norm_sub_le _ _
-          _ = D * ‖y‖ + lam * ‖u‖ := by
-            simp [abs_of_nonneg hD.le, abs_of_nonneg hlam0]
+          _ = D * ‖y‖ + lam * ‖u‖ := by rw [hnormDy, hnormlamu]
       have hD4 : D ≤ 4 := by dsimp [D]; linarith
       have hnormX : ‖x‖ ≤ X := by
         have hDy : D * ‖y‖ ≤ 4 * C0 :=
@@ -229,7 +239,9 @@ lemma sym_bounded_small
     rw [hnormz]
     nlinarith
   have hnonneg : 0 ≤ X ^ 2 + T ^ 2 := by positivity
-  rw [← Real.sqrt_sq (norm_nonneg z)]
-  exact Real.sqrt_le_sqrt hsq
+  have hsqrtnonneg : 0 ≤ Real.sqrt (X ^ 2 + T ^ 2) := Real.sqrt_nonneg _
+  have hsqrtsq : Real.sqrt (X ^ 2 + T ^ 2) ^ 2 = X ^ 2 + T ^ 2 :=
+    Real.sq_sqrt hnonneg
+  nlinarith [norm_nonneg z]
 
 end HirschAxisSym
