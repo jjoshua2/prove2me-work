@@ -64,16 +64,18 @@ problem = {'env': PIN, 'problems': [{
     'formal_statement': statement,
     'preamble': 'import Mathlib\nimport Definitions.Def_Hirsch_model\nopen scoped RealInnerProductSpace\nopen Set Hirsch',
     'natural_language_statement': (
-        'Let Q be convex in R^d with padded vertex-edge diameter at most B. '
-        'Let c.x <= b be a halfspace, and assume Q has an extreme point on or beyond its boundary. '
-        'If the equality slice F = Q intersect {c.x=b} has padded diameter at most C, '
-        'then the clipped set P = Q intersect {c.x<=b} has padded diameter at most B+C. '
-        'This covers all clipped vertices, not only old Q vertices. The two retained ends '
-        'of one outer walk share the B budget; replace its first-to-last cut excursion '
-        'by a cut-face walk of length C. No monotonicity, low-rank, product, boundedness, '
-        'or full-dimensionality assumption is needed beyond the stated hypotheses. '
-        'The outer-vertex assumption matters for unbounded Q. This transfers two assumed '
-        'diameter bounds; it does not prove a uniform polynomial Hirsch bound.'),
+        'Let Q be a compact convex subset of R^d with padded vertex-edge diameter at most B. '
+        'For any halfspace c.x<=b, suppose the equality slice F=Q intersect {c.x=b} '
+        'has padded diameter at most C. Then P=Q intersect {c.x<=b} has full padded '
+        'diameter at most B+C, covering every pair of its vertices including new cut vertices. '
+        'No nonempty-cut, nonzero-normal, full-dimensionality, product, or rank hypothesis is required. '
+        'Compactness supplies an outer extreme point on or beyond the plane when needed. '
+        'For two strictly retained endpoints, keep both ends of ONE outer walk and replace '
+        'its first-to-last cut excursion by a C-step cut-face walk. The retained ends together '
+        'use at most B steps, rather than paying for two independent outer walks. '
+        'The helper also proves the noncompact version with an explicit outer vertex. '
+        'This transfers two assumed diameter bounds; it does not supply a uniform polynomial '
+        'Hirsch bound or an uncontrolled bound on the cut face.'),
     'source': 'Working formalization for the Polynomial Hirsch mission, 2026-09-06; jjoshua2/prove2me-work branch chatgpt/clipped-diameter. No literature-priority claim.',
     'tags': ['convex-geometry', 'polytopes', 'graph-diameter']
 }]}
