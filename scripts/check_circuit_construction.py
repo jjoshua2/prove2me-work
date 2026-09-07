@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compile exact circuit-construction proof bytes. Never publishes or reads secrets."""
+"""Compile exact proof bytes; never publish or read credentials."""
 from __future__ import annotations
 import hashlib
 import json
@@ -58,40 +58,70 @@ def audit(path: pathlib.Path, names: list[str]) -> dict:
             'bytes': path.stat().st_size, 'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
             'axioms': axioms}
 
+
+def elementary(g: str) -> str:
+    return '('+g+' ∈ K ∧ '+g+' ≠ 0 ∧ ∀ h ∈ K, h ≠ 0 → '+\
+        '{i | h i ≠ 0} ⊆ {i | '+g+' i ≠ 0} → {i | '+g+' i ≠ 0} ⊆ {i | h i ≠ 0})'
+
+
+def expand(statement: str) -> str:
+    std = '{s : Fin n → ℝ | s - b ∈ K ∧ ∀ i, 0 ≤ s i}'
+    step = '(x ∈ '+std+' ∧ y ∈ '+std+' ∧ '+elementary('(y - x)')+\
+        ' ∧ ∀ t : ℝ, 1 < t → x + t • (y - x) ∉ '+std+')'
+    statement = statement.replace('StandardStep K b x y', step)
+    statement = statement.replace('standardSet K b', std)
+    statement = statement.replace('Elementary K g', elementary('g'))
+    statement = statement.replace('ConformalPart g v', '(∀ i, min 0 (v i) ≤ g i ∧ g i ≤ max 0 (v i))')
+    statement = statement.replace('ConformalPart g (fun i => v i - x i)',
+        '(∀ i, min 0 (v i - x i) ≤ g i ∧ g i ≤ max 0 (v i - x i))')
+    return statement
+
+
 report = {'mathlib_rev': PIN, 'submitted': False, 'files': {}}
 bridge = OUT / 'slack_bridge.lean'
 bridge_names = ['HirschSlack.walk_iff','HirschSlack.extreme_iff','HirschSlack.elementary_iff']
 bridge.write_text(inline('Solutions.CircuitSlackBridge')+'\n'+'\n'.join('#print axioms '+x for x in bridge_names)+'\n')
 report['files']['slack_bridge.lean'] = audit(bridge, bridge_names)
-source = (ROOT/'Solutions/CircuitProgressNumerics.lean').read_text()
-for local, public, folder, title in [
-    ('greedy_norm_step','Hirsch.circuit_greedy_norm_step','norm',
-     'Greedy conformal augmentation contracts weighted mass and preserves trapped coordinates'),
-    ('elimination_trapped_coordinate','Hirsch.circuit_elimination_trapped_coordinate','elimination',
-     'Elimination augmentation preserves trapped coordinates and cannot zero a positive trapped coordinate'),
-]:
-    statement = source.split('theorem '+local,1)[1].split(':= by',1)[0].strip()
-    statement = statement.replace('ConformalPart g (fun i => v i - x i)',
-        '(∀ i, min 0 (v i - x i) ≤ g i ∧ g i ≤ max 0 (v i - x i))')
+configs = [
+ ('CircuitConformal','HirschConformal','exists_conformal_decomposition','{n : ℕ}',
+  'K v hvK','decomposition','Hirsch.conformal_elementary_decomposition',
+  'Every vector of a real subspace is a conformal sum of at most n elementary vectors'),
+ ('CircuitNormReduction','HirschCircuitNorm','exists_norm_reducing_circuit_step','',
+  'n K b x v N weight M hM hn hx hv hw hvN hmass','norm_step','Hirsch.exists_norm_reducing_circuit_step',
+  'Existence of a maximal weighted-norm-reducing circuit augmentation'),
+ ('CircuitElimination','HirschCircuitElimination','exists_eliminating_circuit_step','',
+  'n K b x ref v T N M lambda eta hM hn hx hr hv hl he hprotect hsmall hxt hrt htangent hN q hxq hq',
+  'elimination_step','Hirsch.exists_eliminating_circuit_step',
+  'Existence of a maximal circuit augmentation eliminating a coordinate outside the trapped set'),
+ ('CircuitProgressNumerics','HirschCircuitProgress','greedy_norm_step','',
+  'N x v g weight M alpha hM ha hx hv hweight hvN hconf hfeas hmass hgain',
+  'norm','Hirsch.circuit_greedy_norm_step','Weighted gain contracts mass and preserves trapped coordinates'),
+ ('CircuitProgressNumerics','HirschCircuitProgress','elimination_trapped_coordinate','',
+  'M alpha lambda eta x ref v g hM ha0 haM hl he hprotect hsmall hx0 hr0 hv0 hxM hrM hconf',
+  'elimination','Hirsch.circuit_elimination_trapped_coordinate','Elimination steps protect trapped coordinates'),
+ ('CircuitParameters','HirschCircuitParameters','elimination_parameters','',
+  'M rho hM hr0 hr','parameters','Hirsch.circuit_elimination_parameters',
+  'Rational ghost-point parameters satisfy the quantitative protection conditions'),
+]
+for module, namespace, local, prefix, args, folder, public, title in configs:
+    source = (ROOT/('Solutions/'+module+'.lean')).read_text()
+    statement = prefix+' '+source.split('theorem '+local,1)[1].split(':= by',1)[0].strip()
+    statement = expand(statement.strip())
     path = OUT / folder
     path.mkdir(exist_ok=True)
-    args = {
-      'greedy_norm_step': 'N x v g weight M alpha hM ha hx hv hweight hvN hconf hfeas hmass hgain',
-      'elimination_trapped_coordinate': 'M alpha lambda eta x ref v g hM ha0 haM hl he hprotect hsmall hx0 hr0 hv0 hxM hrM hconf',
-    }[local]
-    proof = inline('Solutions.CircuitProgressNumerics')
-    proof += '\ntheorem solution '+statement+' := by\n  exact HirschCircuitProgress.'+local+' '+args+'\n\n#print axioms solution\n'
+    proof = inline('Solutions.'+module)
+    proof += '\ntheorem solution '+statement+' := by\n  exact '+namespace+'.'+local+' '+args+'\n\n#print axioms solution\n'
     (path/'solution.lean').write_text(proof)
     report['files'][folder+'/solution.lean'] = audit(path/'solution.lean', ['solution'])
     problem = {'env': PIN, 'problems': [{
         'theorem_name':public, 'theorem_title':title,
         'formal_statement':'theorem '+public+' '+statement+' := by sorry',
         'preamble':'import Mathlib',
-        'natural_language_statement':title+'. This is a numerical lemma used in circuit routing; it does not assert that a conformal direction is an edge, nor a polynomial graph-diameter bound.',
-        'source':'Formalization of quantitative ingredients of Bento Natura, Circuit Diameter of Polyhedra is Strongly Polynomial, arXiv:2602.06958v2, Claim 3.5 and elimination-step analysis. No novelty claim. Source in jjoshua2/prove2me-work, Solutions/CircuitProgressNumerics.lean.',
+        'natural_language_statement':title+'. All supports are coordinate supports. The entire statement is explicit in Mathlib primitives. These are proved construction ingredients for circuit routing, not polynomial vertex-edge diameter bounds; an intermediate circuit endpoint need not be a vertex.',
+        'source':'Formalization of ingredients of Bento Natura, Circuit Diameter of Polyhedra is Strongly Polynomial, arXiv:2602.06958v2, Lemma 2.2, Claim 3.5 and elimination-step analysis, using the looser ambient coordinate count. No novelty claim. Source: jjoshua2/prove2me-work, Solutions/'+module+'.lean.',
         'tags':['convex-geometry','polytopes']
     }]}
     (path/'problem.json').write_text(json.dumps(problem,ensure_ascii=False,indent=2)+'\n')
     (path/'signature.txt').write_text(statement+'\n')
-(OUT/'verification.json').write_text(json.dumps(report,indent=2)+'\n')
+    (OUT/'verification.json').write_text(json.dumps(report,indent=2)+'\n')
 print('CIRCUIT_CONSTRUCTION_VERIFIED', json.dumps(report), flush=True)
