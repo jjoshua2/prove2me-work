@@ -39,11 +39,14 @@ lemma corner_cost_walk (a : Fin d → ℝ) (β : ℝ)
         · simpa [z, Function.update_of_ne hji] using hxc j
       have hzP : z ∈ Clip a β := by
         refine ⟨corner_mem_box hzc, ?_⟩
-        apply le_trans (Finset.sum_le_sum (fun j _ => ?_)) hx.2
-        by_cases hji : j = i
-        · subst j
-          simpa [z] using hcost i
-        · simp [z, Function.update_of_ne hji]
+        change cost a (Function.update x i (y i)) ≤ β
+        calc
+          cost a (Function.update x i (y i)) =
+              cost a x + (a i * y i - a i * x i) := by
+                rw [cost_update]
+                ring
+          _ ≤ cost a x := add_le_of_nonpos_right (sub_nonpos.mpr (hcost i))
+          _ ≤ β := hx.2
       have hcostz : ∀ j, a j * y j ≤ a j * z j := by
         intro j
         by_cases hji : j = i
@@ -74,9 +77,9 @@ lemma corner_cost_walk (a : Fin d → ℝ) (β : ℝ)
       have hw := walk_append (one_step_walk hfirst) hrest
       simpa [Finset.card_insert_of_notMem hi, Nat.add_comm] using hw
 
-/-- Every pair of retained original corners has a shortest possible Hamming
-path after an arbitrary real halfspace cut. The path need not be monotone in
-a prescribed optimization objective. Signs of the cut coefficients are free. -/
+/-- Retained original corners admit a feasible coordinate-edge path of
+Hamming length after one arbitrary real halfspace cut. This need not be a
+shortest path in the clipped graph or monotone in an optimization objective. -/
 theorem retained_corners_hamming_walk
     (a : Fin d → ℝ) (β : ℝ) (x y : Fin d → ℝ)
     (hx : x ∈ Clip a β) (hy : y ∈ Clip a β)
