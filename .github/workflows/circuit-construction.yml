@@ -77,7 +77,7 @@ jobs:
       - name: Compile exact circuit construction modules
         run: |
           set -o pipefail
-          ~/.elan/bin/lake build Solutions.CircuitSlackBridge Solutions.CircuitProgressNumerics 2>&1 | tee circuit_construction_packet/build.log
+          ~/.elan/bin/lake build Solutions.CircuitSlackBridge Solutions.CircuitProgressNumerics Solutions.CircuitConformal 2>&1 | tee circuit_construction_packet/build.log
       - name: Independently compile bundled files and audit axioms
         run: python3 scripts/check_circuit_construction.py
       - name: Upload proof bytes and verification evidence
