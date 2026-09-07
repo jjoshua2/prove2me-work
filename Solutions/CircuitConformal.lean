@@ -18,7 +18,7 @@ def reflect (v : Fin n → ℝ) : (Fin n → ℝ) ≃ₗ[ℝ] (Fin n → ℝ) wh
   invFun x i := if v i < 0 then -x i else x i
   left_inv x := by funext i; by_cases h : v i < 0 <;> simp [h]
   right_inv x := by funext i; by_cases h : v i < 0 <;> simp [h]
-  map_add' x y := by funext i; by_cases h : v i < 0 <;> simp [h]
+  map_add' x y := by funext i; by_cases h : v i < 0 <;> simp [h] <;> ring
   map_smul' t x := by funext i; by_cases h : v i < 0 <;> simp [h]
 
 lemma reflect_apply (v x : Fin n → ℝ) (i : Fin n) :
@@ -96,10 +96,11 @@ theorem conformal_elementary_reduction
   obtain ⟨e, he, hepos, hesub⟩ :=
     exists_nonnegative_elementary K' (R v) hRvK hRv0 (reflect_self_nonnegative v)
   obtain ⟨w, hwK, hwR⟩ := Submodule.mem_map.mp he.1
+  have hwR' : R w = e := hwR
   have hw0 : w ≠ 0 := by
     intro h
     apply he.2.1
-    rw [← hwR, h, map_zero]
+    rw [← hwR', h, map_zero]
   have hwE : Elementary K w := by
     refine ⟨hwK, hw0, ?_⟩
     intro h hhK hh0 hhsub
@@ -110,11 +111,13 @@ theorem conformal_elementary_reduction
       apply R.injective
       simpa only [map_zero] using heq
     have hsub' : support (R h) ⊆ support e := by
-      rw [← hwR]
-      simpa only [R, reflect_support] using hhsub
+      rw [← hwR']
+      change support (reflect v h) ⊆ support (reflect v w)
+      simpa only [reflect_support] using hhsub
     have hback := he.2.2 (R h) hRhK hRh0 hsub'
-    rw [← hwR] at hback
-    simpa only [R, reflect_support] using hback
+    rw [← hwR'] at hback
+    change support (reflect v w) ⊆ support (reflect v h) at hback
+    simpa only [reflect_support] using hback
   have htangent : ∀ i, R v i = 0 → 0 ≤ (-e) i := by
     intro i hvi
     have hei : e i = 0 := by
@@ -145,7 +148,7 @@ theorem conformal_elementary_reduction
   have hconf : ConformalPart g v := by
     intro i
     have hb := hbounds i
-    have hwri : (if v i < 0 then -w i else w i) = e i := congrFun hwR i
+    have hwri : (if v i < 0 then -w i else w i) = e i := congrFun hwR' i
     by_cases hi : v i < 0
     · simp only [if_pos hi] at hwri
       change 0 ≤ alpha * e i ∧ alpha * e i ≤ (if v i < 0 then -v i else v i) at hb
@@ -167,7 +170,7 @@ theorem conformal_elementary_reduction
     have hRvzero : R v q = 0 := by simp only [R, reflect_apply, hvzero, neg_zero, ite_self]
     linarith
   have hresq : (v - g) q = 0 := by
-    have hwri : (if v q < 0 then -w q else w q) = e q := congrFun hwR q
+    have hwri : (if v q < 0 then -w q else w q) = e q := congrFun hwR' q
     change (if v q < 0 then -v q else v q) + alpha * (-e q) = 0 at hzeroq
     change v q - alpha * w q = 0
     by_cases hi : v q < 0
