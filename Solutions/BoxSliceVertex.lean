@@ -23,7 +23,7 @@ lemma extreme_at_most_one_interior
   let a := exchange x p q ε
   let b := exchange x q p ε
   have ha : a ∈ slice cap total := exchange_mem cap total x p q hpq hx.1 ε hε.le hεp1 hεq0
-  have hb : b ∈ slice cap total := exchange_mem cap total x q p hpq.symm hx.1 ε hε.le hεq1 hεp0
+  have hb : b ∈ slice cap total := exchange_mem cap total x q p (Ne.symm hpq) hx.1 ε hε.le hεq1 hεp0
   have hop : x ∈ openSegment ℝ a b := by
     refine ⟨(1 / 2 : ℝ), (1 / 2 : ℝ), by norm_num, by norm_num, by norm_num, ?_⟩
     funext k
