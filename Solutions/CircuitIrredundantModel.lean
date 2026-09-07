@@ -89,6 +89,7 @@ theorem exists_irredundant_strict_model
   have hnonzero : ∀ j : Fin m, a (e j) ≠ 0 := by
     intro j hj0
     obtain ⟨x, _, hx⟩ := hirr j
+    change b (e j) < ⟪a (e j), x⟫ at hx
     have hj := hu (e j)
     rw [hj0, inner_zero_left] at hx hj
     linarith
