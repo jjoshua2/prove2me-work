@@ -112,6 +112,7 @@ theorem elimination_trapped_coordinate
       g ≤ max 0 (lambda * (v - x) + eta * (x - ref))) :
     x + alpha * g ≤ M * v ∧ (0 < x → 0 < x + alpha * g) := by
   let delta := lambda * (v - x) + eta * (x - ref)
+  change min 0 delta ≤ g ∧ g ≤ max 0 delta at hconf
   have hM0 : 0 ≤ M := by linarith
   have hM1 : 1 ≤ M := by linarith
   have hMv : v ≤ M * v := by nlinarith
