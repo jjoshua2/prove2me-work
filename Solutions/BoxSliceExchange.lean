@@ -177,7 +177,7 @@ lemma maximal_exchange_is_edge
               (mul_le_mul_of_nonneg_left (hy.1 k).2 hβ)
           _ = cap k := by rw [← add_mul, hαβ, one_mul]
     · rw [← hcombo]
-      change (∑ k, α * x k + β * y k) = total
+      change (∑ k, (α * x k + β * y k)) = total
       rw [Finset.sum_add_distrib, ← Finset.mul_sum, ← Finset.mul_sum,
         hx.2, hy.2, ← add_mul, hαβ, one_mul]
     · intro k hkp hkq
