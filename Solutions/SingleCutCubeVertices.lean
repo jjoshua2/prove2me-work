@@ -129,7 +129,8 @@ lemma noncorner_vertex_structure (a : Fin d → ℝ) (β : ℝ)
   obtain ⟨i, hxi0, hxi1⟩ := hn
   have hxp : 0 < x i := lt_of_le_of_ne (hx.1.1 i).1 hxi0.symm
   have hxm : x i < 1 := lt_of_le_of_ne (hx.1.1 i).2 hxi1
-  have hunit : ∀ k, (x k = 0 ∨ x k = 1) → (Pi.single i (1 : ℝ)) k = 0 := by
+  have hunit : ∀ (k : Fin d), (x k = 0 ∨ x k = 1) →
+      (Pi.single i (1 : ℝ) : Fin d → ℝ) k = 0 := by
     intro k hk
     by_cases hki : k = i
     · subst k
