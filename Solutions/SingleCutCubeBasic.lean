@@ -31,7 +31,7 @@ lemma cost_sub (a x y : Fin d → ℝ) :
 
 lemma cost_smul (a x : Fin d → ℝ) (t : ℝ) :
     cost a (t • x) = t * cost a x := by
-  simp [cost, Finset.mul_sum, mul_left_comm, mul_assoc]
+  simp [cost, Finset.mul_sum, mul_left_comm]
 
 lemma cost_combo (a x y : Fin d → ℝ) (s t : ℝ) :
     cost a (s • x + t • y) = s * cost a x + t * cost a y := by
@@ -49,7 +49,6 @@ lemma update_eq_add_single (x : Fin d → ℝ) (i : Fin d) (t : ℝ) :
   by_cases h : j = i
   · subst j
     simp
-    ring
   · simp [Function.update_of_ne h, Pi.single_eq_of_ne h]
 
 lemma cost_update (a x : Fin d → ℝ) (i : Fin d) (t : ℝ) :
@@ -65,14 +64,19 @@ lemma clip_convex (a : Fin d → ℝ) (β : ℝ) : Convex ℝ (Clip a β) := by
     have hxi := hx.1 i
     have hyi := hy.1 i
     constructor
-    · positivity
-    · nlinarith [mul_nonneg hs (sub_nonneg.mpr hxi.2),
-        mul_nonneg ht (sub_nonneg.mpr hyi.2)]
+    · exact add_nonneg (mul_nonneg hs hxi.1) (mul_nonneg ht hyi.1)
+    · calc
+        s * x i + t * y i ≤ s * 1 + t * 1 :=
+          add_le_add (mul_le_mul_of_nonneg_left hxi.2 hs)
+            (mul_le_mul_of_nonneg_left hyi.2 ht)
+        _ = 1 := by simpa using hst
   · change cost a (s • x + t • y) ≤ β
     rw [cost_combo]
-    have h1 := mul_le_mul_of_nonneg_left hx.2 hs
-    have h2 := mul_le_mul_of_nonneg_left hy.2 ht
-    nlinarith
+    calc
+      s * cost a x + t * cost a y ≤ s * β + t * β :=
+        add_le_add (mul_le_mul_of_nonneg_left hx.2 hs)
+          (mul_le_mul_of_nonneg_left hy.2 ht)
+      _ = β := by rw [← add_mul, hst, one_mul]
 
 lemma fixed_bound_left
     {p q z : Fin d → ℝ} (hp : p ∈ Box d) (hq : q ∈ Box d)
@@ -106,8 +110,8 @@ lemma corner_flip_adj (a : Fin d → ℝ) (β : ℝ)
       obtain ⟨s, t, hs, ht, hst, heq⟩ := hz
       have hj := congrFun heq j
       change s * x j + t * y j = z j at hj
-      rw [← hsame j hji] at hj
-      nlinarith
+      rw [← hsame j hji, ← add_mul, hst, one_mul] at hj
+      exact hj.symm
     have hzb : z j = 0 ∨ z j = 1 := by simpa only [hzj] using hxc j
     exact (fixed_bound_left hp.1 hq.1 hop j hzb).trans hzj
   rcases hxc i with hxi | hxi <;> rcases hyc i with hyi | hyi
