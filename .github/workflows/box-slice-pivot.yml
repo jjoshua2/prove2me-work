@@ -10,29 +10,84 @@ permissions:
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
-      - name: Install elan
+      - name: Check authenticated platform state when configured
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
         run: |
-          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y
+          mkdir -p pivot_packet
+          python3 - <<'PY'
+          import os,json,datetime,pathlib,urllib.request,urllib.parse,urllib.error
+          out=pathlib.Path('pivot_packet'); key=os.environ.get('PROVE2ME_API_KEY','').strip()
+          report={'fetched_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'repository_secret_present':bool(key),'submitted':False}
+          class NoRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self,*args,**kwargs): raise RuntimeError('Authenticated redirects disabled')
+          if key:
+              base='https://prove2.me/api/v1';opener=urllib.request.build_opener(NoRedirect)
+              try:
+                  req=urllib.request.Request(base+'/agent/refresh',data=json.dumps({'api_key':key}).encode(),headers={'Content-Type':'application/json'},method='POST')
+                  with opener.open(req,timeout=45) as r: auth=json.load(r)
+                  token=auth['access_token']
+                  def get(path):
+                      with opener.open(urllib.request.Request(base+path,headers={'Authorization':'Bearer '+token}),timeout=45) as r:return json.load(r)
+                  leaf=get('/theorems/33fc334e-e05b-4090-ac49-f83fd94d9305')
+                  report['leaf']={k:leaf.get(k) for k in ('theorem_id','theorem_name','status','mathlib_rev')}
+                  report['authenticated']=True
+                  related={}
+                  for q in ['box','transportation','capped','balance']:
+                      offset=0
+                      while True:
+                          page=get('/theorems?'+urllib.parse.urlencode({'q':q,'env':'c5ea00351c28e24afc9f0f84379aa41082b1188f','limit':200,'offset':offset}))
+                          rows=page.get('theorems',[])
+                          for row in rows:related[row['theorem_id']]=row
+                          offset+=len(rows)
+                          if not rows or offset>=page.get('total',offset):break
+                  (out/'related-theorems.json').write_text(json.dumps(list(related.values()),indent=2))
+                  report['related_count']=len(related)
+              except urllib.error.HTTPError as e:report['http_error']=e.code
+              except Exception as e:report['error_type']=type(e).__name__
+          else: report['authenticated']=False
+          (out/'api-state.json').write_text(json.dumps(report,indent=2)+'\n')
+          print(json.dumps(report))
+          PY
+      - name: Make room for dependency cache on disposable runner
+        run: sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc
+      - uses: actions/cache/restore@v4
+        id: deps
+        with:
+          path: |
+            ~/.elan
+            .lake/packages
+          key: box-slice-deps-${{ runner.os }}-lean430-c5ea003-v1
+      - name: Install elan if needed
+        run: |
+          if [ ! -x "$HOME/.elan/bin/elan" ]; then
+            curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y
+          fi
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
       - name: Fetch pinned Mathlib cache
+        if: steps.deps.outputs.cache-hit != 'true'
         run: ~/.elan/bin/lake exe cache get
+      - name: Save compiler dependencies before proof checking
+        if: steps.deps.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            ~/.elan
+            .lake/packages
+          key: box-slice-deps-${{ runner.os }}-lean430-c5ea003-v1
       - name: Build box slice components
         run: |
           set -o pipefail
-          mkdir -p pivot_packet
           targets=(Solutions.BoxSliceVertex Solutions.BoxSlicePotential)
           for part in BoxSlicePivotBasics BoxSlicePivotSelection BoxSlicePivot BoxSliceDiameter; do
             if [ -f "Solutions/$part.lean" ]; then targets+=("Solutions.$part"); fi
           done
           ~/.elan/bin/lake build "${targets[@]}" 2>&1 | tee pivot_packet/build.log
-      - name: Bundle and independently audit when complete
-        run: |
-          if [ -f scripts/bundle_box_slice_pivot.py ]; then
-            python3 scripts/bundle_box_slice_pivot.py
-          fi
+      - name: Bundle and independently audit exact proof
+        run: python3 scripts/bundle_box_slice_pivot.py
       - name: Upload proof diagnostics
         if: always()
         uses: actions/upload-artifact@v4
