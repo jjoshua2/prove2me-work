@@ -57,7 +57,7 @@ lemma support_smul (c : ℝ) (hc : c ≠ 0) (g : Fin n → ℝ) :
     support (c • g) = support g := by
   ext i
   change (c * g i ≠ 0) ↔ (g i ≠ 0)
-  simp only [mul_ne_zero_iff, hc, true_and]
+  exact ⟨fun h => (mul_ne_zero_iff.mp h).2, fun h => mul_ne_zero hc h⟩
 
 lemma elementary_smul
     (K : Submodule ℝ (Fin n → ℝ)) (g : Fin n → ℝ)
@@ -189,7 +189,8 @@ theorem exists_nonnegative_elementary
     apply no_shrink (-h) (K.neg_mem hhK)
     · intro j hj
       apply hhsub
-      simpa only [Pi.neg_apply, neg_ne_zero] using hj
+      change -h j ≠ 0 at hj
+      exact neg_ne_zero.mp hj
     · refine ⟨i, ?_⟩
       change -h i < 0
       linarith
