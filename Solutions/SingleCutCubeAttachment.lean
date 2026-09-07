@@ -58,8 +58,8 @@ lemma vertex_corner_attachment (a : Fin d → ℝ) (β : ℝ)
       obtain ⟨α, γ, hα, hγ, hαγ, heq⟩ := hz
       have hj := congrFun heq j
       change α * p j + γ * x j = z j at hj
-      rw [hpother j hji] at hj
-      nlinarith
+      rw [hpother j hji, ← add_mul, hαγ, one_mul] at hj
+      exact hj.symm
     have hzb : z j = 0 ∨ z j = 1 := by simpa only [hzj] using hother j hji
     exact (fixed_bound_left hr.1 hs.1 hop j hzb).trans hzj
   have hrupdate : r = Function.update x i (r i) := by
@@ -69,7 +69,9 @@ lemma vertex_corner_attachment (a : Fin d → ℝ) (β : ℝ)
       simp
     · simp [Function.update_of_ne hji, hrfix j hji]
   have hcostr : cost a r = β + a i * (r i - x i) := by
-    rw [hrupdate, cost_update, hcut]
+    calc
+      cost a r = cost a (Function.update x i (r i)) := congrArg (cost a) hrupdate
+      _ = β + a i * (r i - x i) := by rw [cost_update, hcut]
   have hprod : a i * (r i - x i) ≤ 0 := by
     have hrle := hr.2
     rw [hcostr] at hrle
