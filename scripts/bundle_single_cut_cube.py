@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Produce and independently compile a closed proof; never publishes implicitly."""
 from __future__ import annotations
-import hashlib,json,re,subprocess,time
+import hashlib,json,re,subprocess,time,shutil
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'cube_packet'
@@ -35,13 +35,15 @@ standalone='import Mathlib\n'+model+'\n'+proof.replace('import Mathlib\n','').re
 (OUT/'standalone.lean').write_text(standalone)
 source=(ROOT/(TARGET.replace('.','/')+'.lean')).read_text()
 statement='theorem '+NAME+source.split('theorem solution',1)[1].split(':= by',1)[0].rstrip()+' := by sorry'
-problem={'env':PIN,'problems':[{'theorem_name':NAME,'theorem_title':'A cube cut by one real halfspace has diameter at most d+2','formal_statement':statement,'preamble':'import Mathlib\nimport Definitions.Def_Hirsch_model','natural_language_statement':'For every natural d, every real coefficient vector a, and every real beta, the vertex-edge graph of {x in R^d: 0<=x_i<=1 for all i and sum_i a_i*x_i<=beta} has diameter at most d+2. This is the continuous polytope, not its integer hull. No sign, genericity, rank, integrality, nonemptiness, full-dimensionality, or assumed diameter bound is needed. Empty and zero-dimensional cases are included. Fin d -> R is the finite real coordinate vector space; the graph notion is the published Hirsch.Adj. This is a restricted concrete class, not the general polynomial Hirsch conjecture; optimality is not claimed.','source':'Working derivation for the Polynomial Hirsch mission in jjoshua2/prove2me-work, branch chatgpt/single-cut-cube. No literature-priority claim.','tags':['convex-geometry','polytopes']}]}
+problem={'env':PIN,'problems':[{'theorem_name':NAME,'theorem_title':'A cube cut by one real halfspace has diameter at most d+2','formal_statement':statement,'preamble':'import Mathlib\nimport Definitions.Def_Hirsch_model','natural_language_statement':'For every natural d, every real coefficient vector a, and every real beta, the vertex-edge graph of {x in R^d: 0<=x_i<=1 for all i and sum_i a_i*x_i<=beta} has diameter at most d+2. This is the continuous polytope, not its integer hull. No sign, genericity, rank, integrality, nonemptiness, full-dimensionality, or assumed diameter bound is needed. Empty and zero-dimensional cases are included. Fin d -> R is the finite real coordinate vector space; the graph notion is the published Hirsch.Adj. This is a restricted concrete class, not the general polynomial Hirsch conjecture; optimality is not claimed.','source':'Working derivation for the Polynomial Hirsch mission in jjoshua2/prove2me-work, branch chatgpt/single-cut-cube. Related vertex classification: Black and Steiner, Finding Short Paths On Simple Polytopes, arXiv:2603.05482v1, Lemma 2.2. No literature-priority claim.','tags':['convex-geometry','polytopes']}]}
 (OUT/'problem.json').write_text(json.dumps(problem,indent=2,ensure_ascii=False)+'\n')
 (OUT/'manifest.json').write_text(json.dumps({'mathlib_rev':PIN,'modules':manifest},indent=2)+'\n')
+shutil.copyfile(ROOT/'research/SingleCutCubeProof.md',OUT/'EXPLANATION.md')
+shutil.copyfile(ROOT/'scripts/submit_checked_packet.py',OUT/'submit_checked.py')
 report={}
 for name in ['solution.lean','standalone.lean']:
     p=OUT/name;t=time.monotonic()
-    run=subprocess.run([str(Path.home()/'.elan/bin/lake'),'env','lean',str(p)],cwd=ROOT,text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+    run=subprocess.run([str(Path.home()/'.elan/bin/lake'),'env','lean','-DautoImplicit=false',str(p)],cwd=ROOT,text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
     elapsed=time.monotonic()-t
     (OUT/(name+'.audit.log')).write_text(run.stdout)
     print(run.stdout,flush=True)
@@ -51,6 +53,6 @@ for name in ['solution.lean','standalone.lean']:
     axioms={x.strip() for x in m.group(1).split(',') if x.strip()}
     if not axioms<={'propext','Classical.choice','Quot.sound'}:raise RuntimeError('Unexpected axioms: '+repr(axioms))
     data=p.read_bytes()
-    report[name]={'compiled':True,'axioms':sorted(axioms),'seconds':elapsed,'lines':len(data.splitlines()),'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest()}
+    report[name]={'compiled':True,'autoImplicit':False,'axioms':sorted(axioms),'seconds':elapsed,'lines':len(data.splitlines()),'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest()}
 (OUT/'verification.json').write_text(json.dumps(report,indent=2)+'\n')
 print('CLOSED_CUBE_THEOREM_CHECKED',json.dumps(report),flush=True)
