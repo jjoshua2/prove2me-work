@@ -18,7 +18,7 @@ def directionMap (a : Fin n → EuclideanSpace ℝ (Fin d)) :
     EuclideanSpace ℝ (Fin d) →ₗ[ℝ] (Fin n → ℝ) where
   toFun g i := -⟪a i, g⟫
   map_add' := by intro x y; funext i; simp [inner_add_right]; ring
-  map_smul' := by intro t x; funext i; simp [inner_smul_right]; ring
+  map_smul' := by intro t x; funext i; simp [inner_smul_right]
 
 /-- The actual slacks, in the ordinary finite function space. -/
 def slack (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
@@ -187,12 +187,12 @@ lemma step_iff
   constructor <;> intro h t ht
   · intro hx
     apply h t ht
-    rw [← slack_line]
+    rw [← slack_sub a b x y, ← slack_line]
     exact (slack_mem_iff a b _).2 hx
   · intro hx
     apply h t ht
     apply (slack_mem_iff a b _).1
-    simpa only [slack_line] using hx
+    simpa only [slack_line, slack_sub] using hx
 
 /-- No length or maximality is lost in either direction. Intermediate
 points remain feasible but are not asserted to be vertices. -/
