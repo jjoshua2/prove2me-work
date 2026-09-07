@@ -1,0 +1,41 @@
+name: Circuit leaf decomposition
+on:
+  push:
+    branches: [chatgpt/circuit-leaf-split]
+concurrency:
+  group: circuit-leaf-${{ github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Probe authenticated leaf and related theorems
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: python3 scripts/circuit_leaf_api.py
+      - name: Install elan if needed
+        run: |
+          if [ ! -x "$HOME/.elan/bin/elan" ]; then
+            curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y
+          fi
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Fetch pinned Mathlib cache
+        run: ~/.elan/bin/lake exe cache get
+      - name: Build normalization and exact leaf sketch
+        run: |
+          set -o pipefail
+          mkdir -p circuit_leaf_packet
+          ~/.elan/bin/lake build Solutions.CircuitIrredundantModel Solutions.Sol_Hirsch_leaf_circuit_split 2>&1 | tee circuit_leaf_packet/build.log
+      - name: Independently audit exact sketch and admission-free conditional proof
+        run: python3 scripts/check_circuit_leaf_split.py
+      - name: Upload exact sketch and evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: circuit-leaf-split-packet
+          path: circuit_leaf_packet/
+          if-no-files-found: warn
