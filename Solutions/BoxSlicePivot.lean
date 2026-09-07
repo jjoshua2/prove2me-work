@@ -150,7 +150,8 @@ theorem decreasing_pivot (cap : Fin d → ℝ) (total : ℝ) (v : Fin d → ℝ)
         have hfixed : ∀ k, k ≠ p → k ≠ j → AtBound cap x k := by
           intro k hkp hkj
           exact bounds_except_inside cap total x hx.1 hr j hj k hkj
-        exact inc_buffer_pivot cap total x v j p hx hv ht hpj hp hfixed (Or.inl ⟨hj, hi, hd⟩)
+        exact inc_buffer_pivot cap total x v j p hx hv ht hpj hp hfixed
+          (Or.inl ⟨hj, ⟨p, hpj, hp⟩, hd⟩)
       · obtain ⟨p, q, hpq, hpj, hqj, hp, hq, hfixed⟩ :=
           select_both cap total x v j hx.1 hr ht (bound_of_not_inside cap total x hx.1 j hj) hi hd
         exact both_pivot cap total x v j p q hx ht hpq hpj hqj hp hq hfixed
