@@ -2,6 +2,14 @@ name: Single-cut cube diameter
 on:
   push:
     branches: [chatgpt/single-cut-cube]
+    paths:
+      - 'Solutions/SingleCutCube*.lean'
+      - 'Solutions/Polynomial*.lean'
+      - 'Definitions/Def_Hirsch_model.lean'
+      - 'scripts/bundle_single_cut_cube.py'
+      - 'scripts/submit_checked_packet.py'
+      - 'research/SingleCutCubeProof.md'
+      - '.github/workflows/single-cut-cube.yml'
 concurrency:
   group: single-cut-cube-${{ github.ref }}
   cancel-in-progress: true
@@ -29,6 +37,8 @@ jobs:
                   if t in ('script','style'): self.skip=max(0,self.skip-1)
               def handle_data(self,t):
                   if not self.skip and t.strip(): self.parts.append(t.strip())
+          class NoRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self,*args,**kwargs): raise RuntimeError('Authenticated redirects are disabled')
           report={'fetched_at':datetime.datetime.now(datetime.timezone.utc).isoformat()}
           for name,url in [('user','https://prove2.me/users/c7399005-c54f-46c6-83fd-0131738d1e3f'),('mission','https://prove2.me/missions/The%20Polynomial%20Hirsch%20Conjecture')]:
               try:
@@ -43,11 +53,12 @@ jobs:
           report['repository_secret_present']=bool(key)
           if key:
               base='https://prove2.me/api/v1'
+              opener=urllib.request.build_opener(NoRedirect)
               req=urllib.request.Request(base+'/agent/refresh',data=json.dumps({'api_key':key}).encode(),headers={'Content-Type':'application/json'},method='POST')
-              with urllib.request.urlopen(req,timeout=30) as r: auth=json.load(r)
+              with opener.open(req,timeout=30) as r: auth=json.load(r)
               token=auth['access_token']
               req=urllib.request.Request(base+'/theorems/33fc334e-e05b-4090-ac49-f83fd94d9305',headers={'Authorization':'Bearer '+token})
-              with urllib.request.urlopen(req,timeout=30) as r: theorem=json.load(r)
+              with opener.open(req,timeout=30) as r: theorem=json.load(r)
               report['leaf']={k:theorem.get(k) for k in ('theorem_id','theorem_name','status','mathlib_rev')}
               print('AUTHENTICATED_FRONTIER',json.dumps(report['leaf']))
           else: print('Repository secret PROVE2ME_API_KEY is not configured; no authenticated request was sent.')
@@ -67,6 +78,15 @@ jobs:
           ~/.elan/bin/lake build Solutions.SingleCutCubeSubmission 2>&1 | tee cube_packet/build.log
       - name: Independently compile exact submission files and audit axioms
         run: python3 scripts/bundle_single_cut_cube.py
+      - name: Authenticated related-theorem search when configured
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: |
+          if [ -n "$PROVE2ME_API_KEY" ]; then
+            python3 scripts/submit_checked_packet.py --workspace . --packet cube_packet
+          else
+            echo 'No repository secret configured; skipping authenticated duplicate search and publication.'
+          fi
       - name: Upload proof diagnostics
         if: always()
         uses: actions/upload-artifact@v4
