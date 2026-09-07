@@ -1,0 +1,42 @@
+name: Box slice decreasing pivot
+on:
+  push:
+    branches: [chatgpt/box-slice-pivot]
+concurrency:
+  group: box-slice-pivot-${{ github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install elan
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Fetch pinned Mathlib cache
+        run: ~/.elan/bin/lake exe cache get
+      - name: Build box slice components
+        run: |
+          set -o pipefail
+          mkdir -p pivot_packet
+          targets=(Solutions.BoxSliceVertex Solutions.BoxSlicePotential)
+          for part in BoxSlicePivotBasics BoxSlicePivotSelection BoxSlicePivot BoxSliceDiameter; do
+            if [ -f "Solutions/$part.lean" ]; then targets+=("Solutions.$part"); fi
+          done
+          ~/.elan/bin/lake build "${targets[@]}" 2>&1 | tee pivot_packet/build.log
+      - name: Bundle and independently audit when complete
+        run: |
+          if [ -f scripts/bundle_box_slice_pivot.py ]; then
+            python3 scripts/bundle_box_slice_pivot.py
+          fi
+      - name: Upload proof diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: box-slice-pivot-packet
+          path: pivot_packet/
+          if-no-files-found: warn
