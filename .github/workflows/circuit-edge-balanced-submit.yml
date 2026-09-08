@@ -1,0 +1,36 @@
+name: Child B balanced-core audited submission
+on:
+  push:
+    branches: [chatgpt/circuit-edge-balanced-sketch]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: child-b-balanced-submit
+  cancel-in-progress: true
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Gate on exact audited proof bytes
+        run: |
+          set -euo pipefail
+          test "$(git hash-object Solutions/Sol_Hirsch_polynomial_edge_refinement_via_balanced.lean)" = "a2801375abf969b4d9c84f8f94b2d5ba62f699e9"
+          ! grep -q 'import Theorems.Thm_Hirsch_polynomial_edge_refinement_of_circuit_walks' Solutions/Sol_Hirsch_polynomial_edge_refinement_via_balanced.lean
+          grep -q '^theorem solution :' Solutions/Sol_Hirsch_polynomial_edge_refinement_via_balanced.lean
+      - name: Submit reduction and audit live frontier
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: |
+          set -euo pipefail
+          python3 scripts/submit_child_b_balanced_sketch.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: child-b-balanced-submission-evidence
+          path: child_b_balanced_evidence/
+          retention-days: 30
