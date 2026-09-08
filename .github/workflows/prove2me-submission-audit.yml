@@ -1,0 +1,27 @@
+name: Prove2Me submission audit
+
+on:
+  push:
+    branches: [chatgpt/prove2me-submission-audit]
+    paths:
+      - 'scripts/audit_prove2me_submissions.py'
+      - '.github/workflows/prove2me-submission-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Require repository secret
+        shell: bash
+        run: |
+          test -n "${PROVE2ME_API_KEY:-}" || { echo '::error::PROVE2ME_API_KEY unavailable'; exit 1; }
+      - name: Audit PR publication and submission state
+        run: python3 scripts/audit_prove2me_submissions.py
