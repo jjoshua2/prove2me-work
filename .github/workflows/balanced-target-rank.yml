@@ -1,4 +1,4 @@
-name: Balanced target-rank hierarchy
+name: Balanced target-rank and face-split hierarchy
 on:
   push:
     branches: [chatgpt/balanced-target-rank]
@@ -23,6 +23,11 @@ jobs:
       - name: Compile hierarchy and audit axioms
         run: |
           set -o pipefail
-          ~/.elan/bin/lake build Solutions.PolynomialBalancedTargetRank 2>&1 | tee /tmp/target-rank.log
+          ~/.elan/bin/lake build \
+            Solutions.PolynomialBalancedTargetRank \
+            Solutions.PolynomialBalancedFaceSplit \
+            2>&1 | tee /tmp/target-rank.log
           ! grep -q sorryAx /tmp/target-rank.log
           grep -F "'HirschPolynomialAccess.balanced_target_rank_access_core' depends on axioms: [propext, Classical.choice, Quot.sound]" /tmp/target-rank.log
+          grep -F "'HirschPolynomialAccess.balanced_commonFaceDim_add_le_dim' depends on axioms: [propext, Classical.choice, Quot.sound]" /tmp/target-rank.log
+          grep -F "'HirschPolynomialAccess.balanced_common_face_split_core' depends on axioms: [propext, Classical.choice, Quot.sound]" /tmp/target-rank.log
