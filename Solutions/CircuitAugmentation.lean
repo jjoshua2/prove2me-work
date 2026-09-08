@@ -86,10 +86,10 @@ theorem norm_step_preserves_trapped {n : ℕ}
 
 /-- The zero-support invariant required by the source elimination step. -/
 theorem elimination_piece_zero_of_reference_zero {n : ℕ}
-    (x r v g : Fin n → ℝ) (ρ λ : ℝ)
+    (x r v g : Fin n → ℝ) (ρ lam : ℝ)
     (hg : ConformalTo g
       ((x + (ρ / (1 - ρ)) • (x - r) +
-        λ • (v - (x + (ρ / (1 - ρ)) • (x - r)))) - x))
+        lam • (v - (x + (ρ / (1 - ρ)) • (x - r)))) - x))
     (i : Fin n) (hx : x i = 0) (hr : r i = 0) (hv : v i = 0) :
     g i = 0 := by
   apply conformalTo_eq_zero_of_right_eq_zero hg
@@ -98,14 +98,14 @@ theorem elimination_piece_zero_of_reference_zero {n : ℕ}
 /-- Quantitative protection of any zero coordinate. The reference-bound
 hypothesis follows from trapped-set preservation or from resetting on support loss. -/
 theorem elimination_direction_nonnegative_at_zero {n : ℕ}
-    (x r v g : Fin n → ℝ) (M λ γ : ℝ)
-    (hv : ∀ i, 0 ≤ v i) (hγ : 0 ≤ γ) (hsmall : γ * M ≤ λ)
-    (hg : ConformalTo g (λ • (v - x) + γ • (x - r)))
+    (x r v g : Fin n → ℝ) (M lam γ : ℝ)
+    (hv : ∀ i, 0 ≤ v i) (hγ : 0 ≤ γ) (hsmall : γ * M ≤ lam)
+    (hg : ConformalTo g (lam • (v - x) + γ • (x - r)))
     (href : ∀ i, x i = 0 → r i ≤ M * v i) :
     ∀ i, x i = 0 → 0 ≤ g i := by
   intro i hi
   apply conformalTo_coord_nonneg_of_right_nonneg hg
-  change 0 ≤ λ * (v i - x i) + γ * (x i - r i)
+  change 0 ≤ lam * (v i - x i) + γ * (x i - r i)
   rw [hi]
   have h1 := mul_le_mul_of_nonneg_left (href i hi) hγ
   have h2 := mul_le_mul_of_nonneg_right hsmall (hv i)
