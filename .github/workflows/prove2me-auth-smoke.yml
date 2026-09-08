@@ -2,6 +2,14 @@ name: Prove2Me auth smoke test
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - scripts/prove2me_auth.py
+      - .github/workflows/prove2me-auth-smoke.yml
+      - AGENTS.md
+      - CLOUD_AGENT.md
 
 permissions:
   contents: read
