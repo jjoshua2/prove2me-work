@@ -1,0 +1,42 @@
+name: Scalar-fiber obstruction formalization targets
+on:
+  push:
+    branches: [chatgpt/scalar-fiber-obstructions]
+concurrency:
+  group: scalar-fiber-obstructions
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Require Prove2Me credential
+        run: test -n "${PROVE2ME_API_KEY:-}" || { echo '::error::PROVE2ME_API_KEY unavailable'; exit 1; }
+      - name: Install elan if needed
+        run: |
+          if [ ! -x "$HOME/.elan/bin/elan" ]; then
+            curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y
+          fi
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Fetch pinned Mathlib cache
+        run: ~/.elan/bin/lake exe cache get
+      - name: Compile exact definition and theorem statements
+        run: |
+          ~/.elan/bin/lake build \
+            Definitions.Def_Hirsch_scalar_fiber_model \
+            Theorems.Thm_Hirsch_scalar_height_fiber_monotone_path_bound \
+            Theorems.Thm_Hirsch_scalar_height_fiber_diameter_linear
+      - name: Publish reviewed definition and Open theorem targets
+        run: python3 scripts/publish_scalar_fiber_obstructions.py
+      - name: Upload publication evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: scalar-fiber-publication
+          path: scalar_fiber_packet/
+          if-no-files-found: warn
