@@ -22,5 +22,5 @@ jobs:
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
       - name: Fetch pinned Mathlib cache
         run: ~/.elan/bin/lake exe cache get
-      - name: Build slack/circuit translation
+      - name: Build and audit slack/circuit translation
         run: ~/.elan/bin/lake build Solutions.CircuitSlackTranslation
