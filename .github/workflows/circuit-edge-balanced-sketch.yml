@@ -1,0 +1,25 @@
+name: Child B balanced-core sketch verification
+on:
+  push:
+    branches: [chatgpt/circuit-edge-balanced-sketch]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install pinned Lean and Mathlib
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
+          ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
+      - name: Compile exact server-shaped sketch
+        run: |
+          set -o pipefail
+          ~/.elan/bin/lake build Solutions.Sol_Hirsch_polynomial_edge_refinement_via_balanced 2>&1 | tee /tmp/balanced-sketch.log
+          grep -F "'solution' depends on axioms:" /tmp/balanced-sketch.log
+          if grep -E 'error:|✖' /tmp/balanced-sketch.log; then exit 1; fi
