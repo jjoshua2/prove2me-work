@@ -1,0 +1,53 @@
+name: Publish audited Natura helpers
+on:
+  push:
+    branches: [chatgpt/natura-publish-helpers]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Require and validate Prove2Me access
+        run: |
+          test -n "${PROVE2ME_API_KEY:-}" || { echo '::error::PROVE2ME_API_KEY unavailable'; exit 1; }
+          python3 scripts/prove2me_auth.py check --no-write
+      - name: Install pinned Lean and Mathlib
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          ~/.elan/bin/lake exe cache get
+      - name: Compile definition, target statement, and direct proof
+        run: |
+          set -o pipefail
+          mkdir -p natura_publish_packet
+          ~/.elan/bin/lake build \
+            Definitions.Def_Hirsch_circuit_slack_model \
+            Theorems.Thm_HirschCircuit_rowMap_injective_of_bounded \
+            Solutions.Sol_HirschCircuit_rowMap_injective_of_bounded \
+            2>&1 | tee natura_publish_packet/build.log
+          if grep -A4 "'solution' depends on axioms" natura_publish_packet/build.log | grep -q 'sorryAx'; then
+            echo '::error::Direct proof depends on sorryAx'
+            exit 1
+          fi
+          if grep -nE '\b(sorry|admit)\b' Solutions/Sol_HirschCircuit_rowMap_injective_of_bounded.lean; then
+            echo '::error::Direct proof source contains an admission'
+            exit 1
+          fi
+      - name: Publish and verify audited helper
+        run: python3 scripts/publish_natura_helpers.py
+      - name: Upload publication evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: natura-helper-publication
+          path: natura_publish_packet/
+          if-no-files-found: warn
+          retention-days: 30
