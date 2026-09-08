@@ -1,3 +1,4 @@
+import Solutions.CircuitIrredundantModel
 import Solutions.CircuitSlackBounded
 import Solutions.CircuitSlackWalkEquiv
 import Solutions.CircuitSlackExtreme
