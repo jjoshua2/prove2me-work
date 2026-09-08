@@ -62,9 +62,10 @@ theorem contraction_to_elimination_threshold (M : ℕ) (hM : 2 ≤ M) :
     (M : ℝ) * (1 - 1 / (M : ℝ)) ^ (4 * M ^ 2) ≤
       1 / (2 * (M : ℝ) ^ 2) := by
   have hblock := contraction_block_half M hM
-  have hMr : (0 : ℝ) < (M : ℝ) := by exact_mod_cast (lt_of_lt_of_le Nat.zero_lt_two hM)
+  have hM1 : 1 ≤ M := by omega
+  have hMr : (0 : ℝ) < (M : ℝ) := by exact_mod_cast hM1
   have hq0 : 0 ≤ (1 - 1 / (M : ℝ)) := by
-    have hinv1 : 1 / (M : ℝ) ≤ 1 := (div_le_one hMr).2 (by exact_mod_cast hM)
+    have hinv1 : 1 / (M : ℝ) ≤ 1 := (div_le_one hMr).2 (by exact_mod_cast hM1)
     linarith
   have hpow0 : 0 ≤ (1 - 1 / (M : ℝ)) ^ M := pow_nonneg hq0 _
   have hpow :
@@ -73,7 +74,6 @@ theorem contraction_to_elimination_threshold (M : ℕ) (hM : 2 ≤ M) :
     pow_le_pow_left₀ hpow0 hblock (4 * M)
   have hexp : M * (4 * M) = 4 * M ^ 2 := by ring
   rw [← pow_mul, hexp] at hpow
-  have hM1 : 1 ≤ M := by omega
   have hnat := two_mul_cube_le_two_pow_four_mul M hM1
   have hnatR : (2 : ℝ) * (M : ℝ) ^ 3 ≤ (2 : ℝ) ^ (4 * M) := by
     exact_mod_cast hnat
@@ -83,9 +83,9 @@ theorem contraction_to_elimination_threshold (M : ℕ) (hM : 2 ≤ M) :
       1 / (2 * (M : ℝ) ^ 2) := by
     rw [one_div_pow]
     have heq :
-        (M : ℝ) * (1 / (2 : ℝ) ^ (4 * M)) =
+        (M : ℝ) * (1 * ((2 : ℝ) ^ (4 * M))⁻¹) =
           (M : ℝ) / (2 : ℝ) ^ (4 * M) := by
-      rw [div_eq_mul_inv, one_div]
+      simp [div_eq_mul_inv]
     rw [heq]
     apply (div_le_div_iff₀ htwo hden).2
     nlinarith only [hnatR]
