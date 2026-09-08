@@ -51,9 +51,8 @@ theorem solution :
   · subst L
     obtain ⟨cw, hcw0, hcwL, _hmem, _hsteps⟩ := hcirc
     have huv : u = v := hcw0.symm.trans hcwL
-    subst v
     refine ⟨fun _ => u, rfl, ?_, ?_⟩
-    · simp
+    · simpa using huv
     · intro j hj
       omega
   · have hL1 : 1 ≤ L := Nat.one_le_iff_ne_zero.2 hL0
