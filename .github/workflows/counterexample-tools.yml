@@ -3,6 +3,8 @@ name: Counterexample search tools
 on:
   push:
     branches: [chatgpt/counterexample-search]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -32,7 +34,7 @@ jobs:
             -o counterexample_tools/mpc-0.6.tar.gz
           tar xzf counterexample_tools/mpc-0.6.tar.gz -C counterexample_tools
           find counterexample_tools -maxdepth 3 -type f -printf '%p\n' | sort | tee counterexample_tools/logs/mpc-files.txt
-          find counterexample_tools -maxdepth 3 -type f \( -iname 'README*' -o -iname 'INSTALL*' -o -iname 'Makefile*' \) -print -exec sh -c 'echo ==== $1; sed -n "1,220p" "$1"' sh {} \; > counterexample_tools/logs/mpc-build-docs.txt
+          find counterexample_tools -maxdepth 3 -type f \( -iname 'README*' -o -iname 'INSTALL*' -o -iname 'Makefile*' \) -print -exec sh -c 'echo ==== $1; sed -n "1,260p" "$1"' sh {} \; > counterexample_tools/logs/mpc-build-docs.txt
       - name: Try to build mpc
         shell: bash
         run: |
