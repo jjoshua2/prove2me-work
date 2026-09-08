@@ -222,13 +222,12 @@ theorem exists_saturating_elementary_conformal {n : ℕ}
     rcases lt_or_gt_of_ne hzq0 with hzneg | hzpos
     · have hgqle : g0 q ≤ 0 :=
         conformalTo_coord_nonpos_of_right_nonpos hg0conf (le_of_lt hzneg)
-      have hgqneg : g0 q < 0 := lt_of_le_of_ne hgqle (Ne.symm hgq0)
+      have hgqneg : g0 q < 0 := lt_of_le_of_ne hgqle hgq0
       rw [abs_of_neg hzneg, abs_of_neg hgqneg]
       field_simp [hgq0]
-      ring
     · have hgqge : 0 ≤ g0 q :=
         conformalTo_coord_nonneg_of_right_nonneg hg0conf (le_of_lt hzpos)
-      have hgqpos : 0 < g0 q := lt_of_le_of_ne hgqge hgq0
+      have hgqpos : 0 < g0 q := lt_of_le_of_ne hgqge (Ne.symm hgq0)
       rw [abs_of_pos hzpos, abs_of_pos hgqpos]
       field_simp [hgq0]
   have hsub : supportFinset (z - g) ⊆ supportFinset z := by
