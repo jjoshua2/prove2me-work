@@ -15,7 +15,9 @@ noncomputable def slackAffineMap {d n : ℕ}
   linear := -(rowMap a)
   map_vadd' p v := by
     funext i
-    simp [slack, rowMap, inner_add_right, sub_eq_add_neg]
+    simp only [slack, rowMap, inner_add_right, LinearMap.neg_apply,
+      LinearMap.coe_mk, AddHom.coe_mk, Pi.add_apply]
+    ring
 
 @[simp] theorem slackAffineMap_apply {d n : ℕ}
     (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
@@ -70,7 +72,8 @@ theorem slack_mem_extremePoints_of_mem_extremePoints {d n : ℕ}
     (slackAffineMap a b)
     (slackAffineMap_injective_of_rowMap_injective a b hinj)
     (Hpoly a b) x hx
-  simpa [image_slackAffineMap_Hpoly a b] using h
+  rw [image_slackAffineMap_Hpoly a b] at h
+  exact h
 
 #print axioms image_slackAffineMap_Hpoly
 #print axioms mem_extremePoints_image_of_affine_injective
