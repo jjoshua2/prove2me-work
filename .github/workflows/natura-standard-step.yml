@@ -1,0 +1,23 @@
+name: Natura standard maximal-step interface
+on:
+  push:
+    branches: [chatgpt/natura-step-interface]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pinned Lean and Mathlib
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          ~/.elan/bin/lake exe cache get
+      - name: Build and audit standard maximal-step interface
+        run: |
+          set -o pipefail
+          ~/.elan/bin/lake build Solutions.CircuitStandardMaximalStep 2>&1 | tee /tmp/standard-step.log
+          if grep -q 'sorryAx' /tmp/standard-step.log; then exit 1; fi
