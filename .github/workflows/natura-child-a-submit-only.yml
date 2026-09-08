@@ -1,4 +1,4 @@
-name: Natura Child A audited submission only
+name: Natura Child A audited submission and frontier audit
 on:
   push:
     branches: [chatgpt/natura-child-a-submit-only]
@@ -33,11 +33,16 @@ jobs:
             | sha256sum -c - | tee child_a_direct_evidence/proof-hash-check.log
           wc -c child_a_direct_evidence/solution.lean | tee child_a_direct_evidence/proof-size.txt
           test "$(wc -c < child_a_direct_evidence/solution.lean)" -eq 108980
-      - name: Submit audited proof and poll verdict
+      - name: Submit audited proof if still open
         env:
           PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
         run: |
           python3 scripts/submit_natura_child_a_standalone.py
+      - name: Audit accepted Child A and remaining frontier
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: |
+          python3 scripts/audit_natura_frontier.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
