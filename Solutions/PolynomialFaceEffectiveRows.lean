@@ -45,21 +45,19 @@ theorem exists_commonFace_effective_model {d n : ℕ}
       Hpoly (commonFaceA a b u x) (commonFaceB a b u x) := by
   classical
   let S := commonFaceEffectiveRows a b u x
-  let m := Fintype.card S
-  let E : Fin m ≃ S := (Fintype.equivFin S).symm
-  let e : Fin m ↪ Fin n :=
+  let E : Fin (commonFaceEffectiveCount a b u x) ≃ S := by
+    simpa [commonFaceEffectiveCount, S] using (Fintype.equivFin S).symm
+  let e : Fin (commonFaceEffectiveCount a b u x) ↪ Fin n :=
     { toFun := fun j => (E j).val
       inj' := by
         intro j k h
         exact E.injective (Subtype.ext h) }
-  have hesurj : ∀ i ∈ S, ∃ j : Fin m, e j = i := by
+  have hesurj : ∀ i ∈ S,
+      ∃ j : Fin (commonFaceEffectiveCount a b u x), e j = i := by
     intro i hi
     refine ⟨E.symm ⟨i, hi⟩, ?_⟩
     change (E (E.symm ⟨i, hi⟩)).val = i
     rw [E.apply_symm_apply]
-  have hm : m = commonFaceEffectiveCount a b u x := by
-    simp [m, S, commonFaceEffectiveCount]
-  subst m
   refine ⟨e, ?_⟩
   ext q
   constructor
