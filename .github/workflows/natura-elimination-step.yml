@@ -1,0 +1,35 @@
+name: Natura support-safe elimination step
+on:
+  push:
+    branches: [chatgpt/natura-elimination-step]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: natura-elimination-step
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install pinned Lean and Mathlib
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
+          ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -80 /tmp/setup.log; exit 1; }
+      - name: Build and audit elimination step
+        run: |
+          set -o pipefail
+          mkdir -p elimination_evidence
+          ~/.elan/bin/lake build Solutions.CircuitEliminationStep 2>&1 | tee elimination_evidence/build.log
+          ! grep -q sorryAx elimination_evidence/build.log
+          sha256sum Solutions/CircuitEliminationStep.lean > elimination_evidence/source-sha256.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: natura-elimination-evidence
+          path: elimination_evidence/
+          retention-days: 14
