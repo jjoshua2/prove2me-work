@@ -85,6 +85,7 @@ theorem rowCircuitWalk_mono {d n : ℕ}
     · simpa only [Nat.min_eq_left (Nat.le_of_lt hj),
         Nat.min_eq_left (Nat.succ_le_iff.mpr hj)] using hs j hj
     · left
+      change w (min j L) = w (min (j + 1) L)
       rw [Nat.min_eq_right (Nat.le_of_not_gt hj),
         Nat.min_eq_right (by omega : L ≤ j + 1)]
 
@@ -135,7 +136,7 @@ theorem cubic_circuit_walk_bound_of_standard
     (C * m ^ 3) u v).mpr hw
   refine ⟨m, hmn, e, hP, hirr, hstrict, ?_⟩
   exact rowCircuitWalk_mono ar br hrow
-    (Nat.mul_le_mul_left C (Nat.pow_le_pow_left (Nat.le_add_right m d)))
+    (Nat.mul_le_mul_left C (Nat.pow_le_pow_left (Nat.le_add_right m d) 3))
 
 #print axioms slackPoly_eq_standardSlice
 #print axioms bounded_rowCircuitWalk_iff_standardCircuitWalk
