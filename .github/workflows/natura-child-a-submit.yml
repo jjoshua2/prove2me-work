@@ -22,9 +22,18 @@ jobs:
         run: |
           test -n "${PROVE2ME_API_KEY:-}" || { echo '::error::PROVE2ME_API_KEY unavailable'; exit 1; }
           python3 scripts/prove2me_auth.py check --no-write
+      - name: Restore pinned Lean and Mathlib cache
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            ~/.elan
+            .lake/packages
+          key: natura-child-a-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}
       - name: Install pinned Lean and Mathlib
         run: |
-          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
+          if [ ! -x "$HOME/.elan/bin/lake" ]; then
+            curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
+          fi
           ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
       - name: Flatten, independently compile, and submit exact Child A
         run: python3 scripts/submit_natura_child_a.py
