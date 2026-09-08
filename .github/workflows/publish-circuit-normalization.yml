@@ -25,6 +25,8 @@ jobs:
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
       - name: Fetch pinned Mathlib cache
         run: ~/.elan/bin/lake exe cache get
+      - name: Build imported circuit definition module
+        run: ~/.elan/bin/lake build Definitions.Def_Hirsch_circuit_model
       - name: Compile exact generated solution, publish theorem, and submit proof
         run: python3 scripts/publish_circuit_normalization.py
       - name: Upload normalization evidence
