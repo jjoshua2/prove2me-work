@@ -1,0 +1,41 @@
+name: Natura Child A direct verification
+on:
+  push:
+    branches: [chatgpt/natura-child-a-direct]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: natura-child-a-direct
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Check Prove2Me access
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: |
+          mkdir -p child_a_direct_evidence
+          python3 scripts/prove2me_auth.py check --no-write 2>&1 | tee child_a_direct_evidence/auth.log
+      - name: Install pinned Lean and Mathlib
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
+          ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
+      - name: Compile exact Child A wrapper
+        run: |
+          set -o pipefail
+          ~/.elan/bin/lake build Solutions.NaturaChildADirect 2>&1 | tee child_a_direct_evidence/build.log
+          ! grep -q sorryAx child_a_direct_evidence/build.log
+          grep -F "'solution' depends on axioms: [propext, Classical.choice, Quot.sound]" child_a_direct_evidence/build.log
+          sha256sum Solutions/NaturaChildADirect.lean Solutions/CircuitPhaseRoute.lean > child_a_direct_evidence/source-sha256.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: natura-child-a-direct-evidence
+          path: child_a_direct_evidence/
+          retention-days: 30
