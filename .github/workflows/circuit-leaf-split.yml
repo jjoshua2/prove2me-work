@@ -10,7 +10,7 @@ permissions:
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - name: Probe authenticated leaf and related theorems
@@ -32,6 +32,10 @@ jobs:
           ~/.elan/bin/lake build Solutions.CircuitIrredundantModel Solutions.Sol_Hirsch_leaf_circuit_split 2>&1 | tee circuit_leaf_packet/build.log
       - name: Independently audit exact sketch and admission-free conditional proof
         run: python3 scripts/check_circuit_leaf_split.py
+      - name: Publish reviewed definition and children, then submit parent sketch
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: python3 scripts/circuit_leaf_api.py --publish-reviewed
       - name: Upload exact sketch and evidence
         if: always()
         uses: actions/upload-artifact@v4
