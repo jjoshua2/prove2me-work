@@ -1,0 +1,23 @@
+name: Natura conformal circuit piece
+on:
+  push:
+    branches: [chatgpt/natura-conformal-piece]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pinned Lean and Mathlib
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          ~/.elan/bin/lake exe cache get
+      - name: Build and audit conformal circuit piece
+        run: |
+          set -o pipefail
+          ~/.elan/bin/lake build Solutions.CircuitConformalPiece 2>&1 | tee /tmp/conformal-piece.log
+          if grep -q 'sorryAx' /tmp/conformal-piece.log; then exit 1; fi
