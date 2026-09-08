@@ -1,0 +1,47 @@
+name: Transport pinned proof runtime
+on:
+  push:
+    branches: [chatgpt/natura-runtime-split]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  split:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: natura-pinned-runtime
+          run-id: 34260871017
+          github-token: ${{ github.token }}
+          path: runtime
+      - name: Validate archive contents and split
+        run: |
+          set -o pipefail
+          for f in runtime/*.tar.zst; do
+            zstd -dc "$f" | tar -tf - > /tmp/members.txt
+            if grep -Ei '\.(ttf|otf|woff|woff2)$' /tmp/members.txt; then
+              echo '::error::Unexpected font assets in proof runtime'; exit 1
+            fi
+            if grep -E '(^|/)(credentials.json|\.git)(/|$)' /tmp/members.txt; then
+              echo '::error::Unexpected credentials or Git metadata'; exit 1
+            fi
+          done
+          mkdir parts
+          tar -C runtime -cf - project.tar.zst toolchain.tar.zst SHA256SUMS | split -b 384M -d -a 3 - parts/runtime-part-
+          sha256sum parts/*
+      - uses: actions/upload-artifact@v4
+        with: {name: natura-runtime-000, path: parts/runtime-part-000, compression-level: 0, retention-days: 1}
+      - uses: actions/upload-artifact@v4
+        with: {name: natura-runtime-001, path: parts/runtime-part-001, compression-level: 0, retention-days: 1}
+      - uses: actions/upload-artifact@v4
+        with: {name: natura-runtime-002, path: parts/runtime-part-002, compression-level: 0, retention-days: 1}
+      - uses: actions/upload-artifact@v4
+        with: {name: natura-runtime-003, path: parts/runtime-part-003, compression-level: 0, retention-days: 1}
+      - uses: actions/upload-artifact@v4
+        with: {name: natura-runtime-004, path: parts/runtime-part-004, compression-level: 0, retention-days: 1}
+      - uses: actions/upload-artifact@v4
+        with: {name: natura-runtime-005, path: parts/runtime-part-005, compression-level: 0, retention-days: 1}
+      - uses: actions/upload-artifact@v4
+        with: {name: natura-runtime-006, path: parts/runtime-part-006, compression-level: 0, retention-days: 1}
