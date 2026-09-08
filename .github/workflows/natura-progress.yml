@@ -27,10 +27,10 @@ jobs:
           curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
           ~/.elan/bin/lake exe cache get
-      - name: Compile and audit all translation modules
+      - name: Compile and audit all translation and augmentation modules
         run: |
           set -o pipefail
-          ~/.elan/bin/lake build Solutions.CircuitSlackBounded Solutions.CircuitSlackWalkEquiv Solutions.CircuitSlackExtreme Solutions.CircuitConformalBasics 2>&1 | tee natura_packet/build.log
+          ~/.elan/bin/lake build Solutions.CircuitSourceBridge Solutions.CircuitAugmentation 2>&1 | tee natura_packet/build.log
           if grep -q 'sorryAx' natura_packet/build.log; then exit 1; fi
           sha256sum Solutions/Circuit*.lean > natura_packet/source-sha256.txt
       - name: Save verification evidence
@@ -38,17 +38,21 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: natura-progress-evidence
-          path: natura_packet/
+          path: |
+            natura_packet/
+            circuit_leaf_packet/api-state.json
+            circuit_leaf_packet/live-leaf.json
+            circuit_leaf_packet/related-theorems.json
           retention-days: 7
-      - name: Package credential-free pinned runtime for interactive proof checking
-        if: always()
+      - name: Package minimal credential-free runtime with streaming compression
+        if: github.event_name == 'workflow_dispatch'
+        continue-on-error: true
         run: |
           mkdir -p /tmp/natura_runtime
-          tar --exclude='.git' --exclude='*.a' --exclude='*.c' --exclude='*.o' --exclude='*.ilean' -cf /tmp/natura_runtime/project.tar .lake/packages .lake/build/lib/lean Definitions/Def_Hirsch_model.lean Definitions/Def_Hirsch_circuit_model.lean Solutions/Circuit*.lean lakefile.lean lake-manifest.json lean-toolchain
-          tar --exclude='*.a' --exclude='*.c' --exclude='*.o' -C "$HOME/.elan/toolchains/leanprover--lean4---v4.30.0" -cf /tmp/natura_runtime/toolchain.tar bin lib share include
-          zstd -T0 -3 --rm /tmp/natura_runtime/*.tar
+          tar --exclude='.git' --exclude='*.a' --exclude='*.c' --exclude='*.o' --exclude='*.ilean' -cf - .lake/packages .lake/build/lib/lean Definitions/Def_Hirsch_model.lean Definitions/Def_Hirsch_circuit_model.lean Solutions/Circuit*.lean lakefile.lean lake-manifest.json lean-toolchain | zstd -T2 -3 > /tmp/natura_runtime/project.tar.zst
+          tar --exclude='*.a' --exclude='*.c' --exclude='*.o' -C "$HOME/.elan/toolchains/leanprover--lean4---v4.30.0" -cf - bin lib share include | zstd -T2 -3 > /tmp/natura_runtime/toolchain.tar.zst
       - name: Transfer pinned runtime
-        if: always()
+        if: github.event_name == 'workflow_dispatch'
         uses: actions/upload-artifact@v4
         with:
           name: natura-pinned-runtime
