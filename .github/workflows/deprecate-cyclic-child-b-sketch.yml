@@ -1,0 +1,30 @@
+name: Retire cyclic Child B sketch
+on:
+  push:
+    branches: [chatgpt/balanced-core-audit]
+    paths:
+      - scripts/deprecate_cyclic_child_b_sketch.py
+      - .github/workflows/deprecate-cyclic-child-b-sketch.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  retire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Deprecate audited cyclic sketch and verify graph cleanup
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: |
+          set -euo pipefail
+          python3 scripts/deprecate_cyclic_child_b_sketch.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cyclic-child-b-sketch-retirement
+          path: cyclic_sketch_retirement_evidence/
+          retention-days: 30
