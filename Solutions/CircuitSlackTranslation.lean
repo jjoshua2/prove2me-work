@@ -9,21 +9,21 @@ namespace HirschCircuit
 
 /-- Linear row-evaluation map.  Under boundedness of a nonempty H-polytope this
 is injective; its range is the slack-direction space. -/
-def rowMap {d n : ℕ}
+noncomputable def rowMap {d n : ℕ}
     (a : Fin n → EuclideanSpace ℝ (Fin d)) :
     EuclideanSpace ℝ (Fin d) →ₗ[ℝ] (Fin n → ℝ) :=
   { toFun := fun g i => ⟪a i, g⟫
     map_add' := by
       intro x y
       funext i
-      simp
+      simp only [inner_add_right, Pi.add_apply]
     map_smul' := by
       intro c x
       funext i
-      simp }
+      simp only [inner_smul_right, Pi.smul_apply] }
 
 /-- Slack coordinates for an H-presentation. -/
-def slack {d n : ℕ}
+noncomputable def slack {d n : ℕ}
     (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
     (x : EuclideanSpace ℝ (Fin d)) : Fin n → ℝ :=
   fun i => b i - ⟪a i, x⟫
