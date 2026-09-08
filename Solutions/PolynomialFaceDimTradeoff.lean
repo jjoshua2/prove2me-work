@@ -13,7 +13,7 @@ noncomputable section
 namespace HirschPolynomialAccess
 
 /-- The intersection of the two common-direction spaces at `x` is controlled
-by the rows tight at neither endpoint.  No separation assumption is needed for
+by the rows tight at neither endpoint. No separation assumption is needed for
 this injectivity statement itself. -/
 theorem common_direction_intersection_finrank_le_neutral_card
     {d n : ℕ}
@@ -21,13 +21,14 @@ theorem common_direction_intersection_finrank_le_neutral_card
     (u v x : EuclideanSpace ℝ (Fin d))
     (hx : x ∈ extremePoints ℝ (Hpoly a b)) :
     Module.finrank ℝ
-      (commonDirection a b u x ⊓ commonDirection a b v x) ≤
+      (show Submodule ℝ (EuclideanSpace ℝ (Fin d)) from
+        commonDirection a b u x ⊓ commonDirection a b v x) ≤
       (neutralRows a b u v).card := by
   classical
-  let U := commonDirection a b u x
-  let V := commonDirection a b v x
+  let U : Submodule ℝ (EuclideanSpace ℝ (Fin d)) := commonDirection a b u x
+  let V : Submodule ℝ (EuclideanSpace ℝ (Fin d)) := commonDirection a b v x
   let N := neutralRows a b u v
-  let W := U ⊓ V
+  let W : Submodule ℝ (EuclideanSpace ℝ (Fin d)) := U ⊓ V
   let T : W →ₗ[ℝ] (N → ℝ) := (rowEvalMap a N).domRestrict W
   have hTin : Function.Injective T := by
     intro y z hyz
@@ -73,10 +74,10 @@ theorem common_direction_intersection_finrank_le_neutral_card
       (z : EuclideanSpace ℝ (Fin d)) = 0 at hq0
     exact sub_eq_zero.mp hq0
   have hle := LinearMap.finrank_le_finrank_of_injective hTin
-  simpa [W, N] using hle
+  simpa [W, U, V, N] using hle
 
 /-- For separated extreme endpoints, the overlap of the source- and
- target-common direction spaces costs at most the facet excess `n-2d`. -/
+target-common direction spaces costs at most the facet excess `n-2d`. -/
 theorem common_direction_intersection_finrank_le_excess
     {d n : ℕ}
     (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
@@ -87,7 +88,8 @@ theorem common_direction_intersection_finrank_le_excess
     (hsep : ∀ i, a i ≠ 0 →
       ⟪a i, u⟫ ≠ b i ∨ ⟪a i, v⟫ ≠ b i) :
     Module.finrank ℝ
-      (commonDirection a b u x ⊓ commonDirection a b v x) ≤
+      (show Submodule ℝ (EuclideanSpace ℝ (Fin d)) from
+        commonDirection a b u x ⊓ commonDirection a b v x) ≤
       n - 2 * d :=
   (common_direction_intersection_finrank_le_neutral_card a b u v x hx).trans
     (neutral_card_le_excess a b u v hu hv hsep)
@@ -110,8 +112,8 @@ theorem commonFaceDim_add_le_dim_add_excess
       ⟪a i, u⟫ ≠ b i ∨ ⟪a i, v⟫ ≠ b i) :
     commonFaceDim a b u x + commonFaceDim a b v x ≤
       d + (n - 2 * d) := by
-  let U := commonDirection a b u x
-  let V := commonDirection a b v x
+  let U : Submodule ℝ (EuclideanSpace ℝ (Fin d)) := commonDirection a b u x
+  let V : Submodule ℝ (EuclideanSpace ℝ (Fin d)) := commonDirection a b v x
   have hinter : Module.finrank ℝ (U ⊓ V) ≤ n - 2 * d := by
     simpa [U, V] using
       common_direction_intersection_finrank_le_excess a b u v x hu hv hx hsep
@@ -122,7 +124,7 @@ theorem commonFaceDim_add_le_dim_add_excess
   rw [← Submodule.finrank_sup_add_finrank_inf_eq U V]
   exact Nat.add_le_add hsup hinter
 
-/-- General separated face splitter.  Let
+/-- General separated face splitter. Let
 `H = d + (n-2d)`. To reach a point whose common face with the target has
 dimension at most `H-R`, it is enough to control graph diameter only in
 ambient dimensions at most `R-1`.
@@ -164,18 +166,23 @@ theorem separated_common_face_split_core
     dsimp [H]
     omega
   have hself : commonFaceDim a b v v = 0 := by
-    have hbot : commonDirection a b v v = ⊥ := by
-      apply Submodule.eq_bot_iff.mpr
-      intro q hq
-      apply vertex_tight_rows_span_checked d n a b v hv q
-      intro i hiv
-      by_cases hai : a i = 0
-      · simp [hai]
-      · have hiC : i ∈ commonSourceRows a b v v := by
-          simp [commonSourceRows, hai, hiv]
-        have hker : rowEvalMap a (commonSourceRows a b v v) q = 0 :=
-          LinearMap.mem_ker.1 hq
-        exact congrFun hker ⟨i, hiC⟩
+    have hbot : commonDirection a b v v = (⊥ : Submodule ℝ (EuclideanSpace ℝ (Fin d))) := by
+      ext q
+      constructor
+      · intro hq
+        have hq0 : q = 0 := by
+          apply vertex_tight_rows_span_checked d n a b v hv q
+          intro i hiv
+          by_cases hai : a i = 0
+          · simp [hai]
+          · have hiC : i ∈ commonSourceRows a b v v := by
+              simp [commonSourceRows, hai, hiv]
+            have hker : rowEvalMap a (commonSourceRows a b v v) q = 0 :=
+              LinearMap.mem_ker.1 hq
+            exact congrFun hker ⟨i, hiC⟩
+        simpa [hq0]
+      · intro hq
+        simpa using hq
     rw [commonFaceDim, hbot]
     simp
   have hTv : T v := by
@@ -190,6 +197,7 @@ theorem separated_common_face_split_core
     have hsum := commonFaceDim_add_le_dim_add_excess
       a b u v x hu hv hxext hsep
     have hvlarge : H - R < commonFaceDim a b v x := by
+      change ¬ commonFaceDim a b v x ≤ H - R at hxT
       exact Nat.lt_of_not_ge hxT
     dsimp [H] at hvlarge
     omega
