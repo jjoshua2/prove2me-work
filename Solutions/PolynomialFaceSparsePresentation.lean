@@ -35,7 +35,7 @@ def sparsePadB {r m : ℕ} (b : Fin m → ℝ) : Fin (2 * r) → ℝ :=
 
 lemma hpoly_sparsePad {r m : ℕ} (hm : m ≤ 2 * r)
     (a : Fin m → EuclideanSpace ℝ (Fin r)) (b : Fin m → ℝ) :
-    Hpoly (sparsePadA a) (sparsePadB b) = Hpoly a b := by
+    Hpoly (sparsePadA a) (sparsePadB (r := r) b) = Hpoly a b := by
   ext x
   simp only [Hpoly, mem_setOf_eq, sparsePadA, sparsePadB]
   constructor
@@ -64,8 +64,8 @@ theorem diamLE_of_sparse_balanced_presentation
   obtain ⟨m, hm, e, hsub⟩ := hsparse
   let ae : Fin m → EuclideanSpace ℝ (Fin r) := fun j => a (e j)
   let be : Fin m → ℝ := fun j => b (e j)
-  let ap := sparsePadA ae
-  let bp := sparsePadB be
+  let ap : Fin (2 * r) → EuclideanSpace ℝ (Fin r) := sparsePadA ae
+  let bp : Fin (2 * r) → ℝ := sparsePadB (r := r) be
   have hpad : Hpoly ap bp = Hpoly a b := by
     calc
       Hpoly ap bp = Hpoly ae be := hpoly_sparsePad hm ae be
