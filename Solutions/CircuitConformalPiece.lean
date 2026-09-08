@@ -217,8 +217,8 @@ theorem exists_saturating_elementary_conformal {n : ℕ}
     exact isElementaryIn_smul K hg0elem hcne
   have hresconf : ConformalTo (z - g) z := conformalTo_sub_right hgconf
   have hcancel : g q = z q := by
-    dsimp [g, c]
-    simp only [Pi.smul_apply, smul_eq_mul]
+    change c * g0 q = z q
+    dsimp [c]
     rcases lt_or_gt_of_ne hzq0 with hzneg | hzpos
     · have hgqle : g0 q ≤ 0 :=
         conformalTo_coord_nonpos_of_right_nonpos hg0conf (le_of_lt hzneg)
