@@ -65,8 +65,9 @@ theorem exists_commonFace_effective_model {d n : ℕ}
     by_cases hi : i ∈ S
     · obtain ⟨j, hj⟩ := hesurj i hi
       have hjq := hq j
-      rw [hj] at hjq
-      exact hjq
+      change ⟪commonFaceA a b u x (e j), q⟫ ≤
+        commonFaceB a b u x (e j) at hjq
+      simpa only [hj] using hjq
     · have hzero : commonFaceA a b u x i = 0 := by
         simpa [S, commonFaceEffectiveRows] using hi
       rw [hzero, inner_zero_left]
