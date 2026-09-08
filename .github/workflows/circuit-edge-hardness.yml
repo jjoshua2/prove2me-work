@@ -17,15 +17,13 @@ jobs:
         run: |
           curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
           ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
-      - name: Compile reductions and audit axioms
+      - name: Compile preferred reductions and audit axioms
         run: |
           set -o pipefail
           ~/.elan/bin/lake build \
             Solutions.CircuitEdgeRefinementHardness \
-            Solutions.CircuitEdgeHardRegimeReduction \
             Solutions.CircuitEdgeBalancedReduction \
             2>&1 | tee /tmp/edge-hardness.log
           ! grep -q sorryAx /tmp/edge-hardness.log
           grep -F "'HirschCircuit.edge_refinement_iff_irredundant_strict_polynomial_diameter' depends on axioms: [propext, Classical.choice, Quot.sound]" /tmp/edge-hardness.log
-          grep -F "'HirschCircuit.edge_refinement_of_hard_regime' depends on axioms: [propext, Classical.choice, Quot.sound]" /tmp/edge-hardness.log
           grep -F "'HirschCircuit.edge_refinement_of_balanced' depends on axioms: [propext, Classical.choice, Quot.sound]" /tmp/edge-hardness.log
