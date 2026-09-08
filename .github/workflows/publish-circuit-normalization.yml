@@ -1,0 +1,36 @@
+name: Publish circuit normalization theorem
+on:
+  push:
+    branches: [chatgpt/publish-circuit-normalization]
+concurrency:
+  group: publish-circuit-normalization
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Require Prove2Me credential
+        run: test -n "${PROVE2ME_API_KEY:-}" || { echo '::error::PROVE2ME_API_KEY unavailable'; exit 1; }
+      - name: Install elan if needed
+        run: |
+          if [ ! -x "$HOME/.elan/bin/elan" ]; then
+            curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y
+          fi
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Fetch pinned Mathlib cache
+        run: ~/.elan/bin/lake exe cache get
+      - name: Compile exact generated solution, publish theorem, and submit proof
+        run: python3 scripts/publish_circuit_normalization.py
+      - name: Upload normalization evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: circuit-normalization-packet
+          path: circuit_normalization_packet/
+          if-no-files-found: warn
