@@ -1,0 +1,40 @@
+name: Natura Child A end-to-end candidate
+on:
+  push:
+    branches: [chatgpt/natura-child-a-integration]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: natura-child-a-candidate
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Check Prove2Me access
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: |
+          mkdir -p child_a_evidence
+          python3 scripts/prove2me_auth.py check --no-write 2>&1 | tee child_a_evidence/auth.log
+      - name: Install pinned Lean and Mathlib
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
+          ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
+      - name: Compile and audit Child A candidate
+        run: |
+          set -o pipefail
+          ~/.elan/bin/lake build Solutions.NaturaChildACandidate 2>&1 | tee child_a_evidence/build.log
+          ! grep -q sorryAx child_a_evidence/build.log
+          sha256sum Solutions/CircuitWeightedNormStep.lean Solutions/CircuitSupportSafeElimination.lean Solutions/CircuitFiniteRouting.lean Solutions/NaturaChildACandidate.lean > child_a_evidence/source-sha256.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: natura-child-a-candidate-evidence
+          path: child_a_evidence/
+          retention-days: 30
