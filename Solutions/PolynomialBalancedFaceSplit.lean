@@ -70,18 +70,23 @@ theorem commonDirection_self_eq_bot {d n : ℕ}
     (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
     (v : EuclideanSpace ℝ (Fin d))
     (hv : v ∈ extremePoints ℝ (Hpoly a b)) :
-    commonDirection a b v v = ⊥ := by
-  apply Submodule.eq_bot_iff.mpr
-  intro q hq
-  apply vertex_tight_rows_span_checked d n a b v hv q
-  intro i hiv
-  by_cases hai : a i = 0
-  · simp [hai]
-  · have hiC : i ∈ commonSourceRows a b v v := by
-      simp [commonSourceRows, hai, hiv]
-    have hker : rowEvalMap a (commonSourceRows a b v v) q = 0 :=
-      LinearMap.mem_ker.1 hq
-    exact congrFun hker ⟨i, hiC⟩
+    commonDirection a b v v = (⊥ : Submodule ℝ (EuclideanSpace ℝ (Fin d))) := by
+  ext q
+  constructor
+  · intro hq
+    have hq0 : q = 0 := by
+      apply vertex_tight_rows_span_checked d n a b v hv q
+      intro i hiv
+      by_cases hai : a i = 0
+      · simp [hai]
+      · have hiC : i ∈ commonSourceRows a b v v := by
+          simp [commonSourceRows, hai, hiv]
+        have hker : rowEvalMap a (commonSourceRows a b v v) q = 0 :=
+          LinearMap.mem_ker.1 hq
+        exact congrFun hker ⟨i, hiC⟩
+    simpa [hq0]
+  · intro hq
+    simpa using hq
 
 @[simp] theorem commonFaceDim_self {d n : ℕ}
     (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
@@ -140,6 +145,7 @@ theorem balanced_common_face_split_core
     have hsum := balanced_commonFaceDim_add_le_dim
       d a b u v x hu hv hxext hsep
     have hvlarge : d - R < commonFaceDim a b v x := by
+      change ¬ commonFaceDim a b v x ≤ d - R at hxT
       exact Nat.lt_of_not_ge hxT
     omega
   exact HirschPrescribed.target_set_access_of_boundary_face_dim_core
