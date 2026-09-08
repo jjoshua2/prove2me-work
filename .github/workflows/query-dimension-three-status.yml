@@ -1,0 +1,22 @@
+name: Query dimension-three theorem status
+on:
+  push:
+    branches: [chatgpt/explicit-two-face-bridge]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: query-dimension-three-status
+  cancel-in-progress: true
+jobs:
+  query:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Query pinned Prove2Me theorem status
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: python3 scripts/query_dimension_three_status.py
