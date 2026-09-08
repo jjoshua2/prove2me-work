@@ -16,8 +16,8 @@ jobs:
           curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
           ~/.elan/bin/lake exe cache get
-      - name: Build and audit conformal circuit piece
+      - name: Build and audit conformal circuit decomposition
         run: |
           set -o pipefail
-          ~/.elan/bin/lake build Solutions.CircuitConformalPiece 2>&1 | tee /tmp/conformal-piece.log
+          ~/.elan/bin/lake build Solutions.CircuitConformalPiece Solutions.CircuitConformalDecomposition 2>&1 | tee /tmp/conformal-piece.log
           if grep -q 'sorryAx' /tmp/conformal-piece.log; then exit 1; fi
