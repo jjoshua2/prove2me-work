@@ -1,0 +1,33 @@
+name: Pinned Natura proof runtime
+on:
+  push:
+    branches: [chatgpt/natura-runtime]
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Obtain pinned Lean and Mathlib
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y
+          ~/.elan/bin/lake exe cache get
+          ~/.elan/bin/lake build Solutions.CircuitSlackBounded Solutions.CircuitSlackWalkEquiv Solutions.CircuitSlackExtreme Solutions.CircuitConformalBasics
+      - name: Stream-compress whitelisted proof runtime, without Git or credentials
+        run: |
+          set -o pipefail
+          mkdir -p /tmp/natura_runtime
+          tar --exclude='.git' --exclude='*.a' --exclude='*.c' --exclude='*.o' --exclude='*.ilean' -cf - .lake/packages .lake/build/lib/lean Definitions/Def_Hirsch_model.lean Definitions/Def_Hirsch_circuit_model.lean Solutions/Circuit*.lean lakefile.lean lake-manifest.json lean-toolchain | zstd -T2 -1 > /tmp/natura_runtime/project.tar.zst
+          tar --exclude='*.a' --exclude='*.c' --exclude='*.o' -C "$HOME/.elan/toolchains/leanprover--lean4---v4.30.0" -cf - bin lib share include | zstd -T2 -1 > /tmp/natura_runtime/toolchain.tar.zst
+          sha256sum /tmp/natura_runtime/*.zst > /tmp/natura_runtime/SHA256SUMS
+          du -h /tmp/natura_runtime/*
+      - uses: actions/upload-artifact@v4
+        with:
+          name: natura-pinned-runtime
+          path: /tmp/natura_runtime/
+          compression-level: 0
+          retention-days: 1
