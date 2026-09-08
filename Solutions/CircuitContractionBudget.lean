@@ -36,10 +36,11 @@ theorem contraction_block_half (M : ℕ) (hM : 2 ≤ M) :
     pow_le_pow_left₀ hqp0 hqp1 M
   rw [mul_pow, one_pow] at hpow
   have hqpow0 : 0 ≤ q ^ M := pow_nonneg hq0 _
-  have hmul : 2 * q ^ M ≤ q ^ M * p ^ M :=
-    mul_le_mul_of_nonneg_left hp2 hqpow0
-  dsimp [q]
-  nlinarith
+  have hmul : 2 * q ^ M ≤ q ^ M * p ^ M := by
+    simpa [mul_comm] using (mul_le_mul_of_nonneg_left hp2 hqpow0)
+  have hqhalf : q ^ M ≤ (1 / 2 : ℝ) := by
+    nlinarith only [hmul, hpow]
+  simpa [q] using hqhalf
 
 /-- A purely natural-number exponential envelope used after taking `4*M`
 contraction blocks. -/
@@ -72,7 +73,8 @@ theorem contraction_to_elimination_threshold (M : ℕ) (hM : 2 ≤ M) :
     pow_le_pow_left₀ hpow0 hblock (4 * M)
   have hexp : M * (4 * M) = 4 * M ^ 2 := by ring
   rw [← pow_mul, hexp] at hpow
-  have hnat := two_mul_cube_le_two_pow_four_mul M (Nat.le_trans (by decide : 1 ≤ 2) hM)
+  have hM1 : 1 ≤ M := by omega
+  have hnat := two_mul_cube_le_two_pow_four_mul M hM1
   have hnatR : (2 : ℝ) * (M : ℝ) ^ 3 ≤ (2 : ℝ) ^ (4 * M) := by
     exact_mod_cast hnat
   have htwo : (0 : ℝ) < (2 : ℝ) ^ (4 * M) := pow_pos (by norm_num) _
@@ -80,7 +82,11 @@ theorem contraction_to_elimination_threshold (M : ℕ) (hM : 2 ≤ M) :
   have hfrac : (M : ℝ) * (1 / 2 : ℝ) ^ (4 * M) ≤
       1 / (2 * (M : ℝ) ^ 2) := by
     rw [one_div_pow]
-    change (M : ℝ) / (2 : ℝ) ^ (4 * M) ≤ 1 / (2 * (M : ℝ) ^ 2)
+    have heq :
+        (M : ℝ) * (1 / (2 : ℝ) ^ (4 * M)) =
+          (M : ℝ) / (2 : ℝ) ^ (4 * M) := by
+      rw [div_eq_mul_inv, one_div]
+    rw [heq]
     apply (div_le_div_iff₀ htwo hden).2
     nlinarith only [hnatR]
   exact (mul_le_mul_of_nonneg_left hpow (by positivity)).trans hfrac
