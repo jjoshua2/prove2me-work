@@ -1,0 +1,52 @@
+name: Counterexample search tools
+
+on:
+  push:
+    branches: [chatgpt/counterexample-search]
+  workflow_dispatch:
+
+jobs:
+  tools:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential autoconf automake libtool flex bison \
+            libboost-all-dev libgmp-dev libglpk-dev wget curl
+      - name: Install Kissat 4.0.4
+        run: |
+          mkdir -p counterexample_tools/bin counterexample_tools/logs
+          curl -fL --retry 4 \
+            https://github.com/bmc4j/kissat-builds/releases/download/kissat-4.0.4-r1/kissat-linux-x64 \
+            -o counterexample_tools/bin/kissat
+          echo '669b63f456254292ab0be1e8950210b45477c7f29872efacfaeccfa903c00cc1  counterexample_tools/bin/kissat' | sha256sum -c -
+          chmod +x counterexample_tools/bin/kissat
+          counterexample_tools/bin/kissat --version | tee counterexample_tools/logs/kissat-version.txt
+      - name: Download and inspect mpc 0.6
+        run: |
+          curl -fL --retry 4 \
+            https://www.cs.unb.ca/~bremner/software/mpc/mpc-0.6.tar.gz \
+            -o counterexample_tools/mpc-0.6.tar.gz
+          tar xzf counterexample_tools/mpc-0.6.tar.gz -C counterexample_tools
+          find counterexample_tools -maxdepth 3 -type f -printf '%p\n' | sort | tee counterexample_tools/logs/mpc-files.txt
+          find counterexample_tools -maxdepth 3 -type f \( -iname 'README*' -o -iname 'INSTALL*' -o -iname 'Makefile*' \) -print -exec sh -c 'echo ==== $1; sed -n "1,220p" "$1"' sh {} \; > counterexample_tools/logs/mpc-build-docs.txt
+      - name: Try to build mpc
+        shell: bash
+        run: |
+          set +e
+          cd counterexample_tools/mpc-0.6
+          if [ -x ./configure ]; then ./configure 2>&1 | tee ../logs/mpc-configure.txt; fi
+          make -j2 2>&1 | tee ../logs/mpc-make.txt
+          status=${PIPESTATUS[0]}
+          echo "$status" > ../logs/mpc-make-status.txt
+          find . -maxdepth 3 -type f -perm -111 -printf '%p\n' | sort | tee ../logs/mpc-executables.txt
+          exit 0
+      - name: Upload toolchain diagnostics
+        uses: actions/upload-artifact@v4
+        with:
+          name: counterexample-search-tools
+          path: counterexample_tools
+          retention-days: 7
