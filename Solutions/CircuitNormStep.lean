@@ -179,7 +179,9 @@ theorem exists_norm_reduction_step {n : ℕ}
       (1 - 1 / (M : ℝ)) * phasePotential v r x := by
     rw [hupdate]
     change W - α * normScore v r g ≤ (1 - 1 / (M : ℝ)) * W
-    nlinarith only [havgleαS]
+    calc
+      W - α * normScore v r g ≤ W - W / (M : ℝ) := sub_le_sub_left havgleαS W
+      _ = (1 - 1 / (M : ℝ)) * W := by simp only [div_eq_mul_inv]; ring
   have hM1nat : 1 ≤ M := hM
   have hM1 : (1 : ℝ) ≤ (M : ℝ) := by exact_mod_cast hM1nat
   have hprogress : phaseProgressSet (M : ℝ) v x ⊆ phaseProgressSet (M : ℝ) v y := by
