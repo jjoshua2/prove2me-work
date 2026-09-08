@@ -26,7 +26,10 @@ jobs:
           ~/.elan/bin/lake build \
             Solutions.PolynomialFaceEffectiveRows \
             Solutions.PolynomialBalancedEffectiveInduction \
+            Solutions.PolynomialFaceEffectiveCountBounds \
             2>&1 | tee /tmp/dstep-effective.log
           ! grep -q sorryAx /tmp/dstep-effective.log
           grep -F "'HirschPolynomialAccess.balanced_neighbor_dstep_of_effective_target_face' depends on axioms: [propext, Classical.choice, Quot.sound]" /tmp/dstep-effective.log
           grep -F "'HirschPolynomialAccess.balanced_counterexample_neighbors_row_rich' depends on axioms: [propext, Classical.choice, Quot.sound]" /tmp/dstep-effective.log
+          grep -F "'HirschPolynomialAccess.commonFaceEffectiveCount_le_sub_common_card' depends on axioms: [propext, Classical.choice, Quot.sound]" /tmp/dstep-effective.log
+          grep -F "'HirschPolynomialAccess.balanced_neighbor_effectiveCount_le_two_d_sub_one' depends on axioms: [propext, Classical.choice, Quot.sound]" /tmp/dstep-effective.log
