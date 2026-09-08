@@ -1,0 +1,46 @@
+name: Natura Child A audited submission only
+on:
+  push:
+    branches: [chatgpt/natura-child-a-submit-only]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: natura-child-a-submit-only
+  cancel-in-progress: true
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Authenticate and regenerate exact audited proof bytes
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: |
+          set -euo pipefail
+          mkdir -p child_a_direct_evidence
+          python3 scripts/prove2me_auth.py check --no-write 2>&1 | tee child_a_direct_evidence/auth.log
+          printf '%s  %s\n' \
+            a1e283a5ed4afd88500cd05255bce2f687f5d95bbea3af21f14bbae4fcb7f5f5 Solutions/NaturaChildADirect.lean \
+            9762de76f00a30675164e7a9d6ba601b92ef145ea0bcf562e8796388fbcfb335 Solutions/CircuitPhaseRoute.lean \
+            | sha256sum -c - | tee child_a_direct_evidence/source-hash-check.log
+          python3 scripts/bundle_natura_child_a_direct.py --output child_a_direct_evidence/solution.lean \
+            | tee child_a_direct_evidence/bundle.log
+          echo 'f106c1f90524468f03184b1bf79dc7d5fda15628c013476f610af2efdc21f225  child_a_direct_evidence/solution.lean' \
+            | sha256sum -c - | tee child_a_direct_evidence/proof-hash-check.log
+          wc -c child_a_direct_evidence/solution.lean | tee child_a_direct_evidence/proof-size.txt
+          test "$(wc -c < child_a_direct_evidence/solution.lean)" -eq 108980
+      - name: Submit audited proof and poll verdict
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: |
+          python3 scripts/submit_natura_child_a_standalone.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: natura-child-a-submission-evidence
+          path: child_a_direct_evidence/
+          retention-days: 30
