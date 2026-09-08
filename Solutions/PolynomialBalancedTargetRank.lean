@@ -66,7 +66,7 @@ theorem balanced_rows_partition
   have hcover : SU ∪ SV = Finset.univ := by
     apply Finset.eq_univ_of_card
     rw [Finset.card_union_of_disjoint hdisj, hUcard, hVcard]
-    omega
+    simpa [two_mul]
   intro i
   have hi : i ∈ SU ∪ SV := by rw [hcover]; simp
   rcases Finset.mem_union.1 hi with hiU | hiV
