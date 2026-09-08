@@ -20,13 +20,13 @@ jobs:
         run: |
           curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
           ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -80 /tmp/setup.log; exit 1; }
-      - name: Build and audit elimination step
+      - name: Build and audit elimination step and parameters
         run: |
           set -o pipefail
           mkdir -p elimination_evidence
-          ~/.elan/bin/lake build Solutions.CircuitEliminationStep 2>&1 | tee elimination_evidence/build.log
+          ~/.elan/bin/lake build Solutions.CircuitEliminationParameters 2>&1 | tee elimination_evidence/build.log
           ! grep -q sorryAx elimination_evidence/build.log
-          sha256sum Solutions/CircuitEliminationStep.lean > elimination_evidence/source-sha256.txt
+          sha256sum Solutions/CircuitElimination*.lean > elimination_evidence/source-sha256.txt
       - uses: actions/upload-artifact@v4
         if: always()
         with:
