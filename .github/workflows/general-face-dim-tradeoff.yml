@@ -1,0 +1,29 @@
+name: General common-face dimension tradeoff
+on:
+  push:
+    branches: [chatgpt/general-face-dim-tradeoff]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: general-face-dim-tradeoff
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install pinned Lean and Mathlib
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
+          ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
+      - name: Compile tradeoff and audit axioms
+        run: |
+          set -o pipefail
+          ~/.elan/bin/lake build Solutions.PolynomialFaceDimTradeoff 2>&1 | tee /tmp/tradeoff.log
+          ! grep -q sorryAx /tmp/tradeoff.log
+          grep -F "'HirschPolynomialAccess.commonFaceDim_add_le_dim_add_excess' depends on axioms: [propext, Classical.choice, Quot.sound]" /tmp/tradeoff.log
+          grep -F "'HirschPolynomialAccess.separated_common_face_split_core' depends on axioms: [propext, Classical.choice, Quot.sound]" /tmp/tradeoff.log
