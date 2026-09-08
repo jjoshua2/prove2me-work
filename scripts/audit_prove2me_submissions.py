@@ -201,10 +201,12 @@ def main() -> int:
                         names.append(ch.get("theorem_name") or ch.get("definition_name"))
             child_sets.append({"submission_id": d.get("submission_id"), "children": names})
 
+    # The decomposition API tracks theorem children. Hirsch_circuit_model is a
+    # definition imported by those children, so it is verified separately above
+    # rather than required to appear as a decomposition edge.
     wanted_children = {
         "Hirsch.cubic_circuit_walk_bound",
         "Hirsch.polynomial_edge_refinement_of_circuit_walks",
-        "Hirsch_circuit_model",
     }
     pr9_sketch_found = any(wanted_children.issubset(set(x["children"])) for x in child_sets)
 
@@ -216,7 +218,16 @@ def main() -> int:
     auxiliary = []
     for name in AUXILIARY:
         rows = find_exact(api, name)
-        auxiliary.append({"name": name, "found": bool(rows), "status": rows[0].get("status") if len(rows) == 1 else None})
+        item: dict[str, Any] = {"name": name, "found": bool(rows), "status": rows[0].get("status") if len(rows) == 1 else None}
+        if len(rows) == 1:
+            tid = rows[0].get("theorem_id") or rows[0].get("id")
+            item["theorem_id"] = tid
+            if isinstance(tid, str):
+                item["submissions"] = [
+                    {"id": s.get("id") or s.get("submission_id"), "status": s.get("status")}
+                    for s in theorem_submissions(api, tid)
+                ]
+        auxiliary.append(item)
 
     report = {
         "env": PIN,
@@ -245,6 +256,11 @@ def main() -> int:
             missing.append({"pr": c.pr, "name": c.name, "reason": f"status={r.get('status')} expected={c.expected}"})
     if not pr9_sketch_found:
         missing.append({"pr": 9, "name": "parent sketch for Hirsch.polynomial_access_to_given_supporting_face", "reason": "matching decomposition not found"})
+    for item in auxiliary:
+        if not item.get("found"):
+            missing.append({"pr": 9, "name": item["name"], "reason": "not published"})
+        elif item.get("status") != "Proved":
+            missing.append({"pr": 9, "name": item["name"], "reason": f"status={item.get('status')} expected=Proved"})
 
     report["missing_or_incomplete"] = missing
     print("\n=== AUDIT JSON ===")
