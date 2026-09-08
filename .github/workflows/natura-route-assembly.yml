@@ -1,0 +1,35 @@
+name: Natura complete cubic route assembly
+on:
+  push:
+    branches: [chatgpt/natura-route-assembly]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: natura-route-assembly
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install pinned Lean and Mathlib
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
+          ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -80 /tmp/setup.log; exit 1; }
+      - name: Compile and audit full cubic route
+        run: |
+          set -o pipefail
+          mkdir -p route_evidence
+          ~/.elan/bin/lake build Solutions.CircuitPhaseRoute 2>&1 | tee route_evidence/build.log
+          ! grep -q sorryAx route_evidence/build.log
+          sha256sum Solutions/Circuit*.lean > route_evidence/source-sha256.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: natura-route-evidence
+          path: route_evidence/
+          retention-days: 30
