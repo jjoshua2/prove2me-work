@@ -66,10 +66,12 @@ theorem rowCircuitWalk_cubic_fixed_presentation {d n : ℕ}
     (slack_mem_SlackPoly_iff a b u).2 hu.1
   have hsv0 := slack_mem_extremePoints_of_mem_extremePoints a b hinj v hv
   have hsu : slack a b u ∈ StandardSlice (LinearMap.range (rowMap a)) b := by
-    rwa [← slackPoly_eq_standardSlice] at hsu0
+    rw [← slackPoly_eq_standardSlice]
+    exact hsu0
   have hsv : slack a b v ∈
       Set.extremePoints ℝ (StandardSlice (LinearMap.range (rowMap a)) b) := by
-    rwa [← slackPoly_eq_standardSlice] at hsv0
+    rw [← slackPoly_eq_standardSlice]
+    exact hsv0
   have hstd := standardCircuitWalk_cubic (LinearMap.range (rowMap a)) b
     (slack a b u) (slack a b v) hsu hsv
   exact (bounded_rowCircuitWalk_iff_standardCircuitWalk a b hbd u hu.1
@@ -116,9 +118,8 @@ theorem irredundant_strict_polynomial_diameter_implies_edge_refinement
   · subst L
     obtain ⟨cw, hcw0, hcwL, _hmem, _hsteps⟩ := hcirc
     have huv : u = v := hcw0.symm.trans hcwL
-    subst v
     refine ⟨fun _ => u, rfl, ?_, ?_⟩
-    · simp
+    · simpa using huv
     · intro j hj
       omega
   · have hL1 : 1 ≤ L := Nat.one_le_iff_ne_zero.2 hL
