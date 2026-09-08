@@ -1,0 +1,38 @@
+name: Submit verified Natura Child A
+on:
+  push:
+    branches: [chatgpt/natura-child-a-integration]
+    paths: [.submit-natura-child-a]
+permissions:
+  contents: read
+concurrency:
+  group: natura-child-a-submit
+  cancel-in-progress: false
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Require Prove2Me access
+        run: |
+          test -n "${PROVE2ME_API_KEY:-}" || { echo '::error::PROVE2ME_API_KEY unavailable'; exit 1; }
+          python3 scripts/prove2me_auth.py check --no-write
+      - name: Install pinned Lean and Mathlib
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
+          ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
+      - name: Flatten, independently compile, and submit exact Child A
+        run: python3 scripts/submit_natura_child_a.py
+      - name: Upload submission evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: natura-child-a-submission
+          path: child_a_submission/
+          if-no-files-found: warn
+          retention-days: 30
