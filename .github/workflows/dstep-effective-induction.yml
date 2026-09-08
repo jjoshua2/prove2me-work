@@ -1,0 +1,32 @@
+name: Effective-face d-step induction
+on:
+  push:
+    branches: [chatgpt/dstep-effective-induction]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: dstep-effective-induction
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install pinned Lean and Mathlib
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
+          ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
+      - name: Compile induction obstruction and audit axioms
+        run: |
+          set -o pipefail
+          ~/.elan/bin/lake build \
+            Solutions.PolynomialFaceEffectiveRows \
+            Solutions.PolynomialBalancedEffectiveInduction \
+            2>&1 | tee /tmp/dstep-effective.log
+          ! grep -q sorryAx /tmp/dstep-effective.log
+          grep -F "'HirschPolynomialAccess.balanced_neighbor_dstep_of_effective_target_face' depends on axioms: [propext, Classical.choice, Quot.sound]" /tmp/dstep-effective.log
+          grep -F "'HirschPolynomialAccess.balanced_counterexample_neighbors_row_rich' depends on axioms: [propext, Classical.choice, Quot.sound]" /tmp/dstep-effective.log
