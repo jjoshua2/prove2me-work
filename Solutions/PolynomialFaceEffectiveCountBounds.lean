@@ -1,5 +1,5 @@
 import Mathlib
-import Solutions.PolynomialFaceEffectiveRows
+import Solutions.PolynomialBalancedEffectiveInduction
 
 open scoped RealInnerProductSpace
 open Set Hirsch
@@ -81,8 +81,49 @@ theorem balanced_neighbor_effectiveCount_le_two_d_sub_one
   have h := commonFaceEffectiveCount_le_sub_common_card a b v z
   omega
 
+/-- If a source neighbor of a minimal-dimensional d-step counterexample has
+target-common face dimension exactly `d-1`, then that face is maximally
+row-rich: the neighbor shares exactly one target row and every other parent
+row remains effective on the face. -/
+theorem balanced_codim_one_counterexample_neighbor_maximal
+    (d : ℕ)
+    (a : Fin (2 * d) → EuclideanSpace ℝ (Fin d))
+    (b : Fin (2 * d) → ℝ)
+    (hbd : Bornology.IsBounded (Hpoly a b))
+    (u v z : EuclideanSpace ℝ (Fin d))
+    (hu : u ∈ extremePoints ℝ (Hpoly a b))
+    (hv : v ∈ extremePoints ℝ (Hpoly a b))
+    (hsep : ∀ i, a i ≠ 0 →
+      ⟪a i, u⟫ ≠ b i ∨ ⟪a i, v⟫ ≠ b i)
+    (huz : Adj (Hpoly a b) u z)
+    (hdim : commonFaceDim a b v z = d - 1)
+    (hsmall : ∀ e : ℕ, e < d →
+      ∀ (a' : Fin (2 * e) → EuclideanSpace ℝ (Fin e)) (b' : Fin (2 * e) → ℝ),
+        (Hpoly a' b').Nonempty → Bornology.IsBounded (Hpoly a' b') →
+        DiamLE (Hpoly a' b') e)
+    (hcounter : ¬ ∃ w : ℕ → EuclideanSpace ℝ (Fin d),
+      w 0 = u ∧ w d = v ∧
+      ∀ j < d, w j = w (j + 1) ∨ Adj (Hpoly a b) (w j) (w (j + 1))) :
+    (commonSourceRows a b v z).card = 1 ∧
+      commonFaceEffectiveCount a b v z = 2 * d - 1 := by
+  obtain ⟨i, hai, hiv, hiz⟩ :=
+    balanced_neighbor_hits_target_row d a b u v z hu hv hsep huz
+  have hiC : i ∈ commonSourceRows a b v z := by
+    simp [commonSourceRows, hai, hiv, hiz]
+  have hcommon : 1 ≤ (commonSourceRows a b v z).card :=
+    Finset.one_le_card.mpr ⟨i, hiC⟩
+  have hdpos : 0 < d := by
+    have hiLt := i.isLt
+    omega
+  have hrich := balanced_counterexample_neighbors_row_rich
+    d a b hbd u v hu hv hsep hsmall hcounter z huz
+  rw [hdim] at hrich
+  have hupper := commonFaceEffectiveCount_le_sub_common_card a b v z
+  constructor <;> omega
+
 #print axioms commonFaceA_eq_zero_of_common_row
 #print axioms commonFaceEffectiveCount_le_sub_common_card
 #print axioms balanced_neighbor_effectiveCount_le_two_d_sub_one
+#print axioms balanced_codim_one_counterexample_neighbor_maximal
 
 end HirschPolynomialAccess
