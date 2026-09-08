@@ -20,7 +20,7 @@ noncomputable def rowMap {d n : ℕ}
     map_smul' := by
       intro c x
       funext i
-      simp only [inner_smul_right, Pi.smul_apply] }
+      simp [inner_smul_right, smul_eq_mul] }
 
 /-- Slack coordinates for an H-presentation. -/
 noncomputable def slack {d n : ℕ}
