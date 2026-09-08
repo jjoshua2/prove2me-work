@@ -1,0 +1,25 @@
+name: Clean Child B balanced reduction audit
+on:
+  push:
+    branches: [chatgpt/circuit-edge-hardness]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install pinned Lean and Mathlib
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
+          ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
+      - name: Compile self-contained reduction and audit axioms
+        run: |
+          set -o pipefail
+          ~/.elan/bin/lake build Solutions.CircuitEdgeBalancedCoreReduction 2>&1 | tee /tmp/balanced-clean.log
+          ! grep -q sorryAx /tmp/balanced-clean.log
+          grep -F "'HirschCircuitBalanced.edge_refinement_of_balanced' depends on axioms: [propext, Classical.choice, Quot.sound]" /tmp/balanced-clean.log
