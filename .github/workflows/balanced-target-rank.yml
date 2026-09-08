@@ -1,0 +1,28 @@
+name: Balanced target-rank hierarchy
+on:
+  push:
+    branches: [chatgpt/balanced-target-rank]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: balanced-target-rank
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install pinned Lean and Mathlib
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
+          ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
+      - name: Compile hierarchy and audit axioms
+        run: |
+          set -o pipefail
+          ~/.elan/bin/lake build Solutions.PolynomialBalancedTargetRank 2>&1 | tee /tmp/target-rank.log
+          ! grep -q sorryAx /tmp/target-rank.log
+          grep -F "'HirschPolynomialAccess.balanced_target_rank_access_core' depends on axioms: [propext, Classical.choice, Quot.sound]" /tmp/target-rank.log
