@@ -79,6 +79,15 @@ def wait_verdict(api: API, submission_id: str, timeout: int = 900):
         time.sleep(8)
 
 
+def run_checked(cmd: list[str], log_name: str, error: str) -> str:
+    run = subprocess.run(cmd, cwd=ROOT, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+    (OUT / log_name).write_text(run.stdout)
+    print(run.stdout)
+    if run.returncode:
+        raise RuntimeError(error)
+    return run.stdout
+
+
 def main() -> int:
     OUT.mkdir(exist_ok=True)
     proof, order = build_flat("NaturaChildACandidate")
@@ -87,17 +96,30 @@ def main() -> int:
     write("bundle.json", {"modules": order, "bytes": len(proof.encode())})
 
     lake = Path.home() / ".elan/bin/lake"
-    checked = subprocess.run(
+
+    # A raw `lake env lean path/to/solution.lean` resolves imports from built
+    # `.olean`s, not directly from this repository's source tree.  Build the
+    # public local Definition modules imported by the flattened proof first;
+    # this mirrors the dependency modules Prove2Me supplies server-side.
+    definition_imports = sorted(set(re.findall(
+        r"^\s*import\s+(Definitions\.[A-Za-z0-9_.]+)\s*$", proof, flags=re.M
+    )))
+    if definition_imports:
+        run_checked(
+            [str(lake), "build", *definition_imports],
+            "definition-build.log",
+            "failed to build flattened proof's public Definition imports",
+        )
+    write("definition-imports.json", definition_imports)
+
+    checked_stdout = run_checked(
         [str(lake), "env", "lean", "-DautoImplicit=false", str(proof_path)],
-        cwd=ROOT, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
+        "local-check.log",
+        "flattened Child-A proof failed local Lean compilation",
     )
-    (OUT / "local-check.log").write_text(checked.stdout)
-    print(checked.stdout)
-    if checked.returncode:
-        raise RuntimeError("flattened Child-A proof failed local Lean compilation")
-    if "sorryAx" in checked.stdout:
+    if "sorryAx" in checked_stdout:
         raise RuntimeError("flattened Child-A proof depends on sorryAx")
-    m = re.search(r"'solution' depends on axioms:\s*\[([^]]*)\]", checked.stdout)
+    m = re.search(r"'solution' depends on axioms:\s*\[([^]]*)\]", checked_stdout)
     if not m:
         raise RuntimeError("missing solution axiom audit")
     axioms = {x.strip() for x in m.group(1).split(",") if x.strip()}
