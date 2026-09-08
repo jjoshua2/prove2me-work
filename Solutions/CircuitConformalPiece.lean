@@ -7,7 +7,7 @@ open scoped BigOperators
 namespace HirschCircuit
 
 /-- Finite support of a coordinate vector. -/
-def supportFinset {n : ℕ} (x : Fin n → ℝ) : Finset (Fin n) :=
+noncomputable def supportFinset {n : ℕ} (x : Fin n → ℝ) : Finset (Fin n) :=
   Finset.univ.filter (fun i => x i ≠ 0)
 
 @[simp] theorem mem_supportFinset {n : ℕ} (x : Fin n → ℝ) (i : Fin n) :
@@ -24,7 +24,7 @@ theorem half_perturb_conformal {n : ℕ} {w z h : Fin n → ℝ} {t : ℝ}
   intro i
   have habsw := (hwz i).2
   have hp := hpert i
-  have hadd : |w i + t * h i| ≤ |w i| + |t * h i| := abs_add _ _
+  have hadd : |w i + t * h i| ≤ |w i| + |t * h i| := abs_add_le _ _
   have hyabs : |((1 / 2 : ℝ) * (w i + t * h i))| ≤ |w i| := by
     rw [abs_mul]
     norm_num
@@ -86,15 +86,15 @@ theorem exists_elementary_conformal {n : ℕ}
   have hhk0 : h k = 0 := by simpa [Function.mem_support] using hhk
 
   let D : Finset (Fin n) := Finset.univ.filter (fun i => h i ≠ 0)
-  have hD : D.Nonempty := by
-    by_contra hempty
-    have hforall : ∀ i, h i = 0 := by
-      intro i
-      have hi : i ∉ D := by simpa [hempty]
-      simpa [D] using hi
+  have hexh : ∃ i, h i ≠ 0 := by
+    by_contra hall
+    push_neg at hall
     apply hh0
     funext i
-    simp [hforall i]
+    exact hall i
+  have hD : D.Nonempty := by
+    obtain ⟨i, hi⟩ := hexh
+    exact ⟨i, by simp [D, hi]⟩
   obtain ⟨q, hqD, hratio⟩ :=
     D.exists_min_image (fun i => |w i| / |h i|) hD
   have hhq0 : h q ≠ 0 := (Finset.mem_filter.mp hqD).2
@@ -107,6 +107,7 @@ theorem exists_elementary_conformal {n : ℕ}
   have hcancel : w q + t * h q = 0 := by
     dsimp [t]
     field_simp [hhq0]
+    ring
   have hpert : ∀ i, |t * h i| ≤ |w i| := by
     intro i
     by_cases hhi0 : h i = 0
@@ -145,7 +146,9 @@ theorem exists_elementary_conformal {n : ℕ}
   have hqIn : q ∈ supportFinset w := by simp [hwq0]
   have hqOut : q ∉ supportFinset y := by
     simp only [mem_supportFinset, not_not]
-    simp [y, hcancel]
+    change (1 / 2 : ℝ) * (w q + t * h q) = 0
+    rw [hcancel]
+    ring
   have hyNe : supportFinset y ≠ supportFinset w := by
     intro heq
     have : q ∈ supportFinset y := heq.symm ▸ hqIn
