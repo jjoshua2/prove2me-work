@@ -140,7 +140,7 @@ theorem exists_support_safe_elimination_step {n : ℕ}
   have hgq : g q < 0 := by linarith
   have hzero : ∀ i, x i = 0 → 0 ≤ g i := by
     apply elimination_direction_nonnegative_at_zero x r v g (M : ℝ) lam eta
-      hv.1.2 heta0 (by simpa [mul_comm] using hMeta) hgconf
+      hv.1.2 heta0 (by simpa [lam, eta, mul_comm] using hMeta) hgconf
     intro i hxi
     exact same_phase_reference_trapped_of_current_zero (M : ℝ) v r x
       hphase hM0 hv.1.2 i hxi
