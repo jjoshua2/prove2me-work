@@ -86,7 +86,9 @@ theorem commonDirection_self_eq_bot {d n : ℕ}
         exact congrFun hker ⟨i, hiC⟩
     simpa [hq0]
   · intro hq
-    simpa using hq
+    have hq0 : q = 0 := by simpa using hq
+    subst q
+    exact (commonDirection a b v v).zero_mem
 
 @[simp] theorem commonFaceDim_self {d n : ℕ}
     (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
