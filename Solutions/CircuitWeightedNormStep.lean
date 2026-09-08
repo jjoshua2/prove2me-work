@@ -64,6 +64,7 @@ theorem referencePotential_self_le_n {n : ℕ} (v r : Fin n → ℝ) :
     referencePotential v r r ≤ (n : ℝ) := by
   calc
     referencePotential v r r ≤ ∑ _i : Fin n, (1 : ℝ) := by
+      change (∑ i, targetZeroWeight v r i * r i) ≤ ∑ _i : Fin n, (1 : ℝ)
       apply Finset.sum_le_sum
       intro i _
       by_cases hv : v i = 0 <;> by_cases hr : r i = 0 <;>
