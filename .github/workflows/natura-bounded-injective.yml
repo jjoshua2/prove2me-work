@@ -19,5 +19,5 @@ jobs:
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
       - name: Fetch pinned Mathlib cache
         run: ~/.elan/bin/lake exe cache get
-      - name: Build bounded row-map bridge
+      - name: Build and audit bounded row-map bridge
         run: ~/.elan/bin/lake build Solutions.CircuitSlackBounded
