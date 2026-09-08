@@ -1,0 +1,15 @@
+{
+  "theorem_name": "HirschCircuit.elementary_conformal_decomposition_ambient_bound",
+  "theorem_id": "05726681-715c-408a-b44c-d73dac856b20",
+  "submission_id": "9003da2a-48dd-4d30-9e64-a3f4eaf93235",
+  "verdict": "ACCEPTED",
+  "status_after": "Proved",
+  "verified_at": "2026-09-08T19:59:31.980748+00:00",
+  "checked_at": "2026-09-08T19:59:36.324312+00:00",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "source_commit": "bf64629bdc9869144670cec4b7b79af5d3cbd987",
+  "workflow_run_id": 34271579650,
+  "artifact_id": 10074238842,
+  "artifact_sha256": "82a497b6e807058f641341e414f1b5f59b0c47d95d929732ca238cdcc8c0f460",
+  "scope": "Exact conformal decomposition into at most n elementary vectors of the original subspace. No maximal-walk, circuit-diameter, edge-diameter, or Polynomial Hirsch conclusion."
+}
