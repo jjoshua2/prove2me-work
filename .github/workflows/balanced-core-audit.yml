@@ -1,0 +1,27 @@
+name: Balanced Hirsch core live audit
+on:
+  push:
+    branches: [chatgpt/balanced-core-audit]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Audit live Prove2Me balanced frontier
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: |
+          set -euo pipefail
+          python3 scripts/audit_balanced_core.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: balanced-core-live-audit
+          path: balanced_core_evidence/
+          retention-days: 30
