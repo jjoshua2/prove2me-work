@@ -114,10 +114,12 @@ theorem commonFaceDim_add_le_dim_add_excess
       d + (n - 2 * d) := by
   let U : Submodule ℝ (EuclideanSpace ℝ (Fin d)) := commonDirection a b u x
   let V : Submodule ℝ (EuclideanSpace ℝ (Fin d)) := commonDirection a b v x
-  have hinter : Module.finrank ℝ (U ⊓ V) ≤ n - 2 * d := by
+  have hinter : Module.finrank ℝ
+      (U ⊓ V : Submodule ℝ (EuclideanSpace ℝ (Fin d))) ≤ n - 2 * d := by
     simpa [U, V] using
       common_direction_intersection_finrank_le_excess a b u v x hu hv hx hsep
-  have hsup : Module.finrank ℝ (U ⊔ V) ≤ d := by
+  have hsup : Module.finrank ℝ
+      (U ⊔ V : Submodule ℝ (EuclideanSpace ℝ (Fin d))) ≤ d := by
     have h := Submodule.finrank_le (U ⊔ V)
     simpa using h
   change Module.finrank ℝ U + Module.finrank ℝ V ≤ d + (n - 2 * d)
@@ -182,7 +184,9 @@ theorem separated_common_face_split_core
             exact congrFun hker ⟨i, hiC⟩
         simpa [hq0]
       · intro hq
-        simpa using hq
+        have hq0 : q = 0 := by simpa using hq
+        subst q
+        exact (commonDirection a b v v).zero_mem
     rw [commonFaceDim, hbot]
     simp
   have hTv : T v := by
