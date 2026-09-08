@@ -62,8 +62,7 @@ theorem standardCircuitWalk_append {n : ℕ}
   | zero =>
       obtain ⟨f, hf0, hfL, _, _⟩ := h1
       have huv : u = v := hf0.symm.trans hfL
-      subst u
-      simpa only [Nat.zero_add] using h2
+      simpa only [Nat.zero_add, huv] using h2
   | succ L ih =>
       obtain ⟨f, hf0, hfL, hmem, hsteps⟩ := h1
       have htail : StandardCircuitWalk K c L (f 1) v := by
