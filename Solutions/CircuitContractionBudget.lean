@@ -79,16 +79,14 @@ theorem contraction_to_elimination_threshold (M : ℕ) (hM : 2 ≤ M) :
     exact_mod_cast hnat
   have htwo : (0 : ℝ) < (2 : ℝ) ^ (4 * M) := pow_pos (by norm_num) _
   have hden : (0 : ℝ) < 2 * (M : ℝ) ^ 2 := by positivity
+  have hfrac' : (M : ℝ) / (2 : ℝ) ^ (4 * M) ≤
+      1 / (2 * (M : ℝ) ^ 2) := by
+    apply (div_le_div_iff₀ htwo hden).2
+    nlinarith only [hnatR]
   have hfrac : (M : ℝ) * (1 / 2 : ℝ) ^ (4 * M) ≤
       1 / (2 * (M : ℝ) ^ 2) := by
     rw [one_div_pow]
-    have heq :
-        (M : ℝ) * (1 * ((2 : ℝ) ^ (4 * M))⁻¹) =
-          (M : ℝ) / (2 : ℝ) ^ (4 * M) := by
-      simp [div_eq_mul_inv]
-    rw [heq]
-    apply (div_le_div_iff₀ htwo hden).2
-    nlinarith only [hnatR]
+    simpa [div_eq_mul_inv] using hfrac'
   exact (mul_le_mul_of_nonneg_left hpow (by positivity)).trans hfrac
 
 #print axioms contraction_block_half
