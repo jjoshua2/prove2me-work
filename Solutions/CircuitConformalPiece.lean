@@ -160,7 +160,96 @@ theorem exists_elementary_conformal {n : ℕ}
   have hcardmin := hmin y ⟨hy0, hyK, hyConf⟩
   omega
 
+/-- Rescale an elementary conformal direction until at least one coordinate of
+the residual vanishes. The scaled vector is still elementary and conformal,
+and subtracting it strictly decreases support. -/
+theorem exists_saturating_elementary_conformal {n : ℕ}
+    (K : Submodule ℝ (Fin n → ℝ)) {z : Fin n → ℝ}
+    (hzK : z ∈ K) (hz0 : z ≠ 0) :
+    ∃ g : Fin n → ℝ,
+      IsElementaryIn K g ∧ ConformalTo g z ∧
+      ConformalTo (z - g) z ∧
+      (supportFinset (z - g)).card < (supportFinset z).card := by
+  classical
+  obtain ⟨g0, hg0elem, hg0conf⟩ := exists_elementary_conformal K hzK hz0
+  have hg00 : g0 ≠ 0 := hg0elem.1
+  have hD : (supportFinset g0).Nonempty := by
+    by_contra hnone
+    have hzero : supportFinset g0 = ∅ := Finset.not_nonempty_iff_eq_empty.mp hnone
+    apply hg00
+    funext i
+    by_contra hi
+    have : i ∈ supportFinset g0 := by simpa using hi
+    simpa [hzero] using this
+  obtain ⟨q, hqD, hmin⟩ :=
+    (supportFinset g0).exists_min_image (fun i => |z i| / |g0 i|) hD
+  have hgq0 : g0 q ≠ 0 := by simpa using hqD
+  have hzq0 : z q ≠ 0 := by
+    have hsub := conformalTo_support_subset hg0conf
+    have hqSupp : q ∈ Function.support g0 := by simpa [Function.mem_support] using hgq0
+    have := hsub hqSupp
+    simpa [Function.mem_support] using this
+  let c : ℝ := |z q| / |g0 q|
+  have hcpos : 0 < c := div_pos (abs_pos.mpr hzq0) (abs_pos.mpr hgq0)
+  have hc0 : 0 ≤ c := le_of_lt hcpos
+  have hcne : c ≠ 0 := ne_of_gt hcpos
+  have habs : ∀ i, |c * g0 i| ≤ |z i| := by
+    intro i
+    by_cases hgi0 : g0 i = 0
+    · simp [hgi0]
+    · have hiD : i ∈ supportFinset g0 := by simpa using hgi0
+      have hle := hmin i hiD
+      have hmul := mul_le_mul_of_nonneg_right hle (abs_nonneg (g0 i))
+      have habsgi : |g0 i| ≠ 0 := abs_ne_zero.mpr hgi0
+      calc
+        |c * g0 i| = c * |g0 i| := by rw [abs_mul, abs_of_nonneg hc0]
+        _ ≤ (|z i| / |g0 i|) * |g0 i| := by simpa [c] using hmul
+        _ = |z i| := by field_simp [habsgi]
+  let g : Fin n → ℝ := c • g0
+  have hgconf : ConformalTo g z := by
+    intro i
+    constructor
+    · simp only [g, Pi.smul_apply, smul_eq_mul]
+      have hs := (hg0conf i).1
+      nlinarith
+    · simpa only [g, Pi.smul_apply, smul_eq_mul] using habs i
+  have hgelem : IsElementaryIn K g := by
+    exact isElementaryIn_smul K hg0elem hcne
+  have hresconf : ConformalTo (z - g) z := conformalTo_sub_right hgconf
+  have hcancel : g q = z q := by
+    dsimp [g, c]
+    simp only [Pi.smul_apply, smul_eq_mul]
+    rcases lt_or_gt_of_ne hzq0 with hzneg | hzpos
+    · have hgqle : g0 q ≤ 0 :=
+        conformalTo_coord_nonpos_of_right_nonpos hg0conf (le_of_lt hzneg)
+      have hgqneg : g0 q < 0 := lt_of_le_of_ne hgqle (Ne.symm hgq0)
+      rw [abs_of_neg hzneg, abs_of_neg hgqneg]
+      field_simp [hgq0]
+      ring
+    · have hgqge : 0 ≤ g0 q :=
+        conformalTo_coord_nonneg_of_right_nonneg hg0conf (le_of_lt hzpos)
+      have hgqpos : 0 < g0 q := lt_of_le_of_ne hgqge hgq0
+      rw [abs_of_pos hzpos, abs_of_pos hgqpos]
+      field_simp [hgq0]
+  have hsub : supportFinset (z - g) ⊆ supportFinset z := by
+    intro i hi
+    simp only [mem_supportFinset] at hi ⊢
+    intro hzi
+    have hzres := conformalTo_eq_zero_of_right_eq_zero hresconf hzi
+    exact hi hzres
+  have hqIn : q ∈ supportFinset z := by simpa using hzq0
+  have hqOut : q ∉ supportFinset (z - g) := by
+    simp only [mem_supportFinset, not_not, Pi.sub_apply]
+    rw [hcancel, sub_self]
+  have hne : supportFinset (z - g) ≠ supportFinset z := by
+    intro heq
+    exact hqOut (heq.symm ▸ hqIn)
+  have hstrict : supportFinset (z - g) ⊂ supportFinset z :=
+    ssubset_of_ne_of_subset hne hsub
+  exact ⟨g, hgelem, hgconf, hresconf, Finset.card_lt_card hstrict⟩
+
 #print axioms half_perturb_conformal
 #print axioms exists_elementary_conformal
+#print axioms exists_saturating_elementary_conformal
 
 end HirschCircuit
