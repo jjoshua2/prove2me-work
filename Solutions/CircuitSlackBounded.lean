@@ -29,8 +29,10 @@ theorem rowMap_injective_of_bounded
     have hxi := hx i
     simpa [inner_add_right, inner_smul_right, hki] using hxi
   obtain ⟨r, hr⟩ := hb.subset_closedBall x
-  have hr0 : 0 ≤ r := Metric.nonneg_of_mem_closedBall (hr hx)
   let t : ℝ := (r + 1) / ‖p - q‖
+  have hr0 : 0 ≤ r := by
+    have hball0 := Metric.mem_closedBall.mp (hr hx)
+    simpa using hball0
   have ht : 0 < t := by
     dsimp [t]
     exact div_pos (by linarith) hnorm
