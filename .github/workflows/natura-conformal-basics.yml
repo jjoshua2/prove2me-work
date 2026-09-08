@@ -1,0 +1,23 @@
+name: Natura conformal basics
+on:
+  push:
+    branches: [chatgpt/natura-conformal-basics]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install elan if needed
+        run: |
+          if [ ! -x "$HOME/.elan/bin/elan" ]; then
+            curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y
+          fi
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Fetch pinned Mathlib cache
+        run: ~/.elan/bin/lake exe cache get
+      - name: Build conformal basics
+        run: ~/.elan/bin/lake build Solutions.CircuitConformalBasics
