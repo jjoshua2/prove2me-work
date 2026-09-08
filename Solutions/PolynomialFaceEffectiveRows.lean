@@ -45,21 +45,20 @@ theorem exists_commonFace_effective_model {d n : ℕ}
       Hpoly (commonFaceA a b u x) (commonFaceB a b u x) := by
   classical
   let S := commonFaceEffectiveRows a b u x
-  let m := S.card
+  let m := Fintype.card S
   let E : Fin m ≃ S := (Fintype.equivFin S).symm
   let e : Fin m ↪ Fin n :=
     { toFun := fun j => (E j).val
       inj' := by
         intro j k h
         exact E.injective (Subtype.ext h) }
-  have hemem : ∀ j : Fin m, e j ∈ S := fun j => (E j).property
   have hesurj : ∀ i ∈ S, ∃ j : Fin m, e j = i := by
     intro i hi
     refine ⟨E.symm ⟨i, hi⟩, ?_⟩
     change (E (E.symm ⟨i, hi⟩)).val = i
     rw [E.apply_symm_apply]
   have hm : m = commonFaceEffectiveCount a b u x := by
-    rfl
+    simp [m, S, commonFaceEffectiveCount]
   subst m
   refine ⟨e, ?_⟩
   ext q
@@ -67,10 +66,11 @@ theorem exists_commonFace_effective_model {d n : ℕ}
   · intro hq i
     by_cases hi : i ∈ S
     · obtain ⟨j, hj⟩ := hesurj i hi
-      simpa only [hj] using hq j
+      have hjq := hq j
+      rw [hj] at hjq
+      exact hjq
     · have hzero : commonFaceA a b u x i = 0 := by
-        simp [S, commonFaceEffectiveRows] at hi
-        exact not_ne_iff.mp hi
+        simpa [S, commonFaceEffectiveRows] using hi
       rw [hzero, inner_zero_left]
       exact commonFaceB_nonneg_of_mem a b u x hu i
   · intro hq j
