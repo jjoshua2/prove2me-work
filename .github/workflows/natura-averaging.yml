@@ -1,0 +1,23 @@
+name: Natura circuit averaging selector
+on:
+  push:
+    branches: [chatgpt/natura-averaging]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pinned Lean and Mathlib
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          ~/.elan/bin/lake exe cache get
+      - name: Build and audit averaging selector
+        run: |
+          set -o pipefail
+          ~/.elan/bin/lake build Solutions.CircuitAveraging 2>&1 | tee /tmp/averaging.log
+          if grep -q 'sorryAx' /tmp/averaging.log; then exit 1; fi
