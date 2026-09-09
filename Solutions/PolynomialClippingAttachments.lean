@@ -88,7 +88,7 @@ theorem outward_segment_retract_on_cut
       b i = (s + t) * b i := by rw [hst, one_mul]
       _ = s * b i + t * b i := add_mul _ _ _
       _ ≤ s * b i + t * f i a :=
-        add_le_add_left (mul_le_mul_of_nonneg_left hai ht0) _
+        add_le_add (le_refl _) (mul_le_mul_of_nonneg_left hai ht0)
       _ = f i x := he'
   rcases retract_eq_self_or_on_cut f b o x hs with he | ⟨j, hj⟩
   · refine ⟨i, hxP, ?_⟩
