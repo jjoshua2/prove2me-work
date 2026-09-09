@@ -2,6 +2,14 @@ name: Effective common-face row model
 on:
   push:
     branches: [chatgpt/face-effective-rows]
+    paths:
+      - 'Solutions/**'
+      - 'Definitions/**'
+      - 'scripts/check_lean_axiom_log.py'
+      - '.github/workflows/face-effective-rows.yml'
+      - 'lean-toolchain'
+      - 'lakefile.*'
+      - 'lake-manifest.json'
   workflow_dispatch:
 permissions:
   contents: read
@@ -18,12 +26,14 @@ jobs:
           persist-credentials: false
       - name: Install pinned Lean and Mathlib
         run: |
+          set -euo pipefail
           curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
           ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
-      - name: Compile effective-row model and audit axioms
+      - name: Compile effective-row model and audit complete axiom reports
         run: |
-          set -o pipefail
+          set -euo pipefail
           ~/.elan/bin/lake build Solutions.PolynomialFaceEffectiveRows 2>&1 | tee /tmp/effective-rows.log
-          ! grep -q sorryAx /tmp/effective-rows.log
-          grep -F "'HirschPolynomialAccess.exists_balanced_commonFace_model' depends on axioms: [propext, Classical.choice, Quot.sound]" /tmp/effective-rows.log
-          grep -F "'HirschPolynomialAccess.commonFace_coord_diam_of_balanced_effective' depends on axioms: [propext, Classical.choice, Quot.sound]" /tmp/effective-rows.log
+          python3 scripts/check_lean_axiom_log.py /tmp/effective-rows.log \
+            HirschPolynomialAccess.exists_commonFace_effective_model \
+            HirschPolynomialAccess.exists_balanced_commonFace_model \
+            HirschPolynomialAccess.commonFace_coord_diam_of_balanced_effective
