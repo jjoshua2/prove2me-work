@@ -28,8 +28,8 @@ theorem clip_route_with_attachments
     HirschRegionRoute.Route (Adj (finalClip Q f b)) (L + ∑ i, B i) u v := by
   classical
   let P := finalClip Q f b
-  let E : Option (Fin L) → Set (ClipSpace d) :=
-    Option.elim (P ∩ {w 0}) (fun k =>
+  let E : Option (Fin L) → Set (ClipSpace d) := fun k =>
+    k.elim (P ∩ {w 0}) (fun k =>
       if Adj Q (w k) (w (k + 1)) then P ∩ segment ℝ (w k) (w (k + 1)) else ∅)
   let F : Sum (Option (Fin L)) ι → Set (ClipSpace d) :=
     Sum.elim E (fun i => P ∩ {x | f i x = b i})
