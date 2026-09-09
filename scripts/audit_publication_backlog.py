@@ -29,6 +29,7 @@ NAMES = [
     "Hirsch.route_of_faces_and_surviving_edges",
     "Hirsch.extreme_face_cut_route_bound",
     "Hirsch.mixed_repair_route_or_cut",
+    "Hirsch.crossing_cube_endpoint_certificate_insufficient",
 ]
 
 class NoRedirect(urllib.request.HTTPRedirectHandler):
