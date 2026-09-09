@@ -45,8 +45,10 @@ for name in [
     'scripts/check_lean_axiom_log.py', 'scripts/pointed_polyhedron_exact.py',
     'scripts/test_face_preserving_checkpoints.py',
     'scripts/test_cone_carrier_descent.py', 'scripts/check_carrier_regression.py',
+    'scripts/test_carrier_euler_refinement.py',
     'scripts/package_clipping_continuation.py',
-    'research/ConeCarrierDescent.md', 'research/ClippingVerificationProgress.md',
+    'research/ConeCarrierDescent.md', 'research/CarrierEulerRefinement.md',
+    'research/ClippingVerificationProgress.md',
     'research/cone_carrier_expected.json',
     '.github/workflows/verify-simultaneous-clipping.yml',
 ]:
@@ -64,7 +66,9 @@ receipt = {
     'required_lean_declarations': 42,
     'full_unbounded_theorem_formalized': False,
     'cone_carrier_theorem_lean_verified': False,
+    'carrier_euler_refinement_lean_verified': False,
     'cone_carrier_exact_regression': 'completed and hash-matched before packaging',
+    'carrier_euler_exact_regression': 'completed and hash-matched before packaging',
     'prove2me_calls': 0,
     'source_sha256': manifest,
 }
@@ -72,7 +76,7 @@ output = Path(sys.argv[1] if len(sys.argv) > 1 else '/tmp/clipping-verified-sour
 with zipfile.ZipFile(output, 'w', zipfile.ZIP_DEFLATED) as archive:
     for p in sorted(paths):
         archive.write(ROOT / p, str(p))
-    for name in ['all-clipping.log', 'cone-carrier.json']:
+    for name in ['all-clipping.log', 'cone-carrier.json', 'carrier-euler.json']:
         full = Path('/tmp') / name
         if not full.is_file():
             raise RuntimeError(f'Missing completed-verification output: {full}')

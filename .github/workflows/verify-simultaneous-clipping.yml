@@ -7,7 +7,7 @@ permissions:
   contents: read
 concurrency:
   group: verify-simultaneous-clipping
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   verify:
     runs-on: ubuntu-latest
@@ -16,27 +16,17 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - uses: actions/cache/restore@v4
-        id: lean-cache
-        with:
-          path: |
-            ~/.elan
-            .lake
-          key: clipping-v2-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}
       - name: Install pinned Lean and Mathlib
         run: |
           set -euo pipefail
-          if ! test -x ~/.elan/bin/lake; then
-            curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
-          fi
+          test "$(cat lean-toolchain)" = 'leanprover/lean4:v4.30.0'
+          python3 - <<'PY'
+          import json
+          packages=json.load(open('lake-manifest.json'))['packages']
+          assert next(p['rev'] for p in packages if p['name']=='mathlib') == 'c5ea00351c28e24afc9f0f84379aa41082b1188f'
+          PY
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
           ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
-      - uses: actions/cache/save@v4
-        if: steps.lean-cache.outputs.cache-hit != 'true'
-        with:
-          path: |
-            ~/.elan
-            .lake
-          key: clipping-v2-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}
       - name: Compile full chain and audit
         run: |
           set -euo pipefail
@@ -58,6 +48,17 @@ jobs:
           set -euo pipefail
           python3 scripts/test_cone_carrier_descent.py --output /tmp/cone-carrier.json
           python3 scripts/check_carrier_regression.py /tmp/cone-carrier.json
+          python3 scripts/test_carrier_euler_refinement.py --output /tmp/carrier-euler.json
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib,json
+          raw=Path('/tmp/carrier-euler.json').read_bytes()
+          assert hashlib.sha256(raw).hexdigest()=='6ae805853a90ac7d08b1fc381c9713fab12adcb058512379d5f85439c00a4f6e'
+          data=json.loads(raw)
+          assert (data['instances'],data['pairs'],data['three_dimensional_relaxations'])==(40,8813,37)
+          assert data['all_explicit_routes_pass'] is True
+          print('Euler-refined exact output reproduced byte-for-byte.')
+          PY
       - name: Package audited sources and verification outputs
         run: python3 scripts/package_clipping_continuation.py /tmp/clipping-verified-source.zip
       - uses: actions/upload-artifact@v4
@@ -68,4 +69,5 @@ jobs:
             /tmp/all-clipping.log
             /tmp/setup.log
             /tmp/cone-carrier.json
+            /tmp/carrier-euler.json
             /tmp/clipping-verified-source.zip
