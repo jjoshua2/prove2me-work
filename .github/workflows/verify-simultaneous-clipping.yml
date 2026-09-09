@@ -1,0 +1,61 @@
+name: Verify simultaneous clipping without publication
+on:
+  push:
+    branches: [chatgpt/verify-simultaneous-clipping]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: verify-simultaneous-clipping
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.elan
+            .lake
+          key: clipping-v1-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}
+      - name: Install pinned Lean and Mathlib
+        run: |
+          set -euo pipefail
+          if ! test -x ~/.elan/bin/lake; then
+            curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
+          fi
+          ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
+      - name: Compile candidates and audit
+        run: |
+          set -euo pipefail
+          modules=(PolynomialClosedFaceTrace PolynomialConvexSubsegment PolynomialRadialRetraction)
+          if test -f Solutions/PolynomialHorizonCap.lean; then modules+=(PolynomialHorizonCap); elif test -f Solutions/PolynomialSimultaneousClipDiameter.lean; then modules+=(PolynomialSimultaneousClipDiameter); fi
+          status=0
+          for module in "${modules[@]}"; do
+            ~/.elan/bin/lake build "Solutions.$module" 2>&1 | tee "/tmp/$module.log" || status=1
+          done
+          if test "$status" != 0; then exit 1; fi
+          cat /tmp/Polynomial*.log > /tmp/all-clipping.log
+          python3 - <<'PY'
+          import pathlib,re,subprocess
+          names=[]
+          for path in pathlib.Path('Solutions').glob('Polynomial*.lean'):
+              if path.stem not in {'PolynomialClosedFaceTrace','PolynomialConvexSubsegment','PolynomialRadialRetraction','PolynomialClipEndpointLift','PolynomialSimultaneousClipDiameter','PolynomialHorizonCap'}: continue
+              text=path.read_text()
+              ns=re.search(r'^namespace (\w+)',text,re.M).group(1)
+              names += [ns+'.'+x for x in re.findall(r'^#print axioms (\w+)',text,re.M)]
+          print('Required declarations:',len(names))
+          subprocess.run(['python3','scripts/check_lean_axiom_log.py','/tmp/all-clipping.log',*names],check=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: simultaneous-clipping-audit
+          path: |
+            /tmp/Polynomial*.log
+            /tmp/all-clipping.log
+            /tmp/setup.log
