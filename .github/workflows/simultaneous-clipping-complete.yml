@@ -1,0 +1,60 @@
+name: Complete simultaneous clipping geometry
+on:
+  push:
+    branches: [chatgpt/simultaneous-clipping-complete]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: simultaneous-clipping-complete
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install pinned Lean and Mathlib
+        run: |
+          set -euo pipefail
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
+          ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
+      - name: Pinned geometry API diagnostics
+        run: |
+          grep -n -A 5 -B 1 -E 'collinear|Collinear' .lake/packages/mathlib/Mathlib/LinearAlgebra/AffineSpace/FiniteDimensional.lean > /tmp/geometry-api.log || true
+          grep -n -A 4 -B 1 -E 'isExtreme.*(le|eq)|IsExtreme.*(le|eq)|isExposed.*(le|eq)' .lake/packages/mathlib/Mathlib/Analysis/Convex/Exposed.lean >> /tmp/geometry-api.log || true
+          cat /tmp/geometry-api.log
+      - name: Compile and audit continuous radial repair
+        run: |
+          set -euo pipefail
+          ~/.elan/bin/lake build Solutions.PolynomialContinuousRepair 2>&1 | tee /tmp/build.log
+          python3 scripts/check_lean_axiom_log.py /tmp/build.log \
+            HirschRegionRoute.region_walk_of_preconnected_closed_cover \
+            HirschRegionRoute.route_of_preconnected_closed_face_cover \
+            HirschRadial.gauge_ge_one \
+            HirschRadial.le_gauge \
+            HirschRadial.gauge_attains \
+            HirschRadial.gauge_eq_one \
+            HirschRadial.continuous_gauge \
+            HirschRadial.scale_ge_one \
+            HirschRadial.normalized_le_scale \
+            HirschRadial.continuous_scale \
+            HirschRadial.continuous_retract \
+            HirschRadial.retract_mem \
+            HirschRadial.retract_fixes \
+            HirschRadial.retract_eq_self_or_on_cut
+      - name: Recheck exact geometric regressions
+        run: |
+          set -euo pipefail
+          python3 scripts/test_face_preserving_checkpoints.py | tee /tmp/checkpoint-regression.log
+          diff -u research/checkpoint_regression.json /tmp/checkpoint-regression.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: simultaneous-clipping-audit
+          path: |
+            /tmp/build.log
+            /tmp/geometry-api.log
+            /tmp/checkpoint-regression.log
