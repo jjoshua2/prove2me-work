@@ -84,7 +84,12 @@ theorem outward_segment_retract_on_cut
     have he' := congrArg (f i) he
     simp only [map_add, map_smul, smul_eq_mul] at he'
     rw [hui] at he'
-    nlinarith [mul_nonneg ht0 (sub_nonneg.mpr hai)]
+    calc
+      b i = (s + t) * b i := by rw [hst, one_mul]
+      _ = s * b i + t * b i := add_mul _ _ _
+      _ ≤ s * b i + t * f i a :=
+        add_le_add_left (mul_le_mul_of_nonneg_left hai ht0) _
+      _ = f i x := he'
   rcases retract_eq_self_or_on_cut f b o x hs with he | ⟨j, hj⟩
   · refine ⟨i, hxP, ?_⟩
     rw [he]
