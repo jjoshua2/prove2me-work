@@ -6,7 +6,6 @@ open scoped RealInnerProductSpace BigOperators
 open Set Hirsch
 
 set_option maxHeartbeats 5000000
-set_option pp.width 100000
 
 noncomputable section
 

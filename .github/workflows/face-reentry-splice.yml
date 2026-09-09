@@ -1,4 +1,4 @@
-name: Extreme-face splice and geodesic cover
+name: Extreme-face splice, geodesic cover and tail
 on:
   push:
     branches: [chatgpt/face-reentry-splice]
@@ -6,6 +6,7 @@ on:
       - 'Solutions/**'
       - 'Definitions/**'
       - 'scripts/check_lean_axiom_log.py'
+      - 'scripts/test_geodesic_face_cover.py'
       - '.github/workflows/face-reentry-splice.yml'
       - 'lean-toolchain'
       - 'lakefile.*'
@@ -24,15 +25,17 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+      - name: Exact hull and all-geodesic regression
+        run: python3 scripts/test_geodesic_face_cover.py
       - name: Install pinned Lean and Mathlib
         run: |
           set -euo pipefail
           curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
           ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
-      - name: Compile splice and geodesic face-cover theorem
+      - name: Compile splice, geodesic cover and ordered tail
         run: |
           set -euo pipefail
-          ~/.elan/bin/lake build Solutions.PolynomialGeodesicFaceCover 2>&1 | tee /tmp/face-splice.log
+          ~/.elan/bin/lake build Solutions.PolynomialGeodesicFaceTail 2>&1 | tee /tmp/face-splice.log
           python3 scripts/check_lean_axiom_log.py /tmp/face-splice.log \
             HirschFaceSplice.splice_reentry_through_extreme_face \
             HirschFaceSplice.splice_reentry_no_growth \
@@ -40,4 +43,7 @@ jobs:
             HirschFaceSplice.shortest_face_visit_span_le \
             HirschFaceSplice.shortest_face_visit_card_le \
             HirschFaceSplice.shortest_face_cover_budget \
-            HirschFaceSplice.diamLE_of_face_cover
+            HirschFaceSplice.diamLE_of_face_cover \
+            HirschFaceSplice.shortest_no_repeat_of_le \
+            HirschFaceSplice.shortest_face_disjoint_tail_budget \
+            HirschFaceSplice.diamLE_of_disjoint_face_tail_bound
