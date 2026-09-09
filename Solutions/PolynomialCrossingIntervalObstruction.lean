@@ -84,7 +84,9 @@ lemma crossing_regions_disjoint : Disjoint (crossingRegion 0) (crossingRegion 1)
   rw [Set.disjoint_left]
   intro x hx hy
   simp [crossingRegion] at hx hy
-  rcases hx with rfl | rfl <;> norm_num at hy
+  rcases hx with rfl | rfl
+  · exact (by decide : ¬ ((0 : Fin 16) = 8 ∨ (0 : Fin 16) = 9)) hy
+  · exact (by decide : ¬ ((1 : Fin 16) = 8 ∨ (1 : Fin 16) = 9)) hy
 
 lemma crossing_no_route_below_seven {B : ℕ} (hB : B < 7) :
     ¬ Route cycleStep B (crossingSequence 0) (crossingSequence 3) := by

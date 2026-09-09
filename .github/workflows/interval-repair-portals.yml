@@ -29,7 +29,7 @@ jobs:
           mkdir -p interval_repair_evidence
           ~/.elan/bin/lake build \
             Solutions.PolynomialProjectiveDamageSurviving \
-            Solutions.PolynomialIntervalRegionRouting \
+            Solutions.Sol_Hirsch_face_interval_cover_route_bound \
             Solutions.PolynomialCrossingIntervalObstruction 2>&1 | tee interval_repair_evidence/build.log
           python3 scripts/check_lean_axiom_log.py interval_repair_evidence/build.log \
             HirschFaceSplice.splice_ordered_face_blocks_of_surviving_steps_exact \
@@ -48,17 +48,28 @@ jobs:
             HirschCrossingObstruction.crossing_regions_disjoint \
             HirschCrossingObstruction.crossing_no_route_below_seven \
             HirschCrossingObstruction.crossing_route_seven \
-            HirschCrossingObstruction.crossing_interval_cover_counterexample
+            HirschCrossingObstruction.crossing_interval_cover_counterexample \
+            solution
+      - name: Independently compile offline publication packet
+        run: |
+          set -euo pipefail
+          python3 scripts/bundle_public_interval_repair.py
+          ~/.elan/bin/lake env lean public_interval_repair_packet/solution.lean 2>&1 | tee interval_repair_evidence/standalone.log
+          python3 scripts/check_lean_axiom_log.py interval_repair_evidence/standalone.log solution
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: interval-repair-evidence
           path: |
             interval_repair_evidence/
+            public_interval_repair_packet/
             Solutions/PolynomialProjectiveDamageBlocks.lean
             Solutions/PolynomialProjectiveDamageSurviving.lean
             Solutions/PolynomialRegionRouting.lean
             Solutions/PolynomialMixedRegionRouting.lean
             Solutions/PolynomialIntervalRegionRouting.lean
             Solutions/PolynomialCrossingIntervalObstruction.lean
+            Solutions/Sol_Hirsch_face_interval_cover_route_bound.lean
             scripts/test_crossing_interval_obstruction.py
+            scripts/bundle_public_interval_repair.py
+            research/IntervalRepairPortalsAndObstruction.md
