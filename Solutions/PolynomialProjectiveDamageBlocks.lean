@@ -126,8 +126,13 @@ theorem splice_ordered_face_blocks_suffix
 
       let K := (b.s - pos) + b.B + (L - b.t + blockBudgetSum bs)
       let M := L - pos + (b.B + blockBudgetSum bs)
+      have hsL : b.s ≤ L := b.hst.trans b.htL
       have htail : L - b.t ≤ L - b.s := Nat.sub_le_sub_left b.hst L
-      have hsum : (b.s - pos) + (L - b.s) = L - pos := by omega
+      have hposSsum : pos + (b.s - pos) = b.s := by omega
+      have hsLsum : b.s + (L - b.s) = L := by omega
+      have hposLsum : pos + (L - pos) = L := by omega
+      have hsum : (b.s - pos) + (L - b.s) = L - pos := by
+        omega
       have hcore : (b.s - pos) + (L - b.t) ≤ L - pos := by
         calc
           (b.s - pos) + (L - b.t) ≤ (b.s - pos) + (L - b.s) :=
