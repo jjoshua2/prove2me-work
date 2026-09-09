@@ -1,0 +1,64 @@
+name: Interval repair portals and crossing obstruction
+on:
+  push:
+    branches: [chatgpt/interval-repair-portals]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: interval-repair-portals
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Exact integer hull and graph regression
+        run: python3 scripts/test_crossing_interval_obstruction.py
+      - name: Install pinned Lean and Mathlib
+        run: |
+          set -euo pipefail
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
+          ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
+      - name: Compile and audit repair theorems
+        run: |
+          set -euo pipefail
+          mkdir -p interval_repair_evidence
+          ~/.elan/bin/lake build \
+            Solutions.PolynomialProjectiveDamageSurviving \
+            Solutions.PolynomialIntervalRegionRouting \
+            Solutions.PolynomialCrossingIntervalObstruction 2>&1 | tee interval_repair_evidence/build.log
+          python3 scripts/check_lean_axiom_log.py interval_repair_evidence/build.log \
+            HirschFaceSplice.splice_ordered_face_blocks_of_surviving_steps_exact \
+            HirschFaceSplice.splice_surviving_steps_no_growth \
+            HirschRegionRoute.route_of_connected_regions \
+            HirschRegionRoute.route_of_mixed_step_cover \
+            HirschRegionRoute.route_of_faces_and_surviving_edges \
+            HirschRegionRoute.region_walk_of_interval_cover \
+            HirschRegionRoute.route_of_interval_cover \
+            HirschRegionRoute.route_of_face_interval_cover \
+            HirschCrossingObstruction.cycle_potential_step \
+            HirschCrossingObstruction.cycle_route_potential_bound \
+            HirschCrossingObstruction.crossing_covers_all_steps \
+            HirschCrossingObstruction.crossing_endpoints_in_regions \
+            HirschCrossingObstruction.crossing_local_cost_one \
+            HirschCrossingObstruction.crossing_regions_disjoint \
+            HirschCrossingObstruction.crossing_no_route_below_seven \
+            HirschCrossingObstruction.crossing_route_seven \
+            HirschCrossingObstruction.crossing_interval_cover_counterexample
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: interval-repair-evidence
+          path: |
+            interval_repair_evidence/
+            Solutions/PolynomialProjectiveDamageBlocks.lean
+            Solutions/PolynomialProjectiveDamageSurviving.lean
+            Solutions/PolynomialRegionRouting.lean
+            Solutions/PolynomialMixedRegionRouting.lean
+            Solutions/PolynomialIntervalRegionRouting.lean
+            Solutions/PolynomialCrossingIntervalObstruction.lean
+            scripts/test_crossing_interval_obstruction.py
