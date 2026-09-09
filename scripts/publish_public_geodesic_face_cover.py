@@ -13,6 +13,7 @@ import Definitions.Def_Hirsch_model
 
 open scoped RealInnerProductSpace BigOperators
 open Set Hirsch
+attribute [local instance] Classical.propDecidable
 '''
 FORMAL=r'''namespace Hirsch
 
