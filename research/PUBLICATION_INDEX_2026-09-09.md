@@ -5,23 +5,21 @@ Environment: Lean 4.30.0 / Mathlib
 
 This index distinguishes **Prove2Me public theorems**, **GitHub-verified
 results**, and **research-only exact certificates**. It does not label
-conditional research as a global Polynomial Hirsch proof.
+conditional research or an incomplete Lean assembly as a global Polynomial
+Hirsch proof.
 
-For the current mathematical frontier and branch map, read
+For the current mathematical frontier, branch map, and next obligations, read
 [`../STATUS.md`](../STATUS.md).
 
 ## Current formal frontier
 
 `Hirsch.polynomial_edge_refinement_of_circuit_walks`
-(`099c6686-560c-48fc-b2c2-18b6a620a06e`) is **Open**.
+(`099c6686-560c-48fc-b2c2-18b6a620a06e`) remains **Open**.
 
 Its sibling `Hirsch.cubic_circuit_walk_bound`
-(`9b9a6f06-d05d-41ba-980f-04b905e67562`) is **Proved**. The old prescribed
-supporting-face leaf is therefore no longer an unsplit frontier.
-
-An authenticated audit at 2026-09-09 14:41 UTC confirmed the edge-refinement
-theorem Open in this pinned environment. PR #49 subsequently added one new
-repair theorem publication; it did not close the formal frontier.
+(`9b9a6f06-d05d-41ba-980f-04b905e67562`) is **Proved**. PR #50 adds two
+new Proved geometric repair/checkpoint results but does not close edge
+refinement.
 
 ## Prove2Me — verified public results
 
@@ -53,7 +51,9 @@ repair theorem publication; it did not close the formal frontier.
 | `Hirsch.extreme_face_cut_route_bound` | `d3a9d907-a9a7-4564-a718-51d1a1a78889` | Proved | PR #41 / #45 |
 | `Hirsch.mixed_repair_route_or_cut` | `92dc970d-1e7c-4bbe-b30c-b781d045360b` | Proved | PR #42 / #46 |
 | `Hirsch.crossing_cube_endpoint_certificate_insufficient` | `3672334a-7c8c-4a5d-b95d-8629418d3bba` | Proved | PR #41 / #47 |
-| `Hirsch.face_interval_cover_route_bound_of_start_containment` | `ae57fc5c-9c88-45e9-b717-eb8ea9fb6cfe` | Proved | PR #48 / publication PR #49 |
+| `Hirsch.face_interval_cover_route_bound_of_start_containment` | `ae57fc5c-9c88-45e9-b717-eb8ea9fb6cfe` | Proved | PR #48 / #49 |
+| `Hirsch.face_preserving_vertex_selection` | `c8ebefd3-d31a-4d33-b1f8-6298669cc3ba` | Proved | PR #50 |
+| `Hirsch.face_interval_cover_route_bound_of_feasible_start_containment` | `6dc401ab-6fc2-48c9-a3fa-7e1a2b17c102` | Proved | PR #50 |
 
 Public definition modules:
 
@@ -65,27 +65,34 @@ Public definition modules:
 - PR #35 / Actions `34301906252`: reentry splice and ordered-tail submissions,
   both `ACCEPTED`.
 - PR #37 / Actions `34344699190`: face-incidence diameter theorem,
-  submission `0127d3e9-87b8-47c4-86dc-04b9f20f6d1e`, `ACCEPTED`.
+  `ACCEPTED`.
 - PR #36 / Actions `34343690139`: public common-face definition plus three
   theorems, all `ACCEPTED`.
 - PR #43 / Actions `34360204346`: `face_interval_cover_route_bound`,
-  submission `32673334-90a0-4687-bbcc-b9c144cc597f`, `ACCEPTED`.
+  `ACCEPTED`.
 - PR #44 / Actions `34361247630`: exact ordered damage repair and
-  face/surviving-edge routing, submissions `795cd02d-fc25-412e-942b-0d05e823e41a`
-  and `79772e65-1038-46bb-a68a-ad6d33307981`, both `ACCEPTED`.
-- PR #45 / Actions `34360502053`: `extreme_face_cut_route_bound`, submission
-  `f363f391-d8e3-4357-991f-df321f987aa6`, `ACCEPTED`.
-- PR #46 / Actions `34361604218`: `mixed_repair_route_or_cut`, submission
-  `d55031cb-0df8-43e4-8be1-00e972e5ab91`, `ACCEPTED`.
+  face/surviving-edge routing, both `ACCEPTED`.
+- PR #45 / Actions `34360502053`: `extreme_face_cut_route_bound`, `ACCEPTED`.
+- PR #46 / Actions `34361604218`: `mixed_repair_route_or_cut`, `ACCEPTED`.
 - PR #47 / Actions `34363222900`: Boolean-cube endpoint-certificate
-  obstruction, submission `36c36782-1a23-492a-b11e-414c8bb9ddcd`, `ACCEPTED`.
-- PR #49 / Actions `34365609278`: start-containment face routing theorem,
-  theorem `ae57fc5c-9c88-45e9-b717-eb8ea9fb6cfe`, submission
-  `6b2c08bc-b2bd-4688-9ab1-019ecf2a98ba`, verdict **ACCEPTED**, live status
-  **Proved**. Receipt artifact `10110549984`.
+  obstruction, `ACCEPTED`.
+- PR #49 / Actions `34365609278`: start-containment theorem
+  `ae57fc5c-9c88-45e9-b717-eb8ea9fb6cfe`, submission
+  `6b2c08bc-b2bd-4688-9ab1-019ecf2a98ba`, **ACCEPTED / Proved**.
+- PR #50 publication / Actions `34406122009`:
+  - `Hirsch.face_preserving_vertex_selection`, theorem
+    `c8ebefd3-d31a-4d33-b1f8-6298669cc3ba`, submission
+    `5c026214-1592-4db8-bc03-be242ced7b18`, **ACCEPTED / Proved**;
+  - `Hirsch.face_interval_cover_route_bound_of_feasible_start_containment`,
+    theorem `6dc401ab-6fc2-48c9-a3fa-7e1a2b17c102`, submission
+    `6c140ee2-141f-4b4f-baa3-031a31df4f7f`, **ACCEPTED / Proved**;
+  - Polynomial Hirsch mission discussion comment
+    `dd739cf3-7749-4947-a20a-ba16a17859ef` records the radial construction,
+    verification boundary, and remaining global gaps;
+  - receipt artifact `10125766656`.
 
-Publication workflows rebuild the reviewed source, flatten private local proof
-dependencies where required, independently compile/audit the server proof, and
+Publication workflows rebuild reviewed source, flatten private proof dependencies
+where needed, independently compile/axiom-audit standalone server proofs, and
 reject `sorryAx` / nonstandard proof axioms before authenticated submission.
 
 ## GitHub-verified work that is not a global proof
@@ -93,41 +100,65 @@ reject `sorryAx` / nonstandard proof axioms before authenticated submission.
 - PR #27 — reentry splice, geodesic face-incidence and ordered-tail work.
 - PR #28 / #33 — effective-row common-face model and count bounds.
 - PR #29 — sparse-presentation d-step induction / minimal-counterexample
-  diagnostic. Conditional only.
+  diagnostic; conditional only.
 - PR #30 — general common-face dimension tradeoff and splitter.
 - PR #31 — exact rational counterexamples to proposed 2-face bridge strategies.
 - PR #38 — ordered projective-damage amortization / surviving-step repair.
-- PR #39 — crossing-interval obstruction and portal-backed repair.
-- PR #40 — exact ordered repair and distinct-support routing source packets.
-- PR #41 — repair-network cut characterization and universal Boolean-cube
-  endpoint-only obstruction.
-- PR #42 — generic route-or-cut framework plus cycle/polygon diagnostics.
+- PR #39–#42 — crossing repair, exact cut certificates, and route-or-cut
+  framework.
 - PR #48 — derives portals from start containment and proves the stronger
-  active-containment corollary. The general start-containment theorem is now
-  public via #49; the active-containment corollary is currently recorded as
-  GitHub-verified rather than a separate Prove2Me theorem.
+  active-containment corollary. The general start-containment theorem is public
+  via #49.
+- PR #50 — seven face-preserving checkpoint/routing declarations plus nine
+  radial-clipping algebra declarations are kernel-verified. Two checkpoint
+  results are public above. The stronger feasible active-containment theorem
+  and the nine radial components remain recorded here as verified source unless
+  separately published later.
+
+## PR #50 radial construction — not yet a Prove2Me theorem
+
+PR #50 gives a written mathematical proof and exact certificate constructor for
+simultaneous monotone clipping with a strictly feasible common centre. For a
+supplied length-`L` **outer edge/stay walk** and final cut-face diameter budgets
+`B_i`, the construction gives a final-parent repair route of length
+
+`L + sum_i B_i`.
+
+The fixed radial map partitions each old edge at crossings of affine normalized
+violations. Every cell maps either into a final cut face or a clipped old edge;
+shared feasible breakpoint images become vertex portals via the now-public
+face-preserving selector.
+
+**Formal boundary:** the complete clipping theorem has not yet been assembled
+as one end-to-end Lean declaration. Remaining formal steps are finite
+breakpoint/face-cover extraction and the clipped-old-edge diameter-one
+assembly. Therefore it is intentionally **not** listed above as Prove2Me
+Proved.
+
+Exact PR #50 regressions include the genuine moving-facet intersection-loss
+sweep and a maximal-circuit hexagon obstruction. They are falsification and
+construction certificates, not Lean hull theorems.
 
 ## Research-only exact certificates / dead ends
 
-- PR #31's 4D/5D Dantzig examples refute arbitrary-facet and selectable-good-
-  facet 2-face bridge strategies. They do **not** refute Polynomial Hirsch.
-- PRs #39/#42 supply exact cycle/polygon checks showing chronological overlap
-  alone is not a geometric portal.
-- The Boolean-cube abstract-graph obstruction is separately Lean-proved and
-  public as listed above.
+- PR #31's 4D/5D Dantzig examples refute arbitrary/selectable 2-face bridge
+  strategies, not Polynomial Hirsch.
+- PRs #39/#42 show chronological overlap alone does not create a geometric
+  portal; the Boolean-cube abstract obstruction is separately public/Proved.
+- PR #50's moving-facet sweep shows even persistent historical face labels can
+  lose their intersection in the final parent; use final-parent supports.
 - PR #11's Q28 scalar-coupling program found finite amplification but also
   established linear upper bounds for the independent scalar-fiber class.
 
 ## Intentionally not marked Proved
 
 `Hirsch.polynomial_edge_refinement_of_circuit_walks`, ID
-`099c6686-560c-48fc-b2c2-18b6a620a06e`, remains **Open**. It contains the
-current formal graph-routing difficulty. A prior sketch reducing it back to
-`balanced_polynomial_bound` was deprecated because it created a dependency
-cycle.
+`099c6686-560c-48fc-b2c2-18b6a620a06e`, remains **Open**.
 
-The current geometric continuation is to determine whether the genuine
-projective/Pachner/circuit evolution yields a connected family of actual
-repair supports satisfying start/active containment (or a comparably strong
-cut condition) with polynomial total cost. See `STATUS.md` before creating new
-children.
+The complete radial simultaneous-clipping `L + sum B_i` theorem is also not
+marked Proved for the formalization reason above.
+
+The sharp next questions are: finish that Lean assembly; derive the required
+outer-edge/clipping representation from the global projective/Pachner/circuit
+construction; and obtain polynomial control of `sum_i B_i`. See `STATUS.md`
+before creating new children.
