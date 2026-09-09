@@ -21,15 +21,41 @@ jobs:
           set -euo pipefail
           curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
           ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
-      - name: Compile and audit damage-block repair chain
+      - name: Compile and audit exact and unordered repair
         run: |
           set -euo pipefail
-          ~/.elan/bin/lake build Solutions.PolynomialProjectiveDamageSurviving 2>&1 | tee /tmp/build.log
+          ~/.elan/bin/lake build \
+            Solutions.PolynomialProjectiveDamageSurviving \
+            Solutions.PolynomialMixedRegionRouting 2>&1 | tee /tmp/build.log
           python3 scripts/check_lean_axiom_log.py /tmp/build.log \
             HirschFaceSplice.splice_ordered_face_blocks_suffix \
             HirschFaceSplice.splice_ordered_face_blocks \
             HirschFaceSplice.block_start_ge_of_ordered \
             HirschFaceSplice.blockBudgetSum_le_length_mul \
-            HirschFaceSplice.splice_ordered_face_blocks_uniform \
+            HirschFaceSplice.blockRemovedLength_le \
+            HirschFaceSplice.blockRepairLength_add_removed \
+            HirschFaceSplice.blockRepairLength_eq \
+            HirschFaceSplice.splice_surviving_steps_exact_suffix \
+            HirschFaceSplice.splice_ordered_face_blocks_of_surviving_steps_exact \
             HirschFaceSplice.splice_ordered_face_blocks_of_surviving_steps_suffix \
-            HirschFaceSplice.splice_ordered_face_blocks_of_surviving_steps
+            HirschFaceSplice.splice_ordered_face_blocks_of_surviving_steps \
+            HirschFaceSplice.splice_surviving_steps_uniform \
+            HirschFaceSplice.splice_ordered_face_blocks_uniform \
+            HirschFaceSplice.splice_surviving_steps_no_growth \
+            HirschRegionRoute.shared_point_walk \
+            HirschRegionRoute.route_of_region_walk \
+            HirschRegionRoute.nodup_cost_le \
+            HirschRegionRoute.route_of_connected_regions \
+            HirschRegionRoute.region_walk_of_step_cover \
+            HirschRegionRoute.route_of_step_cover \
+            HirschRegionRoute.extreme_face_region \
+            HirschRegionRoute.route_of_face_covered_sequence \
+            HirschRegionRoute.route_one \
+            HirschRegionRoute.pair_region \
+            HirschRegionRoute.route_of_mixed_step_cover \
+            HirschRegionRoute.route_of_faces_and_surviving_edges
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: damage-repair-build-log
+          path: /tmp/build.log
