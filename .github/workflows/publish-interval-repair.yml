@@ -1,0 +1,50 @@
+name: Publish interval repair theorem
+on:
+  push:
+    branches: [chatgpt/publish-interval-repair]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: publish-interval-repair
+  cancel-in-progress: true
+jobs:
+  verify-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          ref: chatgpt/publish-geodesic-face-cover
+          path: _publisher_source
+          persist-credentials: false
+      - name: Install pinned Lean and Mathlib
+        run: |
+          set -euo pipefail
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
+          ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
+      - name: Rebuild source and standalone proof
+        run: |
+          set -euo pipefail
+          ~/.elan/bin/lake build Solutions.Sol_Hirsch_face_interval_cover_route_bound 2>&1 | tee /tmp/source.log
+          python3 scripts/check_lean_axiom_log.py /tmp/source.log solution
+          python3 scripts/bundle_public_interval_repair.py
+          ~/.elan/bin/lake env lean public_interval_repair_packet/solution.lean 2>&1 | tee /tmp/standalone.log
+          python3 scripts/check_lean_axiom_log.py /tmp/standalone.log solution
+      - name: Publish and verify on Prove2Me
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: |
+          set -euo pipefail
+          test -n "$PROVE2ME_API_KEY"
+          python3 scripts/run_reused_publisher_interval.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: interval-repair-publication-receipts
+          path: |
+            public_interval_repair_packet/
+            interval_repair_publish_receipts/
