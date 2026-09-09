@@ -28,6 +28,12 @@ This index distinguishes **Prove2Me public theorems**, **GitHub-published verifi
 | `Hirsch.common_face_dimension_tradeoff` | `b56b59cc-fe2a-4d64-979d-595cabec37ca` | Proved | PR #30 / publication PR #36 |
 | `Hirsch.common_face_effective_count_le_rows_minus_common` | `be716434-50fa-4b32-a13a-71c3ae2caa4b` | Proved | PR #33 / publication PR #36 |
 | `Hirsch.common_face_diameter_of_effective_rows` | `496bd99b-f3dc-465e-9c99-ebca0b1129be` | Proved | PR #28 / publication PR #36 |
+| `Hirsch.face_interval_cover_route_bound` | `11592f65-f434-4fad-9c84-f96cf223c3bf` | Proved | PR #39 / publication PR #43 |
+| `Hirsch.ordered_damage_repair_exact` | `238cbea9-9f9a-454d-93e5-94344960261e` | Proved | PR #40 / publication PR #44 |
+| `Hirsch.route_of_faces_and_surviving_edges` | `9eed40c7-03ed-4a02-80b4-1f7404ac05ac` | Proved | PR #40 / publication PR #44 |
+| `Hirsch.extreme_face_cut_route_bound` | `d3a9d907-a9a7-4564-a718-51d1a1a78889` | Proved | PR #41 / publication PR #45 |
+| `Hirsch.mixed_repair_route_or_cut` | `92dc970d-1e7c-4bbe-b30c-b781d045360b` | Proved | PR #42 / publication PR #46 |
+| `Hirsch.crossing_cube_endpoint_certificate_insufficient` | `3672334a-7c8c-4a5d-b95d-8629418d3bba` | Proved | PR #41 / publication PR #47 |
 
 Public definition modules:
 
@@ -39,8 +45,13 @@ Publication/verifier receipts:
 - PR #35 / Actions `34301906252`: reentry splice and ordered-tail theorem. Submissions `7ade01da-474c-4a55-8c3a-b60e130746aa` and `3237871f-7670-4489-8e96-340312b9792a`, both `ACCEPTED`.
 - PR #37 / Actions `34344699190`: face-incidence diameter theorem. Submission `0127d3e9-87b8-47c4-86dc-04b9f20f6d1e`, `ACCEPTED`; receipt artifact `10101432222`.
 - PR #36 / Actions `34343690139`: common-face public definition plus three theorems. Submissions `9a42fa4d-2634-44e6-82ec-9edc9fb19d53`, `49221457-5a3f-4a47-a468-e89c75cc8a94`, and `ec84d0ee-c43c-40a0-90e1-bdb4279d01c2`, all `ACCEPTED`; receipt artifact `10101643730`.
+- PR #43 / Actions `34360204346`: interval-cover route bound. Submission `32673334-90a0-4687-bbcc-b9c144cc597f`, `ACCEPTED`; standalone SHA-256 `818ae632df8b87398e4c0f3396376c69181c1af490832d6ad715aaacc559962c`; receipt artifact `10107793941`.
+- PR #44 / Actions `34361247630`: exact ordered damage repair and face/surviving-edge routing. Submissions `795cd02d-fc25-412e-942b-0d05e823e41a` and `79772e65-1038-46bb-a68a-ad6d33307981`, both `ACCEPTED`; receipt artifact `10108333138`.
+- PR #45 / Actions `34360502053`: extreme-face cut routing. Submission `f363f391-d8e3-4357-991f-df321f987aa6`, `ACCEPTED`; standalone SHA-256 `4beb0a46811978d0a2d04f39bdbfd78c326adb497b8051efa47be58bb64e76a0`; receipt artifact `10107881933`.
+- PR #46 / Actions `34361604218`: mixed repair route-or-cut theorem. Submission `d55031cb-0df8-43e4-8be1-00e972e5ab91`, `ACCEPTED`; standalone SHA-256 `441ce9557c603385f0c7206fe36ca6df64a25e07d78249abe42e44942e8fd4dd`; receipt artifact `10108322109`.
+- PR #47 / Actions `34363222900`: Boolean-cube endpoint-certificate obstruction. Submission `36c36782-1a23-492a-b11e-414c8bb9ddcd`, `ACCEPTED`; standalone SHA-256 `e323d7ace75450cb8671a11be9c1b2ec535f589868564a1aaa011c07521643c0`; receipt artifact `10109298459`.
 
-Each publication run rebuilt the reviewed source, generated standalone server proof files with no private `Solutions.*` imports, compiled them independently, and rejected `sorryAx`/nonstandard axioms before any Prove2Me verification call.
+Each publication run rebuilt the reviewed source, generated a standalone server proof with no private `Solutions.*` imports (or expanded the private helper vocabulary out of the public theorem type), compiled it independently, and rejected `sorryAx`/nonstandard axioms before any Prove2Me verification call.
 
 ## GitHub-published verified work
 
@@ -54,10 +65,16 @@ Each publication run rebuilt the reviewed source, generated standalone server pr
 - PR #35 — standalone publication gate/receipts for reentry and ordered-tail.
 - PR #36 — public common-face vocabulary plus standalone publication gate/receipts for the three common-face results.
 - PR #37 — standalone publication gate/receipts for the face-incidence diameter theorem.
+- PR #38 — ordered projective-damage block amortization and surviving-step repair chain.
+- PR #39 — crossing-interval obstruction plus portal-backed extreme-face interval repair. Its main positive theorem is Prove2Me `Proved` above.
+- PR #40 — exact ordered damage repair and distinct face/surviving-edge routing publication packets; both public theorems are Prove2Me `Proved` above.
+- PR #41 — repair-network cut criterion and universal Boolean-cube endpoint-only crossing obstruction. The reusable positive cut theorem and universal negative cube theorem are both Prove2Me `Proved` above.
+- PR #42 — portal-cut route-or-cut certificates, finite six-cycle obstruction, symbolic cycle family, and exact rational polygon witnesses. Its generic route-or-cut theorem is Prove2Me `Proved`; Actions `34363717627` is fully green after finite-proof cleanup.
+- PRs #43–#47 — publication-only, collision-safe standalone proof gates and receipts for the six September 9 damage-repair results above.
 
 ## Research-only exact certificates
 
-PR #31 publishes the exact rational 4D/infinite-family and 5D counterexamples to the proposed 2-face bridge strategies. These are mathematical/computational certificates, not Lean hull certificates and not Prove2Me theorem claims. They rule out proof strategies, not Polynomial Hirsch itself.
+PR #31 publishes the exact rational 4D/infinite-family and 5D counterexamples to proposed 2-face bridge strategies. PRs #39/#42 include exact finite/polygon checks for crossing-repair obstructions. These are mathematical/computational certificates, not Lean hull certificates and not claims that Polynomial Hirsch is false. The Boolean-cube **abstract graph** obstruction itself is separately Lean-proved and now Prove2Me `Proved` above.
 
 ## Intentionally not marked Proved
 
