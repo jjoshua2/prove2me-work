@@ -42,7 +42,7 @@ lemma exists_extreme_above
   have hFc : IsClosed F := hQ.isClosed.inter (isClosed_eq (by fun_prop) continuous_const)
   obtain ⟨x, hx, hxF⟩ := HirschRegionRoute.compact_face_point_has_parent_vertex
     Q F hQ hF hFc ⟨z, hz, rfl⟩
-  exact ⟨x, hx, (hmax u hu).trans_eq hxF.2.symm⟩
+  exact ⟨x, hx, (hmax hu).trans_eq hxF.2.symm⟩
 
 lemma strict_all_cuts_extreme_to_parent
     (Q : Set (EuclideanSpace ℝ (Fin d))) (hQ : Convex ℝ Q)

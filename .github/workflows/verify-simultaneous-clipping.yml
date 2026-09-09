@@ -16,12 +16,13 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - uses: actions/cache@v4
+      - uses: actions/cache/restore@v4
+        id: lean-cache
         with:
           path: |
             ~/.elan
             .lake
-          key: clipping-v1-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}
+          key: clipping-v2-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}
       - name: Install pinned Lean and Mathlib
         run: |
           set -euo pipefail
@@ -29,33 +30,41 @@ jobs:
             curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
           fi
           ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
-      - name: Compile candidates and audit
+      - uses: actions/cache/save@v4
+        if: steps.lean-cache.outputs.cache-hit != 'true'
+        with:
+          path: |
+            ~/.elan
+            .lake
+          key: clipping-v2-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}
+      - name: Compile full chain and audit
         run: |
           set -euo pipefail
-          modules=(PolynomialClosedFaceTrace PolynomialConvexSubsegment PolynomialRadialRetraction)
-          if test -f Solutions/PolynomialHorizonCap.lean; then modules+=(PolynomialHorizonCap); elif test -f Solutions/PolynomialSimultaneousClipDiameter.lean; then modules+=(PolynomialSimultaneousClipDiameter); fi
-          status=0
-          for module in "${modules[@]}"; do
-            ~/.elan/bin/lake build "Solutions.$module" 2>&1 | tee "/tmp/$module.log" || status=1
-          done
-          if test "$status" != 0; then exit 1; fi
-          cat /tmp/Polynomial*.log > /tmp/all-clipping.log
+          ~/.elan/bin/lake build Solutions.PolynomialHorizonCap 2>&1 | tee /tmp/all-clipping.log
           python3 - <<'PY'
           import pathlib,re,subprocess
           names=[]
-          for path in pathlib.Path('Solutions').glob('Polynomial*.lean'):
-              if path.stem not in {'PolynomialClosedFaceTrace','PolynomialConvexSubsegment','PolynomialRadialRetraction','PolynomialClipEndpointLift','PolynomialSimultaneousClipDiameter','PolynomialHorizonCap'}: continue
-              text=path.read_text()
+          modules={'PolynomialClosedFaceTrace','PolynomialConvexSubsegment','PolynomialRadialRetraction','PolynomialClipEndpointLift','PolynomialSimultaneousClipDiameter','PolynomialHorizonCap'}
+          for module in sorted(modules):
+              text=pathlib.Path('Solutions',module+'.lean').read_text()
               ns=re.search(r'^namespace (\w+)',text,re.M).group(1)
               names += [ns+'.'+x for x in re.findall(r'^#print axioms (\w+)',text,re.M)]
+          assert len(names)==42, (len(names),names)
           print('Required declarations:',len(names))
           subprocess.run(['python3','scripts/check_lean_axiom_log.py','/tmp/all-clipping.log',*names],check=True)
           PY
+      - name: Exact carrier regressions when present
+        run: |
+          set -euo pipefail
+          if test -f scripts/test_cone_carrier_descent.py; then
+            python3 scripts/test_cone_carrier_descent.py --output /tmp/cone-carrier.json
+            python3 scripts/check_carrier_regression.py /tmp/cone-carrier.json
+          fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: simultaneous-clipping-audit
           path: |
-            /tmp/Polynomial*.log
             /tmp/all-clipping.log
             /tmp/setup.log
+            /tmp/cone-carrier.json
