@@ -1,0 +1,50 @@
+name: Publish repair-network cut theorem
+on:
+  push:
+    branches: [chatgpt/publish-repair-network-cuts]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: publish-repair-network-cut
+  cancel-in-progress: true
+jobs:
+  verify-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          ref: chatgpt/publish-geodesic-face-cover
+          path: _publisher_source
+          persist-credentials: false
+      - name: Install pinned Lean and Mathlib
+        run: |
+          set -euo pipefail
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
+          ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
+      - name: Rebuild source and standalone proof
+        run: |
+          set -euo pipefail
+          ~/.elan/bin/lake build Solutions.Sol_Hirsch_extreme_face_cut_route_bound 2>&1 | tee /tmp/source.log
+          python3 scripts/check_lean_axiom_log.py /tmp/source.log solution HirschRegionRoute.route_of_extreme_face_cut_condition HirschRegionRoute.region_walk_iff_cut_condition
+          python3 scripts/bundle_public_repair_network_cut.py
+          ~/.elan/bin/lake env lean public_repair_network_cut_packet/solution.lean 2>&1 | tee /tmp/standalone.log
+          python3 scripts/check_lean_axiom_log.py /tmp/standalone.log solution
+      - name: Publish and verify on Prove2Me
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: |
+          set -euo pipefail
+          test -n "$PROVE2ME_API_KEY"
+          python3 scripts/run_reused_publisher_repair_cut.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: repair-network-cut-publication-receipts
+          path: |
+            public_repair_network_cut_packet/
+            repair_network_cut_publish_receipts/
