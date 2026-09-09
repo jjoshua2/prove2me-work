@@ -1,0 +1,1 @@
+Published from ChatGPT continuation on 2026-09-09 via a dedicated pull request. This marker exists only to make the branch's publication status explicit; it does not change any theorem statement or proof.
