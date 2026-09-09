@@ -1,4 +1,4 @@
-name: Publish common-face dimension tradeoff
+name: Publish common-face structural theorems
 on:
   push:
     branches: [chatgpt/publish-common-face-tradeoff]
@@ -11,7 +11,7 @@ concurrency:
 jobs:
   verify-and-publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
         with:
@@ -21,21 +21,29 @@ jobs:
           set -euo pipefail
           curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
           ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
-      - name: Compile public definition and reviewed wrapper
+      - name: Compile public definition and reviewed wrappers
         run: |
           set -euo pipefail
-          ~/.elan/bin/lake build \
-            Definitions.Def_Hirsch_common_face_geometry \
+          ~/.elan/bin/lake build Definitions.Def_Hirsch_common_face_geometry 2>&1 | tee /tmp/definition.log
+          for mod in \
             Solutions.Sol_Hirsch_common_face_dimension_tradeoff \
-            2>&1 | tee /tmp/source.log
-          python3 scripts/check_lean_axiom_log.py /tmp/source.log solution
-      - name: Bundle and compile standalone server proof
+            Solutions.Sol_Hirsch_common_face_effective_count_bound \
+            Solutions.Sol_Hirsch_common_face_effective_diameter
+          do
+            label="${mod##*.}"
+            ~/.elan/bin/lake build "$mod" 2>&1 | tee "/tmp/${label}.log"
+            python3 scripts/check_lean_axiom_log.py "/tmp/${label}.log" solution
+          done
+      - name: Bundle and compile standalone server proofs
         run: |
           set -euo pipefail
           python3 scripts/bundle_public_common_face_tradeoff.py
-          ~/.elan/bin/lake env lean public_common_face_packet/solution.lean 2>&1 | tee /tmp/standalone.log
-          python3 scripts/check_lean_axiom_log.py /tmp/standalone.log solution
-      - name: Publish definition and theorem to Prove2Me
+          for label in tradeoff effective_count effective_diameter
+          do
+            ~/.elan/bin/lake env lean "public_common_face_packet/${label}_solution.lean" 2>&1 | tee "/tmp/${label}_standalone.log"
+            python3 scripts/check_lean_axiom_log.py "/tmp/${label}_standalone.log" solution
+          done
+      - name: Publish definition and theorems to Prove2Me
         env:
           PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
         run: |
