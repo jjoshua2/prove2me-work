@@ -2,6 +2,14 @@ name: Sparse-face d-step induction
 on:
   push:
     branches: [chatgpt/dstep-sparse-face-induction]
+    paths:
+      - 'Solutions/**'
+      - 'Definitions/**'
+      - 'scripts/check_lean_axiom_log.py'
+      - '.github/workflows/dstep-sparse-face-induction.yml'
+      - 'lean-toolchain'
+      - 'lakefile.*'
+      - 'lake-manifest.json'
   workflow_dispatch:
 permissions:
   contents: read
@@ -18,17 +26,16 @@ jobs:
           persist-credentials: false
       - name: Install pinned Lean and Mathlib
         run: |
+          set -euo pipefail
           curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
           ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
-      - name: Compile sparse induction and audit axioms
+      - name: Compile sparse induction and audit complete axiom reports
         run: |
-          set -o pipefail
-          ~/.elan/bin/lake build \
-            Solutions.PolynomialFaceSparsePresentation \
-            Solutions.PolynomialBalancedSparseInduction \
-            2>&1 | tee /tmp/dstep-sparse.log
-          ! grep -q sorryAx /tmp/dstep-sparse.log
-          grep -F "'HirschPolynomialAccess.commonFace_coord_diam_of_sparse_balanced' depends on axioms: [propext, Classical.choice, Quot.sound]" /tmp/dstep-sparse.log
-          grep -F "'HirschPolynomialAccess.balanced_neighbor_dstep_of_sparse_target_face' depends on axioms: [propext, Classical.choice, Quot.sound]" /tmp/dstep-sparse.log
-          grep -F "'HirschPolynomialAccess.balanced_counterexample_neighbors_not_sparse' depends on axioms: [propext, Classical.choice, Quot.sound]" /tmp/dstep-sparse.log
-          grep -F "'HirschPolynomialAccess.balanced_codim_one_counterexample_neighbor_not_sparse' depends on axioms: [propext, Classical.choice, Quot.sound]" /tmp/dstep-sparse.log
+          set -euo pipefail
+          ~/.elan/bin/lake build Solutions.PolynomialBalancedSparseInduction 2>&1 | tee /tmp/dstep-sparse.log
+          python3 scripts/check_lean_axiom_log.py /tmp/dstep-sparse.log \
+            HirschPolynomialAccess.diamLE_of_sparse_balanced_presentation \
+            HirschPolynomialAccess.commonFace_coord_diam_of_sparse_balanced \
+            HirschPolynomialAccess.balanced_neighbor_dstep_of_sparse_target_face \
+            HirschPolynomialAccess.balanced_counterexample_neighbors_not_sparse \
+            HirschPolynomialAccess.balanced_codim_one_counterexample_neighbor_not_sparse

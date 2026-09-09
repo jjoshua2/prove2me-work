@@ -33,9 +33,7 @@ lemma sparse_adjacent_acquires_new_nonzero_row {d n : ℕ}
     intro j hjz
     by_cases haj : a j = 0
     · simp [haj]
-    · have hju : ⟪a j, u⟫ = b j := by
-        by_contra hju
-        exact h j haj hjz hju
+    · have hju : ⟪a j, u⟫ = b j := h j haj hjz
       simp [inner_sub_right, hjz, hju]
   have hzero := vertex_tight_rows_span_checked d n a b z hz (z - u) horth
   have hzu : z = u := sub_eq_zero.mp hzero
@@ -200,8 +198,8 @@ theorem balanced_codim_one_counterexample_neighbor_not_sparse
     (d : ℕ)
     (a : Fin (2 * d) → EuclideanSpace ℝ (Fin d))
     (b : Fin (2 * d) → ℝ)
-    (hbd : Bornology.IsBounded (Hpoly a b))
     (u v z : EuclideanSpace ℝ (Fin d))
+    (hbd : Bornology.IsBounded (Hpoly a b))
     (hu : u ∈ extremePoints ℝ (Hpoly a b))
     (hv : v ∈ extremePoints ℝ (Hpoly a b))
     (hsep : ∀ i, a i ≠ 0 →
