@@ -36,21 +36,21 @@ lemma region_local_routes :
   · have hx' : x = 0 ∨ x = 1 := by simpa [regions] using hx
     have hy' : y = 0 ∨ y = 1 := by simpa [regions] using hy
     rcases hx' with rfl | rfl <;> rcases hy' with rfl | rfl
-    · exact ⟨fun _ => 0, rfl, rfl, by intro k hk; omega⟩
+    · exact ⟨fun _ => 0, rfl, rfl, by intro k hk; exact Or.inl rfl⟩
     · exact ⟨fun k => if k = 0 then 0 else 1, rfl, rfl, by
         intro k hk; interval_cases k <;> simp [CycleAdj]⟩
     · exact ⟨fun k => if k = 0 then 1 else 0, rfl, rfl, by
         intro k hk; interval_cases k <;> simp [CycleAdj]⟩
-    · exact ⟨fun _ => 1, rfl, rfl, by intro k hk; omega⟩
+    · exact ⟨fun _ => 1, rfl, rfl, by intro k hk; exact Or.inl rfl⟩
   · have hx' : x = 2 ∨ x = 3 := by simpa [regions] using hx
     have hy' : y = 2 ∨ y = 3 := by simpa [regions] using hy
     rcases hx' with rfl | rfl <;> rcases hy' with rfl | rfl
-    · exact ⟨fun _ => 2, rfl, rfl, by intro k hk; omega⟩
+    · exact ⟨fun _ => 2, rfl, rfl, by intro k hk; exact Or.inl rfl⟩
     · exact ⟨fun k => if k = 0 then 2 else 3, rfl, rfl, by
         intro k hk; interval_cases k <;> simp [CycleAdj]⟩
     · exact ⟨fun k => if k = 0 then 3 else 2, rfl, rfl, by
         intro k hk; interval_cases k <;> simp [CycleAdj]⟩
-    · exact ⟨fun _ => 3, rfl, rfl, by intro k hk; omega⟩
+    · exact ⟨fun _ => 3, rfl, rfl, by intro k hk; exact Or.inl rfl⟩
 
 /-- Each chronological damage interval has endpoints certified by one region. -/
 lemma damage_endpoints_certified :
@@ -76,7 +76,13 @@ theorem no_two_step_ambient_route : ¬ Route CycleAdj 2 (0 : Fin 6) 3 := by
   have hstep1 := hs 1 (by decide)
   rw [h0] at hstep0
   rw [h2] at hstep1
-  fin_cases hq : q 1 <;> simp [hq, CycleAdj] at hstep0 hstep1
+  have hq1 : q 1 = 0 ∨ q 1 = 1 ∨ q 1 = 5 := by
+    rcases hstep0 with heq | hadj
+    · exact Or.inl heq.symm
+    · have h' : q 1 = 1 ∨ q 1 = 5 := by
+        simpa [CycleAdj] using hadj
+      exact Or.inr h'
+  rcases hq1 with hq | hq | hq <;> rw [hq] at hstep1 <;> simp [CycleAdj] at hstep1
 
 /-- The ambient cycle does have a three-step route. -/
 theorem three_step_ambient_route : Route CycleAdj 3 (0 : Fin 6) 3 := by
