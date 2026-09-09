@@ -1,0 +1,31 @@
+name: Effective common-face row count bounds
+on:
+  push:
+    branches: [chatgpt/effective-row-count-publish]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: effective-row-count
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install pinned Lean and Mathlib
+        run: |
+          set -euo pipefail
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
+          ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
+      - name: Compile and audit
+        run: |
+          set -euo pipefail
+          ~/.elan/bin/lake build Solutions.PolynomialFaceEffectiveCountBounds 2>&1 | tee /tmp/effective-count.log
+          python3 scripts/check_lean_axiom_log.py /tmp/effective-count.log \
+            HirschPolynomialAccess.commonFaceA_eq_zero_of_common_row \
+            HirschPolynomialAccess.disjoint_effective_common_rows \
+            HirschPolynomialAccess.commonFaceEffectiveCount_le_sub_common_card
