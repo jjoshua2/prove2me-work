@@ -1,0 +1,50 @@
+name: Publish mixed repair route-or-cut theorem
+on:
+  push:
+    branches: [chatgpt/publish-mixed-repair-cut]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: publish-mixed-repair-cut
+  cancel-in-progress: true
+jobs:
+  verify-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          ref: chatgpt/publish-geodesic-face-cover
+          path: _publisher_source
+          persist-credentials: false
+      - name: Install pinned Lean and Mathlib
+        run: |
+          set -euo pipefail
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
+          ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
+      - name: Rebuild only the clean generic source and standalone proof
+        run: |
+          set -euo pipefail
+          ~/.elan/bin/lake build Solutions.Sol_Hirsch_mixed_repair_route_or_cut 2>&1 | tee /tmp/source.log
+          python3 scripts/check_lean_axiom_log.py /tmp/source.log solution HirschRegionRoute.route_or_mixed_closed_cut HirschRegionRoute.region_connectivity_iff_no_closed_cut
+          python3 scripts/bundle_portal_cut.py
+          ~/.elan/bin/lake env lean portal_cut_packet/solution.lean 2>&1 | tee /tmp/standalone.log
+          python3 scripts/check_lean_axiom_log.py /tmp/standalone.log solution
+      - name: Publish and verify on Prove2Me
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: |
+          set -euo pipefail
+          test -n "$PROVE2ME_API_KEY"
+          python3 scripts/run_reused_publisher_mixed_cut.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mixed-repair-cut-publication-receipts
+          path: |
+            portal_cut_packet/
+            mixed_repair_cut_publish_receipts/
