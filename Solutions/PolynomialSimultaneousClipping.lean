@@ -53,11 +53,14 @@ theorem clipped_segment_face
     (a b : ClipSpace d) (hE : IsExtreme ℝ Q (segment ℝ a b)) :
     IsExtreme ℝ P (P ∩ segment ℝ a b) ∧
       IsClosed (P ∩ segment ℝ a b) ∧ DiamLE (P ∩ segment ℝ a b) 1 := by
-  refine ⟨?_, hP.isClosed.inter (isCompact_segment a b).isClosed, ?_⟩
+  have hclosed : IsClosed (segment ℝ a b) := by
+    rw [segment_eq_image]
+    exact (isCompact_Icc.image (by fun_prop)).isClosed
+  refine ⟨?_, hP.isClosed.inter hclosed, ?_⟩
   · refine ⟨inter_subset_left, ?_⟩
     intro x hx y hy z hz hseg
     exact ⟨hx, hE.left_mem_of_mem_openSegment (hPQ hx) (hPQ hy) hz.2 hseg⟩
-  · exact diamLE_one_of_convex_collinear _ (hPc.inter (convex_segment ℝ a b))
+  · exact diamLE_one_of_convex_collinear _ (hPc.inter (convex_segment a b))
       ((segment_collinear a b).subset inter_subset_right)
 
 lemma supporting_cut_extreme
@@ -112,7 +115,7 @@ lemma edgeTrace_preconnected (w : ℕ → ClipSpace d) (L : ℕ) :
   | zero => exact isPreconnected_singleton
   | succ L ih =>
     exact ih.union' ⟨w L, edgeTrace_end w L, left_mem_segment ℝ _ _⟩
-      (convex_segment ℝ _ _).isPreconnected
+      (convex_segment _ _).isPreconnected
 
 lemma edgeTrace_cases (w : ℕ → ClipSpace d) (L : ℕ) {x : ClipSpace d}
     (hx : x ∈ edgeTrace w L) : x = w 0 ∨ ∃ k < L, x ∈ segment ℝ (w k) (w (k + 1)) := by
