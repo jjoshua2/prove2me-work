@@ -1,0 +1,30 @@
+{
+  "cap_cost_bypass.json": {
+    "bytes": 2045,
+    "sha256": "d972b7e4cf72b5b3a33184b996c61948433dc4b958362475931c20b903c01b25"
+  },
+  "recession_cap_regression.json": {
+    "bytes": 28237,
+    "sha256": "09f059352e08aa0b75d6a8db3fb45cdcb1e444c6b90ecc536d2014eb01d7a152",
+    "totals": {
+      "CC_pairs": 1557,
+      "VC_pairs": 328,
+      "VV_pairs": 142,
+      "all_constructed_routes_within_bound": true,
+      "all_far_cap_classifications_verified": true,
+      "cap_cells": 8345,
+      "cap_chords": 791,
+      "cap_chords_not_edges": 3,
+      "cases": 31,
+      "cases_without_surviving_original_vertices": 14,
+      "cells": 22495,
+      "distinct_affine_cells": 2197,
+      "distinct_segment_certificates": 635,
+      "extra_one_necessary_instances": 2,
+      "new_endpoint_pairs": 1962,
+      "nonvertex_checkpoints": 19854,
+      "pairs": 2027,
+      "ray_connector_uses": 328
+    }
+  }
+}

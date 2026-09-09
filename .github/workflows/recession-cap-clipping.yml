@@ -20,12 +20,13 @@ jobs:
         run: |
           set -euo pipefail
           test "$(cat lean-toolchain)" = "leanprover/lean4:v4.30.0"
+          grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
           curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
           ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
-      - name: Compile and audit exterior-cap theorem
+      - name: Compile and audit source and offline wrapper
         run: |
           set -euo pipefail
-          ~/.elan/bin/lake build Solutions.PolynomialExteriorCapClipping 2>&1 | tee /tmp/exterior-cap-build.log
+          ~/.elan/bin/lake build Solutions.Sol_Hirsch_exterior_cap_clip_diameter 2>&1 | tee /tmp/exterior-cap-build.log
           python3 scripts/check_lean_axiom_log.py /tmp/exterior-cap-build.log \
             HirschExterior.retract_on_cut_of_exterior \
             HirschExterior.exterior_cap_trace \
@@ -33,9 +34,37 @@ jobs:
             HirschExterior.clip_route_with_exterior_attachments \
             HirschExterior.clip_diameter_from_exterior_routes \
             HirschExterior.exterior_cap_augmented_route_bound \
-            HirschExterior.simultaneous_clip_diameter_from_exterior_cap
+            HirschExterior.simultaneous_clip_diameter_from_exterior_cap solution
+      - name: Independently compile flattened standalone proof
+        run: |
+          set -euo pipefail
+          python3 scripts/bundle_exterior_cap.py
+          ~/.elan/bin/lake env lean exterior_cap_offline_packet/solution.lean 2>&1 | tee /tmp/exterior-cap-standalone.log
+          python3 scripts/check_lean_axiom_log.py /tmp/exterior-cap-standalone.log solution
+          cp /tmp/exterior-cap-build.log /tmp/exterior-cap-standalone.log exterior_cap_offline_packet/
+      - name: Reproduce exact ray and cost diagnostics
+        run: |
+          set -euo pipefail
+          python3 scripts/test_recession_cap_clipping.py > exterior_cap_offline_packet/recession_cap_regression.json
+          python3 scripts/test_cap_cost_bypass.py > exterior_cap_offline_packet/cap_cost_bypass.json
+          python3 scripts/check_exterior_cap_regression.py
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          root = Path('exterior_cap_offline_packet')
+          record = dict(source_commit=os.environ['GITHUB_SHA'], run_id=os.environ['GITHUB_RUN_ID'],
+            source_and_standalone_compilation='PASSED', standard_axiom_audits='PASSED',
+            both_exact_regression_hashes='MATCHED', publication='NOT_SUBMITTED',
+            formal_scope='CAP_WITNESS_WITH_STRICT_CENTRE',
+            general_pointed_polyhedral_cap_existence='ORDINARY_PROOF_ONLY')
+          (root / 'verification.json').write_text(json.dumps(record, indent=2) + '\n')
+          print(json.dumps(record, indent=2))
+          PY
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: exterior-cap-audit
-          path: /tmp/exterior-cap-build.log
+          name: exterior-cap-offline-verified
+          path: |
+            /tmp/exterior-cap-build.log
+            /tmp/exterior-cap-standalone.log
+            exterior_cap_offline_packet/
