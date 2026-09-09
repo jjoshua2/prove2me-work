@@ -24,6 +24,10 @@ NAMES = [
     "Hirsch.common_face_effective_count_le_rows_minus_common",
     "Hirsch.common_face_diameter_of_effective_rows",
     "Hirsch.geodesic_face_cover_diameter_bound",
+    "Hirsch.face_interval_cover_route_bound",
+    "Hirsch.ordered_damage_repair_exact",
+    "Hirsch.route_of_faces_and_surviving_edges",
+    "Hirsch.extreme_face_cut_route_bound",
 ]
 
 class NoRedirect(urllib.request.HTTPRedirectHandler):
