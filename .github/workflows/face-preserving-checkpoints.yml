@@ -1,0 +1,48 @@
+name: Face-preserving feasible checkpoints
+on:
+  push:
+    branches: [chatgpt/face-preserving-checkpoints]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: face-preserving-checkpoints
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install pinned Lean and Mathlib
+        run: |
+          set -euo pipefail
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
+          ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
+      - name: Compile and audit all new declarations
+        run: |
+          set -euo pipefail
+          ~/.elan/bin/lake build Solutions.PolynomialFacePreservingCheckpoints 2>&1 | tee /tmp/build.log
+          python3 scripts/check_lean_axiom_log.py /tmp/build.log \
+            HirschRegionRoute.compact_face_point_has_parent_vertex \
+            HirschRegionRoute.exists_vertex_preserving_face_memberships \
+            HirschRegionRoute.face_preserving_vertex_selection \
+            HirschRegionRoute.compact_faces_shared_point_portal \
+            HirschRegionRoute.route_of_feasible_face_covered_sequence \
+            HirschRegionRoute.route_of_face_interval_cover_of_feasible_start_containment \
+            HirschRegionRoute.route_of_face_interval_cover_of_feasible_active_containment
+      - name: Exact geometric regressions when present
+        run: |
+          set -euo pipefail
+          if test -f scripts/test_face_preserving_checkpoints.py; then
+            python3 scripts/test_face_preserving_checkpoints.py | tee /tmp/checkpoint-regression.log
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: face-preserving-checkpoint-audit
+          path: |
+            /tmp/build.log
+            /tmp/checkpoint-regression.log
