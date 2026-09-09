@@ -58,8 +58,8 @@ theorem solution
     (hsurvive : ∀ j, j < L → (∀ i, j < s i ∨ t i ≤ j) →
       w j = w (j + 1) ∨ Adj P (w j) (w (j + 1))) :
     ∃ q : ℕ → EuclideanSpace ℝ (Fin d),
-      q 0 = w 0 ∧ q (L - (∑ i, t i - s i) + ∑ i, B i) = w L ∧
-      ∀ j < L - (∑ i, t i - s i) + ∑ i, B i,
+      q 0 = w 0 ∧ q (L - (∑ i, (t i - s i)) + (∑ i, B i)) = w L ∧
+      ∀ j < L - (∑ i, (t i - s i)) + (∑ i, B i),
         q j = q (j + 1) ∨ Adj P (q j) (q (j + 1)) := by
   classical
   let f : Fin m → PathFaceBlock (L := L) P w := fun i =>
