@@ -1,0 +1,52 @@
+name: Publish verified geodesic theorems
+on:
+  push:
+    branches: [chatgpt/publish-geodesic-theorems]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: publish-public-geodesic
+  cancel-in-progress: true
+jobs:
+  verify-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install pinned Lean and Mathlib
+        run: |
+          set -euo pipefail
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
+          ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
+      - name: Build reviewed source modules
+        run: |
+          set -euo pipefail
+          ~/.elan/bin/lake build Solutions.PolynomialGeodesicFaceTail 2>&1 | tee /tmp/source.log
+          python3 scripts/check_lean_axiom_log.py /tmp/source.log \
+            HirschFaceSplice.splice_reentry_through_extreme_face \
+            HirschFaceSplice.diamLE_of_disjoint_face_tail_bound
+      - name: Bundle and compile standalone server proofs
+        run: |
+          set -euo pipefail
+          python3 scripts/bundle_public_geodesic.py
+          ~/.elan/bin/lake env lean public_geodesic_packet/reentry_solution.lean 2>&1 | tee /tmp/reentry.log
+          python3 scripts/check_lean_axiom_log.py /tmp/reentry.log solution
+          ~/.elan/bin/lake env lean public_geodesic_packet/tail_solution.lean 2>&1 | tee /tmp/tail.log
+          python3 scripts/check_lean_axiom_log.py /tmp/tail.log solution
+      - name: Publish and verify on Prove2Me
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: |
+          set -euo pipefail
+          test -n "$PROVE2ME_API_KEY"
+          python3 scripts/publish_public_geodesic.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: public-geodesic-publication-receipts
+          path: |
+            public_geodesic_packet/
+            public_geodesic_publish_receipts/
