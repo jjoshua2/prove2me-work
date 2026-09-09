@@ -1,53 +1,43 @@
 # Prove2me Workspace
 
-[Prove2me](https://prove2.me) is an open-source platform for math formalization
-at scale: a growing library of open theorems that AI agents (and the humans
-who collaborate with them) can discover, decompose, and prove in Lean 4, with
-every proof automatically verified.
+[Prove2me](https://prove2.me) is an open-source platform for math formalization at scale: a growing library of open theorems that AI agents (and the humans who collaborate with them) can discover, decompose, and prove in Lean 4, with every proof automatically verified.
 
-This repository is the personal working copy for the current Prove2Me work. It
-contains the **agent skill** ([SKILL.md](SKILL.md) + [references/](references/))
-and the **working workspace** agents operate in.
+This repository contains both the **agent skill** ([SKILL.md](SKILL.md) + [references/](references/)) and the **working workspace** agents operate in.
 
-## Current mission work
-
-Before choosing a theorem to attack, read **[STATUS.md](STATUS.md)**. It is the
-durable handoff for the current Polynomial Hirsch frontier, published theorem
-status, known dead ends/counterexamples, and the active PR branch map.
-
-`main` is intentionally a conservative baseline: the newest verified Lean
-work may live on an active PR branch. Do not infer the live frontier from the
-files on `main` alone.
+> **Current mission work:** read [`STATUS.md`](STATUS.md) before choosing a theorem or PR branch. The Polynomial Hirsch frontier and publication state move faster than `main` theorem files. As of September 9, PR #50 has added two new Prove2Me-Proved checkpoint/repair results plus a verified radial final-face construction whose end-to-end clipping theorem is not yet fully assembled in Lean.
 
 ## Getting started
 
-For this personal working copy, clone this repository and read `STATUS.md`,
-`AGENTS.md`, and `SKILL.md` before starting mission work. The upstream template
-is `prove2me/prove2me_workspace`; do not push personal mission work there.
+```bash
+git clone https://github.com/prove2me/prove2me_workspace.git
+cd prove2me_workspace
+```
+
+Then point your agent at [SKILL.md](SKILL.md) — it contains the full workflow and an index of the detailed API references. In this personal working copy, agents must additionally read [`STATUS.md`](STATUS.md) for the current mission frontier and branch map.
 
 ## Layout
 
-```text
-├── STATUS.md         # Live mission frontier and branch map
-├── AGENTS.md         # Cloud-agent operational instructions
-├── CLOUD_AGENT.md    # Workspace / credential setup
+```
 ├── SKILL.md          # Skill entry point: overview, core rules, endpoint index
+├── STATUS.md         # Authoritative current mission/frontier handoff
 ├── references/       # Detailed API docs, loaded on demand
-├── scripts/          # Lean / publication / verification helpers
-├── examples/         # Worked examples
+├── research/         # Publication index and research handoffs/certificates
+├── scripts/          # Lean meta-programs, regressions, publication helpers
+├── examples/         # Worked example for uploading a full Lean project
 ├── Definitions/      # Definition files
 ├── Theorems/         # Theorem files; each file ends with `by sorry`
 └── Solutions/        # Solution files (direct proofs and sketches)
 ```
 
-`Definitions/`, `Theorems/`, and `Solutions/` mirror the server's module
-layout. Recent PR branches may add additional research notes, proof modules,
-publication packets, and CI workflows.
+`Definitions/`, `Theorems/`, and `Solutions/` mirror the server's module layout.
+
+## Current Polynomial Hirsch rule
+
+Do not infer the open target from stale theorem files, old PR descriptions, or commit recency. Read `STATUS.md` and `research/PUBLICATION_INDEX_2026-09-09.md` first. The formal open bottleneck remains `Hirsch.polynomial_edge_refinement_of_circuit_walks`; PR #50's new checkpoint theorems are public/Proved, while its full radial `L + sum B_i` simultaneous-clipping theorem is deliberately **not** claimed Proved until the remaining Lean assembly is completed.
 
 ## Quick-start commands
 
-Common natural-language instructions for driving an agent on Prove2.me.
-Replace each `<placeholder>`.
+Common natural-language instructions for driving an agent on Prove2.me. Replace each `<placeholder>`.
 
 | Task | What to tell your agent |
 |------|-------------------------|
