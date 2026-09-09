@@ -60,8 +60,40 @@ theorem route_of_face_interval_cover_of_start_containment
   · have hjs : s j ≤ s i := Nat.le_of_not_ge hs
     exact ⟨w (s i), (hverts i).1, (hends i).1, hcontain j i hjs hij⟩
 
+/-- More geometric but stronger sufficient hypothesis: if every checkpoint of
+an interval remains in its supporting face throughout that interval, then
+start-containment is automatic and the same total face-budget route follows.
+This is the form closest to a Case-VII statement that a damaged path segment
+lies in one common face. -/
+theorem route_of_face_interval_cover_of_active_containment
+    {d : ℕ} {ι : Type*} [Fintype ι]
+    (P : Set (EuclideanSpace ℝ (Fin d)))
+    (F : ι → Set (EuclideanSpace ℝ (Fin d))) (B : ι → ℕ)
+    (hF : ∀ i, IsExtreme ℝ P (F i)) (hD : ∀ i, DiamLE (F i) (B i))
+    (s t : ι → ℕ) (w : ℕ → EuclideanSpace ℝ (Fin d)) (L : ℕ)
+    (hbound : ∀ i, t i ≤ L)
+    (hverts : ∀ i, w (s i) ∈ extremePoints ℝ P ∧ w (t i) ∈ extremePoints ℝ P)
+    (hcover : ∀ k < L, ∃ i, s i ≤ k ∧ k + 1 ≤ t i)
+    (hactive : ∀ i k, s i ≤ k → k ≤ t i → w k ∈ F i) :
+    Route (Adj P) (∑ i, B i) (w 0) (w L) := by
+  apply route_of_face_interval_cover_of_start_containment
+    P F B hF hD s t w L hbound hverts
+    (fun i => ⟨hactive i (s i) (Nat.le_refl _) ((hbound i).trans' (Nat.zero_le _)),
+      hactive i (t i) (by
+        have hs : s i ≤ t i := by
+          by_contra h
+          have hlt : t i < s i := Nat.lt_of_not_ge h
+          have hk := hcover (t i) (lt_of_le_of_lt (hbound i) (Nat.lt_succ_self L))
+          obtain ⟨j, hsj, hj⟩ := hk
+          omega
+        exact hs) (Nat.le_refl _)⟩)
+    hcover
+  intro i j hs hst
+  exact hactive i (s j) hs hst
+
 #print axioms interval_portal_of_start_containment
 #print axioms route_of_interval_cover_of_start_containment
 #print axioms route_of_face_interval_cover_of_start_containment
+#print axioms route_of_face_interval_cover_of_active_containment
 
 end HirschRegionRoute
