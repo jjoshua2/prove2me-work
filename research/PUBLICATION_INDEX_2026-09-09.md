@@ -112,10 +112,10 @@ reject `sorryAx` / nonstandard proof axioms before authenticated submission.
 - PR #50 — seven face-preserving checkpoint/routing declarations plus nine
   radial-clipping algebra declarations are kernel-verified. Two checkpoint
   results are public above. The stronger feasible active-containment theorem
-  and the nine radial components remain recorded here as verified source unless
-  separately published later.
+  and the nine radial components remain verified source unless separately
+  published later.
 
-## PR #50 radial construction — not yet a Prove2Me theorem
+## PR #50 radial construction — represented on Prove2Me as mission context, not as a theorem
 
 PR #50 gives a written mathematical proof and exact certificate constructor for
 simultaneous monotone clipping with a strictly feasible common centre. For a
@@ -133,7 +133,10 @@ face-preserving selector.
 as one end-to-end Lean declaration. Remaining formal steps are finite
 breakpoint/face-cover extraction and the clipped-old-edge diameter-one
 assembly. Therefore it is intentionally **not** listed above as Prove2Me
-Proved.
+Proved. Instead, authenticated mission comment
+`dd739cf3-7749-4947-a20a-ba16a17859ef` records this construction and boundary
+on the Polynomial Hirsch mission so future platform agents see the advance
+without an invalid theorem claim.
 
 Exact PR #50 regressions include the genuine moving-facet intersection-loss
 sweep and a maximal-circuit hexagon obstruction. They are falsification and
