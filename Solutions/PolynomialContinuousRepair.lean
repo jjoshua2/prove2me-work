@@ -8,8 +8,7 @@ noncomputable section
 namespace HirschRegionRoute
 
 /-- A connected trace covered by finitely many closed sets forces its endpoint
-labels to be connected in the actual set-intersection graph. The trace need
-not have a prescribed finite subdivision. -/
+labels to be connected in the actual set-intersection graph. -/
 theorem region_walk_of_preconnected_closed_cover
     {V ι : Type*} [TopologicalSpace V] [Fintype ι]
     (S : ι → Set V) (hc : ∀ i, IsClosed (S i))
@@ -23,8 +22,10 @@ theorem region_walk_of_preconnected_closed_cover
   let A : Set ι := {k | Nonempty ((intersectionGraph S).Walk i k)}
   let U : Set V := ⋃ k, ⋃ (_ : k ∈ A), S k
   let W : Set V := ⋃ k, ⋃ (_ : k ∉ A), S k
-  have hU : IsClosed U := isClosed_iUnion fun k => isClosed_iUnion fun _ => hc k
-  have hW : IsClosed W := isClosed_iUnion fun k => isClosed_iUnion fun _ => hc k
+  have hU : IsClosed U :=
+    isClosed_iUnion_of_finite fun k => isClosed_iUnion_of_finite fun _ => hc k
+  have hW : IsClosed W :=
+    isClosed_iUnion_of_finite fun k => isClosed_iUnion_of_finite fun _ => hc k
   have hcov : T ⊆ U ∪ W := by
     intro x hx
     obtain ⟨k, hk⟩ := hcover x hx
@@ -43,8 +44,7 @@ theorem region_walk_of_preconnected_closed_cover
   exact hlA ⟨p.append q⟩
 
 /-- Closed extreme faces covering a connected feasible trace suffice. Ordinary
-intersection points become parent vertices by compactness; no global diameter
-or finite-breakpoint certificate is assumed. -/
+intersection points become parent vertices by compactness. -/
 theorem route_of_preconnected_closed_face_cover
     {d : ℕ} {ι : Type*} [Fintype ι]
     (P : Set (EuclideanSpace ℝ (Fin d)))
@@ -61,17 +61,19 @@ theorem route_of_preconnected_closed_face_cover
   obtain ⟨j, hvj⟩ := hcover v hvT
   obtain ⟨p⟩ := region_walk_of_preconnected_closed_cover F hc T hT hcover huT hvT hui hvj
   let S := fun i => extremePoints ℝ P ∩ F i
-  have q : (intersectionGraph S).Walk i j := by
+  have q : Nonempty ((intersectionGraph S).Walk i j) := by
+    clear hui hvj
     induction p with
-    | nil => exact .nil
+    | nil => exact ⟨.nil⟩
     | @cons a b c hab p ih =>
       obtain ⟨x, hxa, hxb⟩ := hab.2
       obtain ⟨z, hzP, hza, hzb⟩ := compact_faces_shared_point_portal
         P (F a) (F b) hP (hF a) (hF b) (hc a) (hc b) x hxa hxb
-      exact .cons ⟨hab.1, z, ⟨hzP, hza⟩, ⟨hzP, hzb⟩⟩ ih
+      obtain ⟨q⟩ := ih
+      exact ⟨.cons ⟨hab.1, z, ⟨hzP, hza⟩, ⟨hzP, hzb⟩⟩ q⟩
   exact route_of_connected_regions (Adj P) S B
     (fun k => extreme_face_region P (F k) (B k) (hF k) (hD k))
-    ⟨q⟩ u v ⟨huP, hui⟩ ⟨hvP, hvj⟩
+    q u v ⟨huP, hui⟩ ⟨hvP, hvj⟩
 
 #print axioms region_walk_of_preconnected_closed_cover
 #print axioms route_of_preconnected_closed_face_cover
@@ -80,8 +82,7 @@ end HirschRegionRoute
 
 namespace HirschRadial
 
-/-- A finite maximum including the constant one, with explicit recursion to
-make continuity and attainment independent of finite-sup API details. -/
+/-- A finite maximum including the constant one. -/
 def gauge {V ι : Type*} : List ι → (ι → V → ℝ) → V → ℝ
   | [], _, _ => 1
   | i :: l, r, x => max (r i x) (gauge l r x)
