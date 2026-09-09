@@ -4,6 +4,7 @@ open scoped RealInnerProductSpace BigOperators
 open Set Hirsch
 
 noncomputable section
+attribute [local instance] Classical.propDecidable
 
 /-- If every parent vertex lies in at least `q>0` selected extreme faces and
 face `i` has intrinsic diameter budget `B i`, then connectivity plus shortest-
