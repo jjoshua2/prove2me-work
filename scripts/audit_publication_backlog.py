@@ -20,6 +20,10 @@ NAMES = [
     "Hirsch.polynomial_edge_refinement_of_circuit_walks",
     "Hirsch.reentry_splice_through_extreme_face",
     "Hirsch.geodesic_face_disjoint_tail_bound",
+    "Hirsch.common_face_dimension_tradeoff",
+    "Hirsch.common_face_effective_count_le_rows_minus_common",
+    "Hirsch.common_face_diameter_of_effective_rows",
+    "Hirsch.geodesic_face_cover_diameter_bound",
 ]
 
 class NoRedirect(urllib.request.HTTPRedirectHandler):
