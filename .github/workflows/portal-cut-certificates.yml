@@ -4,8 +4,10 @@ on:
     branches: [chatgpt/portal-cut-certificates]
     paths:
       - 'Solutions/PolynomialPortalCut*.lean'
+      - 'Solutions/PolynomialCyclePortalObstruction.lean'
       - 'Solutions/Sol_Hirsch_mixed_repair_route_or_cut.lean'
       - 'scripts/bundle_portal_cut.py'
+      - 'scripts/portal_cut_certificate.py'
       - '.github/workflows/portal-cut-certificates.yml'
   workflow_dispatch:
 permissions:
@@ -21,6 +23,11 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+      - name: Check finite certificates and exact polygon witnesses
+        run: |
+          set -euo pipefail
+          mkdir -p portal_cut_logs
+          python3 scripts/portal_cut_certificate.py --output portal_cut_logs/regression.json
       - name: Install pinned Lean and Mathlib
         run: |
           set -euo pipefail
@@ -29,8 +36,7 @@ jobs:
       - name: Compile source and audit theorem dependencies
         run: |
           set -euo pipefail
-          mkdir -p portal_cut_logs
-          ~/.elan/bin/lake build Solutions.PolynomialPortalCutCounterexample Solutions.Sol_Hirsch_mixed_repair_route_or_cut 2>&1 | tee portal_cut_logs/source.log
+          ~/.elan/bin/lake build Solutions.PolynomialCyclePortalObstruction Solutions.Sol_Hirsch_mixed_repair_route_or_cut 2>&1 | tee portal_cut_logs/source.log
           python3 scripts/check_lean_axiom_log.py portal_cut_logs/source.log \
             HirschRegionRoute.region_route_preserves_closed_cut \
             HirschRegionRoute.route_or_region_closed_cut \
@@ -47,6 +53,11 @@ jobs:
             HirschPortalCounterexample.regions_preserve_cut \
             HirschPortalCounterexample.no_region_only_route \
             HirschPortalCounterexample.no_uncovered_step \
+            HirschPortalCycle.height_step \
+            HirschPortalCycle.route_height_bound \
+            HirschPortalCycle.even_cycle_lower_bound \
+            HirschPortalCycle.even_cycle_route \
+            HirschPortalCycle.crossing_regions_unbounded \
             solution
       - name: Compile standalone proof without publishing
         run: |
