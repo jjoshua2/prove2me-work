@@ -1,0 +1,51 @@
+name: Publish common-face dimension tradeoff
+on:
+  push:
+    branches: [chatgpt/publish-common-face-tradeoff]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: publish-common-face-tradeoff
+  cancel-in-progress: true
+jobs:
+  verify-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install pinned Lean and Mathlib
+        run: |
+          set -euo pipefail
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
+          ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
+      - name: Compile public definition and reviewed wrapper
+        run: |
+          set -euo pipefail
+          ~/.elan/bin/lake build \
+            Definitions.Def_Hirsch_common_face_geometry \
+            Solutions.Sol_Hirsch_common_face_dimension_tradeoff \
+            2>&1 | tee /tmp/source.log
+          python3 scripts/check_lean_axiom_log.py /tmp/source.log solution
+      - name: Bundle and compile standalone server proof
+        run: |
+          set -euo pipefail
+          python3 scripts/bundle_public_common_face_tradeoff.py
+          ~/.elan/bin/lake env lean public_common_face_packet/solution.lean 2>&1 | tee /tmp/standalone.log
+          python3 scripts/check_lean_axiom_log.py /tmp/standalone.log solution
+      - name: Publish definition and theorem to Prove2Me
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: |
+          set -euo pipefail
+          test -n "$PROVE2ME_API_KEY"
+          python3 scripts/publish_public_common_face_tradeoff.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: public-common-face-publication-receipts
+          path: |
+            public_common_face_packet/
+            public_common_face_publish_receipts/
