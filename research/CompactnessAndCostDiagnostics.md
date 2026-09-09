@@ -64,19 +64,31 @@ either simplex-facet deletion 6 or 7. In particular the row-6 case does not
 need the false arbitrary-facet 2-face bridge that this same witness refuted.
 This is a finite application, not a proof that a suitable deletion always exists.
 
-### Five-dimensional witness
+### Five-dimensional witness: an exact optimization barrier for this certificate
 
 The original parent has 40 vertices and diameter 5. Every one-row deletion is
 certified bounded with outer diameter 4; every final cut facet has diameter 4.
 The bound is therefore 8 for every such deletion, not the true value 5.
 
-This confirms a substantive remaining limitation: choosing among single-row
-relaxations and charging each whole final face by its diameter does not recover
-the sharp route on this example. It does not refute polynomial charging or the
-use of several removed rows, selected face subregions, or order-sensitive
-amortization. It does show that closing the portal/existence gap alone should
-not be confused with obtaining sharp or polynomial cost control.
+In fact the BEST bound furnished by this particular whole-facet formula over
+ALL nonempty sets of deleted original rows with compact outer relaxation is
+exactly 8. For one deleted row the exact calculations above give 8. For m>=2
+deleted rows, the final cut-face cost is at least 4m>=8, because these are the
+same original facets of P, regardless of which outer relaxation is chosen.
+Any compact such Q contains the full-dimensional P and therefore has at least
+two vertices and outer diameter at least 1. Hence its certificate cost is at
+least 1+4m>=9. An empty deleted set is the circular choice Q=P and is excluded
+from this diagnostic.
+
+Thus choosing more deleted rows alone cannot recover the sharp bound 5 here
+while retaining the same full-facet budgets. Improving the certificate needs
+more information than this sum: for example selected portions of the cut faces,
+a different outer construction, or order-sensitive amortization. The finite
+barrier does NOT refute polynomial charging: 8 is itself small, and a sharp
+bound on every example is not necessary for a polynomial theorem. It also does
+not rule out all facet-based or all relaxation-based arguments.
 
 The diagnostic emits complete rational positive-weight or recession-ray
-certificates. These finite computations are separate from the general
-kernel-checked clipping implication and make no literature-novelty claim.
+certificates. These finite computations are separate from the general clipping
+implication and make no literature-novelty claim. Consult the PR receipt for
+the exact kernel-checked source commit.
