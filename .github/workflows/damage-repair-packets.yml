@@ -1,0 +1,74 @@
+name: Verify damage-repair proof packets
+on:
+  push:
+    branches: [chatgpt/damage-repair-packets]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: damage-repair-packets
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Exact finite regression certificates
+        run: |
+          set -euo pipefail
+          mkdir -p damage_progress_logs
+          python3 scripts/test_damage_region_routing.py | tee damage_progress_logs/regression_results.json
+      - name: Install pinned Lean and Mathlib
+        run: |
+          set -euo pipefail
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
+          ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
+      - name: Compile and audit source proofs and public wrapper
+        run: |
+          set -euo pipefail
+          ~/.elan/bin/lake build \
+            Solutions.Sol_Hirsch_ordered_damage_repair \
+            Solutions.PolynomialMixedRegionRouting 2>&1 | tee damage_progress_logs/source.log
+          python3 scripts/check_lean_axiom_log.py damage_progress_logs/source.log \
+            solution \
+            HirschDamagePublic.ordered_of_pairwise \
+            HirschDamagePublic.sums_ofFn \
+            HirschFaceSplice.blockRemovedLength_le \
+            HirschFaceSplice.blockRepairLength_add_removed \
+            HirschFaceSplice.blockRepairLength_eq \
+            HirschFaceSplice.splice_surviving_steps_exact_suffix \
+            HirschFaceSplice.splice_ordered_face_blocks_of_surviving_steps_exact \
+            HirschFaceSplice.splice_surviving_steps_uniform \
+            HirschFaceSplice.splice_surviving_steps_no_growth \
+            HirschRegionRoute.route_of_connected_regions \
+            HirschRegionRoute.route_of_step_cover \
+            HirschRegionRoute.route_of_face_covered_sequence \
+            HirschRegionRoute.route_of_mixed_step_cover \
+            HirschRegionRoute.route_of_faces_and_surviving_edges
+      - name: Independently compile standalone proof packets
+        run: |
+          set -euo pipefail
+          python3 scripts/bundle_damage_progress.py | tee damage_progress_logs/manifest.log
+          for label in ordered_exact mixed_regions; do
+            ~/.elan/bin/lake env lean "damage_progress_packet/${label}.lean" 2>&1 | tee "damage_progress_logs/${label}.log"
+            python3 scripts/check_lean_axiom_log.py "damage_progress_logs/${label}.log" solution
+          done
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          p = Path('damage_progress_packet/verification.json')
+          p.write_text(json.dumps({'git_commit': os.environ['GITHUB_SHA'], 'run_id': os.environ['GITHUB_RUN_ID'], 'source_and_standalone': 'passed', 'allowed_axioms': ['propext','Classical.choice','Quot.sound'], 'published': False}, indent=2)+'\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: damage-repair-proof-packets
+          path: |
+            damage_progress_packet/
+            damage_progress_logs/
+            scripts/test_damage_region_routing.py
+            scripts/bundle_damage_progress.py
+            research/DamageRepairExactAndRegionRouting.md
