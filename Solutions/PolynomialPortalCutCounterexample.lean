@@ -1,66 +1,114 @@
 import Solutions.PolynomialPortalCut
 
-open Set HirschRegionRoute
+open Set
+
+noncomputable section
 
 namespace HirschPortalCounterexample
 
-/-- The graph of a convex hexagon, labelled cyclically. The finite graph
-proof below does not claim a Lean identification with an H-polytope hull. -/
-def hexAdj (i j : Fin 6) : Prop :=
-  (i.val + 1) % 6 = j.val ∨ (j.val + 1) % 6 = i.val
+open HirschRegionRoute
 
-instance : DecidableRel hexAdj := fun i j =>
-  inferInstanceAs (Decidable ((i.val + 1) % 6 = j.val ∨ (j.val + 1) % 6 = i.val))
+/-- Six-cycle adjacency, expressed without arithmetic wraparound in the proof obligations. -/
+def CycleAdj (x y : Fin 6) : Prop :=
+  (x = 0 ∧ y = 1) ∨ (x = 1 ∧ y = 0) ∨
+  (x = 1 ∧ y = 2) ∨ (x = 2 ∧ y = 1) ∨
+  (x = 2 ∧ y = 3) ∨ (x = 3 ∧ y = 2) ∨
+  (x = 3 ∧ y = 4) ∨ (x = 4 ∧ y = 3) ∨
+  (x = 4 ∧ y = 5) ∨ (x = 5 ∧ y = 4) ∨
+  (x = 5 ∧ y = 0) ∨ (x = 0 ∧ y = 5)
 
-/-- Two disjoint actual edges of the ambient six-cycle. -/
-def regions (i : Fin 2) : Set (Fin 6) :=
-  if i = 0 then {0, 1} else {2, 3}
+/-- The deliberately broken old sequence. -/
+def oldSeq : Fin 4 → Fin 6
+  | 0 => 0
+  | 1 => 2
+  | 2 => 1
+  | 3 => 3
 
-/-- Endpoint-only damage records cross: first region at positions 0,2;
-second region at positions 1,3. Interior positions need not belong to a region. -/
-def oldSequence (k : ℕ) : Fin 6 :=
-  if k = 0 then 0 else if k = 1 then 2 else if k = 2 then 1 else 3
+/-- Two crossing damage regions, each an actual edge of the ambient cycle. -/
+def regions : Fin 2 → Set (Fin 6)
+  | 0 => {0, 1}
+  | 1 => {2, 3}
 
-lemma region_local_routes : ∀ i, ∀ x ∈ regions i, ∀ y ∈ regions i,
-    Route hexAdj 1 x y := by
-  intro i
+lemma region_local_routes : ∀ i, LocalRoute CycleAdj (regions i) 1 := by
+  intro i x hx y hy
   fin_cases i
-  · change ∀ x ∈ ({0, 1} : Set (Fin 6)), ∀ y ∈ ({0, 1} : Set (Fin 6)),
-      Route hexAdj 1 x y
-    exact pair_region hexAdj 0 1 (by decide) (by decide)
-  · change ∀ x ∈ ({2, 3} : Set (Fin 6)), ∀ y ∈ ({2, 3} : Set (Fin 6)),
-      Route hexAdj 1 x y
-    exact pair_region hexAdj 2 3 (by decide) (by decide)
+  · have hx' : x = 0 ∨ x = 1 := by simpa [regions] using hx
+    have hy' : y = 0 ∨ y = 1 := by simpa [regions] using hy
+    rcases hx' with rfl | rfl <;> rcases hy' with rfl | rfl
+    · exact ⟨fun _ => 0, rfl, rfl, by intro k hk; omega⟩
+    · exact ⟨fun k => if k = 0 then 0 else 1, rfl, rfl, by
+        intro k hk; interval_cases k <;> simp [CycleAdj]⟩
+    · exact ⟨fun k => if k = 0 then 1 else 0, rfl, rfl, by
+        intro k hk; interval_cases k <;> simp [CycleAdj]⟩
+    · exact ⟨fun _ => 1, rfl, rfl, by intro k hk; omega⟩
+  · have hx' : x = 2 ∨ x = 3 := by simpa [regions] using hx
+    have hy' : y = 2 ∨ y = 3 := by simpa [regions] using hy
+    rcases hx' with rfl | rfl <;> rcases hy' with rfl | rfl
+    · exact ⟨fun _ => 2, rfl, rfl, by intro k hk; omega⟩
+    · exact ⟨fun k => if k = 0 then 2 else 3, rfl, rfl, by
+        intro k hk; interval_cases k <;> simp [CycleAdj]⟩
+    · exact ⟨fun k => if k = 0 then 3 else 2, rfl, rfl, by
+        intro k hk; interval_cases k <;> simp [CycleAdj]⟩
+    · exact ⟨fun _ => 3, rfl, rfl, by intro k hk; omega⟩
 
+/-- Each chronological damage interval has endpoints certified by one region. -/
 lemma damage_endpoints_certified :
-    oldSequence 0 ∈ regions 0 ∧ oldSequence 2 ∈ regions 0 ∧
-    oldSequence 1 ∈ regions 1 ∧ oldSequence 3 ∈ regions 1 := by
-  simp [oldSequence, regions]
+    oldSeq 0 ∈ regions 0 ∧ oldSeq 2 ∈ regions 0 ∧
+    oldSeq 1 ∈ regions 1 ∧ oldSeq 3 ∈ regions 1 := by
+  simp [oldSeq, regions]
 
-lemma damage_intervals_cross : (0 : ℕ) < 1 ∧ (1 : ℕ) < 2 ∧ (2 : ℕ) < 3 := by
-  decide
+lemma damage_intervals_cross : 0 < 1 ∧ 1 < 2 ∧ 2 < 3 := by omega
 
-lemma damage_intervals_cover_all_steps : ∀ j : Fin 3,
-    (0 ≤ j.val ∧ j.val < 2) ∨ (1 ≤ j.val ∧ j.val < 3) := by
-  decide
+lemma damage_intervals_cover_all_steps :
+    ∀ j < 3, (0 ≤ j ∧ j < 2) ∨ (1 ≤ j ∧ j < 3) := by
+  intro j hj
+  omega
 
 lemma endpoint_regions_disjoint : Disjoint (regions 0) (regions 1) := by
   simp [regions, Set.disjoint_left]
 
-/-- Even using every edge of the ambient hexagon, the claimed two-charge
-budget is insufficient. This checks all possible middle vertices in Lean. -/
-theorem no_two_step_ambient_route : ¬ Route hexAdj 2 (0 : Fin 6) 3 := by
-  rintro ⟨w, hw0, hw2, hs⟩
-  have hleft : (0 : Fin 6) = w 1 ∨ hexAdj 0 (w 1) := by
-    simpa only [hw0] using hs 0 (by decide)
-  have hright : w 1 = (3 : Fin 6) ∨ hexAdj (w 1) 3 := by
-    simpa only [hw2] using hs 1 (by decide)
-  have hnone : ∀ x : Fin 6,
-      ¬ (((0 : Fin 6) = x ∨ hexAdj 0 x) ∧ (x = 3 ∨ hexAdj x 3)) := by
-    decide
-  exact hnone (w 1) ⟨hleft, hright⟩
+/-- The ambient endpoints cannot be joined in two steps. -/
+theorem no_two_step_ambient_route : ¬ Route CycleAdj 2 (0 : Fin 6) 3 := by
+  intro h
+  rcases h with ⟨q, h0, h2, hs⟩
+  have hstep0 := hs 0 (by decide)
+  have hstep1 := hs 1 (by decide)
+  simp only [h0] at hstep0
+  have hq2 : q 2 = (3 : Fin 6) := h2
+  simp only [hq2] at hstep1
+  rcases hstep0 with heq0 | hadj0
+  · rw [← heq0] at hstep1
+    rcases hstep1 with h | h <;> simp [CycleAdj] at h
+  · rcases hadj0 with h01 | hrest
+    · rcases h01 with ⟨_, hq1⟩
+      subst hq1
+      simp [CycleAdj] at hstep1
+    · simp [CycleAdj] at hrest
+      rcases hrest with ⟨h10, _⟩ | hrest
+      · exact Fin.zero_ne_one h10
+      · rcases hrest with ⟨h12, _⟩ | hrest
+        · exact Fin.zero_ne_of_lt (by decide) h12
+        · rcases hrest with ⟨h21, _⟩ | hrest
+          · exact Fin.zero_ne_of_lt (by decide) h21
+          · rcases hrest with ⟨h23, _⟩ | hrest
+            · exact Fin.zero_ne_of_lt (by decide) h23
+            · rcases hrest with ⟨h32, _⟩ | hrest
+              · exact Fin.zero_ne_of_lt (by decide) h32
+              · rcases hrest with ⟨h34, _⟩ | hrest
+                · exact Fin.zero_ne_of_lt (by decide) h34
+                · rcases hrest with ⟨h43, _⟩ | hrest
+                  · exact Fin.zero_ne_of_lt (by decide) h43
+                  · rcases hrest with ⟨h45, _⟩ | hrest
+                    · exact Fin.zero_ne_of_lt (by decide) h45
+                    · rcases hrest with ⟨h54, _⟩ | hrest
+                      · exact Fin.zero_ne_of_lt (by decide) h54
+                      · rcases hrest with ⟨_, h05⟩ | h50
+                        · subst h05
+                          simp [CycleAdj] at hstep1
+                        · exact Fin.zero_ne_of_lt (by decide) h50.1
 
-theorem three_step_ambient_route : Route hexAdj 3 (0 : Fin 6) 3 := by
+/-- The ambient cycle does have a three-step route. -/
+theorem three_step_ambient_route : Route CycleAdj 3 (0 : Fin 6) 3 := by
   refine ⟨fun k => if k = 0 then 0 else if k = 1 then 1 else
     if k = 2 then 2 else 3, rfl, rfl, ?_⟩
   intro k hk
@@ -84,7 +132,10 @@ theorem no_region_only_route (B : ℕ) :
   intro hr
   have h := region_route_preserves_closed_cut regions cutSide
     regions_preserve_cut hr (by change (0 : ℕ) < 2; decide)
-  exact (by change ¬ (3 : ℕ) < 2; decide) h
+  have h3 : (3 : Fin 6) ∉ cutSide := by
+    change ¬ (3 : ℕ) < 2
+    decide
+  exact h3 h
 
 /-- The outside-step condition is vacuous for the crossing intervals [0,2),
 [1,3); it supplies none of the missing transitions. -/
