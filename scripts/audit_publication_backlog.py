@@ -18,6 +18,8 @@ NAMES = [
     "Hirsch.box_slice_diameter_le_dimension",
     "Hirsch.cubic_circuit_walk_bound",
     "Hirsch.polynomial_edge_refinement_of_circuit_walks",
+    "Hirsch.reentry_splice_through_extreme_face",
+    "Hirsch.geodesic_face_disjoint_tail_bound",
 ]
 
 class NoRedirect(urllib.request.HTTPRedirectHandler):
