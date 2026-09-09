@@ -6,11 +6,9 @@ open Set Hirsch
 
 noncomputable section
 
-namespace Hirsch
-
 /-- For separated extreme endpoints, the dimensions of the two common-direction
 faces through an intermediate extreme vertex overlap only through the row
-excess `n - 2*d`.  At exact balance `n = 2*d`, their dimensions sum to at
+excess `n - 2*d`. At exact balance `n = 2*d`, their dimensions sum to at
 most `d`. -/
 theorem solution
     {d n : ℕ}
@@ -32,6 +30,4 @@ theorem solution
     HirschPolynomialAccess.commonDirection, HirschPolynomialAccess.rowEvalMap,
     HirschPolynomialAccess.commonSourceRows] using h
 
-end Hirsch
-
-#print axioms Hirsch.solution
+#print axioms solution
