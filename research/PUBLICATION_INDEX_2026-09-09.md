@@ -22,35 +22,33 @@ This index distinguishes **Prove2Me public theorems**, **GitHub-published verifi
 | `HirschCircuit.rowCircuitWalk_mono` | `25951473-a407-43c4-a7be-443e35593402` | Proved | Natura helper publication |
 | `HirschCircuit.exists_positive_maximal_nonnegative_step` | `ac00e416-0658-485d-9a4a-1cbeac8b26a4` | Proved | Natura helper publication |
 | conformal decomposition publication | `05726681-715c-408a-b44c-d73dac856b20` | Proved | PR #25 / submission `9003da2a-48dd-4d30-9e64-a3f4eaf93235` |
+| `Hirsch.reentry_splice_through_extreme_face` | `9d1ffa54-5123-4a52-87a2-e482d3c78918` | Proved | PR #27 / publication PR #35 |
+| `Hirsch.geodesic_face_disjoint_tail_bound` | `16f7c90c-1721-4cfe-aa86-52c761ff99c1` | Proved | PR #27 / publication PR #35 |
 
 The circuit slack definition `Hirsch_circuit_slack_model` is public as definition ID `26b46900-d139-4f6c-b2e7-5088faed7b9e`.
 
-Authenticated backlog audit: Actions run `34302051513`. It reconfirmed all PR #2–#8 entries above plus Child A as `Proved`.
+Authenticated backlog audits `34302051513`, `34302297995`, and `34302415442` reconfirm the platform state. The two geodesic publications were separately gated by Actions run `34301906252`: the reviewed source and two standalone server files were compiled and axiom-audited before submission. Server submissions `7ade01da-474c-4a55-8c3a-b60e130746aa` and `3237871f-7670-4489-8e96-340312b9792a` both returned `ACCEPTED`.
 
 ## New GitHub-published verified work
 
-- PR #27 — extreme-face reentry splice; geodesic face-incidence bound; order-sensitive tail theorem `diam(P) <= B+K`; exact d=5 regression and incidence-only lower certificate.
+- PR #27 — extreme-face reentry splice; geodesic face-incidence bound; order-sensitive tail theorem `diam(P) <= B+K`; exact d=5 regression and incidence-only lower certificate. The two strongest generic theorems are also Prove2Me `Proved` above.
 - PR #28 — effective-row common-face model.
 - PR #29 — sparse-presentation d-step induction and minimal-counterexample obstruction. This is a conditional diagnostic; the exact d-step conjecture is false globally.
-- PR #30 — general common-face dimension tradeoff `dim F(u,x)+dim F(v,x) <= d+(n-2d)` and splitter.
+- PR #30 — general common-face dimension tradeoff `dim F(u,x) + dim F(v,x) <= d + (n-2d)` and splitter.
 - PR #31 — exact rational counterexamples to arbitrary-facet and selectable-good-facet 2-face bridge strategies.
 - PR #33 — generic effective-row count bounds: common rows vanish after restriction and `effectiveCount <= n-commonRowCount`.
 - PR #34 — authenticated publication-backlog audit and this index.
+- PR #35 — standalone Prove2Me publication gate and receipts for the two generic geodesic graph theorems.
 
-## Prove2Me publication in progress for new generic graph lemmas
+The GitHub-only structural results in PRs #28, #29, #30, and #33 use a local common-face coordinate vocabulary defined in `Solutions.*`. They are preserved as verified PRs rather than being published to Prove2Me under disconnected ad-hoc copies of that vocabulary. If that vocabulary is promoted to a platform definition module later, these results can be published on top of it without changing their verified mathematics.
 
-The following statements have standalone server proofs gated by a fresh Lean/axiom audit on branch `chatgpt/publish-geodesic-theorems`:
+## Research-only exact certificates
 
-- `Hirsch.reentry_splice_through_extreme_face` — platform theorem ID `9d1ffa54-5123-4a52-87a2-e482d3c78918`; created and awaiting/under verification at the time this index was written.
-- `Hirsch.geodesic_face_disjoint_tail_bound` — queued after the reentry theorem in the same serial publisher.
-
-Update this section only from authenticated platform results; do not infer acceptance from local compilation.
+PR #31 publishes the exact rational 4D/infinite-family and 5D counterexamples to the proposed 2-face bridge strategies. These are mathematical/computational certificates, not Lean hull certificates and not Prove2Me theorem claims. They rule out proof strategies, not Polynomial Hirsch itself.
 
 ## Intentionally not marked Proved
 
 `Hirsch.polynomial_edge_refinement_of_circuit_walks`, ID `099c6686-560c-48fc-b2c2-18b6a620a06e`, remains **Open**. It contains the essential graph-routing difficulty. A prior sketch reducing it back to `balanced_polynomial_bound` was deprecated because it created a dependency cycle.
-
-The exact 2-face bridge counterexamples in PR #31 are research certificates, not Prove2Me theorem submissions. They rule out proposed proof strategies, not Polynomial Hirsch itself.
 
 ## Integration note
 
