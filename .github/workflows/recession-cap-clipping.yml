@@ -1,0 +1,41 @@
+name: Exterior-cap clipping audit
+on:
+  push:
+    branches: [chatgpt/recession-cap-clipping]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: recession-cap-clipping
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install pinned Lean and Mathlib
+        run: |
+          set -euo pipefail
+          test "$(cat lean-toolchain)" = "leanprover/lean4:v4.30.0"
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
+          ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
+      - name: Compile and audit exterior-cap theorem
+        run: |
+          set -euo pipefail
+          ~/.elan/bin/lake build Solutions.PolynomialExteriorCapClipping 2>&1 | tee /tmp/exterior-cap-build.log
+          python3 scripts/check_lean_axiom_log.py /tmp/exterior-cap-build.log \
+            HirschExterior.retract_on_cut_of_exterior \
+            HirschExterior.exterior_cap_trace \
+            HirschExterior.exterior_edgeTrace_cases \
+            HirschExterior.clip_route_with_exterior_attachments \
+            HirschExterior.clip_diameter_from_exterior_routes \
+            HirschExterior.exterior_cap_augmented_route_bound \
+            HirschExterior.simultaneous_clip_diameter_from_exterior_cap
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: exterior-cap-audit
+          path: /tmp/exterior-cap-build.log
