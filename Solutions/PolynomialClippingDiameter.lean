@@ -91,10 +91,10 @@ theorem clip_route_with_attachments
     · exact ⟨.inr i, hyP, hi⟩
   let K := (segment ℝ u (w 0) ∪ edgeTrace w L) ∪ segment ℝ (w L) v
   have hK : IsPreconnected K :=
-    ((convex_segment ℝ u (w 0)).isPreconnected.union'
+    ((convex_segment u (w 0)).isPreconnected.union'
       ⟨w 0, right_mem_segment ℝ _ _, edgeTrace_start w L⟩ (edgeTrace_preconnected w L)).union'
       ⟨w L, Or.inr (edgeTrace_end w L), left_mem_segment ℝ _ _⟩
-      (convex_segment ℝ (w L) v).isPreconnected
+      (convex_segment (w L) v).isPreconnected
   let T := retract f b o '' K
   have hT : IsPreconnected T := hK.image _ (continuous_retract f b o).continuousOn
   have hCover : ∀ y ∈ T, ∃ k, y ∈ F k := by
@@ -120,10 +120,9 @@ theorem clip_route_with_attachments
     P F C hP hFace hClosed hDiam T hT hCover u v huT hvT hu hv
   simpa [C, Fintype.sum_sum_type, Fintype.sum_option] using hr
 
-/-- Full diameter transfer under simultaneous clipping. Unlike the old-walk
-version, neither final endpoint has to remain an outer vertex. Attachments are
-constructed from actual maximizing outer vertices, not assumed as portals.
-Every final cut face is charged only once across both attachments and the walk. -/
+/-- Full diameter transfer under simultaneous clipping. Neither final endpoint
+has to remain an outer vertex. Attachments are constructed from actual
+maximizing outer vertices, not assumed as portals. -/
 theorem simultaneous_clip_diameter
     (Q : Set (ClipSpace d)) (hQ : Convex ℝ Q) (hQc : IsCompact Q)
     (f : ι → ClipSpace d →L[ℝ] ℝ) (b : ι → ℝ)
