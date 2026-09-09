@@ -8,7 +8,7 @@ Before choosing work, read [`STATUS.md`](STATUS.md) and the current publication 
 
 For the Polynomial Hirsch mission as of 2026-09-09:
 
-- formal open bottleneck: `Hirsch.polynomial_edge_refinement_of_circuit_walks` (`099c6686-560c-48c9-a3fa-7e1a2b17c102` is **not** that theorem; use the exact ID in `STATUS.md`: `099c6686-560c-48fc-b2c2-18b6a620a06e`);
+- formal open bottleneck: `Hirsch.polynomial_edge_refinement_of_circuit_walks` (`099c6686-560c-48fc-b2c2-18b6a620a06e`);
 - PR #50 has two newly public/Proved geometric checkpoint results;
 - PR #50's full radial simultaneous-clipping `L + sum B_i` construction is **not yet one end-to-end Lean theorem** and must not be described or submitted as Proved until the remaining assembly is formalized.
 
