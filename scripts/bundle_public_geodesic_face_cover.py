@@ -12,6 +12,7 @@ import Definitions.Def_Hirsch_model
 
 set_option maxHeartbeats 8000000
 noncomputable section
+attribute [local instance] Classical.propDecidable
 
 """
 
