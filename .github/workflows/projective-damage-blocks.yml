@@ -11,7 +11,7 @@ concurrency:
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
         with:
@@ -21,10 +21,15 @@ jobs:
           set -euo pipefail
           curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
           ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
-      - name: Compile and audit ordered block repair
+      - name: Compile and audit damage-block repair chain
         run: |
           set -euo pipefail
-          ~/.elan/bin/lake build Solutions.PolynomialProjectiveDamageBlocks 2>&1 | tee /tmp/build.log
+          ~/.elan/bin/lake build Solutions.PolynomialProjectiveDamageSurviving 2>&1 | tee /tmp/build.log
           python3 scripts/check_lean_axiom_log.py /tmp/build.log \
             HirschFaceSplice.splice_ordered_face_blocks_suffix \
-            HirschFaceSplice.splice_ordered_face_blocks
+            HirschFaceSplice.splice_ordered_face_blocks \
+            HirschFaceSplice.block_start_ge_of_ordered \
+            HirschFaceSplice.blockBudgetSum_le_length_mul \
+            HirschFaceSplice.splice_ordered_face_blocks_uniform \
+            HirschFaceSplice.splice_ordered_face_blocks_of_surviving_steps_suffix \
+            HirschFaceSplice.splice_ordered_face_blocks_of_surviving_steps
