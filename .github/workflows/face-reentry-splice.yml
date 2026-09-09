@@ -1,7 +1,15 @@
-name: Extreme-face reentry splice
+name: Extreme-face splice and geodesic cover
 on:
   push:
     branches: [chatgpt/face-reentry-splice]
+    paths:
+      - 'Solutions/**'
+      - 'Definitions/**'
+      - 'scripts/check_lean_axiom_log.py'
+      - '.github/workflows/face-reentry-splice.yml'
+      - 'lean-toolchain'
+      - 'lakefile.*'
+      - 'lake-manifest.json'
   workflow_dispatch:
 permissions:
   contents: read
@@ -18,13 +26,18 @@ jobs:
           persist-credentials: false
       - name: Install pinned Lean and Mathlib
         run: |
+          set -euo pipefail
           curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
           ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
-      - name: Compile splice and audit axioms
+      - name: Compile splice and geodesic face-cover theorem
         run: |
-          set -o pipefail
-          ~/.elan/bin/lake build Solutions.PolynomialFaceReentrySplice 2>&1 | tee /tmp/face-splice.log
-          ! grep -q sorryAx /tmp/face-splice.log
-          grep -F "'HirschFaceSplice.splice_reentry_through_extreme_face' depends on axioms: [propext, Classical.choice, Quot.sound]" /tmp/face-splice.log
-          grep -F "'HirschFaceSplice.splice_reentry_no_growth' depends on axioms: [propext, Classical.choice, Quot.sound]" /tmp/face-splice.log
-          grep -F "'HirschFaceSplice.splice_reentry_cost_at_most_face_diameter' depends on axioms: [propext, Classical.choice, Quot.sound]" /tmp/face-splice.log
+          set -euo pipefail
+          ~/.elan/bin/lake build Solutions.PolynomialGeodesicFaceCover 2>&1 | tee /tmp/face-splice.log
+          python3 scripts/check_lean_axiom_log.py /tmp/face-splice.log \
+            HirschFaceSplice.splice_reentry_through_extreme_face \
+            HirschFaceSplice.splice_reentry_no_growth \
+            HirschFaceSplice.splice_reentry_cost_at_most_face_diameter \
+            HirschFaceSplice.shortest_face_visit_span_le \
+            HirschFaceSplice.shortest_face_visit_card_le \
+            HirschFaceSplice.shortest_face_cover_budget \
+            HirschFaceSplice.diamLE_of_face_cover
