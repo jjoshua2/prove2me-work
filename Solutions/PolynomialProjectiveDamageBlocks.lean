@@ -77,13 +77,12 @@ theorem splice_ordered_face_blocks_suffix
       · have hidx : pos + (L - pos) = L := by omega
         simpa [qs, blockBudgetSum, hidx] using hwL
       · intro j hj
-        have hjL : pos + j < L := by
-          simpa [blockBudgetSum] using (show j < L - pos from hj)
+        have hj' : j < L - pos := by simpa [blockBudgetSum] using hj
+        have hjL : pos + j < L := by omega
         have h := hwstep (pos + j) hjL
         simpa [qs, blockBudgetSum, Nat.add_assoc] using h
   | cons b bs ih =>
       rcases hord with ⟨hposS, hrest⟩
-      have hposT : pos ≤ b.t := hposS.trans b.hst
 
       let qgap : ℕ → EuclideanSpace ℝ (Fin d) := fun j => w (pos + j)
       have hgap0 : qgap 0 = w pos := by simp [qgap]
@@ -111,7 +110,7 @@ theorem splice_ordered_face_blocks_suffix
         · exact Or.inr (face_adj_to_parent b.hF hadj)
 
       obtain ⟨qrest, hrest0, hrestB, hreststep⟩ :=
-        ih P u v w hwL hwstep b.t b.htL hrest
+        ih b.t b.htL hrest
 
       obtain ⟨qgf, hgf0, hgfB, hgfstep⟩ :=
         HirschProduct.append_walk (Adj P) qgap qface
