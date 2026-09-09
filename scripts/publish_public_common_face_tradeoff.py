@@ -8,13 +8,17 @@ OUT=ROOT/'public_common_face_publish_receipts'
 BASE='https://prove2.me/api/v1'
 PIN='c5ea00351c28e24afc9f0f84379aa41082b1188f'
 DEF_NAME='Hirsch_common_face_geometry'
-THEOREM_NAME='Hirsch.common_face_dimension_tradeoff'
 PREAMBLE='''import Definitions.Def_Hirsch_common_face_geometry
 
 open scoped RealInnerProductSpace
 open Set Hirsch
 '''
-FORMAL=r'''namespace Hirsch
+SPECS=[
+  {
+    'name':'Hirsch.common_face_dimension_tradeoff',
+    'title':'Common-face dimensions overlap only through row excess',
+    'proof':ROOT/'public_common_face_packet/tradeoff_solution.lean',
+    'formal':r'''namespace Hirsch
 
 theorem common_face_dimension_tradeoff
     {d n : ℕ}
@@ -28,8 +32,63 @@ theorem common_face_dimension_tradeoff
     HirschCommonFace.commonFaceDim a b u x +
       HirschCommonFace.commonFaceDim a b v x ≤ d + (n - 2 * d) := by sorry
 
-end Hirsch'''
-EXPLANATION='''Rows nonzero and tight at u and x define one common-direction kernel, and rows tight at v and x define the other. Their intersection can only vary through rows active at neither endpoint. Endpoint extremality and separation bound the number of those neutral rows by n-2d. The submodule dimension formula then gives dim F(u,x)+dim F(v,x) <= d+(n-2d). At exact balance n=2d the two dimensions sum to at most d.'''
+end Hirsch''',
+    'natural':'For separated extreme endpoints u and v of an n-row H-polytope in dimension d, and any intermediate extreme vertex x, the dimensions of the common-direction spaces determined by (u,x) and (v,x) sum to at most d+(n-2d). In the balanced case n=2d they sum to at most d.',
+    'explanation':'Rows nonzero and tight at u and x define one common-direction kernel, and rows tight at v and x define the other. Their intersection can only vary through rows active at neither endpoint. Endpoint extremality and separation bound the number of those neutral rows by n-2d. The submodule dimension formula then gives the claimed sum bound.',
+    'source':'Verified structural lemma from the Polynomial Hirsch formalization, jjoshua2/prove2me-work PR #30.',
+  },
+  {
+    'name':'Hirsch.common_face_effective_count_le_rows_minus_common',
+    'title':'Common rows do not contribute effective common-face inequalities',
+    'proof':ROOT/'public_common_face_packet/effective_count_solution.lean',
+    'formal':r'''namespace Hirsch
+
+theorem common_face_effective_count_le_rows_minus_common
+    {d n : ℕ}
+    (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
+    (p q : EuclideanSpace ℝ (Fin d)) :
+    HirschCommonFace.commonFaceEffectiveCount a b p q ≤
+      n - (HirschCommonFace.commonSourceRows a b p q).card := by sorry
+
+end Hirsch''',
+    'natural':'Every nonzero row active at both defining points becomes a zero normal after restriction to their common-direction space. Therefore common rows and effective restricted rows are disjoint, and the effective row count is at most the total number of describing rows minus the number of common rows.',
+    'explanation':'A common row annihilates the common-direction subspace by definition. In orthonormal coordinates its restricted normal therefore has zero self inner product and is zero. Thus common rows cannot belong to the effective-row set; finite-set cardinality gives effectiveCount <= n-commonRowCount.',
+    'source':'Verified effective-row count lemma from the Polynomial Hirsch formalization, jjoshua2/prove2me-work PR #33.',
+  },
+  {
+    'name':'Hirsch.common_face_diameter_of_effective_rows',
+    'title':'Transfer a balanced diameter theorem to a common face with few effective rows',
+    'proof':ROOT/'public_common_face_packet/effective_diameter_solution.lean',
+    'formal':r'''namespace Hirsch
+
+theorem common_face_diameter_of_effective_rows
+    {d n B : ℕ}
+    (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
+    (u x : EuclideanSpace ℝ (Fin d))
+    (hu : u ∈ Hpoly a b)
+    (heff : HirschCommonFace.commonFaceEffectiveCount a b u x ≤
+      2 * HirschCommonFace.commonFaceDim a b u x)
+    (hbalanced : ∀
+      (a' : Fin (2 * HirschCommonFace.commonFaceDim a b u x) →
+        EuclideanSpace ℝ (Fin (HirschCommonFace.commonFaceDim a b u x)))
+      (b' : Fin (2 * HirschCommonFace.commonFaceDim a b u x) → ℝ),
+      (Hpoly a' b').Nonempty → Bornology.IsBounded (Hpoly a' b') →
+      DiamLE (Hpoly a' b') B)
+    (hne : (Hpoly (HirschCommonFace.commonFaceA a b u x)
+      (HirschCommonFace.commonFaceB a b u x)).Nonempty)
+    (hbd : Bornology.IsBounded
+      (Hpoly (HirschCommonFace.commonFaceA a b u x)
+        (HirschCommonFace.commonFaceB a b u x))) :
+    DiamLE
+      (Hpoly (HirschCommonFace.commonFaceA a b u x)
+        (HirschCommonFace.commonFaceB a b u x)) B := by sorry
+
+end Hirsch''',
+    'natural':'If the canonical coordinate H-presentation of a common face has at most twice its dimension many nonzero restricted row normals, then any uniform diameter theorem for exactly balanced presentations of that dimension applies to the common face.',
+    'explanation':'Delete exactly the zero restricted-normal inequalities; their right-hand sides are nonnegative because the source point is feasible, so they are tautologies. Enumerate the remaining effective rows and pad with 0<=1 tautologies up to exactly twice the common-face dimension. The resulting H-polytope is unchanged, so the supplied balanced diameter theorem transfers back.',
+    'source':'Verified effective-row common-face model from the Polynomial Hirsch formalization, jjoshua2/prove2me-work PR #28.',
+  },
+]
 
 class NoRedirect(urllib.request.HTTPRedirectHandler):
     def redirect_request(self,*args,**kwargs): raise RuntimeError('authenticated redirects disabled')
@@ -53,6 +112,7 @@ class API:
 
 def norm(s): return re.sub(r'\s+','',s or '')
 def save(name,obj): OUT.mkdir(exist_ok=True); (OUT/name).write_text(json.dumps(obj,indent=2)+"\n")
+def safe_name(name): return name.replace('.','_')
 def rows(api,name):
     q=urllib.parse.urlencode({'env':PIN,'theorem_name':name,'limit':20,'offset':0}); return [x for x in api.request('/theorems?'+q).get('theorems',[]) if x.get('theorem_name')==name]
 def wait_job(api,jid,timeout=420):
@@ -68,10 +128,36 @@ def wait_verdict(api,sid,timeout=600):
         if x.get('status') in terminal or time.monotonic()>end: return x
         time.sleep(6)
 
+def publish_theorem(api,spec):
+    name=spec['name']; matches=rows(api,name)
+    if matches:
+        if len(matches)!=1: raise RuntimeError('theorem collision: '+name)
+        th=api.request('/theorems/'+matches[0]['theorem_id'])
+        if norm(th.get('formal_statement'))!=norm(spec['formal']): raise RuntimeError('existing theorem differs: '+name)
+        tid=th['theorem_id']
+    else:
+        q=api.request('/submit-problem',{'env':PIN,'private':False,'problems':[{
+          'theorem_name':name,'theorem_title':spec['title'],'formal_statement':spec['formal'],
+          'natural_language_statement':spec['natural'],'preamble':PREAMBLE,'source':spec['source'],
+          'tags':['hirsch-conjecture','polyhedra','faces','linear-algebra']}]},'POST')
+        save(safe_name(name)+'-queued.json',q)
+        if q.get('errors') or len(q.get('jobs',[]))!=1: raise RuntimeError('theorem did not queue: '+name)
+        job=wait_job(api,q['jobs'][0]['job_id']); save(safe_name(name)+'-job.json',job)
+        if job.get('status')!='PUBLISHED': raise RuntimeError('theorem publication failed: '+name)
+        tid=job['theorem_id']
+    th=api.request('/theorems/'+tid)
+    if th.get('status')=='Proved': return {'theorem_id':tid,'status':'Proved','skipped':True}
+    if th.get('status')!='Open': raise RuntimeError('unexpected theorem status: '+name)
+    q=api.verify(tid,spec['proof'].read_text(),spec['explanation']); sid=q['submission_id']; save(safe_name(name)+'-proof-queued.json',q)
+    verdict=wait_verdict(api,sid); save(safe_name(name)+'-proof-verdict.json',verdict)
+    status=api.request('/theorems/'+tid).get('status')
+    if verdict.get('status')!='ACCEPTED' or status!='Proved': raise RuntimeError(f'verification failed {name}: {verdict.get("status")} / {status}')
+    return {'theorem_id':tid,'submission_id':sid,'verdict':'ACCEPTED','status':'Proved'}
+
 def main():
     key=os.environ.get('PROVE2ME_API_KEY','').strip()
     if not key: raise RuntimeError('PROVE2ME_API_KEY unavailable')
-    api=API(key); result={'started_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'env':PIN}
+    api=API(key); result={'started_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'env':PIN,'results':{}}
     definition=(ROOT/'Definitions/Def_Hirsch_common_face_geometry.lean').read_text()
     defs=rows(api,DEF_NAME)
     if defs:
@@ -82,9 +168,9 @@ def main():
     else:
         q=api.request('/submit-definition',{
           'definition_name':DEF_NAME,
-          'definition_title':'Minimal common-face direction geometry',
+          'definition_title':'Common-face direction and coordinate geometry',
           'definition':definition,
-          'natural_language_statement':'Definitions for rows active at both points, endpoint-neutral rows, finite row evaluation, their common-direction kernel, and its finite dimension. These are the minimal public vocabulary for structural Polynomial Hirsch face lemmas.',
+          'natural_language_statement':'Public definitions for common active rows, endpoint-neutral rows, common-direction kernels and dimensions, canonical common-face coordinates, effective restricted rows, and sparse subpresentations.',
           'source':'Formalization infrastructure developed for the Polynomial Hirsch mission; definitions are standard finite-dimensional H-polytope linear algebra.',
           'tags':['hirsch-conjecture','polyhedra','faces','linear-algebra'],
           'env':PIN,'private':False},'POST')
@@ -94,36 +180,10 @@ def main():
         if job.get('status')!='PUBLISHED': raise RuntimeError('definition publication failed')
         did=job['theorem_id']
     result['definition_id']=did
-    matches=rows(api,THEOREM_NAME)
-    if matches:
-        if len(matches)!=1: raise RuntimeError('theorem collision')
-        th=api.request('/theorems/'+matches[0]['theorem_id'])
-        if norm(th.get('formal_statement'))!=norm(FORMAL): raise RuntimeError('existing theorem differs')
-        tid=th['theorem_id']
-    else:
-        q=api.request('/submit-problem',{'env':PIN,'private':False,'problems':[{
-          'theorem_name':THEOREM_NAME,
-          'theorem_title':'Common-face dimensions overlap only through row excess',
-          'formal_statement':FORMAL,
-          'natural_language_statement':'For separated extreme endpoints u and v of an n-row H-polytope in dimension d, and any intermediate extreme vertex x, the dimensions of the common-direction spaces determined by (u,x) and (v,x) sum to at most d+(n-2d). In the balanced case n=2d they sum to at most d.',
-          'preamble':PREAMBLE,
-          'source':'Verified structural lemma from the Polynomial Hirsch formalization, jjoshua2/prove2me-work PR #30.',
-          'tags':['hirsch-conjecture','polyhedra','faces','dimension']}]},'POST')
-        save('theorem-queued.json',q)
-        if q.get('errors') or len(q.get('jobs',[]))!=1: raise RuntimeError('theorem did not queue')
-        job=wait_job(api,q['jobs'][0]['job_id']); save('theorem-job.json',job)
-        if job.get('status')!='PUBLISHED': raise RuntimeError('theorem publication failed')
-        tid=job['theorem_id']
-    result['theorem_id']=tid
-    th=api.request('/theorems/'+tid)
-    if th.get('status')=='Proved': result.update(status='Proved',skipped=True); save('status.json',result); print(json.dumps(result,indent=2)); return 0
-    if th.get('status')!='Open': raise RuntimeError('unexpected theorem status')
-    proof=(ROOT/'public_common_face_packet/solution.lean').read_text()
-    q=api.verify(tid,proof,EXPLANATION); sid=q['submission_id']; result['submission_id']=sid; save('proof-queued.json',q)
-    verdict=wait_verdict(api,sid); save('proof-verdict.json',verdict)
-    result['verdict']=verdict.get('status'); result['status']=api.request('/theorems/'+tid).get('status'); save('status.json',result); print(json.dumps(result,indent=2))
-    if result['verdict']!='ACCEPTED' or result['status']!='Proved': raise RuntimeError('verification failed')
-    return 0
+    for spec in SPECS:
+        result['results'][spec['name']]=publish_theorem(api,spec)
+        save('status.json',result)
+    print(json.dumps(result,indent=2)); return 0
 
 if __name__=='__main__':
     try: raise SystemExit(main())
