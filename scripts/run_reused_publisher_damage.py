@@ -10,7 +10,9 @@ SPECS={
 name,title,natural,explain=SPECS[label]
 base=ROOT/'_publisher_source/scripts/publish_public_geodesic_face_cover.py'
 spec=importlib.util.spec_from_file_location('basepub_'+label,base); pub=importlib.util.module_from_spec(spec); spec.loader.exec_module(pub)
-pub.ROOT=ROOT; pub.OUT=ROOT/'damage_repair_publish_receipts'/label; pub.NAME=name
+pub.ROOT=ROOT
+receipt_root=ROOT/'damage_repair_publish_receipts'; receipt_root.mkdir(exist_ok=True)
+pub.OUT=receipt_root/label; pub.NAME=name
 pub.PREAMBLE='''import Mathlib\nimport Definitions.Def_Hirsch_model\n\nopen scoped BigOperators RealInnerProductSpace\nopen Set Hirsch\n'''
 statement=(ROOT/f'damage_progress_packet/{label}_statement.lean.txt').read_text()
 pub.FORMAL=statement[statement.index('theorem Hirsch.'):].strip()
