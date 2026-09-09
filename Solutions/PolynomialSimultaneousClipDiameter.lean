@@ -119,7 +119,11 @@ theorem diamLE_clip_of_strict_centre
     intro k
     rcases k with i | (e | t)
     · exact hPc.isClosed.inter (isClosed_eq (by fun_prop) continuous_const)
-    · exact hPc.isClosed.inter (isCompact_segment (w e.val) (w (e.val + 1))).isClosed
+    · apply hPc.isClosed.inter
+      have hc : IsCompact (segment ℝ (w e.val) (w (e.val + 1))) := by
+        rw [segment_eq_image]
+        exact isCompact_Icc.image (by fun_prop)
+      exact hc.isClosed
     · exact isClosed_singleton
   have hFD : ∀ k, DiamLE (F k) (C k) := by
     intro k
@@ -140,8 +144,8 @@ theorem diamLE_clip_of_strict_centre
     · have hte : t = e := by simpa [← heq] using ht
       obtain ⟨k, hk⟩ := hend
       refine ⟨.inr (.inr k), ?_⟩
-      change ρ t ∈ {if k = 0 then u else v}
-      simpa [hte, hρfix e he, hk]
+      change ρ t = if k = 0 then u else v
+      exact (congrArg ρ hte).trans ((hρfix e he).trans hk)
     · have htQ : t ∈ Q := hQ.segment_subset he.1 hz ht
       have hit : b i ≤ ⟪a i, t⟫ := by
         obtain ⟨α, β, hα, hβ, hsum, heval⟩ := ht
@@ -226,7 +230,7 @@ lemma strict_centre_or_universal_cut
         intro j hj
         simp only [inner_add_right, inner_smul_right]
         rcases Finset.mem_insert.mp hj with rfl | hj
-        · nlinarith [hbound i o ho]
+        · nlinarith [hbound j o ho]
         · nlinarith [hs j hj, hbound j x hx]
   obtain ⟨o, ho, hs⟩ := hfinite Finset.univ
   exact Or.inl ⟨o, ho, fun i => hs i (Finset.mem_univ _)⟩

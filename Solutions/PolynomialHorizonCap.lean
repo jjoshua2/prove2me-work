@@ -109,8 +109,11 @@ lemma clipped_cap_edge_budget
     (x y : EuclideanSpace ℝ (Fin d)) (hxy : Adj R x y) :
     IsExtreme ℝ P (P ∩ segment ℝ x y) ∧
     IsClosed (P ∩ segment ℝ x y) ∧ DiamLE (P ∩ segment ℝ x y) 1 := by
+  have hc : IsCompact (segment ℝ x y) := by
+    rw [segment_eq_image]
+    exact isCompact_Icc.image (by fun_prop)
   exact ⟨HirschSubsegment.extreme_inter_of_parent_subset R P _ hPR hxy.2,
-    hPc.isClosed.inter (isCompact_segment x y).isClosed,
+    hPc.isClosed.inter hc.isClosed,
     HirschSubsegment.diamLE_of_convex_subsegment _
       (hP.inter (convex_segment x y)) x y inter_subset_right⟩
 

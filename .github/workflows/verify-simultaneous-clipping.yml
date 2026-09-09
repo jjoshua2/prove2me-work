@@ -53,13 +53,13 @@ jobs:
           print('Required declarations:',len(names))
           subprocess.run(['python3','scripts/check_lean_axiom_log.py','/tmp/all-clipping.log',*names],check=True)
           PY
-      - name: Exact carrier regressions when present
+      - name: Reproduce complete exact carrier regressions
         run: |
           set -euo pipefail
-          if test -f scripts/test_cone_carrier_descent.py; then
-            python3 scripts/test_cone_carrier_descent.py --output /tmp/cone-carrier.json
-            python3 scripts/check_carrier_regression.py /tmp/cone-carrier.json
-          fi
+          python3 scripts/test_cone_carrier_descent.py --output /tmp/cone-carrier.json
+          python3 scripts/check_carrier_regression.py /tmp/cone-carrier.json
+      - name: Package audited sources and verification outputs
+        run: python3 scripts/package_clipping_continuation.py /tmp/clipping-verified-source.zip
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -68,3 +68,4 @@ jobs:
             /tmp/all-clipping.log
             /tmp/setup.log
             /tmp/cone-carrier.json
+            /tmp/clipping-verified-source.zip
