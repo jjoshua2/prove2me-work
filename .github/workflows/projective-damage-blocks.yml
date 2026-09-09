@@ -21,7 +21,7 @@ jobs:
           set -euo pipefail
           curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
           ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
-      - name: Compile and audit
+      - name: Compile and audit ordered block repair
         run: |
           set -euo pipefail
           ~/.elan/bin/lake build Solutions.PolynomialProjectiveDamageBlocks 2>&1 | tee /tmp/build.log
