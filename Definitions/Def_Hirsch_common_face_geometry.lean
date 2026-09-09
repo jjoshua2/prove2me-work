@@ -5,7 +5,7 @@ open Set Hirsch
 
 noncomputable section
 
-/-- Public common-face vocabulary used by structural Polynomial Hirsch lemmas.
+/- Public common-face vocabulary used by structural Polynomial Hirsch lemmas.
 It includes the intrinsic direction-space definitions and the canonical
 orthonormal coordinate H-presentation of the common face. -/
 namespace HirschCommonFace
