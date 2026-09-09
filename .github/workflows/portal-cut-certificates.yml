@@ -1,0 +1,63 @@
+name: Portal-cut certificates
+on:
+  push:
+    branches: [chatgpt/portal-cut-certificates]
+    paths:
+      - 'Solutions/PolynomialPortalCut*.lean'
+      - 'Solutions/Sol_Hirsch_mixed_repair_route_or_cut.lean'
+      - 'scripts/bundle_portal_cut.py'
+      - '.github/workflows/portal-cut-certificates.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: portal-cut-certificates
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install pinned Lean and Mathlib
+        run: |
+          set -euo pipefail
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
+          ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
+      - name: Compile source and audit theorem dependencies
+        run: |
+          set -euo pipefail
+          mkdir -p portal_cut_logs
+          ~/.elan/bin/lake build Solutions.PolynomialPortalCutCounterexample Solutions.Sol_Hirsch_mixed_repair_route_or_cut 2>&1 | tee portal_cut_logs/source.log
+          python3 scripts/check_lean_axiom_log.py portal_cut_logs/source.log \
+            HirschRegionRoute.region_route_preserves_closed_cut \
+            HirschRegionRoute.route_or_region_closed_cut \
+            HirschRegionRoute.region_connectivity_iff_no_closed_cut \
+            HirschRegionRoute.route_or_mixed_closed_cut \
+            HirschRegionRoute.route_of_mixed_cut_crossing \
+            HirschPortalCounterexample.region_local_routes \
+            HirschPortalCounterexample.damage_endpoints_certified \
+            HirschPortalCounterexample.damage_intervals_cross \
+            HirschPortalCounterexample.damage_intervals_cover_all_steps \
+            HirschPortalCounterexample.endpoint_regions_disjoint \
+            HirschPortalCounterexample.no_two_step_ambient_route \
+            HirschPortalCounterexample.three_step_ambient_route \
+            HirschPortalCounterexample.regions_preserve_cut \
+            HirschPortalCounterexample.no_region_only_route \
+            HirschPortalCounterexample.no_uncovered_step \
+            solution
+      - name: Compile standalone proof without publishing
+        run: |
+          set -euo pipefail
+          python3 scripts/bundle_portal_cut.py
+          ~/.elan/bin/lake env lean portal_cut_packet/solution.lean 2>&1 | tee portal_cut_logs/standalone.log
+          python3 scripts/check_lean_axiom_log.py portal_cut_logs/standalone.log solution
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: portal-cut-offline-evidence
+          path: |
+            portal_cut_packet/
+            portal_cut_logs/
