@@ -44,15 +44,17 @@ theorem region_walk_of_preconnected_closed_cover
   have hiA : i ∈ A := by
     simp only [A, Finset.mem_filter, Finset.mem_univ, true_and]
     exact ⟨.nil⟩
-  have hjB : j ∈ B := by simpa [B] using hnot
+  have hjB : j ∈ B := Finset.mem_filter.mpr ⟨Finset.mem_univ _, hnot⟩
   have hU : IsClosed U := finite_closed_region_union S hclosed A
   have hW : IsClosed W := finite_closed_region_union S hclosed B
   have hKW : K ⊆ U ∪ W := by
     intro x hx
     obtain ⟨k, hk⟩ := hcover x hx
     by_cases hr : Nonempty ((intersectionGraph S).Walk i k)
-    · exact Or.inl (mem_iUnion.mpr ⟨k, mem_iUnion.mpr ⟨by simp [A, hr], hk⟩⟩)
-    · exact Or.inr (mem_iUnion.mpr ⟨k, mem_iUnion.mpr ⟨by simp [B, hr], hk⟩⟩)
+    · have hkA : k ∈ A := Finset.mem_filter.mpr ⟨Finset.mem_univ _, hr⟩
+      exact Or.inl (mem_iUnion.mpr ⟨k, mem_iUnion.mpr ⟨hkA, hk⟩⟩)
+    · have hkB : k ∈ B := Finset.mem_filter.mpr ⟨Finset.mem_univ _, hr⟩
+      exact Or.inr (mem_iUnion.mpr ⟨k, mem_iUnion.mpr ⟨hkB, hk⟩⟩)
   have huU : u ∈ U := mem_iUnion.mpr ⟨i, mem_iUnion.mpr ⟨hiA, hui⟩⟩
   have hvW : v ∈ W := mem_iUnion.mpr ⟨j, mem_iUnion.mpr ⟨hjB, hvj⟩⟩
   obtain ⟨z, _, hzU, hzW⟩ :=

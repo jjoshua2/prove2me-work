@@ -87,10 +87,11 @@ theorem diamLE_of_convex_subsegment
     · simpa [ha, hb] using subset_of_ordered_extreme_parameters S p q hsub h
         (ha.symm ▸ hu) (hb.symm ▸ hv) (by simpa [ha, hb] using huv)
     · have h' := subset_of_ordered_extreme_parameters S p q hsub h
-        (hb.symm ▸ hv) (ha.symm ▸ hu) (by simpa [ha, hb] using huv.symm)
+        (hb.symm ▸ hv) (ha.symm ▸ hu)
+        (by simpa [ha, hb] using (Ne.symm huv))
       simpa [ha, hb, segment_symm] using h'
   have heq : segment ℝ u v = S := (hS.segment_subset hu.1 hv.1).antisymm hsub'
-  have hadj : Adj S u v := ⟨huv, by rw [heq]; exact IsExtreme.rfl⟩
+  have hadj : Adj S u v := ⟨huv, heq.symm ▸ (IsExtreme.rfl : IsExtreme ℝ S S)⟩
   exact HirschRegionRoute.route_one (Adj S) (Or.inr hadj)
 
 lemma extreme_inter_of_parent_subset (Q P F : Set E)

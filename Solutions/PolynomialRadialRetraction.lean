@@ -80,8 +80,10 @@ lemma retract_mem (Q : Set (EuclideanSpace ℝ (Fin d))) (hQ : Convex ℝ Q)
     (a : ι → EuclideanSpace ℝ (Fin d)) (b : ι → ℝ)
     (o x : EuclideanSpace ℝ (Fin d)) (ho : o ∈ Q) (hx : x ∈ Q)
     (hstrict : ∀ i, ⟪a i, o⟫ < b i) : retract a b o x ∈ clipSet Q a b := by
-  exact point_mem_final_clip Q hQ (fun i => row (a i)) b o x ho hx
-    hstrict (one_le_scale _) (fun i => le_scale _ i)
+  apply point_mem_final_clip Q hQ (fun i => row (a i)) b o x ho hx hstrict (one_le_scale _)
+  intro i
+  change normalizedRow (a i) (b i) o x ≤ scale (fun j => normalizedRow (a j) (b j) o x)
+  exact le_scale (fun j => normalizedRow (a j) (b j) o x) i
 
 lemma retract_fixes (a : ι → EuclideanSpace ℝ (Fin d)) (b : ι → ℝ)
     (o x : EuclideanSpace ℝ (Fin d))
