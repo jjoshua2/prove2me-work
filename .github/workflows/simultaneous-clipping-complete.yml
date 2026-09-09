@@ -24,42 +24,50 @@ jobs:
       - name: Compile and audit full clipping theorem
         run: |
           set -euo pipefail
-          ~/.elan/bin/lake build Solutions.PolynomialSimultaneousClipping 2>&1 | tee /tmp/build.log
+          ~/.elan/bin/lake build Solutions.Sol_Hirsch_simultaneous_clip_diameter 2>&1 | tee /tmp/build.log
           python3 scripts/check_lean_axiom_log.py /tmp/build.log \
             HirschRegionRoute.region_walk_of_preconnected_closed_cover \
             HirschRegionRoute.route_of_preconnected_closed_face_cover \
-            HirschRadial.gauge_ge_one \
-            HirschRadial.le_gauge \
-            HirschRadial.gauge_attains \
-            HirschRadial.gauge_eq_one \
-            HirschRadial.continuous_gauge \
-            HirschRadial.scale_ge_one \
-            HirschRadial.normalized_le_scale \
-            HirschRadial.continuous_scale \
-            HirschRadial.continuous_retract \
-            HirschRadial.retract_mem \
-            HirschRadial.retract_fixes \
-            HirschRadial.retract_eq_self_or_on_cut \
-            HirschRadial.segment_collinear \
-            HirschRadial.diamLE_one_of_convex_collinear \
-            HirschRadial.clipped_segment_face \
-            HirschRadial.supporting_cut_extreme \
-            HirschRadial.finalClip_convex \
-            HirschRadial.edgeTrace_start \
-            HirschRadial.edgeTrace_end \
-            HirschRadial.edgeTrace_preconnected \
-            HirschRadial.edgeTrace_cases \
-            HirschRadial.edgeTrace_covered \
-            HirschRadial.simultaneous_clip_route
+            HirschRadial.gauge_ge_one HirschRadial.le_gauge \
+            HirschRadial.gauge_attains HirschRadial.gauge_eq_one \
+            HirschRadial.continuous_gauge HirschRadial.scale_ge_one \
+            HirschRadial.normalized_le_scale HirschRadial.continuous_scale \
+            HirschRadial.continuous_retract HirschRadial.retract_mem \
+            HirschRadial.retract_fixes HirschRadial.retract_eq_self_or_on_cut \
+            HirschRadial.segment_collinear HirschRadial.diamLE_one_of_convex_collinear \
+            HirschRadial.clipped_segment_face HirschRadial.supporting_cut_extreme \
+            HirschRadial.finalClip_convex HirschRadial.edgeTrace_start \
+            HirschRadial.edgeTrace_end HirschRadial.edgeTrace_preconnected \
+            HirschRadial.edgeTrace_cases HirschRadial.edgeTrace_covered \
+            HirschRadial.simultaneous_clip_route \
+            HirschRadial.extreme_outer_of_strict_cuts \
+            HirschRadial.extreme_outer_or_on_final_cut \
+            HirschRadial.outer_vertex_above HirschRadial.outward_segment_retract_on_cut \
+            HirschRadial.final_vertex_attachment HirschRadial.edgeTrace_edge_or_start \
+            HirschRadial.clip_route_with_attachments HirschRadial.simultaneous_clip_diameter \
+            solution
+      - name: Independently compile offline standalone proof
+        run: |
+          set -euo pipefail
+          python3 scripts/bundle_simultaneous_clipping.py | tee /tmp/packet-manifest.log
+          ~/.elan/bin/lake env lean clipping_offline_packet/solution.lean 2>&1 | tee /tmp/standalone.log
+          python3 scripts/check_lean_axiom_log.py /tmp/standalone.log solution
       - name: Recheck exact geometric regressions
         run: |
           set -euo pipefail
           python3 scripts/test_face_preserving_checkpoints.py | tee /tmp/checkpoint-regression.log
           diff -u research/checkpoint_regression.json /tmp/checkpoint-regression.log
+          if test -f scripts/test_full_clipping_diameter.py; then
+            python3 scripts/test_full_clipping_diameter.py | tee /tmp/full-clipping-regression.log
+          fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: simultaneous-clipping-audit
           path: |
+            clipping_offline_packet/
             /tmp/build.log
+            /tmp/standalone.log
+            /tmp/packet-manifest.log
             /tmp/checkpoint-regression.log
+            /tmp/full-clipping-regression.log
