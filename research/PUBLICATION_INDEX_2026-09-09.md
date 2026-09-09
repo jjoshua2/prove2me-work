@@ -24,23 +24,36 @@ This index distinguishes **Prove2Me public theorems**, **GitHub-published verifi
 | conformal decomposition publication | `05726681-715c-408a-b44c-d73dac856b20` | Proved | PR #25 / submission `9003da2a-48dd-4d30-9e64-a3f4eaf93235` |
 | `Hirsch.reentry_splice_through_extreme_face` | `9d1ffa54-5123-4a52-87a2-e482d3c78918` | Proved | PR #27 / publication PR #35 |
 | `Hirsch.geodesic_face_disjoint_tail_bound` | `16f7c90c-1721-4cfe-aa86-52c761ff99c1` | Proved | PR #27 / publication PR #35 |
+| `Hirsch.geodesic_face_cover_diameter_bound` | `81bb9472-8b70-48dd-b7cc-1921d6a14fe9` | Proved | PR #27 / publication PR #37 |
+| `Hirsch.common_face_dimension_tradeoff` | `b56b59cc-fe2a-4d64-979d-595cabec37ca` | Proved | PR #30 / publication PR #36 |
+| `Hirsch.common_face_effective_count_le_rows_minus_common` | `be716434-50fa-4b32-a13a-71c3ae2caa4b` | Proved | PR #33 / publication PR #36 |
+| `Hirsch.common_face_diameter_of_effective_rows` | `496bd99b-f3dc-465e-9c99-ebca0b1129be` | Proved | PR #28 / publication PR #36 |
 
-The circuit slack definition `Hirsch_circuit_slack_model` is public as definition ID `26b46900-d139-4f6c-b2e7-5088faed7b9e`.
+Public definition modules:
 
-Authenticated backlog audits `34302051513`, `34302297995`, and `34302415442` reconfirm the platform state. The two geodesic publications were separately gated by Actions run `34301906252`: the reviewed source and two standalone server files were compiled and axiom-audited before submission. Server submissions `7ade01da-474c-4a55-8c3a-b60e130746aa` and `3237871f-7670-4489-8e96-340312b9792a` both returned `ACCEPTED`.
+- `Hirsch_circuit_slack_model` — definition ID `26b46900-d139-4f6c-b2e7-5088faed7b9e`.
+- `Hirsch_common_face_geometry` — definition ID `dc9161e6-0dae-4da5-ab82-91b871e2409e`.
 
-## New GitHub-published verified work
+Publication/verifier receipts:
 
-- PR #27 — extreme-face reentry splice; geodesic face-incidence bound; order-sensitive tail theorem `diam(P) <= B+K`; exact d=5 regression and incidence-only lower certificate. The two strongest generic theorems are also Prove2Me `Proved` above.
-- PR #28 — effective-row common-face model.
-- PR #29 — sparse-presentation d-step induction and minimal-counterexample obstruction. This is a conditional diagnostic; the exact d-step conjecture is false globally.
-- PR #30 — general common-face dimension tradeoff `dim F(u,x) + dim F(v,x) <= d + (n-2d)` and splitter.
+- PR #35 / Actions `34301906252`: reentry splice and ordered-tail theorem. Submissions `7ade01da-474c-4a55-8c3a-b60e130746aa` and `3237871f-7670-4489-8e96-340312b9792a`, both `ACCEPTED`.
+- PR #37 / Actions `34344699190`: face-incidence diameter theorem. Submission `0127d3e9-87b8-47c4-86dc-04b9f20f6d1e`, `ACCEPTED`; receipt artifact `10101432222`.
+- PR #36 / Actions `34343690139`: common-face public definition plus three theorems. Submissions `9a42fa4d-2634-44e6-82ec-9edc9fb19d53`, `49221457-5a3f-4a47-a468-e89c75cc8a94`, and `ec84d0ee-c43c-40a0-90e1-bdb4279d01c2`, all `ACCEPTED`; receipt artifact `10101643730`.
+
+Each publication run rebuilt the reviewed source, generated standalone server proof files with no private `Solutions.*` imports, compiled them independently, and rejected `sorryAx`/nonstandard axioms before any Prove2Me verification call.
+
+## GitHub-published verified work
+
+- PR #27 — extreme-face reentry splice; geodesic face-incidence bound; order-sensitive tail theorem `diam(P) <= B+K`; exact d=5 regression and incidence-only lower certificate. Its three main reusable graph theorems are now Prove2Me `Proved` above.
+- PR #28 — effective-row common-face model. Its main balanced-diameter transfer is now Prove2Me `Proved` above.
+- PR #29 — sparse-presentation d-step induction and minimal-counterexample obstruction. This remains a conditional diagnostic; the exact d-step conjecture is false globally, so it is intentionally not promoted as a global theorem claim.
+- PR #30 — general common-face dimension tradeoff `dim F(u,x) + dim F(v,x) <= d + (n-2d)` and splitter. The main dimension tradeoff is Prove2Me `Proved` above; the broader splitter remains preserved in the verified GitHub source.
 - PR #31 — exact rational counterexamples to arbitrary-facet and selectable-good-facet 2-face bridge strategies.
-- PR #33 — generic effective-row count bounds: common rows vanish after restriction and `effectiveCount <= n-commonRowCount`.
+- PR #33 — generic effective-row count bounds. Its main count inequality is Prove2Me `Proved` above.
 - PR #34 — authenticated publication-backlog audit and this index.
-- PR #35 — standalone Prove2Me publication gate and receipts for the two generic geodesic graph theorems.
-
-The GitHub-only structural results in PRs #28, #29, #30, and #33 use a local common-face coordinate vocabulary defined in `Solutions.*`. They are preserved as verified PRs rather than being published to Prove2Me under disconnected ad-hoc copies of that vocabulary. If that vocabulary is promoted to a platform definition module later, these results can be published on top of it without changing their verified mathematics.
+- PR #35 — standalone publication gate/receipts for reentry and ordered-tail.
+- PR #36 — public common-face vocabulary plus standalone publication gate/receipts for the three common-face results.
+- PR #37 — standalone publication gate/receipts for the face-incidence diameter theorem.
 
 ## Research-only exact certificates
 
