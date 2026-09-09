@@ -29,7 +29,8 @@ def regions : Fin 2 → Set (Fin 6)
   | 0 => {0, 1}
   | 1 => {2, 3}
 
-lemma region_local_routes : ∀ i, LocalRoute CycleAdj (regions i) 1 := by
+lemma region_local_routes :
+    ∀ i, ∀ x ∈ regions i, ∀ y ∈ regions i, Route CycleAdj 1 x y := by
   intro i x hx y hy
   fin_cases i
   · have hx' : x = 0 ∨ x = 1 := by simpa [regions] using hx
@@ -73,46 +74,16 @@ theorem no_two_step_ambient_route : ¬ Route CycleAdj 2 (0 : Fin 6) 3 := by
   rcases h with ⟨q, h0, h2, hs⟩
   have hstep0 := hs 0 (by decide)
   have hstep1 := hs 1 (by decide)
-  simp only [h0] at hstep0
-  have hq2 : q 2 = (3 : Fin 6) := h2
-  simp only [hq2] at hstep1
-  rcases hstep0 with heq0 | hadj0
-  · rw [← heq0] at hstep1
-    rcases hstep1 with h | h <;> simp [CycleAdj] at h
-  · rcases hadj0 with h01 | hrest
-    · rcases h01 with ⟨_, hq1⟩
-      subst hq1
-      simp [CycleAdj] at hstep1
-    · simp [CycleAdj] at hrest
-      rcases hrest with ⟨h10, _⟩ | hrest
-      · exact Fin.zero_ne_one h10
-      · rcases hrest with ⟨h12, _⟩ | hrest
-        · exact Fin.zero_ne_of_lt (by decide) h12
-        · rcases hrest with ⟨h21, _⟩ | hrest
-          · exact Fin.zero_ne_of_lt (by decide) h21
-          · rcases hrest with ⟨h23, _⟩ | hrest
-            · exact Fin.zero_ne_of_lt (by decide) h23
-            · rcases hrest with ⟨h32, _⟩ | hrest
-              · exact Fin.zero_ne_of_lt (by decide) h32
-              · rcases hrest with ⟨h34, _⟩ | hrest
-                · exact Fin.zero_ne_of_lt (by decide) h34
-                · rcases hrest with ⟨h43, _⟩ | hrest
-                  · exact Fin.zero_ne_of_lt (by decide) h43
-                  · rcases hrest with ⟨h45, _⟩ | hrest
-                    · exact Fin.zero_ne_of_lt (by decide) h45
-                    · rcases hrest with ⟨h54, _⟩ | hrest
-                      · exact Fin.zero_ne_of_lt (by decide) h54
-                      · rcases hrest with ⟨_, h05⟩ | h50
-                        · subst h05
-                          simp [CycleAdj] at hstep1
-                        · exact Fin.zero_ne_of_lt (by decide) h50.1
+  rw [h0] at hstep0
+  rw [h2] at hstep1
+  fin_cases hq : q 1 <;> simp [hq, CycleAdj] at hstep0 hstep1
 
 /-- The ambient cycle does have a three-step route. -/
 theorem three_step_ambient_route : Route CycleAdj 3 (0 : Fin 6) 3 := by
   refine ⟨fun k => if k = 0 then 0 else if k = 1 then 1 else
     if k = 2 then 2 else 3, rfl, rfl, ?_⟩
   intro k hk
-  interval_cases k <;> decide
+  interval_cases k <;> simp [CycleAdj]
 
 /-- A cut proving that the supplied two-region repair network is disconnected,
 although its ambient six-cycle is connected. -/
