@@ -1,0 +1,65 @@
+{
+  "no_surviving_vertices": [
+    {
+      "all_routes_constructed_within_budget": true,
+      "cells": 40,
+      "dimension": 2,
+      "inner_diameter": 2,
+      "inner_vertices": 4,
+      "max_supports": 3,
+      "new_endpoint_occurrences": 12,
+      "nonvertex_checkpoint_occurrences": 24,
+      "outer_vertices": 4,
+      "pairs": 6,
+      "surviving_outer_vertices": 0,
+      "zero_length_outer_walks": 2
+    },
+    {
+      "all_routes_constructed_within_budget": true,
+      "cells": 204,
+      "dimension": 3,
+      "inner_diameter": 3,
+      "inner_vertices": 8,
+      "max_supports": 3,
+      "new_endpoint_occurrences": 56,
+      "nonvertex_checkpoint_occurrences": 132,
+      "outer_vertices": 8,
+      "pairs": 28,
+      "surviving_outer_vertices": 0,
+      "zero_length_outer_walks": 12
+    },
+    {
+      "all_routes_constructed_within_budget": true,
+      "cells": 916,
+      "dimension": 4,
+      "inner_diameter": 4,
+      "inner_vertices": 16,
+      "max_supports": 3,
+      "new_endpoint_occurrences": 240,
+      "nonvertex_checkpoint_occurrences": 612,
+      "outer_vertices": 16,
+      "pairs": 120,
+      "surviving_outer_vertices": 0,
+      "zero_length_outer_walks": 56
+    }
+  ],
+  "no_surviving_vertices_total": {
+    "all_routes_constructed_within_budget": true,
+    "cells": 1160,
+    "max_supports": 3,
+    "new_endpoint_occurrences": 308,
+    "nonvertex_checkpoint_occurrences": 768,
+    "pairs": 154,
+    "zero_length_outer_walks": 70
+  },
+  "seeded_general_clips": {
+    "all_routes_constructed_within_budget": true,
+    "cells": 1350,
+    "instances": 30,
+    "max_supports": 6,
+    "new_endpoint_occurrences": 315,
+    "nonvertex_checkpoint_occurrences": 641,
+    "pairs": 356,
+    "zero_length_outer_walks": 72
+  }
+}

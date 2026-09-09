@@ -57,9 +57,8 @@ jobs:
           set -euo pipefail
           python3 scripts/test_face_preserving_checkpoints.py | tee /tmp/checkpoint-regression.log
           diff -u research/checkpoint_regression.json /tmp/checkpoint-regression.log
-          if test -f scripts/test_full_clipping_diameter.py; then
-            python3 scripts/test_full_clipping_diameter.py | tee /tmp/full-clipping-regression.log
-          fi
+          python3 scripts/test_full_clipping_diameter.py | tee /tmp/full-clipping-regression.log
+          diff -u research/full_clipping_regression.json /tmp/full-clipping-regression.log
       - uses: actions/upload-artifact@v4
         if: always()
         with:
