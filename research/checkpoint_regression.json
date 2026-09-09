@@ -1,0 +1,57 @@
+{
+  "circuit_carrier_obstruction": {
+    "dimension": 2,
+    "edge_distance": 3,
+    "maximal_circuit_length": 1,
+    "proper_segment_carrier_exists": false,
+    "rows": 6
+  },
+  "radial_multi_cut": {
+    "all_constructed_routes_within_final_face_budget": true,
+    "cases": 48,
+    "cells": 694,
+    "max_distinct_supports": 10,
+    "nonvertex_checkpoint_occurrences": 196
+  },
+  "rounding": [
+    {
+      "checkpoints": 15,
+      "name": "cube2",
+      "vertices": 4
+    },
+    {
+      "checkpoints": 55,
+      "name": "cube3",
+      "vertices": 8
+    },
+    {
+      "checkpoints": 201,
+      "name": "cube4",
+      "vertices": 16
+    },
+    {
+      "checkpoints": 164,
+      "name": "Dantzig4",
+      "vertices": 14
+    },
+    {
+      "checkpoints": 1071,
+      "name": "Dantzig5",
+      "vertices": 40
+    }
+  ],
+  "sweep_obstruction": {
+    "all_seven_facets_persist": true,
+    "cube_final_distance": 2,
+    "cube_old_distance": 2,
+    "cube_vertices_each": 10,
+    "five_facet_intersection_failure": true,
+    "radial_repair": {
+      "budget": 4,
+      "cells": 4,
+      "nonvertices": 1,
+      "route": 3,
+      "supports": 3
+    }
+  }
+}

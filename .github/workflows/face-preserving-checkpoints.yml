@@ -24,7 +24,7 @@ jobs:
       - name: Compile and audit all new declarations
         run: |
           set -euo pipefail
-          ~/.elan/bin/lake build Solutions.PolynomialFacePreservingCheckpoints 2>&1 | tee /tmp/build.log
+          ~/.elan/bin/lake build Solutions.PolynomialRadialClipCells 2>&1 | tee /tmp/build.log
           python3 scripts/check_lean_axiom_log.py /tmp/build.log \
             HirschRegionRoute.compact_face_point_has_parent_vertex \
             HirschRegionRoute.exists_vertex_preserving_face_memberships \
@@ -32,13 +32,21 @@ jobs:
             HirschRegionRoute.compact_faces_shared_point_portal \
             HirschRegionRoute.route_of_feasible_face_covered_sequence \
             HirschRegionRoute.route_of_face_interval_cover_of_feasible_start_containment \
-            HirschRegionRoute.route_of_face_interval_cover_of_feasible_active_containment
-      - name: Exact geometric regressions when present
+            HirschRegionRoute.route_of_face_interval_cover_of_feasible_active_containment \
+            HirschRadial.eval_point \
+            HirschRadial.point_mem_convex \
+            HirschRadial.point_satisfies_cut \
+            HirschRadial.point_on_active_cut \
+            HirschRadial.point_at_unit_scale \
+            HirschRadial.finite_radial_scale_exists \
+            HirschRadial.point_mem_final_clip \
+            HirschRadial.point_mem_active_final_face \
+            HirschRadial.affine_dominance_on_cell
+      - name: Reproduce exact geometric regressions
         run: |
           set -euo pipefail
-          if test -f scripts/test_face_preserving_checkpoints.py; then
-            python3 scripts/test_face_preserving_checkpoints.py | tee /tmp/checkpoint-regression.log
-          fi
+          python3 scripts/test_face_preserving_checkpoints.py | tee /tmp/checkpoint-regression.log
+          diff -u research/checkpoint_regression.json /tmp/checkpoint-regression.log
       - uses: actions/upload-artifact@v4
         if: always()
         with:
