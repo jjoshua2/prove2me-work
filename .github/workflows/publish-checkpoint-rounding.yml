@@ -1,0 +1,84 @@
+name: Publish PR50 checkpoint rounding results
+
+on:
+  push:
+    branches: [chatgpt/face-preserving-checkpoints]
+    paths:
+      - Solutions/Sol_Hirsch_face_preserving_vertex_selection.lean
+      - Solutions/Sol_Hirsch_feasible_start_containment_route_bound.lean
+      - scripts/bundle_public_checkpoint_rounding.py
+      - scripts/publish_checkpoint_rounding_results.py
+      - .github/workflows/publish-checkpoint-rounding.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-pr50-checkpoint-rounding
+  cancel-in-progress: true
+
+jobs:
+  verify-publish-update-mission:
+    runs-on: ubuntu-latest
+    timeout-minutes: 65
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          ref: chatgpt/publish-geodesic-face-cover
+          path: _publisher_source
+          persist-credentials: false
+
+      - name: Install pinned Lean and Mathlib
+        run: |
+          set -euo pipefail
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
+          ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
+
+      - name: Rebuild and audit publication wrappers
+        run: |
+          set -euo pipefail
+          ~/.elan/bin/lake build \
+            Solutions.Sol_Hirsch_face_preserving_vertex_selection \
+            Solutions.Sol_Hirsch_feasible_start_containment_route_bound 2>&1 | tee /tmp/source.log
+          python3 scripts/check_lean_axiom_log.py /tmp/source.log \
+            solution \
+            HirschRegionRoute.face_preserving_vertex_selection \
+            HirschRegionRoute.route_of_face_interval_cover_of_feasible_start_containment
+
+      - name: Build standalone proof packets
+        run: |
+          set -euo pipefail
+          python3 scripts/bundle_public_checkpoint_rounding.py | tee /tmp/bundle.log
+          ~/.elan/bin/lake env lean public_checkpoint_vertex_selection_packet/solution.lean 2>&1 | tee /tmp/selector-standalone.log
+          python3 scripts/check_lean_axiom_log.py /tmp/selector-standalone.log solution
+          ~/.elan/bin/lake env lean public_checkpoint_feasible_start_containment_packet/solution.lean 2>&1 | tee /tmp/routing-standalone.log
+          python3 scripts/check_lean_axiom_log.py /tmp/routing-standalone.log solution
+
+      - name: Publish, verify, and update Polynomial Hirsch discussion
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: |
+          set -euo pipefail
+          test -n "$PROVE2ME_API_KEY"
+          python3 scripts/publish_checkpoint_rounding_results.py | tee /tmp/publish.log
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pr50-prove2me-publication-receipts
+          path: |
+            public_checkpoint_vertex_selection_packet/
+            public_checkpoint_feasible_start_containment_packet/
+            checkpoint_vertex_selection_publish_receipts/
+            checkpoint_feasible_start_publish_receipts/
+            checkpoint_mission_update_receipts/
+            checkpoint_publication_summary.json
+            /tmp/source.log
+            /tmp/bundle.log
+            /tmp/selector-standalone.log
+            /tmp/routing-standalone.log
+            /tmp/publish.log
