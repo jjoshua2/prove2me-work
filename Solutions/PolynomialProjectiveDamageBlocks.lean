@@ -92,7 +92,12 @@ theorem splice_ordered_face_blocks_suffix
       have hgapstep : ∀ j < b.s - pos,
           qgap j = qgap (j + 1) ∨ Adj P (qgap j) (qgap (j + 1)) := by
         intro j hj
-        have hidx : pos + j < L := by omega
+        have hltS : pos + j < b.s := by
+          calc
+            pos + j < pos + (b.s - pos) := Nat.add_lt_add_left hj pos
+            _ = b.s := by omega
+        have hsL : b.s ≤ L := b.hst.trans b.htL
+        have hidx : pos + j < L := hltS.trans_le hsL
         have h := hwstep (pos + j) hidx
         simpa [qgap, Nat.add_assoc] using h
 
@@ -121,6 +126,13 @@ theorem splice_ordered_face_blocks_suffix
 
       let K := (b.s - pos) + b.B + (L - b.t + blockBudgetSum bs)
       let M := L - pos + (b.B + blockBudgetSum bs)
+      have htail : L - b.t ≤ L - b.s := Nat.sub_le_sub_left b.hst L
+      have hsum : (b.s - pos) + (L - b.s) = L - pos := by omega
+      have hcore : (b.s - pos) + (L - b.t) ≤ L - pos := by
+        calc
+          (b.s - pos) + (L - b.t) ≤ (b.s - pos) + (L - b.s) :=
+            Nat.add_le_add_left htail _
+          _ = L - pos := hsum
       have hKM : K ≤ M := by
         dsimp [K, M]
         omega
