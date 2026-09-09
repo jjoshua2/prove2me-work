@@ -28,4 +28,5 @@ jobs:
           python3 scripts/check_lean_axiom_log.py /tmp/build.log \
             HirschRegionRoute.interval_portal_of_start_containment \
             HirschRegionRoute.route_of_interval_cover_of_start_containment \
-            HirschRegionRoute.route_of_face_interval_cover_of_start_containment
+            HirschRegionRoute.route_of_face_interval_cover_of_start_containment \
+            HirschRegionRoute.route_of_face_interval_cover_of_active_containment
