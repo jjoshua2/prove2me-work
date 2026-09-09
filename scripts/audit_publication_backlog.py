@@ -28,6 +28,7 @@ NAMES = [
     "Hirsch.ordered_damage_repair_exact",
     "Hirsch.route_of_faces_and_surviving_edges",
     "Hirsch.extreme_face_cut_route_bound",
+    "Hirsch.mixed_repair_route_or_cut",
 ]
 
 class NoRedirect(urllib.request.HTTPRedirectHandler):
