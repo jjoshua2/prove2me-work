@@ -21,15 +21,10 @@ jobs:
           set -euo pipefail
           curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
           ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
-      - name: Pinned geometry API diagnostics
-        run: |
-          grep -n -A 5 -B 1 -E 'collinear|Collinear' .lake/packages/mathlib/Mathlib/LinearAlgebra/AffineSpace/FiniteDimensional.lean > /tmp/geometry-api.log || true
-          grep -n -A 4 -B 1 -E 'isExtreme.*(le|eq)|IsExtreme.*(le|eq)|isExposed.*(le|eq)' .lake/packages/mathlib/Mathlib/Analysis/Convex/Exposed.lean >> /tmp/geometry-api.log || true
-          cat /tmp/geometry-api.log
-      - name: Compile and audit continuous radial repair
+      - name: Compile and audit full clipping theorem
         run: |
           set -euo pipefail
-          ~/.elan/bin/lake build Solutions.PolynomialContinuousRepair 2>&1 | tee /tmp/build.log
+          ~/.elan/bin/lake build Solutions.PolynomialSimultaneousClipping 2>&1 | tee /tmp/build.log
           python3 scripts/check_lean_axiom_log.py /tmp/build.log \
             HirschRegionRoute.region_walk_of_preconnected_closed_cover \
             HirschRegionRoute.route_of_preconnected_closed_face_cover \
@@ -44,7 +39,18 @@ jobs:
             HirschRadial.continuous_retract \
             HirschRadial.retract_mem \
             HirschRadial.retract_fixes \
-            HirschRadial.retract_eq_self_or_on_cut
+            HirschRadial.retract_eq_self_or_on_cut \
+            HirschRadial.segment_collinear \
+            HirschRadial.diamLE_one_of_convex_collinear \
+            HirschRadial.clipped_segment_face \
+            HirschRadial.supporting_cut_extreme \
+            HirschRadial.finalClip_convex \
+            HirschRadial.edgeTrace_start \
+            HirschRadial.edgeTrace_end \
+            HirschRadial.edgeTrace_preconnected \
+            HirschRadial.edgeTrace_cases \
+            HirschRadial.edgeTrace_covered \
+            HirschRadial.simultaneous_clip_route
       - name: Recheck exact geometric regressions
         run: |
           set -euo pipefail
@@ -56,5 +62,4 @@ jobs:
           name: simultaneous-clipping-audit
           path: |
             /tmp/build.log
-            /tmp/geometry-api.log
             /tmp/checkpoint-regression.log
