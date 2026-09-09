@@ -1,4 +1,4 @@
-import Solutions.PolynomialClippingDiameter
+import Solutions.PolynomialClippingAttachments
 
 /-! Exterior-cap shortcuts for simultaneous clipping.
 
@@ -115,7 +115,7 @@ theorem clip_route_with_exterior_attachments
         exact ⟨hx, hS.left_mem_of_mem_openSegment hx.1 hy.1 hz.2 hseg⟩
       · intro x hx y hy
         have he : x = y := (show x = w 0 from hx.1.2).trans (show y = w 0 from hy.1.2).symm
-        exact ⟨fun _ => x, rfl, he, by intro k hk; omega⟩
+        exact ⟨fun _ => x, rfl, he, by intro k hk; change k < 0 at hk; omega⟩
     | some k =>
       by_cases h : Adj Q (w k) (w (k + 1))
       · simpa [E, h] using clipped_segment_face P Q (fun _ hx => hx.1) hP hPc (w k) (w (k + 1)) h.2
