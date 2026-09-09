@@ -19,9 +19,7 @@ def intersectionGraph {V ι : Type*} (S : ι → Set V) : SimpleGraph ι where
     intro i j h
     obtain ⟨hne, z, hi, hj⟩ := h
     exact ⟨hne.symm, z, hj, hi⟩
-  loopless := by
-    intro i h
-    exact h.1 rfl
+  loopless := ⟨fun i h => h.1 rfl⟩
 
 lemma shared_point_walk {V ι : Type*} (S : ι → Set V)
     {i j : ι} {z : V} (hi : z ∈ S i) (hj : z ∈ S j) :
