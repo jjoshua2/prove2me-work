@@ -1,0 +1,43 @@
+name: Probe polynomial target frontier publicly
+on:
+  push:
+    branches: [chatgpt/target-access-equivalence]
+permissions:
+  contents: read
+concurrency:
+  group: probe-polynomial-target-public-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Read public Polynomial Hirsch mission page
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import html, re, urllib.request
+          url='https://prove2.me/missions/The%20Polynomial%20Hirsch%20Conjecture'
+          req=urllib.request.Request(url,headers={'User-Agent':'prove2me-frontier-public-probe/1'})
+          with urllib.request.urlopen(req,timeout=30) as r:
+              raw=r.read().decode('utf-8','replace')
+          print('HTTP_OK_BYTES',len(raw))
+          # Print only theorem-like names/ids and nearby target/polynomial text.
+          ids=sorted(set(re.findall(r'[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}',raw,re.I)))
+          names=sorted(set(re.findall(r'Hirsch\.[A-Za-z0-9_]+',html.unescape(raw))))
+          print('THEOREM_IDS',*ids,sep='\n')
+          print('HIRSCH_NAMES',*names,sep='\n')
+          text=re.sub(r'<[^>]+>',' ',html.unescape(raw))
+          text=re.sub(r'\s+',' ',text)
+          for term in ('target','polynomial','face access','Frontier','Open'):
+              print('TERM',term)
+              start=0
+              for _ in range(12):
+                  i=text.lower().find(term.lower(),start)
+                  if i<0: break
+                  print(text[max(0,i-240):i+520])
+                  start=i+len(term)
+          PY
