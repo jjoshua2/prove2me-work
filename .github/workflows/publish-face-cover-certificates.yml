@@ -4,7 +4,7 @@ name: Publish audited face-cover certificates
 on:
   workflow_dispatch:
   pull_request:
-    types: [opened]
+    types: [opened, reopened]
 
 permissions:
   contents: read
@@ -36,6 +36,9 @@ jobs:
           grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
           git fetch --no-tags --depth=1 origin 681314640b6f84792d8ae011c3534a6e8c456930
           python3 scripts/build_face_cover_publication.py
+          for file in face_cover_publication_packet/*.statement.lean; do
+            grep -Fq "attribute [local instance] Classical.propDecidable" "$file"
+          done
       - name: Restore pinned Lean and Mathlib
         uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
       - name: Compile all standalone statements and proofs, then audit solution axioms
