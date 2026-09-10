@@ -89,7 +89,7 @@ class API:
         )
         with self.opener.open(req, timeout=45) as r:
             data = json.load(r)
-        if data.get("version") != "0.9.8":
+        if data.get("version") != "0.9.9":
             raise RuntimeError("unexpected Prove2Me version: " + str(data.get("version")))
         self.token = data["access_token"]
         self.expires = float(data.get("expires_at", time.time() + 3500))
