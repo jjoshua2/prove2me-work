@@ -110,8 +110,8 @@ lemma first_hit_segment_adjacent
         intro i hi
         rw [inner_sub_right, hOldTightP i hi, hi, sub_self])
     have hpform : p = x + c • r := by
-      have : p - x = c • r := hpc
-      module
+      have hpform' : p = c • r + x := sub_eq_iff_eq_add.mp hpc
+      simpa [add_comm] using hpform'
     have hc0 : 0 ≤ c := by
       have hpcap := hp.2
       change ⟪capNormal a, p⟫ ≤ T at hpcap
@@ -128,15 +128,18 @@ lemma first_hit_segment_adjacent
       dsimp [y] at hyj
       rw [inner_add_right, inner_smul_right] at hyj
       have hmul : c * ⟪a j, r⟫ ≤ t * ⟪a j, r⟫ := by linarith
-      exact (mul_le_mul_right hjpos).mp hmul
+      exact le_of_mul_le_mul_right hmul hjpos
     let γ : ℝ := c / t
     have hγ0 : 0 ≤ γ := div_nonneg hc0 ht.le
     have hγ1 : γ ≤ 1 := (div_le_one ht).2 hct
     have hγt : γ * t = c := div_mul_cancel₀ c ht.ne'
     refine ⟨γ, 1 - γ, hγ0, by linarith, by ring, ?_⟩
-    dsimp [γ, y]
-    rw [hpform]
-    module
+    calc
+      p = x + c • r := hpform
+      _ = x + (γ * t) • r := by rw [hγt]
+      _ = γ • y + (1 - γ) • x := by
+        dsimp [y]
+        module
 
 #print axioms first_hit_segment_adjacent
 
