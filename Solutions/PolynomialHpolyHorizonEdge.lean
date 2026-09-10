@@ -50,10 +50,23 @@ lemma first_hit_segment_adjacent
       have hxi := hx.1.1 i
       change ⟪a i, α • y + β • x⟫ ≤ b i
       rw [inner_add_right, inner_smul_right, inner_smul_right]
-      nlinarith
+      have hy' : α * ⟪a i, y⟫ ≤ α * b i := mul_le_mul_of_nonneg_left hyi hα
+      have hx' : β * ⟪a i, x⟫ ≤ β * b i := mul_le_mul_of_nonneg_left hxi hβ
+      calc
+        α * ⟪a i, y⟫ + β * ⟪a i, x⟫ ≤ α * b i + β * b i := add_le_add hy' hx'
+        _ = (α + β) * b i := by ring
+        _ = b i := by rw [hab, one_mul]
     · change ⟪capNormal a, α • y + β • x⟫ ≤ T
       rw [inner_add_right, inner_smul_right, inner_smul_right]
-      nlinarith [hyCapStrict.le]
+      have hy' : α * ⟪capNormal a, y⟫ ≤ α * T :=
+        mul_le_mul_of_nonneg_left hyCapStrict.le hα
+      have hx' : β * ⟪capNormal a, x⟫ ≤ β * T :=
+        mul_le_mul_of_nonneg_left hx.1.2 hβ
+      calc
+        α * ⟪capNormal a, y⟫ + β * ⟪capNormal a, x⟫ ≤ α * T + β * T :=
+          add_le_add hy' hx'
+        _ = (α + β) * T := by ring
+        _ = T := by rw [hab, one_mul]
   · intro p hp q hq w hwseg hwopen
     have hOldTightY : ∀ i, ⟪a i, x⟫ = b i → ⟪a i, y⟫ = b i := by
       intro i hi
@@ -64,7 +77,9 @@ lemma first_hit_segment_adjacent
       obtain ⟨α, β, hα, hβ, hab, hw⟩ := hwseg
       rw [← hw, inner_add_right, inner_smul_right, inner_smul_right,
         hOldTightY i hi, hi]
-      nlinarith
+      calc
+        α * b i + β * b i = (α + β) * b i := by ring
+        _ = b i := by rw [hab, one_mul]
     have hOldTightP : ∀ i, ⟪a i, x⟫ = b i → ⟪a i, p⟫ = b i := by
       intro i hi
       obtain ⟨α, β, hα, hβ, hab, hw⟩ := hwopen
@@ -72,7 +87,24 @@ lemma first_hit_segment_adjacent
       have hq_i := hq.1 i
       have havg : b i = α * ⟪a i, p⟫ + β * ⟪a i, q⟫ := by
         rw [← hOldTightW i hi, ← hw, inner_add_right, inner_smul_right, inner_smul_right]
-      nlinarith
+      apply le_antisymm hp_i
+      by_contra hnot
+      have hp_lt : ⟪a i, p⟫ < b i := lt_of_not_ge hnot
+      have hp_mul : α * ⟪a i, p⟫ < α * b i := mul_lt_mul_of_pos_left hp_lt hα
+      have hq_mul : β * ⟪a i, q⟫ ≤ β * b i :=
+        mul_le_mul_of_nonneg_left hq_i hβ.le
+      have hsum : α * ⟪a i, p⟫ + β * ⟪a i, q⟫ < α * b i + β * b i :=
+        add_lt_add_of_lt_of_le hp_mul hq_mul
+      have hright : α * b i + β * b i = b i := by
+        calc
+          α * b i + β * b i = (α + β) * b i := by ring
+          _ = b i := by rw [hab, one_mul]
+      have hcontra : b i < b i := by
+        calc
+          b i = α * ⟪a i, p⟫ + β * ⟪a i, q⟫ := havg
+          _ < α * b i + β * b i := hsum
+          _ = b i := hright
+      exact (lt_irrefl (b i)) hcontra
     obtain ⟨c, hpc⟩ := horizon_old_active_kernel_spanned
       a b T x hx horizon r hr0 hrActive (p - x) (by
         intro i hi
@@ -84,14 +116,19 @@ lemma first_hit_segment_adjacent
       have hpcap := hp.2
       change ⟪capNormal a, p⟫ ≤ T at hpcap
       rw [hpform, inner_add_right, inner_smul_right, horizon] at hpcap
-      nlinarith
+      have hmul : c * ⟪capNormal a, r⟫ ≤ 0 := by linarith
+      by_contra hc
+      have hcneg : c < 0 := lt_of_not_ge hc
+      have hpos : 0 < c * ⟪capNormal a, r⟫ := mul_pos_of_neg_of_neg hcneg hrCap
+      exact (not_lt_of_ge hmul) hpos
     have hct : c ≤ t := by
       have hpj := hp.1 j
       have hyj : ⟪a j, y⟫ = b j := by simpa [y] using hjhit
       rw [hpform, inner_add_right, inner_smul_right] at hpj
       dsimp [y] at hyj
       rw [inner_add_right, inner_smul_right] at hyj
-      nlinarith
+      have hmul : c * ⟪a j, r⟫ ≤ t * ⟪a j, r⟫ := by linarith
+      exact (mul_le_mul_right hjpos).mp hmul
     let γ : ℝ := c / t
     have hγ0 : 0 ≤ γ := div_nonneg hc0 ht.le
     have hγ1 : γ ≤ 1 := (div_le_one ht).2 hct
