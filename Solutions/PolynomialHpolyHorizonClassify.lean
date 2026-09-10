@@ -19,7 +19,12 @@ lemma hpoly_convex
   intro i
   change ⟪a i, α • x + β • y⟫ ≤ b i
   rw [inner_add_right, inner_smul_right, inner_smul_right]
-  nlinarith [hx i, hy i]
+  have hx' : α * ⟪a i, x⟫ ≤ α * b i := mul_le_mul_of_nonneg_left (hx i) hα
+  have hy' : β * ⟪a i, y⟫ ≤ β * b i := mul_le_mul_of_nonneg_left (hy i) hβ
+  calc
+    α * ⟪a i, x⟫ + β * ⟪a i, y⟫ ≤ α * b i + β * b i := add_le_add hx' hy'
+    _ = (α + β) * b i := by ring
+    _ = b i := by rw [hab, one_mul]
 
 /-- A genuinely new horizon cap vertex is adjacent, in the capped graph, to an
 old H-polyhedron vertex reached by the finite first-hit construction. -/
