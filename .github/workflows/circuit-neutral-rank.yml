@@ -35,6 +35,7 @@ jobs:
             Solutions.PolynomialCircuitSubpresentationDefect \
             Solutions.PolynomialCommonFaceSubpresentationRank \
             Solutions.PolynomialCircuitSubpresentationExcess \
+            Solutions.PolynomialCommonFaceMinimalSubpresentation \
             2>&1 | tee /tmp/circuit-neutral-rank/core.log
           ! grep -q sorryAx /tmp/circuit-neutral-rank/core.log
           python3 scripts/check_lean_axiom_log.py /tmp/circuit-neutral-rank/core.log \
@@ -57,7 +58,13 @@ jobs:
             HirschCircuitLocalization.commonFace_coord_zero_extreme \
             HirschCircuitLocalization.commonFace_subpresentation_effectiveRows_card_ge_dim \
             HirschCircuitLocalization.rows_ge_dimension_of_vertex \
-            HirschCircuitLocalization.rowCircuit_commonFace_subpresentation_excess_defect
+            HirschCircuitLocalization.rowCircuit_commonFace_subpresentation_excess_defect \
+            HirschCircuitLocalization.commonFace_subpresentation_exists \
+            HirschCircuitLocalization.commonFaceMinSubpresentation_spec \
+            HirschCircuitLocalization.commonFaceMinSubpresentation_le \
+            HirschCircuitLocalization.effective_subpresentation_preserves_hpoly \
+            HirschCircuitLocalization.commonFace_minSubpresentation_effective_witness \
+            HirschCircuitLocalization.rowCircuit_commonFace_minSubpresentation_excess_defect
       - name: Compile public adapters separately
         run: |
           set -euo pipefail
