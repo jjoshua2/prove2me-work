@@ -23,7 +23,7 @@ lemma commonFaceA_eq_zero_of_tight_both
     commonFaceA a b u x i = 0 := by
   by_cases hai : a i = 0
   · simp [commonFaceA, hai]
-  · apply inner_self_eq_zero.mp
+  · apply (@inner_self_eq_zero ℝ).mp
     rw [commonFace_inner_restricted]
     have hiC : i ∈ commonSourceRows a b u x := by
       simp [commonSourceRows, hai, hiu, hix]
