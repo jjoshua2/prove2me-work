@@ -1,0 +1,56 @@
+{
+  "archive_checks": {
+    "crc_test": true,
+    "fresh_extraction_all_files_byte_equal": true,
+    "full_verifier_rerun_from_archive": false
+  },
+  "complete_constructor_and_auditor": "passed; chained execution completed successfully",
+  "complete_runs": [
+    {
+      "kind": "complete constructor and independent auditor",
+      "log_sha256": "442f230166c64d0e08dd0f0ab88f759678ab0af3a4174b28809daf1a42da9269",
+      "success": true
+    },
+    {
+      "byte_for_byte_independent_audit_match": true,
+      "byte_for_byte_regression_match": true,
+      "kind": "fresh isolated applied-worktree full verifier",
+      "log_sha256": "f782ebf50a7c9733898242e0e3674f1c602d755f8a877d733590bd882d1f852e",
+      "success": true
+    }
+  ],
+  "corruptions_rejected": ["vertex_map", "circuit_rank", "wedge_rhs", "base_embedding", "intrinsic_rank_defect"],
+  "executed_constructor_summary": {
+    "all_base_pair_checks": 5228,
+    "all_original_vertex_pairs": 1102,
+    "base_models": 10,
+    "directed_base_pair_checks": 21862,
+    "embedding_instances": 12,
+    "largest_final_dimension": 10,
+    "largest_final_vertex_set": 445,
+    "mapped_edge_occurrences": 10629,
+    "maximal_steps": 336,
+    "nonvertex_endpoint_steps": 264,
+    "original_vertex_circuit_pairs": 216,
+    "separated_balanced_noncircuit_pairs": 24,
+    "sharpness_examples": 4,
+    "stages": 37,
+    "strict_facet_witnesses": 461,
+    "wedges": 25
+  },
+  "executed_independent_audit_summary": {
+    "all_base_pair_checks": 5228,
+    "audited_vertex_occurrences": 2845,
+    "base_row_bases": 551,
+    "cap_row_bases": 12029,
+    "directed_base_pair_checks": 21862,
+    "mapped_edge_occurrences": 10629,
+    "strict_facet_witnesses": 461,
+    "wedge_vertex_reconstructions": 2503
+  },
+  "extra_sharpness_row_bases": 2398,
+  "lean": "not compiled or axiom-audited; no new Lean source",
+  "mathematics": "ordinary proofs; not a universal polynomial-diameter bound",
+  "publication": "research-only; no theorem-level Prove2Me acceptance",
+  "timestamp_utc": "2026-09-10T03:53:24.298749+00:00"
+}
