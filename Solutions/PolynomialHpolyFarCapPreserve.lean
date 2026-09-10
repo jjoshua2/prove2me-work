@@ -16,6 +16,7 @@ lemma segment_mem_cap_of_endpoints
     (hx : ⟪c, x⟫ ≤ T) (hy : ⟪c, y⟫ ≤ T) :
     segment ℝ x y ⊆ {z | ⟪c, z⟫ ≤ T} := by
   rintro z ⟨α, β, hα, hβ, hab, rfl⟩
+  change ⟪c, α • x + β • y⟫ ≤ T
   rw [inner_add_right, inner_smul_right, inner_smul_right]
   nlinarith
 
