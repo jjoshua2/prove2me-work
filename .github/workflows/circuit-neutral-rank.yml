@@ -24,11 +24,17 @@ jobs:
       - name: Compile neutral-rank characterization and audit axioms
         run: |
           set -euo pipefail
-          lake build Solutions.PolynomialCircuitNeutralRank 2>&1 | tee /tmp/circuit-neutral-rank.log
+          lake build \
+            Solutions.PolynomialCircuitNeutralRank \
+            Solutions.PolynomialCircuitFaceNeutralRank \
+            2>&1 | tee /tmp/circuit-neutral-rank.log
           ! grep -q sorryAx /tmp/circuit-neutral-rank.log
           python3 scripts/check_lean_axiom_log.py /tmp/circuit-neutral-rank.log \
             HirschCircuitLocalization.rowCircuit_neutral_kernel_eq_span \
-            HirschCircuitLocalization.rowCircuit_neutral_rank_eq_dim_sub_one
+            HirschCircuitLocalization.rowCircuit_neutral_rank_eq_dim_sub_one \
+            HirschCircuitLocalization.rowCircuit_neutral_kernel_on_subspace_eq_span \
+            HirschCircuitLocalization.rowCircuit_neutral_rank_on_subspace_eq_dim_sub_one \
+            HirschCircuitLocalization.rowCircuit_neutral_rank_on_commonDirection_eq_commonFaceDim_sub_one
       - uses: actions/upload-artifact@v4
         if: always()
         with:
