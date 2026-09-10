@@ -1,0 +1,49 @@
+name: Verify balanced aggregate row-face reduction
+on:
+  push:
+    branches: [chatgpt/target-access-equivalence]
+permissions:
+  contents: read
+concurrency:
+  group: verify-balanced-aggregate-row-face-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Check pinned environment
+        run: |
+          set -euo pipefail
+          test "$(cat lean-toolchain)" = "leanprover/lean4:v4.30.0"
+          grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
+      - name: Restore pinned Lean and Mathlib
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Compile and audit aggregate reduction
+        run: |
+          set -euo pipefail
+          lake build Solutions.PolynomialBalancedAggregateRowFaceReduction 2>&1 | tee /tmp/balanced-aggregate-row-face.log
+          python3 - <<'PY'
+          import re
+          from pathlib import Path
+          text=Path('/tmp/balanced-aggregate-row-face.log').read_text(encoding='utf-8')
+          name='HirschBalancedFaceCover.balanced_polynomial_of_aggregate_row_faces'
+          allowed={'propext','Classical.choice','Quot.sound'}
+          pat=re.compile(r"'([^']+)' depends on axioms:\s*\[([^\]]*)\]",re.S)
+          reports={n:{x.strip() for x in raw.split(',') if x.strip()} for n,raw in pat.findall(text)}
+          for n in re.findall(r"'([^']+)' does not depend on any axioms",text): reports[n]=set()
+          if name not in reports: raise SystemExit('missing axiom report for '+name)
+          bad=reports[name]-allowed
+          if bad: raise SystemExit(f'unexpected axioms for {name}: {sorted(bad)}')
+          print(name,sorted(reports[name]))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: balanced-aggregate-row-face-audit
+          retention-days: 3
+          path: /tmp/balanced-aggregate-row-face.log
+          if-no-files-found: warn
