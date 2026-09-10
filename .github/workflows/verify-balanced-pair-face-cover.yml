@@ -1,40 +1,61 @@
-name: Verify balanced pair-face cover
+name: Verify rank-sensitive face-cover results
+
+# One final PR gate, not a push-triggered exploratory compiler.
 on:
-  push:
-    branches: [chatgpt/target-access-equivalence]
+  workflow_dispatch:
+  pull_request:
+    types: [opened, reopened]
+
 permissions:
   contents: read
+
 concurrency:
-  group: verify-balanced-pair-face-cover-${{ github.ref }}
+  group: rank-face-cover-final-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
+
 jobs:
   verify:
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'chatgpt/rank-sensitive-face-cover'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - name: Check pinned environment
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Check pin and exact finite certificates
         run: |
           set -euo pipefail
           test "$(cat lean-toolchain)" = "leanprover/lean4:v4.30.0"
           grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
+          python3 scripts/test_rank_face_cover_barrier.py --max-dimension 7 --output /tmp/rank-face-exact-results.json > /tmp/rank-face-exact.log
       - name: Restore pinned Lean and Mathlib
         uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
-      - name: Compile and audit pair-face averaging
+      - name: Compile targeted modules and audit axioms
         run: |
           set -euo pipefail
-          lake build Solutions.PolynomialBalancedPairFaceCover 2>&1 | tee /tmp/balanced-pair-face-cover.log
+          lake build Solutions.PolynomialBalancedPairFaceCover Solutions.PolynomialWeightedFaceCover Solutions.PolynomialRankSensitiveFaceCover Solutions.PolynomialFaceCoverBarrier 2>&1 | tee /tmp/rank-face-lean.log
           python3 - <<'PY'
           import re
           from pathlib import Path
-          text=Path('/tmp/balanced-pair-face-cover.log').read_text(encoding='utf-8')
-          names=[
-            'HirschBalancedFaceCover.nonzeroRowPairFace_isExtreme',
-            'HirschBalancedFaceCover.row_face_vertex_pair_multiplicity',
-            'HirschBalancedFaceCover.row_face_diamLE_of_pair_face_bounds',
-          ]
+          text=Path('/tmp/rank-face-lean.log').read_text(encoding='utf-8')
+          groups={
+            'HirschBalancedFaceCover': [
+              'nonzeroRowPairFace_isExtreme', 'row_face_vertex_pair_multiplicity',
+              'row_face_diamLE_of_pair_face_bounds'],
+            'HirschFaceSplice': [
+              'shortest_weighted_face_cover_budget', 'diamLE_of_weighted_face_cover'],
+            'HirschRankFaceCover': [
+              'tight_rows_outside_subspace_card_ge_codim', 'rowSection_isExtreme',
+              'faceRowSpan_mono', 'rowSection_ne_of_not_mem_faceRowSpan',
+              'faceRowSpan_lt_rowSection', 'faceRowSpan_finrank_lt_rowSection',
+              'diamLE_of_rank_increasing_row_bounds'],
+            'HirschFaceCoverBarrier': [
+              'weighted_cover_cardinality_lower_bound', 'averaging_budget_ge_card_sub_one',
+              'improving_certificate_requires_improving_child',
+              'cubeAveragingBudget_add_one', 'cubeAveragingBudget_eq'],
+          }
+          names=[ns+'.'+name for ns, rows in groups.items() for name in rows]
           allowed={'propext','Classical.choice','Quot.sound'}
           pat=re.compile(r"'([^']+)' depends on axioms:\s*\[([^\]]*)\]",re.S)
           reports={n:{x.strip() for x in raw.split(',') if x.strip()} for n,raw in pat.findall(text)}
@@ -44,11 +65,14 @@ jobs:
             bad=reports[n]-allowed
             if bad: raise SystemExit(f'unexpected axioms for {n}: {sorted(bad)}')
             print(n,sorted(reports[n]))
+          print(f'PASS: {len(names)} declarations audited')
           PY
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: balanced-pair-face-cover-audit
+          name: rank-face-cover-final-audit
           retention-days: 3
-          path: /tmp/balanced-pair-face-cover.log
+          path: |
+            /tmp/rank-face-lean.log
+            /tmp/rank-face-exact-results.json
           if-no-files-found: warn
