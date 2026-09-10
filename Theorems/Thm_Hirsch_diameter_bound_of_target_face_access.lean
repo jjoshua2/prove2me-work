@@ -1,4 +1,5 @@
 import Definitions.Def_Hirsch_model
+import Solutions.PolynomialTargetFaceDiameterBridge
 
 open scoped RealInnerProductSpace
 open Hirsch
@@ -20,6 +21,7 @@ theorem diameter_bound_of_target_face_access (C k : ℕ)
           ∀ j < C * (n + d) ^ k,
             w j = w (j + 1) ∨ Adj (Hpoly a b) (w j) (w (j + 1))) :
     ∀ (d n : ℕ) (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ),
-      Bornology.IsBounded (Hpoly a b) → DiamLE (Hpoly a b) (d * C * (n + d) ^ k) := by sorry
+      Bornology.IsBounded (Hpoly a b) → DiamLE (Hpoly a b) (d * C * (n + d) ^ k) := by
+  exact diameter_bound_of_target_face_access_verified C k haccess
 
 end Hirsch
