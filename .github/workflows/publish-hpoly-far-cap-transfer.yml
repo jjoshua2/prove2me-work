@@ -1,0 +1,61 @@
+name: Publish finite H-polyhedron far-cap transfer
+on:
+  push:
+    branches: [chatgpt/publish-hpoly-far-cap-transfer]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: publish-hpoly-far-cap-transfer
+  cancel-in-progress: true
+jobs:
+  verify-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 70
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          ref: chatgpt/publish-geodesic-face-cover
+          path: _publisher_source
+          persist-credentials: false
+      - name: Check pinned environment
+        run: |
+          set -euo pipefail
+          test "$(cat lean-toolchain)" = "leanprover/lean4:v4.30.0"
+          grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
+      - name: Restore pinned Lean and Mathlib
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Rebuild and audit concrete far-cap theorem
+        run: |
+          set -euo pipefail
+          lake build Solutions.Sol_Hirsch_finite_hpoly_far_cap_diameter 2>&1 | tee /tmp/source.log
+          python3 scripts/check_lean_axiom_log.py /tmp/source.log \
+            HirschHpolyCap.cap_vertex_old_or_horizon_adjacent \
+            HirschHpolyCap.simultaneous_clip_diameter_from_finite_hpoly_far_cap \
+            solution
+      - name: Flatten, independently compile, and audit standalone proof
+        run: |
+          set -euo pipefail
+          python3 scripts/bundle_hpoly_far_cap_transfer.py
+          lake env lean hpoly_far_cap_packet/solution.lean 2>&1 | tee /tmp/standalone.log
+          python3 scripts/check_lean_axiom_log.py /tmp/standalone.log solution
+      - name: Publish and verify on Prove2Me
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: |
+          set -euo pipefail
+          test -n "$PROVE2ME_API_KEY"
+          python3 scripts/run_reused_publisher_hpoly_far_cap_transfer.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hpoly-far-cap-publication-receipts
+          retention-days: 7
+          path: |
+            /tmp/source.log
+            /tmp/standalone.log
+            hpoly_far_cap_packet/
+            hpoly_far_cap_publish_receipts/
