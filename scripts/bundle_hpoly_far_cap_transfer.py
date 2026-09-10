@@ -7,6 +7,11 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'hpoly_far_cap_packet'
 TARGET = 'Solutions.Sol_Hirsch_finite_hpoly_far_cap_diameter'
 PIN = 'c5ea00351c28e24afc9f0f84379aa41082b1188f'
+
+# `PolynomialUnboundedCutHpoly` contributes no declaration used by this proof
+# closure. Its only substantive extra lemma invokes the legacy admitted Larman
+# theorem, so omit the whole unused helper module from the standalone packet.
+IGNORED_UNUSED_LOCAL_MODULES = {'Solutions.PolynomialUnboundedCutHpoly'}
 IGNORED_UNUSED_IMPORTS = {'Theorems.Thm_Hirsch_larman_bound'}
 
 
@@ -18,6 +23,8 @@ def main() -> None:
     pieces, sources = [], []
 
     def visit(module: str) -> None:
+        if module in IGNORED_UNUSED_LOCAL_MODULES:
+            return
         if module in seen:
             return
         if module in visiting:
@@ -29,17 +36,15 @@ def main() -> None:
         for line in text.splitlines():
             if line.startswith('import '):
                 for dep in line[7:].split():
-                    if dep.startswith('Solutions.'):
+                    if dep in IGNORED_UNUSED_LOCAL_MODULES:
+                        pass
+                    elif dep.startswith('Solutions.'):
                         visit(dep)
                     elif dep == 'Definitions.Def_Hirsch_model':
                         imports.add(dep)
                     elif dep == 'Mathlib' or dep.startswith('Mathlib.'):
                         imports.add('Mathlib')
                     elif dep in IGNORED_UNUSED_IMPORTS:
-                        # This legacy theorem module contains an unrelated admitted Larman
-                        # bound. None of the audited declarations in this packet depend on
-                        # it; excluding the import lets the standalone kernel check certify
-                        # the actual local dependency closure without importing a `sorry`.
                         pass
                     else:
                         raise ValueError('unexpected import: ' + dep)
@@ -72,6 +77,7 @@ def main() -> None:
         'proposed_theorem_name': 'Hirsch.simultaneous_clip_diameter_from_finite_hpoly_far_cap',
         'formal_scope': 'FINITE_HPOLY_CANONICAL_FAR_CAP_TRANSFER',
         'imports': sorted(imports),
+        'ignored_unused_local_modules': sorted(IGNORED_UNUSED_LOCAL_MODULES),
         'ignored_unused_imports': sorted(IGNORED_UNUSED_IMPORTS),
         'sources': sources,
         'theorem_type': wrapper[wrapper.index('theorem solution'):wrapper.index(' := by')],
