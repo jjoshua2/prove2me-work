@@ -1,0 +1,63 @@
+name: Publish geometric pointed finite-Hpoly theorem
+on:
+  push:
+    branches: [chatgpt/publish-hpoly-pointed-final]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: publish-hpoly-pointed-final
+  cancel-in-progress: true
+jobs:
+  verify-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          ref: chatgpt/publish-geodesic-face-cover
+          path: _publisher_source
+          persist-credentials: false
+      - name: Check pinned environment
+        run: |
+          set -euo pipefail
+          test "$(cat lean-toolchain)" = "leanprover/lean4:v4.30.0"
+          grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
+      - name: Restore pinned Lean and Mathlib
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Rebuild and audit geometric pointed theorem
+        run: |
+          set -euo pipefail
+          lake build Solutions.Sol_Hirsch_pointed_finite_hpoly_clip_diameter 2>&1 | tee /tmp/source.log
+          python3 scripts/check_lean_axiom_log.py /tmp/source.log \
+            HirschHpolyCap.extremePoints_hpoly_finite \
+            HirschHpolyCap.exists_far_cap_level \
+            HirschHpolyCap.no_affine_line_iff_no_common_kernel \
+            HirschHpolyCap.simultaneous_clip_diameter_from_pointed_finite_hpoly \
+            solution
+      - name: Flatten, independently compile, and audit standalone proof
+        run: |
+          set -euo pipefail
+          python3 scripts/bundle_hpoly_pointed_final.py
+          lake env lean hpoly_pointed_packet/solution.lean 2>&1 | tee /tmp/standalone.log
+          python3 scripts/check_lean_axiom_log.py /tmp/standalone.log solution
+      - name: Publish and verify on Prove2Me
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: |
+          set -euo pipefail
+          test -n "$PROVE2ME_API_KEY"
+          python3 scripts/run_reused_publisher_hpoly_pointed_final.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hpoly-pointed-publication-receipts
+          retention-days: 7
+          path: |
+            /tmp/source.log
+            /tmp/standalone.log
+            hpoly_pointed_packet/
+            hpoly_pointed_publish_receipts/
