@@ -1,0 +1,52 @@
+{
+  "title": "Optimal rank-defect completion verification receipt",
+  "date_utc": "2026-09-10T10:57:59.290227+00:00",
+  "ordinary_proof": "research/OptimalCircuitDefectCompletion.md",
+  "formal_verification": {
+    "axiom_audit": false,
+    "lean_compilation": false,
+    "lean_source_added": false,
+    "prove2me_calls": false
+  },
+  "audit_summary": {
+    "all_protected_pair_distances": 38778,
+    "balancing_stages": 13,
+    "checked_vertices": 1838,
+    "circuit_maximality_checks": 74,
+    "exhaustive_cap_row_bases": 7205,
+    "facet_witnesses": 375,
+    "formula_unit_cubes": 2,
+    "input_row_bases": 535,
+    "local_cap_row_bases": 18,
+    "padding_cap_row_bases": 286,
+    "padding_cap_stages": 7,
+    "recomputed_edges": 6657,
+    "restriction_checks": 1119,
+    "saturated_completion_budgets": 17,
+    "sharp_realization_obstruction_checks": 19,
+    "stages": 37
+  },
+  "completed_checks": [
+    "Exact constructor completed on all 13 models and 17 selected-pair completions.",
+    "Independent saved-certificate auditor completed with all five corruption tests rejected.",
+    "Complete verifier repeated with byte-for-byte equality of both saved JSON files.",
+    "Patch passed git apply --check and git apply in an isolated clean Git workspace.",
+    "Complete verifier rerun from that applied-patch workspace; both saved outputs matched."
+  ],
+  "corrupted_certificates_rejected": ["missing_rank", "cut_nonorthogonality", "wrong_retraction", "missing_vertex", "rank_defect"],
+  "coverage_limits": [
+    "Only selected completion endpoint pairs are installed; all protected original-pair distances are audited at every stage.",
+    "Large original unit cubes use an exact formula and recognized bound matrix, not exhaustive row-base enumeration.",
+    "Later wedges use the exact floor/roof formula; not every large final row basis is enumerated.",
+    "Polynomial Hirsch is not proved. No literature-priority or polynomial construction-time claim is made."
+  ],
+  "sha256": {
+    "research/OptimalCircuitDefectCompletion.md": "f1602d7e4c9965c5c478102c72ce0782b42cbe9d04c0782064e598b0d0696f7c",
+    "research/odc_completion_certificates.json": "c61cbed733e045d260280478f11da3a22391c5063ca810500b67ecea42c16b62",
+    "research/odc_independent_audit.json": "237f680dd9302d8c685059eea06789c642d84715fd055281cebab7c6fd4ebaaa",
+    "research/odc_input_models.json": "7696cc796c8ed7c482f802c62ff78cc47260185880dac1090e71631b7c33dd74",
+    "scripts/optimal_defect_completion.py": "1e468a94daec2f955cc2b551dc61f46bc7a4a41b1b9539c6a65c29afa4089",
+    "scripts/audit_optimal_completion.py": "8e8a79dc3d63c47a2e098ce08cca44cb6442e0f7bb2af51bf0ccf9435493fb3c",
+    "scripts/verify_optimal_defect_completion.sh": "c4d3489562db5e1e2b6b05d298ddca3f31c57263bec79e1b4eea08744712f136"
+  }
+}
