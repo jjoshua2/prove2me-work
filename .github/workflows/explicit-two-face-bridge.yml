@@ -1,7 +1,5 @@
 name: Explicit two-face bridge
 on:
-  push:
-    branches: [chatgpt/explicit-two-face-bridge]
   workflow_dispatch:
 permissions:
   contents: read
@@ -16,14 +14,12 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - name: Install pinned Lean and Mathlib
-        run: |
-          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
-          ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
+      - name: Restore pinned Lean and Mathlib
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
       - name: Compile explicit bridge and audit axioms
         run: |
           set -o pipefail
-          ~/.elan/bin/lake build Solutions.PolynomialExplicitTwoFaceBridge 2>&1 | tee /tmp/explicit-two-face.log
+          lake build Solutions.PolynomialExplicitTwoFaceBridge 2>&1 | tee /tmp/explicit-two-face.log
           ! grep -q sorryAx /tmp/explicit-two-face.log
           grep -F "'HirschPolynomialAccess.walk_of_explicit_face_two_face_bridge' depends on axioms: [propext, Classical.choice, Quot.sound]" /tmp/explicit-two-face.log
           grep -F "'HirschPolynomialAccess.quadratic_walk_of_explicit_two_face_bridge' depends on axioms: [propext, Classical.choice, Quot.sound]" /tmp/explicit-two-face.log
