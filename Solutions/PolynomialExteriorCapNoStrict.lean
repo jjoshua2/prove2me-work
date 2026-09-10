@@ -1,8 +1,8 @@
 import Solutions.PolynomialExteriorCapClipping
 
-/-! Remove the explicit strict-centre hypothesis from the exterior-cap witness
-clipping theorem.  If no cut is equality on the whole final polytope, finite
-convex averaging produces one point strict for every cut simultaneously. -/
+/-! Remove the explicit strict-centre hypothesis from exterior-route and
+exterior-cap simultaneous clipping. If no cut is equality on the whole final
+polytope, finite convex averaging produces one point strict for every cut. -/
 
 open scoped BigOperators RealInnerProductSpace
 open Set Hirsch HirschRadial HirschRegionRoute
@@ -49,6 +49,45 @@ lemma strict_centre_or_universal_final_cut
   obtain ⟨o, ho, hs⟩ := hfinite Finset.univ
   exact Or.inl ⟨o, ho, fun i => hs i (Finset.mem_univ _)⟩
 
+/-- Remove the strict-centre binder from the generic exterior-route transfer.
+If one cut is equality everywhere on the final polytope, that cut face itself
+already supplies the required larger diameter budget. -/
+theorem clip_diameter_from_exterior_routes_no_strict
+    (Q G : Set (ClipSpace d)) (hQ : Convex ℝ Q) (hQc : IsCompact Q)
+    (hG : Convex ℝ G) (hGQ : G ⊆ Q)
+    (f : ι → ClipSpace d →L[ℝ] ℝ) (b : ι → ℝ)
+    (hout : ∀ x ∈ G, x ∉ finalClip Q f b)
+    (D : ℕ)
+    (hD : ∀ a ∈ extremePoints ℝ Q, ∀ c ∈ extremePoints ℝ Q,
+      Route (fun x y => Adj Q x y ∨ (x ∈ G ∧ y ∈ G)) D a c)
+    (B : ι → ℕ)
+    (hB : ∀ i, DiamLE (finalClip Q f b ∩ {x | f i x = b i}) (B i)) :
+    DiamLE (finalClip Q f b) (D + ∑ i, B i) := by
+  classical
+  let P := finalClip Q f b
+  by_cases hne : P.Nonempty
+  · rcases strict_centre_or_universal_final_cut P (finalClip_convex Q hQ f b) hne f b
+        (fun i x hx => hx.2 i) with ⟨o, ho, hs⟩ | ⟨i, hi⟩
+    · exact clip_diameter_from_exterior_routes
+        Q G hQ hQc hG hGQ f b o ho.1 hs hout D hD B hB
+    · have heq : P ∩ {x | f i x = b i} = P := by
+        apply inter_eq_left.mpr
+        exact fun z hz => hi z hz
+      have hPi : DiamLE P (B i) := by
+        have h := hB i
+        change DiamLE (P ∩ {x | f i x = b i}) (B i) at h
+        rw [heq] at h
+        exact h
+      have hle : B i ≤ D + ∑ j, B j := by
+        have hsum : B i ≤ ∑ j, B j :=
+          Finset.single_le_sum (fun j _ => Nat.zero_le (B j)) (Finset.mem_univ i)
+        omega
+      intro u hu v hv
+      obtain ⟨w, hw0, hwB, hwstep⟩ := hPi u hu v hv
+      exact HirschProduct.pad_walk (Adj P) hle w hw0 hwB hwstep
+  · intro u hu v hv
+    exact False.elim (hne ⟨u, hu.1⟩)
+
 /-- Exterior-cap clipping without a separately supplied strict centre.
 The exterior cap, old-vertex routing, and cap-vertex classification remain
 explicit hypotheses; only strict feasibility of one chosen centre is removed. -/
@@ -63,32 +102,12 @@ theorem simultaneous_clip_diameter_from_exterior_cap_no_strict
     (B : ι → ℕ)
     (hB : ∀ i, DiamLE (finalClip Q f b ∩ {x | f i x = b i}) (B i)) :
     DiamLE (finalClip Q f b) (D + 1 + ∑ i, B i) := by
-  classical
-  let P := finalClip Q f b
-  by_cases hne : P.Nonempty
-  · rcases strict_centre_or_universal_final_cut P (finalClip_convex Q hQ f b) hne f b
-        (fun i x hx => hx.2 i) with ⟨o, ho, hs⟩ | ⟨i, hi⟩
-    · exact simultaneous_clip_diameter_from_exterior_cap
-        Q G V hQ hQc hG hGQ f b o ho.1 hs hout D hOld hclass B hB
-    · have heq : P ∩ {x | f i x = b i} = P := by
-        apply inter_eq_left.mpr
-        exact fun z hz => hi z hz
-      have hPi : DiamLE P (B i) := by
-        have h := hB i
-        change DiamLE (P ∩ {x | f i x = b i}) (B i) at h
-        rw [heq] at h
-        exact h
-      have hle : B i ≤ D + 1 + ∑ j, B j := by
-        have hsum : B i ≤ ∑ j, B j :=
-          Finset.single_le_sum (fun j _ => Nat.zero_le (B j)) (Finset.mem_univ i)
-        omega
-      intro u hu v hv
-      obtain ⟨w, hw0, hwB, hwstep⟩ := hPi u hu v hv
-      exact HirschProduct.pad_walk (Adj P) hle w hw0 hwB hwstep
-  · intro u hu v hv
-    exact False.elim (hne ⟨u, hu.1⟩)
+  exact clip_diameter_from_exterior_routes_no_strict
+    Q G hQ hQc hG hGQ f b hout (D + 1)
+    (exterior_cap_augmented_route_bound Q G V D hOld hclass) B hB
 
 #print axioms strict_centre_or_universal_final_cut
+#print axioms clip_diameter_from_exterior_routes_no_strict
 #print axioms simultaneous_clip_diameter_from_exterior_cap_no_strict
 
 end HirschExterior
