@@ -8,11 +8,14 @@ OUT = ROOT / 'hpoly_far_cap_packet'
 TARGET = 'Solutions.Sol_Hirsch_finite_hpoly_far_cap_diameter'
 PIN = 'c5ea00351c28e24afc9f0f84379aa41082b1188f'
 
-# `PolynomialUnboundedCutHpoly` contributes no declaration used by this proof
-# closure. Its only substantive extra lemma invokes the legacy admitted Larman
-# theorem, so omit the whole unused helper module from the standalone packet.
-IGNORED_UNUSED_LOCAL_MODULES = {'Solutions.PolynomialUnboundedCutHpoly'}
+# The legacy Larman theorem is admitted, but the only local declaration that
+# uses it is irrelevant to this proof.  Traverse all ordinary local imports so
+# the real dependency closure is preserved, drop the admitted theorem import,
+# and remove only that one unused declaration from its containing module.
 IGNORED_UNUSED_IMPORTS = {'Theorems.Thm_Hirsch_larman_bound'}
+STRIP_DECLARATION_MODULE = 'Solutions.PolynomialUnboundedCutHpoly'
+STRIP_DECLARATION_START = '/-- A bounded clipped H-polyhedron has a connected vertex graph'
+STRIP_DECLARATION_END = '\nend HirschUnboundedCut'
 
 
 def main() -> None:
@@ -23,8 +26,6 @@ def main() -> None:
     pieces, sources = [], []
 
     def visit(module: str) -> None:
-        if module in IGNORED_UNUSED_LOCAL_MODULES:
-            return
         if module in seen:
             return
         if module in visiting:
@@ -36,9 +37,7 @@ def main() -> None:
         for line in text.splitlines():
             if line.startswith('import '):
                 for dep in line[7:].split():
-                    if dep in IGNORED_UNUSED_LOCAL_MODULES:
-                        pass
-                    elif dep.startswith('Solutions.'):
+                    if dep.startswith('Solutions.'):
                         visit(dep)
                     elif dep == 'Definitions.Def_Hirsch_model':
                         imports.add(dep)
@@ -51,6 +50,12 @@ def main() -> None:
             elif not line.startswith('#print axioms '):
                 body.append(line)
         joined = '\n'.join(body)
+        if module == STRIP_DECLARATION_MODULE:
+            start = joined.find(STRIP_DECLARATION_START)
+            end = joined.find(STRIP_DECLARATION_END, start)
+            if start < 0 or end < 0:
+                raise ValueError('could not locate unused Larman declaration for pruning')
+            joined = joined[:start] + joined[end:]
         if re.search(r'\b(sorry|admit|native_decide)\b|^\s*(axiom|opaque)\s', joined, re.M):
             raise ValueError('admission or unchecked declaration: ' + module)
         anonymous = len(re.findall(r'^noncomputable section\s*$', joined, re.M))
@@ -77,8 +82,8 @@ def main() -> None:
         'proposed_theorem_name': 'Hirsch.simultaneous_clip_diameter_from_finite_hpoly_far_cap',
         'formal_scope': 'FINITE_HPOLY_CANONICAL_FAR_CAP_TRANSFER',
         'imports': sorted(imports),
-        'ignored_unused_local_modules': sorted(IGNORED_UNUSED_LOCAL_MODULES),
         'ignored_unused_imports': sorted(IGNORED_UNUSED_IMPORTS),
+        'stripped_unused_declaration_module': STRIP_DECLARATION_MODULE,
         'sources': sources,
         'theorem_type': wrapper[wrapper.index('theorem solution'):wrapper.index(' := by')],
         'solution_sha256': hashlib.sha256(proof.encode()).hexdigest(),
