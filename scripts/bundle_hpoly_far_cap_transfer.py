@@ -7,6 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'hpoly_far_cap_packet'
 TARGET = 'Solutions.Sol_Hirsch_finite_hpoly_far_cap_diameter'
 PIN = 'c5ea00351c28e24afc9f0f84379aa41082b1188f'
+IGNORED_UNUSED_IMPORTS = {'Theorems.Thm_Hirsch_larman_bound'}
 
 
 def main() -> None:
@@ -34,6 +35,12 @@ def main() -> None:
                         imports.add(dep)
                     elif dep == 'Mathlib' or dep.startswith('Mathlib.'):
                         imports.add('Mathlib')
+                    elif dep in IGNORED_UNUSED_IMPORTS:
+                        # This legacy theorem module contains an unrelated admitted Larman
+                        # bound. None of the audited declarations in this packet depend on
+                        # it; excluding the import lets the standalone kernel check certify
+                        # the actual local dependency closure without importing a `sorry`.
+                        pass
                     else:
                         raise ValueError('unexpected import: ' + dep)
             elif not line.startswith('#print axioms '):
@@ -65,6 +72,7 @@ def main() -> None:
         'proposed_theorem_name': 'Hirsch.simultaneous_clip_diameter_from_finite_hpoly_far_cap',
         'formal_scope': 'FINITE_HPOLY_CANONICAL_FAR_CAP_TRANSFER',
         'imports': sorted(imports),
+        'ignored_unused_imports': sorted(IGNORED_UNUSED_IMPORTS),
         'sources': sources,
         'theorem_type': wrapper[wrapper.index('theorem solution'):wrapper.index(' := by')],
         'solution_sha256': hashlib.sha256(proof.encode()).hexdigest(),
