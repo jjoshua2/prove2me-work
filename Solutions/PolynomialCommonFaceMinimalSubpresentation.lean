@@ -34,14 +34,16 @@ equivalent H-presentation.  This is an intrinsic *row-presentation* count; no
 identification with geometric facets is built into the definition. -/
 noncomputable def commonFaceMinSubpresentationCount
     (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
-    (u v : EuclideanSpace ℝ (Fin d)) : ℕ :=
-  Nat.find (commonFace_subpresentation_exists a b u v)
+    (u v : EuclideanSpace ℝ (Fin d)) : ℕ := by
+  classical
+  exact Nat.find (commonFace_subpresentation_exists a b u v)
 
 theorem commonFaceMinSubpresentation_spec
     (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
     (u v : EuclideanSpace ℝ (Fin d)) :
     HirschCommonFace.CommonFaceHasSubpresentationAtMost a b u v
       (commonFaceMinSubpresentationCount a b u v) := by
+  classical
   exact Nat.find_spec (commonFace_subpresentation_exists a b u v)
 
 theorem commonFaceMinSubpresentation_le
@@ -49,6 +51,7 @@ theorem commonFaceMinSubpresentation_le
     (u v : EuclideanSpace ℝ (Fin d)) (M : ℕ)
     (hM : HirschCommonFace.CommonFaceHasSubpresentationAtMost a b u v M) :
     commonFaceMinSubpresentationCount a b u v ≤ M := by
+  classical
   exact Nat.find_min' (commonFace_subpresentation_exists a b u v) hM
 
 /-- If zero is feasible, then after selecting a subpresentation one may discard
@@ -84,8 +87,8 @@ theorem effective_subpresentation_preserves_hpoly
       simpa [hA] using hz
     · have hiF : e j ∈ F := by
         refine Finset.mem_inter.2 ⟨?_, ?_⟩
-        · simp [F]
-        · simp [F, hA]
+        · simp
+        · simp [hA]
       let z : {i : Fin N // i ∈ F} := ⟨e j, hiF⟩
       obtain ⟨k, hk⟩ := q.surjective z
       have hkval : eF k = e j := by
@@ -183,7 +186,11 @@ theorem commonFace_minSubpresentation_effective_witness
     simpa [F] using
       commonFace_subpresentation_effectiveRows_card_ge_dim
         a b u v hu M e he
-  exact ⟨hFeq, hFeq ▸ hdimF⟩
+  have hdimM : HirschCommonFace.commonFaceDim a b u v ≤ M := by
+    calc
+      HirschCommonFace.commonFaceDim a b u v ≤ F.card := hdimF
+      _ = M := hFeq
+  exact ⟨hFeq, by simpa [M] using hdimM⟩
 
 /-- Exact intrinsic row-presentation version of the common-face circuit
 excess/defect inequality.  The excess term uses the *least* number `M` of
@@ -220,27 +227,31 @@ theorem rowCircuit_commonFace_minSubpresentation_excess_defect
   refine ⟨e, he, ?_⟩
   let F : Finset (Fin n) :=
     (Finset.univ.map e) ∩ HirschCommonFace.commonFaceEffectiveRows a b u v
+  have hFM : F.card = commonFaceMinSubpresentationCount a b u v := by
+    simpa [F] using hFeq
   have hFpub : F ⊆ HirschCommonFace.commonFaceEffectiveRows a b u v :=
     Finset.inter_subset_right
   have hFint :
       F ⊆ effectiveRowsOnSubspace a (commonDirection a b u v) := by
     rw [effectiveRowsOn_commonDirection_eq_publicCommonFaceEffectiveRows]
     exact hFpub
+  have hpubFace : HirschCommonFace.commonFaceDim a b u v ≤ F.card := by
+    calc
+      HirschCommonFace.commonFaceDim a b u v ≤
+          commonFaceMinSubpresentationCount a b u v := hdimM
+      _ = F.card := hFM.symm
   have hfaceInternal : commonFaceDim a b u v ≤ F.card := by
-    have : HirschCommonFace.commonFaceDim a b u v ≤ F.card := by
-      simpa [F, M] using hdimM
     simpa [HirschCommonFace.commonFaceDim,
       HirschPolynomialAccess.commonFaceDim,
       HirschCommonFace.commonDirection, HirschCommonFace.commonSourceRows,
       HirschCommonFace.rowEvalMap,
       HirschPolynomialAccess.commonDirection,
       HirschPolynomialAccess.rowEvalMap,
-      HirschPolynomialAccess.commonSourceRows] using this
+      HirschPolynomialAccess.commonSourceRows] using hpubFace
   have hdn : d ≤ n := rows_ge_dimension_of_vertex a b u hu
   have hexcess := rowCircuit_selectedEffectiveRows_excess_defect
     a b u v hu hcirc F hFint hfaceInternal hdn
-  refine ⟨by simpa [F, M] using hFeq, ?_⟩
-  have hFM : F.card = M := by simpa [F, M] using hFeq
+  refine ⟨by simpa [F] using hFeq, ?_⟩
   rw [← hFM]
   simpa [F, circuitNeutralRows,
     HirschCommonFace.commonFaceDim, HirschCommonFace.commonDirection,
