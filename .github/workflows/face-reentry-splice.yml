@@ -1,16 +1,5 @@
 name: Extreme-face splice, geodesic cover and tail
 on:
-  push:
-    branches: [chatgpt/face-reentry-splice]
-    paths:
-      - 'Solutions/**'
-      - 'Definitions/**'
-      - 'scripts/check_lean_axiom_log.py'
-      - 'scripts/test_geodesic_face_cover.py'
-      - '.github/workflows/face-reentry-splice.yml'
-      - 'lean-toolchain'
-      - 'lakefile.*'
-      - 'lake-manifest.json'
   workflow_dispatch:
 permissions:
   contents: read
@@ -27,15 +16,12 @@ jobs:
           persist-credentials: false
       - name: Exact hull and all-geodesic regression
         run: python3 scripts/test_geodesic_face_cover.py
-      - name: Install pinned Lean and Mathlib
-        run: |
-          set -euo pipefail
-          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
-          ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
+      - name: Restore pinned Lean and Mathlib
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
       - name: Compile splice, geodesic cover and ordered tail
         run: |
           set -euo pipefail
-          ~/.elan/bin/lake build Solutions.PolynomialGeodesicFaceTail 2>&1 | tee /tmp/face-splice.log
+          lake build Solutions.PolynomialGeodesicFaceTail 2>&1 | tee /tmp/face-splice.log
           python3 scripts/check_lean_axiom_log.py /tmp/face-splice.log \
             HirschFaceSplice.splice_reentry_through_extreme_face \
             HirschFaceSplice.splice_reentry_no_growth \
