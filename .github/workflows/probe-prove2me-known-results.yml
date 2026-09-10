@@ -1,0 +1,89 @@
+name: Probe Prove2Me known Hirsch results
+
+on:
+  push:
+    branches: [chatgpt/target-access-equivalence]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: probe-prove2me-known-results-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Query authenticated theorem catalogue (read only)
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: |
+          set -euo pipefail
+          test -n "$PROVE2ME_API_KEY"
+          mkdir -p prove2me_probe
+          python3 - <<'PY'
+          import json, os, time, urllib.parse, urllib.request
+
+          BASE='https://prove2.me/api/v1'
+          PIN='c5ea00351c28e24afc9f0f84379aa41082b1188f'
+          key=os.environ['PROVE2ME_API_KEY']
+
+          req=urllib.request.Request(
+              BASE+'/agent/refresh',
+              data=json.dumps({'api_key':key}).encode(),
+              headers={'Content-Type':'application/json'}, method='POST')
+          with urllib.request.urlopen(req, timeout=30) as r:
+              auth=json.load(r)
+          token=auth['access_token']
+          headers={'Authorization':'Bearer '+token, 'Accept':'application/json'}
+
+          def get(path):
+              req=urllib.request.Request(BASE+path, headers=headers)
+              with urllib.request.urlopen(req, timeout=30) as r:
+                  return json.load(r)
+
+          keep_keys={
+              'theorem_id','theorem_name','status','title','mathlib_rev','preamble',
+              'formal_statement','source','description','proof','solution','proof_source',
+              'created_at','updated_at','author','proof_type'
+          }
+          out={}
+          for q in ['graph_connected_general','connected general','larman_bound','larman','dimension_three_bound']:
+              qs=urllib.parse.urlencode({'q':q,'env':PIN,'limit':50})
+              data=get('/theorems?'+qs)
+              rows=[]
+              for item in data.get('theorems',[]):
+                  slim={k:item.get(k) for k in keep_keys if k in item}
+                  rows.append(slim)
+              out[q]=rows
+              print('QUERY',q,'COUNT',len(rows))
+              for row in rows:
+                  print(json.dumps({k:row.get(k) for k in ('theorem_id','theorem_name','status','title','mathlib_rev')}, ensure_ascii=False))
+
+          # Fetch full records for exact-name matches, but write only theorem data, never auth data.
+          full={}
+          wanted={'Hirsch.graph_connected_general','Hirsch.larman_bound','Hirsch.dimension_three_bound','Hirsch.larman_high_dimension'}
+          ids={row.get('theorem_id') for rows in out.values() for row in rows
+               if row.get('theorem_name') in wanted and row.get('theorem_id')}
+          for tid in sorted(ids):
+              item=get('/theorems/'+tid)
+              full[tid]={k:item.get(k) for k in keep_keys if k in item}
+              print('FULL_RECORD',tid,full[tid].get('theorem_name'),full[tid].get('status'),sorted(full[tid].keys()))
+          result={'queries':out,'full':full}
+          with open('prove2me_probe/results.json','w',encoding='utf-8') as f:
+              json.dump(result,f,indent=2,ensure_ascii=False)
+              f.write('\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: prove2me-known-hirsch-results
+          retention-days: 3
+          path: prove2me_probe/results.json
+          if-no-files-found: warn
