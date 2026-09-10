@@ -129,8 +129,13 @@ theorem diameter_bound_of_target_face_access_verified (C k : ℕ)
           exact Or.inl rfl
       by_cases hsep : ∀ i, a i ≠ 0 →
           ⟪a i, u⟫ ≠ b i ∨ ⟪a i, v⟫ ≠ b i
-      · obtain ⟨i, z, hai, hiv, hz, hiz, p, hp0, hpL, hpstep⟩ :=
+      · obtain ⟨i, z, hai, hiv, hz, hiz, p, hp0, hpLraw, hpstepraw⟩ :=
           haccess d n a b hbd u hu v hv huv hsep
+        have hpL : p L = z := by
+          simpa [L] using hpLraw
+        have hpstep : ∀ j < L,
+            p j = p (j + 1) ∨ Adj (Hpoly a b) (p j) (p (j + 1)) := by
+          simpa [L] using hpstepraw
         let e : ℕ := commonFaceDim a b z v
         have hed : e < d := by
           dsimp [e]
@@ -167,15 +172,29 @@ theorem diameter_bound_of_target_face_access_verified (C k : ℕ)
               rw [add_mul, one_mul]
             _ = d * L := by rw [hddec]
         refine ⟨w, hw0, ?_, ?_⟩
-        · have hwB' : w (d * L) = v := by simpa [hlen] using hwB
+        · have hwB' : w (d * L) = v := by
+            rw [← hlen]
+            exact hwB
           simpa [L, Nat.mul_assoc] using hwB'
         · intro j hj
           have hj' : j < d * L := by
             simpa [L, Nat.mul_assoc] using hj
-          have := hwstep j (by simpa [hlen] using hj')
-          exact this
-      · simp only [not_forall, not_imp, not_or, not_not] at hsep
-        obtain ⟨i, hai, hiu, hiv⟩ := hsep
+          have hjlen : j < L + (d - 1) * L := by
+            rw [hlen]
+            exact hj'
+          exact hwstep j hjlen
+      · have hshared : ∃ i : Fin n,
+            a i ≠ 0 ∧ ⟪a i, u⟫ = b i ∧ ⟪a i, v⟫ = b i := by
+          by_contra hnone
+          apply hsep
+          intro i hai
+          by_cases hiu : ⟪a i, u⟫ = b i
+          · right
+            intro hiv
+            exact hnone ⟨i, hai, hiu, hiv⟩
+          · left
+            exact hiu
+        obtain ⟨i, hai, hiu, hiv⟩ := hshared
         let e : ℕ := commonFaceDim a b u v
         have hed : e < d := by
           dsimp [e]
