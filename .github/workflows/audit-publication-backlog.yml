@@ -1,13 +1,18 @@
 name: Audit Prove2Me publication backlog
+
 on:
   push:
-    branches: [chatgpt/publish-backlog-audit]
+    branches: [ops/final-prove2me-audit]
+    paths:
+      - '.github/workflows/audit-publication-backlog.yml'
   workflow_dispatch:
+
 permissions:
   contents: read
+
 jobs:
   audit:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
@@ -21,6 +26,8 @@ jobs:
           test -n "$PROVE2ME_API_KEY"
           python3 scripts/audit_publication_backlog.py
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: publication-backlog-audit
+          retention-days: 30
           path: publication_backlog_audit/audit.json
