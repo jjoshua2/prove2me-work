@@ -32,6 +32,7 @@ jobs:
             Solutions.PolynomialCommonFaceEffectiveRows \
             Solutions.PolynomialCircuitSelectedRowDefect \
             Solutions.PolynomialCircuitDefectPublicBridge \
+            Solutions.PolynomialCircuitSubpresentationDefect \
             2>&1 | tee /tmp/circuit-neutral-rank/core.log
           ! grep -q sorryAx /tmp/circuit-neutral-rank/core.log
           python3 scripts/check_lean_axiom_log.py /tmp/circuit-neutral-rank/core.log \
@@ -49,7 +50,8 @@ jobs:
             HirschCircuitLocalization.rowCircuit_selectedEffectiveRows_defect_budget \
             HirschCircuitLocalization.rowCircuit_selectedEffectiveRows_excess_defect \
             HirschCircuitLocalization.effectiveRowsOn_commonDirection_eq_coordinateEffectiveRows \
-            HirschCircuitLocalization.effectiveRowsOn_commonDirection_eq_publicCommonFaceEffectiveRows
+            HirschCircuitLocalization.effectiveRowsOn_commonDirection_eq_publicCommonFaceEffectiveRows \
+            HirschCircuitLocalization.rowCircuit_commonFace_subpresentation_defect_budget
       - name: Compile public adapters separately
         run: |
           set -euo pipefail
