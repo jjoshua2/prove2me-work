@@ -26,10 +26,33 @@ jobs:
         run: |
           set -euo pipefail
           lake build Solutions.PolynomialLogLocalRankNumerics 2>&1 | tee /tmp/log-local-rank-numerics.log
-          python3 scripts/check_lean_axiom_log.py /tmp/log-local-rank-numerics.log \
-            HirschLogRank.activeNeutralSpan_finrank_le_dim \
-            HirschLogRank.activeNeutralSpan_finrank_le_neutral_card \
-            HirschLogRank.large_local_neutral_rank_implies_double_hard
+          python3 - <<'PY'
+          import re
+          from pathlib import Path
+
+          text = Path('/tmp/log-local-rank-numerics.log').read_text(encoding='utf-8')
+          required = [
+              'HirschLogRank.activeNeutralSpan_finrank_le_dim',
+              'HirschLogRank.activeNeutralSpan_finrank_le_neutral_card',
+              'HirschLogRank.large_local_neutral_rank_implies_double_hard',
+          ]
+          allowed = {'propext', 'Classical.choice', 'Quot.sound'}
+          report_re = re.compile(r"'([^']+)' depends on axioms:\s*\[([^\]]*)\]", re.S)
+          no_axioms_re = re.compile(r"'([^']+)' does not depend on any axioms")
+          reports = {
+              name: {x.strip() for x in raw.split(',') if x.strip()}
+              for name, raw in report_re.findall(text)
+          }
+          for name in no_axioms_re.findall(text):
+              reports[name] = set()
+          for name in required:
+              if name not in reports:
+                  raise SystemExit(f'missing axiom report for {name}')
+              bad = reports[name] - allowed
+              if bad:
+                  raise SystemExit(f'unexpected axioms for {name}: {sorted(bad)}')
+              print(name, sorted(reports[name]))
+          PY
       - uses: actions/upload-artifact@v4
         if: always()
         with:
