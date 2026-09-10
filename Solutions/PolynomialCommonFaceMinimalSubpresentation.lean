@@ -252,12 +252,13 @@ theorem rowCircuit_commonFace_minSubpresentation_excess_defect
   have hexcess := rowCircuit_selectedEffectiveRows_excess_defect
     a b u v hu hcirc F hFint hfaceInternal hdn
   refine ⟨by simpa [F] using hFeq, ?_⟩
-  rw [← hFM]
+  have hexcess' := hexcess
+  rw [hFM] at hexcess'
   simpa [F, circuitNeutralRows,
     HirschCommonFace.commonFaceDim, HirschCommonFace.commonDirection,
     HirschCommonFace.rowEvalMap, HirschCommonFace.commonSourceRows,
     HirschPolynomialAccess.commonFaceDim, HirschPolynomialAccess.commonDirection,
-    HirschPolynomialAccess.rowEvalMap, HirschPolynomialAccess.commonSourceRows] using hexcess
+    HirschPolynomialAccess.rowEvalMap, HirschPolynomialAccess.commonSourceRows] using hexcess'
 
 #print axioms commonFace_subpresentation_exists
 #print axioms commonFaceMinSubpresentation_spec
