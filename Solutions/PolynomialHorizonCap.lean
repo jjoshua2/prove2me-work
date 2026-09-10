@@ -34,7 +34,9 @@ lemma cap_vertex_old_or_horizon
     (c : EuclideanSpace ℝ (Fin d)) (T : ℝ)
     {x : EuclideanSpace ℝ (Fin d)} (hx : x ∈ extremePoints ℝ (cap Q c T)) :
     x ∈ extremePoints ℝ Q ∨ ⟪c, x⟫ = T := by
-  rcases hx.1.2.eq_or_lt with heq | hlt
+  have hcap := hx.1.2
+  change ⟪c, x⟫ ≤ T at hcap
+  rcases hcap.eq_or_lt with heq | hlt
   · exact Or.inr heq
   · exact Or.inl (HirschCut.strict_cut_extreme_to_parent Q hQ c T hx hlt)
 
