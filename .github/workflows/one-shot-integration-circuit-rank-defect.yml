@@ -21,7 +21,14 @@ jobs:
           persist-credentials: false
       - name: Restore pinned Lean environment
         uses: ./.github/actions/setup-lean
-      - name: Full Lake build
+      - name: Build every concrete project module
         run: |
           set -euo pipefail
-          lake build
+          mapfile -t targets < <(
+            find Definitions Solutions Theorems -type f -name '*.lean' -print \
+              | sed -e 's#/#.#g' -e 's#\.lean$##' \
+              | sort
+          )
+          test "${#targets[@]}" -gt 0
+          printf 'Building %s concrete Lean modules\n' "${#targets[@]}"
+          lake build "${targets[@]}"
