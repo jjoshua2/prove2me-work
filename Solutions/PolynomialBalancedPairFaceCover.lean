@@ -29,9 +29,10 @@ lemma nonzeroRowPairFace_isExtreme {d n : ℕ}
   · rw [nonzeroRowPairFace, if_pos hji]
     refine ⟨by simp, ?_⟩
     intro p hp q hq z hz hzopen
-    simpa using hz
+    exact False.elim hz
   · rw [nonzeroRowPairFace, if_neg hji]
-    exact (nonzeroRowFace_isExtreme a b j).mono
+    exact ((nonzeroRowFace_isExtreme a b i).inter
+      (nonzeroRowFace_isExtreme a b j)).mono
       (nonzeroRowFace_isExtreme a b i).subset inter_subset_left
 
 /-- Every extreme vertex of a nonzero row face lies on at least `d-1`
@@ -59,7 +60,9 @@ lemma row_face_vertex_pair_multiplicity {d n : ℕ}
       simp [nonzeroRowPairFace, S]
     · simp [nonzeroRowPairFace, S, hji, hx.1]
   have hcard : (S.erase i).card + 1 = S.card := by
-    simpa [Finset.card_erase_of_mem hiS] using rfl
+    have hpos : 0 < S.card := Finset.card_pos.mpr ⟨i, hiS⟩
+    rw [Finset.card_erase_of_mem hiS]
+    omega
   rw [hpairs]
   have hS : d ≤ S.card := by simpa [S] using hglobal
   omega
