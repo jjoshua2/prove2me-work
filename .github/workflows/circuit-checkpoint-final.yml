@@ -1,0 +1,35 @@
+name: Manual circuit checkpoint final verification
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: circuit-checkpoint-final-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Reject gate, policy, pin, and exact-certificate failures before Lean setup
+        run: |
+          python3 scripts/test_circuit_checkpoint_gate_controls.py
+          bash scripts/verify_circuit_checkpoint_continuation.sh --checks-only
+      - name: Restore pinned Lean environment
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Build targeted source and require fresh axiom reports
+        run: bash scripts/verify_circuit_checkpoint_continuation.sh
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: circuit-checkpoint-final
+          retention-days: 7
+          path: |
+            /tmp/circuit-checkpoint-gate.*/build.log
+            /tmp/circuit-checkpoint-gate.*/axioms.log
+            /tmp/circuit-checkpoint-gate.*/CheckpointAudit.lean
+            /tmp/circuit-checkpoint-gate.*/receipt.json
+            /tmp/circuit-checkpoint-gate.*/checkpoint-regression.json
