@@ -26,7 +26,7 @@ jobs:
       - name: Compile and audit recession and far-cap lemmas
         run: |
           set -euo pipefail
-          lake build Solutions.PolynomialHpolyFarCapPreserve 2>&1 | tee /tmp/recession-cap.log
+          lake build Solutions.PolynomialHpolyHorizonKernel 2>&1 | tee /tmp/recession-cap.log
           python3 scripts/check_lean_axiom_log.py /tmp/recession-cap.log \
             HirschHpolyCap.ray_mem_hpoly \
             HirschHpolyCap.recession_and_neg_iff_common_kernel \
@@ -40,7 +40,11 @@ jobs:
             HirschHpolyCap.cappedHpoly_isCompact \
             HirschHpolyCap.segment_mem_cap_of_endpoints \
             HirschHpolyCap.old_vertex_survives_cap \
-            HirschHpolyCap.old_edge_survives_cap
+            HirschHpolyCap.old_edge_survives_cap \
+            HirschHpolyCap.extreme_of_tight_rows_separate \
+            HirschHpolyCap.horizon_active_rows_separate \
+            HirschHpolyCap.horizon_old_active_kernel_spanned \
+            HirschHpolyCap.horizon_old_active_plus_row_separate
       - name: Record verified source head
         run: |
           git rev-parse HEAD
