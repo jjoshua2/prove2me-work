@@ -1,0 +1,71 @@
+name: Publish exterior-cap clipping theorem
+on:
+  push:
+    branches: [chatgpt/publish-exterior-cap-clipping]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: publish-exterior-cap-clipping
+  cancel-in-progress: true
+jobs:
+  verify-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          ref: chatgpt/publish-geodesic-face-cover
+          path: _publisher_source
+          persist-credentials: false
+      - name: Check pinned environment
+        run: |
+          set -euo pipefail
+          test "$(cat lean-toolchain)" = "leanprover/lean4:v4.30.0"
+          grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
+      - name: Restore pinned Lean and Mathlib
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Rebuild and audit public wrapper
+        run: |
+          set -euo pipefail
+          lake build Solutions.Sol_Hirsch_exterior_cap_clip_diameter 2>&1 | tee /tmp/source.log
+          python3 scripts/check_lean_axiom_log.py /tmp/source.log \
+            HirschExterior.retract_on_cut_of_exterior \
+            HirschExterior.exterior_cap_trace \
+            HirschExterior.exterior_edgeTrace_cases \
+            HirschExterior.clip_route_with_exterior_attachments \
+            HirschExterior.clip_diameter_from_exterior_routes \
+            HirschExterior.exterior_cap_augmented_route_bound \
+            HirschExterior.simultaneous_clip_diameter_from_exterior_cap solution
+      - name: Flatten, independently compile, and audit standalone proof
+        run: |
+          set -euo pipefail
+          python3 scripts/bundle_exterior_cap.py
+          lake env lean exterior_cap_offline_packet/solution.lean 2>&1 | tee /tmp/standalone.log
+          python3 scripts/check_lean_axiom_log.py /tmp/standalone.log solution
+      - name: Reproduce exact regression certificates
+        run: |
+          set -euo pipefail
+          python3 scripts/test_recession_cap_clipping.py > exterior_cap_offline_packet/recession_cap_regression.json
+          python3 scripts/test_cap_cost_bypass.py > exterior_cap_offline_packet/cap_cost_bypass.json
+          python3 scripts/check_exterior_cap_regression.py
+      - name: Publish and verify on Prove2Me
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: |
+          set -euo pipefail
+          test -n "$PROVE2ME_API_KEY"
+          python3 scripts/run_reused_publisher_exterior_cap.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: exterior-cap-publication-receipts
+          retention-days: 7
+          path: |
+            /tmp/source.log
+            /tmp/standalone.log
+            exterior_cap_offline_packet/
+            exterior_cap_publish_receipts/
