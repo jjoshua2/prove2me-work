@@ -26,11 +26,12 @@ jobs:
       - name: Compile and audit target-face diameter bridge
         run: |
           set -euo pipefail
-          lake build Solutions.PolynomialTargetFaceDiameterBridge 2>&1 | tee /tmp/target-face-diameter.log
+          lake build Theorems.Thm_Hirsch_diameter_bound_of_target_face_access 2>&1 | tee /tmp/target-face-diameter.log
           python3 scripts/check_lean_axiom_log.py /tmp/target-face-diameter.log \
             HirschPolynomialAccess.common_face_walk_of_diamLE \
             HirschPolynomialAccess.commonFaceDim_lt_of_shared_nonzero_row \
-            Hirsch.diameter_bound_of_target_face_access_verified
+            Hirsch.diameter_bound_of_target_face_access_verified \
+            Hirsch.diameter_bound_of_target_face_access
       - uses: actions/upload-artifact@v4
         if: always()
         with:
