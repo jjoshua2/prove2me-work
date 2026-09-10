@@ -28,6 +28,7 @@ jobs:
             Solutions.PolynomialCircuitNeutralRank \
             Solutions.PolynomialCircuitFaceNeutralRank \
             Solutions.PolynomialRowRankDeletion \
+            Solutions.PolynomialCommonFaceEffectiveRows \
             2>&1 | tee /tmp/circuit-neutral-rank.log
           ! grep -q sorryAx /tmp/circuit-neutral-rank.log
           python3 scripts/check_lean_axiom_log.py /tmp/circuit-neutral-rank.log \
@@ -37,7 +38,11 @@ jobs:
             HirschCircuitLocalization.rowCircuit_neutral_rank_on_subspace_eq_dim_sub_one \
             HirschCircuitLocalization.rowCircuit_neutral_rank_on_commonDirection_eq_commonFaceDim_sub_one \
             HirschCircuitLocalization.restricted_rowEval_rank_le_subrank_add_deleted \
-            HirschCircuitLocalization.restricted_rowEval_defect_le_deleted
+            HirschCircuitLocalization.restricted_rowEval_defect_le_deleted \
+            HirschCircuitLocalization.restricted_rowEval_effective_kernel_eq \
+            HirschCircuitLocalization.restricted_rowEval_effective_rank_eq \
+            HirschCircuitLocalization.commonDirection_effectiveRows_card_add_dim_le_rows_add_faceDim \
+            HirschCircuitLocalization.rowCircuit_effectiveNeutral_rank_on_commonDirection_eq_faceDim_sub_one
       - uses: actions/upload-artifact@v4
         if: always()
         with:
