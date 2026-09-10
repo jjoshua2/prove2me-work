@@ -1,5 +1,7 @@
 name: Verify simultaneous clipping without publication
 on:
+  push:
+    branches: [chatgpt/verify-simultaneous-clipping]
   workflow_dispatch:
 permissions:
   contents: read
