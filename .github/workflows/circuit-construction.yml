@@ -1,7 +1,6 @@
 name: Circuit construction
 on:
-  push:
-    branches: [chatgpt/circuit-construction]
+  workflow_dispatch:
 concurrency:
   group: circuit-construction-${{ github.ref }}
   cancel-in-progress: true
@@ -13,6 +12,8 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Read live frontier without exposing credentials
         env:
           PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
@@ -62,28 +63,19 @@ jobs:
           (out/'live-state.json').write_text(json.dumps(report,indent=2))
           print('LIVE_STATE',json.dumps(report))
           PY
-      - name: Install elan
-        run: |
-          if [ ! -x "$HOME/.elan/bin/elan" ]; then
-            curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y
-          fi
-          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
-      - uses: actions/cache@v4
-        with:
-          path: ~/.cache/mathlib
-          key: circuit-construction-ltars-c5ea003-v1
-      - name: Fetch pinned Mathlib cache
-        run: ~/.elan/bin/lake exe cache get
+      - name: Restore pinned Lean and Mathlib
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
       - name: Compile exact circuit construction modules
         run: |
           set -o pipefail
-          ~/.elan/bin/lake build Solutions.CircuitSlackBridge Solutions.CircuitProgressNumerics Solutions.CircuitConformal 2>&1 | tee circuit_construction_packet/build.log
+          lake build Solutions.CircuitSlackBridge Solutions.CircuitProgressNumerics Solutions.CircuitConformal 2>&1 | tee circuit_construction_packet/build.log
       - name: Independently compile bundled files and audit axioms
         run: python3 scripts/check_circuit_construction.py
       - name: Upload proof bytes and verification evidence
-        if: always()
+        if: success()
         uses: actions/upload-artifact@v4
         with:
           name: circuit-construction-proof-packet
           path: circuit_construction_packet/
           if-no-files-found: error
+          retention-days: 3
