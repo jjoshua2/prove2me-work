@@ -1,0 +1,34 @@
+name: Warm shared Lean cache
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - lean-toolchain
+      - lake-manifest.json
+      - lakefile.lean
+      - .github/actions/setup-lean/action.yml
+      - .github/workflows/lean-cache-warm.yml
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lean-cache-warm-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  warm:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Restore or populate pinned Lean dependencies
+        uses: ./.github/actions/setup-lean
+
+      - name: Confirm pinned toolchain
+        run: lake env lean --version
