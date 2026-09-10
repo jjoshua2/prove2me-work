@@ -67,11 +67,11 @@ theorem exists_far_cap_level
   let T : ℝ := max Uold Up + 1
   refine ⟨T, ?_, ?_⟩
   · intro x hx
-    have hxU : ell x ≤ Uold := hUold ⟨x, hx, rfl⟩
+    have hxU : ell x ≤ Uold := hUold (ell x) ⟨x, hx, rfl⟩
     dsimp [ell, T] at hxU ⊢
     linarith [le_max_left Uold Up]
   · intro x hx
-    have hxU : ell x ≤ Up := hUp ⟨x, hx, rfl⟩
+    have hxU : ell x ≤ Up := hUp (ell x) ⟨x, hx, rfl⟩
     dsimp [ell, T] at hxU ⊢
     linarith [le_max_right Uold Up]
 
