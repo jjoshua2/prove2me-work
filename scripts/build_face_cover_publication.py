@@ -18,6 +18,7 @@ import Definitions.Def_Hirsch_model
 open scoped BigOperators RealInnerProductSpace
 open Set Hirsch
 set_option autoImplicit false
+attribute [local instance] Classical.propDecidable
 set_option maxHeartbeats 12000000
 '''
 
