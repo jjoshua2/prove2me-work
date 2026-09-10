@@ -74,10 +74,12 @@ theorem rowCircuitStep_adj_of_commonFace_line
         have hsmul : t • (y - x) = 0 := by
           have h := congrArg (fun w => w - x) hsame
           simpa using h
+        have htne : t ≠ 0 := ne_of_lt htneg
         have hyx0 : y - x = 0 := by
-          rcases (smul_eq_zero.mp hsmul) with htzero | hyxzero
-          · exact (ne_of_lt htneg htzero).elim
-          · exact hyxzero
+          calc
+            y - x = t⁻¹ • (t • (y - x)) := by
+              rw [smul_smul, inv_mul_cancel₀ htne, one_smul]
+            _ = 0 := by rw [hsmul, smul_zero]
         exact hxy (sub_eq_zero.mp hyx0).symm
       refine ⟨1 - t, t, sub_nonneg.mpr ht1, ht0, by ring, ?_⟩
       rw [hzt]
