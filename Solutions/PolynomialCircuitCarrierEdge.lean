@@ -64,8 +64,11 @@ theorem rowCircuitStep_adj_of_commonFace_line
           rw [hzt]
           have hy : y = x + (1 : ℝ) • (y - x) := by module
           rw [hy]
-          module
-        obtain ⟨_hzx, hyx⟩ := hx.2 z hzP y hstep.2.1 hopen
+          calc
+            α • (x + t • (y - x)) + β • (x + (1 : ℝ) • (y - x)) =
+                (α + β) • x + (α * t + β) • (y - x) := by module
+            _ = x := by rw [hsum, hcoef]; simp
+        obtain ⟨_hzx, hyx⟩ := hx.2 hzP hstep.2.1 hopen
         exact hxy hyx.symm
       refine ⟨1 - t, t, sub_nonneg.mpr ht1, ht0, by ring, ?_⟩
       rw [hzt]
@@ -78,13 +81,20 @@ theorem rowCircuitStep_adj_of_commonFace_line
         have hxi := hstep.1 i
         have hyi := hstep.2.1 i
         simp only [inner_add_right, inner_smul_right]
-        nlinarith
+        calc
+          α * ⟪a i, x⟫ + β * ⟪a i, y⟫ ≤ α * b i + β * b i :=
+            add_le_add (mul_le_mul_of_nonneg_left hxi hα)
+              (mul_le_mul_of_nonneg_left hyi hβ)
+          _ = (α + β) * b i := by ring
+          _ = b i := by rw [hsum, one_mul]
       · intro i hi
         have hix : ⟪a i, x⟫ = b i := (Finset.mem_filter.1 hi).2.2.1
         have hiy : ⟪a i, y⟫ = b i := (Finset.mem_filter.1 hi).2.2.2
         simp only [inner_add_right, inner_smul_right]
-        rw [hix, hiy]
-        nlinarith
+        calc
+          α * ⟪a i, x⟫ + β * ⟪a i, y⟫ = α * b i + β * b i := by rw [hix, hiy]
+          _ = (α + β) * b i := by ring
+          _ = b i := by rw [hsum, one_mul]
   have hface : IsExtreme ℝ (Hpoly a b) (segment ℝ x y) := by
     rw [← hfaceEq]
     exact commonFace_isExtreme a b x y
