@@ -82,7 +82,7 @@ theorem new_horizon_first_hit_old_vertex
   have hyExtreme : y ∈ extremePoints ℝ (Hpoly a b) := by
     apply extreme_of_tight_rows_separate a b y hyH
     intro z hz
-    apply horizon_old_active_plus_row_separate a b T x hx horizon r hr0 hrActive j hjpos z
+    apply horizon_old_active_plus_row_separate a b T x hx horizon r hr0 hrActive j hjpos.ne' z
     · intro i hi
       exact hz i (hOldTightAtY i hi)
     · exact hz j hjhit
