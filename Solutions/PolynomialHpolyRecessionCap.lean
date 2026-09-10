@@ -61,7 +61,9 @@ lemma capNormal_nonneg_on_recession
     0 ≤ ⟪capNormal a, r⟫ := by
   have hsum : ∑ i, ⟪a i, r⟫ ≤ 0 := by
     simpa using Finset.sum_nonpos fun i _ => hr i
-  simp only [capNormal, inner_neg_left, inner_sum_left]
+  have hsumInner : ⟪∑ i, a i, r⟫ = ∑ i, ⟪a i, r⟫ := by
+    simpa using (sum_inner (Finset.univ : Finset (Fin n)) a r)
+  rw [capNormal, inner_neg_left, hsumInner]
   linarith
 
 /-- Under the no-line/common-kernel condition, the canonical cap functional is
@@ -78,14 +80,17 @@ lemma capNormal_pos_on_nonzero_recession
     have hz : ∀ i, ⟪a i, r⟫ = 0 := fun i => le_antisymm (hr i) (h i)
     exact hr0 (hkernel r hz)
   obtain ⟨i, hi⟩ := hex
-  have hsum : ∑ j, ⟪a j, r⟫ < 0 := by
-    have hlt : (∑ j in Finset.univ, ⟪a j, r⟫) < ∑ _j in Finset.univ, (0 : ℝ) := by
-      apply Finset.sum_lt_sum
-      · intro j hj
-        exact hr j
-      · exact ⟨i, Finset.mem_univ i, hi⟩
-    simpa using hlt
-  simp only [capNormal, inner_neg_left, inner_sum_left]
+  have hsum_le : ∑ j, ⟪a j, r⟫ ≤ 0 := by
+    simpa using Finset.sum_nonpos fun j _ => hr j
+  have hsum_ne : (∑ j, ⟪a j, r⟫) ≠ 0 := by
+    intro hzero
+    have hall : ∀ j ∈ (Finset.univ : Finset (Fin n)), ⟪a j, r⟫ = 0 :=
+      (Finset.sum_eq_zero_iff_of_nonpos (fun j _ => hr j)).mp (by simpa using hzero)
+    exact hi.ne (hall i (Finset.mem_univ i))
+  have hsum : ∑ j, ⟪a j, r⟫ < 0 := lt_of_le_of_ne hsum_le hsum_ne
+  have hsumInner : ⟪∑ j, a j, r⟫ = ∑ j, ⟪a j, r⟫ := by
+    simpa using (sum_inner (Finset.univ : Finset (Fin n)) a r)
+  rw [capNormal, inner_neg_left, hsumInner]
   linarith
 
 /-- The no-common-kernel condition is equivalent to excluding nonzero line
