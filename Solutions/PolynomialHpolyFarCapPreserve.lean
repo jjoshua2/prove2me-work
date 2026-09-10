@@ -18,7 +18,12 @@ lemma segment_mem_cap_of_endpoints
   rintro z ⟨α, β, hα, hβ, hab, rfl⟩
   change ⟪c, α • x + β • y⟫ ≤ T
   rw [inner_add_right, inner_smul_right, inner_smul_right]
-  nlinarith
+  have hx' : α * ⟪c, x⟫ ≤ α * T := mul_le_mul_of_nonneg_left hx hα
+  have hy' : β * ⟪c, y⟫ ≤ β * T := mul_le_mul_of_nonneg_left hy hβ
+  calc
+    α * ⟪c, x⟫ + β * ⟪c, y⟫ ≤ α * T + β * T := add_le_add hx' hy'
+    _ = (α + β) * T := by ring
+    _ = T := by rw [hab, one_mul]
 
 /-- An old extreme vertex satisfying the cap inequality remains an extreme
 vertex after capping. -/
