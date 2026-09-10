@@ -7,6 +7,19 @@ open Hirsch
 
 namespace HirschCircuit
 
+/-- Every row of a nonempty irredundant H-presentation has nonzero normal. -/
+theorem irredundant_rows_nonzero_of_mem
+    {d n : ℕ}
+    (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
+    (hirr : RowPresentationIrredundant a b)
+    (x₀ : EuclideanSpace ℝ (Fin d)) (hx₀ : x₀ ∈ Hpoly a b) :
+    ∀ i : Fin n, a i ≠ 0 := by
+  intro i hi0
+  obtain ⟨x, _hx, hxi⟩ := hirr i
+  have hi := hx₀ i
+  rw [hi0, inner_zero_left] at hxi hi
+  linarith
+
 /-- Delete redundant rows without changing the set. For separated endpoints,
 the midpoint is strictly feasible for every retained row. This is the
 normalization part of the circuit-routing child, independent of its bound. -/
@@ -86,13 +99,9 @@ theorem exists_irredundant_strict_model
     refine ⟨x, ?_, hxi⟩
     intro j hji
     exact hx (e j) (hemem j) (fun h => hji (e.injective h))
-  have hnonzero : ∀ j : Fin m, a (e j) ≠ 0 := by
-    intro j hj0
-    obtain ⟨x, _, hx⟩ := hirr j
-    change b (e j) < ⟪a (e j), x⟫ at hx
-    have hj := hu (e j)
-    rw [hj0, inner_zero_left] at hx hj
-    linarith
+  have hnonzero : ∀ j : Fin m, a (e j) ≠ 0 :=
+    irredundant_rows_nonzero_of_mem
+      (fun j => a (e j)) (fun j => b (e j)) hirr u (by simpa [hP] using hu)
   refine ⟨m, hmn, e, hP, hirr, ?_⟩
   refine ⟨(1 / 2 : ℝ) • u + (1 / 2 : ℝ) • v, ?_⟩
   intro j
@@ -110,6 +119,7 @@ theorem exists_irredundant_strict_model
   · have hlt : ⟪a (e j), v⟫ < b (e j) := lt_of_le_of_ne hjv hnv
     linarith
 
+#print axioms irredundant_rows_nonzero_of_mem
 #print axioms exists_irredundant_strict_model
 
 end HirschCircuit
