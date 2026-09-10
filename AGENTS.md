@@ -12,6 +12,22 @@ Read `STATUS.md`, then `CLOUD_AGENT.md`, then `SKILL.md`, before doing platform 
 
 Do not redo Santos/spindle work, circuit Child A, or already-published repair lemmas unless a defect is found. Do not create a cyclic child that depends back on an ancestor such as `balanced_polynomial_bound`.
 
+## Pull-request lifecycle and backlog discipline
+
+Open pull requests are an **active work queue, not an archive**. Branches, commits, receipts, and closed PRs preserve history; leaving completed or superseded PRs open obscures the actual frontier.
+
+- Before opening a new PR, inspect the repository's current open PRs. Reuse or update an existing PR when it is the same active line of work instead of creating another overlapping branch.
+- Every PR must end in exactly one of these states:
+  1. merged into current `main`;
+  2. closed as superseded/historical, with a comment naming the successor or clean integration PR when applicable; or
+  3. deliberately kept as a draft, with an explicit blocker and next action in its body.
+- If useful verified work sits on obsolete or heavily stacked ancestry, **do not merge the historical ancestry merely to preserve it**. Transplant the exact verified source blobs, receipts, and reproducibility material onto current `main` in a small integration PR; merge that PR; then close the historical source PR as superseded.
+- Publication-only PRs and one-shot publication workflows are temporary. After the server verdict is known, preserve theorem/submission IDs and verification receipts in durable repository state, remove or exclude the one-shot workflow, and close the publication PR.
+- Experimental verification workflows are not archival artifacts. Once their useful evidence is preserved in receipts/logs, delete them or exclude them from integration.
+- When one PR supersedes another, close the superseded PR in the same work cycle. Do not defer routine backlog cleanup to a later agent.
+- As a default for one mission, keep no more than a small handful of PRs open (roughly three) unless each additional PR has a distinct, documented active purpose.
+- At handoff time, compare the open PR queue against `STATUS.md`. Every open PR should correspond to an active item named or compatible with the authoritative frontier; otherwise merge, transplant, or close it before ending the work cycle.
+
 ## Authentication and network preflight
 
 Never print, log, commit, upload as an artifact, or include in a PR an API key or bearer token. Send Prove2Me credentials only to `https://prove2.me/api/v1`.
@@ -49,7 +65,7 @@ GitHub-hosted Actions are a **final verification/publication gate**, not an inte
 - Before pushing a commit that would invoke an expensive workflow, run the exact relevant Lean command locally in the cloud workspace and make it pass there first.
 - During iteration, prefer `lake env lean path/to/file.lean` for one edited file and `lake build Module.Name` for the smallest affected module set. Reserve a full `lake build`, standalone packet compilation, exhaustive regression suites, and axiom/publication audits for a locally green candidate.
 - **Do not create a new push-triggered workflow for each theorem, branch, proof attempt, or repair experiment.** Experimental verification must be `workflow_dispatch`/manual or reuse `.github/workflows/lean-verify.yml`. Stable long-lived `push` CI is allowed only when it is genuinely needed on `main` or another durable integration branch.
-- If a GitHub verification run fails because Lean rejects the proof, fix and re-run locally. Do not repeatedly push speculative edits just to use Actions as the compiler.
+- If a GitHub verification run fails because Lean rejectss the proof, fix and re-run locally. Do not repeatedly push speculative edits just to use Actions as the compiler.
 - Every Lean workflow must reuse `jjoshua2/prove2me-work/.github/actions/setup-lean@main` after checkout instead of independently installing Elan/Mathlib. That action restores the shared cache keyed by `lean-toolchain` + `lake-manifest.json`, fills a miss, and saves the populated environment **before** later proof steps can fail.
 - Put cheap structural/certificate checks before expensive Lean work when they can reject a bad candidate quickly; put full standalone/bundle/axiom/publication audits after the targeted source compilation succeeds.
 - Use `concurrency` with `cancel-in-progress: true` for any workflow that can be superseded by a newer run.
