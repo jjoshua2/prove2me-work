@@ -12,8 +12,7 @@ namespace HirschPolynomialAccess
 
 variable {d n : ℕ}
 
-/-- Rows active at `x` whose normals are neutral to direction `g`.  For
-`g = y - x`, these are exactly the nonzero rows active at both endpoints. -/
+/-- Rows active at `x` whose normals are neutral to direction `g`. -/
 noncomputable def activeNeutralRows
     (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
     (x g : EuclideanSpace ℝ (Fin d)) : Finset (Fin n) :=
@@ -38,30 +37,29 @@ theorem activeNeutralRows_displacement_eq_commonSourceRows
     refine ⟨hai, hix, ?_⟩
     rw [inner_sub_right, hiy, hix, sub_self]
 
-/-- Rank-nullity conversion: if the common-tight rows have rank at least
-`d-1` in subtraction-free form, then the common-face carrier has dimension
-at most one. -/
+/-- Exact rank-nullity identity. No feasibility or vertex hypothesis is used. -/
+theorem commonSource_rank_add_commonFaceDim
+    (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
+    (x y : EuclideanSpace ℝ (Fin d)) :
+    Module.finrank ℝ (rowEvalMap a (commonSourceRows a b x y)).range +
+      commonFaceDim a b x y = d := by
+  let T := rowEvalMap a (commonSourceRows a b x y)
+  change Module.finrank ℝ T.range + Module.finrank ℝ T.ker = d
+  exact T.finrank_range_add_finrank_ker.trans
+    (finrank_euclideanSpace_fin (𝕜 := ℝ))
+
+/-- Rank-nullity conversion without rewriting the dependent ambient dimension. -/
 theorem commonFaceDim_le_one_of_commonSource_rank
     (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
     (x y : EuclideanSpace ℝ (Fin d))
     (hrank : d ≤ Module.finrank ℝ
       (rowEvalMap a (commonSourceRows a b x y)).range + 1) :
     commonFaceDim a b x y ≤ 1 := by
-  let T := rowEvalMap a (commonSourceRows a b x y)
-  have hrn := T.finrank_range_add_finrank_ker
-  have hdom : Module.finrank ℝ (EuclideanSpace ℝ (Fin d)) = d :=
-    finrank_euclideanSpace_fin (𝕜 := ℝ)
-  rw [hdom] at hrn
-  have hsum :
-      Module.finrank ℝ T.range + commonFaceDim a b x y = d := by
-    simpa [T, commonFaceDim, commonDirection] using hrn
-  change d ≤ Module.finrank ℝ T.range + 1 at hrank
-  rw [← hsum] at hrank
-  exact Nat.le_of_add_le_add_left hrank
+  have hsum := commonSource_rank_add_commonFaceDim a b x y
+  exact Nat.le_of_add_le_add_left (hsum.le.trans hrank)
 
-/-- Rank form of the carrier criterion: a maximal row-circuit augmentation
-from a vertex is a graph edge whenever its common-tight rows have rank at
-least `d-1` (written without truncated subtraction). -/
+/-- A maximal row-circuit augmentation from a vertex is a graph edge when its
+common-tight rows have rank at least `d-1`, in subtraction-free form. -/
 theorem rowCircuitStep_adj_of_commonSource_rank
     (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
     (x y : EuclideanSpace ℝ (Fin d))
@@ -73,8 +71,7 @@ theorem rowCircuitStep_adj_of_commonSource_rank
   apply rowCircuitStep_adj_of_commonFaceDim_le_one a b x y hx hstep
   exact commonFaceDim_le_one_of_commonSource_rank a b x y hrank
 
-/-- Historical active-neutral formulation of the same criterion.  This is the
-exact local rank test suggested by the circuit/edge obstruction analysis. -/
+/-- The same criterion stated using source-active neutral rows. -/
 theorem rowCircuitStep_adj_of_activeNeutral_rank
     (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
     (x y : EuclideanSpace ℝ (Fin d))
@@ -99,14 +96,13 @@ theorem rowCircuitStep_adj_of_activeNeutral_rank_dim_sub_one
   apply rowCircuitStep_adj_of_activeNeutral_rank a b x y hx hstep
   omega
 
-/-- Defect of the active-neutral carrier from codimension one.  Zero defect
-means the circuit augmentation is already a graph edge. -/
+/-- Active carrier defect. This is NOT the all-neutral circuit-rank defect. -/
 noncomputable def activeNeutralDefect
     (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
     (x g : EuclideanSpace ℝ (Fin d)) : ℕ :=
   (d - 1) - Module.finrank ℝ (rowEvalMap a (activeNeutralRows a b x g)).range
 
-/-- Zero active-neutral defect is exactly the easy circuit-to-edge case. -/
+/-- Zero active-neutral defect is a sufficient local circuit-to-edge test. -/
 theorem rowCircuitStep_adj_of_activeNeutralDefect_zero
     (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
     (x y : EuclideanSpace ℝ (Fin d))
@@ -120,6 +116,7 @@ theorem rowCircuitStep_adj_of_activeNeutralDefect_zero
   exact Nat.sub_eq_zero_iff_le.mp hdef
 
 #print axioms activeNeutralRows_displacement_eq_commonSourceRows
+#print axioms commonSource_rank_add_commonFaceDim
 #print axioms commonFaceDim_le_one_of_commonSource_rank
 #print axioms rowCircuitStep_adj_of_commonSource_rank
 #print axioms rowCircuitStep_adj_of_activeNeutral_rank
