@@ -21,16 +21,19 @@ jobs:
           persist-credentials: false
       - name: Restore pinned Lean environment
         uses: ./.github/actions/setup-lean
-      - name: Compile verified PR22 route path and audit axioms
+      - name: Compile recovered Child A and common-face composition
         run: |
           set -euo pipefail
           mkdir -p /tmp/natura-child-a-recovery
-          lake build Solutions.CircuitPhaseRoute \
+          lake build Solutions.PolynomialCommonFaceCubicCircuitWalk \
             2>&1 | tee /tmp/natura-child-a-recovery/build.log
           ! grep -q sorryAx /tmp/natura-child-a-recovery/build.log
           python3 scripts/check_lean_axiom_log.py /tmp/natura-child-a-recovery/build.log \
             HirschCircuit.standardCircuitWalk_cubic \
-            HirschCircuit.standard_cubic_circuit_bound
+            HirschCircuit.standard_cubic_circuit_bound \
+            HirschCircuit.rowCircuitWalk_explicit_cubic_of_bounded \
+            HirschCircuitLocalization.commonFace_edgeRefinement_ready_with_cubic_circuitWalk \
+            HirschCircuitLocalization.rowCircuit_commonFace_ready_with_cubic_walk_excess_defect
       - uses: actions/upload-artifact@v4
         if: always()
         with:
