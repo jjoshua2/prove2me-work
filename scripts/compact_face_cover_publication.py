@@ -60,6 +60,7 @@ def minimal_weighted(S: dict[str,str]) -> str:
          decl(S['Solutions/PolynomialFaceReentrySplice.lean'],'face_adj_to_parent'),
          decl(S['Solutions/PolynomialFaceReentrySplice.lean'],'splice_reentry_through_extreme_face')),
       ns('HirschPolynomialAccess',
+         'variable {d : ℕ}\n',
          decl(S['Solutions/PolynomialAdjEndpoints.lean'],'adj_right_extreme')),
       ns('HirschFaceSplice',
          decl(S['Solutions/PolynomialGeodesicFaceCover.lean'],'Walk'),
@@ -87,6 +88,7 @@ def minimal_rank_selected(S: dict[str,str]) -> str:
       ns('HirschPolynomialAccess',
          decl(S['Solutions/PolynomialVertexSpan.lean'],'vertex_tight_rows_span_checked')),
       ns('HirschBalancedFaceCover',
+         'variable {d n : ℕ}\n',
          decl(S['Solutions/PolynomialBalancedRowFaceCover.lean'],'rowSupportingFace'),
          decl(S['Solutions/PolynomialBalancedRowFaceCover.lean'],'rowSupportingFace_isExtreme')),
       ns('HirschRankFaceCover',
@@ -129,7 +131,7 @@ def main() -> None:
     # packet, so a later infrastructure timeout cannot hide its result.
     order={'weighted':0,'codimension':1,'barrier':2,'rank_selected':3}
     manifest['entries'].sort(key=lambda e:order[e['key']])
-    manifest['compaction']='codimension and rank_selected dependency closures pruned from immutable SOURCE declarations; public statements unchanged'
+    manifest['compaction']='codimension and rank_selected dependency closures pruned from immutable SOURCE declarations; namespace variables restored; public statements unchanged'
     (out/'manifest.json').write_text(json.dumps(manifest,indent=2,sort_keys=True)+'\n')
     (out/'verification.json').unlink(missing_ok=True)
     sizes={e['key']:e['solution_bytes'] for e in manifest['entries']}
