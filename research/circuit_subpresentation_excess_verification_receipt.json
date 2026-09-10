@@ -1,0 +1,16 @@
+{
+  "date": "2026-09-10",
+  "env": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "lean": "4.30.0",
+  "platform_expected": "0.9.9",
+  "source_commit": "47df3997447a3e0494fa7d7480c69e319c2a3564",
+  "source_run": "34516191146",
+  "source_artifact_id": "10167887559",
+  "source_artifact_name": "circuit-neutral-rank",
+  "standalone_sha256": "ca39305fe72a000f4e6aa2137b89e6592c34750e2585c339255019ebbaeb2502",
+  "root_module": "Solutions.Sol_Hirsch_row_circuit_common_face_subpresentation_excess_defect",
+  "axioms": ["propext", "Classical.choice", "Quot.sound"],
+  "verification": "GITHUB_ACTIONS_PASSED",
+  "publication": "PENDING",
+  "semantic_boundary": "Equivalent common-face row subpresentation excess/neutral-rank defect bound. Does not identify the selected effective row count with the geometric number of genuine facets."
+}
