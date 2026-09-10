@@ -1,0 +1,42 @@
+name: Verify target-access equivalence
+on:
+  push:
+    branches: [chatgpt/target-access-equivalence]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: verify-target-access-equivalence
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Check pinned environment
+        run: |
+          set -euo pipefail
+          test "$(cat lean-toolchain)" = "leanprover/lean4:v4.30.0"
+          grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
+      - name: Restore pinned Lean and Mathlib
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Compile and audit equivalence
+        run: |
+          set -euo pipefail
+          lake build Solutions.PolynomialTargetAccessEquivalence 2>&1 | tee /tmp/target-equivalence.log
+          python3 scripts/check_lean_axiom_log.py /tmp/target-equivalence.log \
+            Hirsch.nonzero_supporting_row_of_distinct_extremes \
+            Hirsch.polynomial_target_face_access_of_polynomial_hirsch \
+            Hirsch.polynomial_prescribed_face_access_of_polynomial_hirsch \
+            Hirsch.polynomial_target_face_access_of_prescribed_face_access \
+            Hirsch.polynomial_hirsch_of_target_face_access \
+            Hirsch.polynomial_prescribed_face_access_of_target_face_access
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: target-access-equivalence-audit
+          retention-days: 3
+          path: /tmp/target-equivalence.log
