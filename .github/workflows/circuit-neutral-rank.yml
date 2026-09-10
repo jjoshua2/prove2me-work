@@ -21,9 +21,10 @@ jobs:
           persist-credentials: false
       - name: Restore pinned Lean environment
         uses: ./.github/actions/setup-lean
-      - name: Compile neutral-rank characterization and audit axioms
+      - name: Compile neutral-rank core and audit axioms
         run: |
           set -euo pipefail
+          mkdir -p /tmp/circuit-neutral-rank
           lake build \
             Solutions.PolynomialCircuitNeutralRank \
             Solutions.PolynomialCircuitFaceNeutralRank \
@@ -31,9 +32,9 @@ jobs:
             Solutions.PolynomialCommonFaceEffectiveRows \
             Solutions.PolynomialCircuitSelectedRowDefect \
             Solutions.PolynomialCircuitDefectPublicBridge \
-            2>&1 | tee /tmp/circuit-neutral-rank.log
-          ! grep -q sorryAx /tmp/circuit-neutral-rank.log
-          python3 scripts/check_lean_axiom_log.py /tmp/circuit-neutral-rank.log \
+            2>&1 | tee /tmp/circuit-neutral-rank/core.log
+          ! grep -q sorryAx /tmp/circuit-neutral-rank/core.log
+          python3 scripts/check_lean_axiom_log.py /tmp/circuit-neutral-rank/core.log \
             HirschCircuitLocalization.rowCircuit_neutral_kernel_eq_span \
             HirschCircuitLocalization.rowCircuit_neutral_rank_eq_dim_sub_one \
             HirschCircuitLocalization.rowCircuit_neutral_kernel_on_subspace_eq_span \
@@ -49,9 +50,42 @@ jobs:
             HirschCircuitLocalization.rowCircuit_selectedEffectiveRows_excess_defect \
             HirschCircuitLocalization.effectiveRowsOn_commonDirection_eq_coordinateEffectiveRows \
             HirschCircuitLocalization.effectiveRowsOn_commonDirection_eq_publicCommonFaceEffectiveRows
+      - name: Compile public adapters separately
+        run: |
+          set -euo pipefail
+          packet=/tmp/circuit-neutral-rank
+          lake build Solutions.Sol_Hirsch_row_circuit_common_face_neutral_rank \
+            2>&1 | tee "$packet/neutral-adapter.log"
+          ! grep -q sorryAx "$packet/neutral-adapter.log"
+          python3 scripts/check_lean_axiom_log.py "$packet/neutral-adapter.log" solution
+
+          lake build Solutions.Sol_Hirsch_row_circuit_common_face_selected_row_defect_budget \
+            2>&1 | tee "$packet/defect-adapter.log"
+          ! grep -q sorryAx "$packet/defect-adapter.log"
+          python3 scripts/check_lean_axiom_log.py "$packet/defect-adapter.log" solution
+      - name: Build and independently compile standalone Prove2Me proofs
+        run: |
+          set -euo pipefail
+          packet=/tmp/circuit-neutral-rank
+          python3 scripts/build_circuit_localization_standalone.py \
+            Solutions.Sol_Hirsch_row_circuit_common_face_neutral_rank \
+            "$packet/neutral-solution.lean" "$packet/neutral-manifest.json"
+          lake env lean "$packet/neutral-solution.lean" \
+            2>&1 | tee "$packet/neutral-standalone.log"
+          ! grep -q sorryAx "$packet/neutral-standalone.log"
+          python3 scripts/check_lean_axiom_log.py "$packet/neutral-standalone.log" solution
+
+          python3 scripts/build_circuit_localization_standalone.py \
+            Solutions.Sol_Hirsch_row_circuit_common_face_selected_row_defect_budget \
+            "$packet/defect-solution.lean" "$packet/defect-manifest.json"
+          lake env lean "$packet/defect-solution.lean" \
+            2>&1 | tee "$packet/defect-standalone.log"
+          ! grep -q sorryAx "$packet/defect-standalone.log"
+          python3 scripts/check_lean_axiom_log.py "$packet/defect-standalone.log" solution
+          printf '%s\n' "$GITHUB_SHA" > "$packet/source-commit.txt"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: circuit-neutral-rank
           retention-days: 7
-          path: /tmp/circuit-neutral-rank.log
+          path: /tmp/circuit-neutral-rank/
