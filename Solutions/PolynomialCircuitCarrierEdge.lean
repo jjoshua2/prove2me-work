@@ -73,7 +73,13 @@ theorem rowCircuitStep_adj_of_commonFace_line
         have hsame : x = x + t • (y - x) := hzx.symm.trans hzt
         have hsmul : t • (y - x) = 0 := by
           have h := congrArg (fun w => w - x) hsame
-          simpa using h
+          have hzero :
+              (0 : EuclideanSpace ℝ (Fin d)) = t • (y - x) := by
+            calc
+              0 = x - x := by simp
+              _ = (x + t • (y - x)) - x := h
+              _ = t • (y - x) := by abel
+          exact hzero.symm
         have htne : t ≠ 0 := ne_of_lt htneg
         have hyx0 : y - x = 0 := by
           calc
