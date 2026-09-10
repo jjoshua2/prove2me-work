@@ -10,6 +10,8 @@ set_option maxHeartbeats 5000000
 
 noncomputable section
 
+attribute [local instance] Classical.propDecidable
+
 namespace HirschBalancedFaceCover
 
 variable {d n : ℕ}
