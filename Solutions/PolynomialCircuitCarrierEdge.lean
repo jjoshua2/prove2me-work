@@ -60,17 +60,23 @@ theorem rowCircuitStep_adj_of_commonFace_line
           dsimp [α, β]
           field_simp [ne_of_gt hden]
           ring
+        have hxcoef : α - α * t = 1 := by
+          linarith only [hsum, hcoef]
         have hopen : x ∈ openSegment ℝ z y := by
           refine ⟨α, β, hα, hβ, hsum, ?_⟩
           rw [hzt]
-          have hy : y = x + (1 : ℝ) • (y - x) := by module
-          rw [hy]
           calc
-            α • (x + t • (y - x)) + β • (x + (1 : ℝ) • (y - x)) =
-                (α + β) • x + (α * t + β) • (y - x) := by module
-            _ = x := by rw [hsum, hcoef]; simp
-        obtain ⟨_hzx, hyx⟩ := hx.2 hzP hstep.2.1 hopen
-        exact hxy hyx.symm
+            α • (x + t • (y - x)) + β • y =
+                (α - α * t) • x + (α * t + β) • y := by module
+            _ = x := by rw [hxcoef, hcoef]; simp
+        have hzx : z = x := hx.2 hzP hstep.2.1 hopen
+        have hsame : x = x + t • (y - x) := hzx.symm.trans hzt
+        have hsmul : t • (y - x) = 0 := by
+          have h := congrArg (fun w => w - x) hsame
+          simpa using h
+        have hyx0 : y - x = 0 := by
+          simpa [ne_of_lt htneg] using hsmul
+        exact hxy (sub_eq_zero.mp hyx0).symm
       refine ⟨1 - t, t, sub_nonneg.mpr ht1, ht0, by ring, ?_⟩
       rw [hzt]
       module
@@ -127,7 +133,7 @@ theorem commonFace_line_of_dim_le_one
     simpa [gW] using h'
   have hdimW : Module.finrank ℝ W ≤ 1 := by
     simpa [commonFaceDim, W] using hdim
-  obtain ⟨v0, hgen⟩ := (Module.finrank_le_one_iff).1 hdimW
+  obtain ⟨v0, hgen⟩ := (finrank_le_one_iff).1 hdimW
   obtain ⟨c, hcg⟩ := hgen gW
   have hc : c ≠ 0 := by
     intro hc0
