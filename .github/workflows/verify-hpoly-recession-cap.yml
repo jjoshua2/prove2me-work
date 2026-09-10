@@ -23,10 +23,10 @@ jobs:
           grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
       - name: Restore pinned Lean and Mathlib
         uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
-      - name: Compile and audit recession and cap compactness lemmas
+      - name: Compile and audit recession and far-cap lemmas
         run: |
           set -euo pipefail
-          lake build Solutions.PolynomialHpolyFarCapCompact 2>&1 | tee /tmp/recession-cap.log
+          lake build Solutions.PolynomialHpolyFarCapPreserve 2>&1 | tee /tmp/recession-cap.log
           python3 scripts/check_lean_axiom_log.py /tmp/recession-cap.log \
             HirschHpolyCap.ray_mem_hpoly \
             HirschHpolyCap.recession_and_neg_iff_common_kernel \
@@ -37,7 +37,10 @@ jobs:
             HirschHpolyCap.rowMap_isClosedEmbedding \
             HirschHpolyCap.capped_row_bounds \
             HirschHpolyCap.cappedHpoly_isClosed \
-            HirschHpolyCap.cappedHpoly_isCompact
+            HirschHpolyCap.cappedHpoly_isCompact \
+            HirschHpolyCap.segment_mem_cap_of_endpoints \
+            HirschHpolyCap.old_vertex_survives_cap \
+            HirschHpolyCap.old_edge_survives_cap
       - name: Record verified source head
         run: |
           git rev-parse HEAD
