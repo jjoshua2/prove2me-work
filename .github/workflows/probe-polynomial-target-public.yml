@@ -15,29 +15,64 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - name: Read public Polynomial Hirsch mission page
+      - name: Read public Polynomial Hirsch frontier and leaf
         run: |
           set -euo pipefail
           python3 - <<'PY'
-          import html, re, urllib.request
-          url='https://prove2.me/missions/The%20Polynomial%20Hirsch%20Conjecture'
-          req=urllib.request.Request(url,headers={'User-Agent':'prove2me-frontier-public-probe/1'})
+          import html, json, re, urllib.error, urllib.request
+
+          base='https://prove2.me'
+          leaf='099c6686-560c-48fc-b2c2-18b6a620a06e'
+          name='Hirsch.polynomial_edge_refinement_of_circuit_walks'
+          ua={'User-Agent':'prove2me-frontier-public-probe/2'}
+
+          mission=base+'/missions/The%20Polynomial%20Hirsch%20Conjecture'
+          req=urllib.request.Request(mission,headers=ua)
           with urllib.request.urlopen(req,timeout=30) as r:
               raw=r.read().decode('utf-8','replace')
-          print('HTTP_OK_BYTES',len(raw))
-          # Print only theorem-like names/ids and nearby target/polynomial text.
-          ids=sorted(set(re.findall(r'[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}',raw,re.I)))
-          names=sorted(set(re.findall(r'Hirsch\.[A-Za-z0-9_]+',html.unescape(raw))))
-          print('THEOREM_IDS',*ids,sep='\n')
-          print('HIRSCH_NAMES',*names,sep='\n')
-          text=re.sub(r'<[^>]+>',' ',html.unescape(raw))
-          text=re.sub(r'\s+',' ',text)
-          for term in ('target','polynomial','face access','Frontier','Open'):
-              print('TERM',term)
+          print('MISSION_HTTP_OK_BYTES',len(raw))
+
+          # Show exact serialized context around the frontier leaf; this often
+          # includes the route even when rendered text strips the link.
+          for needle in (leaf,name):
+              print('MISSION_CONTEXT_FOR',needle)
               start=0
-              for _ in range(12):
-                  i=text.lower().find(term.lower(),start)
-                  if i<0: break
-                  print(text[max(0,i-240):i+520])
-                  start=i+len(term)
+              for _ in range(4):
+                  i=raw.find(needle,start)
+                  if i < 0: break
+                  print(html.unescape(raw[max(0,i-700):i+1400]))
+                  start=i+len(needle)
+
+          # Probe only plausible public GET routes for this already-public UUID.
+          for path in (
+              f'/theorems/{leaf}',
+              f'/theorem/{leaf}',
+              f'/formalpedia/{leaf}',
+              f'/api/v1/theorems/{leaf}',
+          ):
+              url=base+path
+              try:
+                  req=urllib.request.Request(url,headers=ua)
+                  with urllib.request.urlopen(req,timeout=30) as r:
+                      body=r.read().decode('utf-8','replace')
+                      print('GET',path,'STATUS',r.status,'BYTES',len(body),'CTYPE',r.headers.get('content-type'))
+                  # Print only theorem-relevant snippets, never whole pages.
+                  decoded=html.unescape(body)
+                  for term in (name,'theorem_name','statement','polynomial_edge_refinement','OPEN','Open'):
+                      i=decoded.find(term)
+                      if i >= 0:
+                          print('SNIP',path,term,decoded[max(0,i-500):i+2400])
+                          break
+                  if body.lstrip().startswith(('{','[')):
+                      try:
+                          obj=json.loads(body)
+                          if isinstance(obj,dict):
+                              keep={k:obj.get(k) for k in ('theorem_id','theorem_name','name','status','statement','lean_statement','natural_language_statement','parent_id') if k in obj}
+                              print('JSON_FIELDS',path,json.dumps(keep,ensure_ascii=False))
+                      except Exception:
+                          pass
+              except urllib.error.HTTPError as e:
+                  print('GET',path,'STATUS',e.code)
+              except Exception as e:
+                  print('GET',path,'ERROR',type(e).__name__)
           PY
