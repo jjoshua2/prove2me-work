@@ -108,6 +108,7 @@ lemma horizon_old_active_kernel_spanned
     rw [inner_sub_right, inner_smul_right]
     dsimp [c]
     field_simp
+    ring
   have hw := horizon_active_rows_separate a b T x hx horizon (y - c • r) hwOld hwCap
   exact ⟨c, sub_eq_zero.mp hw⟩
 
