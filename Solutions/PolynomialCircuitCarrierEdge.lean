@@ -75,7 +75,9 @@ theorem rowCircuitStep_adj_of_commonFace_line
           have h := congrArg (fun w => w - x) hsame
           simpa using h
         have hyx0 : y - x = 0 := by
-          simpa [ne_of_lt htneg] using hsmul
+          rcases (smul_eq_zero.mp hsmul) with htzero | hyxzero
+          · exact (ne_of_lt htneg htzero).elim
+          · exact hyxzero
         exact hxy (sub_eq_zero.mp hyx0).symm
       refine ⟨1 - t, t, sub_nonneg.mpr ht1, ht0, by ring, ?_⟩
       rw [hzt]
