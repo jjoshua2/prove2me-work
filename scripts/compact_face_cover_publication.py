@@ -24,7 +24,10 @@ def decl(text: str, name: str) -> str:
     m=re.search(r'(?m)^(?:theorem|lemma|def|abbrev)\s+'+re.escape(name)+r'\b',text)
     if not m: raise ValueError('missing frozen declaration '+name)
     tail=text[m.end():]
-    nxt=re.search(r'(?m)^(?:(?:theorem|lemma|def|abbrev)\s+|#print\s+axioms\s+|end(?:\s|$))',tail)
+    # A Lean doc comment belongs to the declaration *after* it. Stop before
+    # that comment; otherwise a compact namespace can end immediately after
+    # `/-- ... -/`, and Lean quite correctly expects a declaration before `end`.
+    nxt=re.search(r'(?m)^(?:/--|(?:(?:theorem|lemma|def|abbrev)\s+)|#print\s+axioms\s+|end(?:\s|$))',tail)
     end=m.end()+(nxt.start() if nxt else len(tail))
     return text[m.start():end].rstrip()+'\n'
 
