@@ -135,11 +135,11 @@ lemma first_hit_segment_adjacent
     have hγt : γ * t = c := div_mul_cancel₀ c ht.ne'
     refine ⟨γ, 1 - γ, hγ0, by linarith, by ring, ?_⟩
     calc
-      p = x + c • r := hpform
-      _ = x + (γ * t) • r := by rw [hγt]
-      _ = γ • y + (1 - γ) • x := by
+      γ • y + (1 - γ) • x = x + (γ * t) • r := by
         dsimp [y]
         module
+      _ = x + c • r := by rw [hγt]
+      _ = p := hpform.symm
 
 #print axioms first_hit_segment_adjacent
 
