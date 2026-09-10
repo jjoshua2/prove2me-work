@@ -11,6 +11,7 @@ TARGETS = [
     ("tradeoff", "Solutions.Sol_Hirsch_common_face_dimension_tradeoff"),
     ("effective_count", "Solutions.Sol_Hirsch_common_face_effective_count_bound"),
     ("effective_diameter", "Solutions.Sol_Hirsch_common_face_effective_diameter"),
+    ("splitter", "Solutions.Sol_Hirsch_separated_common_face_split"),
 ]
 
 def make_bundle(label: str, target: str) -> dict:
