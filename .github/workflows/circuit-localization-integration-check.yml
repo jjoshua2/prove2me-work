@@ -1,0 +1,70 @@
+name: Circuit localization integration check
+
+on:
+  push:
+    branches: [integration/circuit-localization-2026-09-10]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: circuit-localization-integration-check
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Restore pinned Lean environment
+        uses: ./.github/actions/setup-lean
+      - name: Compile integrated source and adapters
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/circuit-localization-integration
+          lake build Solutions.PolynomialCircuitLocalization \
+            Solutions.PolynomialCircuitLocalizationBalanced \
+            Solutions.Sol_Hirsch_row_circuit_common_face_localization \
+            Solutions.Sol_Hirsch_balanced_row_circuit_vertices_share_tight_row \
+            2>&1 | tee /tmp/circuit-localization-integration/source.log
+          ! grep -q sorryAx /tmp/circuit-localization-integration/source.log
+          python3 scripts/check_lean_axiom_log.py \
+            /tmp/circuit-localization-integration/source.log \
+            HirschCircuitLocalization.commonFaceDim_le_sourceOnlyRows_card \
+            HirschCircuitLocalization.commonFaceDim_le_targetOnlyRows_card \
+            HirschCircuitLocalization.circuitNeutralRows_card_ge_dim_sub_one \
+            HirschCircuitLocalization.rowCircuit_commonFaceDim_localization \
+            HirschCircuitLocalization.rowCircuit_commonFaceDim_twice_le_excess_add_one \
+            HirschCircuitLocalization.balanced_rowCircuit_vertices_share_nonzero_tight_row \
+            solution
+      - name: Rebuild standalone server proofs
+        run: |
+          set -euo pipefail
+          packet=/tmp/circuit-localization-integration
+          python3 scripts/build_circuit_localization_standalone.py \
+            Solutions.Sol_Hirsch_row_circuit_common_face_localization \
+            "$packet/localization-solution.lean" "$packet/localization-manifest.json"
+          test "$(sha256sum "$packet/localization-solution.lean" | cut -d' ' -f1)" = \
+            6d3b6b7aecd9c483d30acdff94ff304afad8a8c45f6948b6c12aba1efc1ec009
+          lake env lean "$packet/localization-solution.lean" \
+            2>&1 | tee "$packet/localization-standalone.log"
+          python3 scripts/check_lean_axiom_log.py "$packet/localization-standalone.log" solution
+
+          python3 scripts/build_circuit_localization_standalone.py \
+            Solutions.Sol_Hirsch_balanced_row_circuit_vertices_share_tight_row \
+            "$packet/balanced-solution.lean" "$packet/balanced-manifest.json"
+          test "$(sha256sum "$packet/balanced-solution.lean" | cut -d' ' -f1)" = \
+            e9b2a0be5fde78404b9b3456a8936d1ff3fea93be27c4cff0d318d02e27fe4ce
+          lake env lean "$packet/balanced-solution.lean" \
+            2>&1 | tee "$packet/balanced-standalone.log"
+          python3 scripts/check_lean_axiom_log.py "$packet/balanced-standalone.log" solution
+          printf '%s\n' "$GITHUB_SHA" > "$packet/integration-commit.txt"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: circuit-localization-integration-check
+          retention-days: 7
+          path: /tmp/circuit-localization-integration/
