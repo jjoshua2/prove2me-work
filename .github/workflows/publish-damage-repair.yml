@@ -1,7 +1,5 @@
 name: Publish damage repair theorems
 on:
-  push:
-    branches: [chatgpt/publish-damage-repair]
   workflow_dispatch:
 permissions:
   contents: read
@@ -21,19 +19,16 @@ jobs:
           ref: chatgpt/publish-geodesic-face-cover
           path: _publisher_source
           persist-credentials: false
-      - name: Install pinned Lean and Mathlib
-        run: |
-          set -euo pipefail
-          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
-          ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
+      - name: Restore pinned Lean and Mathlib
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
       - name: Rebuild source and both standalone proofs
         run: |
           set -euo pipefail
-          ~/.elan/bin/lake build Solutions.Sol_Hirsch_ordered_damage_repair Solutions.PolynomialMixedRegionRouting 2>&1 | tee /tmp/source.log
+          lake build Solutions.Sol_Hirsch_ordered_damage_repair Solutions.PolynomialMixedRegionRouting 2>&1 | tee /tmp/source.log
           python3 scripts/check_lean_axiom_log.py /tmp/source.log solution HirschRegionRoute.route_of_faces_and_surviving_edges
           python3 scripts/bundle_damage_progress.py
           for f in ordered_exact mixed_regions; do
-            ~/.elan/bin/lake env lean "damage_progress_packet/$f.lean" 2>&1 | tee "/tmp/$f.log"
+            lake env lean "damage_progress_packet/$f.lean" 2>&1 | tee "/tmp/$f.log"
             python3 scripts/check_lean_axiom_log.py "/tmp/$f.log" solution
           done
       - name: Publish and verify serially on Prove2Me
@@ -45,7 +40,7 @@ jobs:
           python3 scripts/run_reused_publisher_damage.py ordered_exact
           python3 scripts/run_reused_publisher_damage.py mixed_regions
       - uses: actions/upload-artifact@v4
-        if: always()
+        if: success()
         with:
           name: damage-repair-publication-receipts
           path: |
