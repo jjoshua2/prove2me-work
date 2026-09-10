@@ -42,6 +42,22 @@ Agent internet access must also permit `prove2.me`. Core solver/publishing work 
 
 GitHub repository secrets are a separate mechanism from Codex environment variables. The manual workflow `.github/workflows/prove2me-auth-smoke.yml` expects a repository secret named `PROVE2ME_API_KEY`. Run that workflow to verify that GitHub Actions can resolve Prove2Me, exchange the key, and make an authenticated API read. It performs no publication or proof submission.
 
+#### Actions cost discipline — mandatory for cloud agents
+
+GitHub-hosted Actions are a **final verification/publication gate**, not an interactive Lean compiler or trial-and-error harness.
+
+- Before pushing a commit that would invoke an expensive workflow, run the exact relevant Lean command locally in the cloud workspace and make it pass there first.
+- During iteration, prefer `lake env lean path/to/file.lean` for one edited file and `lake build Module.Name` for the smallest affected module set. Reserve a full `lake build`, standalone packet compilation, exhaustive regression suites, and axiom/publication audits for a locally green candidate.
+- **Do not create a new push-triggered workflow for each theorem, branch, proof attempt, or repair experiment.** Experimental verification must be `workflow_dispatch`/manual or reuse `.github/workflows/lean-verify.yml`. Stable long-lived `push` CI is allowed only when it is genuinely needed on `main` or another durable integration branch.
+- If a GitHub verification run fails because Lean rejects the proof, fix and re-run locally. Do not repeatedly push speculative edits just to use Actions as the compiler.
+- Every Lean workflow must reuse `jjoshua2/prove2me-work/.github/actions/setup-lean@main` after checkout instead of independently installing Elan/Mathlib. That action restores the shared cache keyed by `lean-toolchain` + `lake-manifest.json`, fills a miss, and saves the populated environment **before** later proof steps can fail.
+- Put cheap structural/certificate checks before expensive Lean work when they can reject a bad candidate quickly; put full standalone/bundle/axiom/publication audits after the targeted source compilation succeeds.
+- Use `concurrency` with `cancel-in-progress: true` for any workflow that can be superseded by a newer run.
+- Do not upload proof packets/artifacts on every exploratory failure. Upload them on explicit manual/final verification or publication runs, use the narrowest paths possible, and set a short retention period unless a durable publication receipt is required.
+- When the Lean/Mathlib pin changes, let `.github/workflows/lean-cache-warm.yml` populate the new default-branch cache before expensive branch verification.
+
+The shared manual/reusable verifier is `.github/workflows/lean-verify.yml`. For branch-specific CI that truly needs extra audit logic, keep the branch workflow manual-only and call the shared setup action rather than duplicating dependency installation.
+
 ## Verification claims
 
 A successful local `lake build`, exact computational certificate, static checker, or GitHub Actions compile is evidence of local verification only. Do not describe a theorem as accepted or proved on Prove2Me until `/verify` returns the corresponding authenticated platform verdict or an authenticated read confirms `Proved` status.

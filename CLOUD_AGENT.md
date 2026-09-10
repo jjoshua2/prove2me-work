@@ -56,11 +56,24 @@ Do not run that persistence command from a setup script merely to bypass Codex's
 
 Codex agent internet access is off by default. Enable it for the selected environment and allow `prove2.me`; core API use requires `GET` and `POST`, while edits require `PATCH`. Keep the allowlist narrow.
 
-## GitHub Actions credentials
+## GitHub Actions credentials and cost control
 
 GitHub Actions repository secrets are independent of Codex environment configuration. The manual workflow [`prove2me-auth-smoke.yml`](.github/workflows/prove2me-auth-smoke.yml) expects a repository secret named `PROVE2ME_API_KEY`. It tests DNS, health, token refresh, and an authenticated read; it never publishes or submits a theorem.
 
 Publication workflows must preserve the same discipline: rebuild/audit the intended proof packet, never print credentials, and record the authenticated Prove2Me verdict before updating durable status.
+
+Hosted Actions are intentionally **not** the normal edit/compile loop. Agents must iterate with the local/cloud Lean environment first and use Actions only once a candidate is locally green or when GitHub-only secrets/publication are actually required.
+
+For Lean jobs:
+
+- use [`setup-lean`](.github/actions/setup-lean/action.yml) via `uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main` after checkout;
+- do not duplicate Elan installation or `lake exe cache get` in branch workflows;
+- do not create per-attempt `push` workflows; use the shared manual/reusable [`lean-verify.yml`](.github/workflows/lean-verify.yml) or a manual-only branch workflow;
+- make targeted compilation pass before running bundled standalone proofs, exhaustive regressions, axiom audits, artifact uploads, or publication;
+- use `concurrency`/`cancel-in-progress` and keep exploratory artifact retention short;
+- if CI exposes an ordinary Lean proof error, fix it locally rather than pushing repeated trial commits.
+
+The default-branch [`lean-cache-warm.yml`](.github/workflows/lean-cache-warm.yml) warms the shared cache whenever the committed Lean/Mathlib environment or cache action changes. Because the cache is keyed by the pin files instead of the individual experiment/workflow name, branches using the same environment can reuse it.
 
 ## Layout
 

@@ -1,0 +1,48 @@
+name: Lean verification
+
+on:
+  workflow_dispatch:
+    inputs:
+      targets:
+        description: Space-separated Lake targets; leave blank for a full lake build
+        required: false
+        default: ""
+  workflow_call:
+    inputs:
+      targets:
+        description: Space-separated Lake targets; leave blank for a full lake build
+        required: false
+        type: string
+        default: ""
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lean-verify-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Restore pinned Lean environment
+        uses: ./.github/actions/setup-lean
+
+      - name: Build requested targets
+        env:
+          LEAN_TARGETS: ${{ inputs.targets }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "${LEAN_TARGETS// }" ]]; then
+            lake build
+          else
+            read -r -a targets <<< "$LEAN_TARGETS"
+            lake build "${targets[@]}"
+          fi
