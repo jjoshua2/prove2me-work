@@ -119,8 +119,8 @@ theorem rowCircuit_neutral_rank_eq_dim_sub_one
   have hdom : Module.finrank ℝ (EuclideanSpace ℝ (Fin d)) = d :=
     finrank_euclideanSpace_fin (𝕜 := ℝ)
   rw [hkerRank, hdom] at hrank
-  have hd1 : 1 ≤ d := by omega
-  omega
+  have hrank' := congrArg (fun m : ℕ => m - 1) hrank
+  simpa using hrank'
 
 #print axioms rowCircuit_neutral_kernel_eq_span
 #print axioms rowCircuit_neutral_rank_eq_dim_sub_one
