@@ -23,15 +23,24 @@ theorem balanced_rowCircuit_vertices_share_nonzero_tight_row
   classical
   by_contra hnone
   have hC : HirschPolynomialAccess.commonSourceRows a b u v = ∅ := by
-    apply Finset.eq_empty_iff_forall_not_mem.mpr
-    intro i hi
-    have h := (Finset.mem_filter.1 hi).2
-    exact hnone ⟨i, h.1, h.2.1, h.2.2⟩
+    ext i
+    constructor
+    · intro hi
+      have h := (Finset.mem_filter.1 hi).2
+      exact (hnone ⟨i, h.1, h.2.1, h.2.2⟩).elim
+    · intro hi
+      simp at hi
   have hdir : HirschPolynomialAccess.commonDirection a b u v =
       (⊤ : Submodule ℝ (EuclideanSpace ℝ (Fin d))) := by
-    ext q
-    simp [HirschPolynomialAccess.commonDirection,
-      HirschPolynomialAccess.rowEvalMap, hC]
+    apply le_antisymm
+    · exact le_top
+    · intro q _hq
+      change HirschPolynomialAccess.rowEvalMap a
+        (HirschPolynomialAccess.commonSourceRows a b u v) q = 0
+      funext i
+      have hi : (i.1 : Fin n) ∈ HirschPolynomialAccess.commonSourceRows a b u v := i.2
+      rw [hC] at hi
+      simp at hi
   have hdim : HirschPolynomialAccess.commonFaceDim a b u v = d := by
     rw [HirschPolynomialAccess.commonFaceDim, hdir]
     simp
