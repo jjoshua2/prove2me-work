@@ -52,7 +52,7 @@ python3 scripts/prove2me_auth.py bootstrap --persist-api-key
 
 Only run that persistence command during the **agent phase**, after setup-only secrets have been removed. `credentials.json` is gitignored and is written mode `0600`.
 
-Agent internet access must also permit `prove2.me`. Core solver/publishing work needs `GET` and `POST`; editing explanations or metadata additionally needs `PATCH`. Keep the domain allowlist limited to what the task requires.
+Agent internet access must also permit `prove2.me`. Core solver/publishing work needs `GET` and `POST`; editing explanations or metadata additionally needs `PATCH`. Keep the allowlist narrow.
 
 ### GitHub Actions
 
@@ -65,7 +65,7 @@ GitHub-hosted Actions are a **final verification/publication gate**, not an inte
 - Before pushing a commit that would invoke an expensive workflow, run the exact relevant Lean command locally in the cloud workspace and make it pass there first.
 - During iteration, prefer `lake env lean path/to/file.lean` for one edited file and `lake build Module.Name` for the smallest affected module set. Reserve a full `lake build`, standalone packet compilation, exhaustive regression suites, and axiom/publication audits for a locally green candidate.
 - **Do not create a new push-triggered workflow for each theorem, branch, proof attempt, or repair experiment.** Experimental verification must be `workflow_dispatch`/manual or reuse `.github/workflows/lean-verify.yml`. Stable long-lived `push` CI is allowed only when it is genuinely needed on `main` or another durable integration branch.
-- If a GitHub verification run fails because Lean rejectss the proof, fix and re-run locally. Do not repeatedly push speculative edits just to use Actions as the compiler.
+- If a GitHub verification run fails because Lean rejects the proof, fix and re-run locally. Do not repeatedly push speculative edits just to use Actions as the compiler.
 - Every Lean workflow must reuse `jjoshua2/prove2me-work/.github/actions/setup-lean@main` after checkout instead of independently installing Elan/Mathlib. That action restores the shared cache keyed by `lean-toolchain` + `lake-manifest.json`, fills a miss, and saves the populated environment **before** later proof steps can fail.
 - Put cheap structural/certificate checks before expensive Lean work when they can reject a bad candidate quickly; put full standalone/bundle/axiom/publication audits after the targeted source compilation succeeds.
 - Use `concurrency` with `cancel-in-progress: true` for any workflow that can be superseded by a newer run.
