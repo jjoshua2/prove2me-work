@@ -28,6 +28,7 @@ jobs:
           lake build \
             Solutions.CircuitIrredundantModel \
             Solutions.PolynomialCommonFaceIrredundantModel \
+            Solutions.PolynomialCommonFaceRoutingModel \
             2>&1 | tee /tmp/common-face-irredundant/build.log
           ! grep -q sorryAx /tmp/common-face-irredundant/build.log
           python3 scripts/check_lean_axiom_log.py /tmp/common-face-irredundant/build.log \
@@ -36,7 +37,11 @@ jobs:
             HirschCircuitLocalization.commonFaceA_eq_zero_of_commonSourceRow \
             HirschCircuitLocalization.commonFace_coord_endpoint_separation \
             HirschCircuitLocalization.commonFace_coord_irredundant_strict_subpresentation \
-            HirschCircuitLocalization.rowCircuit_commonFace_irredundant_strict_excess_defect
+            HirschCircuitLocalization.rowCircuit_commonFace_irredundant_strict_excess_defect \
+            HirschCircuitLocalization.commonFace_coord_extreme_of_parent_extreme \
+            HirschCircuitLocalization.commonFace_coord_target_extreme \
+            HirschCircuitLocalization.commonFace_edgeRefinement_ready_model \
+            HirschCircuitLocalization.rowCircuit_commonFace_edgeRefinement_ready_excess_defect
       - uses: actions/upload-artifact@v4
         if: always()
         with:
