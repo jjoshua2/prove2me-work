@@ -49,10 +49,10 @@ lemma first_hit_segment_adjacent
       have hyi := hyH i
       have hxi := hx.1.1 i
       change ⟪a i, α • y + β • x⟫ ≤ b i
-      simp only [inner_add_right, inner_smul_right]
+      rw [inner_add_right, inner_smul_right, inner_smul_right]
       nlinarith
     · change ⟪capNormal a, α • y + β • x⟫ ≤ T
-      simp only [inner_add_right, inner_smul_right]
+      rw [inner_add_right, inner_smul_right, inner_smul_right]
       nlinarith [hyCapStrict.le]
   · intro p hp q hq w hwseg hwopen
     have hOldTightY : ∀ i, ⟪a i, x⟫ = b i → ⟪a i, y⟫ = b i := by
