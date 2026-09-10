@@ -1,0 +1,38 @@
+name: Bootstrap verified checkpoint backlog publication
+
+on:
+  push:
+    branches: [ops/publish-verified-backlog]
+    paths:
+      - '.github/workflows/bootstrap-publish-verified-backlog.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+timeout-minutes: 45
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Restore shared pinned Lean environment
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Compile, audit, and publish verified backlog
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: |
+          set -euo pipefail
+          python3 scripts/publish_verified_checkpoint_backlog.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: verified-checkpoint-backlog-publication
+          retention-days: 30
+          path: |
+            checkpoint_backlog_publication_receipts/
+            public_backlog_*/lean.log
+            public_backlog_*/axiom-audit.log
