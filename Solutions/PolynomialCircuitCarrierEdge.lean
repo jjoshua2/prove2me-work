@@ -1,6 +1,7 @@
 import Mathlib
 import Definitions.Def_Hirsch_circuit_model
 import Solutions.PolynomialCommonFace
+import Solutions.PolynomialCommonFaceCoords
 
 open scoped RealInnerProductSpace
 open Set Hirsch
@@ -100,6 +101,67 @@ theorem rowCircuitStep_adj_of_commonFace_line
     exact commonFace_isExtreme a b x y
   exact ⟨hxy, hface⟩
 
+/-- If the common-tight-row direction space of two distinct points has
+finrank at most one, then every point of their common face lies on their
+ambient affine line. -/
+theorem commonFace_line_of_dim_le_one
+    (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
+    (x y : EuclideanSpace ℝ (Fin d))
+    (hne : y - x ≠ 0)
+    (hdim : commonFaceDim a b x y ≤ 1) :
+    ∀ z, z ∈ commonFace a b x y →
+      ∃ t : ℝ, z = x + t • (y - x) := by
+  let W := commonDirection a b x y
+  have hgmem : y - x ∈ W := by
+    change rowEvalMap a (commonSourceRows a b x y) (y - x) = 0
+    funext i
+    have hi := (Finset.mem_filter.1 i.2).2
+    change ⟪a i.1, y - x⟫ = 0
+    rw [inner_sub_right, hi.2.2, hi.2.1]
+    ring
+  let gW : W := ⟨y - x, hgmem⟩
+  have hgWne : gW ≠ 0 := by
+    intro h
+    apply hne
+    have h' := congrArg (fun w : W => (w : EuclideanSpace ℝ (Fin d))) h
+    simpa [gW] using h'
+  have hdimW : Module.finrank ℝ W ≤ 1 := by
+    simpa [commonFaceDim, W] using hdim
+  obtain ⟨v0, hgen⟩ := (Module.finrank_le_one_iff).1 hdimW
+  obtain ⟨c, hcg⟩ := hgen gW
+  have hc : c ≠ 0 := by
+    intro hc0
+    apply hgWne
+    rw [← hcg, hc0, zero_smul]
+  intro z hz
+  have hzdir : z - x ∈ W :=
+    ((mem_commonFace_iff_sub_mem_commonDirection a b x y z).1 hz).2
+  let zW : W := ⟨z - x, hzdir⟩
+  obtain ⟨k, hkz⟩ := hgen zW
+  have hscalar : (k / c) • gW = zW := by
+    rw [← hcg, smul_smul, div_mul_cancel₀ k hc, hkz]
+  have hval := congrArg (fun w : W => (w : EuclideanSpace ℝ (Fin d))) hscalar
+  have hsub : z - x = (k / c) • (y - x) := by
+    simpa [zW, gW] using hval.symm
+  refine ⟨k / c, ?_⟩
+  calc
+    z = x + (z - x) := by abel
+    _ = x + (k / c) • (y - x) := by rw [hsub]
+
+/-- A maximal row-circuit augmentation from a vertex is an ordinary graph
+edge whenever its common face has dimension at most one. -/
+theorem rowCircuitStep_adj_of_commonFaceDim_le_one
+    (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
+    (x y : EuclideanSpace ℝ (Fin d))
+    (hx : x ∈ extremePoints ℝ (Hpoly a b))
+    (hstep : RowCircuitStep a b x y)
+    (hdim : commonFaceDim a b x y ≤ 1) :
+    Adj (Hpoly a b) x y := by
+  apply rowCircuitStep_adj_of_commonFace_line a b x y hx hstep
+  exact commonFace_line_of_dim_le_one a b x y hstep.2.2.1.1 hdim
+
 #print axioms rowCircuitStep_adj_of_commonFace_line
+#print axioms commonFace_line_of_dim_le_one
+#print axioms rowCircuitStep_adj_of_commonFaceDim_le_one
 
 end HirschPolynomialAccess
