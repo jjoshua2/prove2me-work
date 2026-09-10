@@ -4,6 +4,15 @@ description: Restore the pinned Lean/Lake environment, populate it on a miss, an
 runs:
   using: composite
   steps:
+    - name: Compute shared cache key
+      id: cache-key
+      shell: bash
+      run: |
+        set -euo pipefail
+        digest="$(cat lean-toolchain lake-manifest.json | sha256sum | awk '{print $1}')"
+        echo "key=prove2me-lean-${RUNNER_OS}-${digest}-v1" >> "$GITHUB_OUTPUT"
+        echo "prefix=prove2me-lean-${RUNNER_OS}-" >> "$GITHUB_OUTPUT"
+
     - name: Restore pinned Lean/Lake cache
       id: lean-cache
       uses: actions/cache/restore@v4
@@ -11,9 +20,9 @@ runs:
         path: |
           ~/.elan
           .lake
-        key: prove2me-lean-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-v1
+        key: ${{ steps.cache-key.outputs.key }}
         restore-keys: |
-          prove2me-lean-${{ runner.os }}-
+          ${{ steps.cache-key.outputs.prefix }}
 
     - name: Put Elan on PATH
       shell: bash
@@ -40,4 +49,4 @@ runs:
         path: |
           ~/.elan
           .lake
-        key: prove2me-lean-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-v1
+        key: ${{ steps.cache-key.outputs.key }}
