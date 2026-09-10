@@ -27,6 +27,7 @@ jobs:
           lake build \
             Solutions.PolynomialCircuitNeutralRank \
             Solutions.PolynomialCircuitFaceNeutralRank \
+            Solutions.PolynomialRowRankDeletion \
             2>&1 | tee /tmp/circuit-neutral-rank.log
           ! grep -q sorryAx /tmp/circuit-neutral-rank.log
           python3 scripts/check_lean_axiom_log.py /tmp/circuit-neutral-rank.log \
@@ -34,7 +35,9 @@ jobs:
             HirschCircuitLocalization.rowCircuit_neutral_rank_eq_dim_sub_one \
             HirschCircuitLocalization.rowCircuit_neutral_kernel_on_subspace_eq_span \
             HirschCircuitLocalization.rowCircuit_neutral_rank_on_subspace_eq_dim_sub_one \
-            HirschCircuitLocalization.rowCircuit_neutral_rank_on_commonDirection_eq_commonFaceDim_sub_one
+            HirschCircuitLocalization.rowCircuit_neutral_rank_on_commonDirection_eq_commonFaceDim_sub_one \
+            HirschCircuitLocalization.restricted_rowEval_rank_le_subrank_add_deleted \
+            HirschCircuitLocalization.restricted_rowEval_defect_le_deleted
       - uses: actions/upload-artifact@v4
         if: always()
         with:
