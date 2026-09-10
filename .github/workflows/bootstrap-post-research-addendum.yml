@@ -1,0 +1,41 @@
+name: Post Polynomial Hirsch research addendum
+
+on:
+  push:
+    branches: [ops/post-research-continuation]
+    paths:
+      - '.github/workflows/bootstrap-post-research-addendum.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  submit:
+    runs-on: ubuntu-slim
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Post idempotent earlier-research addendum
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: |
+          set -euo pipefail
+          test -n "$PROVE2ME_API_KEY"
+          python3 scripts/post_research_chain_addendum.py
+      - name: Re-audit live Prove2Me theorem state
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: |
+          set -euo pipefail
+          python3 scripts/audit_prove2me_publications.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: research-continuation-addendum
+          retention-days: 30
+          path: |
+            research_continuation_submission/
+            publication_backlog_audit/audit.json
