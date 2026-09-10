@@ -1,0 +1,11 @@
+{
+  "sha256": "8ea13789aa3f0763d28ec5814b6b93ca241ba7a2dab569a97389413d8aab5514",
+  "strict_apex_obstruction": [
+    {"base_vertices": 4, "cut_rank": 1, "final_diameter": 3, "final_vertices": 8, "strictly_retained_apex": false},
+    {"base_vertices": 8, "cut_rank": 1, "final_diameter": 5, "final_vertices": 16, "strictly_retained_apex": false},
+    {"base_vertices": 12, "cut_rank": 1, "final_diameter": 7, "final_vertices": 24, "strictly_retained_apex": false},
+    {"base_vertices": 16, "cut_rank": 1, "final_diameter": 9, "final_vertices": 32, "strictly_retained_apex": false},
+    {"base_vertices": 24, "cut_rank": 1, "final_diameter": 13, "final_vertices": 48, "strictly_retained_apex": false}
+  ],
+  "totals": {"carriers_certified": 484, "independent_basis_certificates": 655, "instances": 40, "pairs": 8813, "vertices": 695}
+}
