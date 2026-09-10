@@ -1,0 +1,59 @@
+name: Publish audited face-cover certificates
+
+# A single final publication gate for already verified source, not a push compiler.
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [opened]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: face-cover-publication-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    if: >-
+      github.repository == 'jjoshua2/prove2me-work' && github.actor == 'jjoshua2' &&
+      (github.event_name == 'workflow_dispatch' ||
+       (github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
+        github.head_ref == 'chatgpt/publish-face-cover-certificates'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Check policy, offline submission tests, and frozen proof provenance
+        run: |
+          set -euo pipefail
+          python3 scripts/check_actions_policy.py
+          python3 scripts/test_face_cover_publication.py
+          test "$(cat lean-toolchain)" = "leanprover/lean4:v4.30.0"
+          grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
+          git fetch --no-tags --depth=1 origin 681314640b6f84792d8ae011c3534a6e8c456930
+          python3 scripts/build_face_cover_publication.py
+      - name: Restore pinned Lean and Mathlib
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Compile all standalone statements and proofs, then audit solution axioms
+        run: python3 scripts/verify_face_cover_publication.py
+      - name: Authenticated preflight
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: python3 scripts/prove2me_auth.py check
+      - name: Register and verify only matching, audited independent theorems
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: python3 scripts/publish_face_cover_certificates.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: face-cover-publication-evidence
+          retention-days: 3
+          path: |
+            face_cover_publication_packet/
+            face_cover_publication_receipts/
+          if-no-files-found: warn
