@@ -27,10 +27,10 @@ jobs:
           PY
       - name: Restore pinned Lean and Mathlib
         uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
-      - name: Compile full chain and audit
+      - name: Compile source chain and public adapter
         run: |
           set -euo pipefail
-          lake build Solutions.PolynomialHorizonCap 2>&1 | tee /tmp/all-clipping.log
+          lake build Solutions.PolynomialHorizonCap Solutions.Sol_Hirsch_simultaneous_clipping_diameter_of_compact_outer 2>&1 | tee /tmp/all-clipping.log
           python3 - <<'PY'
           import pathlib,re,subprocess
           names=[]
@@ -40,8 +40,23 @@ jobs:
               ns=re.search(r'^namespace (\w+)',text,re.M).group(1)
               names += [ns+'.'+x for x in re.findall(r'^#print axioms (\w+)',text,re.M)]
           assert len(names)==42, (len(names),names)
-          print('Required declarations:',len(names))
-          subprocess.run(['python3','scripts/check_lean_axiom_log.py','/tmp/all-clipping.log',*names],check=True)
+          subprocess.run(['python3','scripts/check_lean_axiom_log.py','/tmp/all-clipping.log',*names,'solution'],check=True)
+          PY
+      - name: Build and independently compile standalone proof
+        run: |
+          set -euo pipefail
+          python3 scripts/build_simultaneous_clipping_standalone.py /tmp/bounded-solution.lean /tmp/bounded-manifest.json
+          lake env lean /tmp/bounded-solution.lean 2>&1 | tee /tmp/standalone.log
+          python3 scripts/check_lean_axiom_log.py /tmp/standalone.log solution
+          python3 - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          m=json.loads(Path('/tmp/bounded-manifest.json').read_text())
+          assert hashlib.sha256(Path('/tmp/bounded-solution.lean').read_bytes()).hexdigest()==m['solution_sha256']
+          m['status']='SOURCE_ADAPTER_AND_STANDALONE_COMPILED_AND_AUDITED'
+          m['source_commit']='${{ github.sha }}'
+          m['actions_run_id']='${{ github.run_id }}'
+          Path('/tmp/bounded-manifest.json').write_text(json.dumps(m,indent=2,sort_keys=True)+'\n')
           PY
       - name: Reproduce complete exact carrier regressions
         run: |
@@ -65,9 +80,12 @@ jobs:
         if: success()
         with:
           name: simultaneous-clipping-audit
-          retention-days: 3
+          retention-days: 7
           path: |
             /tmp/all-clipping.log
+            /tmp/standalone.log
+            /tmp/bounded-solution.lean
+            /tmp/bounded-manifest.json
             /tmp/cone-carrier.json
             /tmp/carrier-euler.json
             /tmp/clipping-verified-source.zip
