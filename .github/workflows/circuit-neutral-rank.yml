@@ -71,6 +71,11 @@ jobs:
             2>&1 | tee "$packet/defect-adapter.log"
           ! grep -q sorryAx "$packet/defect-adapter.log"
           python3 scripts/check_lean_axiom_log.py "$packet/defect-adapter.log" solution
+
+          lake build Solutions.Sol_Hirsch_row_circuit_common_face_subpresentation_excess_defect \
+            2>&1 | tee "$packet/subpresentation-adapter.log"
+          ! grep -q sorryAx "$packet/subpresentation-adapter.log"
+          python3 scripts/check_lean_axiom_log.py "$packet/subpresentation-adapter.log" solution
       - name: Build and independently compile standalone Prove2Me proofs
         run: |
           set -euo pipefail
@@ -90,6 +95,14 @@ jobs:
             2>&1 | tee "$packet/defect-standalone.log"
           ! grep -q sorryAx "$packet/defect-standalone.log"
           python3 scripts/check_lean_axiom_log.py "$packet/defect-standalone.log" solution
+
+          python3 scripts/build_circuit_localization_standalone.py \
+            Solutions.Sol_Hirsch_row_circuit_common_face_subpresentation_excess_defect \
+            "$packet/subpresentation-solution.lean" "$packet/subpresentation-manifest.json"
+          lake env lean "$packet/subpresentation-solution.lean" \
+            2>&1 | tee "$packet/subpresentation-standalone.log"
+          ! grep -q sorryAx "$packet/subpresentation-standalone.log"
+          python3 scripts/check_lean_axiom_log.py "$packet/subpresentation-standalone.log" solution
           printf '%s\n' "$GITHUB_SHA" > "$packet/source-commit.txt"
       - uses: actions/upload-artifact@v4
         if: always()
