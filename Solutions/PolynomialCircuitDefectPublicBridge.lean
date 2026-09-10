@@ -24,10 +24,8 @@ theorem effectiveRowsOn_commonDirection_eq_coordinateEffectiveRows
       Finset.univ.filter (fun i => commonFaceA a b u v i ≠ 0) := by
   classical
   ext i
-  change
-    (∃ x : commonDirection a b u v,
-      ⟪a i, (x : EuclideanSpace ℝ (Fin d))⟫ ≠ 0) ↔
-      commonFaceA a b u v i ≠ 0
+  simp only [effectiveRowsOnSubspace, Finset.mem_filter,
+    Finset.mem_univ, true_and]
   constructor
   · rintro ⟨x, hx⟩ hA0
     let q := commonFaceRepr a b u v x
