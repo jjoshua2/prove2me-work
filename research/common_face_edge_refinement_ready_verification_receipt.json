@@ -1,0 +1,25 @@
+{
+  "date": "2026-09-10",
+  "env": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "lean": "4.30.0",
+  "source_commit": "35bbc87a73ec34491995c55fe34c2aba61059634",
+  "verification_run": "34526761037",
+  "artifact_id": "10171981968",
+  "artifact_name": "common-face-irredundant",
+  "artifact_zip_sha256": "7bf56cd7a881b9006b712c972db95a36aceb8cec5db652ca311e2d38112e72e3",
+  "verification": "GITHUB_ACTIONS_PASSED",
+  "axioms": ["propext", "Classical.choice", "Quot.sound"],
+  "audited_declarations": [
+    "HirschCircuit.irredundant_rows_nonzero_of_mem",
+    "HirschCircuit.exists_irredundant_strict_model",
+    "HirschCircuitLocalization.commonFaceA_eq_zero_of_commonSourceRow",
+    "HirschCircuitLocalization.commonFace_coord_endpoint_separation",
+    "HirschCircuitLocalization.commonFace_coord_irredundant_strict_subpresentation",
+    "HirschCircuitLocalization.rowCircuit_commonFace_irredundant_strict_excess_defect",
+    "HirschCircuitLocalization.commonFace_coord_extreme_of_parent_extreme",
+    "HirschCircuitLocalization.commonFace_coord_target_extreme",
+    "HirschCircuitLocalization.commonFace_edgeRefinement_ready_model",
+    "HirschCircuitLocalization.rowCircuit_commonFace_edgeRefinement_ready_excess_defect"
+  ],
+  "semantic_boundary": "Produces a bounded, row-irredundant, strictly feasible common-face coordinate subpresentation with both endpoint coordinates extreme, and in the ambient row-circuit case attaches the excess/neutral-rank-defect budget to that same presentation. It does not claim circuit status survives normalization and does not prove edge refinement."
+}
