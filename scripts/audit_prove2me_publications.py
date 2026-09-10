@@ -53,6 +53,9 @@ PROVED_NAMES = [
     "Hirsch.simultaneous_clipping_diameter_of_compact_outer",
     "Hirsch.row_circuit_common_face_dimension_bound",
     "Hirsch.balanced_row_circuit_vertices_share_tight_row",
+    "Hirsch.row_circuit_common_face_neutral_rank",
+    "Hirsch.row_circuit_common_face_selected_row_defect_budget",
+    "Hirsch.row_circuit_common_face_subpresentation_excess_defect",
 ]
 OPEN_NAMES = ["Hirsch.polynomial_edge_refinement_of_circuit_walks"]
 EXPECTED_IDS = {
@@ -62,6 +65,9 @@ EXPECTED_IDS = {
     "simultaneous_clipping": ("75d26f37-e0bd-4d73-9128-688fe7d5a80c", "Proved"),
     "row_circuit_localization": ("f0e79793-711b-4ada-b276-b4eab1fd0fe8", "Proved"),
     "balanced_circuit_obstruction": ("73ce6c5c-25d8-46ec-9d77-a9f2b5d7b454", "Proved"),
+    "row_circuit_common_face_neutral_rank": ("2caa4fd8-0241-4671-b675-531d935970b9", "Proved"),
+    "row_circuit_common_face_selected_row_defect_budget": ("3a03179f-7d55-45e7-89bb-a8a13020f396", "Proved"),
+    "row_circuit_common_face_subpresentation_excess_defect": ("6f9c87a4-0a7c-4e6b-8f11-bda5ca40cc11", "Proved"),
 }
 
 class NoRedirect(urllib.request.HTTPRedirectHandler):

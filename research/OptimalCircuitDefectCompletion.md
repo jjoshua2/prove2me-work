@@ -2,7 +2,44 @@
 
 Project: `jjoshua2/prove2me-work`. Continuation dated September 10, 2026.
 
-This is the durable repository handoff for the ordinary-mathematics result originally developed and exactly tested in the standalone continuation packet. The packet's original full note has SHA-256 `f1602d7e4c9965c5c478102c72ce0782b42cbe9d04c0782064e598b0d0696f7c`; see `odc_verification_receipt.json` for the executed evidence. The statements below are **not Lean-verified and not Prove2Me-Proved**.
+This is the durable repository handoff for the ordinary-mathematics result originally developed and exactly tested in the standalone continuation packet. The packet's original full note has SHA-256 `f1602d7e4c9965c5c478102c72ce0782b42cbe9d04c0782064e598b0d0696f7c`; see `odc_verification_receipt.json` for the executed evidence. **The full genuine-facet Theorems 1–4 below are not all Lean-verified or Prove2Me-Proved.** Since the original note was written, however, the circuit/common-face *row-presentation* specialization of the defect/excess accounting has been formally proved, and the strongest public specialization has been accepted by Prove2Me. Keep that distinction explicit.
+
+## 0. Formalization status added 2026-09-10
+
+The following pieces are now kernel-checked in Lean 4.30.0 / Mathlib `c5ea00351c28e24afc9f0f84379aa41082b1188f`:
+
+- an ambient row circuit has neutral-row kernel exactly the line spanned by the circuit direction, hence neutral rank exactly ambient dimension minus one;
+- the same exact rank statement holds after restriction to any subspace containing the circuit direction, in particular the common-direction space of the two endpoints;
+- deleting `k` restricted rows lowers linear rank by at most `k`;
+- ambient rows that restrict nontrivially to the common-direction space satisfy the row-count budget `effectiveRows + d <= n + h`;
+- for any selected effective-row set `F`, `|F| + defect(F) + d <= n + h`, and when `h <= |F|`, `( |F|-h ) + defect(F) <= n-d`;
+- for an **actual equivalent common-face row subpresentation**, the effective selected rows satisfy `h <= |F|`, so the literal subpresentation excess/defect inequality holds;
+- if `M_min` is the **least number of original common-face coordinate inequalities giving an equivalent H-presentation**, then a minimum witness can be chosen with every selected row effective and the exact intrinsic row-presentation inequality
+
+```text
+(M_min - h) + defect_min <= n - d
+```
+
+holds. The minimum-count development is in `Solutions/PolynomialCommonFaceMinimalSubpresentation.lean`; the final minimum-count theorem is `HirschCircuitLocalization.rowCircuit_commonFace_minSubpresentation_excess_defect`. It was kernel- and axiom-gated on branch `formal/circuit-neutral-rank` in Actions run `34518322328`. It is repo-internal because `M_min` is not yet part of the public Prove2Me common-face definition vocabulary.
+
+Three public statements from the preceding layers are Prove2Me **Proved**:
+
+```text
+Hirsch.row_circuit_common_face_neutral_rank
+  theorem 2caa4fd8-0241-4671-b675-531d935970b9
+
+Hirsch.row_circuit_common_face_selected_row_defect_budget
+  theorem 3a03179f-7d55-45e7-89bb-a8a13020f396
+
+Hirsch.row_circuit_common_face_subpresentation_excess_defect
+  theorem 6f9c87a4-0a7c-4e6b-8f11-bda5ca40cc11
+```
+
+The third theorem was independently flattened/compiled from source commit `47df3997447a3e0494fa7d7480c69e319c2a3564`, Actions run `34516191146`, artifact `10167887559`, standalone SHA-256 `ca39305fe72a000f4e6aa2137b89e6592c34750e2585c339255019ebbaeb2502`, then accepted by Prove2Me in submission `c2c4f32e-f1d5-46c7-8588-1d4ebdfda50f`; publication receipt artifact `10168146839`. See `circuit_subpresentation_excess_verification_receipt.json`.
+
+**Remaining semantic gap to Theorem 1 as written below:** the repo still has no formal geometric `facet` / facet-count API for these common faces. The current intrinsic quantity is the least size of an equivalent subpresentation drawn from the original restricted rows. Standard polyhedral theory suggests the minimum irredundant halfspace count should coincide with the number of genuine facets in the bounded full-dimensional common-face coordinate polytope, but that identification has not been formalized here. Therefore do not silently replace `M_min` by the genuine facet count `f`, and do not mark Theorem 1 below Proved in its full general face-to-face form.
+
+The Polynomial-Hirsch edge-refinement theorem remains Open; none of these rank/count results supplies an ordinary edge route.
 
 ## 1. Defect resource
 

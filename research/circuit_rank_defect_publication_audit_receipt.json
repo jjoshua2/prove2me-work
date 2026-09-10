@@ -1,0 +1,22 @@
+{
+  "date": "2026-09-10",
+  "platform": "Prove2Me 0.9.9",
+  "env": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "audit_source_commit": "39640209127426f6b027558bfb8070051120cd4e",
+  "audit_branch_commit": "715b967ccc6eb30f2ebb638659154850d13f74de",
+  "audit_run": "34519197987",
+  "audit_artifact_id": "10168936017",
+  "audit_artifact_digest": "sha256:a2abb465c794aa180a105d283a66ae6814596acdd9620c42b4ad1ff71da261fa",
+  "result": "PASSED",
+  "new_proved_theorems": {
+    "Hirsch.row_circuit_common_face_neutral_rank": "2caa4fd8-0241-4671-b675-531d935970b9",
+    "Hirsch.row_circuit_common_face_selected_row_defect_budget": "3a03179f-7d55-45e7-89bb-a8a13020f396",
+    "Hirsch.row_circuit_common_face_subpresentation_excess_defect": "6f9c87a4-0a7c-4e6b-8f11-bda5ca40cc11"
+  },
+  "open_frontier": {
+    "theorem_name": "Hirsch.polynomial_edge_refinement_of_circuit_walks",
+    "theorem_id": "099c6686-560c-48fc-b2c2-18b6a620a06e",
+    "status": "Open"
+  },
+  "note": "The one-shot audit workflow was deleted after this successful authenticated read-back."
+}
