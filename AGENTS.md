@@ -55,6 +55,7 @@ GitHub-hosted Actions are a **final verification/publication gate**, not an inte
 - Use `concurrency` with `cancel-in-progress: true` for any workflow that can be superseded by a newer run.
 - Do not upload proof packets/artifacts on every exploratory failure. Upload them on explicit manual/final verification or publication runs, use the narrowest paths possible, and set a short retention period unless a durable publication receipt is required.
 - When the Lean/Mathlib pin changes, let `.github/workflows/lean-cache-warm.yml` populate the new default-branch cache before expensive branch verification.
+- If you edit anything under `.github/workflows/`, `.github/actions/`, or the Actions policy checker, run `python3 scripts/check_actions_policy.py` locally before pushing. The policy rejects new automatic push-triggered experiment workflows.
 
 The shared manual/reusable verifier is `.github/workflows/lean-verify.yml`. For branch-specific CI that truly needs extra audit logic, keep the branch workflow manual-only and call the shared setup action rather than duplicating dependency installation.
 
