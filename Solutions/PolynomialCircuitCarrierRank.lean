@@ -55,7 +55,9 @@ theorem commonFaceDim_le_one_of_commonSource_rank
   have hsum :
       Module.finrank ℝ T.range + commonFaceDim a b x y = d := by
     simpa [T, commonFaceDim, commonDirection] using hrn
-  omega
+  change d ≤ Module.finrank ℝ T.range + 1 at hrank
+  rw [← hsum] at hrank
+  exact Nat.le_of_add_le_add_left hrank
 
 /-- Rank form of the carrier criterion: a maximal row-circuit augmentation
 from a vertex is a graph edge whenever its common-tight rows have rank at
@@ -113,6 +115,8 @@ theorem rowCircuitStep_adj_of_activeNeutralDefect_zero
     (hdef : activeNeutralDefect a b x (y - x) = 0) :
     Adj (Hpoly a b) x y := by
   apply rowCircuitStep_adj_of_activeNeutral_rank_dim_sub_one a b x y hx hstep
+  change (d - 1) - Module.finrank ℝ
+    (rowEvalMap a (activeNeutralRows a b x (y - x))).range = 0 at hdef
   exact Nat.sub_eq_zero_iff_le.mp hdef
 
 #print axioms activeNeutralRows_displacement_eq_commonSourceRows
