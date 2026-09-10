@@ -79,7 +79,7 @@ lemma capped_row_bounds
     have hsplit :
         (Finset.univ.erase i).sum (fun j => ⟪a j, x⟫) + ⟪a i, x⟫ =
           ∑ j, ⟪a j, x⟫ := by
-      exact Finset.sum_erase_add _ (Finset.mem_univ i)
+      exact Finset.univ.sum_erase_add (fun j => ⟪a j, x⟫) (Finset.mem_univ i)
     change rowLower b T i ≤ ⟪a i, x⟫
     rw [rowLower]
     linarith
