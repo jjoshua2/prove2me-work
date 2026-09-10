@@ -39,7 +39,9 @@ jobs:
             HirschHpolyCap.cappedHpoly_isClosed \
             HirschHpolyCap.cappedHpoly_isCompact
       - name: Record verified source head
-        run: git rev-parse HEAD
+        run: |
+          git rev-parse HEAD
+          grep -n "theorem cappedHpoly_isCompact" Solutions/PolynomialHpolyFarCapCompact.lean
       - uses: actions/upload-artifact@v4
         if: always()
         with:
