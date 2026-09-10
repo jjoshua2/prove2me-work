@@ -19,8 +19,9 @@ subspace. These are exactly the rows that can contribute rank after passing to
 that subspace. -/
 noncomputable def effectiveRowsOnSubspace
     (a : Fin n → EuclideanSpace ℝ (Fin d))
-    (W : Submodule ℝ (EuclideanSpace ℝ (Fin d))) : Finset (Fin n) :=
-  Finset.univ.filter (fun i =>
+    (W : Submodule ℝ (EuclideanSpace ℝ (Fin d))) : Finset (Fin n) := by
+  classical
+  exact Finset.univ.filter (fun i =>
     ∃ x : W, ⟪a i, (x : EuclideanSpace ℝ (Fin d))⟫ ≠ 0)
 
 /-- Removing rows that vanish identically on `W` does not change the kernel of
@@ -95,7 +96,10 @@ theorem commonDirection_effectiveRows_card_add_dim_le_rows_add_faceDim
   have hCE : Disjoint C E := by
     refine Finset.disjoint_left.2 ?_
     intro i hiC hiE
-    obtain ⟨x, hx⟩ := (Finset.mem_filter.1 hiE).2
+    have hex : ∃ x : W,
+        ⟪a i, (x : EuclideanSpace ℝ (Fin d))⟫ ≠ 0 := by
+      simpa [E, effectiveRowsOnSubspace] using hiE
+    obtain ⟨x, hx⟩ := hex
     have hxker : (x : EuclideanSpace ℝ (Fin d)) ∈ T.ker := by
       simpa [T, W, C, commonDirection] using x.property
     have hzero : T (x : EuclideanSpace ℝ (Fin d)) = 0 :=
