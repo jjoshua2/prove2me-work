@@ -1,7 +1,5 @@
 name: Verify simultaneous clipping without publication
 on:
-  push:
-    branches: [chatgpt/verify-simultaneous-clipping]
   workflow_dispatch:
 permissions:
   contents: read
@@ -16,7 +14,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - name: Install pinned Lean and Mathlib
+      - name: Check pinned environment
         run: |
           set -euo pipefail
           test "$(cat lean-toolchain)" = 'leanprover/lean4:v4.30.0'
@@ -25,12 +23,12 @@ jobs:
           packages=json.load(open('lake-manifest.json'))['packages']
           assert next(p['rev'] for p in packages if p['name']=='mathlib') == 'c5ea00351c28e24afc9f0f84379aa41082b1188f'
           PY
-          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
-          ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
+      - name: Restore pinned Lean and Mathlib
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
       - name: Compile full chain and audit
         run: |
           set -euo pipefail
-          ~/.elan/bin/lake build Solutions.PolynomialHorizonCap 2>&1 | tee /tmp/all-clipping.log
+          lake build Solutions.PolynomialHorizonCap 2>&1 | tee /tmp/all-clipping.log
           python3 - <<'PY'
           import pathlib,re,subprocess
           names=[]
@@ -62,12 +60,12 @@ jobs:
       - name: Package audited sources and verification outputs
         run: python3 scripts/package_clipping_continuation.py /tmp/clipping-verified-source.zip
       - uses: actions/upload-artifact@v4
-        if: always()
+        if: success()
         with:
           name: simultaneous-clipping-audit
+          retention-days: 3
           path: |
             /tmp/all-clipping.log
-            /tmp/setup.log
             /tmp/cone-carrier.json
             /tmp/carrier-euler.json
             /tmp/clipping-verified-source.zip
