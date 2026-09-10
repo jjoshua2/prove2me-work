@@ -1,0 +1,38 @@
+name: One-shot circuit carrier edge verification
+
+on:
+  push:
+    branches: [research/circuit-vertex-larman]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: one-shot-circuit-carrier-edge
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Restore pinned Lean environment
+        uses: ./.github/actions/setup-lean
+      - name: Compile carrier criterion and audit axioms
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/circuit-carrier-edge
+          lake build Solutions.PolynomialCircuitCarrierEdge \
+            2>&1 | tee /tmp/circuit-carrier-edge/build.log
+          ! grep -q sorryAx /tmp/circuit-carrier-edge/build.log
+          python3 scripts/check_lean_axiom_log.py /tmp/circuit-carrier-edge/build.log \
+            HirschPolynomialAccess.rowCircuitStep_adj_of_commonFace_line
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: circuit-carrier-edge
+          retention-days: 7
+          path: /tmp/circuit-carrier-edge/
