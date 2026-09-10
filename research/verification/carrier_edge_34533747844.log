@@ -1,0 +1,24 @@
+✔ [8475/8482] Built Definitions.Def_Hirsch_model (3.9s)
+✔ [8476/8482] Built Definitions.Def_Hirsch_circuit_model (4.0s)
+ℹ [8477/8482] Built Solutions.PolynomialVertexSpan (6.5s)
+info: Solutions/PolynomialVertexSpan.lean:76:0: 'HirschPolynomialAccess.vertex_tight_rows_span_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [8478/8482] Built Solutions.PolynomialSeparatedRows (4.0s)
+ℹ [8479/8482] Built Solutions.PolynomialExcessFaceRank (5.6s)
+info: Solutions/PolynomialExcessFaceRank.lean:197:0: 'HirschPolynomialAccess.common_direction_finrank_le_neutral_rank' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialExcessFaceRank.lean:198:0: 'HirschPolynomialAccess.common_direction_finrank_le_excess' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [8480/8482] Built Solutions.PolynomialCommonFace (4.4s)
+⚠ [8481/8482] Built Solutions.PolynomialCommonFaceCoords (5.4s)
+warning: Solutions/PolynomialCommonFaceCoords.lean:55:7: unused variable `x`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ℹ [8482/8482] Built Solutions.PolynomialCircuitCarrierEdge (5.5s)
+info: Solutions/PolynomialCircuitCarrierEdge.lean:179:0: 'HirschPolynomialAccess.rowCircuitStep_adj_of_commonFace_line' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitCarrierEdge.lean:180:0: 'HirschPolynomialAccess.commonFace_line_of_dim_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialCircuitCarrierEdge.lean:181:0: 'HirschPolynomialAccess.rowCircuitStep_adj_of_commonFaceDim_le_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Build completed successfully (8482 jobs).
