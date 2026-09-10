@@ -1,0 +1,39 @@
+name: One-shot Natura Child-A recovery verification
+
+on:
+  push:
+    branches: [integration/natura-child-a-recovery]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: one-shot-natura-child-a-recovery
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Restore pinned Lean environment
+        uses: ./.github/actions/setup-lean
+      - name: Compile recovered Child A and audit axioms
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/natura-child-a-recovery
+          lake build Solutions.NaturaChildACandidate \
+            2>&1 | tee /tmp/natura-child-a-recovery/build.log
+          ! grep -q sorryAx /tmp/natura-child-a-recovery/build.log
+          python3 scripts/check_lean_axiom_log.py /tmp/natura-child-a-recovery/build.log \
+            HirschCircuit.standardCubicCircuitBound_explicit \
+            solution
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: natura-child-a-recovery
+          retention-days: 7
+          path: /tmp/natura-child-a-recovery/
