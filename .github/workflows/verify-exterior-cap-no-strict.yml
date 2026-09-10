@@ -1,0 +1,38 @@
+name: Verify strict-centre-free exterior cap
+on:
+  push:
+    branches: [chatgpt/exterior-cap-no-strict]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: verify-exterior-cap-no-strict
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Check pinned environment
+        run: |
+          set -euo pipefail
+          test "$(cat lean-toolchain)" = "leanprover/lean4:v4.30.0"
+          grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
+      - name: Restore pinned Lean and Mathlib
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Compile and audit strict-centre removal
+        run: |
+          set -euo pipefail
+          lake build Solutions.PolynomialExteriorCapNoStrict 2>&1 | tee /tmp/no-strict.log
+          python3 scripts/check_lean_axiom_log.py /tmp/no-strict.log \
+            HirschExterior.strict_centre_or_universal_final_cut \
+            HirschExterior.simultaneous_clip_diameter_from_exterior_cap_no_strict
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: exterior-cap-no-strict-audit
+          retention-days: 3
+          path: /tmp/no-strict.log
