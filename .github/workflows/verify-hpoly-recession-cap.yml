@@ -26,7 +26,7 @@ jobs:
       - name: Compile and audit recession and far-cap lemmas
         run: |
           set -euo pipefail
-          lake build Solutions.PolynomialHpolyHorizonFirstHit 2>&1 | tee /tmp/recession-cap.log
+          lake build Solutions.PolynomialHpolyHorizonClassify 2>&1 | tee /tmp/recession-cap.log
           python3 scripts/check_lean_axiom_log.py /tmp/recession-cap.log \
             HirschHpolyCap.ray_mem_hpoly \
             HirschHpolyCap.recession_and_neg_iff_common_kernel \
@@ -48,11 +48,15 @@ jobs:
             HirschHpolyCap.exists_inward_old_active_direction \
             HirschHpolyCap.inward_direction_has_increasing_old_row \
             HirschHpolyCap.exists_increasing_inactive_row_at_new_horizon \
-            HirschHpolyCap.new_horizon_first_hit_old_vertex
+            HirschHpolyCap.new_horizon_first_hit_old_vertex \
+            HirschHpolyCap.first_hit_segment_adjacent \
+            HirschHpolyCap.hpoly_convex \
+            HirschHpolyCap.new_horizon_adjacent_old_vertex \
+            HirschHpolyCap.cap_vertex_old_or_horizon_adjacent
       - name: Record verified source head
         run: |
           git rev-parse HEAD
-          grep -n "theorem new_horizon_first_hit_old_vertex" Solutions/PolynomialHpolyHorizonFirstHit.lean
+          grep -n "theorem cap_vertex_old_or_horizon_adjacent" Solutions/PolynomialHpolyHorizonClassify.lean
       - uses: actions/upload-artifact@v4
         if: always()
         with:
