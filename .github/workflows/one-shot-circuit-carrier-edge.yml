@@ -1,14 +1,13 @@
-name: One-shot circuit carrier edge verification
+name: Manual circuit carrier final verification
 
 on:
-  push:
-    branches: [research/circuit-vertex-larman]
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: one-shot-circuit-carrier-edge
+  group: circuit-carrier-final-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -19,28 +18,36 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - name: Restore pinned Lean environment
-        uses: ./.github/actions/setup-lean
-      - name: Compile carrier rank criteria and audit axioms
+      - name: Check Actions policy and exact finite regressions
         run: |
           set -euo pipefail
-          mkdir -p /tmp/circuit-carrier-edge
-          lake build Solutions.PolynomialCircuitCarrierRank \
-            2>&1 | tee /tmp/circuit-carrier-edge/build.log
-          ! grep -q sorryAx /tmp/circuit-carrier-edge/build.log
-          python3 scripts/check_lean_axiom_log.py /tmp/circuit-carrier-edge/build.log \
-            HirschPolynomialAccess.rowCircuitStep_adj_of_commonFace_line \
-            HirschPolynomialAccess.commonFace_line_of_dim_le_one \
+          python3 scripts/check_actions_policy.py
+          python3 scripts/test_circuit_carrier_defect.py --output /tmp/carrier-regression.json
+          cmp /tmp/carrier-regression.json research/circuit_carrier_defect_regression.json
+      - name: Restore pinned Lean environment
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Compile source and audit axioms
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/circuit-carrier-final
+          lake build Solutions.PolynomialCircuitCarrierDefect Solutions.PolynomialCircuitStepCommutation 2>&1 | tee /tmp/circuit-carrier-final/build.log
+          python3 scripts/check_lean_axiom_log.py /tmp/circuit-carrier-final/build.log \
             HirschPolynomialAccess.rowCircuitStep_adj_of_commonFaceDim_le_one \
-            HirschPolynomialAccess.activeNeutralRows_displacement_eq_commonSourceRows \
-            HirschPolynomialAccess.commonFaceDim_le_one_of_commonSource_rank \
-            HirschPolynomialAccess.rowCircuitStep_adj_of_commonSource_rank \
-            HirschPolynomialAccess.rowCircuitStep_adj_of_activeNeutral_rank \
-            HirschPolynomialAccess.rowCircuitStep_adj_of_activeNeutral_rank_dim_sub_one \
-            HirschPolynomialAccess.rowCircuitStep_adj_of_activeNeutralDefect_zero
+            HirschPolynomialAccess.commonSource_rank_add_commonFaceDim \
+            HirschPolynomialAccess.rowCircuitStep_adj_of_activeNeutralDefect_zero \
+            HirschPolynomialAccess.activeNeutralDefect_displacement_eq_commonFaceDim_sub_one \
+            HirschPolynomialAccess.activeNeutralDefect_displacement_zero_iff \
+            HirschPolynomialAccess.commonFaceDim_pos_of_displacement_ne_zero \
+            HirschPolynomialAccess.activeNeutralDefect_add_one_eq_commonFaceDim \
+            HirschPolynomialAccess.rowCircuit_activeNeutralDefect_eq_neutral_rank_loss \
+            HirschPolynomialAccess.rowCircuitStep_nonadj_activeNeutralDefect_pos \
+            HirschPolynomialAccess.rowCircuit_vertex_pair_activeDefect_bound \
+            HirschPolynomialAccess.rowCircuitStep_adj_of_row_excess_le_two \
+            HirschCircuit.rowCircuitStep_swap_of_rowwise_separation \
+            HirschCircuit.rowCircuitStep_swap_of_disjoint_support
       - uses: actions/upload-artifact@v4
-        if: always()
+        if: success()
         with:
-          name: circuit-carrier-edge
+          name: circuit-carrier-final
           retention-days: 7
-          path: /tmp/circuit-carrier-edge/
+          path: /tmp/circuit-carrier-final/
