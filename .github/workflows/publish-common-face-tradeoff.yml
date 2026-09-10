@@ -1,7 +1,5 @@
 name: Publish common-face structural theorems
 on:
-  push:
-    branches: [chatgpt/publish-common-face-tradeoff]
   workflow_dispatch:
 permissions:
   contents: read
@@ -16,22 +14,19 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - name: Install pinned Lean and Mathlib
-        run: |
-          set -euo pipefail
-          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y > /tmp/setup.log 2>&1
-          ~/.elan/bin/lake exe cache get >> /tmp/setup.log 2>&1 || { tail -100 /tmp/setup.log; exit 1; }
+      - name: Restore pinned Lean and Mathlib
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
       - name: Compile public definition and reviewed wrappers
         run: |
           set -euo pipefail
-          ~/.elan/bin/lake build Definitions.Def_Hirsch_common_face_geometry 2>&1 | tee /tmp/definition.log
+          lake build Definitions.Def_Hirsch_common_face_geometry 2>&1 | tee /tmp/definition.log
           for mod in \
             Solutions.Sol_Hirsch_common_face_dimension_tradeoff \
             Solutions.Sol_Hirsch_common_face_effective_count_bound \
             Solutions.Sol_Hirsch_common_face_effective_diameter
           do
             label="${mod##*.}"
-            ~/.elan/bin/lake build "$mod" 2>&1 | tee "/tmp/${label}.log"
+            lake build "$mod" 2>&1 | tee "/tmp/${label}.log"
             python3 scripts/check_lean_axiom_log.py "/tmp/${label}.log" solution
           done
       - name: Bundle and compile standalone server proofs
@@ -40,7 +35,7 @@ jobs:
           python3 scripts/bundle_public_common_face_tradeoff.py
           for label in tradeoff effective_count effective_diameter
           do
-            ~/.elan/bin/lake env lean "public_common_face_packet/${label}_solution.lean" 2>&1 | tee "/tmp/${label}_standalone.log"
+            lake env lean "public_common_face_packet/${label}_solution.lean" 2>&1 | tee "/tmp/${label}_standalone.log"
             python3 scripts/check_lean_axiom_log.py "/tmp/${label}_standalone.log" solution
           done
       - name: Publish definition and theorems to Prove2Me
@@ -51,7 +46,7 @@ jobs:
           test -n "$PROVE2ME_API_KEY"
           python3 scripts/publish_public_common_face_tradeoff.py
       - uses: actions/upload-artifact@v4
-        if: always()
+        if: success()
         with:
           name: public-common-face-publication-receipts
           path: |
