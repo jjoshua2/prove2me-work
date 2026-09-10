@@ -24,4 +24,6 @@ theorem diameter_bound_of_target_face_access (C k : ℕ)
       Bornology.IsBounded (Hpoly a b) → DiamLE (Hpoly a b) (d * C * (n + d) ^ k) := by
   exact diameter_bound_of_target_face_access_verified C k haccess
 
+#print axioms diameter_bound_of_target_face_access
+
 end Hirsch
