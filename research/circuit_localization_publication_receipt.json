@@ -1,0 +1,42 @@
+{
+  "kind": "circuit_localization_publication_receipt",
+  "date": "2026-09-10",
+  "platform_version": "0.9.9",
+  "environment": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "source_commit": "9f964b8617fbbcae3cf652c130cbdbacd32b0dea",
+  "source_verification_run": 34495410594,
+  "source_verification_artifact_id": 10159657523,
+  "source_verification_artifact_digest": "sha256:dd00b252c72675ee89370a36392176ddb9642d534e81987416fb1ae5f6977774",
+  "publication_run": 34496281896,
+  "publication_receipt_artifact_id": 10160146095,
+  "publication_receipt_artifact_digest": "sha256:9d2861066a81d8abf7f0c994372ca03f2acf4b9029f00c47b2c31818d29c1638",
+  "integration_verification_run": 34497418271,
+  "frontier": {
+    "theorem_name": "Hirsch.polynomial_edge_refinement_of_circuit_walks",
+    "theorem_id": "099c6686-560c-48fc-b2c2-18b6a620a06e",
+    "status_before_publication": "Open",
+    "status_after_publication": "Open"
+  },
+  "results": [
+    {
+      "theorem_name": "Hirsch.row_circuit_common_face_dimension_bound",
+      "theorem_id": "f0e79793-711b-4ada-b276-b4eab1fd0fe8",
+      "submission_id": "b5028624-3b66-4e72-8f8d-5b269a429128",
+      "verdict": "ACCEPTED",
+      "status": "Proved",
+      "standalone_sha256": "6d3b6b7aecd9c483d30acdff94ff304afad8a8c45f6948b6c12aba1efc1ec009"
+    },
+    {
+      "theorem_name": "Hirsch.balanced_row_circuit_vertices_share_tight_row",
+      "theorem_id": "73ce6c5c-25d8-46ec-9d77-a9f2b5d7b454",
+      "submission_id": "cf5a5faa-d4d2-419e-8802-62aded7c1e51",
+      "verdict": "ACCEPTED",
+      "status": "Proved",
+      "standalone_sha256": "e9b2a0be5fde78404b9b3456a8936d1ff3fea93be27c4cff0d318d02e27fe4ce"
+    }
+  ],
+  "mission_id": "6078cb2d-3594-44b1-a01a-fd452ddae274",
+  "mission_comment_id": "ed23703f-6e2a-4199-ab42-bc43bd60e8cd",
+  "one_shot_publication_workflow_deleted": true,
+  "publication_status": "PUBLISHED_VERIFIED_AND_READ_BACK"
+}
