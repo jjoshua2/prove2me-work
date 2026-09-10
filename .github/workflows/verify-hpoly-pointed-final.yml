@@ -1,0 +1,41 @@
+name: Verify geometric pointed finite-Hpoly theorem
+on:
+  push:
+    branches: [chatgpt/hpoly-pointedness]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: verify-hpoly-pointed-final
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Check pinned environment
+        run: |
+          set -euo pipefail
+          test "$(cat lean-toolchain)" = "leanprover/lean4:v4.30.0"
+          grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
+      - name: Restore pinned Lean and Mathlib
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Compile and audit geometric pointed theorem
+        run: |
+          set -euo pipefail
+          lake build Solutions.PolynomialHpolyPointedFinal 2>&1 | tee /tmp/pointed-final.log
+          python3 scripts/check_lean_axiom_log.py /tmp/pointed-final.log \
+            HirschHpolyCap.extremePoints_hpoly_finite \
+            HirschHpolyCap.exists_far_cap_level \
+            HirschHpolyCap.no_affine_line_iff_no_common_kernel \
+            HirschHpolyCap.simultaneous_clip_diameter_from_finite_hpoly \
+            HirschHpolyCap.simultaneous_clip_diameter_from_pointed_finite_hpoly
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hpoly-pointed-final-audit
+          retention-days: 3
+          path: /tmp/pointed-final.log
