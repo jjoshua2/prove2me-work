@@ -21,17 +21,23 @@ jobs:
           persist-credentials: false
       - name: Restore pinned Lean environment
         uses: ./.github/actions/setup-lean
-      - name: Compile carrier criteria and audit axioms
+      - name: Compile carrier rank criteria and audit axioms
         run: |
           set -euo pipefail
           mkdir -p /tmp/circuit-carrier-edge
-          lake build Solutions.PolynomialCircuitCarrierEdge \
+          lake build Solutions.PolynomialCircuitCarrierRank \
             2>&1 | tee /tmp/circuit-carrier-edge/build.log
           ! grep -q sorryAx /tmp/circuit-carrier-edge/build.log
           python3 scripts/check_lean_axiom_log.py /tmp/circuit-carrier-edge/build.log \
             HirschPolynomialAccess.rowCircuitStep_adj_of_commonFace_line \
             HirschPolynomialAccess.commonFace_line_of_dim_le_one \
-            HirschPolynomialAccess.rowCircuitStep_adj_of_commonFaceDim_le_one
+            HirschPolynomialAccess.rowCircuitStep_adj_of_commonFaceDim_le_one \
+            HirschPolynomialAccess.activeNeutralRows_displacement_eq_commonSourceRows \
+            HirschPolynomialAccess.commonFaceDim_le_one_of_commonSource_rank \
+            HirschPolynomialAccess.rowCircuitStep_adj_of_commonSource_rank \
+            HirschPolynomialAccess.rowCircuitStep_adj_of_activeNeutral_rank \
+            HirschPolynomialAccess.rowCircuitStep_adj_of_activeNeutral_rank_dim_sub_one \
+            HirschPolynomialAccess.rowCircuitStep_adj_of_activeNeutralDefect_zero
       - uses: actions/upload-artifact@v4
         if: always()
         with:
