@@ -1,7 +1,6 @@
 name: Circuit leaf decomposition
 on:
-  push:
-    branches: [chatgpt/circuit-leaf-split]
+  workflow_dispatch:
 concurrency:
   group: circuit-leaf-${{ github.ref }}
   cancel-in-progress: true
@@ -13,23 +12,19 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Probe authenticated leaf and related theorems
         env:
           PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
         run: python3 scripts/circuit_leaf_api.py
-      - name: Install elan if needed
-        run: |
-          if [ ! -x "$HOME/.elan/bin/elan" ]; then
-            curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y
-          fi
-          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
-      - name: Fetch pinned Mathlib cache
-        run: ~/.elan/bin/lake exe cache get
+      - name: Restore pinned Lean and Mathlib
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
       - name: Build normalization and exact leaf sketch
         run: |
           set -o pipefail
           mkdir -p circuit_leaf_packet
-          ~/.elan/bin/lake build Solutions.CircuitIrredundantModel Solutions.Sol_Hirsch_leaf_circuit_split 2>&1 | tee circuit_leaf_packet/build.log
+          lake build Solutions.CircuitIrredundantModel Solutions.Sol_Hirsch_leaf_circuit_split 2>&1 | tee circuit_leaf_packet/build.log
       - name: Independently audit exact sketch and admission-free conditional proof
         run: python3 scripts/check_circuit_leaf_split.py
       - name: Publish reviewed definition and children, then submit parent sketch
@@ -37,7 +32,7 @@ jobs:
           PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
         run: python3 scripts/circuit_leaf_api.py --publish-reviewed
       - name: Upload exact sketch and evidence
-        if: always()
+        if: success()
         uses: actions/upload-artifact@v4
         with:
           name: circuit-leaf-split-packet
