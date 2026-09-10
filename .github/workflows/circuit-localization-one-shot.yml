@@ -17,17 +17,20 @@ jobs:
           persist-credentials: false
       - name: Restore pinned Lean and Mathlib
         uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
-      - name: Compile localization and audit axioms
+      - name: Compile localization, public adapter, and audit axioms
         run: |
           set -euo pipefail
-          lake build Solutions.PolynomialCircuitLocalization 2>&1 | tee /tmp/localization.log
+          lake build Solutions.PolynomialCircuitLocalization \
+            Solutions.Sol_Hirsch_row_circuit_common_face_localization \
+            2>&1 | tee /tmp/localization.log
           ! grep -q sorryAx /tmp/localization.log
           python3 scripts/check_lean_axiom_log.py /tmp/localization.log \
             HirschCircuitLocalization.commonFaceDim_le_sourceOnlyRows_card \
             HirschCircuitLocalization.commonFaceDim_le_targetOnlyRows_card \
             HirschCircuitLocalization.circuitNeutralRows_card_ge_dim_sub_one \
             HirschCircuitLocalization.rowCircuit_commonFaceDim_localization \
-            HirschCircuitLocalization.rowCircuit_commonFaceDim_twice_le_excess_add_one
+            HirschCircuitLocalization.rowCircuit_commonFaceDim_twice_le_excess_add_one \
+            solution
       - uses: actions/upload-artifact@v4
         if: always()
         with:
