@@ -93,8 +93,10 @@ theorem rowCircuit_selectedEffectiveRows_defect_budget
   simpa [S, Z, W, commonFaceDim] using hmain
 
 /-- Rearranged form of `rowCircuit_selectedEffectiveRows_defect_budget`, stated
-in the traditional facet-excess style. The premise `d ≤ n` avoids ambiguity
-from truncated subtraction on the ambient excess. -/
+in the traditional facet-excess style. The premises `dim W ≤ |F|` and `d ≤ n`
+make both natural-number subtractions genuine differences. They hold for the
+intended application where `F` is a full-dimensional genuine-facet
+presentation of the common face. -/
 theorem rowCircuit_selectedEffectiveRows_excess_defect
     (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
     (u v : EuclideanSpace ℝ (Fin d))
@@ -102,6 +104,7 @@ theorem rowCircuit_selectedEffectiveRows_excess_defect
     (hcirc : IsRowCircuit a (v - u))
     (F : Finset (Fin n))
     (hF : F ⊆ effectiveRowsOnSubspace a (commonDirection a b u v))
+    (hface : commonFaceDim a b u v ≤ F.card)
     (hdn : d ≤ n) :
     (F.card - commonFaceDim a b u v) +
         ((commonFaceDim a b u v - 1) -
