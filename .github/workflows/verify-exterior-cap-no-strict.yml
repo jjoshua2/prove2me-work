@@ -29,6 +29,7 @@ jobs:
           lake build Solutions.PolynomialExteriorCapNoStrict 2>&1 | tee /tmp/no-strict.log
           python3 scripts/check_lean_axiom_log.py /tmp/no-strict.log \
             HirschExterior.strict_centre_or_universal_final_cut \
+            HirschExterior.clip_diameter_from_exterior_routes_no_strict \
             HirschExterior.simultaneous_clip_diameter_from_exterior_cap_no_strict
       - uses: actions/upload-artifact@v4
         if: always()
