@@ -8,8 +8,6 @@ on:
     paths:
       - scripts/prove2me_auth.py
       - .github/workflows/prove2me-auth-smoke.yml
-      - AGENTS.md
-      - CLOUD_AGENT.md
 
 permissions:
   contents: read
@@ -22,6 +20,8 @@ jobs:
       PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Require repository secret
         shell: bash
