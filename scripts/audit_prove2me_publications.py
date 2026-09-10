@@ -5,6 +5,7 @@ from pathlib import Path
 
 BASE = "https://prove2.me/api/v1"
 PIN = "c5ea00351c28e24afc9f0f84379aa41082b1188f"
+EXPECTED_VERSION = "0.9.9"
 OUT = Path("publication_backlog_audit")
 
 PROVED_NAMES = [
@@ -49,12 +50,18 @@ PROVED_NAMES = [
     "Hirsch.face_interval_cover_route_bound_of_feasible_start_containment",
     "Hirsch.face_interval_cover_route_bound_of_feasible_active_containment",
     "Hirsch.simultaneous_clip_diameter_of_exterior_cap",
+    "Hirsch.simultaneous_clipping_diameter_of_compact_outer",
+    "Hirsch.row_circuit_common_face_dimension_bound",
+    "Hirsch.balanced_row_circuit_vertices_share_tight_row",
 ]
 OPEN_NAMES = ["Hirsch.polynomial_edge_refinement_of_circuit_walks"]
 EXPECTED_IDS = {
     "conformal_decomposition_publication": ("05726681-715c-408a-b44c-d73dac856b20", "Proved"),
     "Hirsch_circuit_slack_model": ("26b46900-d139-4f6c-b2e7-5088faed7b9e", "Definition"),
     "Hirsch_common_face_geometry": ("dc9161e6-0dae-4da5-ab82-91b871e2409e", "Definition"),
+    "simultaneous_clipping": ("75d26f37-e0bd-4d73-9128-688fe7d5a80c", "Proved"),
+    "row_circuit_localization": ("f0e79793-711b-4ada-b276-b4eab1fd0fe8", "Proved"),
+    "balanced_circuit_obstruction": ("73ce6c5c-25d8-46ec-9d77-a9f2b5d7b454", "Proved"),
 }
 
 class NoRedirect(urllib.request.HTTPRedirectHandler):
@@ -66,7 +73,10 @@ class API:
     def refresh(self):
         req=urllib.request.Request(BASE+"/agent/refresh",data=json.dumps({"api_key":self.key}).encode(),headers={"Content-Type":"application/json"},method="POST")
         with self.opener.open(req,timeout=45) as r: d=json.load(r)
-        self.token=d["access_token"]; self.expires=float(d.get("expires_at",time.time()+3500)); self.version=d.get("version")
+        self.version=d.get("version")
+        if self.version != EXPECTED_VERSION:
+            raise RuntimeError(f"unexpected Prove2Me version {self.version!r}; expected {EXPECTED_VERSION}")
+        self.token=d["access_token"]; self.expires=float(d.get("expires_at",time.time()+3500))
     def get(self,path):
         if not self.token or time.time()+60>=self.expires: self.refresh()
         req=urllib.request.Request(BASE+path,headers={"Authorization":"Bearer "+self.token})
@@ -81,6 +91,7 @@ def main():
     key=os.environ.get("PROVE2ME_API_KEY","").strip()
     if not key: raise RuntimeError("PROVE2ME_API_KEY unavailable")
     api=API(key); rows={}; failures=[]
+    api.refresh()
     for name in PROVED_NAMES:
         items=lookup_name(api,name)
         rows[name]=[{k:x.get(k) for k in ("theorem_id","theorem_name","theorem_title","status","mathlib_rev","deprecated_at")} for x in items]
