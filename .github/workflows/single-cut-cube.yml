@@ -1,15 +1,6 @@
 name: Single-cut cube diameter
 on:
-  push:
-    branches: [chatgpt/single-cut-cube]
-    paths:
-      - 'Solutions/SingleCutCube*.lean'
-      - 'Solutions/Polynomial*.lean'
-      - 'Definitions/Def_Hirsch_model.lean'
-      - 'scripts/bundle_single_cut_cube.py'
-      - 'scripts/submit_checked_packet.py'
-      - 'research/SingleCutCubeProof.md'
-      - '.github/workflows/single-cut-cube.yml'
+  workflow_dispatch:
 concurrency:
   group: single-cut-cube-${{ github.ref }}
   cancel-in-progress: true
@@ -21,6 +12,8 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Read current platform state
         env:
           PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
@@ -64,18 +57,12 @@ jobs:
           else: print('Repository secret PROVE2ME_API_KEY is not configured; no authenticated request was sent.')
           open('cube_packet/live-state.json','w').write(json.dumps(report,indent=2))
           PY
-      - name: Install pinned Lean
-        run: |
-          if [ ! -x "$HOME/.elan/bin/elan" ]; then
-            curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y
-          fi
-          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
-      - name: Fetch pinned Mathlib cache
-        run: ~/.elan/bin/lake exe cache get
+      - name: Restore pinned Lean and Mathlib
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
       - name: Build concrete cube-cut geometry
         run: |
           set -o pipefail
-          ~/.elan/bin/lake build Solutions.SingleCutCubeSubmission 2>&1 | tee cube_packet/build.log
+          lake build Solutions.SingleCutCubeSubmission 2>&1 | tee cube_packet/build.log
       - name: Independently compile exact submission files and audit axioms
         run: python3 scripts/bundle_single_cut_cube.py
       - name: Authenticated related-theorem search when configured
@@ -88,9 +75,10 @@ jobs:
             echo 'No repository secret configured; skipping authenticated duplicate search and publication.'
           fi
       - name: Upload proof diagnostics
-        if: always()
+        if: success()
         uses: actions/upload-artifact@v4
         with:
           name: single-cut-cube-proof-packet
           path: cube_packet/
           if-no-files-found: warn
+          retention-days: 3
