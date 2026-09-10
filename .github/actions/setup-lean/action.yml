@@ -1,0 +1,43 @@
+name: Setup pinned Lean and Mathlib cache
+description: Restore the pinned Lean/Lake environment, populate it on a miss, and save it before proof steps can fail.
+
+runs:
+  using: composite
+  steps:
+    - name: Restore pinned Lean/Lake cache
+      id: lean-cache
+      uses: actions/cache/restore@v4
+      with:
+        path: |
+          ~/.elan
+          .lake
+        key: prove2me-lean-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-v1
+        restore-keys: |
+          prove2me-lean-${{ runner.os }}-
+
+    - name: Put Elan on PATH
+      shell: bash
+      run: echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+
+    - name: Install pinned Lean and populate Mathlib cache
+      shell: bash
+      run: |
+        set -euo pipefail
+        if [[ ! -x "$HOME/.elan/bin/elan" ]]; then
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y
+        fi
+        # A partial restore is useful, but still run cache get so Lake fills anything
+        # missing for the exact committed manifest/toolchain.
+        if [[ "${{ steps.lean-cache.outputs.cache-hit }}" != "true" ]]; then
+          "$HOME/.elan/bin/lake" exe cache get
+        fi
+        "$HOME/.elan/bin/lake" --version
+
+    - name: Save populated Lean/Lake cache immediately
+      if: steps.lean-cache.outputs.cache-hit != 'true'
+      uses: actions/cache/save@v4
+      with:
+        path: |
+          ~/.elan
+          .lake
+        key: prove2me-lean-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-v1
