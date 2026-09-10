@@ -18,7 +18,7 @@ lemma hpoly_convex
   intro x hx y hy α β hα hβ hab
   intro i
   change ⟪a i, α • x + β • y⟫ ≤ b i
-  simp only [inner_add_right, inner_smul_right]
+  rw [inner_add_right, inner_smul_right, inner_smul_right]
   nlinarith [hx i, hy i]
 
 /-- A genuinely new horizon cap vertex is adjacent, in the capped graph, to an
