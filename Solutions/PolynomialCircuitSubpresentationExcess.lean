@@ -24,7 +24,8 @@ theorem rows_ge_dimension_of_vertex
     (hu : u ∈ extremePoints ℝ (Hpoly a b)) :
     d ≤ n := by
   classical
-  let T := rowEvalMap a (Finset.univ : Finset (Fin n))
+  let U : Finset (Fin n) := Finset.univ
+  let T := rowEvalMap a U
   have hTin : Function.Injective T := by
     intro p q hpq
     have hz : T (p - q) = 0 := by
@@ -33,15 +34,15 @@ theorem rows_ge_dimension_of_vertex
       d n a b u hu (p - q) ?_
     · exact sub_eq_zero.mp hz0
     · intro i _htight
-      have hcoord := congrFun hz ⟨i, Finset.mem_univ i⟩
+      have hiU : i ∈ U := by simp [U]
+      have hcoord := congrFun hz ⟨i, hiU⟩
       change ⟪a i, p - q⟫ = 0 at hcoord
       exact hcoord
   have hle := LinearMap.finrank_le_finrank_of_injective hTin
   have hdom : Module.finrank ℝ (EuclideanSpace ℝ (Fin d)) = d :=
     finrank_euclideanSpace_fin (𝕜 := ℝ)
-  have hcod :
-      Module.finrank ℝ ((Finset.univ : Finset (Fin n)) → ℝ) = n := by
-    simp [Fintype.card_coe]
+  have hcod : Module.finrank ℝ (U → ℝ) = n := by
+    simp [U]
   rw [hdom, hcod] at hle
   exact hle
 
