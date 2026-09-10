@@ -1,7 +1,5 @@
 name: Query dimension-three theorem status
 on:
-  push:
-    branches: [chatgpt/explicit-two-face-bridge]
   workflow_dispatch:
 permissions:
   contents: read
