@@ -1,0 +1,35 @@
+name: Probe published local-rank results
+on:
+  push:
+    branches: [chatgpt/target-access-equivalence]
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Read theorem catalogue
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: |
+          set -euo pipefail
+          test -n "$PROVE2ME_API_KEY"
+          python3 - <<'PY'
+          import json, os, urllib.parse, urllib.request
+          base='https://prove2.me/api/v1'
+          pin='c5ea00351c28e24afc9f0f84379aa41082b1188f'
+          r=urllib.request.Request(base+'/agent/refresh',data=json.dumps({'api_key':os.environ['PROVE2ME_API_KEY']}).encode(),headers={'Content-Type':'application/json'},method='POST')
+          with urllib.request.urlopen(r,timeout=30) as x: token=json.load(x)['access_token']
+          headers={'Authorization':'Bearer '+token}
+          for q in ('neutral','local rank','target_face_access_of_local'):
+            path='/theorems?'+urllib.parse.urlencode({'q':q,'env':pin,'limit':100})
+            r=urllib.request.Request(base+path,headers=headers)
+            with urllib.request.urlopen(r,timeout=30) as x: data=json.load(x)
+            print('QUERY',q,'COUNT',len(data.get('theorems',[])))
+            for t in data.get('theorems',[]):
+              print(t.get('theorem_id'),t.get('theorem_name'),t.get('status'))
+          PY
