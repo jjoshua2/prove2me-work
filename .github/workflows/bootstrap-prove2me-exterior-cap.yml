@@ -1,0 +1,51 @@
+name: Bootstrap verified exterior-cap publication
+
+on:
+  push:
+    branches: [chatgpt/recession-cap-clipping]
+    paths:
+      - '.github/workflows/bootstrap-prove2me-exterior-cap.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: bootstrap-prove2me-publish-exterior-cap
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-slim
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+
+      - name: Download immutable verified PR52 artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: exterior-cap-offline-verified
+          path: _verified_artifact
+          repository: jjoshua2/prove2me-work
+          run-id: 34412248641
+          github-token: ${{ github.token }}
+
+      - name: Publish and verify already-audited proof
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: |
+          set -eu
+          python3 --version
+          python3 scripts/publish_verified_exterior_cap.py --artifact-root _verified_artifact
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: prove2me-exterior-cap-publication-receipts
+          retention-days: 30
+          if-no-files-found: warn
+          path: prove2me_exterior_cap_receipts/
