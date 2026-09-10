@@ -1,4 +1,4 @@
-name: Verify automatic finite-Hpoly far-cap level
+name: Verify cap-level-free finite-Hpoly clipping
 on:
   push:
     branches: [chatgpt/hpoly-auto-cap-level]
@@ -11,7 +11,7 @@ concurrency:
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
         with:
@@ -23,14 +23,15 @@ jobs:
           grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
       - name: Restore pinned Lean and Mathlib
         uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
-      - name: Compile and audit automatic cap level
+      - name: Compile and audit automatic cap theorem
         run: |
           set -euo pipefail
-          lake build Solutions.PolynomialHpolyAutoCapLevel 2>&1 | tee /tmp/auto-cap.log
+          lake build Solutions.PolynomialHpolyPointedClipping 2>&1 | tee /tmp/auto-cap.log
           python3 scripts/check_lean_axiom_log.py /tmp/auto-cap.log \
             HirschHpolyCap.activeRows_injOn_extreme \
             HirschHpolyCap.extremePoints_hpoly_finite \
-            HirschHpolyCap.exists_far_cap_level
+            HirschHpolyCap.exists_far_cap_level \
+            HirschHpolyCap.simultaneous_clip_diameter_from_finite_hpoly
       - uses: actions/upload-artifact@v4
         if: always()
         with:
