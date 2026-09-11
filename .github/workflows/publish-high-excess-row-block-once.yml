@@ -26,12 +26,12 @@ jobs:
         run: |
           set -euo pipefail
           python3 scripts/check_actions_policy.py
-          python3 -m py_compile scripts/publish_high_excess_row_block_routing.py
-          python3 scripts/publish_high_excess_row_block_routing.py prepare
+          python3 -m py_compile scripts/publish_high_excess_row_block_routing.py scripts/publish_high_excess_row_block_routing_v2.py
+          python3 scripts/publish_high_excess_row_block_routing_v2.py prepare
           test "$(cat lean-toolchain)" = 'leanprover/lean4:v4.30.0'
           grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
           grep -Fq 'theorem checked_row_block_adapter' /tmp/high-excess-row-block-public/driver.lean
-          grep -Fq 'theorem solution' /tmp/high-excess-row-block-public/solution.lean
+          grep -Eq '^theorem solution$' /tmp/high-excess-row-block-public/solution.lean
       - name: Restore shared pinned Lean environment
         uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
       - name: Compile and axiom-audit dependency-free driver
@@ -49,7 +49,7 @@ jobs:
       - name: Publish exact theorem with checked dependency
         env:
           PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
-        run: python3 scripts/publish_high_excess_row_block_routing.py publish
+        run: python3 scripts/publish_high_excess_row_block_routing_v2.py publish
       - name: Preserve proof and sanitized receipts
         if: always()
         uses: actions/upload-artifact@v4
