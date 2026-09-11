@@ -4,10 +4,13 @@ import Solutions.PolynomialCommonFaceMinimalSubpresentation
 /-!
 # Representation-independent meaning of the minimum common-face row count
 
-Candidate source: not yet compiled or axiom-audited. These adapters upgrade
-minimum-over-original-subsets semantics to minimum-over-arbitrary-presentations
-semantics, provided a strictly feasible irredundant coordinate model exists.
-They do not define or count an abstract geometric facet type.
+Kernel-checked at frozen source commit
+`1ff86eb9c69679c6355c6fa968b6601482b046a1` (Actions run `34559027640`).
+These adapters upgrade minimum-over-original-subsets semantics to
+minimum-over-arbitrary-presentations semantics, provided a strictly feasible
+irredundant coordinate model exists. They do not define or count an abstract
+geometric facet type. Publication provenance for the core row-count theorem is
+recorded in `research/IRREDUNDANT_ROW_COUNT_PUBLICATION_RECEIPT_2026-09-10.md`.
 -/
 
 set_option autoImplicit false
