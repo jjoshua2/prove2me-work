@@ -37,7 +37,8 @@ theorem momentSlice_convex {n : ℕ} (t : Fin n → ℝ) (mu : ℝ) :
       _ = a * (∑ i, t i * x i) + b * (∑ i, t i * y i) := by
         rw [Finset.sum_add_distrib, Finset.mul_sum, Finset.mul_sum]
       _ = a * mu + b * mu := by rw [hx.2.2, hy.2.2]
-      _ = mu := by nlinarith
+      _ = (a + b) * mu := by ring
+      _ = mu := by rw [hab, one_mul]
 
 /-- The segment between two points of one support carrier remains in that
 support carrier. -/
