@@ -1,0 +1,22 @@
+[
+  {
+    "module": "Definitions.Def_Hirsch_model",
+    "sha256": "6fd58f0b67dc7673338618074d61737ce769a93353f815d9481a7710f8884b45",
+    "git_blob": "53acfb1a0eb3af6719173c233788199dcb987eca"
+  },
+  {
+    "module": "Solutions.PolynomialProductWalk",
+    "sha256": "649db9a5fed1202811be058bfb9631524b6c8df58c55cd4ec9b2967096b2451f",
+    "git_blob": "64e5977f9cd5fd9617b67e82f504550236d49b83"
+  },
+  {
+    "module": "Solutions.PolynomialAffineDiameterTransport",
+    "sha256": "52ecd7a68f14b54cfdd5f6e2c1ef57523ca2117bf587170df985460847518a20",
+    "git_blob": "ada90a58fe876f5e0b31ec20a0f8c22b1c408dd1"
+  },
+  {
+    "module": "Solutions.PolynomialRowBlockRouting",
+    "sha256": "b027747a18327b343778a7ae2e49be2654b1a5db57094a116b7eacaf034e5712",
+    "git_blob": "f410f77d854bf2853372492965d35561695f885b"
+  }
+]

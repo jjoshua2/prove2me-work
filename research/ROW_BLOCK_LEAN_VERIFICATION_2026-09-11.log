@@ -1,0 +1,5 @@
+RowBlocksStandalone.lean:462:4: warning: Try this: intro h x hx y hy
+'HirschRowBlocks.image_hpoly_eq_pi_of_row_blocks' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HirschRowBlocks.factors_bounded_of_row_blocks' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HirschRowBlocks.row_block_excess_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HirschRowBlocks.hpoly_diamLE_excess_of_small_row_blocks' depends on axioms: [propext, Classical.choice, Quot.sound]

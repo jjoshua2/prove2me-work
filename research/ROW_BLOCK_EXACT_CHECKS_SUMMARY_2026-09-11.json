@@ -1,0 +1,50 @@
+{
+  "seed": 20260911,
+  "evidence": "exact rational certificates and finite graphs; not Lean instance proofs",
+  "full_report_sha256": "8e3c6fe5732386d7756c7775e97a1dc1a06ff6e60a15fb89e5c525d7d6214bc1",
+  "totals": {
+    "full_graphs": 14,
+    "vertices": 256,
+    "edges": 558,
+    "zero_savings_families": 9,
+    "negative_controls": 12
+  },
+  "large_product_dimensions": [
+    8,
+    12,
+    16,
+    20
+  ],
+  "large_product_excesses": [
+    10,
+    14,
+    18,
+    22
+  ],
+  "zero_savings_k": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "negative_controls_rejected": [
+    "wrong_inverse",
+    "wrong_transformed_normal",
+    "duplicate_coordinate",
+    "duplicate_row",
+    "hidden_cross_block_coupling",
+    "nonpositive_balance",
+    "unbalanced_normals",
+    "infeasible_witness",
+    "negative_farkas_multiplier",
+    "invalid_farkas_rhs",
+    "uncertified_row_deletion",
+    "floating_point_input"
+  ],
+  "reproduce": "python3 scripts/test_row_block_certificate.py --output /tmp/row-block-checks.json"
+}
