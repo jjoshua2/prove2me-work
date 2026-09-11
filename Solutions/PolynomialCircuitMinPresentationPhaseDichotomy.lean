@@ -101,8 +101,7 @@ theorem rowCircuitStep_minPresentation_same_phase_strict_budget_or_selected_targ
                 (commonDirection a b x y)).range)) <
         n - d
   · left
-    rw [← hFM]
-    exact hstrict
+    simpa [Mc, hFM] using hstrict
   · right
     have hsat :
         (F.card - commonFaceDim a b x y) +
