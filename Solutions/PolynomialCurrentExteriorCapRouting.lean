@@ -184,8 +184,7 @@ theorem diamLE_single_clip_of_augmented_outer_routes
       exact HirschSubsegment.diamLE_of_convex_subsegment _
         (hPv.inter (convex_segment _ _)) _ _ inter_subset_right
     · rw [show E k = ∅ by simp [E, hold]]
-      intro p hp
-      exact False.elim hp.1
+      simp [DiamLE]
 
   let S : Sum (Fin D) (Sum (Fin 1) (Fin 2)) → Set (EuclideanSpace ℝ (Fin d))
     | .inl k => E k
@@ -273,22 +272,24 @@ theorem diamLE_single_clip_of_augmented_outer_routes
               hQ.segment_subset (hwv L (by omega)).1 (hwv (L + 1) (by omega)).1 hz
             have hPz := hρP z htQ
             rcases HirschRadial.retract_eq_self_or_on_cut aa bb o z hstrict' with hfix | ⟨q, hq⟩
-            · refine ⟨.inl ⟨L, hk⟩, ?_⟩
+            · have hfix' : ρ z = z := by simpa [ρ] using hfix
+              refine ⟨.inl ⟨L, hk⟩, ?_⟩
               change ρ z ∈ if w L = w (L + 1) ∨ Adj Q (w L) (w (L + 1)) then
                 P ∩ segment ℝ (w L) (w (L + 1)) else ∅
               rw [if_pos (Or.inl heq)]
-              exact ⟨hPz, by simpa [hfix] using hz⟩
+              exact ⟨hPz, by simpa [hfix'] using hz⟩
             · have hq0 : q = 0 := Subsingleton.elim _ _
               exact ⟨.inr (.inl 0), hPz, by simpa [F, aa, bb, hq0] using hq⟩
           · rcases hrel with hedge | hcap
             · have htQ : z ∈ Q := hedge.2.subset hz
               have hPz := hρP z htQ
               rcases HirschRadial.retract_eq_self_or_on_cut aa bb o z hstrict' with hfix | ⟨q, hq⟩
-              · refine ⟨.inl ⟨L, hk⟩, ?_⟩
+              · have hfix' : ρ z = z := by simpa [ρ] using hfix
+                refine ⟨.inl ⟨L, hk⟩, ?_⟩
                 change ρ z ∈ if w L = w (L + 1) ∨ Adj Q (w L) (w (L + 1)) then
                   P ∩ segment ℝ (w L) (w (L + 1)) else ∅
                 rw [if_pos (Or.inr hedge)]
-                exact ⟨hPz, by simpa [hfix] using hz⟩
+                exact ⟨hPz, by simpa [hfix'] using hz⟩
               · have hq0 : q = 0 := Subsingleton.elim _ _
                 exact ⟨.inr (.inl 0), hPz, by simpa [F, aa, bb, hq0] using hq⟩
             · have hs := hShadow (w L) hcap.2.2.1 (w (L + 1)) hcap.2.2.2 z hz
