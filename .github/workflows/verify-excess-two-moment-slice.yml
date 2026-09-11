@@ -32,12 +32,18 @@ jobs:
       - name: Compile and audit
         run: |
           set -euo pipefail
-          lake build Solutions.PolynomialExcessTwoMomentSlice 2>&1 | tee /tmp/excess-two-moment.log
+          lake build Solutions.PolynomialExcessTwoMomentSlice Solutions.PolynomialExcessTwoPairVertices 2>&1 | tee /tmp/excess-two-moment.log
           python3 - <<'PY'
           import re
           from pathlib import Path
           text=Path('/tmp/excess-two-moment.log').read_text(encoding='utf-8')
-          names=['HirschExcessTwo.zeroFace_isExtreme']
+          names=[
+            'HirschExcessTwo.zeroFace_isExtreme',
+            'HirschExcessTwo.sum_eq_add_of_zero_off_pair',
+            'HirschExcessTwo.pairPoint_mem',
+            'HirschExcessTwo.eq_pairPoint_of_mem_of_zero_off_pair',
+            'HirschExcessTwo.pairPoint_mem_extremePoints',
+          ]
           allowed={'propext','Classical.choice','Quot.sound'}
           pat=re.compile(r"'([^']+)' depends on axioms:\s*\[([^\]]*)\]",re.S)
           reports={n:{x.strip() for x in raw.split(',') if x.strip()} for n,raw in pat.findall(text)}
@@ -47,6 +53,7 @@ jobs:
             bad=reports[name]-allowed
             if bad: raise SystemExit(f'unexpected axioms for {name}: {sorted(bad)}')
             print(name, sorted(reports[name]))
+          print('PASS: normalized excess-two pair-vertex geometry audited')
           PY
       - uses: actions/upload-artifact@v4
         if: always()
