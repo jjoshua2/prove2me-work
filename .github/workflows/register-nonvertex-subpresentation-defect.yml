@@ -1,0 +1,37 @@
+name: Register nonvertex subpresentation defect theorem
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+permissions:
+  contents: read
+concurrency:
+  group: register-nonvertex-subpresentation-defect-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+jobs:
+  publish:
+    if: >-
+      github.repository == 'jjoshua2/prove2me-work' &&
+      github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
+      github.head_ref == 'publish/nonvertex-subpresentation-defect-checkpoint'
+    runs-on: ubuntu-slim
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - name: Check repository Actions policy
+        run: python3 scripts/check_actions_policy.py
+      - name: Register theorem and link mission
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: |
+          set -euo pipefail
+          test -n "$PROVE2ME_API_KEY"
+          python3 scripts/register_nonvertex_subpresentation_defect_checkpoint.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nonvertex-subpresentation-defect-publication
+          retention-days: 30
+          path: nonvertex_subpresentation_defect_publication_receipts/
