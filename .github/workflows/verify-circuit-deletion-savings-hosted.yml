@@ -20,7 +20,8 @@ jobs:
        github.head_ref == 'formal/min-presentation-phase-dichotomy' ||
        github.head_ref == 'formal/irredundant-min-carrier-dichotomy' ||
        github.head_ref == 'formal/lower-excess-carrier-recursion' ||
-       github.head_ref == 'verify/high-excess-row-block-routing')
+       github.head_ref == 'verify/high-excess-row-block-routing' ||
+       github.head_ref == 'formal/common-face-row-block-routing')
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
@@ -102,6 +103,12 @@ jobs:
               HirschRowBlocks.row_block_excess_sum \
               HirschRowBlocks.hpoly_diamLE_excess_of_small_row_blocks
           fi
+          if [[ -f Solutions/PolynomialCommonFaceRowBlockRouting.lean ]]; then
+            lake build Solutions.PolynomialCommonFaceRowBlockRouting
+            lake env lean Solutions/PolynomialCommonFaceRowBlockRouting.lean 2>&1 | tee /tmp/common-face-row-block-routing.log
+            python3 scripts/check_lean_axiom_log.py /tmp/common-face-row-block-routing.log \
+              HirschCircuitLocalization.commonFace_diamLE_minPresentationExcess_of_small_row_blocks
+          fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -117,4 +124,5 @@ jobs:
             /tmp/circuit-irredundant-min-carrier-dichotomy.log
             /tmp/lower-excess-carrier-recursion.log
             /tmp/high-excess-row-block-routing.log
+            /tmp/common-face-row-block-routing.log
           if-no-files-found: warn
