@@ -1,0 +1,66 @@
+name: Publish audited irredundant row-count theorem
+
+on:
+  pull_request:
+    types: [opened, reopened]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-irredundant-row-count
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: >-
+      github.repository == 'jjoshua2/prove2me-work' &&
+      github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
+      github.head_ref == 'publish/irredundant-row-count' &&
+      github.base_ref == 'chatgpt/irredundant-row-count-invariance'
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Freeze reviewed source and policy
+        run: |
+          set -euo pipefail
+          SOURCE=1ff86eb9c69679c6355c6fa968b6601482b046a1
+          git cat-file -e "$SOURCE^{commit}"
+          git diff --exit-code "$SOURCE" HEAD -- \
+            Solutions Definitions lean-toolchain lake-manifest.json lakefile.lean
+          python3 scripts/check_actions_policy.py
+
+      - name: Restore pinned Lean environment
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+
+      - name: Recheck exact frozen standalone solution
+        run: |
+          set -euo pipefail
+          PROOF=Solutions/Sol_Hirsch_irredundant_rows_card_le_any_equivalent_presentation.lean
+          echo '33be3fdd17714bc1439b0bef73489c571ae41b14f5b06443c4ab6f85e905af55  '"$PROOF" | sha256sum -c -
+          lake env lean "$PROOF" 2>&1 | tee /tmp/irredundant-row-count-standalone.log
+          python3 scripts/check_lean_axiom_log.py /tmp/irredundant-row-count-standalone.log solution
+          sha256sum "$PROOF" > /tmp/irredundant-row-count-standalone.sha256
+
+      - name: Register, verify, and link theorem on Prove2Me 0.10.0
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: |
+          set -euo pipefail
+          python3 scripts/publish_irredundant_row_count.py
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: irredundant-row-count-publication-receipts
+          retention-days: 14
+          path: |
+            irredundant_row_count_publication_receipts/
+            /tmp/irredundant-row-count-standalone.log
+            /tmp/irredundant-row-count-standalone.sha256
