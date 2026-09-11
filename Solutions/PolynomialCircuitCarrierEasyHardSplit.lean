@@ -64,22 +64,31 @@ theorem rowCircuit_commonFace_easy_cost_or_hard_neutral_defect
     refine ⟨e, heq, ?_⟩
     let F : Finset (Fin n) :=
       (Finset.univ.map e) ∩ HirschCommonFace.commonFaceEffectiveRows a b x y
-    have hbudget' :
-        commonFacePresentationExcess a b x y +
-            ((commonFaceDim a b x y - 1) -
-              Module.finrank ℝ
-                (((HirschCommonFace.rowEvalMap a
-                  (F ∩ Finset.univ.filter (fun i =>
-                    a i ≠ 0 ∧ ⟪a i, y - x⟫ = 0))).domRestrict
-                  (HirschCommonFace.commonDirection a b x y)).range)) ≤
-          n - d := by
-      simpa [commonFacePresentationExcess, F,
-        HirschCommonFace.commonFaceDim, HirschCommonFace.commonDirection,
-        HirschCommonFace.commonSourceRows, HirschCommonFace.rowEvalMap,
-        commonFaceDim, commonDirection, commonSourceRows, rowEvalMap] using hbudget
+    let D : ℕ :=
+      ((HirschCommonFace.commonFaceDim a b x y - 1) -
+        Module.finrank ℝ
+          (((HirschCommonFace.rowEvalMap a
+            (((Finset.univ.map e) ∩
+              HirschCommonFace.commonFaceEffectiveRows a b x y) ∩
+              Finset.univ.filter (fun i =>
+                a i ≠ 0 ∧ ⟪a i, y - x⟫ = 0))).domRestrict
+            (HirschCommonFace.commonDirection a b x y)).range))
+    have hbudgetD :
+        (commonFaceMinSubpresentationCount a b x y -
+            HirschCommonFace.commonFaceDim a b x y) + D ≤ n - d := by
+      simpa [D] using hbudget
+    have hdim :
+        commonFaceDim a b x y = HirschCommonFace.commonFaceDim a b x y := by
+      rfl
+    have hhardPub :
+        4 ≤ commonFaceMinSubpresentationCount a b x y -
+          HirschCommonFace.commonFaceDim a b x y := by
+      simpa [commonFacePresentationExcess, hdim] using hhard
+    have hD : D ≤ (n - d) - 4 := by
+      omega
     refine ⟨?_, hhard, ?_⟩
     · simpa [F] using hFcard
-    · omega
+    · simpa [D, F, hdim] using hD
 
 #print axioms rowCircuit_commonFace_easy_cost_or_hard_neutral_defect
 
