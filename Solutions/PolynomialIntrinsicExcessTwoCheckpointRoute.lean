@@ -96,14 +96,14 @@ theorem rowCircuitWalk_edge_route_two_mul_of_intrinsic_excess_two
           ((Classical.choose hcw) (i.val + 1)) + 2) :
     HirschRegionRoute.Route (Adj (Hpoly a b)) (2 * L) u v := by
   classical
-  obtain ⟨w, hw0, hwL, hfeas, _hsteps⟩ := hcw
-  have hwChoice : Classical.choose hcw = w := by
-    rfl
+  let w := Classical.choose hcw
+  have hspec := Classical.choose_spec hcw
+  rcases hspec with ⟨hw0, hwL, hfeas, _hsteps⟩
   have hminw : ∀ i : Fin L,
       commonFaceMinSubpresentationCount a b (w i.val) (w (i.val + 1)) ≤
         commonFaceDim a b (w i.val) (w (i.val + 1)) + 2 := by
     intro i
-    simpa [hwChoice] using hmin i
+    simpa [w] using hmin i
   have h0 : w 0 ∈ extremePoints ℝ (Hpoly a b) := by simpa [hw0] using hu
   have hL : w L ∈ extremePoints ℝ (Hpoly a b) := by simpa [hwL] using hv
   have hroute := feasible_sequence_edge_route_two_mul_of_intrinsic_excess_two
