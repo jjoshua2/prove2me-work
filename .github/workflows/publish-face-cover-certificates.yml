@@ -48,6 +48,10 @@ jobs:
         env:
           PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
         run: python3 scripts/prove2me_auth.py check
+      - name: Recover interrupted rank-selected verification without resubmission
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: python3 scripts/resume_face_cover_rank_selected.py
       - name: Register and verify only matching, audited independent theorems
         env:
           PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
