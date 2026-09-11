@@ -13,7 +13,8 @@ jobs:
       github.repository == 'jjoshua2/prove2me-work' &&
       github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
       (github.head_ref == 'verify/circuit-deletion-savings-hosted' ||
-       github.head_ref == 'formal/circuit-deletion-savings-public')
+       github.head_ref == 'formal/circuit-deletion-savings-public' ||
+       github.head_ref == 'formal/saturated-carrier-blocker')
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
@@ -45,6 +46,14 @@ jobs:
             python3 scripts/check_lean_axiom_log.py /tmp/circuit-deletion-savings-public.log \
               Hirsch.row_circuit_selected_excess_defect_savings_identity
           fi
+          if [[ -f Solutions/PolynomialCircuitSaturatedBlocker.lean ]]; then
+            lake build Solutions.PolynomialCircuitSaturatedBlocker
+            lake env lean Solutions/PolynomialCircuitSaturatedBlocker.lean 2>&1 | tee /tmp/circuit-saturated-blocker.log
+            python3 scripts/check_lean_axiom_log.py /tmp/circuit-saturated-blocker.log \
+              HirschCircuitLocalization.rowCircuit_saturated_selected_contains_effective_nonneutral \
+              HirschCircuitLocalization.rowCircuitStep_saturated_selected_target_blocker \
+              HirschCircuitLocalization.rowCircuitStep_saturated_selected_targetOnlyRow
+          fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -53,4 +62,5 @@ jobs:
           path: |
             /tmp/circuit-deletion-savings-hosted.log
             /tmp/circuit-deletion-savings-public.log
+            /tmp/circuit-saturated-blocker.log
           if-no-files-found: warn
