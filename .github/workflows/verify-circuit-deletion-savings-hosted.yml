@@ -15,7 +15,8 @@ jobs:
       (github.head_ref == 'verify/circuit-deletion-savings-hosted' ||
        github.head_ref == 'formal/circuit-deletion-savings-public' ||
        github.head_ref == 'formal/saturated-carrier-blocker' ||
-       github.head_ref == 'formal/circuit-step-savings-dichotomy')
+       github.head_ref == 'formal/circuit-step-savings-dichotomy' ||
+       github.head_ref == 'formal/saturated-phase-blocker')
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
@@ -62,6 +63,12 @@ jobs:
               HirschCircuitLocalization.rowCircuitStep_selected_strict_budget_or_targetOnlyRow \
               HirschCircuitLocalization.rowCircuitStep_minPresentation_strict_budget_or_selected_targetOnlyRow
           fi
+          if [[ -f Solutions/PolynomialCircuitSaturatedPhaseBlocker.lean ]]; then
+            lake build Solutions.PolynomialCircuitSaturatedPhaseBlocker
+            lake env lean Solutions/PolynomialCircuitSaturatedPhaseBlocker.lean 2>&1 | tee /tmp/circuit-saturated-phase-blocker.log
+            python3 scripts/check_lean_axiom_log.py /tmp/circuit-saturated-phase-blocker.log \
+              HirschCircuitLocalization.rowCircuitStep_saturated_same_phase_selected_target_positive_blocker
+          fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -72,4 +79,5 @@ jobs:
             /tmp/circuit-deletion-savings-public.log
             /tmp/circuit-saturated-blocker.log
             /tmp/circuit-step-savings-dichotomy.log
+            /tmp/circuit-saturated-phase-blocker.log
           if-no-files-found: warn
