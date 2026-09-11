@@ -51,6 +51,61 @@ theorem zeroFace_isExtreme {n : ℕ}
     nlinarith
   exact ⟨hx, hxi⟩
 
+/-- The unique feasible point supported on a low index `i` and a high index
+`j`. The hypotheses ensuring `t i < mu < t j` are supplied to the lemmas. -/
+def pairPoint {n : ℕ} (t : Fin n → ℝ) (mu : ℝ) (i j : Fin n) :
+    EuclideanSpace ℝ (Fin n) :=
+  WithLp.toLp 2 (fun k =>
+    if k = i then (t j - mu) / (t j - t i)
+    else if k = j then (mu - t i) / (t j - t i)
+    else 0)
+
+@[simp] lemma pairPoint_apply_left {n : ℕ}
+    (t : Fin n → ℝ) (mu : ℝ) (i j : Fin n) (hij : i ≠ j) :
+    pairPoint t mu i j i = (t j - mu) / (t j - t i) := by
+  simp [pairPoint, hij]
+
+@[simp] lemma pairPoint_apply_right {n : ℕ}
+    (t : Fin n → ℝ) (mu : ℝ) (i j : Fin n) (hij : i ≠ j) :
+    pairPoint t mu i j j = (mu - t i) / (t j - t i) := by
+  simp [pairPoint, hij]
+
+@[simp] lemma pairPoint_apply_other {n : ℕ}
+    (t : Fin n → ℝ) (mu : ℝ) (i j k : Fin n)
+    (hki : k ≠ i) (hkj : k ≠ j) :
+    pairPoint t mu i j k = 0 := by
+  simp [pairPoint, hki, hkj]
+
+/-- The explicit two-supported point satisfies the two moment equations. -/
+theorem pairPoint_mem {n : ℕ}
+    (t : Fin n → ℝ) (mu : ℝ) (i j : Fin n)
+    (hli : t i < mu) (hrj : mu < t j) :
+    pairPoint t mu i j ∈ momentSlice t mu := by
+  classical
+  have hij : i ≠ j := by
+    intro h
+    subst j
+    linarith
+  have hden : 0 < t j - t i := by linarith
+  refine ⟨?_, ?_, ?_⟩
+  · intro k
+    by_cases hki : k = i
+    · subst k
+      simp [pairPoint, hij]
+      positivity
+    · by_cases hkj : k = j
+      · subst k
+        simp [pairPoint, hij]
+        positivity
+      · simp [pairPoint, hki, hkj]
+  · simp [pairPoint, hij]
+    field_simp [ne_of_gt hden]
+    ring
+  · simp [pairPoint, hij]
+    field_simp [ne_of_gt hden]
+    ring
+
 #print axioms zeroFace_isExtreme
+#print axioms pairPoint_mem
 
 end HirschExcessTwo
