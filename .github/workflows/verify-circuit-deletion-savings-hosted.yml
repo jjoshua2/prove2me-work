@@ -25,7 +25,8 @@ jobs:
        github.head_ref == 'formal/circuit-carrier-three-way-reduction' ||
        github.head_ref == 'formal/row-block-budget-routing' ||
        github.head_ref == 'formal/single-cut-lower-excess-routing' ||
-       github.head_ref == 'formal/one-row-deletion-pointedness')
+       github.head_ref == 'formal/one-row-deletion-pointedness' ||
+       github.head_ref == 'formal/direct-row-deletion-routing')
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
@@ -49,6 +50,7 @@ jobs:
           python3 scripts/check_lean_axiom_log.py /tmp/circuit-deletion-savings-hosted.log \
             HirschCircuitLocalization.rowCircuit_selected_defect_le_discarded_neutral_of_bounded \
             HirschCircuitLocalization.rowCircuit_selected_excess_defect_savings_identity_of_bounded \
+            HirschCircuitLocalization.rowCircuit_selected_excess_defect_add_nonneutral_savings_le_of_bounded \
             HirschCircuitLocalization.rowCircuit_selected_budget_saturated_iff_of_bounded
           if [[ -f Solutions/PolynomialCircuitDeletionSavingsPublic.lean ]]; then
             lake build Solutions.PolynomialCircuitDeletionSavingsPublic
@@ -139,6 +141,13 @@ jobs:
             python3 scripts/check_lean_axiom_log.py /tmp/one-row-deletion-pointedness.log \
               HirschDeletion.rowMapWithout_injective_of_bounded
           fi
+          if [[ -f Solutions/PolynomialDirectRowDeletionRouting.lean ]]; then
+            lake build Solutions.PolynomialDirectRowDeletionRouting
+            lake env lean Solutions/PolynomialDirectRowDeletionRouting.lean 2>&1 | tee /tmp/direct-row-deletion-routing.log
+            python3 scripts/check_lean_axiom_log.py /tmp/direct-row-deletion-routing.log \
+              HirschDeletion.hpoly_eq_deleteRow_inter_row \
+              HirschDeletion.hpoly_diamLE_of_bounded_deleteRow_outer
+          fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -159,4 +168,5 @@ jobs:
             /tmp/row-block-budget-routing.log
             /tmp/single-cut-lower-excess-routing.log
             /tmp/one-row-deletion-pointedness.log
+            /tmp/direct-row-deletion-routing.log
           if-no-files-found: warn
