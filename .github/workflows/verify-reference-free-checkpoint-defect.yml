@@ -1,0 +1,61 @@
+name: Verify reference-free checkpoint defect
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: reference-free-checkpoint-defect-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    if: github.head_ref == 'formal/reference-free-checkpoint-defect'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Check policy and pins
+        run: |
+          set -euo pipefail
+          python3 scripts/check_actions_policy.py
+          test "$(cat lean-toolchain)" = "leanprover/lean4:v4.30.0"
+          grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
+      - name: Restore pinned Lean environment
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Compile and audit reference-free defect theorem
+        run: |
+          set -euo pipefail
+          lake build Solutions.PolynomialCircuitCheckpointMinSubpresentationDefectBounded 2>&1 | tee /tmp/reference-free-checkpoint-defect.log
+          python3 - <<'PY'
+          import re
+          from pathlib import Path
+          text=Path('/tmp/reference-free-checkpoint-defect.log').read_text(encoding='utf-8')
+          names=[
+            'HirschCircuitLocalization.rowCircuit_selectedEffectiveRows_excess_defect_of_bounded',
+            'HirschCircuitLocalization.rowCircuit_commonFace_minSubpresentation_excess_defect_of_bounded',
+          ]
+          allowed={'propext','Classical.choice','Quot.sound'}
+          pat=re.compile(r"'([^']+)' depends on axioms:\s*\[([^\]]*)\]",re.S)
+          reports={n:{x.strip() for x in raw.split(',') if x.strip()} for n,raw in pat.findall(text)}
+          for n in re.findall(r"'([^']+)' does not depend on any axioms",text): reports[n]=set()
+          for name in names:
+            if name not in reports: raise SystemExit('missing axiom report for '+name)
+            bad=reports[name]-allowed
+            if bad: raise SystemExit(f'unexpected axioms for {name}: {sorted(bad)}')
+            print(name, sorted(reports[name]))
+          print('PASS: reference-free checkpoint defect audited')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: reference-free-checkpoint-defect-audit
+          retention-days: 3
+          path: /tmp/reference-free-checkpoint-defect.log
+          if-no-files-found: warn
