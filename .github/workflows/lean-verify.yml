@@ -14,8 +14,6 @@ on:
         required: false
         type: string
         default: ""
-  pull_request:
-    types: [opened, reopened, synchronize]
 
 permissions:
   contents: read
@@ -26,7 +24,6 @@ concurrency:
 
 jobs:
   verify:
-    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -49,41 +46,3 @@ jobs:
             read -r -a targets <<< "$LEAN_TARGETS"
             lake build "${targets[@]}"
           fi
-
-  verify_public_excess_two_carrier:
-    if: >-
-      github.event_name == 'pull_request' &&
-      github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
-      github.head_ref == 'publish/excess-two-common-carrier'
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-          persist-credentials: false
-      - name: Restore pinned Lean environment
-        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
-      - name: Compile and audit compact driver
-        run: |
-          set -euo pipefail
-          lake build Solutions.PolynomialExcessTwoCarrierPublicDriver 2>&1 | tee /tmp/compact-excess-two-driver.log
-          python3 - <<'PY'
-          import re
-          from pathlib import Path
-          text=Path('/tmp/compact-excess-two-driver.log').read_text()
-          names=[
-            'HirschExcessTwoPublic.common_face_has_subpresentation_dim_add_two_of_rows_le_dim_add_two',
-            'HirschExcessTwoPublic.excess_two_common_carrier_from_proved_inputs',
-          ]
-          allowed={'propext','Classical.choice','Quot.sound'}
-          pat=re.compile(r"'([^']+)' depends on axioms:\s*\[([^\]]*)\]",re.S)
-          reports={n:{x.strip() for x in raw.split(',') if x.strip()} for n,raw in pat.findall(text)}
-          for n in re.findall(r"'([^']+)' does not depend on any axioms",text): reports[n]=set()
-          for name in names:
-            if name not in reports: raise SystemExit('missing axiom report for '+name)
-            bad=reports[name]-allowed
-            if bad: raise SystemExit(f'unexpected axioms for {name}: {sorted(bad)}')
-            print(name, sorted(reports[name]))
-          print('PASS: compact public excess-two carrier driver audited')
-          PY
