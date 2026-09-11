@@ -76,11 +76,12 @@ theorem deletionCappedOuter_isBounded_of_injective
       calc
         (∑ k ∈ (Finset.univ.erase i), (-b k.1)) + (-⟪a i.1, x⟫) ≤
             (∑ k ∈ (Finset.univ.erase i), (-⟪a k.1, x⟫)) +
-              (-⟪a i.1, x⟫) := add_le_add_right hothers _
+              (-⟪a i.1, x⟫) := by
+                simpa [add_comm] using
+                  (add_le_add_right hothers (-⟪a i.1, x⟫))
         _ = deletionCapValue a j x := hsplit
         _ ≤ M := hcap
-    change lower i ≤ rowMapWithout a j x i
-    simp only [lower, rowMapWithout]
+    change (∑ k ∈ (Finset.univ.erase i), (-b k.1)) - M ≤ ⟪a i.1, x⟫
     linarith
   · intro i
     change rowMapWithout a j x i ≤ upper i
