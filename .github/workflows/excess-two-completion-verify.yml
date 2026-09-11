@@ -18,7 +18,7 @@ jobs:
       github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
       github.head_ref == 'formal/excess-two-completion'
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
         with:
@@ -64,6 +64,17 @@ jobs:
             HirschExcessTwo.momentSlice_diamLE_two \
             HirschExcessTwo.supportFace_diamLE_two
 
+      - name: Generate, compile, and audit flattened public solution
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/excess-two-public
+          python3 scripts/build_excess_two_completion_standalone.py \
+            /tmp/excess-two-public/solution.lean \
+            /tmp/excess-two-public/manifest.json
+          lake env lean /tmp/excess-two-public/solution.lean 2>&1 | tee /tmp/excess-two-public/solution.log
+          python3 scripts/check_lean_axiom_log.py /tmp/excess-two-public/solution.log solution
+          sha256sum /tmp/excess-two-public/solution.lean | tee /tmp/excess-two-public/sha256.txt
+
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -73,3 +84,7 @@ jobs:
             /tmp/excess-two-classification.log
             /tmp/excess-two-singletons.log
             /tmp/excess-two-diameter.log
+            /tmp/excess-two-public/solution.log
+            /tmp/excess-two-public/solution.lean
+            /tmp/excess-two-public/manifest.json
+            /tmp/excess-two-public/sha256.txt
