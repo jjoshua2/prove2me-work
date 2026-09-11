@@ -24,7 +24,8 @@ jobs:
        github.head_ref == 'formal/common-face-row-block-routing' ||
        github.head_ref == 'formal/circuit-carrier-three-way-reduction' ||
        github.head_ref == 'formal/row-block-budget-routing' ||
-       github.head_ref == 'formal/single-cut-lower-excess-routing')
+       github.head_ref == 'formal/single-cut-lower-excess-routing' ||
+       github.head_ref == 'formal/one-row-deletion-pointedness')
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
@@ -132,6 +133,12 @@ jobs:
               HirschCircuitLocalization.diamLE_inter_halfspace_of_compact_outer \
               HirschCircuitLocalization.hpoly_inter_halfspace_diamLE_of_lower_excess_outer
           fi
+          if [[ -f Solutions/PolynomialOneRowDeletionPointedness.lean ]]; then
+            lake build Solutions.PolynomialOneRowDeletionPointedness
+            lake env lean Solutions/PolynomialOneRowDeletionPointedness.lean 2>&1 | tee /tmp/one-row-deletion-pointedness.log
+            python3 scripts/check_lean_axiom_log.py /tmp/one-row-deletion-pointedness.log \
+              HirschDeletion.rowMapWithout_injective_of_bounded
+          fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -151,4 +158,5 @@ jobs:
             /tmp/circuit-carrier-three-way-reduction.log
             /tmp/row-block-budget-routing.log
             /tmp/single-cut-lower-excess-routing.log
+            /tmp/one-row-deletion-pointedness.log
           if-no-files-found: warn
