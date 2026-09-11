@@ -1,0 +1,69 @@
+{
+  "date": "2026-09-10",
+  "platform": "0.9.9",
+  "env": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "source_pr": 62,
+  "source_commit_frozen": "681314640b6f84792d8ae011c3534a6e8c456930",
+  "transplant_merge": "5a731041dc8c785e362209cead85051f6fa44557",
+  "theorems": [
+    {
+      "theorem_name": "Hirsch.weighted_geodesic_face_cover_diameter_bound",
+      "theorem_id": "7815b37c-dab5-42b8-a1ed-fbb08d1eab5b",
+      "status": "Proved",
+      "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+      "url": "https://prove2.me/theorems/7815b37c-dab5-42b8-a1ed-fbb08d1eab5b",
+      "accepted_submission_id": "35f52f45-7fcb-47f4-9213-c5c947e6ff63",
+      "accepted_at": "2026-09-10T22:14:11.857036+00:00",
+      "title": "Weighted extreme-face covers bound graph diameter"
+    },
+    {
+      "theorem_name": "Hirsch.tight_rows_outside_subspace_cardinality_bound",
+      "theorem_id": "27bd88d2-6943-4ca3-abbd-170264c17b98",
+      "status": "Proved",
+      "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+      "url": "https://prove2.me/theorems/27bd88d2-6943-4ca3-abbd-170264c17b98",
+      "accepted_submission_id": "d81b3bfc-ac7a-4ce5-9308-cd2746724c0d",
+      "accepted_at": "2026-09-10T22:59:53.645379+00:00",
+      "title": "Tight rows outside a normal subspace cover its codimension"
+    },
+    {
+      "theorem_name": "Hirsch.rank_selected_row_face_diameter_bound",
+      "theorem_id": "76cdff62-bb43-4758-a1ed-980ce0ec5230",
+      "status": "Proved",
+      "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+      "url": "https://prove2.me/theorems/76cdff62-bb43-4758-a1ed-980ce0ec5230",
+      "accepted_submission_id": "c227d208-25c5-48b1-b49b-e94788770bf1",
+      "accepted_at": "2026-09-10T23:25:53.933145+00:00",
+      "title": "Rank-selected supporting sections bound an extreme face diameter"
+    },
+    {
+      "theorem_name": "Hirsch.weighted_cover_improvement_requires_smaller_child",
+      "theorem_id": "599aaead-0333-4d91-8bc5-d7e3e8b9831a",
+      "status": "Proved",
+      "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+      "url": "https://prove2.me/theorems/599aaead-0333-4d91-8bc5-d7e3e8b9831a",
+      "accepted_submission_id": "65314a03-5c93-470f-8fc9-820209f34901",
+      "accepted_at": "2026-09-10T23:11:37.745875+00:00",
+      "title": "Averaging improvement requires a child better than vertex counting"
+    }
+  ],
+  "frontier_unchanged": "Hirsch.polynomial_edge_refinement_of_circuit_walks_dim_ge_four",
+  "carrier_edge": {
+    "theorem_name": "Hirsch.row_circuit_step_adj_of_common_face_dim_le_one",
+    "theorem_id": "f8d8878c-aaf0-4b1e-8b93-904e25be3871",
+    "status": "Proved",
+    "accepted_submission_id": "cffbbaeb-ace8-4ab6-9659-9ce45700cc14",
+    "url": "https://prove2.me/theorems/f8d8878c-aaf0-4b1e-8b93-904e25be3871",
+    "source_pr": 63
+  },
+  "github_publish_run": {
+    "id": 34539939870,
+    "result": "job timeout 35m during register/verify after successful compile, axiom audit, and auth preflight",
+    "url": "https://github.com/jjoshua2/prove2me-work/actions/runs/34539939870"
+  },
+  "open_leaf": {
+    "theorem_name": "Hirsch.polynomial_edge_refinement_of_circuit_walks_dim_ge_four",
+    "theorem_id": "73beca40-31bc-42d5-8350-5ec9ac28bd3e",
+    "status": "Open"
+  }
+}

@@ -67,7 +67,7 @@ theorem rowCircuitStep_swap_of_rowwise_separation
           rw [inner_add_right, hh, add_zero]
         have hi := hfeas i
         rw [hsecond, inner_add_right, inner_smul_right, hval] at hi
-        exact hi
+        simpa only [inner_add_right, inner_smul_right] using hi
 
 /-- Support-set formulation of the maximal-step commutation lemma. -/
 theorem rowCircuitStep_swap_of_disjoint_support

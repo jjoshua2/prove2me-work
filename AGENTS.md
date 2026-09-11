@@ -12,6 +12,22 @@ Read `STATUS.md`, then `CLOUD_AGENT.md`, then `SKILL.md`, before doing platform 
 
 Do not redo Santos/spindle work, circuit Child A, or already-published repair lemmas unless a defect is found. Do not create a cyclic child that depends back on an ancestor such as `balanced_polynomial_bound`.
 
+## Pull-request lifecycle and backlog discipline
+
+Open pull requests are an **active work queue, not an archive**. Branches, commits, receipts, and closed PRs preserve history; leaving completed or superseded PRs open obscures the actual frontier.
+
+- Before opening a new PR, inspect the repository's current open PRs. Reuse or update an existing PR when it is the same active line of work instead of creating another overlapping branch.
+- Every PR must end in exactly one of these states:
+  1. merged into current `main`;
+  2. closed as superseded/historical, with a comment naming the successor or clean integration PR when applicable; or
+  3. deliberately kept as a draft, with an explicit blocker and next action in its body.
+- If useful verified work sits on obsolete or heavily stacked ancestry, **do not merge the historical ancestry merely to preserve it**. Transplant the exact verified source blobs, receipts, and reproducibility material onto current `main` in a small integration PR; merge that PR; then close the historical source PR as superseded.
+- Publication-only PRs and one-shot publication workflows are temporary. After the server verdict is known, preserve theorem/submission IDs and verification receipts in durable repository state, remove or exclude the one-shot workflow, and close the publication PR.
+- Experimental verification workflows are not archival artifacts. Once their useful evidence is preserved in receipts/logs, delete them or exclude them from integration.
+- When one PR supersedes another, close the superseded PR in the same work cycle. Do not defer routine backlog cleanup to a later agent.
+- As a default for one mission, keep no more than a small handful of PRs open (roughly three) unless each additional PR has a distinct, documented active purpose.
+- At handoff time, compare the open PR queue against `STATUS.md`. Every open PR should correspond to an active item named or compatible with the authoritative frontier; otherwise merge, transplant, or close it before ending the work cycle.
+
 ## Authentication and network preflight
 
 Never print, log, commit, upload as an artifact, or include in a PR an API key or bearer token. Send Prove2Me credentials only to `https://prove2.me/api/v1`.
@@ -36,7 +52,7 @@ python3 scripts/prove2me_auth.py bootstrap --persist-api-key
 
 Only run that persistence command during the **agent phase**, after setup-only secrets have been removed. `credentials.json` is gitignored and is written mode `0600`.
 
-Agent internet access must also permit `prove2.me`. Core solver/publishing work needs `GET` and `POST`; editing explanations or metadata additionally needs `PATCH`. Keep the domain allowlist limited to what the task requires.
+Agent internet access must also permit `prove2.me`. Core solver/publishing work needs `GET` and `POST`; editing explanations or metadata additionally needs `PATCH`. Keep the allowlist narrow.
 
 ### GitHub Actions
 
