@@ -58,6 +58,8 @@ theorem rowCircuit_commonFace_subpresentation_excess_defect_checkpoint
   refine ⟨m, hm, e, he, ?_⟩
   let F : Finset (Fin n) :=
     (Finset.univ.map e) ∩ HirschCommonFace.commonFaceEffectiveRows a b x y
+  let FI : Finset (Fin n) :=
+    (Finset.univ.map e) ∩ Finset.univ.filter (fun i => commonFaceA a b x y i ≠ 0)
   have hFpub : F ⊆ HirschCommonFace.commonFaceEffectiveRows a b x y :=
     Finset.inter_subset_right
   have hFint : F ⊆ effectiveRowsOnSubspace a (commonDirection a b x y) := by
@@ -118,10 +120,16 @@ theorem rowCircuit_commonFace_subpresentation_excess_defect_checkpoint
     (fun j => commonFaceA a b x y (eF j))
     (fun j => commonFaceB a b x y (eF j)) hbdF 0 hzeroF
   have hdimRank := LinearMap.finrank_le_finrank_of_injective hinj
+  have hdimRank' :
+      commonFaceDim a b x y ≤ Module.finrank ℝ (Fin FI.card → ℝ) := by
+    simpa [FI] using hdimRank
+  have hcod : Module.finrank ℝ (Fin FI.card → ℝ) = FI.card := by simp
+  have hfaceI : commonFaceDim a b x y ≤ FI.card := hdimRank'.trans_eq hcod
+  have hFI : FI = F := by
+    rfl
   have hface : commonFaceDim a b x y ≤ F.card := by
-    simpa [F, HirschCommonFace.commonFaceEffectiveRows,
-      HirschCommonFace.commonFaceA, HirschPolynomialAccess.commonFaceA,
-      finrank_euclideanSpace_fin] using hdimRank
+    rw [← hFI]
+    exact hfaceI
   have hdn : d ≤ n :=
     rows_ge_dimension_of_bounded a b hbd z (extremePoints_subset hz)
   have hbudget := rowCircuit_selectedEffectiveRows_excess_defect_of_reference_vertex
