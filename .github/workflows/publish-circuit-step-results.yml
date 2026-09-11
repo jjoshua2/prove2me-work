@@ -1,0 +1,64 @@
+name: Publish audited circuit-step results
+on:
+  pull_request:
+    types: [opened, reopened]
+permissions:
+  contents: read
+concurrency:
+  group: publish-circuit-step-results
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: >-
+      github.repository == 'jjoshua2/prove2me-work' &&
+      github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
+      github.head_ref == 'publish/circuit-step-results'
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Freeze source and policy
+        run: |
+          set -euo pipefail
+          SOURCE=2ef303016d5edbed0bb339fc7341b4f019ada400
+          git cat-file -e "$SOURCE^{commit}"
+          git diff --exit-code "$SOURCE" HEAD -- Solutions Definitions lean-toolchain lake-manifest.json lakefile.lean
+          python3 scripts/check_actions_policy.py
+      - name: Restore pinned Lean environment
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Recreate exact standalone packets and audit them
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/circuit-public
+          lake build Definitions.Def_Hirsch_common_face_geometry Definitions.Def_Hirsch_circuit_slack_model
+          python3 scripts/build_circuit_localization_standalone.py \
+            Solutions.Sol_Hirsch_maximal_row_circuit_step_carrier_bound \
+            /tmp/circuit-public/carrier.lean /tmp/circuit-public/carrier-manifest.json
+          python3 scripts/build_circuit_localization_standalone.py \
+            Solutions.Sol_Hirsch_row_circuit_step_swap_iff_tight_blockers \
+            /tmp/circuit-public/swap.lean /tmp/circuit-public/swap-manifest.json
+          echo 'ad1bcdc39d8a8f3dd0993b1af9262647ba27f87b3abf5f9a17b9345993b6cd12  /tmp/circuit-public/carrier.lean' | sha256sum -c -
+          echo '49103bd1d83928d2c28b903ed79ec2b098ca9fd55eaf5af491bd128071de2e5e  /tmp/circuit-public/swap.lean' | sha256sum -c -
+          lake env lean /tmp/circuit-public/carrier.lean 2>&1 | tee /tmp/circuit-public/carrier.log
+          lake env lean /tmp/circuit-public/swap.lean 2>&1 | tee /tmp/circuit-public/swap.log
+          python3 scripts/check_lean_axiom_log.py /tmp/circuit-public/carrier.log solution
+          python3 scripts/check_lean_axiom_log.py /tmp/circuit-public/swap.log solution
+          sha256sum /tmp/circuit-public/carrier.lean /tmp/circuit-public/swap.lean > /tmp/circuit-public/sha256.txt
+      - name: Register and verify exact audited theorems
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: python3 scripts/publish_circuit_step_results.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: circuit-step-publication-receipts
+          retention-days: 14
+          path: |
+            circuit_step_publication_receipts/
+            /tmp/circuit-public/sha256.txt
+            /tmp/circuit-public/carrier.log
+            /tmp/circuit-public/swap.log
