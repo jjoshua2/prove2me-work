@@ -1,0 +1,38 @@
+name: Read exact low-excess proof interfaces
+on:
+  pull_request:
+    types: [opened, reopened]
+permissions:
+  contents: read
+concurrency:
+  group: low-excess-interface-readback
+  cancel-in-progress: true
+jobs:
+  read:
+    if: >-
+      github.repository == 'jjoshua2/prove2me-work' &&
+      github.actor == 'jjoshua2' &&
+      github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
+      github.head_ref == 'formal/low-excess-section-descent'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Cheap policy and syntax checks
+        run: |
+          python3 scripts/check_actions_policy.py
+          python3 -m py_compile scripts/read_low_excess_interfaces.py
+      - name: Read proved dependency statements
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: python3 scripts/read_low_excess_interfaces.py
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: low-excess-proved-interfaces
+          retention-days: 7
+          path: low_excess_interfaces/
