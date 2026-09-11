@@ -13,16 +13,14 @@ attribute [local instance] Classical.propDecidable
 
 namespace HirschDeletion
 
-/-- The H-polyhedron obtained by deleting one distinguished row, indexed by the
-remaining original rows.  This presentation is convenient for reusing the
-generic horizon-cap lemmas. -/
+/-- The outer polyhedron obtained by deleting one distinguished row.  It is
+kept as a direct finite-row predicate because the public `Hpoly` vocabulary is
+indexed specifically by `Fin n`. -/
 def deletionOuter
     {d n : ℕ}
     (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
     (j : Fin n) : Set (EuclideanSpace ℝ (Fin d)) :=
-  Hpoly
-    (fun i : {i : Fin n // i ≠ j} => a i.1)
-    (fun i : {i : Fin n // i ≠ j} => b i.1)
+  {x | ∀ i : Fin n, i ≠ j → ⟪a i, x⟫ ≤ b i}
 
 /-- Ordinary halfspace normal representing the explicit negative-row-sum cap
 functional. -/
@@ -40,7 +38,9 @@ theorem deletionCapNormal_inner
     (x : EuclideanSpace ℝ (Fin d)) :
     ⟪deletionCapNormal a j, x⟫ = deletionCapValue a j x := by
   classical
-  simp [deletionCapNormal, deletionCapValue]
+  unfold deletionCapNormal deletionCapValue
+  rw [inner_neg_left, sum_inner]
+  simp
 
 /-- The one-row deletion outer is convex. -/
 theorem deletionOuter_convex
@@ -48,15 +48,15 @@ theorem deletionOuter_convex
     (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
     (j : Fin n) : Convex ℝ (deletionOuter a b j) := by
   intro x hx y hy α β hα hβ hsum
-  change ∀ i : {i : Fin n // i ≠ j},
-    ⟪a i.1, α • x + β • y⟫ ≤ b i.1
-  intro i
+  change ∀ i : Fin n, i ≠ j →
+    ⟪a i, α • x + β • y⟫ ≤ b i
+  intro i hij
+  have hx' : ⟪a i, x⟫ ≤ b i := hx i hij
+  have hy' : ⟪a i, y⟫ ≤ b i := hy i hij
   rw [inner_add_right, inner_smul_right, inner_smul_right]
-  have hx' := hx i
-  have hy' := hy i
   have hxa := mul_le_mul_of_nonneg_left hx' hα
   have hyb := mul_le_mul_of_nonneg_left hy' hβ
-  have hb : α * b i.1 + β * b i.1 = b i.1 := by
+  have hb : α * b i + β * b i = b i := by
     rw [← add_mul, hsum, one_mul]
   linarith
 
@@ -69,24 +69,9 @@ theorem deletionCappedOuter_eq_horizonCap
     deletionCappedOuter a b j M =
       HirschHorizon.cap (deletionOuter a b j) (deletionCapNormal a j) M := by
   ext x
-  change
-    ((∀ i : Fin n, i ≠ j → ⟪a i, x⟫ ≤ b i) ∧
-      deletionCapValue a j x ≤ M) ↔
-    ((∀ i : {i : Fin n // i ≠ j}, ⟪a i.1, x⟫ ≤ b i.1) ∧
-      ⟪deletionCapNormal a j, x⟫ ≤ M)
-  constructor
-  · rintro ⟨hrows, hcap⟩
-    refine ⟨?_, ?_⟩
-    · intro i
-      exact hrows i.1 i.2
-    · rw [deletionCapNormal_inner]
-      exact hcap
-  · rintro ⟨hrows, hcap⟩
-    refine ⟨?_, ?_⟩
-    · intro i hij
-      exact hrows ⟨i, hij⟩
-    · rw [← deletionCapNormal_inner]
-      exact hcap
+  simp only [deletionCappedOuter, HirschHorizon.cap, deletionOuter,
+    Set.mem_setOf_eq, Set.mem_inter_iff]
+  rw [deletionCapNormal_inner]
 
 /-- Every vertex of the explicit capped deletion outer is either an old vertex
 of the uncapped deletion outer or lies on the cap horizon.  No ray
