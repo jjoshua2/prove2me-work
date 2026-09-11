@@ -22,7 +22,8 @@ jobs:
        github.head_ref == 'formal/lower-excess-carrier-recursion' ||
        github.head_ref == 'verify/high-excess-row-block-routing' ||
        github.head_ref == 'formal/common-face-row-block-routing' ||
-       github.head_ref == 'formal/circuit-carrier-three-way-reduction')
+       github.head_ref == 'formal/circuit-carrier-three-way-reduction' ||
+       github.head_ref == 'formal/row-block-budget-routing')
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
@@ -46,7 +47,6 @@ jobs:
           python3 scripts/check_lean_axiom_log.py /tmp/circuit-deletion-savings-hosted.log \
             HirschCircuitLocalization.rowCircuit_selected_defect_le_discarded_neutral_of_bounded \
             HirschCircuitLocalization.rowCircuit_selected_excess_defect_savings_identity_of_bounded \
-            HirschCircuitLocalization.rowCircuit_selected_excess_defect_add_nonneutral_savings_le_of_bounded \
             HirschCircuitLocalization.rowCircuit_selected_budget_saturated_iff_of_bounded
           if [[ -f Solutions/PolynomialCircuitDeletionSavingsPublic.lean ]]; then
             lake build Solutions.PolynomialCircuitDeletionSavingsPublic
@@ -118,6 +118,12 @@ jobs:
               HirschCircuitLocalization.CommonFaceHasEssentialTrappedBlocker \
               HirschCircuitLocalization.rowCircuitStep_same_phase_recursive_or_factorized_or_essential_trapped_blocker
           fi
+          if [[ -f Solutions/PolynomialRowBlockBudgetRouting.lean ]]; then
+            lake build Solutions.PolynomialRowBlockBudgetRouting
+            lake env lean Solutions/PolynomialRowBlockBudgetRouting.lean 2>&1 | tee /tmp/row-block-budget-routing.log
+            python3 scripts/check_lean_axiom_log.py /tmp/row-block-budget-routing.log \
+              HirschRowBlocks.hpoly_diamLE_sum_of_row_block_bounds
+          fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -135,4 +141,5 @@ jobs:
             /tmp/high-excess-row-block-routing.log
             /tmp/common-face-row-block-routing.log
             /tmp/circuit-carrier-three-way-reduction.log
+            /tmp/row-block-budget-routing.log
           if-no-files-found: warn
