@@ -21,7 +21,8 @@ jobs:
        github.head_ref == 'formal/irredundant-min-carrier-dichotomy' ||
        github.head_ref == 'formal/lower-excess-carrier-recursion' ||
        github.head_ref == 'verify/high-excess-row-block-routing' ||
-       github.head_ref == 'formal/common-face-row-block-routing')
+       github.head_ref == 'formal/common-face-row-block-routing' ||
+       github.head_ref == 'formal/circuit-carrier-three-way-reduction')
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
@@ -109,6 +110,14 @@ jobs:
             python3 scripts/check_lean_axiom_log.py /tmp/common-face-row-block-routing.log \
               HirschCircuitLocalization.commonFace_diamLE_minPresentationExcess_of_small_row_blocks
           fi
+          if [[ -f Solutions/PolynomialCircuitCarrierThreeWayReduction.lean ]]; then
+            lake build Solutions.PolynomialCircuitCarrierThreeWayReduction
+            lake env lean Solutions/PolynomialCircuitCarrierThreeWayReduction.lean 2>&1 | tee /tmp/circuit-carrier-three-way-reduction.log
+            python3 scripts/check_lean_axiom_log.py /tmp/circuit-carrier-three-way-reduction.log \
+              HirschCircuitLocalization.CommonFaceMinPresentationHasSmallRowBlocks \
+              HirschCircuitLocalization.CommonFaceHasEssentialTrappedBlocker \
+              HirschCircuitLocalization.rowCircuitStep_same_phase_recursive_or_factorized_or_essential_trapped_blocker
+          fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -125,4 +134,5 @@ jobs:
             /tmp/lower-excess-carrier-recursion.log
             /tmp/high-excess-row-block-routing.log
             /tmp/common-face-row-block-routing.log
+            /tmp/circuit-carrier-three-way-reduction.log
           if-no-files-found: warn
