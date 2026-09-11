@@ -19,7 +19,8 @@ jobs:
        github.head_ref == 'formal/saturated-phase-blocker' ||
        github.head_ref == 'formal/min-presentation-phase-dichotomy' ||
        github.head_ref == 'formal/irredundant-min-carrier-dichotomy' ||
-       github.head_ref == 'formal/lower-excess-carrier-recursion')
+       github.head_ref == 'formal/lower-excess-carrier-recursion' ||
+       github.head_ref == 'verify/high-excess-row-block-routing')
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
@@ -92,6 +93,15 @@ jobs:
               HirschCircuitLocalization.commonFace_diamLE_of_minPresentationExcess_lt \
               HirschCircuitLocalization.feasible_sequence_edge_route_mul_of_carrier_minPresentationExcess_lt
           fi
+          if [[ -f Solutions/PolynomialRowBlockRouting.lean ]]; then
+            lake build Solutions.PolynomialRowBlockRouting
+            lake env lean Solutions/PolynomialRowBlockRouting.lean 2>&1 | tee /tmp/high-excess-row-block-routing.log
+            python3 scripts/check_lean_axiom_log.py /tmp/high-excess-row-block-routing.log \
+              HirschRowBlocks.image_hpoly_eq_pi_of_row_blocks \
+              HirschRowBlocks.factors_bounded_of_row_blocks \
+              HirschRowBlocks.row_block_excess_sum \
+              HirschRowBlocks.hpoly_diamLE_excess_of_small_row_blocks
+          fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -106,4 +116,5 @@ jobs:
             /tmp/circuit-min-presentation-phase-dichotomy.log
             /tmp/circuit-irredundant-min-carrier-dichotomy.log
             /tmp/lower-excess-carrier-recursion.log
+            /tmp/high-excess-row-block-routing.log
           if-no-files-found: warn
