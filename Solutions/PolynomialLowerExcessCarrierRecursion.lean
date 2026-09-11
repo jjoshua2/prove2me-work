@@ -49,6 +49,18 @@ theorem commonFace_diamLE_of_minPresentationExcess_lt
   let h := commonFaceDim a b u v
   obtain ⟨e, heq, _hFeq⟩ :=
     commonFace_minSubpresentation_effective_witness_of_feasible a b u v hu
+  have heqInt :
+      Hpoly
+          (fun j => commonFaceA a b u v (e j))
+          (fun j => commonFaceB a b u v (e j)) =
+        Hpoly (commonFaceA a b u v) (commonFaceB a b u v) := by
+    have heq' := heq
+    change
+      Hpoly
+          (fun j => commonFaceA a b u v (e j))
+          (fun j => commonFaceB a b u v (e j)) =
+        Hpoly (commonFaceA a b u v) (commonFaceB a b u v) at heq'
+    exact heq'
   have hzeroFull :
       (0 : EuclideanSpace ℝ (Fin h)) ∈
         Hpoly (commonFaceA a b u v) (commonFaceB a b u v) := by
@@ -59,14 +71,14 @@ theorem commonFace_diamLE_of_minPresentationExcess_lt
         Hpoly
           (fun j => commonFaceA a b u v (e j))
           (fun j => commonFaceB a b u v (e j)) := by
-    rw [heq]
-    exact hzeroFull
+    intro j
+    exact hzeroFull (e j)
   have hbdCoord := commonFace_coord_bounded a b u v hbd
   have hbdSub : Bornology.IsBounded
       (Hpoly
         (fun j => commonFaceA a b u v (e j))
         (fun j => commonFaceB a b u v (e j))) := by
-    rw [heq]
+    rw [heqInt]
     exact hbdCoord
   have hsub :
       DiamLE
@@ -80,7 +92,7 @@ theorem commonFace_diamLE_of_minPresentationExcess_lt
     simpa [M, h] using hex
   have hcoord :
       DiamLE (Hpoly (commonFaceA a b u v) (commonFaceB a b u v)) B := by
-    rw [← heq]
+    rw [← heqInt]
     exact hsub
   have himage := Hirsch.affineMap_diamLE_image_of_injective
     (commonFaceAffineMap a b u v)
@@ -109,8 +121,15 @@ theorem feasible_sequence_edge_route_mul_of_carrier_minPresentationExcess_lt
       commonFaceMinSubpresentationCount a b (w i.val) (w (i.val + 1)) -
         commonFaceDim a b (w i.val) (w (i.val + 1)) < R) :
     HirschRegionRoute.Route (Adj (Hpoly a b)) (B * L) (w 0) (w L) := by
+  have hclosed : IsClosed (Hpoly a b) := by
+    rw [show Hpoly a b = ⋂ i : Fin n,
+        {x : EuclideanSpace ℝ (Fin d) | ⟪a i, x⟫ ≤ b i} by
+      ext x
+      simp [Hpoly]]
+    exact isClosed_iInter (fun i =>
+      isClosed_le (continuous_const.inner continuous_id) continuous_const)
   have hP : IsCompact (Hpoly a b) :=
-    Metric.isCompact_iff_isClosed_bounded.2 ⟨hpoly_isClosed a b, hbd⟩
+    Metric.isCompact_iff_isClosed_bounded.2 ⟨hclosed, hbd⟩
   let C : Fin L → ℕ := fun _ => B
   have hC : ∀ i : Fin L,
       DiamLE (commonFace a b (w i.val) (w (i.val + 1))) (C i) := by
