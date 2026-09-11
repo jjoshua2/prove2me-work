@@ -1,0 +1,62 @@
+name: Retry verified excess-two common-carrier proof
+on:
+  pull_request:
+    types: [synchronize]
+permissions:
+  contents: read
+concurrency:
+  group: retry-excess-two-common-carrier-once
+  cancel-in-progress: true
+jobs:
+  publish:
+    if: >-
+      github.repository == 'jjoshua2/prove2me-work' &&
+      github.actor == 'jjoshua2' &&
+      github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
+      github.head_ref == 'publish/excess-two-common-carrier'
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Prepare corrected frozen packet
+        run: |
+          set -euo pipefail
+          python3 scripts/check_actions_policy.py
+          python3 -m py_compile scripts/publish_excess_two_common_carrier.py scripts/publish_excess_two_common_carrier_v3.py
+          python3 scripts/publish_excess_two_common_carrier_v3.py prepare
+          test "$(cat lean-toolchain)" = 'leanprover/lean4:v4.30.0'
+          grep -Fq c5ea00351c28b24afc9f0f84379aa41082b1188f lake-manifest.json || grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
+          grep -Eq '^theorem solution$' /tmp/excess-two-common-carrier-public/solution.lean
+          ! grep -B2 -A1 -F 'theorem solution' /tmp/excess-two-common-carrier-public/solution.lean | grep -q '^namespace Hirsch$'
+      - name: Restore shared pinned Lean environment
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Rebuild and audit exact compact driver
+        run: |
+          set -euo pipefail
+          lake build Solutions.PolynomialExcessTwoCarrierPublicDriver 2>&1 | tee /tmp/excess-two-common-carrier-public/driver-axioms.log
+          python3 scripts/check_lean_axiom_log.py /tmp/excess-two-common-carrier-public/driver-axioms.log \
+            HirschExcessTwoPublic.common_face_has_subpresentation_dim_add_two_of_rows_le_dim_add_two \
+            HirschExcessTwoPublic.excess_two_common_carrier_from_proved_inputs
+          sha256sum /tmp/excess-two-common-carrier-public/driver.lean | awk '{print $1}' > /tmp/excess-two-common-carrier-public/driver-audit-passed.sha256
+      - name: Authenticated Prove2Me preflight
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: python3 scripts/prove2me_auth.py check
+      - name: Reuse existing theorem and submit corrected proof
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: python3 scripts/publish_excess_two_common_carrier_v3.py publish
+      - name: Preserve proof and sanitized receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: excess-two-common-carrier-proof-retry
+          retention-days: 14
+          path: |
+            /tmp/excess-two-common-carrier-public/
+            excess_two_common_carrier_publication_receipts/
+          if-no-files-found: warn
