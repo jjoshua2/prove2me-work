@@ -122,9 +122,11 @@ theorem exists_deletion_cap_with_vertex_classification
   refine ⟨M, hRc, hPval, hVval,
     deletionCappedOuter_inter_deletedRow_eq_parent a b j M hcontain, ?_, ?_, ?_⟩
   · intro x hx
+    change x ∈ extremePoints ℝ R
     rw [← hRmodel]
     exact old_vertex_survives_cap Q c M x hx (hVbelow x hx).le
   · intro u v huv
+    change Adj R u v
     rw [← hRmodel]
     exact old_edge_survives_cap Q c M u v huv
       (hVbelow u (HirschPolynomialAccess.adj_left_extreme Q huv)).le
