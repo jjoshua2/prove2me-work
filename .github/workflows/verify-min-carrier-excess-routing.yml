@@ -1,0 +1,39 @@
+name: Verify minimum-carrier-excess routing
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+permissions:
+  contents: read
+concurrency:
+  group: min-carrier-excess-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    if: >-
+      github.repository == 'jjoshua2/prove2me-work' &&
+      github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
+      github.head_ref == 'formal/min-carrier-excess-routing'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - name: Check policy and pins
+        run: |
+          set -euo pipefail
+          python3 scripts/check_actions_policy.py
+          test "$(cat lean-toolchain)" = "leanprover/lean4:v4.30.0"
+          grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
+      - name: Restore pinned Lean environment
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Compile and audit minimum-carrier routing
+        run: |
+          set -euo pipefail
+          lake build Solutions.PolynomialMinCarrierExcessRouting 2>&1 | tee /tmp/min-carrier-excess-routing.log
+          python3 scripts/check_lean_axiom_log.py /tmp/min-carrier-excess-routing.log \
+            HirschCircuitLocalization.commonFace_has_subpresentation_faceDim_add_minExcess \
+            HirschCircuitLocalization.commonFace_diamLE_minPresentationExcess_of_le_three \
+            HirschCircuitLocalization.feasible_sequence_edge_route_sum_minPresentationExcess_of_each_le_three \
+            HirschCircuitLocalization.rowCircuitWalk_edge_route_sum_minPresentationExcess_of_each_le_three
