@@ -1,7 +1,7 @@
 # Current Prove2Me Polynomial Hirsch frontier
 
-Updated 2026-09-11 17:49 UTC. Repo: `jjoshua2/prove2me-work`.
-Main synchronized through `e5f552c5dbe24825a995338016fe3ca3b79d4e6b`.
+Updated 2026-09-11 17:57 UTC. Repo: `jjoshua2/prove2me-work`.
+Main synchronized through `ed4218bf02f2b43dcef400ecad10ea1804fca96c` at this snapshot.
 Platform: Prove2Me 0.10.1. Lean: v4.30.0 / Mathlib
 `c5ea00351c28e24afc9f0f84379aa41082b1188f`.
 
@@ -38,8 +38,7 @@ bounded P = Hpoly a b, n <= d+3  ==>  DiamLE P (n-d).
 ```
 
 This includes redundant rows, zero normals, empty/lower-dimensional feasible
-sets, and needs no irredundancy or strict feasibility. In particular n<=d+2
-gives diameter <=2.
+sets, and needs no irredundancy or strict feasibility.
 
 ### Arbitrary-checkpoint common carrier at ambient excess <=2
 
@@ -53,95 +52,111 @@ most two. The second checkpoint need not be feasible or a vertex.
 Receipt:
 `research/EXCESS_TWO_COMMON_CARRIER_PUBLICATION_RECEIPT_2026-09-11.md`.
 
-## Fresh kernel-verified GitHub result: whole-walk composition
+## GitHub routing plumbing now complete through local intrinsic excess two
 
-`Solutions/PolynomialExcessTwoWholeWalkRouting.lean` is merged on main.
-Frozen source `2935f42d255029dcbc337c953dbb364d71ef1c94` passed Actions run
-`34629152760`, job `103361465979`. The build checked 120 transitive axiom
-reports; the three required declarations use only `propext`,
-`Classical.choice`, and `Quot.sound`.
+`Solutions/PolynomialExcessTwoWholeWalkRouting.lean` is merged and proves that
+for a bounded parent with global n<=d+2, any feasible length-L checkpoint
+sequence with parent-vertex endpoints has a parent edge/stay route of length
+`2*L`. Interior checkpoints may be nonvertices. Verification: frozen source
+`2935f42d255029dcbc337c953dbb364d71ef1c94`, run `34629152760`, job
+`103361465979`.
 
-For a bounded parent with n<=d+2, **any feasible length-L checkpoint sequence**
-whose endpoints are parent vertices can be replaced by a parent edge/stay
-route of length `2*L`. Interior checkpoints need not be vertices and the input
-sequence need not be a circuit walk. A `RowCircuitWalk` corollary follows.
+More importantly, `Solutions/PolynomialIntrinsicExcessTwoWholeWalkRouting.lean`
+is now merged on main by PR #105. Frozen source
+`dc6fea94d21e8cb62db0a1cd066b21696a88f4b9` passed run `34629982502`, job
+`103364150810`; the audit checked 123 transitive reports and the three required
+declarations use only `propext`, `Classical.choice`, and `Quot.sound`.
 
-This is structurally useful but is not a new global Polynomial Hirsch bound:
-when the *whole parent* already has excess <=2, the direct small-excess theorem
-is stronger. Its value is that the nonvertex-checkpoint routing composition is
-now checked and can be reused once low excess is established locally per
-carrier.
+It removes the global low-excess hypothesis: for an arbitrary bounded parent,
+if **each selected consecutive carrier** satisfies
+
+```text
+M_i := commonFaceMinSubpresentationCount(...) <= h_i + 2,
+h_i := commonFaceDim(...),
+```
+
+then the full feasible checkpoint sequence refines to a parent edge/stay route
+of length `2*L`. A uniform-carrier `RowCircuitWalk` corollary is also checked.
 
 Receipt:
-`research/EXCESS_TWO_WHOLE_WALK_ROUTING_VERIFICATION_2026-09-11.md`.
+`research/INTRINSIC_EXCESS_TWO_WHOLE_WALK_VERIFICATION_2026-09-11.md`.
 
-## The minimum-row adapter is DONE; do not redo it
+## Intrinsic excess three is also kernel-verified; do not duplicate it
 
-`Solutions/PolynomialCommonFaceSmallExcessDiameter.lean` already proves
-
-```text
-commonFaceMinSubpresentationCount(a,b,u,v) <= commonFaceDim(a,b,u,v)+2
-  ==> DiamLE (commonFace a b u v) 2
-```
-
-for bounded parent polytopes with vertex endpoints, using the public small-
-excess theorem as an explicit premise.
-
-`Solutions/PolynomialCommonFaceExcessTwoCarrier.lean` strengthens the useful
-set-level interface: **any** common carrier admitting an equivalent coordinate
-subpresentation with at most `h+2` rows has intrinsic diameter <=2. It also
-proves ambient n<=d+2 supplies such a presentation for every feasible source
-checkpoint.
-
-So the old handoff item “connect the minimum common-face row count” is closed.
-
-## Immediate useful next theorem
-
-Remove the *global* `n<=d+2` assumption from the whole-walk theorem and replace
-it by a **per-step intrinsic carrier** assumption. A natural target is:
+PR #106 / frozen source `6552ca5edf585354b043e53d2e15218f59b9d688`
+passed run `34630058450`, job `103364397358`. The audit checked 123 transitive
+reports and only standard logical axioms for:
 
 ```text
-for every i < L,
-  commonFaceMinSubpresentationCount(a,b,w_i,w_{i+1})
-    <= commonFaceDim(a,b,w_i,w_{i+1}) + 2
+commonFace_diamLE_three_of_subpresentation_at_most
+commonFace_diamLE_three_of_minCount_le_dim_add_three
+feasible_sequence_edge_route_three_mul_of_carrier_minCount_le_dim_add_three
 ```
 
-(or the equivalent `HasSubpresentationAtMost` witness) implies a parent
-edge/stay route of length `2*L`.
+Thus an arbitrary-parent carrier with minimum equivalent row-presentation
+excess at most three has intrinsic diameter at most three, and a feasible
+length-L checkpoint sequence whose every consecutive carrier satisfies that
+condition has a parent edge/stay route of length `3*L`.
 
-This should be a short composition of
-`commonFace_diamLE_two_of_subpresentation_at_most` with
-`route_of_feasible_commonFace_carrier_budgets`. Search for concurrent work
-before adding it. It is the right reusable interface even though it does not
-by itself prove that general circuit carriers satisfy the premise.
+At this snapshot PR #106 is still a verification branch (its second commit only
+records the verification receipt); search current main/PR state before doing
+integration work. Durable receipt on that branch:
+`research/CARRIER_EXCESS_THREE_ROUTING_VERIFICATION_2026-09-11.md`.
 
-## True research bottleneck after that wrapper
+## Other settled infrastructure; do not redo it
+
+- The minimum-row adapter is done: `M_min <= h+2` gives carrier diameter <=2.
+- `route_of_feasible_commonFace_carrier_budgets` turns arbitrary per-step
+  intrinsic carrier budgets into a parent route with the summed budget.
+- Nonvertex checkpoint localization is already kernel-verified: commit
+  `cd9507f1dc08bfea234e9963707fc68de2d1356f`, run `34550443602`, job
+  `103112037411`; 28 required declarations, standard logical axioms only.
+- A cubic circuit walk already exists via `standardCircuitWalk_cubic` /
+  `standard_cubic_circuit_bound` with padded budget `17*n^3`. Circuit-walk
+  construction is not the current bottleneck.
+
+## True research bottleneck
 
 Let `M_i` be the minimum equivalent row-presentation count of the i-th common
-carrier and `h_i` its intrinsic dimension. The general problem is to control
-or amortize carriers with large intrinsic excess `M_i-h_i`.
+carrier and `h_i` its intrinsic dimension. The checked/public plumbing now
+handles carriers with `M_i-h_i <= 3` at constant cost. The useful frontier is
+therefore **not another low-excess routing wrapper**. It is to control or
+amortize the carriers with intrinsic excess `M_i-h_i > 3` along a polynomially
+short circuit walk.
 
-Useful existing ingredients:
+Most promising structural target:
 
-- `rowCircuit_commonFace_minSubpresentation_excess_defect`: at a **vertex
-  source**, intrinsic presentation excess plus neutral-rank defect is bounded by
-  ambient row excess `n-d`;
-- `rowCircuitStep_exists_target_blocking_row`: every maximal circuit step gains
-  a genuine target blocking row;
-- checkpoint localization bounds carrier dimension for nonvertex endpoints in
-  terms of source/target self-face nullities;
-- exact two-step blocker/swap certificates;
-- `route_of_feasible_commonFace_carrier_budgets` and the face/interval routing
-  machinery can charge a finite family of carriers rather than being tied to
-  the original nonvertex checkpoints;
-- rank-sensitive face-cover tools give progress only when their selected child
-  faces already have genuinely improved diameter bounds.
+1. Extend `rowCircuit_commonFace_minSubpresentation_excess_defect` from a
+   **vertex source** to nonvertex circuit checkpoints, with explicit correction
+   terms for source/target self-face nullities.
+2. Combine that with an ordered/monotone resource so expensive carriers cannot
+   recur too often: blocker progress, rank growth, persistent carrier/face
+   intervals, distinct-carrier charging, or a phase-reset invariant.
+3. Feed the resulting per-carrier/interval costs into the already checked
+   carrier/face routing machinery.
 
-The most valuable structural lemma is likely a **nonvertex-checkpoint analogue
-of the minimum-subpresentation excess/defect budget**, with explicit correction
-terms for source/target self-face dimensions. Then seek a phase/potential
-argument showing expensive carriers, correction terms, or resets cannot recur
-too often. Do not assume self-face dimension itself is monotone.
+The verified nonvertex localization inequality is a useful template:
+
+```text
+2*h_i + d <= n + selfDim(source_i) + selfDim(target_i) + 1
+```
+
+for the row-circuit specialization with a reference parent vertex. Do not
+assume self-face dimension itself is monotone.
+
+## Important negative lesson
+
+Do not try to finish the proof from the scalar resource `excess + neutral-rank
+defect` alone. `research/OptimalCircuitDefectCompletion.md` contains
+kernel-checked row-presentation specializations plus strong exact finite
+diagnostics showing that defect can be traded against excess while protected
+graph distances survive. Its full genuine-facet completion theorems are not all
+Lean/Prove2Me proved, so respect that evidence boundary, but the examples make
+pure scalar-defect induction a poor bet.
+
+A successful global argument likely needs **order/persistence**: actual
+portals, blocker order, carrier intervals, selected low-excess children, or
+another finite monotone event set.
 
 ## Do not waste a stronger agent on these false shortcuts
 
