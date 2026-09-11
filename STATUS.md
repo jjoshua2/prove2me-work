@@ -1,17 +1,19 @@
 # Current Prove2Me Polynomial Hirsch frontier
 
-Updated 2026-09-11 17:59 UTC. Repo: `jjoshua2/prove2me-work`.
-Main includes verified intrinsic-excess-two and intrinsic-excess-three routing.
+Updated 2026-09-11 18:04 UTC. Repo: `jjoshua2/prove2me-work`.
 Platform: Prove2Me 0.10.1. Lean: v4.30.0 / Mathlib
 `c5ea00351c28e24afc9f0f84379aa41082b1188f`.
 
-Detailed continuation map:
-`research/SMARTER_AGENT_HANDOFF_2026-09-11.md`.
+Best continuation files:
+
+- `research/SMARTER_AGENT_HANDOFF_2026-09-11.md` — broad frontier map;
+- `research/NONVERTEX_MIN_SUBPRESENTATION_EXCESS_PLAN_2026-09-11.md` — exact
+  next proof plan after the newest nonvertex result.
 
 ## Public Prove2Me state
 
 **Polynomial Hirsch is not solved.** Latest authenticated synchronization plus
-the later carrier publication give:
+the later accepted carrier publication give:
 
 - `Hirsch.polynomial_hirsch_conjecture`
   (`58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac`): Open;
@@ -36,20 +38,20 @@ Important public low-excess results:
    (`ca4c980f-86d7-4810-be9e-30e473b9dd70`, accepted proof
    `b9d5af5b-51d3-48dd-b008-a365a18b053e`): in a bounded parent with
    `n<=d+2`, any common carrier based at a feasible checkpoint has intrinsic
-   diameter <=2; the other checkpoint may be arbitrary.
+   diameter <=2; the second checkpoint may be arbitrary.
 
 The accepted carrier publication re-read the d>=4 frontier Open and made no
 conjectural graph mutation. Receipt:
 `research/EXCESS_TWO_COMMON_CARRIER_PUBLICATION_RECEIPT_2026-09-11.md`.
 
-## GitHub state: low-excess routing plumbing is DONE through intrinsic excess 3
+## GitHub: low-excess graph-routing plumbing is now complete through excess 3
 
 ### Intrinsic excess <=2
 
-PR #105 is merged. `Solutions/PolynomialIntrinsicExcessTwoWholeWalkRouting.lean`
-was verified from frozen source `dc6fea94d21e8cb62db0a1cd066b21696a88f4b9`,
-run `34629982502`, job `103364150810`; 123 transitive axiom reports, only
-`propext`, `Classical.choice`, `Quot.sound`.
+PR #105 is merged. Frozen source
+`dc6fea94d21e8cb62db0a1cd066b21696a88f4b9`, run `34629982502`, job
+`103364150810`; 123 transitive axiom reports, only `propext`,
+`Classical.choice`, `Quot.sound`.
 
 For an arbitrary bounded parent, if each selected consecutive carrier satisfies
 
@@ -59,90 +61,117 @@ h_i := commonFaceDim(...),
 ```
 
 then any feasible length-L checkpoint sequence with parent-vertex endpoints has
-a parent edge/stay route of length `2*L`. Intermediate checkpoints may be
-nonvertices. Receipt:
-`research/INTRINSIC_EXCESS_TWO_WHOLE_WALK_VERIFICATION_2026-09-11.md`.
+a parent edge/stay route of length `2*L`; intermediate checkpoints may be
+nonvertices.
 
 ### Intrinsic excess <=3
 
-The verified reduction is also merged on main at commit
-`0b9a329d34b5e288a3e1ee11b4ee898ab0d536a9`.
-`Solutions/PolynomialCarrierExcessThreeRouting.lean` was verified from frozen
-source `6552ca5edf585354b043e53d2e15218f59b9d688`, run `34630058450`, job
-`103364397358`; again 123 reports and only standard logical axioms.
+`Solutions/PolynomialCarrierExcessThreeRouting.lean` is merged. Frozen source
+`6552ca5edf585354b043e53d2e15218f59b9d688`, run `34630058450`, job
+`103364397358`; 123 reports and only standard logical axioms.
 
-It proves:
+It proves an arbitrary-parent carrier with `M_i<=h_i+3` has intrinsic diameter
+<=3 and a feasible length-L sequence all of whose carriers satisfy that bound
+routes in `3L` parent edge/stay steps.
+
+### Variable exact small-excess budgets
+
+This has now been strengthened and merged at main commit
+`7066f047feb8929433861cd905e2eebfcf40d15a`:
+`Solutions/PolynomialCarrierSmallExcessBudgetRouting.lean` gives exact additive
+accounting. If step i has an equivalent common-carrier coordinate presentation
+with row excess `R_i<=3`, its intrinsic graph cost is at most `R_i`, and the
+whole feasible sequence routes in budget
 
 ```text
-M_i <= h_i + 3  ==> intrinsic carrier diameter <= 3,
+sum_i R_i.
 ```
 
-with no checkpoint-vertex requirement, and if every consecutive carrier of a
-feasible length-L checkpoint sequence satisfies that condition, the parent has
-an edge/stay route of length `3*L`. The ambient parent may have arbitrary row
-excess. Receipt:
-`research/CARRIER_EXCESS_THREE_ROUTING_VERIFICATION_2026-09-11.md`.
+The ambient parent may have arbitrary row excess and intermediate checkpoints
+need not be vertices. Do not spend a stronger agent on another low-excess
+routing wrapper.
 
-## Other settled infrastructure; do not redo it
+## Fresh structural result: source vertexhood is no longer needed for circuit neutral rank
 
-- `commonFaceMinSubpresentationCount` and an effective minimum witness exist.
-- At a **vertex source** and row-circuit displacement,
-  `rowCircuit_commonFace_minSubpresentation_excess_defect` gives
-  `(M_min-h)+neutralDefect <= n-d`.
-- `route_of_feasible_commonFace_carrier_budgets` composes arbitrary intrinsic
-  per-step carrier budgets into a parent graph route.
-- Nonvertex checkpoint localization is already kernel-verified: commit
-  `cd9507f1dc08bfea234e9963707fc68de2d1356f`, run `34550443602`, job
-  `103112037411`; 28 required declarations, standard logical axioms only.
-- A cubic circuit walk already exists: `standardCircuitWalk_cubic` /
-  `standard_cubic_circuit_bound`, padded budget `17*n^3`. Circuit-walk
-  construction is not the current bottleneck.
+PR #108 is merged at commit `678b470e5dbc57e16295fca24b2b49dc6df86598`.
+Frozen source `1922d706523c5253bbe32079e6e6ab71444b3538` passed run
+`34630740596`, job `103366669600`; all 8,488 build jobs succeeded and the axiom
+audit checked 20 reports with only the standard logical axioms.
 
-## True research bottleneck
+For a bounded parent, feasible source `u`, and ambient row circuit `v-u`:
+
+```text
+neutral-row kernel = span(v-u)
+neutral-row rank = d-1
+neutral-row rank on commonDirection = commonFaceDim(a,b,u,v)-1.
+```
+
+No source-vertex or target-vertex hypothesis is required. Receipt:
+`research/NONVERTEX_BOUNDED_NEUTRAL_RANK_VERIFICATION_2026-09-11.md`.
+
+## Immediate next theorem: try the exact nonvertex minimum-presentation budget, with no correction terms
+
+The current
+`rowCircuit_commonFace_minSubpresentation_excess_defect` assumes the source is
+a parent vertex and proves
+
+```text
+(M_min - h) + selectedNeutralDefect <= n-d.
+```
+
+A dependency audit after PR #108 suggests this exact statement may extend to a
+merely feasible source in a bounded parent **without** source/target self-face
+corrections.
+
+Why this now looks plausible:
+
+- the old vertex-dependent neutral-rank and `d<=n` steps have exact
+  bounded/feasible replacements from PR #108;
+- deleting zero-normal rows from a minimum subpresentation needs only zero
+  feasibility, and zero common-face coordinates correspond to the feasible
+  source `u`;
+- the remaining lower bound `h<=M_min` can likely be obtained by applying
+  `rows_ge_dimension_of_bounded` directly to the bounded, nonempty equivalent
+  coordinate subpresentation, instead of proving zero is an extreme point.
+
+The exact theorem shape and a step-by-step Lean decomposition are recorded in
+`research/NONVERTEX_MIN_SUBPRESENTATION_EXCESS_PLAN_2026-09-11.md`.
+Try this stronger theorem before weakening to a nullity-corrected variant.
+
+## After that: true high-excess amortization bottleneck
 
 For a circuit-walk carrier let
 
 ```text
 h_i = commonFaceDim(...)
 M_i = commonFaceMinSubpresentationCount(...)
-e_i = M_i - h_i.
+e_i = M_i-h_i.
 ```
 
-The checked routing portal now handles every `e_i<=3` carrier at constant cost.
-The useful frontier is to control or amortize **`e_i>3`** carriers.
-
-Highest-value structural target: extend the minimum-subpresentation
-excess/defect inequality from a vertex source to **nonvertex checkpoints**, with
-explicit source/target self-face-nullity corrections. The already verified
-checkpoint localization gives the row-circuit template
+The routing portal handles every `e_i<=3` carrier at exact cost `e_i` (or any
+certified row excess `R_i<=3`). Even a successful exact nonvertex resource bound
 
 ```text
-2*h_i + d <= n + selfDim(source_i) + selfDim(target_i) + 1.
+e_i + defect_i <= n-d
 ```
 
-Then seek an ordered/persistent amortization invariant showing expensive
-carriers cannot recur too often: blocker/rank progress, persistent carrier or
-face intervals, distinct-carrier charging, or a phase-reset resource. Do not
-assume self-face dimension itself is monotone.
+will not alone solve Polynomial Hirsch, because `n-d` can be large and the
+optimal-defect-completion diagnostics show scalar excess+defect can trade while
+protected graph distances survive.
 
-## Negative lesson
+The global research problem is therefore to amortize **`e_i>3`** carriers using
+an ordered/persistent resource: blocker/rank progress, persistent carrier/face
+intervals, distinct-carrier charging, rank-sensitive low-excess children, or a
+phase-reset invariant. The existing `17*n^3` circuit-walk construction already
+supplies the polynomial circuit walk; do not rebuild that side.
 
-Do not expect the scalar resource `excess + neutral-rank defect` alone to force
-short graph routes. `research/OptimalCircuitDefectCompletion.md` contains
-kernel-checked row-presentation specializations plus exact finite diagnostics in
-which defect/excess trade while protected graph distances survive. Its full
-genuine-facet completion theorems are not all Lean/Prove2Me proved; keep that
-evidence boundary explicit.
+## Anti-duplication / evidence discipline
 
-Likewise do not infer cheap routing solely from small support, low carrier
-dimension, low active defect, temporal overlap, circuit status, or presentation
-minimality. Test new global claims against the recorded carrier polygons,
-Dantzig bridges, crossing/cube repairs, moving-facet failures, cyclic-polar
-barriers, deformed cubes, Q28 scalar-fiber examples, and optimal-defect
-completion models.
+At this snapshot PR #109 is packaging/public-composition work around the
+small-carrier-excess theorem, not the structural frontier above. Search current
+main/open PRs before starting new work.
 
-## Verification discipline
-
-Keep finite evidence, Lean kernel/axiom evidence, and Prove2Me ACCEPTED/live
-Proved distinct. Avoid cyclic theorem-graph decompositions and duplicate
-registrations/submissions. Credentials stay outside Git in `PROVE2ME_API_KEY`.
+Keep exact finite evidence, Lean kernel/axiom evidence, and Prove2Me
+ACCEPTED/live-Proved status distinct. Avoid cyclic theorem-graph decompositions
+and duplicate registrations/submissions. Credentials stay outside Git in
+`PROVE2ME_API_KEY`.
