@@ -19,6 +19,18 @@ namespace Hirsch
 variable {E F : Type*} [AddCommGroup E] [Module ℝ E]
   [AddCommGroup F] [Module ℝ F]
 
+private theorem affineEquiv_image_segment
+    (f : E ≃ᵃ[ℝ] F) (x y : E) :
+    f '' segment ℝ x y = segment ℝ (f x) (f y) := by
+  change f.toAffineMap '' segment ℝ x y = segment ℝ (f x) (f y)
+  exact image_segment ℝ f.toAffineMap x y
+
+private theorem affineEquiv_image_openSegment
+    (f : E ≃ᵃ[ℝ] F) (x y : E) :
+    f '' openSegment ℝ x y = openSegment ℝ (f x) (f y) := by
+  change f.toAffineMap '' openSegment ℝ x y = openSegment ℝ (f x) (f y)
+  exact image_openSegment ℝ f.toAffineMap x y
+
 /-- Affine equivalences preserve extreme subsets under image. -/
 theorem affineEquiv_isExtreme_image
     (f : E ≃ᵃ[ℝ] F) {A B : Set E} (h : IsExtreme ℝ A B) :
@@ -28,7 +40,7 @@ theorem affineEquiv_isExtreme_image
     exact ⟨x, h.1 hx, rfl⟩
   · rintro _ ⟨x, hx, rfl⟩ _ ⟨y, hy, rfl⟩ _ ⟨z, hz, rfl⟩ hzxy
     have hzimg : f z ∈ f '' openSegment ℝ x y := by
-      rw [image_openSegment ℝ f.toAffineMap x y]
+      rw [affineEquiv_image_openSegment f x y]
       exact hzxy
     rcases hzimg with ⟨z', hz', hz'eq⟩
     have hzz' : z' = z := f.injective hz'eq
@@ -60,7 +72,7 @@ theorem affineEquiv_image_extremePoints
   ext b
   obtain ⟨a, rfl⟩ := f.surjective b
   have himage : ∀ x y, f '' openSegment ℝ x y = openSegment ℝ (f x) (f y) :=
-    image_openSegment _ f.toAffineMap
+    affineEquiv_image_openSegment f
   simp only [mem_extremePoints, f.surjective.forall,
     f.injective.mem_set_image, f.injective.eq_iff, ← himage]
 
@@ -74,7 +86,7 @@ theorem affineEquiv_adj_iff
     · intro hxy
       exact h.1 (congrArg f hxy)
     · have himage : IsExtreme ℝ (f '' A) (f '' segment ℝ x y) := by
-        rw [image_segment ℝ f.toAffineMap x y]
+        rw [affineEquiv_image_segment f x y]
         exact h.2
       exact (affineEquiv_isExtreme_image_iff f).mp himage
   · intro h
@@ -82,7 +94,7 @@ theorem affineEquiv_adj_iff
     · intro hxy
       exact h.1 (f.injective hxy)
     · have himage := affineEquiv_isExtreme_image f h.2
-      rw [image_segment ℝ f.toAffineMap x y] at himage
+      rw [affineEquiv_image_segment f x y] at himage
       exact himage
 
 /-- A graph-diameter bound transports forward through an affine equivalence. -/
