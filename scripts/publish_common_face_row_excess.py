@@ -85,6 +85,8 @@ theorem solution
 ''' + BINDERS + ''' := by
   exact HirschRowExcessPublic.common_face_has_subpresentation_faceDim_add_row_excess
     a b u v hu hdn
+
+#print axioms solution
 '''
     return (PREAMBLE + '\n\n' + source_body() + wrapper).encode('utf-8')
 
