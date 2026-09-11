@@ -1,0 +1,65 @@
+name: Verify circuit-step public packets
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [opened, reopened]
+permissions:
+  contents: read
+concurrency:
+  group: circuit-step-publication-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.repository == 'jjoshua2/prove2me-work' &&
+       github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
+       github.head_ref == 'formal/circuit-step-blocker-iff')
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Check policy and pins
+        run: |
+          set -euo pipefail
+          python3 scripts/check_actions_policy.py
+          test "$(cat lean-toolchain)" = "leanprover/lean4:v4.30.0"
+          grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
+      - name: Restore pinned Lean environment
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Compile new core and public adapters
+        run: |
+          set -euo pipefail
+          lake build Solutions.PolynomialCircuitStepBlockerCharacterization 2>&1 | tee /tmp/core.log
+          lake env lean Solutions/Sol_Hirsch_maximal_row_circuit_step_carrier_bound.lean 2>&1 | tee /tmp/carrier-adapter.log
+          lake env lean Solutions/Sol_Hirsch_row_circuit_step_swap_iff_tight_blockers.lean 2>&1 | tee /tmp/swap-adapter.log
+          python3 scripts/check_lean_axiom_log.py /tmp/carrier-adapter.log solution
+          python3 scripts/check_lean_axiom_log.py /tmp/swap-adapter.log solution
+      - name: Generate and independently compile standalone proofs
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/circuit-public
+          python3 scripts/build_circuit_localization_standalone.py \
+            Solutions.Sol_Hirsch_maximal_row_circuit_step_carrier_bound \
+            /tmp/circuit-public/carrier.lean /tmp/circuit-public/carrier-manifest.json
+          python3 scripts/build_circuit_localization_standalone.py \
+            Solutions.Sol_Hirsch_row_circuit_step_swap_iff_tight_blockers \
+            /tmp/circuit-public/swap.lean /tmp/circuit-public/swap-manifest.json
+          lake env lean /tmp/circuit-public/carrier.lean 2>&1 | tee /tmp/circuit-public/carrier.log
+          lake env lean /tmp/circuit-public/swap.lean 2>&1 | tee /tmp/circuit-public/swap.log
+          python3 scripts/check_lean_axiom_log.py /tmp/circuit-public/carrier.log solution
+          python3 scripts/check_lean_axiom_log.py /tmp/circuit-public/swap.log solution
+          sha256sum /tmp/circuit-public/carrier.lean /tmp/circuit-public/swap.lean | tee /tmp/circuit-public/sha256.txt
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: circuit-step-publication-packets
+          retention-days: 7
+          path: |
+            /tmp/core.log
+            /tmp/carrier-adapter.log
+            /tmp/swap-adapter.log
+            /tmp/circuit-public/
