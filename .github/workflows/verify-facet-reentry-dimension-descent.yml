@@ -1,0 +1,46 @@
+name: Verify facet reentry dimension descent
+on:
+  pull_request:
+    types: [opened, synchronize]
+permissions:
+  contents: read
+concurrency:
+  group: verify-facet-reentry-dimension-${{ github.head_ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    if: >-
+      github.repository == 'jjoshua2/prove2me-work' &&
+      github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
+      github.head_ref == 'formal/facet-reentry-dimension-descent'
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - name: Check policy and pins
+        run: |
+          set -euo pipefail
+          python3 scripts/check_actions_policy.py
+          test "$(cat lean-toolchain)" = 'leanprover/lean4:v4.30.0'
+          grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
+      - name: Restore pinned Lean environment
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Compile and audit facet reentry dimension descent
+        run: |
+          set -euo pipefail
+          lake build Solutions.PolynomialFacetReentryDimensionDescent
+          lake env lean Solutions/PolynomialFacetReentryDimensionDescent.lean 2>&1 | tee /tmp/facet-reentry-dimension.log
+          python3 scripts/check_lean_axiom_log.py /tmp/facet-reentry-dimension.log \
+            HirschFaceSplice.splice_reentry_through_parent_route \
+            HirschFaceSplice.hpoly_facet_parent_route_of_lower_dimension_bound \
+            HirschFaceSplice.splice_reentry_through_hpoly_facet_of_lower_dimension_bound
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: facet-reentry-dimension-descent-verification
+          retention-days: 14
+          path: /tmp/facet-reentry-dimension.log
+          if-no-files-found: warn
