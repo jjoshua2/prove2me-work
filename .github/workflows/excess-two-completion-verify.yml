@@ -1,0 +1,75 @@
+name: Excess-two completion verification
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: excess-two-completion-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    if: >-
+      github.repository == 'jjoshua2/prove2me-work' &&
+      github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
+      github.head_ref == 'formal/excess-two-completion'
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Check Actions policy
+        run: python3 scripts/check_actions_policy.py
+
+      - name: Restore pinned Lean environment
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+
+      - name: Compile and audit vertex classification
+        run: |
+          set -euo pipefail
+          lake build Solutions.PolynomialExcessTwoVertexClassification
+          lake env lean Solutions/PolynomialExcessTwoVertexClassification.lean 2>&1 | tee /tmp/excess-two-classification.log
+          python3 scripts/check_lean_axiom_log.py /tmp/excess-two-classification.log \
+            HirschExcessTwo.singletonPoint_mem_extremePoints \
+            HirschExcessTwo.extreme_eq_of_support_contained \
+            HirschExcessTwo.feasible_support_has_singleton_or_pair \
+            HirschExcessTwo.momentSlice_extremePoints_iff
+
+      - name: Compile and audit singleton adjacency
+        run: |
+          set -euo pipefail
+          lake build Solutions.PolynomialExcessTwoSingletonAdjacency
+          lake env lean Solutions/PolynomialExcessTwoSingletonAdjacency.lean 2>&1 | tee /tmp/excess-two-singletons.log
+          python3 scripts/check_lean_axiom_log.py /tmp/excess-two-singletons.log \
+            HirschExcessTwo.supportFace_pair_eq_segment_singletons \
+            HirschExcessTwo.singletonPoint_adj_singletonPoint \
+            HirschExcessTwo.supportFace_triple_eq_segment_singleton_pair \
+            HirschExcessTwo.singletonPoint_adj_pairPoint
+
+      - name: Compile and audit full diameter two
+        run: |
+          set -euo pipefail
+          lake build Solutions.PolynomialExcessTwoDiameter
+          lake env lean Solutions/PolynomialExcessTwoDiameter.lean 2>&1 | tee /tmp/excess-two-diameter.log
+          python3 scripts/check_lean_axiom_log.py /tmp/excess-two-diameter.log \
+            HirschExcessTwo.momentSlice_two_step_route_preserving_zeros \
+            HirschExcessTwo.supportFace_two_step_route \
+            HirschExcessTwo.momentSlice_diamLE_two \
+            HirschExcessTwo.supportFace_diamLE_two
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: excess-two-completion-verification
+          retention-days: 7
+          path: |
+            /tmp/excess-two-classification.log
+            /tmp/excess-two-singletons.log
+            /tmp/excess-two-diameter.log
