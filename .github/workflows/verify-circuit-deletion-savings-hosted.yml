@@ -23,7 +23,8 @@ jobs:
        github.head_ref == 'verify/high-excess-row-block-routing' ||
        github.head_ref == 'formal/common-face-row-block-routing' ||
        github.head_ref == 'formal/circuit-carrier-three-way-reduction' ||
-       github.head_ref == 'formal/row-block-budget-routing')
+       github.head_ref == 'formal/row-block-budget-routing' ||
+       github.head_ref == 'formal/single-cut-lower-excess-routing')
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
@@ -124,6 +125,13 @@ jobs:
             python3 scripts/check_lean_axiom_log.py /tmp/row-block-budget-routing.log \
               HirschRowBlocks.hpoly_diamLE_sum_of_row_block_bounds
           fi
+          if [[ -f Solutions/PolynomialSingleCutLowerExcessRouting.lean ]]; then
+            lake build Solutions.PolynomialSingleCutLowerExcessRouting
+            lake env lean Solutions/PolynomialSingleCutLowerExcessRouting.lean 2>&1 | tee /tmp/single-cut-lower-excess-routing.log
+            python3 scripts/check_lean_axiom_log.py /tmp/single-cut-lower-excess-routing.log \
+              HirschCircuitLocalization.diamLE_inter_halfspace_of_compact_outer \
+              HirschCircuitLocalization.hpoly_inter_halfspace_diamLE_of_lower_excess_outer
+          fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -142,4 +150,5 @@ jobs:
             /tmp/common-face-row-block-routing.log
             /tmp/circuit-carrier-three-way-reduction.log
             /tmp/row-block-budget-routing.log
+            /tmp/single-cut-lower-excess-routing.log
           if-no-files-found: warn
