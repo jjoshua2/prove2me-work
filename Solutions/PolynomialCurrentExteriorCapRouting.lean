@@ -138,7 +138,6 @@ theorem diamLE_single_clip_of_augmented_outer_routes
   obtain ⟨y, hy, hvy⟩ :=
     HirschClipLift.endpoint_lift_to_outer_vertex Q hQc hQ aa bb v hv
   obtain ⟨w, hw0, hwD, hstep⟩ := hAug x hx y hy
-
   have hwv : ∀ k ≤ D, w k ∈ extremePoints ℝ Q := by
     intro k hk
     induction k with
@@ -151,7 +150,6 @@ theorem diamLE_single_clip_of_augmented_outer_routes
         · rcases hrel with hedge | hcap
           · exact HirschPolynomialAccess.adj_right_extreme Q hedge
           · exact hcap.2.1
-
   let E : Fin D → Set (EuclideanSpace ℝ (Fin d)) := fun k =>
     if w k.val = w (k.val + 1) ∨ Adj Q (w k.val) (w (k.val + 1)) then
       P ∩ segment ℝ (w k.val) (w (k.val + 1)) else ∅
@@ -167,7 +165,7 @@ theorem diamLE_single_clip_of_augmented_outer_routes
       exact HirschSubsegment.extreme_inter_of_parent_subset Q P _
         inter_subset_left hseg
     · rw [show E k = ∅ by simp [E, hold]]
-      exact ⟨empty_subset _, by intro p hp; exact False.elim hp⟩
+      exact ⟨empty_subset _, by intro x hx y hy z hz; exact False.elim hz⟩
   have hEclosed : ∀ k : Fin D, IsClosed (E k) := by
     intro k
     by_cases hold : w k.val = w (k.val + 1) ∨ Adj Q (w k.val) (w (k.val + 1))
@@ -185,7 +183,6 @@ theorem diamLE_single_clip_of_augmented_outer_routes
         (hPv.inter (convex_segment _ _)) _ _ inter_subset_right
     · rw [show E k = ∅ by simp [E, hold]]
       simp [DiamLE]
-
   let S : Sum (Fin D) (Sum (Fin 1) (Fin 2)) → Set (EuclideanSpace ℝ (Fin d))
     | .inl k => E k
     | .inr (.inl _) => F
@@ -215,14 +212,12 @@ theorem diamLE_single_clip_of_augmented_outer_routes
     · exact hED k
     · exact hFace'
     · exact HirschRadial.singleton_diamLE_zero _
-
   let ρ := HirschRadial.retract aa bb o
   have hρP : ∀ z ∈ Q, ρ z ∈ P :=
     fun z hz => HirschRadial.retract_mem Q hQ aa bb o z ho hz hstrict'
   have hρfix : ∀ z ∈ P, ρ z = z := by
     intro z hz
     exact HirschRadial.retract_fixes aa bb o z hstrict' hz.2
-
   have hspoke : ∀ (e z : EuclideanSpace ℝ (Fin d)), e ∈ P → z ∈ Q →
       (e = z ∨ ∃ i : Fin 1, ⟪aa i, e⟫ = bb i ∧ bb i ≤ ⟪aa i, z⟫) →
       (∃ k : Fin 2, e = if k = 0 then u else v) →
@@ -252,7 +247,6 @@ theorem diamLE_single_clip_of_augmented_outer_routes
     hspoke u x hu.1 hx.1 hux ⟨0, by simp⟩
   have hright : ∀ t ∈ segment ℝ v y, ∃ i, ρ t ∈ S i :=
     hspoke v y hv.1 hy.1 hvy ⟨1, by simp⟩
-
   have htrace : ∀ L ≤ D, ∀ z ∈ HirschRadial.walkTrace w L, ∃ i, ρ z ∈ S i := by
     intro L
     induction L with
@@ -294,7 +288,6 @@ theorem diamLE_single_clip_of_augmented_outer_routes
                 exact ⟨.inr (.inl 0), hPz, by simpa [F, aa, bb, hq0] using hq⟩
             · have hs := hShadow (w L) hcap.2.2.1 (w (L + 1)) hcap.2.2.2 z hz
               exact ⟨.inr (.inl 0), by simpa [F, P, aa, bb, ρ] using hs⟩
-
   let K := (segment ℝ u x ∪ HirschRadial.walkTrace w D) ∪ segment ℝ v y
   have hK : IsPreconnected K := by
     have h1 : IsPreconnected (segment ℝ u x ∪ HirschRadial.walkTrace w D) :=
