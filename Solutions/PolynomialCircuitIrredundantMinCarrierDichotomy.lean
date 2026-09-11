@@ -83,8 +83,8 @@ theorem rowCircuitStep_irredundant_minPresentation_strict_budget_or_essential_ta
         Hpoly
           (fun j => HirschCommonFace.commonFaceA a b x y (e j))
           (fun j => HirschCommonFace.commonFaceB a b x y (e j)) := by
-    rw [heq]
-    exact hzeroFull
+    intro j
+    exact hzeroFull (e j)
   have hnonzero :
       ∀ j : Fin m, HirschCommonFace.commonFaceA a b x y (e j) ≠ 0 :=
     HirschCircuit.irredundant_rows_nonzero_of_mem
@@ -197,8 +197,8 @@ theorem rowCircuitStep_irredundant_minPresentation_same_phase_strict_budget_or_e
         Hpoly
           (fun j => HirschCommonFace.commonFaceA a b x y (e j))
           (fun j => HirschCommonFace.commonFaceB a b x y (e j)) := by
-    rw [heq]
-    exact hzeroFull
+    intro j
+    exact hzeroFull (e j)
   have hnonzero :
       ∀ j : Fin m, HirschCommonFace.commonFaceA a b x y (e j) ≠ 0 :=
     HirschCircuit.irredundant_rows_nonzero_of_mem
