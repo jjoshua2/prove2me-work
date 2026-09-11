@@ -24,10 +24,10 @@ namespace HirschCircuitLocalization
 
 open HirschPolynomialAccess
 
-/-- Selected-effective-row excess/neutral-defect accounting for an arbitrary
+/-- Subtraction-free selected-effective-row defect budget for an arbitrary
 feasible row-circuit checkpoint in a bounded parent.  No parent vertex or
 checkpoint extremality is needed. -/
-theorem rowCircuit_selectedEffectiveRows_excess_defect_of_bounded
+theorem rowCircuit_selectedEffectiveRows_defect_budget_of_bounded
     {d n : ℕ}
     (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
     (x y : EuclideanSpace ℝ (Fin d))
@@ -35,14 +35,14 @@ theorem rowCircuit_selectedEffectiveRows_excess_defect_of_bounded
     (hx : x ∈ Hpoly a b)
     (hcirc : IsRowCircuit a (y - x))
     (F : Finset (Fin n))
-    (hF : F ⊆ effectiveRowsOnSubspace a (commonDirection a b x y))
-    (hface : commonFaceDim a b x y ≤ F.card) :
-    (F.card - commonFaceDim a b x y) +
+    (hF : F ⊆ effectiveRowsOnSubspace a (commonDirection a b x y)) :
+    F.card +
         ((commonFaceDim a b x y - 1) -
           Module.finrank ℝ
             (((rowEvalMap a (F ∩ circuitNeutralRows a (y - x))).domRestrict
-              (commonDirection a b x y)).range)) ≤
-      n - d := by
+              (commonDirection a b x y)).range)) +
+        d ≤
+      n + commonFaceDim a b x y := by
   classical
   let W := commonDirection a b x y
   let E := effectiveRowsOnSubspace a W
@@ -78,25 +78,47 @@ theorem rowCircuit_selectedEffectiveRows_excess_defect_of_bounded
     intro hiFmem
     apply hiTS.2
     exact Finset.mem_inter.2 ⟨hiFmem, hiT.1⟩
-  have hdel : (T \ S).card ≤ (E \ F).card := Finset.card_le_card hdelSub
   have hdefE :
       (Module.finrank ℝ W - 1) -
           Module.finrank ℝ (((rowEvalMap a S).domRestrict W).range) ≤
-        (E \ F).card := hdef.trans hdel
+        (E \ F).card :=
+    hdef.trans (Finset.card_le_card hdelSub)
   have hbudget : E.card + d ≤ n + Module.finrank ℝ W := by
     simpa [E, W, commonFaceDim] using
       commonDirection_effectiveRows_card_add_dim_le_rows_add_faceDim a b x y
   have hF' : F ⊆ E := by simpa [E, W] using hF
   have hcard : (E \ F).card + F.card = E.card :=
     Finset.card_sdiff_add_card_eq_card hF'
-  have hdn : d ≤ n := rows_ge_dimension_of_bounded a b hbd x hx
   have hmain :
-      (F.card - Module.finrank ℝ W) +
+      F.card +
           ((Module.finrank ℝ W - 1) -
-            Module.finrank ℝ (((rowEvalMap a S).domRestrict W).range)) ≤
-        n - d := by
+            Module.finrank ℝ (((rowEvalMap a S).domRestrict W).range)) + d ≤
+        n + Module.finrank ℝ W := by
     omega
   simpa [S, Z, W, commonFaceDim] using hmain
+
+/-- Selected-effective-row excess/neutral-defect accounting for an arbitrary
+feasible row-circuit checkpoint in a bounded parent. -/
+theorem rowCircuit_selectedEffectiveRows_excess_defect_of_bounded
+    {d n : ℕ}
+    (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
+    (x y : EuclideanSpace ℝ (Fin d))
+    (hbd : Bornology.IsBounded (Hpoly a b))
+    (hx : x ∈ Hpoly a b)
+    (hcirc : IsRowCircuit a (y - x))
+    (F : Finset (Fin n))
+    (hF : F ⊆ effectiveRowsOnSubspace a (commonDirection a b x y))
+    (hface : commonFaceDim a b x y ≤ F.card) :
+    (F.card - commonFaceDim a b x y) +
+        ((commonFaceDim a b x y - 1) -
+          Module.finrank ℝ
+            (((rowEvalMap a (F ∩ circuitNeutralRows a (y - x))).domRestrict
+              (commonDirection a b x y)).range)) ≤
+      n - d := by
+  have h := rowCircuit_selectedEffectiveRows_defect_budget_of_bounded
+    a b x y hbd hx hcirc F hF
+  have hdn : d ≤ n := rows_ge_dimension_of_bounded a b hbd x hx
+  omega
 
 /-- Final reference-free checkpoint theorem.  For every feasible source `x` in
 a bounded parent and every ambient row-circuit displacement `y-x`, minimum
@@ -158,6 +180,7 @@ theorem rowCircuit_commonFace_minSubpresentation_excess_defect_of_bounded
     HirschCommonFace.rowEvalMap, HirschCommonFace.commonSourceRows,
     commonFaceDim, commonDirection, rowEvalMap, commonSourceRows] using hexcess'
 
+#print axioms rowCircuit_selectedEffectiveRows_defect_budget_of_bounded
 #print axioms rowCircuit_selectedEffectiveRows_excess_defect_of_bounded
 #print axioms rowCircuit_commonFace_minSubpresentation_excess_defect_of_bounded
 
