@@ -1,7 +1,7 @@
 # Current Prove2Me Polynomial Hirsch frontier
 
 Updated 2026-09-11 (America/New_York). Repo: `jjoshua2/prove2me-work`.
-Latest authenticated result recovery: **2026-09-11 16:08 UTC**.
+Latest authenticated result recovery: **2026-09-11 16:17 UTC**.
 Platform: Prove2Me **0.10.1**.
 Lean: `v4.30.0` / Mathlib `c5ea00351c28e24afc9f0f84379aa41082b1188f`.
 
@@ -20,8 +20,8 @@ The general circuit-refinement line remains Open:
 - `Hirsch.polynomial_edge_refinement_of_circuit_walks`
   (`099c6686-560c-48fc-b2c2-18b6a620a06e`);
 - `Hirsch.polynomial_edge_refinement_of_circuit_walks_dim_ge_four`
-  (`73beca40-31bc-42d5-8350-5ec9ac28bd3e`), authenticated **Open** again before
-  and after the latest slack-publication recovery;
+  (`73beca40-31bc-42d5-8350-5ec9ac28bd3e`), authenticated **Open** before and
+  after the latest low-excess publications;
 - the separate common-face `h>=6` leaf
   (`87a8b4f4-8b58-4340-8cb9-5fd1b548d01e`);
 - ridge-visible access (`5f309362-bbda-4dea-806f-20b4e2712a2d`).
@@ -34,129 +34,104 @@ Open child merely to restate that missing global argument.
 
 The authenticated mission milestone endpoint lists Klee/Klee--Walkup for d<=3,
 Larman, Naddef's 0/1 bound, Kalai--Kleitman, Todd's sharpening, and Santos's
-bounded counterexample to linear Hirsch. All six are Proved. Their closure
-does not close the Polynomial Hirsch root.
+bounded counterexample to linear Hirsch. All six are Proved. Their closure does
+not close the Polynomial Hirsch root.
 
-## Latest public result: positive normal-relation certificate
+## Latest public results
+
+### Unconditional small-excess diameter
+
+`Hirsch.hpoly_diameter_le_excess_of_rows_le_dim_add_three`
+
+- theorem `12426807-9602-4014-bd5e-c69fb43f4cb6`;
+- accepted solution `59736803-0e9d-40bb-875d-7ca66b9ccd45`;
+- **ACCEPTED / Proved**;
+- public solution SHA-256
+  `58ceb59004e1f9046ccaaf8b55ae39e7e8646135c5c521b8e74b495e7c238568`.
+
+Every bounded `n`-row H-polyhedron in ambient dimension `d` with `n <= d+3`
+has padded graph diameter at most `n-d`, including empty/lower-dimensional
+sets, redundant rows, and zero normals. In particular `n <= d+2` gives
+diameter <=2 without strict feasibility, irredundancy, or normalization weights.
+
+The local induction driver and independent adapter were kernel/axiom checked.
+The public composition imports only the exact already-Proved
+`Hirsch.dimension_three_bound` and `Hirsch.facet_reduction` statements, whose
+identity/type/status/pin were authenticated before submission. Final publication
+run `34620239467`, artifact `10271654810`.
+
+Receipt:
+`research/LOW_EXCESS_SECTION_DESCENT_PUBLICATION_2026-09-11.md`.
+
+### Positive normal-relation certificate
 
 `Hirsch.hpoly_and_row_faces_diamLE_two_of_normal_relations`
 
 - theorem `96cb14a4-aa1b-4d14-93d9-b959e08aa662`;
 - original submission `5e888ccf-0f16-48a1-8992-50d3debf1258`;
-- **ACCEPTED / Proved**, authenticated 16:08 UTC;
+- **ACCEPTED / Proved**;
 - standalone SHA-256
-  `248851588b10bad874626a17463e9c11b542ac3898146abdbb03530fceb57c27`;
-- mission comment `02fb1808-74fc-468e-a0bd-5b7d6e216f86`.
+  `248851588b10bad874626a17463e9c11b542ac3898146abdbb03530fceb57c27`.
 
-For n=d+2, a reference extreme vertex, positive c, nonconstant t, and
+For `n=d+2`, a reference extreme vertex, positive `c`, nonconstant `t`, and
 
-```
+```text
 sum c_i a_i = 0,
 sum t_i c_i a_i = 0,
 sum c_i b_i = 1,
 ```
 
 the H-polyhedron AND every face cut out by making selected original rows tight
-have intrinsic padded graph diameter <=2. The proof identifies the ENTIRE
+have intrinsic padded graph diameter <=2. The proof identifies the entire
 affine slack image by rank-nullity and transports genuine vertices and edges.
-No diameter hypothesis or Open research theorem is assumed.
-
-**Certificate existence from boundedness alone is not part of this theorem.**
-
-The two source modules are `PolynomialSlackMomentCertificate.lean` and
-`PolynomialSlackNormalRelations.lean`. PR92's exact source blobs passed 14
-required axiom audits in run `34615241828`. The independent standalone in run
-`34618047572` compiled and produced 51 standard-axiom-only reports. Its monitor
-was canceled while the server submission was pending; recovery run
-`34620227081` read the SAME submission as ACCEPTED/Proved and posted its missing
-board linkage. No duplicate proof was submitted.
+This explicit certificate remains useful even though the unconditional
+small-excess theorem now supplies the diameter-only conclusion without proving
+certificate existence.
 
 Receipts:
 `research/SLACK_NORMAL_RELATIONS_VERIFICATION_2026-09-11.md` and
 `research/SLACK_NORMAL_RELATIONS_PUBLICATION_RECEIPT_2026-09-11.md`.
 
-## Direct small-excess descent — new complementary route
+### Common-face minimum-row adapter — kernel verified locally
 
-PR95 (`formal/low-excess-section-descent`) contains
-`Solutions/PolynomialLowExcessSectionDescent.lean`.
+`HirschCircuitLocalization.commonFace_diamLE_two_of_minCount_le_dim_add_two`
 
-The driver and its independent adapter have passed Lean compilation and axiom
-auditing in run `34619780682`. At this handoff its unconditional Prove2Me
-composition is being checked; **no public acceptance is established here**.
+At source commit `6d6b194584e479f8593fdeb76a77ac0ae5df8c0d`, run `34621838819` compiled
+and audited the theorem with only `propext`, `Classical.choice`, and `Quot.sound`.
+It proves that, assuming the public small-excess H-polyhedron bound, a bounded
+common face with
 
-Target:
-
+```text
+commonFaceMinSubpresentationCount a b u v
+  <= commonFaceDim a b u v + 2
 ```
-bounded Hpoly a b and n <= d+3  ==>  DiamLE (Hpoly a b) (n-d).
-```
 
-Empty sets, lower-dimensional feasible sets, zero normals, and redundant rows
-are included. The only external library inputs are the already-Proved
-`Hirsch.dimension_three_bound` and `Hirsch.facet_reduction`, represented as
-explicit propositions in the axiom-audited driver. The public solution supplies
-those inputs using tracked imports of the exact two Proved platform theorems.
-
-For d>3, n<=d+3 implies n<2d. Each vertex has >=d distinct NONZERO tight rows,
-so any two vertices share one. Reduce to its equality section, lowering both
-row count and ambient dimension by one. The excess n-d is preserved, both
-endpoints already lie in the section, and no access step or multiplicative
-cost is added. Stop at the Proved d<=3 base case.
-
-Important API correction: the public sub-balanced theorem asks for intrinsic
-diameter bounds on ALL row sections, including zero-row tautologies, whereas
-`facet_reduction` promises an ambient walk. The implementation therefore proves
-the short nonzero-row intersection lemma from the actual checked vertex-span
-proof and applies the ambient facet-walk conclusion directly.
-
-This route makes positive-annihilator existence unnecessary for the
-**diameter-only** small-excess consequence. In particular, once the public
-composition is confirmed, n<=d+2 gives diameter<=2 without normalization
-weights. Combine an equivalent small common-face subpresentation with intrinsic
-coordinate transport for the M_min<=h+2 corollary. The same route covers h+3
-with diameter<=3. It does not give a uniform polynomial at arbitrary excess.
-
-Ordinary argument: `research/LOW_EXCESS_BY_SECTION_DESCENT_2026-09-11.md`.
-
-## Previously public graph and row-semantics tools
+has **intrinsic** padded graph diameter <=2. The proof uses the existing
+irredundant/strict common-face model, presentation-independent minimum row
+count, injective affine graph transport, and walk padding. This adapter has not
+yet been separately published to Prove2Me at this status snapshot.
 
 ### Injective affine graph transport
 
 `Hirsch.injective_affine_image_diameter_iff`
-(`c4b0c852-981b-4bd7-8578-07e72315c3c9`), accepted solution
-`d0300dfb-691d-4388-8d4d-878c28b9cddf`, proves
-
-```
-DiamLE (f '' P) B <-> DiamLE P B
-```
-
-for any injective affine map between real modules, any P, and any natural B.
-Equal ambient dimensions and surjectivity onto the codomain are not required.
-The source preserves/reflects extreme points and actual segment-face adjacency.
-Source gate `34611873550`; publication `34612388187`; mission comment
-`77e5b93c-2e87-4444-aded-11d6e75f15ae`. See the two affine-transport receipts.
+(`c4b0c852-981b-4bd7-8578-07e72315c3c9`) is Proved and transports `DiamLE`
+through any injective real affine map, even between different ambient
+dimensions. It also preserves/reflects extreme points and actual adjacency.
 
 ### Normalized two-moment diameter two
 
 `Hirsch.normalized_two_moment_slice_diameter_two`
-(`e93edd7b-4659-4df5-9eab-fbcce4352c78`), accepted solution
-`ea2f94b1-abcf-49bd-8c0e-82423da3839e`, covers all real moments, including
-repetitions, degeneracies and empty slices. Internal classification gives
-singletons and low/high pairs; short routes preserve common zero coordinates,
-and every coordinate support face has intrinsic diameter <=2.
-
-Standalone SHA-256 `45e96aecc53c63bfd394ebc11a2ee196b958534cd93fe1f648c281dad8072317`.
-Source gate `34605987684`; publication `34606984246`; comment
-`fb10586a-11b4-40fa-944c-673c7a28f5ea`. See the excess-two completion receipt.
+(`e93edd7b-4659-4df5-9eab-fbcce4352c78`) is Proved for arbitrary real moments,
+including repetitions, degeneracies, empty slices, and coordinate support
+faces.
 
 ### Irredundant row-count invariance
 
 `Hirsch.irredundant_rows_card_le_any_equivalent_presentation`
-(`8538150b-8afe-47ad-94b0-d72189b80264`), accepted solution
-`9194432c-54e2-4e6a-9aaf-d7c27fb9934e`, makes strictly feasible irredundant
-presentations cardinal-minimal even against descriptions with different
-normals/redundancies/tautologies. The common-face minimum is therefore
-presentation-independent in that coordinate setting. This is not an abstract
-geometric facet-count API. See the row-count publication receipt.
+(`8538150b-8afe-47ad-94b0-d72189b80264`) is Proved and makes strictly feasible
+irredundant presentations cardinal-minimal among equivalent finite
+presentations. This supports the presentation-independent common-face minimum
+row count used above.
 
 ## Reusable circuit and routing foundations
 
@@ -171,12 +146,26 @@ Already public Proved results include:
 - common-face subpresentation excess/defect budget
   (`6f9c87a4-0a7c-4e6b-8f11-bda5ca40cc11`);
 - neutral-rank/selected-row defect, low-dimensional carrier-edge recognition,
-  clipping/repair, and rank-sensitive face-cover tools.
+  clipping/repair, rank-sensitive face-cover tools, and maximal-step checkpoint
+  progress.
 
 Common-face coordinate normalization is kernel-checked, including endpoint
 extremality, boundedness, irredundancy and strict feasibility, as well as a
 compatible recovered circuit walk. Circuit-walk existence is not the remaining
 obstacle; total ordinary edge-routing cost is.
+
+## What the low-excess result changes
+
+Positive-annihilator existence is no longer required for the **diameter-only**
+small-excess base case. Every bounded H-presentation with at most two excess
+rows already has diameter <=2 by the direct dimension-descent theorem. The
+explicit slack-normalization theorem remains valuable for portal coordinates
+and intrinsic selected-row support faces.
+
+The next mission-facing use is the now-kernel-checked common-face adapter:
+`M_min <= h+2` implies intrinsic carrier diameter <=2. This is a local carrier
+routing result, not a global whole-walk bound and not evidence that arbitrary
+circuit carriers satisfy the low-excess condition.
 
 ## Other live work learned from the mission board
 
@@ -190,24 +179,6 @@ Ridge-visible experiments on duals of stacked simplicial polytopes refute a
 uniform O(1) bound in that family. An O(n-d)-type hypothesis is still a research
 possibility, not a proved bound. Paying an entire facet diameter to reach the
 next ridge gives a dimension-multiplicative recurrence, not a fixed exponent.
-
-Public board tools also include product/box diameter, vertex-listing diameter,
-common-face 0/1 bounds, and synchronized scalar-height fiber edges. These are
-restricted-family infrastructure, not a solution of general face diameter.
-
-## Remaining explicit slack-normalization work
-
-The certificate-to-geometry implication is now public Proved. The remaining
-existence construction uses boundedness to separate the simplex from the
-row-map range, obtains a strictly positive annihilating weight, treats zero
-weighted slack mass separately, and chooses an independent second annihilator
-when needed. The ordinary argument is in
-`research/EXCESS_TWO_SLACK_NORMALIZATION_BRIDGE_2026-09-11.md`.
-
-Do not report that existence construction as kernel-verified. Do not assume
-arbitrary circuit carriers have excess <=2. The section-descent route above
-means explicit normalization is no longer the only path to the low-excess
-diameter corollary.
 
 ## Whole-walk bottleneck
 
@@ -228,10 +199,6 @@ axiom-clean standalone proof.
 Credentials remain outside Git in `PROVE2ME_API_KEY`; clients authenticate only
 to `https://prove2.me/api/v1` with redirects disabled. On a canceled monitor,
 recover the exact pending submission receipt and poll it rather than resubmit.
-
-Previous mission synchronization receipt:
-`research/PROVE2ME_HIRSCH_SYNC_2026-09-11.md`, board comment
-`0d87f2f5-42c6-45cb-ad21-6ba88a670dfd`.
 
 ## Mandatory counterexample regressions
 
