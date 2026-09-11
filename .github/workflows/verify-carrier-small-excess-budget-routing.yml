@@ -1,0 +1,38 @@
+name: Verify variable small-carrier-excess routing budgets
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+permissions:
+  contents: read
+concurrency:
+  group: carrier-small-excess-budget-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    if: >-
+      github.repository == 'jjoshua2/prove2me-work' &&
+      github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
+      github.head_ref == 'formal/carrier-excess-three-public-reduction'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - name: Check policy and pins
+        run: |
+          set -euo pipefail
+          python3 scripts/check_actions_policy.py
+          test "$(cat lean-toolchain)" = "leanprover/lean4:v4.30.0"
+          grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
+      - name: Restore pinned Lean environment
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Compile and audit variable carrier budgets
+        run: |
+          set -euo pipefail
+          lake build Solutions.PolynomialCarrierExcessThreePublicReduction Solutions.PolynomialCarrierSmallExcessBudgetRouting 2>&1 | tee /tmp/carrier-small-excess-budget.log
+          python3 scripts/check_lean_axiom_log.py /tmp/carrier-small-excess-budget.log \
+            HirschCircuitLocalization.feasible_sequence_edge_route_three_mul_of_carrier_subpresentation_at_most \
+            HirschCircuitLocalization.commonFace_diamLE_of_subpresentation_excess_le_three \
+            HirschCircuitLocalization.feasible_sequence_edge_route_of_carrier_excess_budgets_le_three
