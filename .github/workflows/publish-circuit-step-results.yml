@@ -48,10 +48,22 @@ jobs:
           python3 scripts/check_lean_axiom_log.py /tmp/circuit-public/carrier.log solution
           python3 scripts/check_lean_axiom_log.py /tmp/circuit-public/swap.log solution
           sha256sum /tmp/circuit-public/carrier.lean /tmp/circuit-public/swap.lean > /tmp/circuit-public/sha256.txt
-      - name: Register and verify exact audited theorems
+      - name: Register and verify exact audited theorems on Prove2Me 0.10.0
         env:
           PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
-        run: python3 scripts/publish_circuit_step_results.py
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('scripts/publish_circuit_step_results.py')
+          text = p.read_text(encoding='utf-8')
+          old = "VERSION = '0.9.9'"
+          new = "VERSION = '0.10.0'"
+          if text.count(old) != 1:
+              raise SystemExit('Expected exactly one reviewed 0.9.9 version guard')
+          p.write_text(text.replace(old, new, 1), encoding='utf-8')
+          PY
+          python3 scripts/publish_circuit_step_results.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
