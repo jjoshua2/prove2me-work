@@ -1,11 +1,11 @@
 import Definitions.Def_Hirsch_model
 
 /-!
-# Affine transport for the Hirsch graph predicates
+# Affine-equivalence transport for the Hirsch graph predicates
 
-Reusable infrastructure for slack-normalization arguments. Besides the simple
-ambient `AffineEquiv` case, the main declarations cover injective affine maps
-into a higher-dimensional ambient space. This is the form needed by slack maps.
+Reusable infrastructure for slack-normalization arguments. Mathlib already
+provides affine-map preservation of segments/open segments; this file packages
+that into the repository's `extremePoints`, `Adj`, and `DiamLE` predicates.
 -/
 
 open Set
@@ -255,10 +255,8 @@ theorem affineMap_diamLE_image_iff_of_injective
     obtain ⟨w, hw0, hwB, hstep⟩ := h (f x) hfx (f y) hfy
     let g : F → E := Function.invFun f
     refine ⟨fun i => g (w i), ?_, ?_, ?_⟩
-    · rw [hw0]
-      exact Function.leftInverse_invFun hf x
-    · rw [hwB]
-      exact Function.leftInverse_invFun hf y
+    · exact (congrArg g hw0).trans (Function.leftInverse_invFun hf x)
+    · exact (congrArg g hwB).trans (Function.leftInverse_invFun hf y)
     · intro i hi
       rcases hstep i hi with heq | hadj
       · exact Or.inl (congrArg g heq)
@@ -279,6 +277,8 @@ theorem affineMap_diamLE_image_iff_of_injective
         have hadj' : Adj (f '' A) (f xi) (f xj) := by
           rw [hfix, hfjx]
           exact hadj
+        apply Or.inr
+        change Adj A (g (w i)) (g (w (i + 1)))
         rw [hgi, hgj]
         exact (affineMap_adj_iff_of_injective f hf A xi xj).1 hadj'
   · exact affineMap_diamLE_image_of_injective f hf A B
