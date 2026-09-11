@@ -55,7 +55,7 @@ private lemma commonFaceA_eq_zero_of_commonSourceRow {d n : ℕ}
     (u v : EuclideanSpace ℝ (Fin d)) (i : Fin n)
     (hi : i ∈ HirschCommonFace.commonSourceRows a b u v) :
     HirschCommonFace.commonFaceA a b u v i = 0 := by
-  apply inner_self_eq_zero.mp
+  rw [← @inner_self_eq_zero ℝ]
   rw [commonFace_inner_restricted]
   let q := HirschCommonFace.commonFaceA a b u v i
   have hmem := commonFaceLift_mem_direction a b u v q
@@ -86,9 +86,9 @@ theorem common_face_has_subpresentation_dim_add_two_of_rows_le_dim_add_two
   have hzero : (0 : EuclideanSpace ℝ (Fin (HirschCommonFace.commonFaceDim a b u v))) ∈
       Hpoly A B := by
     intro i
-    have hi := hu i
-    change 0 ≤ b i - ⟪a i, u⟫
-    linarith
+    dsimp [A, B]
+    simp only [inner_zero_right]
+    exact sub_nonneg.mpr (hu i)
   have hdis : Disjoint C F := by
     apply Finset.disjoint_left.mpr
     intro i hiC hiF
@@ -130,8 +130,11 @@ theorem common_face_has_subpresentation_dim_add_two_of_rows_le_dim_add_two
   constructor
   · intro hx i
     by_cases hAi : A i = 0
-    · have hz := hzero i
-      simpa [hAi] using hz
+    · have hz : 0 ≤ B i := by
+        simpa [hAi] using hzero i
+      change ⟪A i, x⟫ ≤ B i
+      rw [hAi, inner_zero_left]
+      exact hz
     · have hiF : i ∈ F := by simp [F, hAi]
       let z : {i : Fin n // i ∈ F} := ⟨i, hiF⟩
       obtain ⟨j, hj⟩ := q.surjective z
