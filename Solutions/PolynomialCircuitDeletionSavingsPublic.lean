@@ -63,8 +63,9 @@ theorem row_circuit_selected_excess_defect_savings_identity
   have h :=
     HirschCircuitLocalization.rowCircuit_selected_excess_defect_savings_identity_of_bounded
       a b x y hbd hx hcirc F hF' hface'
+  rw [HirschCircuitLocalization.effectiveRowsOn_commonDirection_eq_publicCommonFaceEffectiveRows
+    a b x y] at h
   simpa [HirschCircuitLocalization.circuitNeutralRows,
-    HirschCircuitLocalization.effectiveRowsOn_commonDirection_eq_publicCommonFaceEffectiveRows,
     HirschCommonFace.commonFaceDim, HirschCommonFace.commonDirection,
     HirschCommonFace.rowEvalMap, HirschCommonFace.commonSourceRows,
     HirschPolynomialAccess.commonFaceDim,
