@@ -1,0 +1,29 @@
+DeletionSavingsFinal.lean:326:4: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+DeletionSavingsFinal.lean:327:4: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+DeletionSavingsFinal.lean:333:6: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+DeletionSavingsFinal.lean:963:7: warning: unused variable `x`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+DeletionSavingsFinal.lean:2048:6: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+'HirschCircuitLocalization.rowCircuit_selected_defect_le_discarded_neutral_of_bounded' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'HirschCircuitLocalization.rowCircuit_selected_excess_defect_savings_identity_of_bounded' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'HirschCircuitLocalization.rowCircuit_selected_excess_defect_add_nonneutral_savings_le_of_bounded' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'HirschCircuitLocalization.rowCircuit_selected_budget_saturated_iff_of_bounded' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+Axiom audit passed: 4 required declarations; 4 reports checked; only standard logical axioms.

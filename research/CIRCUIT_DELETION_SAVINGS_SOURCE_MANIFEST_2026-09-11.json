@@ -1,0 +1,87 @@
+[
+  {
+    "module": "Definitions.Def_Hirsch_model",
+    "sha256": "6fd58f0b67dc7673338618074d61737ce769a93353f815d9481a7710f8884b45",
+    "git_blob": "53acfb1a0eb3af6719173c233788199dcb987eca"
+  },
+  {
+    "module": "Definitions.Def_Hirsch_circuit_model",
+    "sha256": "7af4a01db657e3831156d06c640117ae2aff7409409a1a03a2be00e9445b97d6",
+    "git_blob": "fb1b4ef89c74095c2def52e69c8aadfff3365269"
+  },
+  {
+    "module": "Definitions.Def_Hirsch_circuit_slack_model",
+    "sha256": "f30c7748ca2b058b9ce7adbc9f40b5a0affbde810010b69a95b49486dfaacbd7",
+    "git_blob": "fa5766aa90a8ade71ab3f5e9e4a2dff22bc35678"
+  },
+  {
+    "module": "Solutions.CircuitSlackTranslation",
+    "sha256": "428790d3162d93d0f48d511b3d26d8354b2ad86b1c0cf141b6a8f47c1e9cbd27",
+    "git_blob": "16ea1d3298770d08d04e567d236dbcb0ae2935de"
+  },
+  {
+    "module": "Solutions.CircuitSlackBounded",
+    "sha256": "83789f850dad77a97e99612e5f38d6c878eff9928837653304cf1d321766157a",
+    "git_blob": "ea2e654e4a9a5b7e5fdf48cd82974f40f6a21d5c"
+  },
+  {
+    "module": "Solutions.PolynomialVertexSpan",
+    "sha256": "62764458eaf082dfead6fa2aca3176bee3a9030ba95b192a415050fa90401929",
+    "git_blob": "673e5a68f154b66556d01dd81977107329a3415e"
+  },
+  {
+    "module": "Solutions.PolynomialSeparatedRows",
+    "sha256": "c1b10071954f13be1c9b2bffa406b275a259ca982b1b1286ccd7d7a4eca450ec",
+    "git_blob": "1f023489ae9edadc18d6b6cf3a88d003ebdfff46"
+  },
+  {
+    "module": "Solutions.PolynomialExcessFaceRank",
+    "sha256": "69f678a9b426d46aeeae27dfcc2e2cde3f99860d606872630eeacced4995f89c",
+    "git_blob": "c8b8690f9c11cc0ac3c1d7a32fda3f843fc99457"
+  },
+  {
+    "module": "Solutions.PolynomialCommonFace",
+    "sha256": "70dd6e15b194e82e18c5e23582d709101608c25628f9ac983d67289f892f5c27",
+    "git_blob": "1ecf5f1b65c28485ba74e74e9d4a0ece4a4ac5b8"
+  },
+  {
+    "module": "Solutions.PolynomialCommonFaceCoords",
+    "sha256": "679160f1748617f66c70ce3d967d9cf0dd9931201bf7d2923256acd6c2686174",
+    "git_blob": "a94d7d0ad310623d4e370b056e99a7f15430237d"
+  },
+  {
+    "module": "Solutions.PolynomialCircuitLocalization",
+    "sha256": "77a6122d959eb7a94a8b2663f0c8e9092d1d1a3f8450fadf37b2500127885c45",
+    "git_blob": "79ebfe67aec558992014f75ef5c21640245e6514"
+  },
+  {
+    "module": "Solutions.PolynomialCircuitNeutralRank",
+    "sha256": "52dc6605d804846db61941593ac049484521154006641c8362b6709ad0672e9a",
+    "git_blob": "ba5355c6d2aef85c2a4de982b58e4635e81a903d"
+  },
+  {
+    "module": "Solutions.PolynomialCircuitFaceNeutralRank",
+    "sha256": "60e2c908d0dfee2f4916a069a311dd17397ec64919b8db3bf9259569ea964679",
+    "git_blob": "03c4061d17cb7a91cd163ae775ffda7e991f655e"
+  },
+  {
+    "module": "Solutions.PolynomialCircuitBoundedNeutralRank",
+    "sha256": "7ca5452a1141b63d3e8b0c34158786305a85eb38a4a301d0bb029c081ab86bc9",
+    "git_blob": "469c4c31eafcfd34192cfda61bcec78a76bfa1c8"
+  },
+  {
+    "module": "Solutions.PolynomialRowRankDeletion",
+    "sha256": "b02b1b46ffb72ce7f9d994efaa3ef4c51304984db889052d8cbee0bbc34e216c",
+    "git_blob": "927cf7639f309edfe8a218bdbe058278ab0f2e18"
+  },
+  {
+    "module": "Solutions.PolynomialCommonFaceEffectiveRows",
+    "sha256": "ee9720a81eb2e6d5fb0ae7b0db0806523662046c594e4c63abbe153389195370",
+    "git_blob": "b895bad55a98c30204081bbed7ba25c27e05ac71"
+  },
+  {
+    "module": "Solutions.PolynomialCircuitDeletionSavings",
+    "sha256": "19c5164f3294edcbceb5717c545e09293afe3bb0582a997d2a9fdeb448c31598",
+    "git_blob": "9309fee6ec558f4662e4bd09e8ea1a908c6ac59f"
+  }
+]
