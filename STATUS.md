@@ -12,11 +12,14 @@ Polynomial Hirsch is **not solved**.
 
 The sole formal Open bottleneck remains
 
-`Hirsch.polynomial_edge_refinement_of_circuit_walks`
+`Hirsch.polynomial_edge_refinement_of_circuit_walks_dim_ge_four`
 
-- theorem ID `099c6686-560c-48fc-b2c2-18b6a620a06e`
-- live status **Open** after all 2026-09-10 circuit rank/defect publications
-- asks for constants `C,k` so every length-`L` row-circuit walk between vertices of a bounded, irredundant, strictly feasible `n`-row `d`-polytope can be replaced by an ordinary edge/stay walk of padded length `C*(n+d)^k*L`.
+- theorem ID `73beca40-31bc-42d5-8350-5ec9ac28bd3e`
+- live status **Open**
+- parent `Hirsch.polynomial_edge_refinement_of_circuit_walks`
+  (`099c6686-560c-48fc-b2c2-18b6a620a06e`) is a sketch: `d ≤ 3` is Klee
+  (`dimension_three_bound`); `d ≥ 4` is this child
+- asks for constants `C,k` so every length-`L` row-circuit walk between vertices of a bounded, irredundant, strictly feasible `n`-row `d`-polytope with `d ≥ 4` can be replaced by an ordinary edge/stay walk of padded length `C*(n+d)^k*L`.
 
 The replacement need not visit nonvertex circuit intermediates. Constant or dimension-only overhead per circuit step is already false in exact polygon examples; polynomial row-dependent overhead is not ruled out.
 
@@ -30,8 +33,10 @@ PR #9 split the old prescribed-face leaf into:
 
 ```text
 polynomial_access_to_given_supporting_face
-  -> cubic_circuit_walk_bound                         Proved
-  +  polynomial_edge_refinement_of_circuit_walks     Open
+  -> cubic_circuit_walk_bound                              Proved
+  +  polynomial_edge_refinement_of_circuit_walks           Sketch
+       -> dimension_three_bound                            Proved
+       +  polynomial_edge_refinement_of_circuit_walks_dim_ge_four  Open
 ```
 
 `Hirsch.cubic_circuit_walk_bound` (`9b9a6f06-d05d-41ba-980f-04b905e67562`) is Proved. Its completed Lean development supplies a concrete `17*n^3` circuit bound. The relaxed circuit-walk half is finished; the remaining difficulty is ordinary graph routing.
@@ -42,7 +47,8 @@ Reusable public results include:
 
 - supporting-face access: `target_face_access_of_local_neutral_rank`, `given_supporting_face_access_of_boundary_residual_rank`, `vertex_exposing_redundant_row_extension`, `given_supporting_face_access_of_boundary_product_factors`;
 - cuts: `cut_face_access_of_outer_diameter`, `clipped_diameter_le_outer_add_cut_face`, `cut_face_access_of_unbounded_outer_diameter`, `bounded_clip_diameter_le_outer_add_cut_face_add_one`, `box_slice_diameter_le_dimension`;
-- geodesic/common-face: `reentry_splice_through_extreme_face`, `geodesic_face_disjoint_tail_bound`, `geodesic_face_cover_diameter_bound`, `common_face_dimension_tradeoff`, `common_face_effective_count_le_rows_minus_common`, `common_face_diameter_of_effective_rows`, `separated_common_face_split`;
+- geodesic/common-face: `reentry_splice_through_extreme_face`, `geodesic_face_disjoint_tail_bound`, `geodesic_face_cover_diameter_bound`, `common_face_dimension_tradeoff`, `common_face_effective_count_le_rows_minus_common`, `common_face_diameter_of_effective_rows`, `separated_common_face_split`, `weighted_geodesic_face_cover_diameter_bound`, `tight_rows_outside_subspace_cardinality_bound`, `rank_selected_row_face_diameter_bound`, `weighted_cover_improvement_requires_smaller_child`;
+- carrier-to-edge: `row_circuit_step_adj_of_common_face_dim_le_one` (a maximal circuit step leaving a vertex is an edge when the common face has dimension at most one; destination need not be assumed a vertex);
 - repair networks: `face_interval_cover_route_bound`, `ordered_damage_repair_exact`, `route_of_faces_and_surviving_edges`, `extreme_face_cut_route_bound`, `mixed_repair_route_or_cut`, `crossing_cube_endpoint_certificate_insufficient`;
 - checkpoint/portal family: start/active-containment routing, simultaneous face-preserving vertex selection, compact extreme-face parent-vertex extraction, feasible face-covered sequence routing, and shared-point-to-parent-vertex transfer;
 - circuit structure: sharp common-face localization, the balanced shared-tight-row obstruction, exact common-face neutral rank, selected-row defect charging, and the equivalent-subpresentation excess/defect theorem documented below.
@@ -217,7 +223,7 @@ The proved minimum-presentation inequality shows this combined resource cannot e
 1. Formalize the **genuine-facet bridge** for bounded full-dimensional common-face coordinate polytopes: connect the least equivalent original-row subpresentation count `M_min` to an intrinsic geometric facet count, or introduce a clean public irredundant-presentation notion that can play this role without ambiguity.
 2. Generalize the now-Proved circuit/common-face specialization to the full face-to-face defect/excess transfer theorem only after the facet/presentation semantics are explicit.
 3. Investigate what extra structure beyond `excess + defect` can actually pay for ordinary edge routing—selected portals, route order, special restricted rows, or a low-cost clipping/carrier representation.
-4. Keep `polynomial_edge_refinement_of_circuit_walks` as the sole Open child. Only create a new decomposition if its children are demonstrably smaller and the parent implication compiles without an ancestor cycle.
+4. Keep `polynomial_edge_refinement_of_circuit_walks_dim_ge_four` as the sole Open child. Only create a new decomposition if its children are demonstrably smaller and the parent implication compiles without an ancestor cycle. Do not cycle back through `balanced_polynomial_bound`. The `h ≤ 1` carrier-to-edge theorem does not close the leaf: polygon examples already force linear overhead at common-face dimension two.
 5. Continue separating representation/connectivity from polynomial charging. Small support count, low face dimension, or small defect budget is not itself a graph-distance bound.
 
 ## Mandatory regressions / dead ends
@@ -247,6 +253,10 @@ Do not infer connectivity from chronological overlap, automatic balance from low
 - PR #54: rank-controlled box research; its older clipping candidate is superseded by PR #53.
 - PR #55 merged: shared Lean-cache / Actions cost-control policy.
 - PR #56 merged: durable clipping and late-research catch-up.
+- PR #63 merged: kernel-verified circuit carrier-to-edge geometry; public theorem Proved as `row_circuit_step_adj_of_common_face_dim_le_one`.
+- PR #66 merged: rank-sensitive face-cover toolkit transplanted from #61; four public theorems Proved (receipt `research/FACE_COVER_PUBLICATION_RECEIPT_2026-09-10.md`).
+- PR #67 merged: open-PR lifecycle policy. Historical/superseded PRs closed; remaining active draft is #64.
+- PR #62 publication gate: all four face-cover theorems Proved; GitHub job timed out after compile/audit/auth. Close after this receipt.
 - `formal/circuit-localization`: frozen source for the two sharp circuit-localization theorems.
 - `formal/circuit-neutral-rank`: current verified source for neutral-rank, row-deletion, effective-row, subpresentation defect/excess, and minimum-subpresentation developments. Its temporary push-triggered verification workflow was deleted after run `34518322328` passed.
 - `publish/circuit-neutral-rank-defect` and `publish/circuit-subpresentation-excess`: isolated publication branches; their one-shot publication workflows were deleted after success.

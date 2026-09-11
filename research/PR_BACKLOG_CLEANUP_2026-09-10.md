@@ -40,11 +40,16 @@ PR #61 was then commented as superseded by #66 and closed. This is the preferred
 
 ## PRs intentionally left open at this checkpoint
 
-### #62 — active publication gate
+### #62 — publication gate, verdict now known
 
 `Publish four audited face-cover results to Prove2Me`
 
-This PR is temporary publication infrastructure. Its standalone Lean statements/proofs and axiom audits passed, authenticated preflight passed, and its Prove2Me server verification step was still running at the time of this note. It must remain open until the actual server verdict is known and the resulting theorem/submission IDs and receipt are reconciled into durable repository state. It should then be closed rather than used as an archive.
+Standalone compile, axiom audit, and authentication passed. The GitHub
+`publish` job `34539939870` then hit the 35-minute timeout during
+register/verify. An authenticated API read afterwards found all four
+theorems **Proved**. IDs are in
+`research/FACE_COVER_PUBLICATION_RECEIPT_2026-09-10.md`. This PR should
+now be closed rather than kept as history.
 
 ### #64 — genuine active research draft
 
