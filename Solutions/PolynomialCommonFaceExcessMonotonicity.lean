@@ -34,10 +34,13 @@ theorem commonFace_minSubpresentation_excess_le_parent_excess_of_bounded_feasibl
   let E : Finset (Fin n) := effectiveRowsOnSubspace a (commonDirection a b x y)
   have hFM : F.card = M := by simpa [F, M] using hFeq
   have hFE : F ⊆ E := by
-    have hpub : F ⊆ HirschCommonFace.commonFaceEffectiveRows a b x y :=
-      Finset.inter_subset_right
-    rw [effectiveRowsOn_commonDirection_eq_publicCommonFaceEffectiveRows]
-    exact hpub
+    intro i hiF
+    have hpub : i ∈ HirschCommonFace.commonFaceEffectiveRows a b x y :=
+      Finset.inter_subset_right hiF
+    have hi : i ∈ effectiveRowsOnSubspace a (commonDirection a b x y) := by
+      rw [effectiveRowsOn_commonDirection_eq_publicCommonFaceEffectiveRows]
+      exact hpub
+    simpa [E] using hi
   have hFcard : F.card ≤ E.card := Finset.card_le_card hFE
   have hbudget : E.card + d ≤ n + h := by
     simpa [E, h] using
