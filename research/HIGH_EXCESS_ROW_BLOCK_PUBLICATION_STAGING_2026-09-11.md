@@ -4,4 +4,6 @@ The theorem source is frozen to PR #132 commit `4924c6ea81cda80c6a8bd54ce2a0d3d7
 
 This staging branch contains only publication machinery/trigger material. The owner-only base workflow reconstructs the frozen row-block proof, compiles and axiom-audits a dependency-free driver with the small-excess theorem as an explicit premise, then checks the exact Prove2Me theorem ID/type/status for `Hirsch.hpoly_diameter_le_excess_of_rows_le_dim_add_three` before registering/verifying the unconditional public theorem.
 
+The first publication run failed closed before authentication because the generated driver imported `Definitions.Def_Hirsch_model` before the corresponding local `.olean` had been built. The base gate now builds that pinned local definition module before invoking Lean. No theorem or proof bytes changed and no API call occurred in that failed run.
+
 No claim of Prove2Me acceptance is made until the authenticated workflow returns ACCEPTED and live Proved. The d>=4 circuit-to-edge frontier must remain Open before and after the transaction. Do not merge this publication branch; preserve the receipt on main, remove the one-shot workflow, then close the staging PR unmerged.
