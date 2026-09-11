@@ -36,6 +36,7 @@ jobs:
       - name: Compile and audit exact standalone solution
         run: |
           set -euo pipefail
+          lake build Definitions.Def_Hirsch_common_face_geometry
           lake env lean /tmp/common-face-row-excess-public/solution.lean 2>&1 | tee /tmp/common-face-row-excess-public/solution-axioms.log
           python3 scripts/check_lean_axiom_log.py /tmp/common-face-row-excess-public/solution-axioms.log solution
           sha256sum /tmp/common-face-row-excess-public/solution.lean | awk '{print $1}' > /tmp/common-face-row-excess-public/solution-audit-passed.sha256
