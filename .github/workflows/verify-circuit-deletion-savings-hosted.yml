@@ -12,8 +12,7 @@ jobs:
     if: >-
       github.repository == 'jjoshua2/prove2me-work' &&
       github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
-      (github.head_ref == 'formal/direct-row-deletion-routing' ||
-       github.head_ref == 'formal/one-row-deletion-cap-functional')
+      github.head_ref == 'formal/one-row-deletion-cap-boundedness'
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
@@ -29,35 +28,18 @@ jobs:
           grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
       - name: Restore pinned Lean environment
         uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
-      - name: Compile and audit active deletion theorem
+      - name: Compile and audit cap boundedness
         run: |
           set -euo pipefail
-          case "$GITHUB_HEAD_REF" in
-            formal/direct-row-deletion-routing)
-              lake build Solutions.PolynomialDirectRowDeletionRouting
-              lake env lean Solutions/PolynomialDirectRowDeletionRouting.lean 2>&1 | tee /tmp/direct-row-deletion-routing.log
-              python3 scripts/check_lean_axiom_log.py /tmp/direct-row-deletion-routing.log \
-                HirschDeletion.hpoly_eq_deleteRow_inter_row \
-                HirschDeletion.hpoly_diamLE_of_bounded_deleteRow_outer
-              ;;
-            formal/one-row-deletion-cap-functional)
-              lake build Solutions.PolynomialOneRowDeletionCapFunctional
-              lake env lean Solutions/PolynomialOneRowDeletionCapFunctional.lean 2>&1 | tee /tmp/one-row-deletion-cap-functional.log
-              python3 scripts/check_lean_axiom_log.py /tmp/one-row-deletion-cap-functional.log \
-                HirschDeletion.deletionCapValue_pos_of_injective \
-                HirschDeletion.deletionCapValue_pos_on_recession_of_bounded
-              ;;
-            *)
-              echo "unexpected branch: $GITHUB_HEAD_REF" >&2
-              exit 1
-              ;;
-          esac
+          lake build Solutions.PolynomialOneRowDeletionCapBounded
+          lake env lean Solutions/PolynomialOneRowDeletionCapBounded.lean 2>&1 | tee /tmp/one-row-deletion-cap-boundedness.log
+          python3 scripts/check_lean_axiom_log.py /tmp/one-row-deletion-cap-boundedness.log \
+            HirschDeletion.deletionCappedOuter_isBounded_of_injective \
+            HirschDeletion.deletionCappedOuter_isBounded_of_bounded_parent
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: active-hirsch-deletion-verification
           retention-days: 14
-          path: |
-            /tmp/direct-row-deletion-routing.log
-            /tmp/one-row-deletion-cap-functional.log
+          path: /tmp/one-row-deletion-cap-boundedness.log
           if-no-files-found: warn
