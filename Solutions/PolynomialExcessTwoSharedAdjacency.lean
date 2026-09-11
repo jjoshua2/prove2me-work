@@ -40,7 +40,7 @@ lemma sum_eq_add_add_of_zero_off_triple {n : ℕ}
     (∑ r, f r) = ∑ r ∈ (Finset.univ : Finset (Fin n)), f r := rfl
     _ = ∑ r ∈ ({i, j, k} : Finset (Fin n)), f r := hsmall.symm
     _ = f i + f j + f k := by
-      simp [hij, hik, hjk, add_comm, add_left_comm, add_assoc]
+      simp [hij, hik, hjk, add_comm, add_left_comm]
 
 /-- With one low index and two distinct high indices, the corresponding
 three-coordinate support face is exactly the segment joining the two pair
@@ -80,6 +80,7 @@ theorem supportFace_triple_eq_segment_shared_low {n : ℕ}
     have hmomSum := sum_eq_add_add_of_zero_off_triple
       (fun r => t r * s r) i j k hij hik hjk (by
         intro r hri hrj' hrk'
+        change t r * s r = 0
         rw [hzero r hri hrj' hrk', mul_zero])
     have hmom : t i * s i + t j * s j + t k * s k = mu := by
       calc
@@ -95,7 +96,7 @@ theorem supportFace_triple_eq_segment_shared_low {n : ℕ}
       exact mul_nonneg hdk.le (hs.1.1 k)
     have hAB : A + B = mu - t i := by
       dsimp [A, B]
-      nlinarith [hmass, hmom]
+      linear_combination hmom - (t i) * hmass
     have hABpos : 0 < A + B := by rw [hAB]; exact hD
     have hα : 0 ≤ A / (A + B) := div_nonneg hA hABpos.le
     have hβ : 0 ≤ B / (A + B) := div_nonneg hB hABpos.le
@@ -178,6 +179,7 @@ theorem pairPoint_adj_shared_low {n : ℕ}
   have hne : pairPoint t mu i j ≠ pairPoint t mu i k := by
     intro h
     have hc := congrArg (fun s : EuclideanSpace ℝ (Fin n) => s j) h
+    change pairPoint t mu i j j = pairPoint t mu i k j at hc
     rw [pairPoint_apply_right t mu i j hij,
       pairPoint_apply_other t mu i k j hji hjk] at hc
     have hp : 0 < (mu - t i) / (t j - t i) := by positivity
@@ -224,6 +226,7 @@ theorem supportFace_triple_eq_segment_shared_high {n : ℕ}
     have hmomSum := sum_eq_add_add_of_zero_off_triple
       (fun r => t r * s r) i j k hij hik hjk (by
         intro r hri hrj' hrk'
+        change t r * s r = 0
         rw [hzero r hri hrj' hrk', mul_zero])
     have hmom : t i * s i + t j * s j + t k * s k = mu := by
       calc
@@ -239,7 +242,7 @@ theorem supportFace_triple_eq_segment_shared_high {n : ℕ}
       exact mul_nonneg hdj.le (hs.1.1 j)
     have hAB : A + B = t k - mu := by
       dsimp [A, B]
-      nlinarith [hmass, hmom]
+      linear_combination (t k) * hmass - hmom
     have hABpos : 0 < A + B := by rw [hAB]; exact hD
     have hα : 0 ≤ A / (A + B) := div_nonneg hA hABpos.le
     have hβ : 0 ≤ B / (A + B) := div_nonneg hB hABpos.le
@@ -320,6 +323,7 @@ theorem pairPoint_adj_shared_high {n : ℕ}
   have hne : pairPoint t mu i k ≠ pairPoint t mu j k := by
     intro h
     have hc := congrArg (fun s : EuclideanSpace ℝ (Fin n) => s i) h
+    change pairPoint t mu i k i = pairPoint t mu j k i at hc
     rw [pairPoint_apply_left,
       pairPoint_apply_other t mu j k i hij hik] at hc
     have hp : 0 < (t k - mu) / (t k - t i) := by positivity
