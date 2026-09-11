@@ -1,38 +1,62 @@
-name: Read exact low-excess proof interfaces
+name: Low-excess descent final proof gate
 on:
+  workflow_dispatch:
   pull_request:
     types: [opened, reopened]
 permissions:
   contents: read
 concurrency:
-  group: low-excess-interface-readback
+  group: low-excess-final-gate
   cancel-in-progress: true
 jobs:
-  read:
+  verify_publish:
     if: >-
       github.repository == 'jjoshua2/prove2me-work' &&
       github.actor == 'jjoshua2' &&
       github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
       github.head_ref == 'formal/low-excess-section-descent'
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
           persist-credentials: false
-      - name: Cheap policy and syntax checks
+      - name: Cheap policy, source and packet checks
         run: |
+          set -euo pipefail
           python3 scripts/check_actions_policy.py
-          python3 -m py_compile scripts/read_low_excess_interfaces.py
-      - name: Read proved dependency statements
+          python3 -m py_compile scripts/publish_low_excess_section_descent.py
+          git diff --exit-code 2774702c54078cb8efae7bed185ed1b4b93bce5b -- Solutions/PolynomialLowExcessSectionDescent.lean Solutions/PolynomialVertexSpan.lean
+          python3 scripts/publish_low_excess_section_descent.py prepare
+      - name: Restore shared pinned Lean environment
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Compile and audit actual induction driver without theorem stubs
+        run: |
+          set -euo pipefail
+          lake build Solutions.PolynomialLowExcessSectionDescent 2>&1 | tee /tmp/low-excess-public/source-build.log
+          lake env lean /tmp/low-excess-public/driver.lean 2>&1 | tee /tmp/low-excess-public/driver-axioms.log
+          python3 scripts/check_lean_axiom_log.py /tmp/low-excess-public/driver-axioms.log \
+            HirschLowExcess.dimension_le_tightNonzeroRows_card \
+            HirschLowExcess.vertices_share_nonzero_tight_row_of_n_lt_two_d \
+            HirschLowExcess.hpoly_diameter_le_excess_from_proved_inputs \
+            checked_low_excess_adapter
+          sha256sum /tmp/low-excess-public/driver.lean | awk '{print $1}' > /tmp/low-excess-public/driver-audit-passed.sha256
+      - name: Authenticated Prove2Me preflight
         env:
           PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
-        run: python3 scripts/read_low_excess_interfaces.py
-      - uses: actions/upload-artifact@v4
-        if: success()
+        run: python3 scripts/prove2me_auth.py check
+      - name: Validate proved dependencies and submit unconditional composition
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: python3 scripts/publish_low_excess_section_descent.py publish
+      - name: Preserve exact packets and sanitized receipts
+        uses: actions/upload-artifact@v4
+        if: always()
         with:
-          name: low-excess-proved-interfaces
-          retention-days: 7
-          path: low_excess_interfaces/
+          name: low-excess-descent-final-proof
+          retention-days: 14
+          path: |
+            /tmp/low-excess-public/
+            low_excess_publication_receipts/
