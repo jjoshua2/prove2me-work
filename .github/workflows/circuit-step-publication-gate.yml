@@ -33,7 +33,9 @@ jobs:
       - name: Compile new core and public adapters
         run: |
           set -euo pipefail
-          lake build Solutions.PolynomialCircuitStepBlockerCharacterization 2>&1 | tee /tmp/core.log
+          lake build Solutions.PolynomialCircuitStepBlockerCharacterization \
+            Definitions.Def_Hirsch_common_face_geometry \
+            Definitions.Def_Hirsch_circuit_slack_model 2>&1 | tee /tmp/core.log
           lake env lean Solutions/Sol_Hirsch_maximal_row_circuit_step_carrier_bound.lean 2>&1 | tee /tmp/carrier-adapter.log
           lake env lean Solutions/Sol_Hirsch_row_circuit_step_swap_iff_tight_blockers.lean 2>&1 | tee /tmp/swap-adapter.log
           python3 scripts/check_lean_axiom_log.py /tmp/carrier-adapter.log solution
