@@ -136,10 +136,13 @@ theorem compact_hpoly_cap_vertex_classification
   have hFconv : Convex ℝ F := by
     intro x hx y hy s t hs ht hst
     refine ⟨⟨hQ hx.1.1 hy.1.1 hs ht hst, ?_⟩, ?_⟩
-    · simp only [inner_add_right, inner_smul_right]
+    · change ⟪c, s • x + t • y⟫ ≤ M
+      rw [inner_add_right, inner_smul_right, inner_smul_right]
+      have hcx : ⟪c, x⟫ ≤ M := hx.1.2
+      have hcy : ⟪c, y⟫ ≤ M := hy.1.2
       have hsum : s * M + t * M = M := by rw [← add_mul, hst, one_mul]
-      linarith [mul_le_mul_of_nonneg_left hx.1.2 hs,
-        mul_le_mul_of_nonneg_left hy.1.2 ht]
+      linarith [mul_le_mul_of_nonneg_left hcx hs,
+        mul_le_mul_of_nonneg_left hcy ht]
     · intro i hi
       rw [inner_add_right, inner_smul_right, inner_smul_right,
         hx.2 i hi, hy.2 i hi, ← add_mul, hst, one_mul]
@@ -266,6 +269,7 @@ lemma old_edge_survives_cap
   · intro x hx
     refine ⟨huv.2.subset hx, ?_⟩
     obtain ⟨s, t, hs, ht, hst, rfl⟩ := hx
+    change ⟪c, s • u + t • v⟫ ≤ M
     rw [inner_add_right, inner_smul_right, inner_smul_right]
     have hsum : s * M + t * M = M := by rw [← add_mul, hst, one_mul]
     linarith [mul_le_mul_of_nonneg_left hu hs, mul_le_mul_of_nonneg_left hv ht]
