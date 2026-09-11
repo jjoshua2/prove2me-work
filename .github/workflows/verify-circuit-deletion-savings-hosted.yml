@@ -1,34 +1,21 @@
-name: Verify circuit deletion savings hosted
+name: Verify active Hirsch deletion branches
 on:
   pull_request:
     types: [opened, synchronize]
 permissions:
   contents: read
 concurrency:
-  group: verify-circuit-deletion-savings-${{ github.head_ref }}
+  group: verify-active-hirsch-deletion-${{ github.head_ref }}
   cancel-in-progress: true
 jobs:
   verify:
     if: >-
       github.repository == 'jjoshua2/prove2me-work' &&
       github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
-      (github.head_ref == 'verify/circuit-deletion-savings-hosted' ||
-       github.head_ref == 'formal/circuit-deletion-savings-public' ||
-       github.head_ref == 'formal/saturated-carrier-blocker' ||
-       github.head_ref == 'formal/circuit-step-savings-dichotomy' ||
-       github.head_ref == 'formal/saturated-phase-blocker' ||
-       github.head_ref == 'formal/min-presentation-phase-dichotomy' ||
-       github.head_ref == 'formal/irredundant-min-carrier-dichotomy' ||
-       github.head_ref == 'formal/lower-excess-carrier-recursion' ||
-       github.head_ref == 'verify/high-excess-row-block-routing' ||
-       github.head_ref == 'formal/common-face-row-block-routing' ||
-       github.head_ref == 'formal/circuit-carrier-three-way-reduction' ||
-       github.head_ref == 'formal/row-block-budget-routing' ||
-       github.head_ref == 'formal/single-cut-lower-excess-routing' ||
-       github.head_ref == 'formal/one-row-deletion-pointedness' ||
-       github.head_ref == 'formal/direct-row-deletion-routing')
+      (github.head_ref == 'formal/direct-row-deletion-routing' ||
+       github.head_ref == 'formal/one-row-deletion-cap-functional')
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
         with:
@@ -42,131 +29,35 @@ jobs:
           grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
       - name: Restore pinned Lean environment
         uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
-      - name: Compile and audit exact savings module
+      - name: Compile and audit active deletion theorem
         run: |
           set -euo pipefail
-          lake build Solutions.PolynomialCircuitDeletionSavings
-          lake env lean Solutions/PolynomialCircuitDeletionSavings.lean 2>&1 | tee /tmp/circuit-deletion-savings-hosted.log
-          python3 scripts/check_lean_axiom_log.py /tmp/circuit-deletion-savings-hosted.log \
-            HirschCircuitLocalization.rowCircuit_selected_defect_le_discarded_neutral_of_bounded \
-            HirschCircuitLocalization.rowCircuit_selected_excess_defect_savings_identity_of_bounded \
-            HirschCircuitLocalization.rowCircuit_selected_excess_defect_add_nonneutral_savings_le_of_bounded \
-            HirschCircuitLocalization.rowCircuit_selected_budget_saturated_iff_of_bounded
-          if [[ -f Solutions/PolynomialCircuitDeletionSavingsPublic.lean ]]; then
-            lake build Solutions.PolynomialCircuitDeletionSavingsPublic
-            lake env lean Solutions/PolynomialCircuitDeletionSavingsPublic.lean 2>&1 | tee /tmp/circuit-deletion-savings-public.log
-            python3 scripts/check_lean_axiom_log.py /tmp/circuit-deletion-savings-public.log \
-              Hirsch.row_circuit_selected_excess_defect_savings_identity
-          fi
-          if [[ -f Solutions/PolynomialCircuitSaturatedBlocker.lean ]]; then
-            lake build Solutions.PolynomialCircuitSaturatedBlocker
-            lake env lean Solutions/PolynomialCircuitSaturatedBlocker.lean 2>&1 | tee /tmp/circuit-saturated-blocker.log
-            python3 scripts/check_lean_axiom_log.py /tmp/circuit-saturated-blocker.log \
-              HirschCircuitLocalization.rowCircuit_saturated_selected_contains_effective_nonneutral \
-              HirschCircuitLocalization.rowCircuitStep_saturated_selected_target_blocker \
-              HirschCircuitLocalization.rowCircuitStep_saturated_selected_targetOnlyRow
-          fi
-          if [[ -f Solutions/PolynomialCircuitStepSavingsDichotomy.lean ]]; then
-            lake build Solutions.PolynomialCircuitStepSavingsDichotomy
-            lake env lean Solutions/PolynomialCircuitStepSavingsDichotomy.lean 2>&1 | tee /tmp/circuit-step-savings-dichotomy.log
-            python3 scripts/check_lean_axiom_log.py /tmp/circuit-step-savings-dichotomy.log \
-              HirschCircuitLocalization.rowCircuitStep_selected_strict_budget_or_targetOnlyRow \
-              HirschCircuitLocalization.rowCircuitStep_minPresentation_strict_budget_or_selected_targetOnlyRow
-          fi
-          if [[ -f Solutions/PolynomialCircuitSaturatedPhaseBlocker.lean ]]; then
-            lake build Solutions.PolynomialCircuitSaturatedPhaseBlocker
-            lake env lean Solutions/PolynomialCircuitSaturatedPhaseBlocker.lean 2>&1 | tee /tmp/circuit-saturated-phase-blocker.log
-            python3 scripts/check_lean_axiom_log.py /tmp/circuit-saturated-phase-blocker.log \
-              HirschCircuitLocalization.rowCircuitStep_saturated_same_phase_selected_target_positive_blocker
-          fi
-          if [[ -f Solutions/PolynomialCircuitMinPresentationPhaseDichotomy.lean ]]; then
-            lake build Solutions.PolynomialCircuitMinPresentationPhaseDichotomy
-            lake env lean Solutions/PolynomialCircuitMinPresentationPhaseDichotomy.lean 2>&1 | tee /tmp/circuit-min-presentation-phase-dichotomy.log
-            python3 scripts/check_lean_axiom_log.py /tmp/circuit-min-presentation-phase-dichotomy.log \
-              HirschCircuitLocalization.rowCircuitStep_minPresentation_same_phase_strict_budget_or_selected_target_positive_blocker
-          fi
-          if [[ -f Solutions/PolynomialCircuitIrredundantMinCarrierDichotomy.lean ]]; then
-            lake build Solutions.PolynomialCircuitIrredundantMinCarrierDichotomy
-            lake env lean Solutions/PolynomialCircuitIrredundantMinCarrierDichotomy.lean 2>&1 | tee /tmp/circuit-irredundant-min-carrier-dichotomy.log
-            python3 scripts/check_lean_axiom_log.py /tmp/circuit-irredundant-min-carrier-dichotomy.log \
-              HirschCircuitLocalization.rowCircuitStep_irredundant_minPresentation_strict_budget_or_essential_targetOnlyRow \
-              HirschCircuitLocalization.rowCircuitStep_irredundant_minPresentation_same_phase_strict_budget_or_essential_trapped_blocker
-          fi
-          if [[ -f Solutions/PolynomialLowerExcessCarrierRecursion.lean ]]; then
-            lake build Solutions.PolynomialLowerExcessCarrierRecursion
-            lake env lean Solutions/PolynomialLowerExcessCarrierRecursion.lean 2>&1 | tee /tmp/lower-excess-carrier-recursion.log
-            python3 scripts/check_lean_axiom_log.py /tmp/lower-excess-carrier-recursion.log \
-              HirschCircuitLocalization.commonFace_diamLE_of_minPresentationExcess_lt \
-              HirschCircuitLocalization.feasible_sequence_edge_route_mul_of_carrier_minPresentationExcess_lt
-          fi
-          if [[ -f Solutions/PolynomialRowBlockRouting.lean ]]; then
-            lake build Solutions.PolynomialRowBlockRouting
-            lake env lean Solutions/PolynomialRowBlockRouting.lean 2>&1 | tee /tmp/high-excess-row-block-routing.log
-            python3 scripts/check_lean_axiom_log.py /tmp/high-excess-row-block-routing.log \
-              HirschRowBlocks.image_hpoly_eq_pi_of_row_blocks \
-              HirschRowBlocks.factors_bounded_of_row_blocks \
-              HirschRowBlocks.row_block_excess_sum \
-              HirschRowBlocks.hpoly_diamLE_excess_of_small_row_blocks
-          fi
-          if [[ -f Solutions/PolynomialCommonFaceRowBlockRouting.lean ]]; then
-            lake build Solutions.PolynomialCommonFaceRowBlockRouting
-            lake env lean Solutions/PolynomialCommonFaceRowBlockRouting.lean 2>&1 | tee /tmp/common-face-row-block-routing.log
-            python3 scripts/check_lean_axiom_log.py /tmp/common-face-row-block-routing.log \
-              HirschCircuitLocalization.commonFace_diamLE_minPresentationExcess_of_small_row_blocks
-          fi
-          if [[ -f Solutions/PolynomialCircuitCarrierThreeWayReduction.lean ]]; then
-            lake build Solutions.PolynomialCircuitCarrierThreeWayReduction
-            lake env lean Solutions/PolynomialCircuitCarrierThreeWayReduction.lean 2>&1 | tee /tmp/circuit-carrier-three-way-reduction.log
-            python3 scripts/check_lean_axiom_log.py /tmp/circuit-carrier-three-way-reduction.log \
-              HirschCircuitLocalization.CommonFaceMinPresentationHasSmallRowBlocks \
-              HirschCircuitLocalization.CommonFaceHasEssentialTrappedBlocker \
-              HirschCircuitLocalization.rowCircuitStep_same_phase_recursive_or_factorized_or_essential_trapped_blocker
-          fi
-          if [[ -f Solutions/PolynomialRowBlockBudgetRouting.lean ]]; then
-            lake build Solutions.PolynomialRowBlockBudgetRouting
-            lake env lean Solutions/PolynomialRowBlockBudgetRouting.lean 2>&1 | tee /tmp/row-block-budget-routing.log
-            python3 scripts/check_lean_axiom_log.py /tmp/row-block-budget-routing.log \
-              HirschRowBlocks.hpoly_diamLE_sum_of_row_block_bounds
-          fi
-          if [[ -f Solutions/PolynomialSingleCutLowerExcessRouting.lean ]]; then
-            lake build Solutions.PolynomialSingleCutLowerExcessRouting
-            lake env lean Solutions/PolynomialSingleCutLowerExcessRouting.lean 2>&1 | tee /tmp/single-cut-lower-excess-routing.log
-            python3 scripts/check_lean_axiom_log.py /tmp/single-cut-lower-excess-routing.log \
-              HirschCircuitLocalization.diamLE_inter_halfspace_of_compact_outer \
-              HirschCircuitLocalization.hpoly_inter_halfspace_diamLE_of_lower_excess_outer
-          fi
-          if [[ -f Solutions/PolynomialOneRowDeletionPointedness.lean ]]; then
-            lake build Solutions.PolynomialOneRowDeletionPointedness
-            lake env lean Solutions/PolynomialOneRowDeletionPointedness.lean 2>&1 | tee /tmp/one-row-deletion-pointedness.log
-            python3 scripts/check_lean_axiom_log.py /tmp/one-row-deletion-pointedness.log \
-              HirschDeletion.rowMapWithout_injective_of_bounded
-          fi
-          if [[ -f Solutions/PolynomialDirectRowDeletionRouting.lean ]]; then
-            lake build Solutions.PolynomialDirectRowDeletionRouting
-            lake env lean Solutions/PolynomialDirectRowDeletionRouting.lean 2>&1 | tee /tmp/direct-row-deletion-routing.log
-            python3 scripts/check_lean_axiom_log.py /tmp/direct-row-deletion-routing.log \
-              HirschDeletion.hpoly_eq_deleteRow_inter_row \
-              HirschDeletion.hpoly_diamLE_of_bounded_deleteRow_outer
-          fi
+          case "$GITHUB_HEAD_REF" in
+            formal/direct-row-deletion-routing)
+              lake build Solutions.PolynomialDirectRowDeletionRouting
+              lake env lean Solutions/PolynomialDirectRowDeletionRouting.lean 2>&1 | tee /tmp/direct-row-deletion-routing.log
+              python3 scripts/check_lean_axiom_log.py /tmp/direct-row-deletion-routing.log \
+                HirschDeletion.hpoly_eq_deleteRow_inter_row \
+                HirschDeletion.hpoly_diamLE_of_bounded_deleteRow_outer
+              ;;
+            formal/one-row-deletion-cap-functional)
+              lake build Solutions.PolynomialOneRowDeletionCapFunctional
+              lake env lean Solutions/PolynomialOneRowDeletionCapFunctional.lean 2>&1 | tee /tmp/one-row-deletion-cap-functional.log
+              python3 scripts/check_lean_axiom_log.py /tmp/one-row-deletion-cap-functional.log \
+                HirschDeletion.deletionCapValue_pos_of_injective \
+                HirschDeletion.deletionCapValue_pos_on_recession_of_bounded
+              ;;
+            *)
+              echo "unexpected branch: $GITHUB_HEAD_REF" >&2
+              exit 1
+              ;;
+          esac
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: circuit-deletion-savings-hosted-verification
+          name: active-hirsch-deletion-verification
           retention-days: 14
           path: |
-            /tmp/circuit-deletion-savings-hosted.log
-            /tmp/circuit-deletion-savings-public.log
-            /tmp/circuit-saturated-blocker.log
-            /tmp/circuit-step-savings-dichotomy.log
-            /tmp/circuit-saturated-phase-blocker.log
-            /tmp/circuit-min-presentation-phase-dichotomy.log
-            /tmp/circuit-irredundant-min-carrier-dichotomy.log
-            /tmp/lower-excess-carrier-recursion.log
-            /tmp/high-excess-row-block-routing.log
-            /tmp/common-face-row-block-routing.log
-            /tmp/circuit-carrier-three-way-reduction.log
-            /tmp/row-block-budget-routing.log
-            /tmp/single-cut-lower-excess-routing.log
-            /tmp/one-row-deletion-pointedness.log
             /tmp/direct-row-deletion-routing.log
+            /tmp/one-row-deletion-cap-functional.log
           if-no-files-found: warn
