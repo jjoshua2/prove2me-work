@@ -116,13 +116,20 @@ theorem rowCircuitWalk_edge_route_sum_minPresentationExcess_of_each_le_three
   let w := Classical.choose hcw
   have hw := Classical.choose_spec hcw
   rcases hw with ⟨hw0, hwL, hfeas, _hsteps⟩
-  have h0 : w 0 ∈ extremePoints ℝ (Hpoly a b) := by simpa [hw0] using hu
-  have hL : w L ∈ extremePoints ℝ (Hpoly a b) := by simpa [hwL] using hv
+  have hw0' : w 0 = u := by simpa [w] using hw0
+  have hwL' : w L = v := by simpa [w] using hwL
+  have h0 : w 0 ∈ extremePoints ℝ (Hpoly a b) := by
+    rw [hw0']
+    exact hu
+  have hL : w L ∈ extremePoints ℝ (Hpoly a b) := by
+    rw [hwL']
+    exact hv
   have hroute := feasible_sequence_edge_route_sum_minPresentationExcess_of_each_le_three
     hsmall a b hbd w hfeas h0 hL (by
       intro i
       simpa [w] using heasy i)
-  simpa [w, hw0, hwL] using hroute
+  rw [hw0', hwL'] at hroute
+  simpa [w] using hroute
 
 #print axioms commonFace_has_subpresentation_faceDim_add_minExcess
 #print axioms commonFace_diamLE_minPresentationExcess_of_le_three
