@@ -37,6 +37,7 @@ jobs:
       - name: Compile and axiom-audit dependency-free driver
         run: |
           set -euo pipefail
+          lake build Definitions.Def_Hirsch_model
           lake env lean /tmp/high-excess-row-block-public/driver.lean 2>&1 | tee /tmp/high-excess-row-block-public/driver-axioms.log
           python3 scripts/check_lean_axiom_log.py /tmp/high-excess-row-block-public/driver-axioms.log \
             Hirsch.checked_row_block_adapter
