@@ -1,0 +1,24 @@
+{
+  "full_report_sha256": "084a002e8c4447edf73bfd665e93ef90d9e5d7338b1cb99fbf6fa7b0d4229a0c",
+  "summary": {
+    "capped_vertices_enumerated": 824,
+    "far_instances": 100,
+    "instances": 129,
+    "instances_excluding_old_vertices": 29,
+    "new_cap_vertex_certificates": 193,
+    "non_far_instances": 29,
+    "old_edges_preserved_in_far_instances": 754,
+    "old_vertices_enumerated": 735,
+    "parent_only_counterexample": {
+      "all_five_parent_rows_genuine_facets": true,
+      "excluded_outer_vertex": [
+        "1",
+        "1"
+      ],
+      "explicit_cap": "x+y<=7/4",
+      "parent": "0<=x,y<=1; x+y<=3/2; lower rows scaled by 2",
+      "parent_strictly_below_cap": true
+    }
+  },
+  "verification": "Exact rational tests executed twice with byte-identical full reports. Lean files are uncompiled candidates."
+}
