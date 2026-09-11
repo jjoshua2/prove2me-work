@@ -1,210 +1,236 @@
 # Current Prove2Me Polynomial Hirsch frontier
 
-Updated 2026-09-10 (America/New_York). Repo: `jjoshua2/prove2me-work`.
-Live authenticated platform observed: Prove2Me **0.10.0**.
+Updated 2026-09-11 (America/New_York). Repo: `jjoshua2/prove2me-work`.
+Latest authenticated synchronization: 2026-09-11 15:28 UTC.
+Live platform: Prove2Me **0.10.1**.
 Lean environment: `v4.30.0` / Mathlib `c5ea00351c28e24afc9f0f84379aa41082b1188f`.
 
-This is the authoritative short handoff. Detailed provenance belongs in the
-dated files under `research/`; do not infer verification status from branch
-names or old notes.
+This is the authoritative short handoff. Detailed verification/publication
+provenance belongs in dated files under `research/`; do not infer status from
+branch names or old notes.
 
 ## Executive status
 
-**Polynomial Hirsch is not solved.** The sole formal Open bottleneck remains
+**Polynomial Hirsch is not solved.** The live root
 
-`Hirsch.polynomial_edge_refinement_of_circuit_walks_dim_ge_four`
+`Hirsch.polynomial_hirsch_conjecture`
 
-- theorem ID `73beca40-31bc-42d5-8350-5ec9ac28bd3e`
-- authenticated status **Open** after the latest 0.10.0 publication transaction
-- parent `Hirsch.polynomial_edge_refinement_of_circuit_walks`
-  (`099c6686-560c-48fc-b2c2-18b6a620a06e`) is a sketch: `d ≤ 3` is the Proved
-  Klee child and `d ≥ 4` is the Open child above
-- target: replace any length-`L` row-circuit walk between vertices of a bounded,
-  irredundant, strictly feasible `n`-row `d`-polytope (`d ≥ 4`) by an edge/stay
-  walk of length at most `C*(n+d)^k*L` for absolute constants `C,k`.
+- theorem ID `58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac`
+- authenticated status **Open** at the 2026-09-11 sync.
 
-The replacement need not visit the circuit walk's nonvertex checkpoints. Do not
-create a cyclic child through `balanced_polynomial_bound`, and do not promote a
-one-step reformulation as a smaller theorem unless the parent implication is
-genuinely stronger and compiles without a dependency cycle.
+The circuit-refinement line is also still Open:
 
-## Closed foundations not to redo
+- `Hirsch.polynomial_edge_refinement_of_circuit_walks`
+  (`099c6686-560c-48fc-b2c2-18b6a620a06e`) — **Open**;
+- `Hirsch.polynomial_edge_refinement_of_circuit_walks_dim_ge_four`
+  (`73beca40-31bc-42d5-8350-5ec9ac28bd3e`) — **Open**.
 
-- The Santos / linear-Hirsch counterexample chain is Prove2Me **Proved**,
-  including `spindle_one_step_axis`, `strong_dstep_spindle`, and
-  `santos_counterexample`.
-- `Hirsch.cubic_circuit_walk_bound`
-  (`9b9a6f06-d05d-41ba-980f-04b905e67562`) is **Proved** and the recovered
-  source gives an explicit `17*n^3` circuit-walk bound.
-- Common-face normalization is kernel-checked: a common face can be represented
-  by a bounded, irredundant, strictly feasible row model with both endpoint
-  coordinates extreme.
-- The same common-face model can carry the recovered explicit cubic row-circuit
-  walk and the ambient excess/neutral-rank-defect certificate. Circuit-walk
-  existence is therefore not the remaining bottleneck; circuit-to-edge
-  refinement is.
+A separate current high-dimensional diameter leaf is
+`Hirsch.common_face_diameter_of_dim_ge_six`
+(`87a8b4f4-8b58-4340-8cb9-5fd1b548d01e`) — **Open**.
+The ridge-visible route is represented by
+`Hirsch.polynomial_access_to_ridge_visible_vertex`
+(`5f309362-bbda-4dea-806f-20b4e2712a2d`) — **Open**.
 
-## Latest public / Prove2Me-Proved structural results
+Do not mark any of these solved merely because a local carrier, low-dimensional
+family, or one circuit step has a cheap edge route. A global proof still has to
+bound total ordinary edge-routing cost over a whole circuit walk with constants
+whose exponent is independent of dimension.
+
+## Curated mission milestones
+
+The live `/missions/.../milestones` endpoint returned **six milestones, all
+Proved**:
+
+1. Klee / Klee--Walkup: Hirsch for `d ≤ 3`;
+2. Larman 1970: `n * 2^(d-3)` diameter bound;
+3. Naddef 1989: the `0/1`-polytope bound;
+4. Kalai--Kleitman 1992: quasi-polynomial bound;
+5. Todd 2014: `(n-d)^(log₂ d)` sharpening;
+6. Santos 2012: bounded counterexample to the original linear Hirsch bound.
+
+These milestones are historical/formal foundations. Their closure does not
+imply the Polynomial Hirsch root is closed.
+
+## Latest public / Prove2Me-Proved repository results
+
+### Injective affine graph-diameter transport
+
+`Hirsch.injective_affine_image_diameter_iff`
+
+- theorem ID `c4b0c852-981b-4bd7-8578-07e72315c3c9`;
+- submission ID `d0300dfb-691d-4388-8d4d-878c28b9cddf`;
+- verdict **ACCEPTED** / live status **Proved**;
+- standalone SHA-256
+  `3036e68ec71afc54cf927b4daf40062a26eb62fee9b8b1891b8ccd5b6f403032`.
+
+For an injective affine map between real modules, any set `P`, and any natural
+bound `B`,
+
+```text
+DiamLE (f '' P) B  ↔  DiamLE P B.
+```
+
+The source also preserves/refects extreme points and genuine segment-face
+adjacency. Ambient dimensions may differ; surjectivity onto the target ambient
+space is not required. This is exactly the graph-semantics transport needed for
+higher-dimensional slack-coordinate embeddings.
+
+Source verification run `34611873550`; publication run `34612388187`; mission
+comment `77e5b93c-2e87-4444-aded-11d6e75f15ae`.
+Receipts:
+`research/AFFINE_DIAMETER_TRANSPORT_VERIFICATION_2026-09-11.md` and
+`research/AFFINE_DIAMETER_TRANSPORT_PUBLICATION_RECEIPT_2026-09-11.md`.
+
+### Normalized two-moment slices have diameter at most two
+
+`Hirsch.normalized_two_moment_slice_diameter_two`
+
+- theorem ID `e93edd7b-4659-4df5-9eab-fbcce4352c78`;
+- submission ID `ea2f94b1-abcf-49bd-8c0e-82423da3839e`;
+- verdict **ACCEPTED** / live status **Proved**;
+- standalone SHA-256
+  `45e96aecc53c63bfd394ebc11a2ee196b958534cd93fe1f648c281dad8072317`.
+
+For arbitrary real moments and target value, the nonnegative simplex slice
+
+```text
+Σ s_i = 1,
+Σ t_i s_i = μ
+```
+
+has padded vertex-edge graph diameter at most **2**, including repeated moments
+and degenerate/empty cases. Internally, every vertex is classified as an
+equal-moment singleton or a low/high pair point; the chosen two-step route can
+preserve every coordinate that is zero at both endpoints, so every coordinate
+support face also has intrinsic diameter at most two.
+
+Source/standalone gate `34605987684`; publication run `34606984246`; mission
+comment `fb10586a-11b4-40fa-944c-673c7a28f5ea`.
+Receipt: `research/EXCESS_TWO_COMPLETION_PUBLICATION_RECEIPT_2026-09-11.md`.
 
 ### Irredundant row-count invariance
 
 `Hirsch.irredundant_rows_card_le_any_equivalent_presentation`
 
-- theorem ID `8538150b-8afe-47ad-94b0-d72189b80264`
-- submission ID `9194432c-54e2-4e6a-9aaf-d7c27fb9934e`
-- verdict **ACCEPTED** / live status **Proved**
-- standalone SHA-256
-  `33be3fdd17714bc1439b0bef73489c571ae41b14f5b06443c4ab6f85e905af55`
+- theorem ID `8538150b-8afe-47ad-94b0-d72189b80264`;
+- submission ID `9194432c-54e2-4e6a-9aaf-d7c27fb9934e`;
+- verdict **ACCEPTED** / live status **Proved**.
 
-A strictly feasible irredundant `n`-row finite H-presentation is globally
-cardinality-minimal: every equivalent finite H-presentation has at least `n`
-rows, even if it uses different normals and contains redundant rows, duplicate
-rows, or zero-normal tautologies. Boundedness is not required.
+A strictly feasible irredundant finite H-presentation is cardinal-minimal among
+all equivalent finite H-presentations, even when the comparison uses different
+normals, duplicates, redundancies, or zero-normal tautologies. The common-face
+adapters make the existing least-row count presentation-independent in the
+strictly feasible irredundant coordinate setting; this is still not an abstract
+facet-count API.
 
-Internally, the kernel-checked adapters prove that the existing common-face
-`M_min` (least equivalent original-row subpresentation count) equals the row
-count of **any** equivalent strictly feasible irredundant coordinate
-presentation. This makes the row count presentation-independent in the relevant
-full-dimensional coordinate setting. It still does **not** define or count an
-abstract geometric facet type.
+Mission comment `33f2c225-aae0-458b-8c98-8575c4e453c5`.
+Receipt: `research/IRREDUNDANT_ROW_COUNT_PUBLICATION_RECEIPT_2026-09-10.md`.
 
-Receipt:
-`research/IRREDUNDANT_ROW_COUNT_PUBLICATION_RECEIPT_2026-09-10.md`.
-Source/standalone gate `34559027640`; publication run `34559453698`; receipt
-artifact `10183894675`; mission comment
-`33f2c225-aae0-458b-8c98-8575c4e453c5`.
+### Circuit-step structure already public
 
-### Maximal circuit-step progress and exact swapping
+The following remain Prove2Me **Proved** and reusable:
 
-`Hirsch.maximal_row_circuit_step_common_face_bound`
-
-- theorem ID `bfea4b5b-106a-4e52-8297-b8138ca0a294`
-- submission ID `6fa5d295-7b3e-4463-a823-b9933a67ed70`
-- **ACCEPTED / Proved**
-
-For a maximal row-circuit step `x → y` in an `n`-row presentation in dimension
-`d`, if the same H-polyhedron has a reference extreme vertex,
-
-```text
-commonFaceDim(x,y) + d ≤ n + commonFaceDim(x,x)
-```
-
-and internally the destination self-carrier satisfies the strict progress form
-
-```text
-commonFaceDim(y,y) + d + 1 ≤ n + commonFaceDim(x,x).
-```
-
-`Hirsch.row_circuit_step_swap_iff_tight_blockers`
-
-- theorem ID `bd9710b8-067a-4ce6-8ab9-1f6f763133b7`
-- submission ID `641acc00-19d4-41ba-93b3-8893e7e94c0b`
-- **ACCEPTED / Proved**
-
-For maximal steps `x → y → z`, writing `w = x + (z-y)`, the reordered pair
-`x → w → z` consists of maximal circuit steps iff `w` is feasible and each
-reordered segment has a destination-tight blocker increasing along that
-segment. This is an exact characterization, but legal local swaps do not by
-themselves give a polynomial global ordering.
-
-Receipt: `research/CIRCUIT_STEP_PUBLICATION_RECEIPT_2026-09-10.md`.
-
-## Other public / Proved toolkit
-
-### Sharp circuit localization and row-presentation defect
-
-- `Hirsch.row_circuit_common_face_dimension_bound`
-  (`f0e79793-711b-4ada-b276-b4eab1fd0fe8`): for vertex endpoints with a
-  row-circuit displacement,
-  `2 * commonFaceDim(u,v) + d ≤ n + 1`.
-- `Hirsch.balanced_row_circuit_vertices_share_tight_row`
-  (`73ce6c5c-25d8-46ec-9d77-a9f2b5d7b454`): when `n=2d`, `d≥2`, a vertex
-  row-circuit pair shares a nonzero tight describing row.
-- `Hirsch.row_circuit_common_face_neutral_rank`
-  (`2caa4fd8-0241-4671-b675-531d935970b9`).
-- `Hirsch.row_circuit_common_face_selected_row_defect_budget`
-  (`3a03179f-7d55-45e7-89bb-a8a13020f396`).
+- `Hirsch.cubic_circuit_walk_bound`
+  (`9b9a6f06-d05d-41ba-980f-04b905e67562`), with explicit `17*n^3`
+  circuit-walk bound;
+- `Hirsch.maximal_row_circuit_step_common_face_bound`
+  (`bfea4b5b-106a-4e52-8297-b8138ca0a294`);
+- `Hirsch.row_circuit_step_swap_iff_tight_blockers`
+  (`bd9710b8-067a-4ce6-8ab9-1f6f763133b7`);
 - `Hirsch.row_circuit_common_face_subpresentation_excess_defect`
-  (`6f9c87a4-0a7c-4e6b-8f11-bda5ca40cc11`).
+  (`6f9c87a4-0a7c-4e6b-8f11-bda5ca40cc11`);
+- the earlier neutral-rank, selected-row defect, low-dimensional carrier-edge,
+  clipping/repair, and rank-sensitive face-cover infrastructure.
 
-The minimum-presentation excess/defect theorem is kernel-checked internally.
-The new row-count invariance result removes dependence on the particular
-strictly feasible irredundant coordinate presentation, but it does not make
-circuit status or neutral rank invariant under arbitrary row deletion.
+These provide real accounting resources but do **not** yet show that all
+carrier-routing costs sum to a uniform polynomial multiple of circuit-walk
+length.
 
-### Carrier-to-edge recognition
+## Progress pulled from Prove2Me during the 2026-09-11 sync
 
-`Hirsch.row_circuit_step_adj_of_common_face_dim_le_one` is public **Proved**.
-Zero active-neutral defect recognizes the one-dimensional carrier case in which
-a maximal circuit step leaving a vertex is already an edge.
+The board contains useful results that were newer than this repository's prior
+`STATUS.md` snapshot.
 
-### Rank-sensitive face covers
+### Sub-balanced section inheritance — Proved
 
-All four are public **Proved**:
+`Hirsch.diamLE_le_section_diamLE_of_n_lt_two_d`
 
-- `Hirsch.weighted_geodesic_face_cover_diameter_bound`
-- `Hirsch.tight_rows_outside_subspace_cardinality_bound`
-- `Hirsch.weighted_cover_improvement_requires_smaller_child`
-- `Hirsch.rank_selected_row_face_diameter_bound`
+- theorem ID `0e4f233c-418a-4884-bbfb-dbfc7f76bc76`;
+- accepted solution `19dcd669-189e-4b8c-8a39-d194439f3048`;
+- live status **Proved**.
 
-They provide incidence/rank certificates and formalize the recursive-averaging
-barrier: polynomial improvement cannot come only from averaging children that
-cost essentially their own vertex count. A genuinely cheaper geometric child
-or routing bound is still required.
+When `n < 2d`, two vertices cannot have disjoint tight-row sets, so diameter can
+be reduced to equality sections. This is complementary to the excess-two slack
+slice route and should be reused rather than reproved.
 
-### Clipping / repair toolkit
+### Ridge-visible access research
 
-`Hirsch.simultaneous_clipping_diameter_of_compact_outer` and
-`Hirsch.simultaneous_clip_diameter_of_exterior_cap` are public **Proved**.
-They remain conditional on intrinsic cut-face budgets and therefore do not
-close edge refinement.
+The latest board research log reports that ridge-visible distance is not
+`O(1)` on duals of stacked simplicial polytopes. Sample experiments reached
+values such as `8` for `d=3, n=24`, while remaining consistent with an
+`O(n-d)`-type hypothesis. The key obstruction is that reaching a chosen ridge
+by paying an entire `(d-1)`-facet diameter gives a dimension-multiplicative
+recurrence (`d!` / `n^{O(d)}` style), not a fixed-exponent polynomial.
 
-## New kernel-verified excess-two portal geometry — not separately published
+The associated theorem
+`Hirsch.polynomial_access_to_ridge_visible_vertex`
+(`5f309362-bbda-4dea-806f-20b4e2712a2d`) remains **Open**.
 
-PRs #81 and #82 are merged. The normalized excess-two moment-slice development
-is kernel-checked through shared-index adjacency and pair-to-pair routing.
-Receipt: `research/EXCESS_TWO_SHARED_ADJACENCY_VERIFICATION_2026-09-10.md`.
+Other board contributions now public include product-diameter, axis-aligned
+box diameter, vertex-listing diameter, common-face `0/1` diameter, and
+synchronized scalar-height fiber-edge lemmas. Treat these as reusable toolkit,
+not as closure of the high-dimensional leaf.
 
-Verified declarations include:
+## Active repository direction: slack normalization
 
-- `HirschExcessTwo.momentSlice_convex`
-- exact three-index support-carrier segment descriptions
-- `HirschExcessTwo.pairPoint_adj_shared_low`
-- `HirschExcessTwo.pairPoint_adj_shared_high`
-- `HirschExcessTwo.pairPoint_two_step_route`.
+The graph transport and normalized two-moment target are now both public
+**Proved**. The next concrete bridge is therefore geometric/algebraic:
 
-For low/high pair vertices, sharing a low or high index gives an actual edge,
-and arbitrary pair vertices have the canonical padded route
+> turn a bounded low-row-count H-presentation into an exact normalized
+> two-moment slack slice.
+
+Desired common-face interface:
 
 ```text
-pair(i,j) → pair(i,l) → pair(k,l).
+M_min ≤ h + 2  ⇒  intrinsic common-face diameter ≤ 2.
 ```
 
-Thus the **pair-vertex subgraph** has padded diameter at most two. This is
-kernel/source evidence, not a separate Prove2Me publication. It does not yet
-classify every extreme point of the normalized moment slice, so it is not yet a
-full diameter-two theorem for the whole slice.
+Current ordinary proof plan (not yet kernel-verified):
 
-## Highest-value next work
+1. handle the empty/degenerate cases separately;
+2. use boundedness to rule out a nonzero nonnegative vector in the row-map
+   range;
+3. obtain a strictly positive annihilating row weight via projection/separation
+   of the simplex from that range;
+4. normalize positive slacks so the first annihilator becomes `Σ s_i = 1`;
+5. because row excess is at most two, choose a second annihilator giving the
+   second moment equation;
+6. prove the two equations characterize the **entire** affine slack image, not
+   just contain it;
+7. invoke `injective_affine_image_diameter_iff` and the public two-moment
+   diameter-two theorem.
 
-1. Complete the normalized excess-two slice: prove every extreme point is
-   either an equal-moment singleton or a low/high pair point; then prove the
-   singleton-to-pair / singleton-to-singleton adjacency cases and conclude full
-   padded graph diameter at most two.
-2. Only after the full excess-two slice theorem is established, isolate the
-   exact hypotheses under which a common circuit carrier reduces to that model.
-   Do not silently assume arbitrary carriers are moment slices.
-3. Combine maximal-step progress, presentation-independent row count, and
-   portal geometry with **whole-walk accounting**. The missing global argument
-   must bound total edge-routing cost across all circuit steps, not merely each
-   carrier independently.
-4. Investigate potentials that mix self-face dimension, row excess, neutral
-   defect, destination blockers, and compatible portal reuse. The newest
-   theorems give several real resources, but none is yet known to decrease in a
-   way that pays all graph-routing cost.
-5. Keep `polynomial_edge_refinement_of_circuit_walks_dim_ge_four` as the sole
-   Open child. Create a new decomposition only if every child is demonstrably
-   smaller and the parent implication compiles without an ancestor cycle.
+The mathematical handoff is in
+`research/EXCESS_TWO_SLACK_NORMALIZATION_BRIDGE_2026-09-11.md`.
+Do **not** report this normalization or the `M_min ≤ h+2` consequence as Proved
+until Lean compilation/axiom audit and, if published, Prove2Me acceptance exist.
+Do not assume arbitrary circuit carriers automatically have row excess ≤ 2.
+
+## Whole-walk bottleneck
+
+Even after a low-excess carrier base case is formalized, Polynomial Hirsch
+needs a whole-walk argument. Possible resources now include:
+
+- maximal-step self-face progress;
+- row excess / neutral-rank defect charging;
+- exact blocker criteria for commuting steps;
+- support-preserving diameter-two portals in low-excess carriers;
+- sub-balanced equality-section inheritance;
+- ridge-visible access if a fixed-exponent bound can be found.
+
+A successful potential/accounting theorem must prevent repeatedly paying an
+expensive high-dimensional carrier. Local diameter bounds alone are not enough.
 
 ## Verification discipline
 
@@ -215,13 +241,14 @@ Evidence levels remain distinct:
 3. independently audited `solution.lean` + Prove2Me **ACCEPTED / Proved** =
    public platform evidence.
 
-Only level 3 establishes public `Proved`. Publication/audit credentials remain
-outside Git in repository secret `PROVE2ME_API_KEY` and are sent only to
+Only level 3 establishes public `Proved`. Credentials stay outside Git in the
+repository secret `PROVE2ME_API_KEY`; authenticated clients use only
 `https://prove2.me/api/v1` with redirects disabled.
 
-The authenticated row-count publication transaction checked the `d≥4` frontier
-before and after and found it exactly **Open**, with no graph modification and
-no new conjectural children.
+Latest bidirectional sync receipt:
+`research/PROVE2ME_HIRSCH_SYNC_2026-09-11.md`.
+Mission reconciliation comment:
+`0d87f2f5-42c6-45cb-ad21-6ba88a670dfd`.
 
 ## Mandatory counterexample regressions
 
