@@ -1,0 +1,32 @@
+name: Register nonvertex subpresentation defect theorem
+on:
+  push:
+    branches: [publish/nonvertex-subpresentation-defect-checkpoint]
+    paths:
+      - '.github/workflows/bootstrap-register-nonvertex-subpresentation-defect.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  publish:
+    runs-on: ubuntu-slim
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Check repository Actions policy
+        run: python3 scripts/check_actions_policy.py
+      - name: Register theorem and link mission
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: |
+          set -euo pipefail
+          test -n "$PROVE2ME_API_KEY"
+          python3 scripts/register_nonvertex_subpresentation_defect_checkpoint.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nonvertex-subpresentation-defect-publication
+          retention-days: 30
+          path: nonvertex_subpresentation_defect_publication_receipts/
