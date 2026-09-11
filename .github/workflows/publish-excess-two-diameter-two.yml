@@ -1,0 +1,71 @@
+name: Publish audited excess-two diameter theorem
+
+on:
+  pull_request:
+    types: [opened, reopened]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-excess-two-diameter-two
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: >-
+      github.repository == 'jjoshua2/prove2me-work' &&
+      github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
+      github.head_ref == 'publish/excess-two-diameter-two' &&
+      github.base_ref == 'formal/excess-two-completion'
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Freeze reviewed proof source and policy
+        run: |
+          set -euo pipefail
+          SOURCE=e9b89ee3f02fbaed5c379e35ef1c824ab3b85186
+          git cat-file -e "$SOURCE^{commit}"
+          git diff --exit-code "$SOURCE" HEAD -- \
+            Solutions Definitions lean-toolchain lake-manifest.json lakefile.lean
+          python3 scripts/check_actions_policy.py
+
+      - name: Restore pinned Lean environment
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+
+      - name: Recreate exact standalone packet and audit it
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/excess-two-public
+          lake build Definitions.Def_Hirsch_model
+          python3 scripts/build_excess_two_completion_standalone.py \
+            /tmp/excess-two-public/solution.lean \
+            /tmp/excess-two-public/manifest.json
+          echo '45e96aecc53c63bfd394ebc11a2ee196b958534cd93fe1f648c281dad8072317  /tmp/excess-two-public/solution.lean' | sha256sum -c -
+          lake env lean /tmp/excess-two-public/solution.lean 2>&1 | tee /tmp/excess-two-public/solution.log
+          python3 scripts/check_lean_axiom_log.py /tmp/excess-two-public/solution.log solution
+          sha256sum /tmp/excess-two-public/solution.lean > /tmp/excess-two-public/sha256.txt
+
+      - name: Register, verify, and mission-link on Prove2Me 0.10.0
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: |
+          set -euo pipefail
+          python3 scripts/publish_excess_two_diameter_two.py
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: excess-two-diameter-publication-receipts
+          retention-days: 14
+          path: |
+            excess_two_diameter_publication_receipts/
+            /tmp/excess-two-public/solution.log
+            /tmp/excess-two-public/manifest.json
+            /tmp/excess-two-public/sha256.txt
