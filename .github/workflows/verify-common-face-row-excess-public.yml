@@ -1,0 +1,36 @@
+name: Verify public common-face row-excess theorem
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+permissions:
+  contents: read
+concurrency:
+  group: common-face-row-excess-public-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    if: >-
+      github.repository == 'jjoshua2/prove2me-work' &&
+      github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
+      github.head_ref == 'publish/common-face-row-excess-monotonicity'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - name: Check policy and pins
+        run: |
+          set -euo pipefail
+          python3 scripts/check_actions_policy.py
+          test "$(cat lean-toolchain)" = "leanprover/lean4:v4.30.0"
+          grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
+      - name: Restore pinned Lean environment
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Compile and audit public row-excess theorem
+        run: |
+          set -euo pipefail
+          lake build Solutions.PolynomialCommonFaceRowExcessPublic 2>&1 | tee /tmp/common-face-row-excess-public.log
+          python3 scripts/check_lean_axiom_log.py /tmp/common-face-row-excess-public.log \
+            HirschRowExcessPublic.common_face_has_subpresentation_faceDim_add_row_excess
