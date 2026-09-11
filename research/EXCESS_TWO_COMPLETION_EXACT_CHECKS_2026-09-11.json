@@ -1,0 +1,24 @@
+{
+  "checks": {
+    "convex_decompositions": 23210,
+    "empty_models": 1001,
+    "max_observed_diameter": 2,
+    "models": 2560,
+    "negative_control_cube_3_diameter": 3,
+    "negative_control_cube_4_diameter": 4,
+    "nonvertex_midpoint_certificates": 18070,
+    "ordered_vertex_routes": 22844,
+    "slack_models": 23,
+    "slack_roundtrips": 176,
+    "support_face_route_incidences": 292163,
+    "support_rank_checks": 70693,
+    "vertices": 5140
+  },
+  "evidence_level": "finite exact rational certificates; NOT Lean or Prove2Me verification",
+  "grid": {
+    "moments": [-1, 0, 1],
+    "n_range": [0, 5],
+    "target_moments": ["-2", "-1", "-1/2", "0", "1/2", "1", "2"]
+  },
+  "status": "PASS"
+}
