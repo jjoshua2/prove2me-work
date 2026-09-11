@@ -1,7 +1,7 @@
 name: Publish verified common-face row-excess theorem
 on:
   pull_request:
-    types: [synchronize]
+    types: [opened, synchronize]
 permissions:
   contents: read
 concurrency:
@@ -13,7 +13,7 @@ jobs:
       github.repository == 'jjoshua2/prove2me-work' &&
       github.actor == 'jjoshua2' &&
       github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
-      github.head_ref == 'publish/common-face-row-excess-monotonicity'
+      github.head_ref == 'publish/common-face-row-excess-proof'
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
