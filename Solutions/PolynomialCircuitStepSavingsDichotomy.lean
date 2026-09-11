@@ -117,7 +117,9 @@ theorem rowCircuitStep_minPresentation_strict_budget_or_selected_targetOnlyRow
   have hsplit := rowCircuitStep_selected_strict_budget_or_targetOnlyRow
     a b x y hbd hstep F hFint hface
   refine ⟨hFM, ?_⟩
-  simpa [M, F] using hsplit
+  have hsplit' := hsplit
+  rw [hFM] at hsplit'
+  simpa [M, F] using hsplit'
 
 #print axioms rowCircuitStep_selected_strict_budget_or_targetOnlyRow
 #print axioms rowCircuitStep_minPresentation_strict_budget_or_selected_targetOnlyRow
