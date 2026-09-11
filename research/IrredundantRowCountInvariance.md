@@ -5,24 +5,33 @@ Mission: The Polynomial Hirsch Conjecture.
 
 ## Status and scope
 
-**Ordinary proof written; exact rational regressions PASS; Lean candidates NOT
-compiled or axiom-audited; no Prove2Me submission or publication.**
+**Ordinary proof complete; exact rational regressions PASS; Lean source and
+common-face adapters kernel-checked; standalone theorem ACCEPTED / Proved on
+Prove2Me 0.10.0.**
 
-This is a separate row-semantics contribution. It does not duplicate the active
-excess-two moment-slice/portal work and does not create a new Open mission child.
-The edge-refinement theorem `73beca40-31bc-42d5-8350-5ec9ac28bd3e` is not solved
-by this argument.
+Public theorem:
+`Hirsch.irredundant_rows_card_le_any_equivalent_presentation`
+(theorem `8538150b-8afe-47ad-94b0-d72189b80264`, submission
+`9194432c-54e2-4e6a-9aaf-d7c27fb9934e`). Full verification/publication
+provenance is in
+`research/IRREDUNDANT_ROW_COUNT_PUBLICATION_RECEIPT_2026-09-10.md`.
 
-The current repository proves a least equivalent *original-row subpresentation*
-count for common faces. The new target is stronger: that count agrees with the
-number of rows in **any** equivalent strictly feasible irredundant coordinate
-presentation, even when its normals were not selected from the original rows.
-This makes the row count representation-independent without introducing an
-abstract geometric facet type.
+This is a separate row-semantics contribution. It does not create a new Open
+mission child. The edge-refinement theorem
+`73beca40-31bc-42d5-8350-5ec9ac28bd3e` remained exactly Open before and after
+the publication transaction, with no frontier graph modification.
 
-This is a formalization of standard finite polyhedral geometry, not a claim of
-a new diameter theorem. Abstract geometric facet-count equality remains a
-separate semantic bridge; it must not be marked formalized by this packet.
+The repository previously proved a least equivalent *original-row
+subpresentation* count for common faces. The new result is stronger: under
+strict feasibility and irredundancy, that count agrees with the number of rows
+in **any** equivalent irredundant coordinate presentation, even when its
+normals were not selected from the original rows. This makes the row count
+representation-independent without introducing an abstract geometric facet
+type.
+
+This is a formalization of standard finite polyhedral geometry, not a new
+diameter theorem. Abstract geometric facet-count equality remains a separate
+semantic bridge; it must not be marked formalized by this packet.
 
 ## Main theorem
 
@@ -52,7 +61,7 @@ irredundant presentation, so it need not be separately assumed twice.
 
 For finitely many real slopes q_i and positive margins r_i, there is epsilon>0
 such that epsilon*|q_i|<r_i for every i. For example, take half the minimum of
-1 and all r_i/(|q_i|+1). The Lean candidate proves this by finite induction,
+1 and all r_i/(|q_i|+1). The Lean proof establishes this by finite induction,
 including the empty set.
 
 Suppose x is feasible for a finite row system and strict on every nonzero row.
@@ -114,9 +123,10 @@ same centre is strict in the comparison system. Apply n<=m in both directions.
 Let M_min be `commonFaceMinSubpresentationCount a b u v`.
 
 First, any strictly feasible irredundant original-row subpresentation with r
-rows satisfies M_min=r. The inequality M_min<=r is immediate from the definition.
-For the reverse inequality, compare the r-row irredundant system with a witness
-at the minimum original-row budget and apply the new cardinality theorem.
+rows satisfies M_min=r. The inequality M_min<=r is immediate from the
+definition. For the reverse inequality, compare the r-row irredundant system
+with a witness at the minimum original-row budget and apply the new cardinality
+theorem.
 
 Now take ANY equivalent strictly feasible irredundant coordinate model with m
 rows. Its strict centre is strict on every nonzero row of the original
@@ -126,15 +136,15 @@ separation hypothesis only concerns nonzero rows. This extracts an original-row
 irredundant strict subpresentation with r rows. The previous paragraph gives
 M_min=r, and cross-presentation equality gives r=m.
 
-The adapter therefore targets
+The kernel-checked adapter proves
 
     commonFaceMinSubpresentationCount a b u v = m
 
 for arbitrary equivalent strictly feasible irredundant coordinate normals.
-Once kernel-checked, this equality can rewrite the existing excess/defect
-inequality's row-count term. The selected-row neutral-rank defect is still the
-existing selected-row quantity: this theorem does not make circuit status or
-neutral rank invariant under deletion of redundant ambient rows.
+This equality can rewrite the existing excess/defect inequality's row-count
+term. The selected-row neutral-rank defect is still the existing selected-row
+quantity: this theorem does not make circuit status or neutral rank invariant
+under deletion of redundant ambient rows.
 
 ## Why strict feasibility cannot be removed
 
@@ -155,10 +165,16 @@ boundedness does not repair the missing strict-feasibility hypothesis.
   strictness, nonzero blocker extraction, singleton-tight witnesses, global
   minimality, strict-feasibility transfer, count equality, and extraction of a
   globally minimal irredundant subpresentation.
-- `Solutions/PolynomialCommonFaceIntrinsicRowCount.lean`: original-subset and
-  arbitrary-presentation adapters for the existing common-face minimum.
+- `Solutions/PolynomialCommonFaceIntrinsicRowCount.lean`: kernel-checked
+  original-subset and arbitrary-presentation adapters for the existing
+  common-face minimum.
+- `Solutions/Sol_Hirsch_irredundant_rows_card_le_any_equivalent_presentation.lean`:
+  independently audited standalone Prove2Me packet.
 - `scripts/check_irredundant_row_count.py`: dependency-free Fraction arithmetic.
-- `research/IRREDUNDANT_ROW_COUNT_EXACT_CHECKS_2026-09-10.json`: actual local output.
+- `research/IRREDUNDANT_ROW_COUNT_EXACT_CHECKS_2026-09-10.json`: exact-regression
+  output.
+- `research/IRREDUNDANT_ROW_COUNT_PUBLICATION_RECEIPT_2026-09-10.md`: durable
+  kernel/server/publication receipt.
 
 The exact run passes 42 source models, 252 equivalent comparison presentations,
 278 singleton-tight witnesses, 1,724 strict pair midpoints, and 2,582 nonzero
@@ -172,24 +188,28 @@ the compared feasible sets for all real points, not just sampled points.
 The regression also passes under `python3 -O`: its checks do not rely on Python
 assert statements. It is still finite evidence, not a general kernel proof.
 
-## Verification blocker and next action
+## Verification and publication record
 
-This editing environment had no Lean or Lake executable, and its direct
-repository download attempt failed DNS resolution. No speculative hosted Lean
-workflow was created or run. The code must remain draft until the pinned local
-Lean/Mathlib checks pass:
+Frozen verified source commit:
+`1ff86eb9c69679c6355c6fa968b6601482b046a1`.
 
-    python3 scripts/check_irredundant_row_count.py --json
-    lake build Solutions.PolynomialIrredundantRowCount
-    lake build Solutions.PolynomialCommonFaceIntrinsicRowCount
-    lake env lean Solutions/PolynomialIrredundantRowCount.lean
-    lake env lean Solutions/PolynomialCommonFaceIntrinsicRowCount.lean
+The source/common-face/standalone gate was GitHub Actions run `34559027640`
+(artifact `10183697315`). It compiled the core reusable source, both common-face
+adapters, and the standalone public packet under Lean 4.30.0 / pinned Mathlib.
+Every audited new declaration used only `propext`, `Classical.choice`, and
+`Quot.sound`. The standalone solution SHA-256 is
+`33be3fdd17714bc1439b0bef73489c571ae41b14f5b06443c4ab6f85e905af55`.
 
-The last two files contain `#print axioms` commands. Audit the new declarations
-for only `propext`, `Classical.choice`, and `Quot.sound`; then use the existing
-manual final-verification gate as appropriate. Do not use Actions as an
-interactive compiler. No existing workflow or publication helper is changed.
+The authenticated Prove2Me publication gate was run `34559453698` (artifact
+`10183894675`, artifact digest
+`sha256:e2d5f54b586b267bb625f1d394f7028bb22debc68e8b34063008ab6830581f95`).
+It registered theorem `8538150b-8afe-47ad-94b0-d72189b80264`, submitted exact
+standalone solution `9194432c-54e2-4e6a-9aaf-d7c27fb9934e`, and received
+**ACCEPTED** / live **Proved**. Mission discussion comment
+`33f2c225-aae0-458b-8c98-8575c4e453c5` links the result to the Polynomial
+Hirsch mission.
 
-Publication remains with the user. Do not label the candidates Prove2Me-Proved,
-merge them as verified, alter the mission's Open child, or register an
-ancestor-equivalent decomposition based on this packet.
+The same authenticated transaction read
+`Hirsch.polynomial_edge_refinement_of_circuit_walks_dim_ge_four`
+(`73beca40-31bc-42d5-8350-5ec9ac28bd3e`) as **Open** both before and after,
+created no conjectural children, and did not modify the frontier graph.
