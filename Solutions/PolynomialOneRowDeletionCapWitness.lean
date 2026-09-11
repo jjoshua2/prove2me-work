@@ -92,7 +92,8 @@ theorem exists_deletion_cap_with_vertex_classification
   let c := deletionCapNormal a j
   have hQmodel : Hpoly (erasedNormals a j) (erasedBounds b j) = Q :=
     erased_hpoly_eq_deletionOuterSet a b j
-  have hPc : IsCompact (Hpoly a b) := (hpoly_isClosed a b).isCompact hbd
+  have hPc : IsCompact (Hpoly a b) :=
+    Metric.isCompact_iff_isClosed_bounded.2 ⟨hpoly_isClosed a b, hbd⟩
   obtain ⟨M, hPbelow, hVbelow⟩ := exists_level_above_compact_and_outer_vertices
     (erasedNormals a j) (erasedBounds b j) (Hpoly a b) hPc hne c
   rw [hQmodel] at hVbelow
@@ -106,7 +107,9 @@ theorem exists_deletion_cap_with_vertex_classification
       rw [← hRmodel]
       exact hQc.inter (isClosed_le (by fun_prop) continuous_const)
     obtain ⟨x, hx⟩ := hne
-    exact hclosed.isCompact (deletionCappedOuter_isBounded_of_bounded_parent a b hbd x hx j M)
+    have hbounded : Bornology.IsBounded R :=
+      deletionCappedOuter_isBounded_of_bounded_parent a b hbd x hx j M
+    exact Metric.isCompact_iff_isClosed_bounded.2 ⟨hclosed, hbounded⟩
   have hPval : ∀ x ∈ Hpoly a b, deletionCapValue a j x < M := by
     intro x hx
     simpa only [c, deletionCapNormal_eval] using hPbelow x hx
