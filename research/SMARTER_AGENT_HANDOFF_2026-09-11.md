@@ -1,18 +1,16 @@
 # Smarter-agent handoff: Polynomial Hirsch useful frontier — 2026-09-11
 
-This is the research handoff for the next strong agent. It reconciles the
-current GitHub development with the latest authenticated Prove2Me receipts and
-tries to keep the next iteration away from already-settled plumbing.
+Use this as the starting point for the next strong agent. It incorporates the
+latest authenticated Prove2Me synchronization and the intrinsic-excess-two and
+intrinsic-excess-three routing results now merged on GitHub.
 
 Environment: Lean 4.30.0 / Mathlib
 `c5ea00351c28e24afc9f0f84379aa41082b1188f`.
 Repo: `jjoshua2/prove2me-work`.
 
-## 1. Live Prove2Me state
+## 1. Live Prove2Me boundary
 
-Polynomial Hirsch is still Open. The latest authenticated board synchronization
-and the later common-carrier publication transaction agree on the important
-frontier:
+The conjecture remains unsolved. Latest authenticated status:
 
 - root `Hirsch.polynomial_hirsch_conjecture`
   (`58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac`): Open;
@@ -20,132 +18,115 @@ frontier:
   (`099c6686-560c-48fc-b2c2-18b6a620a06e`): Open;
 - d>=4 circuit-to-edge refinement
   (`73beca40-31bc-42d5-8350-5ec9ac28bd3e`): Open;
-- common-face h>=6 leaf
+- common-face dimension>=6 leaf
   (`87a8b4f4-8b58-4340-8cb9-5fd1b548d01e`): Open;
 - ridge-visible access
   (`5f309362-bbda-4dea-806f-20b4e2712a2d`): Open.
 
-All six curated historical mission milestones were authenticated Proved.
-`research/PROVE2ME_HIRSCH_SYNC_2026-09-11.md` is the durable board-sync receipt.
+All six curated historical mission milestones are Proved. The durable board
+receipt is `research/PROVE2ME_HIRSCH_SYNC_2026-09-11.md`.
 
-Two public Prove2Me results now supply the low-excess portal:
+Two public low-excess facts are especially important:
 
 1. `Hirsch.hpoly_diameter_le_excess_of_rows_le_dim_add_three`
    (`12426807-9602-4014-bd5e-c69fb43f4cb6`, accepted proof
-   `59736803-0e9d-40bb-875d-7ca66b9ccd45`): every bounded n-row H-polyhedron
-   with `n <= d+3` has `DiamLE P (n-d)`. Redundant/zero rows and degenerate sets
-   are allowed.
+   `59736803-0e9d-40bb-875d-7ca66b9ccd45`): a bounded n-row H-polyhedron with
+   `n<=d+3` has `DiamLE P (n-d)`; no irredundancy/strict-feasibility hypothesis.
 2. `Hirsch.common_face_diameter_two_of_rows_le_dim_add_two`
    (`ca4c980f-86d7-4810-be9e-30e473b9dd70`, accepted proof
    `b9d5af5b-51d3-48dd-b008-a365a18b053e`): in a bounded parent with
-   `n<=d+2`, every common carrier based at a feasible checkpoint has intrinsic
-   diameter <=2; the other checkpoint may be arbitrary.
+   `n<=d+2`, any common carrier based at a feasible checkpoint has intrinsic
+   diameter<=2; the other checkpoint may be arbitrary.
 
-The second publication posted mission reference comment
-`b3feca04-21d1-481a-989f-76638bb21122` and re-read the d>=4 frontier Open after
-acceptance. No duplicate/cyclic Open theorem was created. See
-`EXCESS_TWO_COMMON_CARRIER_PUBLICATION_RECEIPT_2026-09-11.md`.
+The second publication posted mission comment
+`b3feca04-21d1-481a-989f-76638bb21122`, re-read the d>=4 frontier Open after
+acceptance, and made no conjectural graph mutation. Receipt:
+`research/EXCESS_TWO_COMMON_CARRIER_PUBLICATION_RECEIPT_2026-09-11.md`.
 
-## 2. Settled GitHub infrastructure — do not redo it
+Do not create another Prove2Me child merely to restate the still-missing global
+edge-refinement argument.
 
-### Intrinsic minimum presentation count
+## 2. What is already solved in the repository
 
-`Solutions/PolynomialCommonFaceMinimalSubpresentation.lean` defines the least
-number `M_min` of original common-face coordinate inequalities needed for an
-equivalent presentation and produces an effective minimum witness.
+### Minimum intrinsic row presentation
 
-At a **vertex source** and row-circuit displacement it proves
+`Solutions/PolynomialCommonFaceMinimalSubpresentation.lean` defines
+`commonFaceMinSubpresentationCount` (`M_min`) and an effective minimum equivalent
+presentation. At a **vertex source** and row-circuit displacement,
 
 ```text
-(M_min - h) + ((h - 1) - selectedNeutralRank) <= n - d,
+(M_min - h) + ((h-1) - selectedNeutralRank) <= n-d,
 ```
 
 where `h = commonFaceDim`. This is
 `rowCircuit_commonFace_minSubpresentation_excess_defect`.
 
-### Low-excess carrier diameter
+### Generic carrier/face routing
 
-`Solutions/PolynomialCommonFaceSmallExcessDiameter.lean` and
-`Solutions/PolynomialCommonFaceExcessTwoCarrier.lean` establish the checked
-transport from an equivalent low-row coordinate presentation to intrinsic
-common-carrier graph diameter. In particular, arbitrary checkpoints need not be
-vertices for the set-level adapter
-`commonFace_diamLE_two_of_subpresentation_at_most`.
+`Solutions/PolynomialCircuitCarrierRouting.lean` has
+`route_of_feasible_commonFace_carrier_budgets`: intrinsic carrier budgets
+`B_i` for a feasible checkpoint sequence compose to a parent edge/stay route of
+cost `sum B_i`.
 
-### Arbitrary carrier-budget routing
-
-`Solutions/PolynomialCircuitCarrierRouting.lean` contains
-`route_of_feasible_commonFace_carrier_budgets`: if consecutive carriers of a
-feasible checkpoint sequence have intrinsic budgets `B_i`, parent-vertex
-endpoints can be connected by a parent edge/stay route with total cost
-`sum_i B_i`. This module has now compiled in multiple later verification gates;
-its old candidate-only comment is stale.
-
-The surrounding face/interval routing machinery can also charge a selected
-family of faces/carriers, including interval covers, rather than forcing one
-payment per original circuit step.
+`PolynomialFacePreservingCheckpoints.lean` plus interval-routing modules allow
+one to route using selected faces/carriers over intervals, so a useful global
+proof need not pay one carrier occurrence at a time.
 
 ### Nonvertex checkpoint localization
 
-This package is already kernel-verified. Do not recompile it merely to establish
-its status. `research/CircuitCheckpointVerificationReceipt.md` records commit
+Already kernel-verified; do not spend an iteration re-establishing its status.
+Receipt `research/CircuitCheckpointVerificationReceipt.md`: commit
 `cd9507f1dc08bfea234e9963707fc68de2d1356f`, run `34550443602`, job
-`103112037411`, artifact `10180667590`: 28 required declarations, 28 fresh axiom
-reports, only `propext`, `Classical.choice`, `Quot.sound`.
+`103112037411`; 28 required declarations and only standard logical axioms.
 
-Its row-circuit specialization gives, with the reference-parent assumptions in
-that file,
+One row-circuit specialization is
 
 ```text
 2 * commonFaceDim(x,y) + d
   <= n + commonFaceDim(x,x) + commonFaceDim(y,y) + 1.
 ```
 
-The source/target self-face nullities are the important nonvertex correction
-terms.
+This is the key warning that nonvertex endpoints introduce self-face-nullity
+corrections.
 
-### Cubic circuit-walk existence
+### Polynomial circuit walk already exists
 
-`Solutions/CircuitPhaseProgress.lean`, `CircuitPhasePotential.lean`, and
-`CircuitPhaseRoute.lean` already implement a successful finite-phase/potential
-architecture and culminate in `standardCircuitWalk_cubic` /
-`standard_cubic_circuit_bound`, with padded budget `17*n^3`.
+`CircuitPhaseProgress/Potential/Route` culminate in
+`standardCircuitWalk_cubic` / `standard_cubic_circuit_bound` with padded budget
+`17*n^3`. Circuit-walk construction is therefore not the present bottleneck.
+The useful analogy is its proof architecture: finite monotone events,
+quantitative within-phase progress, and bounded resets.
 
-That solves the circuit-walk **existence** side. It does not solve ordinary-edge
-refinement. Do not spend a stronger agent improving that cubic constant unless
-it unlocks a new graph-routing invariant.
+## 3. Local low-excess edge-refinement portal is now complete through excess 3
 
-## 3. Newly checked local-carrier routing — the easy wrapper is DONE
-
-### Intrinsic excess <=2: merged on main
+### `M_i-h_i <= 2`: merged
 
 PR #105 merged `Solutions/PolynomialIntrinsicExcessTwoWholeWalkRouting.lean`.
-Frozen source `dc6fea94d21e8cb62db0a1cd066b21696a88f4b9`; run `34629982502`, job
-`103364150810`; all 8,514 build jobs succeeded. The axiom checker inspected 123
-transitive reports; the three required declarations use only standard logical
-axioms.
+Frozen source `dc6fea94d21e8cb62db0a1cd066b21696a88f4b9`, run `34629982502`, job
+`103364150810`; 8,514 build jobs succeeded and the axiom checker inspected 123
+transitive reports, only `propext`, `Classical.choice`, `Quot.sound`.
 
-Checked statements include:
+For an arbitrary bounded parent, if each selected consecutive carrier has
 
 ```text
-commonFace_has_subpresentation_dim_add_two_of_minCount_le
-feasible_sequence_edge_route_two_mul_of_minCounts
-rowCircuitWalk_edge_route_two_mul_of_uniform_minCount
+M_i <= h_i + 2,
 ```
 
-Crucially the parent may have **arbitrary ambient row excess**. If every selected
-consecutive carrier has `M_i <= h_i+2`, a feasible length-L checkpoint sequence
-with vertex endpoints has a parent edge/stay route of length `2L`.
+then a feasible length-L checkpoint sequence with parent-vertex endpoints has a
+parent edge/stay route of length `2L`. Intermediate checkpoints may be
+nonvertices. There is also a uniform-carrier RowCircuitWalk corollary.
 
 Receipt:
 `research/INTRINSIC_EXCESS_TWO_WHOLE_WALK_VERIFICATION_2026-09-11.md`.
 
-### Intrinsic excess <=3: kernel-verified branch
+### `M_i-h_i <= 3`: merged
 
-PR #106 frozen source `6552ca5edf585354b043e53d2e15218f59b9d688`
-passed run `34630058450`, job `103364397358`; again the targeted build succeeded
-and the axiom checker inspected 123 transitive reports with only standard
-logical axioms for:
+Commit `0b9a329d34b5e288a3e1ee11b4ee898ab0d536a9` merged
+`Solutions/PolynomialCarrierExcessThreeRouting.lean` plus its receipt. Frozen
+source `6552ca5edf585354b043e53d2e15218f59b9d688`, run `34630058450`, job
+`103364397358`; 123 transitive reports, only standard logical axioms.
+
+Checked statements:
 
 ```text
 commonFace_diamLE_three_of_subpresentation_at_most
@@ -153,21 +134,20 @@ commonFace_diamLE_three_of_minCount_le_dim_add_three
 feasible_sequence_edge_route_three_mul_of_carrier_minCount_le_dim_add_three
 ```
 
-So if every consecutive carrier has `M_i <= h_i+3`, the parent route costs at
-most `3L`, still with arbitrary ambient row excess and nonvertex intermediate
-checkpoints. The second PR commit only records the verification receipt; at the
-time of this snapshot PR #106 had not yet been cleanly integrated to main.
-Search current PR/main state before doing integration work.
+Thus an arbitrary-parent carrier with minimum equivalent row-presentation excess
+<=3 has intrinsic graph diameter<=3, without checkpoint-vertex hypotheses; if
+every consecutive carrier of a feasible length-L checkpoint sequence satisfies
+that condition, the parent route costs `3L`.
 
-Receipt on the branch:
+Receipt:
 `research/CARRIER_EXCESS_THREE_ROUTING_VERIFICATION_2026-09-11.md`.
 
-**Therefore do not assign a strong agent another “local excess two/three implies
-2L/3L” wrapper. That work is already checked.**
+**Do not assign the next agent another low-excess-to-2L/3L routing wrapper.**
+That plumbing is finished.
 
-## 4. Actual mathematical bottleneck
+## 4. The real problem is now high intrinsic excess
 
-For circuit-walk checkpoint pair `(x_i,x_{i+1})`, define
+For circuit-walk checkpoint pair `(x_i,x_{i+1})`, write
 
 ```text
 h_i = commonFaceDim(a,b,x_i,x_{i+1})
@@ -175,162 +155,146 @@ M_i = commonFaceMinSubpresentationCount(a,b,x_i,x_{i+1})
 e_i = M_i - h_i.
 ```
 
-The existing portal handles `e_i <= 3` at constant graph cost. General
-Polynomial Hirsch requires a polynomially amortizable treatment of the steps or
-intervals with **`e_i > 3`**.
+The checked portal handles every `e_i<=3` carrier at O(1) graph cost. The useful
+frontier is to prove a polynomially amortizable bound for the carriers or
+intervals with **`e_i>3`**.
 
-The most useful next structural result is a **nonvertex analogue of the minimum
-subpresentation excess/defect budget**. The vertex-source theorem says
+### Highest-value missing structural lemma
 
-```text
-presentation_excess + selected_neutral_defect <= ambient_excess.
-```
-
-For nonvertex checkpoints, derive the exact correction terms from active/common
-row sets and self-face nullities rather than guessing them. A desired schematic
-form is
+Extend the vertex-source minimum-subpresentation excess/defect theorem to
+**nonvertex circuit checkpoints**. Derive the correction terms rather than
+assuming them. A schematic target is
 
 ```text
 local presentation excess + local neutral defect
-  <= ambient excess + explicit checkpoint-nullity corrections.
+  <= ambient excess + explicit source/target nullity corrections.
 ```
 
-The verified checkpoint-localization inequality above is evidence for what kind
-of corrections must appear. Do not assume this schematic inequality is true
-until it has been derived/tested.
+The verified checkpoint inequality above strongly suggests self-face dimensions
+must appear, but it does not by itself prove this schematic formula.
 
-## 5. Why a scalar excess/defect bound is probably insufficient
+This is the cleanest next way to connect the actual cubic RowCircuitWalk to the
+now-complete low-excess carrier portal.
 
-Read `research/OptimalCircuitDefectCompletion.md` before attempting a pure
-`B = excess + defect` induction. The row-presentation specializations are
-kernel checked and three public defect/excess statements are Prove2Me Proved.
-The note also contains extensive exact finite completion diagnostics showing
-that circuit-rank defect can be traded against presentation excess while
-protected graph distances survive.
+## 5. Do not rely on a scalar excess+defect induction alone
+
+Read `research/OptimalCircuitDefectCompletion.md` first. The row-presentation
+specializations are kernel checked; public Prove2Me results include neutral-rank,
+selected-row defect budget, and subpresentation excess/defect theorems. The note
+also has extensive exact finite completion diagnostics showing one can trade
+circuit-rank defect against excess while preserving protected graph distances.
 
 The full genuine-facet completion Theorems 1-4 in that note are **not all
-Lean-verified or Prove2Me-Proved**; preserve that evidence boundary. But the
-finite models are strong counterexample generators and make “the scalar drops,
-therefore graph routing gets cheaper” a poor strategy by itself.
+Lean-verified or Prove2Me-Proved**. Preserve that evidence boundary. But the
+models are strong evidence that a scalar decrease in `e+defect` does not force a
+strict graph-distance improvement.
 
-A plausible proof needs an **ordered/persistent resource** in addition to the
+A successful proof probably needs **order or persistence** in addition to the
 scalar budget.
 
-## 6. Best directions after the nonvertex excess formula
+## 6. Best research directions
 
-### A. Blocker/rank phases
+### Blocker/rank phases
 
-`PolynomialCircuitStepProgress.lean` proves every maximal circuit step gains a
-genuine target blocking row and that the target self-carrier is a strict
-subspace of the step carrier. `PolynomialCircuitStepBlockerCharacterization`
-gives an exact certificate for when consecutive maximal steps may be swapped.
+`PolynomialCircuitStepProgress.lean` gives a genuine target blocking row for
+every maximal circuit step and strict containment of the target self-carrier in
+the step carrier. `PolynomialCircuitStepBlockerCharacterization.lean` gives an
+exact swap certificate for consecutive maximal steps.
 
-Search for a phase invariant in which expensive (`e_i>3`) steps force one of:
+Try to prove that an expensive `e_i>3` step forces one of a bounded set of
+monotone events: new independent blocker rank, permanently retained tight row,
+safe reorder/cancellation, or a reset charged to a finite rank/tight-set
+resource. Do not assume self-face dimension is monotone.
 
-- a new independent blocker/normal rank;
-- a permanently trapped tight row;
-- a safe reordering that moves the step next to a cancellation/cheap carrier;
-- or a reset whose count is bounded by a finite rank/tight-row resource.
+### Persistent carrier/face intervals
 
-Do not assume `commonFaceDim(x_i,x_i)` is monotone; it is not currently known to
-be.
+The face-preserving checkpoint and interval-routing machinery makes the
+following target attractive:
 
-### B. Distinct-carrier or interval charging
+> cover the cubic circuit walk by polynomially many intervals, each carried by
+> a face/section that is either intrinsic-excess<=3 or causes certified rank /
+> blocker progress.
 
-`PolynomialFacePreservingCheckpoints.lean` and interval routing let one replace
-nonvertex checkpoints by parent vertices while preserving membership in chosen
-closed extreme faces and route an interval through a selected face once.
+This can be much easier than proving every individual carrier cheap, and it
+allows repeated/persistent carriers to be paid once per interval rather than
+once per step.
 
-A potentially better target than per-step cheapness is:
+### Rank-sensitive low-excess children
 
-> cover a polynomially long circuit walk by polynomially many intervals whose
-> selected carrier/section faces either have `e<=3` or make certified rank/tight
-> progress.
+`PolynomialRankSensitiveFaceCover.lean` can force normal-rank growth when a row
+is selected outside a saturated face-row span. Averaging alone is not enough;
+it only helps if selected children really have a better diameter bound. The new
+`e<=3` portal gives an actual cheap-child class. Look for a theorem saying that
+rank-increasing children eventually enter that class, or failures consume a
+finite rank resource.
 
-This avoids paying repeatedly for the same persistent expensive carrier.
+### Reuse the old phase architecture conceptually
 
-### C. Rank-sensitive low-excess children
+The successful circuit-walk construction already shows how to combine a finite
+progress set with a quantitative potential inside phases. Build a new phase
+object for **ordinary-edge refinement cost**, with events tied to blockers,
+carrier row-span rank, or persistent low-excess sections. Do not simply reuse
+the old slack potential: it controls circuit-walk length, not graph distance.
 
-`PolynomialRankSensitiveFaceCover.lean` has the right algebra for selecting rows
-outside a saturated face-row span and forcing rank growth. Pure averaging does
-not help unless the selected child faces have better diameter bounds. The new
-`e<=3` carrier portal supplies an actual “better child” class; the missing
-lemma is to show that enough rank-increasing children/sections enter that class,
-or that failures consume a finite rank resource.
+## 7. Suggested next-agent queue
 
-### D. Reuse the old phase architecture, not its literal potential
+1. Anti-duplication search of current main/open PRs.
+2. Derive the nonvertex minimum-presentation excess/defect formula using the
+   existing effective-row/minimum-subpresentation API.
+3. Before substantial Lean work, falsify candidate correction formulas and
+   potentials on the existing exact obstruction and optimal-defect-completion
+   families.
+4. If the formula survives, seek either:
+   - a bound on the number of `e_i>3` phases/events; or
+   - an interval/distinct-carrier cover that pays expensive carriers only
+     polynomially many times.
+5. Compose that result with the already-checked carrier/face routing and the
+   existing `17*n^3` circuit walk.
 
-The existing circuit-walk proof demonstrates a useful design pattern:
-finite monotone event set + quantitative contraction within a phase + reset
-only after strict progress. Try to build the analogous object for **edge
-refinement cost**, perhaps with events defined by new blockers, carrier-row-span
-rank, or persistent low-excess sections. The current slack potential itself
-controls circuit-walk construction, not graph distance.
+A theorem proving that **many carriers**, or long persistent blocks, have
+`e_i<=3` is already useful; it need not make every step cheap.
 
-## 7. Concrete queue for the next strong agent
+## 8. Regression/counterexample discipline
 
-1. Search main/open PRs first. PR #105 is already merged; PR #106 has a passed
-   source gate and may be integrated concurrently.
-2. Derive/test the nonvertex minimum-presentation excess/defect formula. Reuse
-   the existing effective-row/minimum-subpresentation API; do not invent a new
-   facet-count formalism unless unavoidable.
-3. Falsify candidate correction formulas and scalar potentials on the recorded
-   exact obstruction/completion families before large Lean work.
-4. If the nonvertex formula survives, look for a phase theorem bounding the
-   number of `e_i>3` events, or an interval-cover theorem charging each expensive
-   carrier/section only polynomially many times.
-5. Only then connect the result to `route_of_feasible_commonFace_carrier_budgets`
-   / interval face routing and the existing `17*n^3` circuit walk.
-
-A useful intermediate theorem is one that proves **many** or **long persistent
-blocks** of carriers have `e<=3`; it need not prove every carrier cheap. That is
-already enough to interact with interval covers and rank-progress phases.
-
-## 8. Counterexample discipline
-
-Before trusting a broad local-to-global claim, rerun the repository's known
-failure modes:
+Test broad claims against at least the recorded:
 
 - maximal-circuit carrier polygons/hexagons;
 - commuting-direction ordering obstructions;
-- exact 4D/5D Dantzig two-face bridges;
-- crossing-cycle and Boolean-cube repair obstructions;
+- 4D/5D Dantzig two-face bridges;
+- crossing-cycle and Boolean-cube repair examples;
 - moving-facet intersection loss;
 - 5D incidence-vs-order cost;
 - balanced cyclic-polar barriers;
 - deformed cubes / single-step universality;
 - Q28 scalar-fiber constructions;
-- the optimal-defect-completion finite models.
+- optimal-defect-completion finite models.
 
-Known non-implications: small support count, low carrier dimension, low active
-defect, temporal overlap, circuit status, and presentation minimality do not by
-themselves imply a short ordinary graph route.
+Small support, low carrier dimension, low active defect, temporal overlap,
+circuit status, or presentation minimality alone do not imply a short ordinary
+graph route.
 
-## 9. Publication/collaboration discipline
+## 9. Evidence/publication rules
 
-Keep three evidence levels separate:
+Keep distinct:
 
-1. exact finite/regression evidence;
-2. Lean kernel + axiom-gate evidence;
+1. exact finite evidence;
+2. Lean kernel/axiom-gate evidence;
 3. Prove2Me ACCEPTED / authenticated live Proved.
 
-Do not register cyclic/ancestor-equivalent Open children merely to rename the
-missing global theorem. For compositions using an already-public theorem, keep
-it as an explicit premise in local audits or use tracked Prove2Me imports; do
-not claim a theorem stub is an unconditional kernel proof. After a canceled
-publication monitor, recover the existing theorem/submission before retrying.
-`PROVE2ME_API_KEY` stays outside Git.
+Do not create ancestor-equivalent Open children to rename the global gap. For
+public compositions, use tracked Prove2Me imports or keep already-public facts
+as explicit local premises; do not hide theorem stubs in a claimed axiom-clean
+proof. Recover an existing theorem/submission after a canceled monitor before
+retrying. Credentials remain outside Git in `PROVE2ME_API_KEY`.
 
 ## Bottom line
 
-The project has now crossed two plumbing milestones:
+The project already has a polynomial circuit walk and now has constant-cost
+ordinary-edge refinement for every carrier whose intrinsic minimum-presentation
+excess is at most three, even with arbitrary ambient parent excess and nonvertex
+checkpoints.
 
-- a polynomially short circuit walk already exists;
-- carriers with intrinsic minimum-presentation excess <=3 can already be turned
-  into constant-cost ordinary-edge routing, including through nonvertex
-  checkpoints in arbitrary-excess parents.
-
-The useful frontier is therefore an **amortized high-intrinsic-excess theorem**.
-The strongest agent should focus on how `M_i-h_i>3` can occur along the cubic
-circuit walk, what nonvertex correction terms govern it, and which ordered or
-persistent resource prevents those expensive carriers from recurring too often.
+The strongest next agent should work on the **amortized high-excess layer**:
+understand `M_i-h_i>3` at nonvertex checkpoints and prove that blocker/rank or
+carrier/face persistence prevents those expensive carriers from recurring too
+often.
