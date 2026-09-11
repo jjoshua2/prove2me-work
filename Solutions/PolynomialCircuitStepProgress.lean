@@ -26,7 +26,7 @@ theorem rowCircuitStep_exists_target_blocking_row
   classical
   let g := y - x
   by_contra hnone
-  push_neg at hnone
+  push Not at hnone
   have htight_zero : ∀ i : Fin n, ⟪a i, y⟫ = b i → ⟪a i, g⟫ = 0 := by
     intro i hiy
     have hxle := hstep.1 i
@@ -34,14 +34,9 @@ theorem rowCircuitStep_exists_target_blocking_row
       dsimp [g]
       rw [inner_sub_right, hiy]
       linarith
-    have hnpos : ¬ 0 < ⟪a i, g⟫ := by
-      intro hpos
-      have hai : a i ≠ 0 := by
-        intro hai
-        rw [hai, inner_zero_left] at hpos
-        linarith
-      exact (hnone i hai hiy) hpos
-    exact le_antisymm (le_of_not_gt hnpos) hnonneg
+    by_cases hai : a i = 0
+    · simp [hai]
+    · exact le_antisymm (hnone i hai hiy) hnonneg
   have hlocal : ∀ i : Fin n, ∃ t : ℝ,
       0 < t ∧ t * |⟪a i, g⟫| ≤ b i - ⟪a i, y⟫ := by
     intro i
