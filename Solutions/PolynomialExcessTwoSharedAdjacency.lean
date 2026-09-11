@@ -183,7 +183,7 @@ theorem pairPoint_adj_shared_low {n : ℕ}
     rw [pairPoint_apply_right t mu i j hij,
       pairPoint_apply_other t mu i k j hji hjk] at hc
     have hp : 0 < (mu - t i) / (t j - t i) := by
-      exact div_pos hD hdj
+      exact div_pos (sub_pos.mpr hli) (sub_pos.mpr (hli.trans hrj))
     linarith
   refine ⟨hne, ?_⟩
   rw [← supportFace_triple_eq_segment_shared_low t mu i j k hli hrj hrk hjk]
@@ -328,7 +328,7 @@ theorem pairPoint_adj_shared_high {n : ℕ}
     rw [pairPoint_apply_left,
       pairPoint_apply_other t mu j k i hij hik] at hc
     have hp : 0 < (t k - mu) / (t k - t i) := by
-      exact div_pos hD hdi
+      exact div_pos (sub_pos.mpr hrk) (sub_pos.mpr (hli.trans hrk))
     linarith
   refine ⟨hne, ?_⟩
   rw [← supportFace_triple_eq_segment_shared_high t mu i j k hli hlj hrk hij]
