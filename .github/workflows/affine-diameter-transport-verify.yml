@@ -1,50 +1,67 @@
-name: Affine diameter transport verification
+name: Slack moment certificate final verification
 
+# One explicit final PR gate; no push/synchronize experimental compiler loop.
 on:
+  workflow_dispatch:
   pull_request:
-    types: [opened, reopened, synchronize]
+    types: [opened, reopened]
 
 permissions:
   contents: read
 
 concurrency:
-  group: affine-diameter-transport-${{ github.event.pull_request.number }}
+  group: slack-moment-final-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
   verify:
     if: >-
       github.repository == 'jjoshua2/prove2me-work' &&
-      github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
-      github.head_ref == 'formal/affine-diameter-transport'
+      (github.event_name == 'workflow_dispatch' ||
+       (github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
+        github.head_ref == 'formal/slack-moment-certificate'))
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
-          ref: ${{ github.event.pull_request.head.sha }}
-      - name: Check Actions policy
-        run: python3 scripts/check_actions_policy.py
-      - name: Restore pinned Lean environment
-        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
-      - name: Compile and axiom-audit affine transport
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Check policy and exact pins
         run: |
           set -euo pipefail
-          lake build Solutions.PolynomialAffineDiameterTransport
-          lake env lean Solutions/PolynomialAffineDiameterTransport.lean 2>&1 | tee /tmp/affine-diameter-transport.log
-          python3 scripts/check_lean_axiom_log.py /tmp/affine-diameter-transport.log \
-            Hirsch.affineEquiv_isExtreme_image \
-            Hirsch.affineEquiv_image_extremePoints \
-            Hirsch.affineEquiv_adj_iff \
-            Hirsch.affineEquiv_diamLE_image_iff \
-            Hirsch.affineMap_isExtreme_image_iff_of_injective \
-            Hirsch.affineMap_image_extremePoints_of_injective \
-            Hirsch.affineMap_adj_iff_of_injective \
-            Hirsch.affineMap_diamLE_image_iff_of_injective
+          python3 scripts/check_actions_policy.py
+          test "$(cat lean-toolchain)" = "leanprover/lean4:v4.30.0"
+          grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
+      - name: Restore the shared pinned environment
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Compile both concrete slack modules and audit every result
+        run: |
+          set -euo pipefail
+          lake build Solutions.PolynomialSlackMomentCertificate Solutions.PolynomialSlackNormalRelations 2>&1 | tee /tmp/slack-moment-build.log
+          lake env lean Solutions/PolynomialSlackMomentCertificate.lean 2>&1 | tee /tmp/slack-moment-axioms.log
+          lake env lean Solutions/PolynomialSlackNormalRelations.lean 2>&1 | tee -a /tmp/slack-moment-axioms.log
+          python3 scripts/check_lean_axiom_log.py /tmp/slack-moment-axioms.log \
+            HirschSlackMoment.momentMap_surjective \
+            HirschSlackMoment.range_eq_moment_kernel_of_codimension_two \
+            HirschSlackMoment.slackMap_injective \
+            HirschSlackMoment.slackMap_image_eq_momentSlice \
+            HirschSlackMoment.slackPoly_diamLE_two \
+            HirschSlackMoment.slackMap_image_supportFace \
+            HirschSlackMoment.slackSupportFace_diamLE_two \
+            HirschSlackMoment.slackPoly_weighted_eq_Hpoly \
+            HirschSlackMoment.weighted_slack_zero_iff \
+            HirschSlackMoment.hpoly_diamLE_two_of_positive_slack_certificate \
+            HirschSlackMoment.row_support_diamLE_two_of_positive_slack_certificate \
+            HirschSlackMoment.weightedRows_injective_of_extremePoint \
+            HirschSlackMoment.normal_relations_annihilate_weightedRows \
+            HirschSlackMoment.hpoly_and_row_faces_diamLE_two_of_normal_relations
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: affine-diameter-transport-verification
-          retention-days: 7
-          path: /tmp/affine-diameter-transport.log
+          name: slack-moment-certificate-final-audit
+          retention-days: 3
+          path: |
+            /tmp/slack-moment-build.log
+            /tmp/slack-moment-axioms.log
+          if-no-files-found: warn
