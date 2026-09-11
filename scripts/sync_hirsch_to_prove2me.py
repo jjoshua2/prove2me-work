@@ -151,7 +151,7 @@ Pulled the live mission state on Prove2Me 0.10.1 and reconciled it with `jjoshua
 
 - {link('irredundant row-count invariance', IDS['row_count'])}: a strictly feasible irredundant H-presentation is cardinal-minimal among all equivalent finite presentations.
 - {link('normalized two-moment slice diameter ≤ 2', IDS['two_moment'])}: the normalized nonnegative simplex slice with two affine moment equations has padded graph diameter at most two, including repeated/degenerate cases.
-- {link('injective affine diameter transport', IDS['affine_transport'])}: injective affine embeddings preserve and reflect the exact vertex-edge graph diameter, even across different ambient dimensions. Its audited source/receipt is now being synchronized back into the GitHub main line.
+- {link('injective affine diameter transport', IDS['affine_transport'])}: injective affine embeddings preserve and reflect the exact vertex-edge graph diameter, even across different ambient dimensions. The audited source and publication receipt are now merged back into the GitHub main line.
 - The previously published cubic circuit-walk, maximal-step common-face, excess/defect, and exact blocker/swap results remain reusable infrastructure; they do not by themselves pay the whole edge-routing cost.
 
 ### New live progress pulled from the board
@@ -190,7 +190,6 @@ def main() -> None:
     if not any(e.get("mathlib_rev") == PIN for e in envs.get("environments", [])):
         raise RuntimeError("pinned Mathlib environment unavailable")
 
-    # Confirm exact mission identity.
     missions = api.request("/missions?" + urllib.parse.urlencode({"limit": 100, "offset": 0}))
     exact = [m for m in missions.get("missions", []) if m.get("id") == MISSION_ID]
     if len(exact) != 1 or exact[0].get("name") != MISSION_NAME:
@@ -249,3 +248,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
+    main()
