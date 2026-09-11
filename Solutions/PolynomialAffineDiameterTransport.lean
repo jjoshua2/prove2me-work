@@ -28,7 +28,7 @@ theorem affineEquiv_isExtreme_image
     exact ⟨x, h.1 hx, rfl⟩
   · rintro _ ⟨x, hx, rfl⟩ _ ⟨y, hy, rfl⟩ _ ⟨z, hz, rfl⟩ hzxy
     have hzimg : f z ∈ f '' openSegment ℝ x y := by
-      rw [image_openSegment]
+      rw [image_openSegment ℝ f.toAffineMap x y]
       exact hzxy
     rcases hzimg with ⟨z', hz', hz'eq⟩
     have hzz' : z' = z := f.injective hz'eq
@@ -74,7 +74,7 @@ theorem affineEquiv_adj_iff
     · intro hxy
       exact h.1 (congrArg f hxy)
     · have himage : IsExtreme ℝ (f '' A) (f '' segment ℝ x y) := by
-        rw [image_segment]
+        rw [image_segment ℝ f.toAffineMap x y]
         exact h.2
       exact (affineEquiv_isExtreme_image_iff f).mp himage
   · intro h
@@ -82,7 +82,7 @@ theorem affineEquiv_adj_iff
     · intro hxy
       exact h.1 (f.injective hxy)
     · have himage := affineEquiv_isExtreme_image f h.2
-      rw [image_segment] at himage
+      rw [image_segment ℝ f.toAffineMap x y] at himage
       exact himage
 
 /-- A graph-diameter bound transports forward through an affine equivalence. -/
