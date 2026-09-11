@@ -99,6 +99,7 @@ theorem supportFace_triple_eq_segment_singleton_pair {n : ℕ}
       have h := (sum_eq_add_add_of_zero_off_triple (fun r => t r * s r)
         k i j hki hkj hij (by
           intro r hrk hri hrj'
+          change t r * s r = 0
           rw [hz r hrk hri hrj', mul_zero])).symm.trans hs.1.2.2
       simpa only [hk] using h
     have hsi : s i * (t j - t i) = (s i + s j) * (t j - mu) := by
