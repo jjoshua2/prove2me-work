@@ -5,7 +5,7 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: publish-common-face-row-excess-once
+  group: publish-common-face-row-excess-once-${{ github.head_ref }}
   cancel-in-progress: true
 jobs:
   publish:
