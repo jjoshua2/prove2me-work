@@ -140,22 +140,19 @@ theorem splice_reentry_through_hpoly_facet_of_lower_dimension_bound
         w' j = w' (j + 1) ∨ Adj (Hpoly a b) (w' j) (w' (j + 1)) := by
   let F : Set (EuclideanSpace ℝ (Fin d)) :=
     {x | x ∈ Hpoly a b ∧ ⟪a i, x⟫ = b i}
-  apply splice_reentry_through_parent_route d L B s t (Hpoly a b) F
-  · intro x hxP hxF y hyP hyF
+  have hroute : ∀ x,
+      x ∈ extremePoints ℝ (Hpoly a b) → x ∈ F →
+      ∀ y, y ∈ extremePoints ℝ (Hpoly a b) → y ∈ F →
+      ∃ wf : ℕ → EuclideanSpace ℝ (Fin d),
+        wf 0 = x ∧ wf B = y ∧
+        ∀ j < B, wf j = wf (j + 1) ∨
+          Adj (Hpoly a b) (wf j) (wf (j + 1)) := by
+    intro x hxP hxF y hyP hyF
     exact hpoly_facet_parent_route_of_lower_dimension_bound
       hfacet a b i hai hbd hlow x y hxP hyP hxF.2 hyF.2
-  · exact u
-  · exact v
-  · exact w
-  · exact hw0
-  · exact hwL
-  · exact hwstep
-  · exact hst
-  · exact htL
-  · exact hsP
-  · exact htP
-  · exact ⟨hsP.1, hsF⟩
-  · exact ⟨htP.1, htF⟩
+  exact splice_reentry_through_parent_route d L B s t (Hpoly a b) F
+    hroute u v w hw0 hwL hwstep hst htL hsP htP
+    ⟨hsP.1, hsF⟩ ⟨htP.1, htF⟩
 
 #print axioms splice_reentry_through_parent_route
 #print axioms hpoly_facet_parent_route_of_lower_dimension_bound
