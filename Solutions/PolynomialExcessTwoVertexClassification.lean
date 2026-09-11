@@ -160,7 +160,7 @@ theorem extreme_eq_of_support_contained {n : ℕ}
           ring
         _ = (mu - θ * mu) / (1 - θ) := by
           rw [Finset.sum_sub_distrib, ← Finset.mul_sum, hx.1.2.2, hy.2.2]
-        _ = mu := by field_simp [ne_of_gt hden]; ring
+        _ = mu := by field_simp [ne_of_gt hden]
   have hcomb : θ • y + (1 - θ) • z = x := by
     ext k
     change θ * y k + (1 - θ) * z k = x k
