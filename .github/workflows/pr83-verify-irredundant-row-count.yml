@@ -38,6 +38,7 @@ jobs:
       - name: Compile and audit row-count core
         run: |
           set -euo pipefail
+          lake build Solutions.PolynomialIrredundantRowCount
           lake env lean Solutions/PolynomialIrredundantRowCount.lean 2>&1 | tee /tmp/irredundant-row-count-core.log
           python3 scripts/check_lean_axiom_log.py /tmp/irredundant-row-count-core.log \
             HirschRowCount.strict_on_nonzero_rows_strict_for_valid_row \
@@ -51,6 +52,7 @@ jobs:
       - name: Compile and audit common-face adapters
         run: |
           set -euo pipefail
+          lake build Solutions.PolynomialCommonFaceIntrinsicRowCount
           lake env lean Solutions/PolynomialCommonFaceIntrinsicRowCount.lean 2>&1 | tee /tmp/irredundant-row-count-adapter.log
           python3 scripts/check_lean_axiom_log.py /tmp/irredundant-row-count-adapter.log \
             HirschCircuitLocalization.commonFace_minCount_eq_irredundant_subpresentation \
