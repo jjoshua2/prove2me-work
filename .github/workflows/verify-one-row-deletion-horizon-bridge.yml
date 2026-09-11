@@ -1,0 +1,47 @@
+name: Verify one-row deletion horizon bridge
+on:
+  pull_request:
+    types: [opened, synchronize]
+permissions:
+  contents: read
+concurrency:
+  group: verify-deletion-horizon-${{ github.head_ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    if: >-
+      github.repository == 'jjoshua2/prove2me-work' &&
+      github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
+      github.head_ref == 'formal/one-row-deletion-horizon-bridge'
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - name: Check policy and pins
+        run: |
+          set -euo pipefail
+          python3 scripts/check_actions_policy.py
+          test "$(cat lean-toolchain)" = 'leanprover/lean4:v4.30.0'
+          grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
+      - name: Restore pinned Lean environment
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Compile and audit deletion horizon bridge
+        run: |
+          set -euo pipefail
+          lake build Solutions.PolynomialOneRowDeletionHorizonBridge
+          lake env lean Solutions/PolynomialOneRowDeletionHorizonBridge.lean 2>&1 | tee /tmp/deletion-horizon-bridge.log
+          python3 scripts/check_lean_axiom_log.py /tmp/deletion-horizon-bridge.log \
+            HirschDeletion.deletionCapNormal_inner \
+            HirschDeletion.deletionCappedOuter_eq_horizonCap \
+            HirschDeletion.deletionCappedOuter_vertex_old_or_horizon \
+            HirschDeletion.deletionCappedOuter_first_horizon_edge
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: deletion-horizon-bridge-verification
+          retention-days: 14
+          path: /tmp/deletion-horizon-bridge.log
+          if-no-files-found: warn
