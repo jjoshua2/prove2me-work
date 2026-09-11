@@ -17,7 +17,8 @@ jobs:
        github.head_ref == 'formal/saturated-carrier-blocker' ||
        github.head_ref == 'formal/circuit-step-savings-dichotomy' ||
        github.head_ref == 'formal/saturated-phase-blocker' ||
-       github.head_ref == 'formal/min-presentation-phase-dichotomy')
+       github.head_ref == 'formal/min-presentation-phase-dichotomy' ||
+       github.head_ref == 'formal/irredundant-min-carrier-dichotomy')
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
@@ -76,6 +77,13 @@ jobs:
             python3 scripts/check_lean_axiom_log.py /tmp/circuit-min-presentation-phase-dichotomy.log \
               HirschCircuitLocalization.rowCircuitStep_minPresentation_same_phase_strict_budget_or_selected_target_positive_blocker
           fi
+          if [[ -f Solutions/PolynomialCircuitIrredundantMinCarrierDichotomy.lean ]]; then
+            lake build Solutions.PolynomialCircuitIrredundantMinCarrierDichotomy
+            lake env lean Solutions/PolynomialCircuitIrredundantMinCarrierDichotomy.lean 2>&1 | tee /tmp/circuit-irredundant-min-carrier-dichotomy.log
+            python3 scripts/check_lean_axiom_log.py /tmp/circuit-irredundant-min-carrier-dichotomy.log \
+              HirschCircuitLocalization.rowCircuitStep_irredundant_minPresentation_strict_budget_or_essential_targetOnlyRow \
+              HirschCircuitLocalization.rowCircuitStep_irredundant_minPresentation_same_phase_strict_budget_or_essential_trapped_blocker
+          fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -88,4 +96,5 @@ jobs:
             /tmp/circuit-step-savings-dichotomy.log
             /tmp/circuit-saturated-phase-blocker.log
             /tmp/circuit-min-presentation-phase-dichotomy.log
+            /tmp/circuit-irredundant-min-carrier-dichotomy.log
           if-no-files-found: warn
