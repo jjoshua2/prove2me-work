@@ -77,17 +77,31 @@ theorem rowCircuit_commonFace_subpresentation_excess_defect_checkpoint
     simpa [commonFacePoint] using hxF
   obtain ⟨eF, heF⟩ := effective_subpresentation_preserves_hpoly
     (commonFaceA a b x y) (commonFaceB a b x y) hzero e
+  have heInt :
+      Hpoly (fun j => commonFaceA a b x y (e j))
+          (fun j => commonFaceB a b x y (e j)) =
+        Hpoly (commonFaceA a b x y) (commonFaceB a b x y) := by
+    simpa [HirschCommonFace.commonFaceDim, HirschCommonFace.commonDirection,
+      HirschCommonFace.commonSourceRows, HirschCommonFace.rowEvalMap,
+      HirschCommonFace.commonFaceA, HirschCommonFace.commonFaceB,
+      HirschCommonFace.commonFaceLiftCLM, HirschCommonFace.commonFaceLift,
+      HirschCommonFace.commonFaceRepr,
+      HirschPolynomialAccess.commonFaceDim, HirschPolynomialAccess.commonDirection,
+      HirschPolynomialAccess.commonSourceRows, HirschPolynomialAccess.rowEvalMap,
+      HirschPolynomialAccess.commonFaceA, HirschPolynomialAccess.commonFaceB,
+      HirschPolynomialAccess.commonFaceLiftCLM, HirschPolynomialAccess.commonFaceLift,
+      HirschPolynomialAccess.commonFaceRepr] using he
   have hbdCoord := commonFace_coord_bounded a b x y hbd
   have hbdSel : Bornology.IsBounded
       (Hpoly (fun j => commonFaceA a b x y (e j))
         (fun j => commonFaceB a b x y (e j))) := by
-    rw [he]
+    rw [heInt]
     exact hbdCoord
   have hzeroSel :
       (0 : EuclideanSpace ℝ (Fin (commonFaceDim a b x y))) ∈
         Hpoly (fun j => commonFaceA a b x y (e j))
           (fun j => commonFaceB a b x y (e j)) := by
-    rw [he]
+    rw [heInt]
     exact hzero
   have hbdF : Bornology.IsBounded
       (Hpoly (fun j => commonFaceA a b x y (eF j))
@@ -105,7 +119,9 @@ theorem rowCircuit_commonFace_subpresentation_excess_defect_checkpoint
     (fun j => commonFaceB a b x y (eF j)) hbdF 0 hzeroF
   have hdimRank := LinearMap.finrank_le_finrank_of_injective hinj
   have hface : commonFaceDim a b x y ≤ F.card := by
-    simpa [finrank_euclideanSpace_fin] using hdimRank
+    simpa [F, HirschCommonFace.commonFaceEffectiveRows,
+      HirschCommonFace.commonFaceA, HirschPolynomialAccess.commonFaceA,
+      finrank_euclideanSpace_fin] using hdimRank
   have hdn : d ≤ n :=
     rows_ge_dimension_of_bounded a b hbd z (extremePoints_subset hz)
   have hbudget := rowCircuit_selectedEffectiveRows_excess_defect_of_reference_vertex
