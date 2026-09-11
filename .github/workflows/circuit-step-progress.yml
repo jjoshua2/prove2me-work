@@ -1,0 +1,65 @@
+name: Verify maximal circuit-step progress
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [opened, reopened]
+permissions:
+  contents: read
+concurrency:
+  group: circuit-step-progress-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.repository == 'jjoshua2/prove2me-work' &&
+       github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
+       github.head_ref == 'chatgpt/circuit-step-progress')
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Check policy and pin
+        run: |
+          set -euo pipefail
+          python3 scripts/check_actions_policy.py
+          test "$(cat lean-toolchain)" = "leanprover/lean4:v4.30.0"
+          grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
+      - name: Restore pinned Lean environment
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Compile and audit five declarations
+        run: |
+          set -euo pipefail
+          lake build Solutions.PolynomialCircuitStepProgress 2>&1 | tee /tmp/circuit-step-progress.log
+          python3 - <<'PY'
+          import re
+          from pathlib import Path
+          text=Path('/tmp/circuit-step-progress.log').read_text(encoding='utf-8')
+          names=[
+            'HirschCircuitLocalization.rowCircuitStep_exists_target_blocking_row',
+            'HirschCircuitLocalization.commonDirection_target_self_lt_of_rowCircuitStep',
+            'HirschCircuitLocalization.rowCircuitStep_target_commonFaceDim_lt',
+            'HirschCircuitLocalization.rowCircuitStep_commonFaceDim_source_bound',
+            'HirschCircuitLocalization.rowCircuitStep_target_commonFaceDim_progress',
+          ]
+          allowed={'propext','Classical.choice','Quot.sound'}
+          pat=re.compile(r"'([^']+)' depends on axioms:\s*\[([^\]]*)\]",re.S)
+          reports={n:{x.strip() for x in raw.split(',') if x.strip()} for n,raw in pat.findall(text)}
+          for n in re.findall(r"'([^']+)' does not depend on any axioms",text): reports[n]=set()
+          for n in names:
+            if n not in reports: raise SystemExit('missing axiom report for '+n)
+            bad=reports[n]-allowed
+            if bad: raise SystemExit(f'unexpected axioms for {n}: {sorted(bad)}')
+            print(n,sorted(reports[n]))
+          print('PASS: five maximal circuit-step progress declarations audited')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: circuit-step-progress-audit
+          retention-days: 3
+          path: /tmp/circuit-step-progress.log
+          if-no-files-found: warn
