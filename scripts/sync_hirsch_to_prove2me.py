@@ -190,10 +190,10 @@ def main() -> None:
     if not any(e.get("mathlib_rev") == PIN for e in envs.get("environments", [])):
         raise RuntimeError("pinned Mathlib environment unavailable")
 
-    missions = api.request("/missions?" + urllib.parse.urlencode({"limit": 100, "offset": 0}))
-    exact = [m for m in missions.get("missions", []) if m.get("id") == MISSION_ID]
-    if len(exact) != 1 or exact[0].get("name") != MISSION_NAME:
+    mission = api.request(f"/missions/{MISSION_ID}")
+    if mission.get("name") not in (None, MISSION_NAME):
         raise RuntimeError("mission identity mismatch")
+    save("mission.json", mission)
 
     before = get_states(api)
     save("theorems-before.json", before)
