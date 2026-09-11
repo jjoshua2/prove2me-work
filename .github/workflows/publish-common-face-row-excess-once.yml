@@ -1,0 +1,59 @@
+name: Publish verified common-face row-excess theorem
+on:
+  pull_request:
+    types: [synchronize]
+permissions:
+  contents: read
+concurrency:
+  group: publish-common-face-row-excess-once
+  cancel-in-progress: true
+jobs:
+  publish:
+    if: >-
+      github.repository == 'jjoshua2/prove2me-work' &&
+      github.actor == 'jjoshua2' &&
+      github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
+      github.head_ref == 'publish/common-face-row-excess-monotonicity'
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Prepare frozen standalone packet
+        run: |
+          set -euo pipefail
+          python3 scripts/check_actions_policy.py
+          python3 -m py_compile scripts/publish_common_face_row_excess.py
+          python3 scripts/publish_common_face_row_excess.py prepare
+          test "$(cat lean-toolchain)" = 'leanprover/lean4:v4.30.0'
+          grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
+          grep -Eq '^theorem solution$' /tmp/common-face-row-excess-public/solution.lean
+      - name: Restore shared pinned Lean environment
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Compile and audit exact standalone solution
+        run: |
+          set -euo pipefail
+          lake env lean /tmp/common-face-row-excess-public/solution.lean 2>&1 | tee /tmp/common-face-row-excess-public/solution-axioms.log
+          python3 scripts/check_lean_axiom_log.py /tmp/common-face-row-excess-public/solution-axioms.log solution
+          sha256sum /tmp/common-face-row-excess-public/solution.lean | awk '{print $1}' > /tmp/common-face-row-excess-public/solution-audit-passed.sha256
+      - name: Authenticated Prove2Me preflight
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: python3 scripts/prove2me_auth.py check
+      - name: Publish exact standalone proof
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: python3 scripts/publish_common_face_row_excess.py publish
+      - name: Preserve proof and sanitized receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: common-face-row-excess-publication
+          retention-days: 14
+          path: |
+            /tmp/common-face-row-excess-public/
+            common_face_row_excess_publication_receipts/
+          if-no-files-found: warn
