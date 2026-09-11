@@ -1,64 +1,48 @@
-name: Publish verified slack normal-relation theorem
-
+name: Recover audited slack publication
 on:
-  workflow_dispatch:
   pull_request:
     types: [opened, reopened]
-
 permissions:
   contents: read
-
+  actions: read
 concurrency:
-  group: publish-slack-normal-relations-once
-  cancel-in-progress: true
-
+  group: recover-slack-normal-relations
+  cancel-in-progress: false
 jobs:
-  publish:
+  recover:
     if: >-
       github.repository == 'jjoshua2/prove2me-work' &&
       github.actor == 'jjoshua2' &&
       github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
       github.head_ref == 'integrate/slack-normal-relations'
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
           persist-credentials: false
-      - name: Cheap policy and immutable-source checks
+      - name: Cheap policy and syntax checks
         run: |
-          set -euo pipefail
           python3 scripts/check_actions_policy.py
-          python3 -m py_compile scripts/publish_slack_normal_relations.py
-          test "$(cat lean-toolchain)" = 'leanprover/lean4:v4.30.0'
-          git diff --exit-code 4a9204edd7f03c7f9676f9dc9762be121e43bf1a -- Solutions/PolynomialSlackMomentCertificate.lean Solutions/PolynomialSlackNormalRelations.lean
-      - name: Restore shared pinned Lean environment
-        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
-      - name: Rebuild exact verified source and independent standalone proof
-        run: |
-          set -euo pipefail
-          mkdir -p /tmp/slack-relations-public
-          lake build Solutions.PolynomialSlackNormalRelations 2>&1 | tee /tmp/slack-relations-public/source-build.log
-          python3 scripts/publish_slack_normal_relations.py prepare
-          lake env lean /tmp/slack-relations-public/solution.lean 2>&1 | tee /tmp/slack-relations-public/standalone-axioms.log
-          python3 scripts/check_lean_axiom_log.py /tmp/slack-relations-public/standalone-axioms.log solution HirschSlackMoment.hpoly_and_row_faces_diamLE_two_of_normal_relations
-          sha256sum /tmp/slack-relations-public/solution.lean | awk '{print $1}' > /tmp/slack-relations-public/audit-passed.sha256
-      - name: Authenticated Prove2Me preflight
-        env:
-          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
-        run: python3 scripts/prove2me_auth.py check
-      - name: Publish exact audited proof and mission update
-        env:
-          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
-        run: python3 scripts/publish_slack_normal_relations.py publish
-      - name: Preserve proof and sanitized receipts
-        if: always()
-        uses: actions/upload-artifact@v4
+          python3 -m py_compile scripts/recover_slack_publication.py
+      - name: Restore exact audited proof and partial publication receipt
+        uses: actions/download-artifact@v4
         with:
           name: slack-normal-relations-publication
+          run-id: 34618047572
+          github-token: ${{ github.token }}
+          path: _slack_recovery
+      - name: Validate existing proof hash and axiom log without compilation
+        run: python3 scripts/recover_slack_publication.py check-artifact
+      - name: Check original submission and recover its board linkage
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: python3 scripts/recover_slack_publication.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: slack-publication-recovered
           retention-days: 14
-          path: |
-            /tmp/slack-relations-public/
-            slack_relations_publication_receipts/
+          path: slack_publication_recovery_receipts/
