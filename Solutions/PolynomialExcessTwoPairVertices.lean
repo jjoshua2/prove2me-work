@@ -34,17 +34,20 @@ theorem eq_pairPoint_of_mem_of_zero_off_pair {n : ℕ}
   have hmomSum := sum_eq_add_of_zero_off_pair
     (fun k => t k * s k) i j hij (by
       intro k hki hkj
+      change t k * s k = 0
       rw [hzero k hki hkj, mul_zero])
   have hmom : t i * s i + t j * s j = mu := by
     calc
       t i * s i + t j * s j = ∑ k, t k * s k := hmomSum.symm
       _ = mu := hs.2.2
-  have hsi : s i = (t j - mu) / (t j - t i) := by
-    apply (eq_div_iff (ne_of_gt hden)).2
-    nlinarith [hmass, hmom]
-  have hsj : s j = (mu - t i) / (t j - t i) := by
-    apply (eq_div_iff (ne_of_gt hden)).2
-    nlinarith [hmass, hmom]
+  have hsi_mul : s i * (t j - t i) = t j - mu := by
+    linear_combination t j * hmass - hmom
+  have hsj_mul : s j * (t j - t i) = mu - t i := by
+    linear_combination hmom - t i * hmass
+  have hsi : s i = (t j - mu) / (t j - t i) :=
+    (eq_div_iff (ne_of_gt hden)).2 hsi_mul
+  have hsj : s j = (mu - t i) / (t j - t i) :=
+    (eq_div_iff (ne_of_gt hden)).2 hsj_mul
   ext k
   by_cases hki : k = i
   · subst k
