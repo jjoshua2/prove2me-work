@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
-"""Post one idempotent Polynomial Hirsch reconciliation comment to Prove2Me.
-
-This script does not create theorems, proofs, sketches, or graph edges. It only
-posts a collaboration-board comment after re-reading and checking the live
-mission state. Credentials come from PROVE2ME_API_KEY and are never persisted.
-"""
+"""Idempotently reconcile GitHub Polynomial Hirsch status to the Prove2Me board."""
 from __future__ import annotations
 
 import datetime
@@ -33,17 +28,10 @@ IDS = {
     "ridge_access": "5f309362-bbda-4dea-806f-20b4e2712a2d",
     "common_face_ge6": "87a8b4f4-8b58-4340-8cb9-5fd1b548d01e",
 }
-
 EXPECTED = {
-    "root": "Open",
-    "edge_parent": "Open",
-    "edge_d4": "Open",
-    "row_count": "Proved",
-    "two_moment": "Proved",
-    "affine_transport": "Proved",
-    "subbalanced": "Proved",
-    "ridge_access": "Open",
-    "common_face_ge6": "Open",
+    "root": "Open", "edge_parent": "Open", "edge_d4": "Open",
+    "row_count": "Proved", "two_moment": "Proved", "affine_transport": "Proved",
+    "subbalanced": "Proved", "ridge_access": "Open", "common_face_ge6": "Open",
 }
 
 
@@ -71,17 +59,16 @@ class API:
         self.token = data["access_token"]
         self.version = data.get("version")
         if self.version != VERSION:
-            raise RuntimeError(f"platform version changed: expected {VERSION}, got {self.version}")
+            raise RuntimeError(f"platform version changed: {self.version!r}")
 
     def request(self, path: str, data=None, method: str = "GET"):
         if not path.startswith("/") or path.startswith("//") or "://" in path:
             raise ValueError("API-relative path required")
         if not self.token:
             self.refresh()
-        body = None if data is None else json.dumps(data).encode()
         req = urllib.request.Request(
             BASE + path,
-            data=body,
+            data=None if data is None else json.dumps(data).encode(),
             headers={
                 "Authorization": "Bearer " + self.token,
                 "Accept": "application/json",
@@ -98,83 +85,80 @@ def save(name: str, data) -> None:
     (OUT / name).write_text(json.dumps(data, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
 
-def theorem_summary(t: dict) -> dict:
-    return {k: t.get(k) for k in ("theorem_id", "theorem_name", "status", "mathlib_rev")}
+def find_mission(api: API) -> dict:
+    offset = 0
+    matches = []
+    while True:
+        page = api.request("/missions?" + urllib.parse.urlencode({"limit": 100, "offset": offset}))
+        rows = page.get("missions", [])
+        matches.extend(m for m in rows if m.get("id") == MISSION_ID or m.get("name") == MISSION_NAME)
+        offset += len(rows)
+        if not rows or offset >= int(page.get("total", offset)):
+            break
+    exact = [m for m in matches if m.get("id") == MISSION_ID and m.get("name") == MISSION_NAME]
+    if len(exact) != 1:
+        raise RuntimeError(f"exact mission lookup failed: {len(exact)} matches")
+    return exact[0]
+
+
+def get_comments(api: API) -> list[dict]:
+    out, offset = [], 0
+    while True:
+        page = api.request(
+            f"/missions/{MISSION_ID}/comments?" + urllib.parse.urlencode({"limit": 100, "offset": offset})
+        )
+        rows = page.get("comments", [])
+        out.extend(rows)
+        offset += len(rows)
+        if not rows or offset >= int(page.get("total", offset)):
+            return out
 
 
 def get_states(api: API) -> dict:
     states = {}
     for label, tid in IDS.items():
         t = api.request("/theorems/" + tid)
-        states[label] = theorem_summary(t)
+        state = {k: t.get(k) for k in ("theorem_id", "theorem_name", "status", "mathlib_rev")}
+        states[label] = state
         if t.get("mathlib_rev") != PIN:
-            raise RuntimeError(f"{label} uses unexpected Mathlib revision")
+            raise RuntimeError(f"{label}: unexpected Mathlib revision")
         if t.get("status") != EXPECTED[label]:
-            raise RuntimeError(
-                f"{label} status changed: expected {EXPECTED[label]!r}, got {t.get('status')!r}"
-            )
+            raise RuntimeError(f"{label}: expected {EXPECTED[label]}, got {t.get('status')}")
     return states
 
 
-def get_comments(api: API) -> list[dict]:
-    rows = []
-    offset = 0
-    while True:
-        page = api.request(
-            f"/missions/{MISSION_ID}/comments?" + urllib.parse.urlencode({"limit": 100, "offset": offset})
-        )
-        batch = page.get("comments", [])
-        rows.extend(batch)
-        offset += len(batch)
-        if not batch or offset >= int(page.get("total", offset)):
-            break
-    return rows
+def p2m(label: str, key: str) -> str:
+    return f"[{label}](p2m:theorem/{IDS[key]})"
 
 
-def get_milestones(api: API) -> list[dict]:
-    data = api.request(f"/missions/{MISSION_ID}/milestones")
-    if isinstance(data, list):
-        return data
-    return data.get("milestones", data.get("items", []))
-
-
-def link(label: str, tid: str) -> str:
-    return f"[{label}](p2m:theorem/{tid})"
-
-
-def build_body() -> str:
+def body() -> str:
     return f"""## GitHub ↔ Prove2Me synchronization — 2026-09-11
 
-Pulled the live mission state on Prove2Me 0.10.1 and reconciled it with `jjoshua2/prove2me-work`. All **six curated mission milestones are Proved** (Klee/Klee–Walkup d≤3, Larman, Naddef 0/1, Kalai–Kleitman, Todd, and Santos). The root {link('Polynomial Hirsch conjecture', IDS['root'])} is still **Open**.
+Pulled the live Prove2Me 0.10.1 mission state and reconciled it with `jjoshua2/prove2me-work`. All **six curated milestones are Proved** (Klee/Klee–Walkup d≤3, Larman, Naddef 0/1, Kalai–Kleitman, Todd, Santos). The root {p2m('Polynomial Hirsch conjecture', 'root')} remains **Open**.
 
-### Repository results that are now public Prove2Me facts
+### Public results now synchronized with the repository
+- {p2m('irredundant row-count invariance', 'row_count')}: strictly feasible irredundant H-presentations are cardinal-minimal among equivalent finite presentations.
+- {p2m('normalized two-moment slice diameter ≤ 2', 'two_moment')}: normalized nonnegative two-moment simplex slices have padded graph diameter at most two, including repeated/degenerate cases.
+- {p2m('injective affine diameter transport', 'affine_transport')}: injective affine embeddings preserve and reflect the exact vertex-edge diameter across different ambient dimensions. Its audited source and publication receipt are now merged into GitHub `main`.
 
-- {link('irredundant row-count invariance', IDS['row_count'])}: a strictly feasible irredundant H-presentation is cardinal-minimal among all equivalent finite presentations.
-- {link('normalized two-moment slice diameter ≤ 2', IDS['two_moment'])}: the normalized nonnegative simplex slice with two affine moment equations has padded graph diameter at most two, including repeated/degenerate cases.
-- {link('injective affine diameter transport', IDS['affine_transport'])}: injective affine embeddings preserve and reflect the exact vertex-edge graph diameter, even across different ambient dimensions. The audited source and publication receipt are now merged back into the GitHub main line.
-- The previously published cubic circuit-walk, maximal-step common-face, excess/defect, and exact blocker/swap results remain reusable infrastructure; they do not by themselves pay the whole edge-routing cost.
+### Progress pulled back from the live board
+The newly Proved {p2m('sub-balanced section inheritance theorem', 'subbalanced')} says that for `n < 2d`, shared tight rows reduce diameter to equality sections; this is complementary to the low-excess/slack-slice route and should be reused.
 
-### New live progress pulled from the board
+The ridge-visible-access attack is also useful negative/positive guidance. {p2m('Polynomial access to a ridge-visible vertex', 'ridge_access')} remains **Open**; current experiments rule out an O(1) bound, and the naive recurrence through full facet diameter becomes dimension-multiplicative.
 
-I also picked up the newly Proved {link('sub-balanced section inheritance theorem', IDS['subbalanced'])}: when `n < 2d`, shared tight rows reduce diameter to equality sections. This is complementary to the low-excess/slack-slice route and should be reused rather than reproved.
-
-The live board also records the ridge-visible-access attack. The genuinely hard theorem {link('polynomial access to a ridge-visible vertex', IDS['ridge_access'])} remains **Open**; the experiments rule out an O(1) bound and show why the naive facet-diameter recurrence becomes dimension-multiplicative.
-
-### What this workspace is actually working on now
-
-The next concrete formal bridge is **positive-weight / codimension-two slack normalization**: turn a bounded low-row-count H-presentation into the normalized two-moment slice, then use affine transport. The intended common-face interface is
+### Current work — not yet a proof
+The next formal bridge is **positive-weight / codimension-two slack normalization**: map a bounded low-row-count H-presentation exactly onto the normalized two-moment slice, then invoke affine transport. Target interface:
 
 `M_min ≤ h + 2  ⇒  intrinsic common-face diameter ≤ 2`.
 
-The current ordinary proof plan constructs a strictly positive annihilating row weight from boundedness, separates the zero-mass/singleton case, and uses a second annihilator when row excess is at most two. **That normalization is not yet kernel-verified or submitted.** In particular we are not claiming that an arbitrary circuit carrier is automatically a two-moment slice.
+The ordinary proof plan constructs a strictly positive annihilating row weight from boundedness, separates the zero-mass/singleton case, and uses a second annihilator when row excess is at most two. **This normalization is not yet kernel-verified or submitted**, and we are not claiming arbitrary circuit carriers are automatically two-moment slices.
 
-### Still open — do not duplicate or mark solved
-
-- {link('common-face diameter in dimension ≥ 6', IDS['common_face_ge6'])};
-- {link('d≥4 circuit-to-edge refinement', IDS['edge_d4'])} and its {link('parent edge-refinement theorem', IDS['edge_parent'])};
+### Still open
+- {p2m('common-face diameter in dimension ≥ 6', 'common_face_ge6')};
+- {p2m('d≥4 circuit-to-edge refinement', 'edge_d4')} and its {p2m('parent edge-refinement theorem', 'edge_parent')};
 - uniform ridge-visible access and the root Polynomial Hirsch conjecture.
 
-No new conjectural child is being created by this update. The remaining global argument still has to control **total** edge-routing cost over an entire circuit walk, not merely prove cheap routing in one low-excess carrier.
+No new conjectural child is created here. The global proof would still need to control **total** edge-routing cost over an entire circuit walk, not just one low-excess carrier.
 
 {MARKER}"""
 
@@ -182,51 +166,41 @@ No new conjectural child is being created by this update. The remaining global a
 def main() -> None:
     key = os.environ.get("PROVE2ME_API_KEY", "").strip()
     if not key:
-        raise RuntimeError("PROVE2ME_API_KEY repository credential is absent")
+        raise RuntimeError("PROVE2ME_API_KEY is absent")
     api = API(key)
-
     envs = api.request("/environments")
-    save("environments.json", envs)
     if not any(e.get("mathlib_rev") == PIN for e in envs.get("environments", [])):
         raise RuntimeError("pinned Mathlib environment unavailable")
-
-    mission = api.request(f"/missions/{MISSION_ID}")
-    if mission.get("name") not in (None, MISSION_NAME):
-        raise RuntimeError("mission identity mismatch")
-    save("mission.json", mission)
+    save("mission.json", find_mission(api))
 
     before = get_states(api)
     save("theorems-before.json", before)
 
-    milestones = get_milestones(api)
-    if len(milestones) != 6:
-        raise RuntimeError(f"expected six curated milestones, found {len(milestones)}")
-    bad = [m for m in milestones if (m.get("theorem") or {}).get("status") != "Proved"]
-    if bad:
-        raise RuntimeError("not all curated milestones are Proved")
+    milestone_data = api.request(f"/missions/{MISSION_ID}/milestones")
+    milestones = milestone_data if isinstance(milestone_data, list) else milestone_data.get("milestones", [])
+    if len(milestones) != 6 or any((m.get("theorem") or {}).get("status") != "Proved" for m in milestones):
+        raise RuntimeError("curated milestone state is no longer six Proved milestones")
     save("milestones.json", milestones)
 
     comments = get_comments(api)
     existing = next((c for c in comments if MARKER in (c.get("body_md") or "")), None)
     if existing is None:
-        request = {"body_md": build_body(), "tags": ["reference", "strategy"]}
+        request = {"body_md": body(), "tags": ["reference", "strategy"]}
         save("comment-request.json", request)
         comment = api.request(f"/missions/{MISSION_ID}/comments", request, "POST")
         action = "POSTED"
     else:
-        comment = existing
-        action = "REUSED_EXISTING"
+        comment, action = existing, "REUSED_EXISTING"
     save("comment.json", comment)
 
-    comments_after = get_comments(api)
-    matches = [c for c in comments_after if MARKER in (c.get("body_md") or "")]
+    matches = [c for c in get_comments(api) if MARKER in (c.get("body_md") or "")]
     if len(matches) != 1:
-        raise RuntimeError(f"expected exactly one sync marker comment, found {len(matches)}")
+        raise RuntimeError(f"sync marker count is {len(matches)}, expected one")
 
     after = get_states(api)
-    save("theorems-after.json", after)
     if before != after:
-        raise RuntimeError("theorem state changed during status-only synchronization")
+        raise RuntimeError("theorem states changed during status-only sync")
+    save("theorems-after.json", after)
 
     receipt = {
         "checked_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
@@ -234,8 +208,8 @@ def main() -> None:
         "mathlib_rev": PIN,
         "mission_id": MISSION_ID,
         "mission_name": MISSION_NAME,
+        "milestone_count": 6,
         "milestones_all_proved": True,
-        "milestone_count": len(milestones),
         "comment_action": action,
         "comment_id": comment.get("id"),
         "marker": MARKER,
