@@ -1,0 +1,57 @@
+name: Verify excess-two moment-slice geometry
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [opened, reopened]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: excess-two-moment-slice-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'chatgpt/excess-two-portals-formalize'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Check policy and pins
+        run: |
+          set -euo pipefail
+          python3 scripts/check_actions_policy.py
+          test "$(cat lean-toolchain)" = "leanprover/lean4:v4.30.0"
+          grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
+      - name: Restore pinned Lean environment
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Compile and audit
+        run: |
+          set -euo pipefail
+          lake build Solutions.PolynomialExcessTwoMomentSlice 2>&1 | tee /tmp/excess-two-moment.log
+          python3 - <<'PY'
+          import re
+          from pathlib import Path
+          text=Path('/tmp/excess-two-moment.log').read_text(encoding='utf-8')
+          name='HirschExcessTwo.zeroFace_isExtreme'
+          allowed={'propext','Classical.choice','Quot.sound'}
+          pat=re.compile(r"'([^']+)' depends on axioms:\s*\[([^\]]*)\]",re.S)
+          reports={n:{x.strip() for x in raw.split(',') if x.strip()} for n,raw in pat.findall(text)}
+          for n in re.findall(r"'([^']+)' does not depend on any axioms",text): reports[n]=set()
+          if name not in reports: raise SystemExit('missing axiom report')
+          bad=reports[name]-allowed
+          if bad: raise SystemExit(f'unexpected axioms: {sorted(bad)}')
+          print(name, sorted(reports[name]))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: excess-two-moment-slice-audit
+          retention-days: 3
+          path: /tmp/excess-two-moment.log
+          if-no-files-found: warn
