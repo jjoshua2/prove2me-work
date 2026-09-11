@@ -51,6 +51,31 @@ theorem zeroFace_isExtreme {n : ℕ}
     nlinarith
   exact ⟨hx, hxi⟩
 
+/-- A finite sum supported only on two distinct indices reduces to those two
+terms. This is used repeatedly by the explicit moment-slice coordinates. -/
+lemma sum_eq_add_of_zero_off_pair {n : ℕ}
+    (f : Fin n → ℝ) (i j : Fin n) (hij : i ≠ j)
+    (hzero : ∀ k, k ≠ i → k ≠ j → f k = 0) :
+    (∑ k, f k) = f i + f j := by
+  classical
+  have hsub : ({i, j} : Finset (Fin n)) ⊆ Finset.univ := by simp
+  have hsmall :
+      (∑ k ∈ ({i, j} : Finset (Fin n)), f k) =
+        ∑ k ∈ (Finset.univ : Finset (Fin n)), f k := by
+    apply Finset.sum_subset hsub
+    intro k _ hk
+    apply hzero k
+    · intro hki
+      subst k
+      exact hk (by simp)
+    · intro hkj
+      subst k
+      exact hk (by simp)
+  calc
+    (∑ k, f k) = ∑ k ∈ (Finset.univ : Finset (Fin n)), f k := rfl
+    _ = ∑ k ∈ ({i, j} : Finset (Fin n)), f k := hsmall.symm
+    _ = f i + f j := by simp [hij]
+
 /-- The unique feasible point supported on a low index `i` and a high index
 `j`. The hypotheses ensuring `t i < mu < t j` are supplied to the lemmas. -/
 def pairPoint {n : ℕ} (t : Fin n → ℝ) (mu : ℝ) (i j : Fin n) :
@@ -61,14 +86,14 @@ def pairPoint {n : ℕ} (t : Fin n → ℝ) (mu : ℝ) (i j : Fin n) :
     else 0)
 
 @[simp] lemma pairPoint_apply_left {n : ℕ}
-    (t : Fin n → ℝ) (mu : ℝ) (i j : Fin n) (hij : i ≠ j) :
+    (t : Fin n → ℝ) (mu : ℝ) (i j : Fin n) :
     pairPoint t mu i j i = (t j - mu) / (t j - t i) := by
-  simp [pairPoint, hij]
+  simp [pairPoint]
 
 @[simp] lemma pairPoint_apply_right {n : ℕ}
     (t : Fin n → ℝ) (mu : ℝ) (i j : Fin n) (hij : i ≠ j) :
     pairPoint t mu i j j = (mu - t i) / (t j - t i) := by
-  simp [pairPoint, hij]
+  simp [pairPoint, hij.symm]
 
 @[simp] lemma pairPoint_apply_other {n : ℕ}
     (t : Fin n → ℝ) (mu : ℝ) (i j k : Fin n)
@@ -91,21 +116,29 @@ theorem pairPoint_mem {n : ℕ}
   · intro k
     by_cases hki : k = i
     · subst k
-      simp [pairPoint, hij]
+      rw [pairPoint_apply_left]
       positivity
     · by_cases hkj : k = j
       · subst k
-        simp [pairPoint, hij]
+        rw [pairPoint_apply_right t mu i j hij]
         positivity
-      · simp [pairPoint, hki, hkj]
-  · simp [pairPoint, hij]
+      · rw [pairPoint_apply_other t mu i j k hki hkj]
+  · have hsum := sum_eq_add_of_zero_off_pair
+      (fun k => pairPoint t mu i j k) i j hij
+      (fun k hki hkj => pairPoint_apply_other t mu i j k hki hkj)
+    rw [hsum, pairPoint_apply_left, pairPoint_apply_right t mu i j hij]
     field_simp [ne_of_gt hden]
     ring
-  · simp [pairPoint, hij]
+  · have hsum := sum_eq_add_of_zero_off_pair
+      (fun k => t k * pairPoint t mu i j k) i j hij (by
+        intro k hki hkj
+        rw [pairPoint_apply_other t mu i j k hki hkj, mul_zero])
+    rw [hsum, pairPoint_apply_left, pairPoint_apply_right t mu i j hij]
     field_simp [ne_of_gt hden]
     ring
 
 #print axioms zeroFace_isExtreme
+#print axioms sum_eq_add_of_zero_off_pair
 #print axioms pairPoint_mem
 
 end HirschExcessTwo
