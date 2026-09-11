@@ -4,23 +4,18 @@ import Solutions.PolynomialExcessTwoDiameter
 /-!
 # Exact positive-slack certificates for two-moment normalization
 
-This module supplies the concrete bridge from an H-presentation to the already
-proved normalized moment-slice diameter theorem. The essential hypotheses are
-algebraic: an injective weighted row map, two annihilating moments, and the
-codimension-two dimension equality. No graph-diameter bound is a hypothesis.
-
+The essential hypotheses are algebraic: an injective weighted row map, two
+annihilating moments, and codimension two. No diameter bound is a hypothesis.
 Existence of the positive normal relation for every bounded H-presentation is
-NOT assumed to have been proved here. A caller must supply the stated algebraic
-certificate. The exact image theorem, unlike a one-sided inclusion, justifies
-transport of vertices, edges, and the intrinsic diameters of row-support faces.
+not proved here. The exact image equality, unlike mere inclusion, justifies
+transport of vertices, edges, and intrinsic row-support-face diameters.
 -/
 
 open scoped BigOperators RealInnerProductSpace
-open Set Hirsch HirschExcessTwo
+open Set Hirsch HirschExcessTwo Module Submodule
 
 set_option autoImplicit false
 set_option maxHeartbeats 3000000
-
 noncomputable section
 
 namespace HirschSlackMoment
@@ -32,7 +27,7 @@ def momentMap {n : ℕ} (t : Fin n → ℝ) :
   map_add' x y := by
     apply Prod.ext
     · change (∑ i, (x i + y i)) = (∑ i, x i) + ∑ i, y i
-      exact Finset.sum_add_distrib
+      simp only [Finset.sum_add_distrib]
     · change (∑ i, t i * (x i + y i)) =
         (∑ i, t i * x i) + ∑ i, t i * y i
       simp only [mul_add, Finset.sum_add_distrib]
@@ -71,15 +66,12 @@ theorem momentMap_surjective {n : ℕ}
   apply Prod.ext
   · change A * 1 + B * 1 = u
     dsimp [A, B]
-    field_simp [hden]
-    <;> ring
+    field_simp [hden] <;> ring
   · change A * t i + B * t j = v
     dsimp [A, B]
-    field_simp [hden]
-    <;> ring
+    field_simp [hden] <;> ring
 
-/-- In codimension two, injectivity and annihilation by two independent
-moments certify the WHOLE kernel as the image, not just a subset. -/
+/-- Codimension, injectivity, and annihilation certify the WHOLE kernel. -/
 theorem range_eq_moment_kernel_of_codimension_two {d n : ℕ}
     (L : EuclideanSpace ℝ (Fin d) →ₗ[ℝ] EuclideanSpace ℝ (Fin n))
     (t : Fin n → ℝ) (hn : n = d + 2)
@@ -115,7 +107,7 @@ def slackMap {d n : ℕ}
     (v : EuclideanSpace ℝ (Fin n)) (x : EuclideanSpace ℝ (Fin d)) :
     slackMap L v x = v - L x := rfl
 
-/-- The original feasible set described in slack coordinates. -/
+/-- The feasible set described by nonnegative affine slacks. -/
 def slackPoly {d n : ℕ}
     (L : EuclideanSpace ℝ (Fin d) →ₗ[ℝ] EuclideanSpace ℝ (Fin n))
     (v : EuclideanSpace ℝ (Fin n)) : Set (EuclideanSpace ℝ (Fin d)) :=
@@ -130,8 +122,7 @@ theorem slackMap_injective {d n : ℕ}
   have h' := congrArg (fun z => v - z) h
   simpa only [slackMap_apply, sub_sub_cancel] using h'
 
-/-- The nonnegative affine slack image is exactly the normalized moment
-slice. This is the surjectivity step needed for graph transport. -/
+/-- Exact image, including every feasible point of the target moment slice. -/
 theorem slackMap_image_eq_momentSlice {d n : ℕ}
     (L : EuclideanSpace ℝ (Fin d) →ₗ[ℝ] EuclideanSpace ℝ (Fin n))
     (v : EuclideanSpace ℝ (Fin n)) (t : Fin n → ℝ) (mu : ℝ)
@@ -164,8 +155,8 @@ theorem slackMap_image_eq_momentSlice {d n : ℕ}
     rw [hfx]
     exact hs.1 i
 
-/-- Exact slack certificates transfer the already proved diameter two.
-No local or global diameter bound is assumed. -/
+/-- Exact affine slack certificates transfer diameter two, without assuming
+any local or global diameter bound. -/
 theorem slackPoly_diamLE_two {d n : ℕ}
     (L : EuclideanSpace ℝ (Fin d) →ₗ[ℝ] EuclideanSpace ℝ (Fin n))
     (v : EuclideanSpace ℝ (Fin n)) (t : Fin n → ℝ) (mu : ℝ)
@@ -176,7 +167,7 @@ theorem slackPoly_diamLE_two {d n : ℕ}
   rw [slackMap_image_eq_momentSlice L v t mu hrange hv]
   exact momentSlice_diamLE_two t mu
 
-/-- A selected row-support face in the original coordinate space. -/
+/-- A selected row-support face in original coordinates. -/
 def slackSupportFace {d n : ℕ}
     (L : EuclideanSpace ℝ (Fin d) →ₗ[ℝ] EuclideanSpace ℝ (Fin n))
     (v : EuclideanSpace ℝ (Fin n)) (S : Finset (Fin n)) :
@@ -207,8 +198,7 @@ theorem slackMap_image_supportFace {d n : ℕ}
     rw [hfx]
     exact hs.2 i hi
 
-/-- The intrinsic, not merely ambient, diameter of every row-support face
-is at most two under the same algebraic certificate. -/
+/-- Intrinsic, not merely ambient, diameter of each row-support face. -/
 theorem slackSupportFace_diamLE_two {d n : ℕ}
     (L : EuclideanSpace ℝ (Fin d) →ₗ[ℝ] EuclideanSpace ℝ (Fin n))
     (v : EuclideanSpace ℝ (Fin n)) (t : Fin n → ℝ) (mu : ℝ)
@@ -236,7 +226,7 @@ def weightedRows {d n : ℕ}
     rw [inner_smul_right]
     ring
 
-/-- The correspondingly scaled right-hand side. -/
+/-- Correspondingly scaled right-hand side. -/
 def weightedOffset {n : ℕ} (b c : Fin n → ℝ) : EuclideanSpace ℝ (Fin n) :=
   WithLp.toLp 2 (fun i => c i * b i)
 
@@ -248,7 +238,7 @@ lemma weighted_slack_apply {d n : ℕ}
   change c i * b i - c i * ⟪a i, x⟫ = c i * (b i - ⟪a i, x⟫)
   ring
 
-/-- Positive rescaling preserves all original inequalities exactly. -/
+/-- Positive rescaling preserves the original inequalities exactly. -/
 theorem slackPoly_weighted_eq_Hpoly {d n : ℕ}
     (a : Fin n → EuclideanSpace ℝ (Fin d)) (b c : Fin n → ℝ)
     (hc : ∀ i, 0 < c i) :
@@ -264,7 +254,7 @@ theorem slackPoly_weighted_eq_Hpoly {d n : ℕ}
     rw [weighted_slack_apply]
     exact mul_nonneg (hc i).le (sub_nonneg.mpr (hx i))
 
-/-- A zero weighted slack is exactly an original tight row. -/
+/-- Zero weighted slack means exactly original row tightness. -/
 theorem weighted_slack_zero_iff {d n : ℕ}
     (a : Fin n → EuclideanSpace ℝ (Fin d)) (b c : Fin n → ℝ)
     (hc : ∀ i, 0 < c i) (x : EuclideanSpace ℝ (Fin d)) (i : Fin n) :
@@ -274,8 +264,7 @@ theorem weighted_slack_zero_iff {d n : ℕ}
   simp only [ne_of_gt (hc i), false_or, sub_eq_zero, eq_comm]
 
 /-- A directly checkable codimension-two slack certificate gives the full
-H-polytope diameter bound. The hypotheses are only positivity, linear-map
-injectivity, two independent annihilating moments, and offset normalization. -/
+H-polytope diameter bound. All hypotheses concern linear algebra and positivity. -/
 theorem hpoly_diamLE_two_of_positive_slack_certificate {d n : ℕ}
     (a : Fin n → EuclideanSpace ℝ (Fin d)) (b c t : Fin n → ℝ) (mu : ℝ)
     (hn : n = d + 2) (hc : ∀ i, 0 < c i)
@@ -291,8 +280,8 @@ theorem hpoly_diamLE_two_of_positive_slack_certificate {d n : ℕ}
   rw [slackPoly_weighted_eq_Hpoly a b c hc] at hdiam
   exact hdiam
 
-/-- The same certificate bounds intrinsic diameters of arbitrary selected
-original row-support faces. This is the version usable as a repair-face cost. -/
+/-- The same algebraic certificate bounds intrinsic diameters of arbitrary
+selected original row-support faces. No ambient-only adjacency is substituted. -/
 theorem row_support_diamLE_two_of_positive_slack_certificate {d n : ℕ}
     (a : Fin n → EuclideanSpace ℝ (Fin d)) (b c t : Fin n → ℝ) (mu : ℝ)
     (hn : n = d + 2) (hc : ∀ i, 0 < c i)
