@@ -3,9 +3,14 @@ import Solutions.CircuitIrredundantModel
 /-!
 # Cross-presentation minimality of strictly feasible irredundant row models
 
-Candidate source: not yet compiled or axiom-audited. No platform verdict is
-claimed. The accompanying ordinary proof is in
-`research/IrredundantRowCountInvariance.md`.
+Kernel-checked at frozen source commit
+`1ff86eb9c69679c6355c6fa968b6601482b046a1` (Actions run `34559027640`).
+The standalone core theorem was published on Prove2Me 0.10.0 as
+`Hirsch.irredundant_rows_card_le_any_equivalent_presentation`, theorem
+`8538150b-8afe-47ad-94b0-d72189b80264`, submission
+`9194432c-54e2-4e6a-9aaf-d7c27fb9934e`, verdict ACCEPTED / live Proved.
+Full provenance is in
+`research/IRREDUNDANT_ROW_COUNT_PUBLICATION_RECEIPT_2026-09-10.md`.
 
 The comparison presentation can have arbitrary real normals, redundant rows,
 duplicates, and zero-normal tautologies. Boundedness is not needed. Strict
