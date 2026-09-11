@@ -1,0 +1,62 @@
+name: Verify excess-two arbitrary-checkpoint carriers
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: excess-two-carriers-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    if: github.head_ref == 'formal/excess-two-whole-walk'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Check policy and pins
+        run: |
+          set -euo pipefail
+          python3 scripts/check_actions_policy.py
+          test "$(cat lean-toolchain)" = "leanprover/lean4:v4.30.0"
+          grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
+      - name: Restore pinned Lean environment
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Compile and audit
+        run: |
+          set -euo pipefail
+          lake build Solutions.PolynomialCommonFaceExcessTwoCarrier 2>&1 | tee /tmp/excess-two-carrier.log
+          python3 - <<'PY'
+          import re
+          from pathlib import Path
+          text=Path('/tmp/excess-two-carrier.log').read_text(encoding='utf-8')
+          names=[
+            'HirschCircuitLocalization.commonFace_diamLE_two_of_subpresentation_at_most',
+            'HirschCircuitLocalization.commonFace_has_subpresentation_dim_add_two_of_rows_le_dim_add_two',
+            'HirschCircuitLocalization.commonFace_diamLE_two_of_rows_le_dim_add_two',
+          ]
+          allowed={'propext','Classical.choice','Quot.sound'}
+          pat=re.compile(r"'([^']+)' depends on axioms:\s*\[([^\]]*)\]",re.S)
+          reports={n:{x.strip() for x in raw.split(',') if x.strip()} for n,raw in pat.findall(text)}
+          for n in re.findall(r"'([^']+)' does not depend on any axioms",text): reports[n]=set()
+          for name in names:
+            if name not in reports: raise SystemExit('missing axiom report for '+name)
+            bad=reports[name]-allowed
+            if bad: raise SystemExit(f'unexpected axioms for {name}: {sorted(bad)}')
+            print(name, sorted(reports[name]))
+          print('PASS: excess-two arbitrary-checkpoint carrier results audited')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: excess-two-carrier-audit
+          retention-days: 3
+          path: /tmp/excess-two-carrier.log
+          if-no-files-found: warn
