@@ -1,0 +1,43 @@
+name: One-shot pinned Lean environment export
+on:
+  pull_request:
+    types: [opened]
+permissions:
+  contents: read
+concurrency:
+  group: export-pinned-lean-environment
+  cancel-in-progress: true
+jobs:
+  export:
+    if: >-
+      github.repository == 'jjoshua2/prove2me-work' &&
+      github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
+      github.head_ref == 'ops/export-pinned-lean-environment'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Check cost policy
+        run: python3 scripts/check_actions_policy.py
+      - uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Export public toolchain, dependency cache, and tracked source only
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/lean-export
+          test "$(cat lean-toolchain)" = 'leanprover/lean4:v4.30.0'
+          git ls-files -z | tar --null -T - -I 'zstd -T2 -3' -cf /tmp/lean-export/source.tar.zst
+          tar -C "$HOME/.elan/toolchains" -I 'zstd -T2 -3' \
+            -cf /tmp/lean-export/toolchain.tar.zst leanprover--lean4---v4.30.0
+          tar --exclude='.git' --exclude='credentials.json' --exclude='.env' \
+            -I 'zstd -T2 -3' -cf /tmp/lean-export/lake.tar.zst .lake
+          cd /tmp/lean-export
+          sha256sum *.tar.zst | tee SHA256SUMS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pinned-lean-offline-environment
+          compression-level: 0
+          retention-days: 1
+          path: /tmp/lean-export/
