@@ -1,7 +1,7 @@
 name: One-shot pinned Lean environment export
 on:
   pull_request:
-    types: [opened]
+    types: [opened, reopened]
 permissions:
   contents: read
 concurrency:
@@ -35,9 +35,64 @@ jobs:
             -I 'zstd -T2 -3' -cf /tmp/lean-export/lake.tar.zst .lake
           cd /tmp/lean-export
           sha256sum *.tar.zst | tee SHA256SUMS
+      - name: Split environment for attachment transport
+        run: |
+          set -euo pipefail
+          cd /tmp/lean-export
+          tar -cf - SHA256SUMS source.tar.zst toolchain.tar.zst lake.tar.zst | split -d -b 400M - env.part.
       - uses: actions/upload-artifact@v4
         with:
-          name: pinned-lean-offline-environment
+          name: lean-offline-part-00
           compression-level: 0
           retention-days: 1
-          path: /tmp/lean-export/
+          if-no-files-found: ignore
+          path: /tmp/lean-export/env.part.00
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lean-offline-part-01
+          compression-level: 0
+          retention-days: 1
+          if-no-files-found: ignore
+          path: /tmp/lean-export/env.part.01
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lean-offline-part-02
+          compression-level: 0
+          retention-days: 1
+          if-no-files-found: ignore
+          path: /tmp/lean-export/env.part.02
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lean-offline-part-03
+          compression-level: 0
+          retention-days: 1
+          if-no-files-found: ignore
+          path: /tmp/lean-export/env.part.03
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lean-offline-part-04
+          compression-level: 0
+          retention-days: 1
+          if-no-files-found: ignore
+          path: /tmp/lean-export/env.part.04
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lean-offline-part-05
+          compression-level: 0
+          retention-days: 1
+          if-no-files-found: ignore
+          path: /tmp/lean-export/env.part.05
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lean-offline-part-06
+          compression-level: 0
+          retention-days: 1
+          if-no-files-found: ignore
+          path: /tmp/lean-export/env.part.06
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lean-offline-part-07
+          compression-level: 0
+          retention-days: 1
+          if-no-files-found: ignore
+          path: /tmp/lean-export/env.part.07
