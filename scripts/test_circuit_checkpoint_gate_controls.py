@@ -28,13 +28,15 @@ def main():
         fixture = ('import argparse\nfrom pathlib import Path\n'
                    'p=argparse.ArgumentParser();p.add_argument("--output",type=Path)\n'
                    'p.parse_args().output.write_text("synthetic gate fixture\\n")\n')
-        for name in ('carrier_defect', 'ordering_obstruction', 'checkpoint_localization'):
+        for name in ('carrier_defect', 'ordering_obstruction', 'checkpoint_localization', 'step_blocker_swaps'):
             (root / f'scripts/test_circuit_{name}.py').write_text(fixture)
         digest = hashlib.sha256(b'synthetic gate fixture\n').hexdigest()
         carrier_hashes = ''.join(f'{digest}  {name}-regression.json\n' for name in ('carrier', 'ordering'))
         (root / 'research/circuit_carrier_regressions.sha256').write_text(carrier_hashes)
         checkpoint_hash = root / 'research/checkpoint_localization_regression.sha256'
         checkpoint_hash.write_text(f'{digest}  checkpoint-regression.json\n')
+        blocker_hash = root / 'research/circuit_blocker_swaps_regression.sha256'
+        blocker_hash.write_text(f'{digest}  blocker-swaps-regression.json\n')
         env = os.environ.copy()
         env.pop('PYTHONOPTIMIZE', None)
         env.update(HOME=str(root/'home'), TMPDIR=str(root/'tmp'),
@@ -57,6 +59,9 @@ def main():
         checkpoint_hash.write_text(f'{"0"*64}  checkpoint-regression.json\n')
         check('corrupted regression hash', ['--checks-only'], False)
         checkpoint_hash.write_text(f'{digest}  checkpoint-regression.json\n')
+        blocker_hash.write_text(f'{"0"*64}  blocker-swaps-regression.json\n')
+        check('corrupted blocker-swap regression hash', ['--checks-only'], False)
+        blocker_hash.write_text(f'{digest}  blocker-swaps-regression.json\n')
         check('checks-only does not imply Lean', ['--checks-only'], True)
         # Test the gate's behavior on a compiler failure without simulating success.
         fake = root/'bin/lake'

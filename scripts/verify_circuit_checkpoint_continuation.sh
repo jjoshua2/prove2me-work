@@ -26,8 +26,10 @@ python3 scripts/check_actions_policy.py
 python3 scripts/test_circuit_carrier_defect.py --output "$out/carrier-regression.json" > "$out/carrier.stdout"
 python3 scripts/test_circuit_ordering_obstruction.py --output "$out/ordering-regression.json" > "$out/ordering.stdout"
 python3 scripts/test_circuit_checkpoint_localization.py --output "$out/checkpoint-regression.json" > "$out/checkpoint.stdout"
+python3 scripts/test_circuit_step_blocker_swaps.py --output "$out/blocker-swaps-regression.json" > "$out/blocker-swaps.stdout"
 (cd "$out" && sha256sum -c "$root/research/circuit_carrier_regressions.sha256" &&
-  sha256sum -c "$root/research/checkpoint_localization_regression.sha256")
+  sha256sum -c "$root/research/checkpoint_localization_regression.sha256" &&
+  sha256sum -c "$root/research/circuit_blocker_swaps_regression.sha256")
 if [[ "$mode" == --checks-only ]]; then
   echo 'Exact/structural checks passed. Lean was NOT run; no platform verdict.'
   exit 0
@@ -46,8 +48,8 @@ lake build "${modules[@]}" 2>&1 | tee "$out/build.log"
 # Force fresh axiom reports: lake build can reuse cached modules without
 # re-emitting #print output. Never audit only whatever a build happened to print.
 mapfile -t required < research/circuit_checkpoint_required_axioms.txt
-if [[ ${#required[@]} -ne 28 ]]; then
-  echo 'Expected exactly 28 reviewed declarations.' >&2; exit 2
+if [[ ${#required[@]} -ne 30 ]]; then
+  echo 'Expected exactly 30 reviewed declarations.' >&2; exit 2
 fi
 {
   for m in "${modules[@]}"; do printf 'import %s\n' "$m"; done
@@ -74,7 +76,7 @@ logs = {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
         for p in out.iterdir() if p.is_file()}
 head = subprocess.run(['git', 'rev-parse', 'HEAD'], text=True, capture_output=True)
 receipt = {'evidence': 'source_build_and_fresh_axiom_audit_passed',
-           'required_declarations': 28, 'standalone_server_proof_compiled': False,
+           'required_declarations': 30, 'standalone_server_proof_compiled': False,
            'Prove2Me_actions': 0, 'git_head': head.stdout.strip() if head.returncode == 0 else None,
            'source_sha256': source, 'evidence_sha256': logs}
 (out / 'receipt.json').write_text(json.dumps(receipt, indent=2, sort_keys=True) + '\n')
