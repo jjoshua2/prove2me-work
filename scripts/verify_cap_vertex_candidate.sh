@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Run from the repository root with its committed Lean/Mathlib environment.
 set -euo pipefail
+python3 scripts/check_actions_policy.py
 test "$(cat lean-toolchain)" = 'leanprover/lean4:v4.30.0'
 grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
 python3 scripts/check_cap_vertex_classification.py --output /tmp/cap-vertex-exact.json
