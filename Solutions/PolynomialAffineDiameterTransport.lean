@@ -22,14 +22,14 @@ variable {E F : Type*} [AddCommGroup E] [Module ℝ E]
 private theorem affineEquiv_image_segment
     (f : E ≃ᵃ[ℝ] F) (x y : E) :
     f '' segment ℝ x y = segment ℝ (f x) (f y) := by
-  change f.toAffineMap '' segment ℝ x y = segment ℝ (f x) (f y)
-  exact image_segment ℝ f.toAffineMap x y
+  simpa only [AffineEquiv.coe_toAffineMap] using
+    (image_segment ℝ f.toAffineMap x y)
 
 private theorem affineEquiv_image_openSegment
     (f : E ≃ᵃ[ℝ] F) (x y : E) :
     f '' openSegment ℝ x y = openSegment ℝ (f x) (f y) := by
-  change f.toAffineMap '' openSegment ℝ x y = openSegment ℝ (f x) (f y)
-  exact image_openSegment ℝ f.toAffineMap x y
+  simpa only [AffineEquiv.coe_toAffineMap] using
+    (image_openSegment ℝ f.toAffineMap x y)
 
 /-- Affine equivalences preserve extreme subsets under image. -/
 theorem affineEquiv_isExtreme_image
