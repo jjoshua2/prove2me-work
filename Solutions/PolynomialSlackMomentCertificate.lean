@@ -66,10 +66,12 @@ theorem momentMap_surjective {n : ℕ}
   apply Prod.ext
   · change A * 1 + B * 1 = u
     dsimp [A, B]
-    field_simp [hden] <;> ring
+    field_simp [hden]
+    ring
   · change A * t i + B * t j = v
     dsimp [A, B]
-    field_simp [hden] <;> ring
+    field_simp [hden]
+    ring
 
 /-- Codimension, injectivity, and annihilation certify the WHOLE kernel. -/
 theorem range_eq_moment_kernel_of_codimension_two {d n : ℕ}
@@ -90,7 +92,7 @@ theorem range_eq_moment_kernel_of_codimension_two {d n : ℕ}
     simp
   have hdimK : Module.finrank ℝ (momentMap t).ker = d := by
     have h := (momentMap t).finrank_range_add_finrank_ker
-    rw [hdimM, finrank_euclideanSpace_fin, hn] at h
+    rw [hdimM, finrank_euclideanSpace_fin] at h
     omega
   apply Submodule.eq_of_le_of_finrank_eq hsub
   rw [hdimL, hdimK]
@@ -151,7 +153,6 @@ theorem slackMap_image_eq_momentSlice {d n : ℕ}
       abel
     refine ⟨x, ?_, hfx⟩
     intro i
-    change 0 ≤ (slackMap L v x) i
     rw [hfx]
     exact hs.1 i
 
@@ -249,7 +250,7 @@ theorem slackPoly_weighted_eq_Hpoly {d n : ℕ}
     have hi := hx i
     rw [weighted_slack_apply] at hi
     have hp : c i * ⟪a i, x⟫ ≤ c i * b i := by nlinarith only [hi]
-    exact (mul_le_mul_left (hc i)).mp hp
+    exact le_of_mul_le_mul_left hp (hc i)
   · intro hx i
     rw [weighted_slack_apply]
     exact mul_nonneg (hc i).le (sub_nonneg.mpr (hx i))
@@ -260,8 +261,14 @@ theorem weighted_slack_zero_iff {d n : ℕ}
     (hc : ∀ i, 0 < c i) (x : EuclideanSpace ℝ (Fin d)) (i : Fin n) :
     slackMap (weightedRows a c) (weightedOffset b c) x i = 0 ↔
       ⟪a i, x⟫ = b i := by
-  rw [weighted_slack_apply, mul_eq_zero]
-  simp only [ne_of_gt (hc i), false_or, sub_eq_zero, eq_comm]
+  rw [weighted_slack_apply]
+  constructor
+  · intro h
+    have hz : b i - ⟪a i, x⟫ = 0 :=
+      (mul_eq_zero.mp h).resolve_left (ne_of_gt (hc i))
+    exact (sub_eq_zero.mp hz).symm
+  · intro h
+    rw [h, sub_self, mul_zero]
 
 /-- A directly checkable codimension-two slack certificate gives the full
 H-polytope diameter bound. All hypotheses concern linear algebra and positivity. -/
