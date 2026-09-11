@@ -126,6 +126,30 @@ def theorem_summary(t: dict) -> dict:
     }
 
 
+def compact_comment(c: dict) -> dict:
+    return {
+        "id": c.get("id"),
+        "created_at": c.get("created_at"),
+        "author": c.get("author") or c.get("user"),
+        "body_md": c.get("body_md"),
+        "references": c.get("references", []),
+        "tags": c.get("tags", []),
+    }
+
+
+def compact_milestone(m: dict) -> dict:
+    # Preserve all common identifiers/status fields while tolerating API schema evolution.
+    keys = (
+        "id", "milestone_id", "title", "name", "status", "order", "position",
+        "theorem_id", "theorem_name", "theorem_title", "natural_language_statement",
+        "reached_at", "created_at", "updated_at",
+    )
+    result = {k: m.get(k) for k in keys if k in m}
+    if "theorem" in m and isinstance(m["theorem"], dict):
+        result["theorem"] = theorem_summary(m["theorem"])
+    return result
+
+
 def main() -> None:
     key = os.environ.get("PROVE2ME_API_KEY", "").strip()
     if not key:
@@ -141,13 +165,11 @@ def main() -> None:
     mission_id = mission["id"]
     save("mission-list-entry.json", mission)
 
-    # Read the canonical mission payload and collaboration thread.
     mission_detail = api.try_request(f"/missions/{mission_id}")
     comments = paged_comments(api, mission_id)
     save("mission-detail.json", mission_detail)
     save("comments.json", comments)
 
-    # Probe read-only mission subresources used by current/newer platform versions.
     probes = {}
     for suffix in ("milestones", "theorems", "frontier", "graph"):
         probes[suffix] = api.try_request(f"/missions/{mission_id}/{suffix}")
@@ -156,12 +178,24 @@ def main() -> None:
     theorem_states = {}
     for label, theorem_id in KNOWN.items():
         result = api.try_request("/theorems/" + theorem_id)
-        if result.get("ok"):
-            theorem_states[label] = theorem_summary(result["data"])
-        else:
-            theorem_states[label] = result
+        theorem_states[label] = theorem_summary(result["data"]) if result.get("ok") else result
     save("known-theorems.json", theorem_states)
 
+    milestones_data = probes.get("milestones", {}).get("data") if probes.get("milestones", {}).get("ok") else None
+    if isinstance(milestones_data, dict):
+        milestones = milestones_data.get("milestones", milestones_data.get("items", []))
+    elif isinstance(milestones_data, list):
+        milestones = milestones_data
+    else:
+        milestones = []
+
+    newest_comments = sorted(
+        comments,
+        key=lambda c: c.get("created_at") or "",
+        reverse=True,
+    )[:12]
+
+    detail = mission_detail.get("data") if mission_detail.get("ok") else {}
     summary = {
         "checked_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
         "platform_version": api.version,
@@ -169,21 +203,14 @@ def main() -> None:
         "mission": {
             "id": mission_id,
             "name": mission.get("name"),
-            "status": mission.get("status"),
-            "captain": mission.get("captain"),
+            "status": detail.get("status", mission.get("status")),
+            "captain": detail.get("captain", mission.get("captain")),
+            "goal_theorem_id": detail.get("goal_theorem_id") or detail.get("theorem_id"),
         },
+        "milestone_count": len(milestones),
+        "milestones": [compact_milestone(m) for m in milestones],
         "comment_count": len(comments),
-        "latest_comments": [
-            {
-                "id": c.get("id"),
-                "created_at": c.get("created_at"),
-                "author": c.get("author") or c.get("user"),
-                "body_md": c.get("body_md"),
-                "references": c.get("references", []),
-                "tags": c.get("tags", []),
-            }
-            for c in comments[-12:]
-        ],
+        "latest_comments": [compact_comment(c) for c in newest_comments],
         "known_theorems": theorem_states,
         "available_subresources": [k for k, v in probes.items() if v.get("ok")],
     }
