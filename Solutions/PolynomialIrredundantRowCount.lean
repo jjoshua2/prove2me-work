@@ -44,8 +44,9 @@ private theorem exists_pos_mul_abs_lt
         (le_div_iff₀ hden).mp (min_le_right _ _)
       refine ⟨δ / 2, by positivity, ?_⟩
       intro j hj
-      rcases Finset.mem_insert.mp hj with rfl | hjS
-      · nlinarith [abs_nonneg (c i)]
+      rcases Finset.mem_insert.mp hj with hji | hjS
+      · subst j
+        nlinarith [abs_nonneg (c i)]
       · calc
           (δ / 2) * |c j| ≤ ε * |c j| :=
             mul_le_mul_of_nonneg_right (by linarith) (abs_nonneg (c j))
