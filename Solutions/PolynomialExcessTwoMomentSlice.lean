@@ -126,14 +126,19 @@ theorem pairPoint_mem {n : ℕ}
   · have hsum := sum_eq_add_of_zero_off_pair
       (fun k => pairPoint t mu i j k) i j hij
       (fun k hki hkj => pairPoint_apply_other t mu i j k hki hkj)
-    rw [hsum, pairPoint_apply_left, pairPoint_apply_right t mu i j hij]
+    rw [hsum]
+    change pairPoint t mu i j i + pairPoint t mu i j j = 1
+    rw [pairPoint_apply_left, pairPoint_apply_right t mu i j hij]
     field_simp [ne_of_gt hden]
     ring
   · have hsum := sum_eq_add_of_zero_off_pair
       (fun k => t k * pairPoint t mu i j k) i j hij (by
         intro k hki hkj
+        change t k * pairPoint t mu i j k = 0
         rw [pairPoint_apply_other t mu i j k hki hkj, mul_zero])
-    rw [hsum, pairPoint_apply_left, pairPoint_apply_right t mu i j hij]
+    rw [hsum]
+    change t i * pairPoint t mu i j i + t j * pairPoint t mu i j j = mu
+    rw [pairPoint_apply_left, pairPoint_apply_right t mu i j hij]
     field_simp [ne_of_gt hden]
     ring
 
