@@ -141,8 +141,8 @@ theorem compact_hpoly_cap_vertex_classification
       linarith [mul_le_mul_of_nonneg_left hx.1.2 hs,
         mul_le_mul_of_nonneg_left hy.1.2 ht]
     · intro i hi
-      simp only [inner_add_right, inner_smul_right, hx.2 i hi, hy.2 i hi]
-      rw [← add_mul, hst, one_mul]
+      rw [inner_add_right, inner_smul_right, inner_smul_right,
+        hx.2 i hi, hy.2 i hi, ← add_mul, hst, one_mul]
   -- Non-extremeness in Q gives a two-sided old segment through z.
   have hwitness : ∃ u ∈ Q, ∃ w ∈ Q,
       z ∈ openSegment ℝ u w ∧ u ≠ z := by
@@ -199,7 +199,8 @@ theorem compact_hpoly_cap_vertex_classification
       let t : ℝ := (⟪c, x⟫ - ⟪c, v⟫) / (M - ⟪c, v⟫)
       have hden : 0 < M - ⟪c, v⟫ := sub_pos.mpr hvLt
       have ht0 : 0 ≤ t := div_nonneg (sub_nonneg.mpr (hmin hx)) hden.le
-      have ht1 : t ≤ 1 := (div_le_iff₀ hden).mpr (by linarith [hx.1.2])
+      have hcapx : ⟪c, x⟫ ≤ M := hx.1.2
+      have ht1 : t ≤ 1 := (div_le_iff₀ hden).mpr (by linarith [hcapx])
       have hmul : t * (M - ⟪c, v⟫) = ⟪c, x⟫ - ⟪c, v⟫ :=
         div_mul_cancel₀ _ hden.ne'
       let p := (1 - t) • v + t • z
@@ -241,10 +242,10 @@ theorem exists_level_above_compact_and_outer_vertices
     (show Continuous (fun x : EuclideanSpace ℝ (Fin d) => ⟪c, x⟫) by fun_prop).continuousOn
   refine ⟨⟪c, z⟫ + 1, ?_, ?_⟩
   · intro x hx
-    have h := hmax (Or.inl hx)
+    have h : ⟪c, x⟫ ≤ ⟪c, z⟫ := hmax (Or.inl hx)
     linarith
   · intro x hx
-    have h := hmax (Or.inr hx)
+    have h : ⟪c, x⟫ ≤ ⟪c, z⟫ := hmax (Or.inr hx)
     linarith
 
 lemma old_vertex_survives_cap
@@ -265,7 +266,7 @@ lemma old_edge_survives_cap
   · intro x hx
     refine ⟨huv.2.subset hx, ?_⟩
     obtain ⟨s, t, hs, ht, hst, rfl⟩ := hx
-    simp only [inner_add_right, inner_smul_right]
+    rw [inner_add_right, inner_smul_right, inner_smul_right]
     have hsum : s * M + t * M = M := by rw [← add_mul, hst, one_mul]
     linarith [mul_le_mul_of_nonneg_left hu hs, mul_le_mul_of_nonneg_left hv ht]
   · intro x hx y hy z hz hseg
