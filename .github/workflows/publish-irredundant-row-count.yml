@@ -2,7 +2,7 @@ name: Publish audited irredundant row-count theorem
 
 on:
   pull_request:
-    types: [opened, reopened]
+    types: [opened, reopened, synchronize]
 
 permissions:
   contents: read
@@ -44,6 +44,7 @@ jobs:
           set -euo pipefail
           PROOF=Solutions/Sol_Hirsch_irredundant_rows_card_le_any_equivalent_presentation.lean
           echo '33be3fdd17714bc1439b0bef73489c571ae41b14f5b06443c4ab6f85e905af55  '"$PROOF" | sha256sum -c -
+          lake build Definitions.Def_Hirsch_circuit_model
           lake env lean "$PROOF" 2>&1 | tee /tmp/irredundant-row-count-standalone.log
           python3 scripts/check_lean_axiom_log.py /tmp/irredundant-row-count-standalone.log solution
           sha256sum "$PROOF" > /tmp/irredundant-row-count-standalone.sha256
