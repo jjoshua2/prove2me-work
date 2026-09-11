@@ -1,10 +1,11 @@
-name: Export pinned compiler cache once for offline local proof iteration
+name: Split existing public compiler cache for offline local proof iteration
 on:
   workflow_dispatch:
   pull_request:
-    types: [opened]
+    types: [opened, reopened]
 permissions:
   contents: read
+  actions: read
 concurrency:
   group: offline-lean-bootstrap-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
@@ -14,41 +15,81 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
+      - name: Download already produced public compiler archive; no Lean build
+        uses: actions/download-artifact@v4
         with:
-          persist-credentials: false
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
-      - name: Check public source pins and policy
-        run: |
-          set -euo pipefail
-          python3 scripts/check_actions_policy.py
-          test "$(cat lean-toolchain)" = 'leanprover/lean4:v4.30.0'
-          grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
-      - name: Restore existing pinned compiler and dependency cache
-        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
-      - name: Archive only public compiler, dependencies, and tracked source
+          artifact-ids: '10266493173'
+          run-id: '34606912882'
+          repository: jjoshua2/prove2me-work
+          github-token: ${{ github.token }}
+          path: /tmp/public-runtime
+          merge-multiple: true
+      - name: Verify source hashes and split below connector's 512MiB limit
         shell: bash
         run: |
           set -euo pipefail
-          out=/tmp/offline-lean-runtime
-          mkdir -p "$out"
-          toolchain="$HOME/.elan/toolchains/leanprover--lean4---v4.30.0"
-          test -x "$toolchain/bin/lean"
-          test -f .lake/packages/mathlib/Mathlib.lean
-          "$toolchain/bin/lean" --version > "$out/toolchain-version.txt"
-          git rev-parse HEAD > "$out/source-commit.txt"
-          # No HOME archive, credentials, environment dump, .git directories,
-          # repository secrets, or proof/publication execution is included.
-          tar -I 'zstd -T2 -3' -cf "$out/toolchain.tar.zst" -C "$toolchain" bin lib include share
-          tar --exclude='.git' --exclude='*/.lake/build/ir' \
-            -I 'zstd -T2 -3' -cf "$out/dependencies.tar.zst" .lake/packages
-          git archive --format=tar HEAD | zstd -T2 -3 -o "$out/source.tar.zst"
-          (cd "$out" && sha256sum *.tar.zst > SHA256SUMS)
-          du -h "$out"/*.tar.zst
+          cd /tmp/public-runtime
+          sha256sum -c SHA256SUMS
+          mkdir -p /tmp/runtime-parts /tmp/runtime-metadata
+          tar -cf /tmp/runtime-payload.tar .
+          sha256sum /tmp/runtime-payload.tar | sed 's|/tmp/||' > /tmp/runtime-metadata/PAYLOAD.sha256
+          split -b 384M -d -a 2 /tmp/runtime-payload.tar /tmp/runtime-parts/runtime.part
+          cp SHA256SUMS source-commit.txt toolchain-version.txt /tmp/runtime-metadata/
+          (cd /tmp/runtime-parts && sha256sum runtime.part* > /tmp/runtime-metadata/PARTS.sha256)
+          test "$(find /tmp/runtime-parts -type f | wc -l)" -eq 7
+          du -h /tmp/runtime-parts/*
       - uses: actions/upload-artifact@v4
         with:
-          name: pinned-offline-lean-runtime
-          path: /tmp/offline-lean-runtime/
+          name: pinned-runtime-part-00
+          path: /tmp/runtime-parts/runtime.part00
           compression-level: 0
+          retention-days: 1
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pinned-runtime-part-01
+          path: /tmp/runtime-parts/runtime.part01
+          compression-level: 0
+          retention-days: 1
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pinned-runtime-part-02
+          path: /tmp/runtime-parts/runtime.part02
+          compression-level: 0
+          retention-days: 1
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pinned-runtime-part-03
+          path: /tmp/runtime-parts/runtime.part03
+          compression-level: 0
+          retention-days: 1
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pinned-runtime-part-04
+          path: /tmp/runtime-parts/runtime.part04
+          compression-level: 0
+          retention-days: 1
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pinned-runtime-part-05
+          path: /tmp/runtime-parts/runtime.part05
+          compression-level: 0
+          retention-days: 1
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pinned-runtime-part-06
+          path: /tmp/runtime-parts/runtime.part06
+          compression-level: 0
+          retention-days: 1
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pinned-runtime-metadata
+          path: /tmp/runtime-metadata/
           retention-days: 1
           if-no-files-found: error
