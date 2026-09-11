@@ -58,6 +58,13 @@ jobs:
             HirschCircuitLocalization.commonFace_minCount_eq_irredundant_subpresentation \
             HirschCircuitLocalization.commonFace_minCount_eq_any_irredundant_presentation
 
+      - name: Compile and audit standalone Prove2Me packet
+        run: |
+          set -euo pipefail
+          lake env lean Solutions/Sol_Hirsch_irredundant_rows_card_le_any_equivalent_presentation.lean 2>&1 | tee /tmp/irredundant-row-count-standalone.log
+          python3 scripts/check_lean_axiom_log.py /tmp/irredundant-row-count-standalone.log solution
+          sha256sum Solutions/Sol_Hirsch_irredundant_rows_card_le_any_equivalent_presentation.lean | tee /tmp/irredundant-row-count-standalone.sha256
+
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -67,3 +74,5 @@ jobs:
             /tmp/irredundant-row-count-exact.json
             /tmp/irredundant-row-count-core.log
             /tmp/irredundant-row-count-adapter.log
+            /tmp/irredundant-row-count-standalone.log
+            /tmp/irredundant-row-count-standalone.sha256
