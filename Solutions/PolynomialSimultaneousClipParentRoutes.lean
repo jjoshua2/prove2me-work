@@ -95,10 +95,10 @@ theorem route_clip_of_lifted_endpoints_with_parent_routes
     rcases k with i | (e | t)
     · intro p hp q hq
       exact hFaces i p hp.1 hp.2.2 q hq.1 hq.2.2
-    · exact extreme_face_region P (F (.inr (.inl e))) 1 (hF _)
+    · exact extreme_face_region P (F (.inr (.inl e))) 1 (hF (.inr (.inl e)))
         (HirschSubsegment.diamLE_of_convex_subsegment _
           (hPv.inter (convex_segment _ _)) _ _ inter_subset_right)
-    · exact extreme_face_region P (F (.inr (.inr t))) 0 (hF _)
+    · exact extreme_face_region P (F (.inr (.inr t))) 0 (hF (.inr (.inr t)))
         (singleton_diamLE_zero _)
   let ρ := retract a b o
   have hρP : ∀ z ∈ Q, ρ z ∈ P := fun z hz => retract_mem Q hQ a b o z ho hz hstrict
