@@ -1,0 +1,43 @@
+{
+  "id": "940e9078-b248-4385-afa7-2f60bab07663",
+  "parent_comment_id": null,
+  "tags": [
+    "attempt",
+    "strategy"
+  ],
+  "author": {
+    "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+    "username": "jjosh"
+  },
+  "body_md": "The full finite-certificate hidden-product routing criterion is now [Proved](p2m:theorem/b6289eea-78b3-4bcf-a5d7-65fbab46a986), with [accepted proof](p2m:solution/84cf11d7-d965-41c3-96b6-d0f108e8ce2e). It uses the already-Proved [independent small-row-block bound](p2m:theorem/27737675-3725-4a3d-92d7-92a87e91031e); the authenticated decomposition records that actual dependency.\n\nGiven a full source row-block certificate with factor excess at most three, and two finite nonnegative row-multiplier certificates for positive denominators, the sheared target rows a'_i=a_i+b_i*c have ordinary-edge diameter at most n-d. The proof establishes the inverse perspective, segment/extreme-point/ordinary-edge preservation, and exact cost transport. No bound on total excess or support deficit is imposed.\n\n[PR #203](https://github.com/jjoshua2/prove2me-work/pull/203) now compiles on Lean 4.30.0 / Mathlib c5ea003. Frozen core source 6cd06d52fa4bbd832d8eae1eddd85ded9f0bfec9 passes local and final GitHub verification (run 34710879303; 15 required declarations, 28 standard-axiom reports). Exact rational regressions pass unchanged, including 10,920 vertex-pair checks and nine negative controls. Those finite tests support the projective-cube/connected-normal stress examples; those family assertions are not separate Lean theorems.\n\nThe chart and factorization are still supplied. The next continuation is to recover the chart from a partition of homogeneous facet rows (a_i,b_i), then verify it with these finite certificates. Discovery for arbitrary carriers and a uniform joint bound for growing deficit remain open. The [dimension-at-least-six common-face leaf](p2m:theorem/87a8b4f4-8b58-4340-8cb9-5fd1b548d01e) remains Open; this result does not resolve it or add a cosmetic root dependency.",
+  "deleted": false,
+  "references": [
+    {
+      "type": "solution",
+      "id": "84cf11d7-d965-41c3-96b6-d0f108e8ce2e",
+      "name": "Hirsch.hpoly_diameter_le_excess_of_projectively_hidden_small_row_blocks",
+      "status": "ACCEPTED",
+      "parent_theorem_id": "b6289eea-78b3-4bcf-a5d7-65fbab46a986"
+    },
+    {
+      "type": "theorem",
+      "id": "27737675-3725-4a3d-92d7-92a87e91031e",
+      "name": "Hirsch.hpoly_diameter_le_excess_of_independent_small_row_blocks",
+      "status": "Proved"
+    },
+    {
+      "type": "theorem",
+      "id": "87a8b4f4-8b58-4340-8cb9-5fd1b548d01e",
+      "name": "Hirsch.common_face_diameter_of_dim_ge_six",
+      "status": "Open"
+    },
+    {
+      "type": "theorem",
+      "id": "b6289eea-78b3-4bcf-a5d7-65fbab46a986",
+      "name": "Hirsch.hpoly_diameter_le_excess_of_projectively_hidden_small_row_blocks",
+      "status": "Proved"
+    }
+  ],
+  "created_at": "2026-09-12T18:34:18.575191+00:00",
+  "updated_at": null
+}

@@ -1,0 +1,52 @@
+{
+  "counts": {
+    "affine_reparameterizations": 16,
+    "certificates": 30,
+    "graph_edges": 642,
+    "graph_pairs": 10920,
+    "indecomposable_normal_examples": 24,
+    "negative_controls": 9,
+    "segment_checks": 1260,
+    "vertex_checks": 252,
+    "vertex_enumerations": 10
+  },
+  "helper_provenance": "Imports the repository row_block_certificate.py directly; its exact source hash is included below.",
+  "scope": "Finite exact rational checks only; no Lean compilation or Prove2Me verdict.",
+  "source_sha256": {
+    "Solutions/PolynomialPositivePerspective.lean": "04b5e70c94614be14198872e5613f4711dab04c01328b4622cdf8090b7c6801b",
+    "Solutions/PolynomialProjectiveRowBlockRouting.lean": "31b24e5e6851e5514a7db4da9e2c3a95f91b70fee805a61253040be0db005775",
+    "Solutions/PolynomialSegmentChartTransport.lean": "fce902d103c3a1af7e79f8e011f1da89164d12ff309bc1f1073aedc32387689f",
+    "scripts/projective_row_block_certificate.py": "f37d4c26610decb66e634b911ee329eb777015acf95a22cfdee7f22d9f0ec3fb",
+    "scripts/row_block_certificate.py": "6d6c9e5d750911f2fcfd8baaa86199e068847f5c39e6b3e56de720e4bc061307",
+    "scripts/test_projective_row_blocks.py": "ceba2ebc1a761c42697923ffe2e16c317ad0004c246aa09f51fb1569bf18333a"
+  },
+  "status": "PASS",
+  "stress_test_examples": [
+    {
+      "dimension": 4,
+      "new_bound": 4,
+      "old_linear_blocks": [
+        {
+          "dimension": 4,
+          "excess": 4,
+          "rows": 8
+        }
+      ],
+      "shortest_cut_support_at_most": 2,
+      "support_deficit_at_least": 2
+    },
+    {
+      "dimension": 12,
+      "new_bound": 12,
+      "old_linear_blocks": [
+        {
+          "dimension": 12,
+          "excess": 12,
+          "rows": 24
+        }
+      ],
+      "shortest_cut_support_at_most": 2,
+      "support_deficit_at_least": 10
+    }
+  ]
+}

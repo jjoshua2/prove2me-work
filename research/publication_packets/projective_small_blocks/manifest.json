@@ -1,0 +1,32 @@
+{
+  "source_commit": "6cd06d52fa4bbd832d8eae1eddd85ded9f0bfec9",
+  "source_files": {
+    "Solutions/PolynomialSegmentChartTransport.lean": {
+      "sha256": "fce902d103c3a1af7e79f8e011f1da89164d12ff309bc1f1073aedc32387689f",
+      "git_blob": "529f42febb56653654c4b29a7f162b24d59ffb24"
+    },
+    "Solutions/PolynomialPositivePerspective.lean": {
+      "sha256": "04b5e70c94614be14198872e5613f4711dab04c01328b4622cdf8090b7c6801b",
+      "git_blob": "e6f85672de74839e574a485f8502c1b7567c631d"
+    },
+    "Solutions/PolynomialProjectiveRowBlockRouting.lean": {
+      "sha256": "31b24e5e6851e5514a7db4da9e2c3a95f91b70fee805a61253040be0db005775",
+      "git_blob": "6dd454940e8d306307b8e3bee4452fcafa50ebd0"
+    },
+    "research/verification/2026-09-12-projective-products/row-blocks.json": {
+      "sha256": "da6fa99884b05d1bb5848947482a48486febaafa726b31eb5afa727abdb312ec",
+      "git_blob": "e7dc2a9f9c1569e4d858fe782ecb970d2c13ec59"
+    }
+  },
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "public_dependencies": {
+    "Hirsch.hpoly_diameter_le_excess_of_independent_small_row_blocks": "27737675-3725-4a3d-92d7-92a87e91031e"
+  },
+  "sha256": {
+    "driver.lean": "ed93551bbe3afb770b73068140d78c4f518f84b96ccde4c7bfaece5af7657f40",
+    "solution.lean": "dfe9664962384ca3e4e7eac229255c803b0d34543099a90990463f8a3e7c9a89",
+    "statement.lean": "73b7341b4c6a118853dd374c211aae5e3f0a1f000518ab25c746e315f80a0f8a",
+    "problem.json": "bc333cda91925b5b36217592fd82b7ae95e6160d9787ba326144ae7b64bbb81e",
+    "explanation.md": "681f48108106b680763d60b8b84d64fc235b933fdce5efcd275835a944fb9bf6"
+  }
+}

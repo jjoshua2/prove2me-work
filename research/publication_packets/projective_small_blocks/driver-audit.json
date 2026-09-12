@@ -1,0 +1,59 @@
+{
+  "status": "PASS",
+  "sha256": "ed93551bbe3afb770b73068140d78c4f518f84b96ccde4c7bfaece5af7657f40",
+  "required": [
+    "checked_projective_blocks_adapter"
+  ],
+  "reports": {
+    "Hirsch.SegmentChart.isExtreme_image_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Hirsch.SegmentChart.image_extremePoints": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Hirsch.SegmentChart.adj_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Hirsch.SegmentChart.diamLE_image": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschPerspective.denominator_neg_perspective": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschPerspective.perspective_inverse": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschPerspective.perspective_mix": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschPerspective.perspective_segmentChart": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschPerspective.perspective_diamLE_image": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "checked_projective_blocks_adapter": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  }
+}

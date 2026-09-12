@@ -1,0 +1,23 @@
+{
+  "theorem_id": "27737675-3725-4a3d-92d7-92a87e91031e",
+  "theorem_name": "Hirsch.hpoly_diameter_le_excess_of_independent_small_row_blocks",
+  "theorem_title": "High-excess H-polyhedra factorized into small-excess row blocks satisfy the row-excess bound",
+  "status": "Proved",
+  "formal_statement": "namespace Hirsch\ntheorem hpoly_diameter_le_excess_of_independent_small_row_blocks\n    {d n k : \u2115} (dims counts : Fin k \u2192 \u2115)\n    (a : Fin n \u2192 EuclideanSpace \u211d (Fin d)) (b : Fin n \u2192 \u211d)\n    (T : EuclideanSpace \u211d (Fin d) \u2243\u2097[\u211d]\n      (\u2200 i : Fin k, EuclideanSpace \u211d (Fin (dims i))))\n    (e : (\u03a3 i : Fin k, Fin (counts i)) \u2243 Fin n)\n    (A : \u2200 i : Fin k, Fin (counts i) \u2192 EuclideanSpace \u211d (Fin (dims i)))\n    (hrows : \u2200 z i j, \u27eaa (e \u27e8i, j\u27e9), T.symm z\u27eb = \u27eaA i j, z i\u27eb)\n    (hbd : Bornology.IsBounded (Hpoly a b)) (hne : (Hpoly a b).Nonempty)\n    (hcount : \u2200 i, dims i \u2264 counts i)\n    (hsmallcount : \u2200 i, counts i \u2264 dims i + 3) :\n    DiamLE (Hpoly a b) (n - d) := by sorry\nend Hirsch",
+  "natural_language_statement": "Let P be a nonempty bounded H-polyhedron in R^d described by n rows. Suppose an invertible linear change of coordinates identifies its rows with a disjoint family of independent blocks: block i uses counts(i) rows in dims(i) coordinates, every parent row is in exactly one block, and each block has dims(i) <= counts(i) <= dims(i)+3. Then the padded ordinary vertex-edge graph diameter of P is at most n-d. There is no bound on total row excess n-d or on the number of factors. The conclusion follows from an actual Cartesian-product decomposition, not from a face-cover or an amortized circuit-count argument.",
+  "created_at": "2026-09-11T20:26:51.273969+00:00",
+  "vote_count": 0,
+  "tags": [
+    "formalization",
+    "graph-diameter",
+    "polyhedra"
+  ],
+  "preamble": "import Mathlib\nimport Definitions.Def_Hirsch_model\nopen scoped BigOperators RealInnerProductSpace\nopen Set Hirsch",
+  "source": "https://github.com/jjoshua2/prove2me-work/commit/4924c6ea81cda80c6a8bd54ce2a0d3d784525b3b ; standalone Lean/Axiom gate Actions run 34644132950",
+  "deprecated_at": null,
+  "deprecated_by": null,
+  "visibility": "public",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "audits": [],
+  "readback": null
+}

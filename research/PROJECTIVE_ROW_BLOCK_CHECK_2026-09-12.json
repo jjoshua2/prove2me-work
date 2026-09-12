@@ -1,0 +1,51 @@
+{
+  "counts": {
+    "affine_reparameterizations": 16,
+    "certificates": 30,
+    "graph_edges": 642,
+    "graph_pairs": 10920,
+    "indecomposable_normal_examples": 24,
+    "negative_controls": 9,
+    "segment_checks": 1260,
+    "vertex_checks": 252,
+    "vertex_enumerations": 10
+  },
+  "helper_provenance": "Repository row_block_certificate.py at blob c402d2bb993a0e9147b942ff3d914ae0d3f6548b; used functions copied locally for execution, no changes proposed to repository helper.",
+  "scope": "Finite exact rational checks only; no Lean compilation or Prove2Me verdict.",
+  "source_sha256": {
+    "Solutions/PolynomialPositivePerspective.lean": "ab11e44fa2b59a5e4d35b3b160de4bc45ad8fd083eef1016d54a2a986fef0564",
+    "Solutions/PolynomialProjectiveRowBlockRouting.lean": "2a2599f8bf35f27ed6bac65543fb1f05d90d963039386fd412a434f6ff66dbca",
+    "Solutions/PolynomialSegmentChartTransport.lean": "45d08ac214feba21e7366c2b323c0935d7caa264254e6ae8f21a9462890383f0",
+    "scripts/projective_row_block_certificate.py": "f37d4c26610decb66e634b911ee329eb777015acf95a22cfdee7f22d9f0ec3fb",
+    "scripts/test_projective_row_blocks.py": "95414379ce838af91bca05eb8d2c103fe6860d8f0492f16a0cef2e4104cd25a1"
+  },
+  "status": "PASS",
+  "stress_test_examples": [
+    {
+      "dimension": 4,
+      "new_bound": 4,
+      "old_linear_blocks": [
+        {
+          "dimension": 4,
+          "excess": 4,
+          "rows": 8
+        }
+      ],
+      "shortest_cut_support_at_most": 2,
+      "support_deficit_at_least": 2
+    },
+    {
+      "dimension": 12,
+      "new_bound": 12,
+      "old_linear_blocks": [
+        {
+          "dimension": 12,
+          "excess": 12,
+          "rows": 24
+        }
+      ],
+      "shortest_cut_support_at_most": 2,
+      "support_deficit_at_least": 10
+    }
+  ]
+}
