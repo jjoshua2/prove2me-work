@@ -10,7 +10,7 @@ the existing affine row-block criterion to examples with a connected normal
 matroid and arbitrarily large shortest-repair support deficit.
 
 All hypotheses are explicit. No claim is made that arbitrary carriers admit
-such a chart. This new source awaits separate Lean verification.
+such a chart. Verification receipts are maintained separately.
 -/
 open Set Hirsch HirschPerspective
 open scoped BigOperators RealInnerProductSpace
@@ -52,8 +52,8 @@ theorem shear_slack_identity (a : Fin n → EuclideanSpace ℝ (Fin d))
   have hd : 1 + ⟪c, x⟫ ≠ 0 := hx
   simp [shearRows, perspective, denominator, rowFunctional,
     inner_add_left, inner_smul_left, inner_smul_right, div_eq_mul_inv]
-  <;> field_simp [hd]
-  <;> ring
+  field_simp [hd]
+  ring
 
 lemma perspective_mem_sheared_hpoly (a : Fin n → EuclideanSpace ℝ (Fin d))
     (b : Fin n → ℝ) (c x : EuclideanSpace ℝ (Fin d))
@@ -118,6 +118,27 @@ theorem positiveDomain_of_row_multipliers
   change 0 < 1 + ⟪c, x⟫
   linarith
 
+/-- Consume both finite denominator certificates and transport a known bound.
+The hypotheses are identities and inequalities in the describing rows, without
+quantification over all feasible points or an assumed chart isomorphism. -/
+theorem hpoly_diamLE_of_shear_multipliers
+    (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
+    (c : EuclideanSpace ℝ (Fin d)) (weights inverseWeights : Fin n → ℝ)
+    (hweights : ∀ i, 0 ≤ weights i)
+    (hnormal : (∑ i, weights i • a i) = -c)
+    (hmargin : (∑ i, weights i * b i) < 1)
+    (hinverseWeights : ∀ i, 0 ≤ inverseWeights i)
+    (hinverseNormal : (∑ i, inverseWeights i • (a i + b i • c)) = c)
+    (hinverseMargin : (∑ i, inverseWeights i * b i) < 1)
+    (B : ℕ) (hdiam : DiamLE (Hpoly a b) B) :
+    DiamLE (Hpoly (fun i => a i + b i • c) b) B := by
+  have hsource := positiveDomain_of_row_multipliers a b c weights hweights hnormal hmargin
+  have htarget : Hpoly (shearRows a b c) b ⊆ positiveDomain (-rowFunctional c) := by
+    rw [← rowFunctional_neg]
+    exact positiveDomain_of_row_multipliers (shearRows a b c) b (-c) inverseWeights
+      hinverseWeights (by simpa only [neg_neg] using hinverseNormal) hinverseMargin
+  exact hpoly_diamLE_of_positive_shear a b c B hsource htarget hdiam
+
 /-- Final sufficient routing criterion. The actual input normals may be
 inseparable into linear blocks; only their certified projective unshearing
 must have the existing independent small-excess blocks. Total excess and
@@ -148,5 +169,6 @@ theorem hpoly_diamLE_excess_of_projectively_hidden_small_row_blocks
 #print axioms perspective_image_hpoly_eq_shear
 #print axioms hpoly_diamLE_of_positive_shear
 #print axioms positiveDomain_of_row_multipliers
+#print axioms hpoly_diamLE_of_shear_multipliers
 #print axioms hpoly_diamLE_excess_of_projectively_hidden_small_row_blocks
 end HirschProjectiveBlocks

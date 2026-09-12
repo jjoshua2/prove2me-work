@@ -5,8 +5,8 @@ import Definitions.Def_Hirsch_model
 
 A chart need only be injective on a convex domain; it need not be affine or
 injective on the entire ambient vector space. This is the transport primitive
-for a positive-denominator projective chart. Mathematical proof candidate;
-new declarations have not yet been compiled in the pinned Lean environment.
+for a positive-denominator projective chart. Verification receipts are kept
+separately from this mathematical source.
 -/
 open Set
 set_option autoImplicit false
@@ -30,6 +30,7 @@ structure SegmentChart (U : Set E) (f : E → F) : Prop where
 namespace SegmentChart
 
 variable {U : Set E} {f : E → F} (h : SegmentChart U f)
+include h
 
 /-- Preserve and reflect extreme subsets without assuming a global inverse. -/
 theorem isExtreme_image_iff {P C : Set E}
@@ -58,7 +59,7 @@ theorem isExtreme_image_iff {P C : Set E}
       rw [← h.openSegment_image x (hP hx) y (hP hy)] at hseg
       obtain ⟨t, ht, htf⟩ := hseg
       have htU : t ∈ U := h.convex.segment_subset (hP hx) (hP hy)
-        (openSegment_subset_segment ht)
+        (openSegment_subset_segment ℝ x y ht)
       have htz := h.injOn htU (hC hz) htf
       subst t
       exact ⟨x, he.left_mem_of_mem_openSegment hx hy hz ht, rfl⟩

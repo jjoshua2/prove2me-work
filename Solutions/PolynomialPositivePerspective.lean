@@ -6,7 +6,7 @@ import Solutions.PolynomialSegmentChartTransport
 The map x |-> x / (1 + l(x)) has inverse y |-> y / (1 - l(y)) on the
 respective positive-denominator domains. Explicit segment reweighting, not an
 assumed projective-invariance axiom, supplies the transport certificate.
-Mathematical proof candidate; compilation/axiom audit is delegated separately.
+The kernel and axiom verification receipts are maintained separately.
 -/
 open Set
 set_option autoImplicit false
@@ -51,7 +51,7 @@ lemma denominator_neg_perspective (l : E →ₗ[ℝ] ℝ) (x : E)
   have hx' : 1 + l x ≠ 0 := hx
   simp only [denominator, perspective, LinearMap.neg_apply, map_smul, smul_eq_mul]
   field_simp [hx']
-  <;> ring
+  ring
 
 lemma perspective_inverse (l : E →ₗ[ℝ] ℝ) (x : E)
     (hx : denominator l x ≠ 0) :
@@ -85,10 +85,8 @@ lemma perspective_mix (l : E →ₗ[ℝ] ℝ) (x y : E) (a b : ℝ)
   congr 1
   · congr 1
     field_simp [hx, hz]
-    <;> ring
   · congr 1
     field_simp [hy, hz]
-    <;> ring
 
 lemma perspective_mem_segment (l : E →ₗ[ℝ] ℝ) {x y z : E}
     (hx : x ∈ positiveDomain l) (hy : y ∈ positiveDomain l)
@@ -148,7 +146,8 @@ lemma perspective_image_openSegment (l : E →ₗ[ℝ] ℝ) {x y : E}
     have hx' := perspective_mem_opposite_domain l hx
     have hy' := perspective_mem_opposite_domain l hy
     have hz' : z ∈ positiveDomain (-l) :=
-      (positiveDomain_convex (-l)).segment_subset hx' hy' (openSegment_subset_segment hz)
+      (positiveDomain_convex (-l)).segment_subset hx' hy'
+        (openSegment_subset_segment ℝ _ _ hz)
     have hpre := perspective_mem_openSegment (-l) hx' hy' hz
     rw [perspective_inverse l x (ne_of_gt hx),
       perspective_inverse l y (ne_of_gt hy)] at hpre

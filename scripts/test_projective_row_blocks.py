@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Exact finite tests; no sample test is a proof of a universal Lean theorem."""
 from __future__ import annotations
+import argparse
 from collections import deque
 from copy import deepcopy
 from fractions import Fraction as Q
@@ -74,6 +75,12 @@ def exact_vertices(a: list[list[Q]], b: list[Q]) -> set[tuple[Q, ...]]:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--receipt', type=Path,
+                        default=Path('research/PROJECTIVE_ROW_BLOCK_CHECK_2026-09-12.json'))
+    parser.add_argument('--fixture', type=Path,
+                        default=Path('research/projective_cube_4d_input.json'))
+    args = parser.parse_args()
     counts = dict(certificates=0, indecomposable_normal_examples=0, vertex_enumerations=0,
                   vertex_checks=0, graph_pairs=0, graph_edges=0, segment_checks=0,
                   negative_controls=0, affine_reparameterizations=0)
@@ -187,14 +194,23 @@ def main() -> None:
     assert len(residual['unresolved_source_factors'])==1
     counts['negative_controls'] += 1
     root=Path(__file__).resolve().parents[1]
-    paths=list((root/'Solutions').glob('*.lean'))+list((root/'scripts').glob('*.py'))
+    paths = [root / name for name in [
+        'Solutions/PolynomialSegmentChartTransport.lean',
+        'Solutions/PolynomialPositivePerspective.lean',
+        'Solutions/PolynomialProjectiveRowBlockRouting.lean',
+        'scripts/projective_row_block_certificate.py',
+        'scripts/test_projective_row_blocks.py',
+        'scripts/row_block_certificate.py',
+    ]]
     receipt={'status':'PASS','counts':counts,'stress_test_examples':samples,
              'scope':'Finite exact rational checks only; no Lean compilation or Prove2Me verdict.',
-             'helper_provenance':'Repository row_block_certificate.py at blob c402d2bb993a0e9147b942ff3d914ae0d3f6548b; used functions copied locally for execution, no changes proposed to repository helper.',
+             'helper_provenance':'Imports the repository row_block_certificate.py directly; its exact source hash is included below.',
              'source_sha256':{str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths)}}
-    output=root/'research/PROJECTIVE_ROW_BLOCK_CHECK_2026-09-12.json'
+    output=args.receipt
+    output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(jsonable(receipt),indent=2,sort_keys=True)+'\n')
-    fixture=root/'research/projective_cube_4d_input.json'
+    fixture=args.fixture
+    fixture.parent.mkdir(parents=True, exist_ok=True)
     fixture.write_text(json.dumps(jsonable(good),indent=2)+'\n')
     print(json.dumps(jsonable(receipt),indent=2,sort_keys=True))
 
