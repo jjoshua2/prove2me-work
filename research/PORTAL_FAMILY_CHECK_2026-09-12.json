@@ -1,0 +1,162 @@
+{
+  "explicit_route_certificates": 14,
+  "instances": [
+    {
+      "facets": 10,
+      "geodesic_portals": [
+        {
+          "left": 3,
+          "portal": 8,
+          "right": 3
+        },
+        {
+          "left": 3,
+          "portal": 13,
+          "right": 3
+        }
+      ],
+      "graph_distance": 5,
+      "k": 0,
+      "one_extra_region_edge_route": 5,
+      "optimal_geodesic_repair": 6,
+      "root_debt": 1,
+      "total_geodesic_debt": 3,
+      "vertices": 16
+    },
+    {
+      "facets": 12,
+      "geodesic_portals": [
+        {
+          "left": 4,
+          "portal": 13,
+          "right": 4
+        },
+        {
+          "left": 4,
+          "portal": 15,
+          "right": 4
+        }
+      ],
+      "graph_distance": 5,
+      "k": 1,
+      "one_extra_region_edge_route": 5,
+      "optimal_geodesic_repair": 8,
+      "root_debt": 1,
+      "total_geodesic_debt": 5,
+      "vertices": 20
+    },
+    {
+      "facets": 14,
+      "geodesic_portals": [
+        {
+          "left": 5,
+          "portal": 15,
+          "right": 5
+        },
+        {
+          "left": 5,
+          "portal": 17,
+          "right": 5
+        }
+      ],
+      "graph_distance": 5,
+      "k": 2,
+      "one_extra_region_edge_route": 5,
+      "optimal_geodesic_repair": 10,
+      "root_debt": 1,
+      "total_geodesic_debt": 7,
+      "vertices": 24
+    },
+    {
+      "facets": 18,
+      "geodesic_portals": [
+        {
+          "left": 7,
+          "portal": 19,
+          "right": 7
+        },
+        {
+          "left": 7,
+          "portal": 21,
+          "right": 7
+        }
+      ],
+      "graph_distance": 5,
+      "k": 4,
+      "one_extra_region_edge_route": 5,
+      "optimal_geodesic_repair": 14,
+      "root_debt": 1,
+      "total_geodesic_debt": 11,
+      "vertices": 32
+    },
+    {
+      "facets": 26,
+      "geodesic_portals": [
+        {
+          "left": 11,
+          "portal": 27,
+          "right": 11
+        },
+        {
+          "left": 11,
+          "portal": 29,
+          "right": 11
+        }
+      ],
+      "graph_distance": 5,
+      "k": 8,
+      "one_extra_region_edge_route": 5,
+      "optimal_geodesic_repair": 22,
+      "root_debt": 1,
+      "total_geodesic_debt": 19,
+      "vertices": 48
+    },
+    {
+      "facets": 34,
+      "geodesic_portals": [
+        {
+          "left": 15,
+          "portal": 35,
+          "right": 15
+        },
+        {
+          "left": 15,
+          "portal": 37,
+          "right": 15
+        }
+      ],
+      "graph_distance": 5,
+      "k": 12,
+      "one_extra_region_edge_route": 5,
+      "optimal_geodesic_repair": 30,
+      "root_debt": 1,
+      "total_geodesic_debt": 27,
+      "vertices": 64
+    },
+    {
+      "facets": 50,
+      "geodesic_portals": [
+        {
+          "left": 23,
+          "portal": 51,
+          "right": 23
+        },
+        {
+          "left": 23,
+          "portal": 53,
+          "right": 23
+        }
+      ],
+      "graph_distance": 5,
+      "k": 20,
+      "one_extra_region_edge_route": 5,
+      "optimal_geodesic_repair": 46,
+      "root_debt": 1,
+      "total_geodesic_debt": 43,
+      "vertices": 96
+    }
+  ],
+  "scope": "Exact rational finite regressions for the separately proved infinite family.",
+  "status": "PASS",
+  "verified_full_polytope_vertex_lists": 7
+}

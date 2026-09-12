@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "run_id": 34725296903,
+  "head_sha": "63725a915769acae1c31c554335ac8b633606d14",
+  "required": [
+    "HirschPortalDebt.contact_index_span",
+    "HirschPortalDebt.active_portal_index_span",
+    "HirschPortalDebt.contactPositions_card_le",
+    "HirschPortalDebt.total_position_load_le",
+    "HirschPortalDebt.near_geodesic_carrier_mass",
+    "HirschPortalDebt.one_extra_edge_full_availability_mass",
+    "HirschPortalDebt.entries_triangle",
+    "HirschPortalDebt.fresh_chain_cost",
+    "HirschPortalDebt.signature_mass_eq_endpoint_plus_neutral",
+    "HirschPortalDebt.separated_signature_mass_le_excess",
+    "HirschPortalDebt.EdgeTree.length_eq_entries_add_debt",
+    "HirschPortalDebt.EdgeTree.route",
+    "HirschPortalDebt.EdgeTree.route_of_debt_le"
+  ],
+  "reports": 60
+}

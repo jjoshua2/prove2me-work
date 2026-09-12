@@ -1,0 +1,23 @@
+{
+  "theorem_id": "79bdd301-35e1-4cdb-a6ed-eb49b00e5c3c",
+  "theorem_name": "Hirsch.near_geodesic_occurrence_carrier_budget",
+  "theorem_title": "Near-geodesic occurrence windows bound joint carrier resources",
+  "status": "Proved",
+  "formal_statement": "theorem Hirsch.near_geodesic_occurrence_carrier_budget {V : Type*} [DecidableEq V] {G : SimpleGraph V} [DecidableRel G.Adj]\n    {u v : V} (p : G.Walk u v) (q : \u2115) (hp : p.length \u2264 G.dist u v + q)\n    (available : Finset V) (positions : Finset \u2115)\n    (hpositions : \u2200 k \u2208 positions, k \u2264 p.length) (delta : \u2115 \u2192 \u2115) (e : \u2115)\n    (hbudget : \u2200 k \u2208 positions, delta k + available.card \u2264 e +\n      (available.filter (fun z => z = p.getVert k \u2228 G.Adj z (p.getVert k))).card) :\n    (\u2211 k \u2208 positions, delta k) + positions.card * available.card \u2264\n      positions.card * e + (q+3)*available.card := by sorry",
+  "natural_language_statement": "A graph walk at most q edges above endpoint distance has at most q+3\nclosed-neighborhood contact positions with any fixed vertex. Count occurrence\npositions, including repeated labels, and double-count contacts with any finite\navailable set. If each selected position satisfies the explicit pointwise\ninteger resource inequality, the total resource obeys the stated joint bound.\nAt full availability e=|A| the mass is at most (q+3)|A|.\nThis is a graph/resource theorem, not an unconditional polytope diameter bound.\nThe geometric portal-debt and simple-polytope interpretations are separate.",
+  "created_at": "2026-09-12T23:23:56.280649+00:00",
+  "vote_count": 0,
+  "tags": [
+    "formalization",
+    "graph-theory",
+    "polyhedra"
+  ],
+  "preamble": "import Mathlib\nopen scoped BigOperators\nopen Set",
+  "source": "Graph shortcut and double-counting proof; https://github.com/jjoshua2/prove2me-work/tree/35dc985f0736e6ca612f747dcc45d6f528c3d62f",
+  "deprecated_at": null,
+  "deprecated_by": null,
+  "visibility": "public",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "audits": [],
+  "readback": null
+}

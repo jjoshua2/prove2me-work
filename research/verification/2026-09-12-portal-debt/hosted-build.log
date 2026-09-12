@@ -1,0 +1,142 @@
+##[group]Run set -euo pipefail
+[36;1mset -euo pipefail[0m
+[36;1mif [[ -z "${LEAN_TARGETS// }" ]]; then[0m
+[36;1m  lake build[0m
+[36;1melse[0m
+[36;1m  read -r -a targets <<< "$LEAN_TARGETS"[0m
+[36;1m  lake build "${targets[@]}"[0m
+[36;1mfi[0m
+shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+env:
+  LEAN_TARGETS: Solutions.PolynomialNearGeodesicWindows Solutions.PolynomialPortalSignatureMass Solutions.PolynomialRecursivePortalDebt
+##[endgroup]
+✔ [8475/8491] Built Definitions.Def_Hirsch_model (3.8s)
+⚠ [8476/8491] Built Solutions.PolynomialPortalSignatureMass (4.2s)
+warning: Solutions/PolynomialPortalSignatureMass.lean:32:54: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: Solutions/PolynomialPortalSignatureMass.lean:32:54: 'tauto' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: Solutions/PolynomialPortalSignatureMass.lean:99:0: automatically included section variable(s) unused in theorem `HirschPortalDebt.separated_signature_mass_le_excess`:
+  [DecidableEq α]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq α] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Solutions/PolynomialPortalSignatureMass.lean:101:5: unused variable `ha`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Solutions/PolynomialPortalSignatureMass.lean:101:20: unused variable `hb`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+info: Solutions/PolynomialPortalSignatureMass.lean:108:0: 'HirschPortalDebt.entries_triangle' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialPortalSignatureMass.lean:109:0: 'HirschPortalDebt.fresh_chain_cost' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialPortalSignatureMass.lean:110:0: 'HirschPortalDebt.signature_mass_eq_endpoint_plus_neutral' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialPortalSignatureMass.lean:111:0: 'HirschPortalDebt.separated_signature_mass_le_excess' depends on axioms: [propext, Quot.sound]
+ℹ [8477/8491] Built Solutions.PolynomialProductWalk (4.2s)
+info: Solutions/PolynomialProductWalk.lean:162:0: 'HirschProduct.diamLE_pi' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8478/8491] Built Solutions.PolynomialFaceReentrySplice (4.0s)
+info: Solutions/PolynomialFaceReentrySplice.lean:158:0: 'HirschFaceSplice.splice_reentry_through_extreme_face' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialFaceReentrySplice.lean:159:0: 'HirschFaceSplice.splice_reentry_no_growth' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialFaceReentrySplice.lean:160:0: 'HirschFaceSplice.splice_reentry_cost_at_most_face_diameter' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8479/8491] Built Solutions.PolynomialRegionRouting (3.8s)
+info: Solutions/PolynomialRegionRouting.lean:156:0: 'HirschRegionRoute.shared_point_walk' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialRegionRouting.lean:157:0: 'HirschRegionRoute.route_of_region_walk' depends on axioms: [propext, Quot.sound]
+info: Solutions/PolynomialRegionRouting.lean:158:0: 'HirschRegionRoute.nodup_cost_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialRegionRouting.lean:159:0: 'HirschRegionRoute.route_of_connected_regions' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialRegionRouting.lean:160:0: 'HirschRegionRoute.region_walk_of_step_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialRegionRouting.lean:161:0: 'HirschRegionRoute.route_of_step_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialRegionRouting.lean:162:0: 'HirschRegionRoute.extreme_face_region' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialRegionRouting.lean:163:0: 'HirschRegionRoute.route_of_face_covered_sequence' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8480/8491] Built Solutions.PolynomialMixedRegionRouting (4.1s)
+info: Solutions/PolynomialMixedRegionRouting.lean:85:0: 'HirschRegionRoute.route_one' depends on axioms: [propext, Quot.sound]
+info: Solutions/PolynomialMixedRegionRouting.lean:86:0: 'HirschRegionRoute.pair_region' depends on axioms: [propext, Quot.sound]
+info: Solutions/PolynomialMixedRegionRouting.lean:87:0: 'HirschRegionRoute.route_of_mixed_step_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialMixedRegionRouting.lean:88:0: 'HirschRegionRoute.route_of_faces_and_surviving_edges' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8481/8491] Built Solutions.PolynomialRecursivePortalDebt (4.1s)
+info: Solutions/PolynomialRecursivePortalDebt.lean:88:0: 'HirschPortalDebt.EdgeTree.length_eq_entries_add_debt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialRecursivePortalDebt.lean:89:0: 'HirschPortalDebt.EdgeTree.route' depends on axioms: [propext, Quot.sound]
+info: Solutions/PolynomialRecursivePortalDebt.lean:90:0: 'HirschPortalDebt.EdgeTree.route_of_debt_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8482/8491] Built Solutions.PolynomialIntervalRegionRouting (3.8s)
+info: Solutions/PolynomialIntervalRegionRouting.lean:94:0: 'HirschRegionRoute.region_walk_of_interval_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialIntervalRegionRouting.lean:95:0: 'HirschRegionRoute.route_of_interval_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialIntervalRegionRouting.lean:96:0: 'HirschRegionRoute.route_of_face_interval_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8483/8491] Built Solutions.PolynomialIntervalStartPortals (3.8s)
+info: Solutions/PolynomialIntervalStartPortals.lean:88:0: 'HirschRegionRoute.interval_portal_of_start_containment' does not depend on any axioms
+info: Solutions/PolynomialIntervalStartPortals.lean:89:0: 'HirschRegionRoute.route_of_interval_cover_of_start_containment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialIntervalStartPortals.lean:90:0: 'HirschRegionRoute.route_of_face_interval_cover_of_start_containment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialIntervalStartPortals.lean:91:0: 'HirschRegionRoute.route_of_face_interval_cover_of_active_containment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8484/8491] Built Solutions.PolynomialFacePreservingCheckpoints (4.6s)
+info: Solutions/PolynomialFacePreservingCheckpoints.lean:159:0: 'HirschRegionRoute.compact_face_point_has_parent_vertex' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialFacePreservingCheckpoints.lean:160:0: 'HirschRegionRoute.exists_vertex_preserving_face_memberships' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialFacePreservingCheckpoints.lean:161:0: 'HirschRegionRoute.face_preserving_vertex_selection' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialFacePreservingCheckpoints.lean:162:0: 'HirschRegionRoute.compact_faces_shared_point_portal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialFacePreservingCheckpoints.lean:163:0: 'HirschRegionRoute.route_of_feasible_face_covered_sequence' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialFacePreservingCheckpoints.lean:164:0: 'HirschRegionRoute.route_of_face_interval_cover_of_feasible_start_containment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialFacePreservingCheckpoints.lean:165:0: 'HirschRegionRoute.route_of_face_interval_cover_of_feasible_active_containment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+⚠ [8485/8491] Built Solutions.PolynomialClosedFaceTrace (3.9s)
+warning: Solutions/PolynomialClosedFaceTrace.lean:18:13: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+info: Solutions/PolynomialClosedFaceTrace.lean:111:0: 'HirschRegionRoute.finite_closed_region_union' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialClosedFaceTrace.lean:112:0: 'HirschRegionRoute.region_walk_of_preconnected_closed_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialClosedFaceTrace.lean:113:0: 'HirschRegionRoute.face_walk_to_parent_vertex_walk' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialClosedFaceTrace.lean:114:0: 'HirschRegionRoute.route_of_preconnected_face_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8486/8491] Built Solutions.PolynomialParentRouteClosedFaceTrace (3.7s)
+info: Solutions/PolynomialParentRouteClosedFaceTrace.lean:42:0: 'HirschRegionRoute.route_of_preconnected_face_cover_with_parent_routes' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8487/8491] Built Solutions.PolynomialUsedRegionRouting (3.7s)
+info: Solutions/PolynomialUsedRegionRouting.lean:66:0: 'HirschRegionRoute.route_of_connected_regions_with_used_labels' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialUsedRegionRouting.lean:67:0: 'HirschRegionRoute.route_of_preconnected_face_cover_with_parent_routes_used_labels' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8488/8491] Built Solutions.PolynomialUsedRegionPortalPath (3.7s)
+info: Solutions/PolynomialUsedRegionPortalPath.lean:98:0: 'HirschRegionRoute.route_of_connected_regions_with_used_path' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialUsedRegionPortalPath.lean:99:0: 'HirschRegionRoute.route_of_preconnected_face_cover_with_parent_routes_used_path' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialUsedRegionPortalPath.lean:100:0: 'HirschRegionRoute.parent_vertex_portal_of_used_path_edge' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8489/8491] Built Solutions.PolynomialPairSpecificRegionLegs (3.9s)
+info: Solutions/PolynomialPairSpecificRegionLegs.lean:185:0: 'HirschRegionRoute.route_of_region_walk_with_pair_specific_legs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialPairSpecificRegionLegs.lean:186:0: 'HirschRegionRoute.route_of_connected_regions_with_pair_specific_legs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialPairSpecificRegionLegs.lean:187:0: 'HirschRegionRoute.route_of_preconnected_face_cover_with_pair_specific_legs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8490/8491] Built Solutions.PolynomialShortestRegionRouting (3.9s)
+info: Solutions/PolynomialShortestRegionRouting.lean:152:0: 'HirschRegionRoute.shortest_walk_chordless' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialShortestRegionRouting.lean:153:0: 'HirschRegionRoute.exists_shortest_chordless_walk' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialShortestRegionRouting.lean:154:0: 'HirschRegionRoute.route_of_connected_regions_with_shortest_pair_specific_legs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialShortestRegionRouting.lean:155:0: 'HirschRegionRoute.route_of_preconnected_face_cover_with_shortest_pair_specific_legs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+⚠ [8491/8491] Built Solutions.PolynomialNearGeodesicWindows (3.9s)
+warning: Solutions/PolynomialNearGeodesicWindows.lean:88:26: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+info: Solutions/PolynomialNearGeodesicWindows.lean:152:0: 'HirschPortalDebt.contact_index_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialNearGeodesicWindows.lean:153:0: 'HirschPortalDebt.active_portal_index_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialNearGeodesicWindows.lean:154:0: 'HirschPortalDebt.contactPositions_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialNearGeodesicWindows.lean:155:0: 'HirschPortalDebt.total_position_load_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialNearGeodesicWindows.lean:156:0: 'HirschPortalDebt.near_geodesic_carrier_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialNearGeodesicWindows.lean:157:0: 'HirschPortalDebt.one_extra_edge_full_availability_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (8491 jobs).

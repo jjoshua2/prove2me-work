@@ -1,0 +1,4 @@
+research/publication_packets/near_geodesic_budget/driver.lean:90:26: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]
