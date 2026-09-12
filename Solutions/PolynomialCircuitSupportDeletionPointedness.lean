@@ -47,9 +47,9 @@ theorem rowCircuit_neutral_insert_rowEval_injective
   obtain ⟨c, hc⟩ := Submodule.mem_span_singleton.mp hqker
   have hiq := congrFun hqS ⟨i, Finset.mem_insert_self i Z⟩
   change ⟪a i, q⟫ = 0 at hiq
-  rw [hc, inner_smul_right] at hiq
+  rw [← hc, inner_smul_right] at hiq
   have hc0 : c = 0 := (mul_eq_zero.mp hiq).resolve_right hi
-  have hq0 : q = 0 := by rw [hc, hc0, zero_smul]
+  have hq0 : q = 0 := by rw [← hc, hc0, zero_smul]
   exact sub_eq_zero.mp hq0
 
 /-- Any selected row set containing all neutral rows and one nonneutral row of
@@ -123,8 +123,8 @@ theorem rowCircuitStep_from_vertex_exists_signed_blockers
         dsimp [g]
         rw [inner_sub_right, hix]
         exact sub_nonpos.mpr (hstep.2.1 i)
-      have hnlt : ¬ ⟪a i, g⟫ < 0 := hnone i hix
-      exact le_antisymm hle (le_of_not_gt hnlt)
+      have hnonneg : 0 ≤ ⟪a i, g⟫ := hnone i hix
+      exact le_antisymm hle hnonneg
     have hg0 := HirschPolynomialAccess.vertex_tight_rows_span_checked
       d n a b x hx g hall
     exact hstep.2.2.1.1 hg0
