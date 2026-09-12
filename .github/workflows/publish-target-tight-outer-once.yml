@@ -40,7 +40,7 @@ jobs:
       - name: Compile and axiom-audit exact server proof before credential access
         run: |
           set -euo pipefail
-          lake build Definitions.Def_Hirsch_model Definitions.Def_Hirsch_circuit_model
+          lake build Definitions.Def_Hirsch_model
           lake env lean /tmp/target-tight-outer-public/solution.lean 2>&1 | tee /tmp/target-tight-outer-audit.log
           python3 scripts/check_lean_axiom_log.py /tmp/target-tight-outer-audit.log \
             Hirsch.target_tight_outer_unique_vertex_zero_diameter \
