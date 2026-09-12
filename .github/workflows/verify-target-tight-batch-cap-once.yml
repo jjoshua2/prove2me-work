@@ -1,0 +1,54 @@
+name: Verify target-tight batch cap routing once
+
+on:
+  pull_request:
+    types: [ready_for_review]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: target-tight-batch-cap-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    if: >-
+      github.repository == 'jjoshua2/prove2me-work' &&
+      github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
+      github.head_ref == 'formal/target-tight-batch-cap-routing'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - name: Check policy and pins
+        run: |
+          set -euo pipefail
+          python3 scripts/check_actions_policy.py
+          test "$(cat lean-toolchain)" = 'leanprover/lean4:v4.30.0'
+          grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
+      - name: Restore shared pinned Lean environment
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Compile and audit batch-cap routing
+        run: |
+          set -euo pipefail
+          lake build Solutions.PolynomialSimultaneousClipParentFaceRouting Solutions.PolynomialTargetTightBatchCapRouting
+          lake env lean Solutions/PolynomialSimultaneousClipParentFaceRouting.lean 2>&1 | tee /tmp/simultaneous-parent-face.log
+          lake env lean Solutions/PolynomialTargetTightBatchCapRouting.lean 2>&1 | tee /tmp/target-tight-batch-cap.log
+          python3 scripts/check_lean_axiom_log.py /tmp/simultaneous-parent-face.log \
+            HirschRadial.diamLE_clip_of_strict_centre_with_parent_face_routes
+          python3 scripts/check_lean_axiom_log.py /tmp/target-tight-batch-cap.log \
+            HirschTargetDeletion.injective_single_vertex_cap_diamLE_two \
+            HirschTargetDeletion.target_tight_batch_reinsertion_diamLE_of_parent_face_routes
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: target-tight-batch-cap-verification
+          retention-days: 14
+          if-no-files-found: warn
+          path: |
+            /tmp/simultaneous-parent-face.log
+            /tmp/target-tight-batch-cap.log
