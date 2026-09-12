@@ -161,6 +161,40 @@ for real future reductions. The larger selected-run/clipping assemblies are
 locally and GitHub-verified, not newly accepted platform theorem submissions.
 
 
+## Projectively hidden products (#203)
+
+PR #203's segment-chart, positive-perspective, and projective row-block modules
+now compile. The targeted local build and single final hosted run
+[34710879303](https://github.com/jjoshua2/prove2me-work/actions/runs/34710879303)
+pass on frozen proof source `6cd06d52fa4bbd832d8eae1eddd85ded9f0bfec9`.
+All 15 required declarations and 28 total reports contain only standard
+logical axioms. The original rational regression counts pass unchanged.
+[Proof and scope](research/PROJECTIVE_HIDDEN_PRODUCTS_2026-09-12.md).
+
+The map `x/(1+c·x)` explicitly preserves segments, extreme subsets, vertices,
+and ordinary edges on its positive domain. The inverse and row-slack identities
+are proved, not assumed. A new wrapper consumes both nonnegative-row-multiplier
+certificates and preserves a known ordinary-edge budget without extra steps.
+Together with independent small-excess source blocks, this gives `DiamLE(Q,n-d)`
+for the sheared rows `a'_i=a_i+b_i*c`, with no bound on total excess or deficit.
+
+The full finite-certificate criterion is now **Proved** as
+[Hirsch.hpoly_diameter_le_excess_of_projectively_hidden_small_row_blocks](https://prove2.me/theorems/b6289eea-78b3-4bcf-a5d7-65fbab46a986).
+Submission `84cf11d7-d965-41c3-96b6-d0f108e8ce2e` is **ACCEPTED**.
+Authenticated source readback matches the packet byte-for-byte. Mission update
+`940e9078-b248-4385-afa7-2f60bab07663` links the theorem, accepted solution,
+its actual row-block input, and the still-Open leaf.
+Its exact public input is the already-Proved row-block theorem
+[27737675](https://prove2.me/theorems/27737675-3725-4a3d-92d7-92a87e91031e).
+[Standalone packet and receipts](research/publication_packets/projective_small_blocks/).
+
+The projective cube family has connected affine row normals and still has
+shortest-repair deficit at least d-2, despite diameter d. Therefore affine
+indecomposability together with large deficit does not identify hard routing.
+The generic transport and finite certificate criterion are Lean-verified;
+the unbounded family's matroid/deficit/lower-diameter description remains a
+mathematical argument with exact finite checks, not separate Lean declarations.
+
 ## Next research work, in order
 
 1. **Control the sum of costs for coupled carriers when support deficit grows.**
@@ -172,8 +206,11 @@ locally and GitHub-verified, not newly accepted platform theorem submissions.
    shortest certificate: target-slack face labels form a clique, so at most two
    occur on a chordless path and `g>=d-2`, despite actual diameter d. This is a
    mathematical counterexample with finite checks, not a Lean-formalized cube
-   theorem. Any proposed potential must pass this stress test. The existing
-   product-route theorem is useful only when actual factorization is supplied.
+   theorem. Any proposed potential must pass this stress test. The projective extension also handles factorization hidden by a positive chart;
+   both the chart and source blocks currently must be supplied. Affine normal
+   connectivity is not a sound residual test. Work with homogeneous facet data
+   `(a_i,b_i)` to recover a chart from a finite partition certificate, while
+   keeping unknown partition discovery and arbitrary-carrier routing explicit.
    Endpoint savings still permit an exponential independent-call majorant;
    they are not evidence for an exponential polytope diameter.
 3. **Connect a uniform total-cost bound to the root by a checked reduction.**

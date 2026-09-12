@@ -1,0 +1,12 @@
+{
+  "root_id": "58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac",
+  "open_leaves": [
+    {
+      "theorem_id": "87a8b4f4-8b58-4340-8cb9-5fd1b548d01e",
+      "theorem_name": "Hirsch.common_face_diameter_of_dim_ge_six",
+      "status": "Open",
+      "closability": 0
+    }
+  ],
+  "total": 1
+}

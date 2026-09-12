@@ -1,0 +1,39 @@
+{
+  "decompositions": [
+    {
+      "submission_id": "84cf11d7-d965-41c3-96b6-d0f108e8ce2e",
+      "created_by": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+      "created_at": "2026-09-12T18:29:19.715739+00:00",
+      "deprecated_at": null,
+      "deprecated_by": null,
+      "children": [
+        {
+          "theorem_id": "27737675-3725-4a3d-92d7-92a87e91031e",
+          "theorem_name": "Hirsch.hpoly_diameter_le_excess_of_independent_small_row_blocks",
+          "theorem_title": "High-excess H-polyhedra factorized into small-excess row blocks satisfy the row-excess bound",
+          "status": "Proved",
+          "ordinal": 0,
+          "deprecated_at": null,
+          "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f"
+        }
+      ]
+    },
+    {
+      "submission_id": null,
+      "created_by": null,
+      "created_at": null,
+      "deprecated_at": null,
+      "deprecated_by": null,
+      "children": [
+        {
+          "definition_id": "5d9574b6-1600-4e27-9161-d12946cc4a96",
+          "definition_name": "Hirsch_model",
+          "theorem_title": "H-polytopes, edges, and combinatorial diameter",
+          "ordinal": 0,
+          "deprecated_at": null,
+          "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f"
+        }
+      ]
+    }
+  ]
+}

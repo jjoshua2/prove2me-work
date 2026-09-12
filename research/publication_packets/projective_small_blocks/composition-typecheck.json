@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "solution_sha256": "dfe9664962384ca3e4e7eac229255c803b0d34543099a90990463f8a3e7c9a89",
+  "statement_sha256": "73b7341b4c6a118853dd374c211aae5e3f0a1f000518ab25c746e315f80a0f8a",
+  "scope": "Exact statement and composition typecheck locally against the authenticated public row-block interface. That interface uses a local placeholder; only the separate explicit-premise driver is local proof evidence. Prove2Me checks the unconditional composition."
+}
