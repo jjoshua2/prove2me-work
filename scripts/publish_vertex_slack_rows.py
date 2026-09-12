@@ -15,9 +15,9 @@ from pathlib import Path
 import subprocess
 import types
 
-SOURCE = "8a14d88e8bb61b11fd41c9fb7b3df8f08b3414ce"
+SOURCE = "e0b81dae6030e583438007c48901e76232ec33cf"
 SOURCE_PATH = "Solutions/PolynomialVertexSlackRowsPublic.lean"
-SOURCE_BLOB = "6a2c1d9ec1e63e2026f4d0845f955a7e61f6607a"
+SOURCE_BLOB = "2a1fab2bf0c24ad8dae878ded46848d61617bf79"
 CLIENT_COMMIT = "1692538ba9f7661ca079a86f2963fb48ac2270d1"
 CLIENT_PATH = "scripts/publish_excess_two_diameter_two.py"
 CLIENT_BLOB = "7da71d03920b59b688bae7cc8b4f9c15432adc4a"
