@@ -1,6 +1,7 @@
 import Mathlib
 import Solutions.PolynomialInjectiveCubicCircuitWalk
 import Solutions.PolynomialOneRowDeletionPointedness
+import Solutions.PolynomialOneRowDeletionCapWitness
 
 open scoped RealInnerProductSpace
 open Set Hirsch
@@ -45,6 +46,30 @@ theorem rowsWithout_card_le
   exact Fintype.card_le_of_injective
     (fun i : {i : Fin n // i ≠ j} => i.1)
     (fun x y h => Subtype.ext h)
+
+/-- The canonical `Fin` reindexing describes exactly the same deletion outer
+used by the exterior-cap modules. -/
+theorem hpoly_rowsWithout_eq_deletionOuterSet
+    {d n : ℕ}
+    (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
+    (j : Fin n) :
+    Hpoly (rowsWithout a j) (rhsWithout b j) =
+      HirschCapVertices.deletionOuterSet a b j := by
+  classical
+  ext y
+  change
+    (∀ k : Fin (Fintype.card {i : Fin n // i ≠ j}),
+      ⟪rowsWithout a j k, y⟫ ≤ rhsWithout b j k) ↔
+    (∀ i : Fin n, i ≠ j → ⟪a i, y⟫ ≤ b i)
+  constructor
+  · intro h i hij
+    let si : {i : Fin n // i ≠ j} := ⟨i, hij⟩
+    let k : Fin (Fintype.card {i : Fin n // i ≠ j}) :=
+      Fintype.equivFin {i : Fin n // i ≠ j} si
+    have hk := h k
+    simpa [rowsWithout, rhsWithout, rowsWithoutEquiv, k, si] using hk
+  · intro h k
+    exact h (rowsWithoutEquiv j k).1 (rowsWithoutEquiv j k).2
 
 /-- Reindexing the remaining rows preserves the injectivity supplied by the
 one-row deletion pointedness theorem. -/
@@ -91,8 +116,30 @@ theorem rowCircuitWalk_explicit_cubic_of_one_row_deletion
     (rowMap_rowsWithout_injective_of_bounded a b hbd x hx j)
     u v hu hv
 
+/-- Exterior-cap-facing form of the previous theorem.  Its hypotheses are
+stated directly on `deletionOuterSet`, the same unbounded outer set used by the
+far-cap vertex classification. -/
+theorem rowCircuitWalk_explicit_cubic_of_deletionOuterSet
+    {d n : ℕ}
+    (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
+    (hbd : Bornology.IsBounded (Hpoly a b))
+    (x : EuclideanSpace ℝ (Fin d)) (hx : x ∈ Hpoly a b)
+    (j : Fin n)
+    (u v : EuclideanSpace ℝ (Fin d))
+    (hu : u ∈ HirschCapVertices.deletionOuterSet a b j)
+    (hv : v ∈ extremePoints ℝ (HirschCapVertices.deletionOuterSet a b j)) :
+    RowCircuitWalk
+      (rowsWithout a j) (rhsWithout b j)
+      (17 * (Fintype.card {i : Fin n // i ≠ j}) ^ 3) u v := by
+  have hmodel := hpoly_rowsWithout_eq_deletionOuterSet a b j
+  apply rowCircuitWalk_explicit_cubic_of_one_row_deletion a b hbd x hx j u v
+  · rwa [hmodel]
+  · rwa [hmodel]
+
 #print axioms rowsWithout_card_le
+#print axioms hpoly_rowsWithout_eq_deletionOuterSet
 #print axioms rowMap_rowsWithout_injective_of_bounded
 #print axioms rowCircuitWalk_explicit_cubic_of_one_row_deletion
+#print axioms rowCircuitWalk_explicit_cubic_of_deletionOuterSet
 
 end HirschDeletion
