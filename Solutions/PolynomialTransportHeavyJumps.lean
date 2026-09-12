@@ -98,7 +98,7 @@ theorem separation_le_length_of_at_most_one_heavy
     have hiL : i < L := Finset.mem_range.mp (hindices hi)
     have huniq : ∀ j ∈ heavy, j = i := by
       intro j hj
-      exact (Finset.card_le_one.mp hcard) hj hi
+      exact (Finset.card_le_one.mp hcard) j hj i hi
     have hprefix : Within dist (sig i) (sig 0) i := by
       apply backward_chain dist hzero htriangle
       intro j hj

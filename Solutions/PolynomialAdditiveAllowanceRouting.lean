@@ -44,7 +44,7 @@ theorem shifted_child_excess_conserved
         ext j
         constructor
         · intro hj
-          exact Finset.mem_singleton.mpr ((Finset.card_le_one.mp hsmall) hj hi)
+          exact Finset.mem_singleton.mpr ((Finset.card_le_one.mp hsmall) j hj i hi)
         · intro hj
           have hji := Finset.mem_singleton.mp hj
           simpa [hji] using hi
@@ -90,7 +90,8 @@ theorem additive_allowance_node_bound
         (by have hi := hdrop i; omega))
     exact hs.trans (Nat.mul_le_mul_left (h-1) hshift)
   have hc : (∑ i, costs i) ≤ C*(∑ i, mass i) + (1+b*C)*(∑ i, dims i*(mass i-b)) := by
-    have hs := Finset.sum_le_sum (fun i _ => hcost i)
+    have hs : (∑ i, costs i) ≤ ∑ i, allowanceBudget C b (dims i) (mass i) :=
+      Finset.sum_le_sum (fun i _ => hcost i)
     simpa [allowanceBudget, Finset.sum_add_distrib, Finset.mul_sum, Nat.mul_assoc] using hs
   have hm := Nat.mul_le_mul_left C hsum
   have hw := Nat.mul_le_mul_left (1+b*C) hweighted

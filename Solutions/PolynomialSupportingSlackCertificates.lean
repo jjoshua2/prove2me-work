@@ -63,7 +63,10 @@ theorem segment_of_common_tight_kernel
   obtain ⟨t, ht⟩ := hline (z-x) (by
     intro i hi
     rw [inner_sub_right,htz i hi,htx i hi,sub_self])
-  have hrepr : (1-t) • x + t • y = z := by module
+  have hrepr : (1-t) • x + t • y = z := by
+    calc
+      _ = x + t • (y-x) := by module
+      _ = z := by rw [← ht]; abel
   have hleft := congrArg (fun v : EuclideanSpace ℝ (Fin d) => ⟪a left,v⟫) hrepr
   have hright := congrArg (fun v : EuclideanSpace ℝ (Fin d) => ⟪a right,v⟫) hrepr
   simp only [inner_add_right,inner_smul_right,hlx] at hleft
@@ -94,7 +97,8 @@ theorem edge_of_common_tight_kernel
     rw [←hcomb,inner_add_right,inner_smul_right,inner_smul_right]
     have h₁ := mul_le_mul_of_nonneg_left (hx i) hα
     have h₂ := mul_le_mul_of_nonneg_left (hy i) hβ
-    nlinarith
+    have hscale : α*b i+β*b i=b i := by rw [← add_mul, hs, one_mul]
+    linarith
   · intro p hp q hq z hz hseg
     have hztight : ∀ i ∈ S, ⟪a i,z⟫=b i := by
       intro i hi

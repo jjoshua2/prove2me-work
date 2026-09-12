@@ -55,7 +55,7 @@ theorem near_geodesic_actual_pair_mass
       available row hinj hfaces (p.getVert j) (hlabels j hj) (entry j) (exit j)
       (hentry j hj) (hexit j hj) (hnormal j hj) (htight₁ j hj) (htight₂ j hj)
   have hs := Finset.sum_le_sum hlocal
-  simp only [Finset.sum_add_distrib, Finset.sum_const, nsmul_eq_mul] at hs
+  simp [Finset.sum_add_distrib, Finset.sum_const, nsmul_eq_mul] at hs
   have hloads := near_geodesic_total_position_load p k hnear available positions hpos
   omega
 

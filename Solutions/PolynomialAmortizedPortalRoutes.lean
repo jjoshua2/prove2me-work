@@ -101,9 +101,10 @@ theorem local_charge_zero_of_mass_conservation
       Nat.mul_le_mul_right (masses i) (by have hi := hdrop i; omega))
   have hbound := hsum.trans (Nat.mul_le_mul_left (h-1) hmass)
   have hid : (h-1)*e+e = h*e := by
-    rw [← Nat.add_mul]
-    congr 1
-    omega
+    have ht : h-1+1=h := by omega
+    calc
+      _ = (h-1+1)*e := by ring
+      _ = h*e := by rw [ht]
   have hle : 1+(∑ i, dims i*masses i) ≤ h*e := by omega
   exact Nat.sub_eq_zero_of_le hle
 

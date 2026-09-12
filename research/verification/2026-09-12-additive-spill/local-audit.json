@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "required": [
+    "HirschAmortized.route_chain",
+    "HirschAmortized.PortalRepair.sound",
+    "HirschAmortized.PortalRepair.route_le_dimension_mul_excess",
+    "HirschAmortized.local_charge_zero_of_mass_conservation",
+    "HirschAdditiveAllowance.shifted_child_excess_conserved",
+    "HirschAdditiveAllowance.additive_allowance_node_bound",
+    "HirschAdditiveAllowance.AdditiveRepair.sound",
+    "HirschRowTransport.forward_chain",
+    "HirschRowTransport.backward_chain",
+    "HirschRowTransport.retained_row_bridge",
+    "HirschRowTransport.separation_le_length_of_at_most_one_heavy",
+    "HirschRowTransport.two_heavy_mass_lower_bound",
+    "HirschSlackCertificates.vertex_of_tight_kernel_zero",
+    "HirschSlackCertificates.segment_of_common_tight_kernel",
+    "HirschSlackCertificates.edge_of_common_tight_kernel",
+    "HirschSlackCertificates.consecutive_root_factor_nonneg",
+    "HirschRegionRoute.near_geodesic_total_position_load",
+    "HirschCircuitLocalization.near_geodesic_actual_pair_mass",
+    "HirschCircuitLocalization.full_available_mass_cancellation",
+    "HirschCircuitLocalization.finite_cost_sum_of_mass_cap"
+  ],
+  "reports": 291,
+  "source_sha256": {
+    "PolynomialAmortizedPortalRoutes": "2c1dd7100f148bbe065945ef41b0620d33b1088489de711f382729c6b6521535",
+    "PolynomialAdditiveAllowanceRouting": "09a0666e239e392ea8b540adb4d1547a775d01444482ce839065e141b4410619",
+    "PolynomialTransportHeavyJumps": "0d10b8ca8c0375993386918704f1006b46e050353758a48a41164083385215f6",
+    "PolynomialSupportingSlackCertificates": "1e2072f05d2cc6eebd321c5e6466b17714c2b77d9fdd9d61921d78bbad185cd3",
+    "PolynomialNearGeodesicMassBridge": "3938ef0cb3f78006bc7f327d63891997706cce6eaa66fd87fdd5a6b18fa16470",
+    "PolynomialNearGeodesicCarrierMass": "a92feae83677a39c1a3bd6446c9e5ca486f1f82ba741770c4518bf16e86ffe2d"
+  }
+}
