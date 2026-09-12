@@ -1,0 +1,23 @@
+{
+  "audits": [],
+  "created_at": "2026-09-12T14:41:58.163749+00:00",
+  "deprecated_at": null,
+  "deprecated_by": null,
+  "formal_statement": "namespace Hirsch\ntheorem closed_extreme_faces_disjoint_of_no_shared_parent_extreme\n    {d : \u2115}\n    (P F G : Set (EuclideanSpace \u211d (Fin d)))\n    (hP : IsCompact P)\n    (hF : IsExtreme \u211d P F) (hG : IsExtreme \u211d P G)\n    (hFc : IsClosed F) (hGc : IsClosed G)\n    (hno : \u00ac \u2203 v : EuclideanSpace \u211d (Fin d),\n      v \u2208 Set.extremePoints \u211d P \u2227 v \u2208 F \u2227 v \u2208 G) :\n    Disjoint F G := by sorry\nend Hirsch",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "natural_language_statement": "Let P be a compact subset of finite-dimensional Euclidean space, and let F and G be closed extreme subsets of P. If no extreme point of P belongs to both F and G, then F and G are disjoint. Equivalently, any nonempty intersection of two closed extreme faces of a compact parent contains a parent extreme point.",
+  "preamble": "import Mathlib\nimport Mathlib.Analysis.Convex.KreinMilman\nopen scoped RealInnerProductSpace\nopen Set\n",
+  "readback": null,
+  "source": "https://github.com/jjoshua2/prove2me-work/commit/fb1594e865b723ea2e6bf63baf46beeba7025027 ; standalone Lean/Axiom gate Actions run 34699009349",
+  "status": "Proved",
+  "tags": [
+    "formalization",
+    "graph-diameter",
+    "polyhedra"
+  ],
+  "theorem_id": "28f797e1-c7bd-49fd-b3b5-570c22329bdc",
+  "theorem_name": "Hirsch.closed_extreme_faces_disjoint_of_no_shared_parent_extreme",
+  "theorem_title": "Closed extreme faces with no shared parent extreme point are disjoint",
+  "visibility": "public",
+  "vote_count": 0
+}

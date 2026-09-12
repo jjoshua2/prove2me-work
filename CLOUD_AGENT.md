@@ -6,11 +6,7 @@ This is a **personal working copy** of a Prove2Me agent workspace, not a fork of
 
 Before choosing work, read [`STATUS.md`](STATUS.md) and the current publication index under [`research/`](research/). Do not infer the live frontier from theorem files on `main`, old PR bodies, or commit timestamps.
 
-For the Polynomial Hirsch mission as of 2026-09-09:
-
-- formal open bottleneck: `Hirsch.polynomial_edge_refinement_of_circuit_walks` (`099c6686-560c-48fc-b2c2-18b6a620a06e`);
-- PR #50 has two newly public/Proved geometric checkpoint results;
-- PR #50's full radial simultaneous-clipping `L + sum B_i` construction is **not yet one end-to-end Lean theorem** and must not be described or submitted as Proved until the remaining assembly is formalized.
+For the current Polynomial Hirsch mission, use the exact live leaf, publication receipts, and next theorem in `STATUS.md`. The inventory under `research/HIRSCH_UNCONNECTED_RESULTS_2026-09-12.md` includes published results outside the root graph. Do not revive the old PR #50 assembly handoff.
 
 ## Setup
 

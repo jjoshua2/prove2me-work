@@ -1,0 +1,34 @@
+{
+  "checked_at": "2026-09-12T14:55:00.645948+00:00",
+  "frontier_after": {
+    "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+    "status": "Open",
+    "theorem_id": "73beca40-31bc-42d5-8350-5ec9ac28bd3e",
+    "theorem_name": "Hirsch.polynomial_edge_refinement_of_circuit_walks_dim_ge_four"
+  },
+  "frontier_before": {
+    "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+    "status": "Open",
+    "theorem_id": "73beca40-31bc-42d5-8350-5ec9ac28bd3e",
+    "theorem_name": "Hirsch.polynomial_edge_refinement_of_circuit_walks_dim_ge_four"
+  },
+  "frontier_graph_modified": false,
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "mission_comment_id": "696ff3b9-c8a5-4ff0-a527-acea72373ab1",
+  "mission_id": "6078cb2d-3594-44b1-a01a-fd452ddae274",
+  "mission_name": "The Polynomial Hirsch Conjecture",
+  "new_conjectural_children": 0,
+  "platform_version": "0.10.3",
+  "result": {
+    "registration": "PUBLISHED",
+    "solution_sha256": "5bf1b7977409860bbc5f35945474967d3e108aff4a089024ec2d0a2f9c28b3b1",
+    "status": "Proved",
+    "submission_id": "6821be01-40d1-4467-a385-7385c54b9f32",
+    "theorem_id": "28f797e1-c7bd-49fd-b3b5-570c22329bdc",
+    "theorem_name": "Hirsch.closed_extreme_faces_disjoint_of_no_shared_parent_extreme",
+    "verdict": "ACCEPTED"
+  },
+  "solution_sha256": "5bf1b7977409860bbc5f35945474967d3e108aff4a089024ec2d0a2f9c28b3b1",
+  "source_commit": "fb1594e865b723ea2e6bf63baf46beeba7025027",
+  "source_run": "34699009349"
+}
