@@ -60,12 +60,16 @@ theorem clipRepairCutLeg_labels_eq {D : ℕ}
     (clipRepairCutLegs legs).map RegionLeg.label =
       clipRepairCutLabels (legs.map RegionLeg.label) := by
   induction legs with
-  | nil => simp [clipRepairCutLegs, clipRepairCutLabels]
+  | nil => rfl
   | cons leg legs ih =>
       rcases leg with ⟨label, entry, exit⟩
       rcases label with i | rest
-      · simp [clipRepairCutLegs, clipRepairCutLabels, ih]
-      · simp [clipRepairCutLegs, clipRepairCutLabels, ih]
+      · change i :: (clipRepairCutLegs legs).map RegionLeg.label =
+          i :: clipRepairCutLabels (legs.map RegionLeg.label)
+        exact congrArg (List.cons i) ih
+      · change (clipRepairCutLegs legs).map RegionLeg.label =
+          clipRepairCutLabels (legs.map RegionLeg.label)
+        exact ih
 
 /-- Duplicate-free mixed labels imply duplicate-free cut-leg labels. -/
 theorem clipRepairCutLeg_labels_nodup {D : ℕ}
@@ -88,17 +92,33 @@ theorem clipRepairPairCost_sum_eq_cut_add_old_length {D : ℕ}
         B leg.label leg.entry leg.exit).sum +
       (clipRepairOldEdgeLabels (legs.map RegionLeg.label)).length := by
   induction legs with
-  | nil =>
-      simp [clipRepairPairCost, clipRepairCutLegs, clipRepairOldEdgeLabels]
+  | nil => rfl
   | cons leg legs ih =>
       rcases leg with ⟨label, entry, exit⟩
       rcases label with i | rest
-      · simp [clipRepairPairCost, clipRepairCutLegs, clipRepairOldEdgeLabels,
-          ih, Nat.add_assoc, Nat.add_comm, Nat.add_left_comm]
+      · change B i entry exit +
+            (legs.map fun leg =>
+              clipRepairPairCost (D := D) B leg.label leg.entry leg.exit).sum =
+          B i entry exit +
+              ((clipRepairCutLegs legs).map fun leg =>
+                B leg.label leg.entry leg.exit).sum +
+            (clipRepairOldEdgeLabels (legs.map RegionLeg.label)).length
+        omega
       · rcases rest with k | t
-        · simp [clipRepairPairCost, clipRepairCutLegs, clipRepairOldEdgeLabels,
-            ih, Nat.add_assoc, Nat.add_comm, Nat.add_left_comm]
-        · simp [clipRepairPairCost, clipRepairCutLegs, clipRepairOldEdgeLabels, ih]
+        · change 1 +
+              (legs.map fun leg =>
+                clipRepairPairCost (D := D) B leg.label leg.entry leg.exit).sum =
+            ((clipRepairCutLegs legs).map fun leg =>
+                B leg.label leg.entry leg.exit).sum +
+              Nat.succ (clipRepairOldEdgeLabels (legs.map RegionLeg.label)).length
+          omega
+        · change
+            (legs.map fun leg =>
+              clipRepairPairCost (D := D) B leg.label leg.entry leg.exit).sum =
+            ((clipRepairCutLegs legs).map fun leg =>
+                B leg.label leg.entry leg.exit).sum +
+              (clipRepairOldEdgeLabels (legs.map RegionLeg.label)).length
+          exact ih
 
 /-- Pair-specific simultaneous clipping on a supplied outer route.  Each
 projected cut leg is an actual parent-vertex pair tight on that cut row.  After
@@ -281,7 +301,7 @@ theorem route_clip_of_lifted_endpoints_with_pair_specific_cut_legs
     rcases mixed with ⟨label, entry, exit⟩
     rcases label with i | rest
     · simp only at hmap
-      injection hmap with hEq
+      injection hmap
       subst cut
       have hf := hfits (RegionLeg.mk (Sum.inl i) entry exit) hmixed
       have hentry : entry ∈ extremePoints ℝ P ∩ F (.inl i) := hf.1
