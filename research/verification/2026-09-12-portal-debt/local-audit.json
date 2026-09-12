@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "required": [
+    "HirschPortalDebt.contact_index_span",
+    "HirschPortalDebt.active_portal_index_span",
+    "HirschPortalDebt.contactPositions_card_le",
+    "HirschPortalDebt.total_position_load_le",
+    "HirschPortalDebt.near_geodesic_carrier_mass",
+    "HirschPortalDebt.one_extra_edge_full_availability_mass",
+    "HirschPortalDebt.entries_triangle",
+    "HirschPortalDebt.fresh_chain_cost",
+    "HirschPortalDebt.signature_mass_eq_endpoint_plus_neutral",
+    "HirschPortalDebt.separated_signature_mass_le_excess",
+    "HirschPortalDebt.EdgeTree.length_eq_entries_add_debt",
+    "HirschPortalDebt.EdgeTree.route",
+    "HirschPortalDebt.EdgeTree.route_of_debt_le"
+  ],
+  "reports": 60,
+  "source_sha256": {
+    "PolynomialNearGeodesicWindows": "63f3a20158be920d33c0e0470418d1243df0a198d7c0243ef74c5424b6ac83e9",
+    "PolynomialPortalSignatureMass": "c3bda65c080d03cfd260bfef78d7a75048dc0b774fdf9a39e1f323bffb58667b",
+    "PolynomialRecursivePortalDebt": "be4b2f51a00d5bf1e56d13e658f500cb26330f0b48b3fe4436d5f6e92a98a6b0"
+  }
+}

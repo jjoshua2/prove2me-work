@@ -97,11 +97,11 @@ theorem signature_mass_eq_endpoint_plus_neutral
 /-- At separated simple endpoints of intrinsic rank d, at most m-2d
 neutral facets are available. The resulting child dimension mass is <=m-d. -/
 theorem separated_signature_mass_le_excess
-    (a b all universe : Finset α) (d cost : ℕ)
-    (ha : a ⊆ all) (hb : b ⊆ all) (hAll : all ⊆ universe)
+    (a b all ambientLabels : Finset α) (d cost : ℕ)
+    (ha : a ⊆ all) (hb : b ⊆ all) (hAll : all ⊆ ambientLabels)
     (hda : a.card = d) (_hdb : b.card = d)
     (_hsep : Disjoint a b) (hcost : cost + a.card = all.card) :
-    cost ≤ universe.card - d := by
+    cost ≤ ambientLabels.card - d := by
   have hcard := Finset.card_le_card hAll
   omega
 

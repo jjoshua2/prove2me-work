@@ -18,10 +18,11 @@ set_option maxHeartbeats 3000000
 noncomputable section
 namespace HirschPortalDebt
 
-variable {V α : Type*} [DecidableEq α]
+universe u
+variable {V : Type u} {α : Type*} [DecidableEq α]
 
 /-- A finite, constructive assembly tree with certified edge leaves. -/
-inductive EdgeTree (R : V → V → Prop) : V → V → Type
+inductive EdgeTree (R : V → V → Prop) : V → V → Type u
   | stationary (v : V) : EdgeTree R v v
   | edge {u v : V} (h : R u v) : EdgeTree R u v
   | splice {u z v : V} (left : EdgeTree R u z) (right : EdgeTree R z v) : EdgeTree R u v
