@@ -1,43 +1,50 @@
 # Current Prove2Me Polynomial Hirsch frontier
 
-Authoritative continuation updated 2026-09-11 after PRs #122–#144 and the
-accepted high-excess row-block publication.
+Authoritative continuation updated 2026-09-11 after PRs #147–#153.
 Repository: `jjoshua2/prove2me-work`.
 Lean: v4.30.0 / Mathlib `c5ea00351c28e24afc9f0f84379aa41082b1188f`.
 
-## Read first: the hard carrier class is now sharply isolated
+## Read first: the remaining obstruction is now ordinary-edge refinement on a pointed deletion outer
 
-Do not repeat the old nonvertex minimum-subpresentation, low-excess,
-high-excess product, or basic blocker-deletion work. Those layers are complete.
+Do **not** repeat the old nonvertex minimum-subpresentation, low-excess,
+high-excess product, blocker-deletion, exterior-cap classification, or intrinsic
+blocker-face work. Those layers are complete or have been replaced by stronger
+interfaces.
 
-For a bounded parent and a same-phase maximal row-circuit step, the formal
-reduction now removes the following classes:
+For a bounded parent and a same-phase maximal row-circuit step, the current
+formal reduction already removes:
 
-1. **strict row-excess resource:** if `M_min-h < n-d`, the common carrier is an
-   actual bounded finite H-polyhedron of strictly lower row excess and is routed
-   by the lower-excess induction interface;
-2. **independent product structure:** any explicit row-block product
-   decomposition can route by the sum of already-proved factor budgets; in
-   particular arbitrarily high total excess is harmless when every factor has
-   excess at most three;
-3. **bounded deletion outer:** if an indispensable blocker row is deleted and
-   the resulting lower-row-count outer H-polyhedron remains bounded, the lower-
-   excess induction pays the outer cost and reinserting the row costs only the
-   diameter of its exposed face.
+1. **strict row-excess resource:** if `M_min-h < n-d`, the common carrier is a
+   bounded H-polyhedron of strictly lower row excess and is routed by the
+   lower-excess induction interface;
+2. **independent product structure:** explicit row-block decompositions route
+   by additive proved factor budgets; factors of excess at most three give the
+   accepted high-excess theorem;
+3. **bounded one-row deletion:** direct lower-row recursion handles it;
+4. **unboundedness as lineality:** deleting one row from a nonempty bounded
+   parent preserves injectivity of the remaining row map, so the deletion outer
+   is pointed;
+5. **far-cap geometry:** there is an explicit coercive cap, every finite cap is
+   bounded, a far level can be chosen outside the parent, all far-cap vertices
+   are classified as old vertices or cap vertices adjacent to old ones, and old
+   edges survive;
+6. **cap repair / blocker-face cost:** radial repair plus ambient parent-edge
+   routing pays the blocker face only once, and the same-excess/lower-dimension
+   facet-reentry theorem supplies that ambient route. The blocker-face term is
+   no longer an independent obstruction;
+7. **circuit-walk existence in the unbounded deletion outer:** the deletion
+   outer has an explicit `17*m^3` row-circuit walk despite being unbounded;
+8. **rank/defect accounting in that outer:** exact neutral rank and the full
+   excess/defect/savings identity survive under row-map injectivity and hence
+   hold directly in the one-row deletion presentation.
 
-The unresolved structural class is therefore a **saturated, genuinely coupled
-minimum carrier** with an **essential same-phase trapped blocker**, where the
-one-row deletion outer is potentially unbounded and/or the exposed blocker face
-still has uncontrolled graph cost.
+The residual exterior-cap quantity is therefore the old deletion-outer
+**ordinary-edge cost `D`**. Equivalently: dynamically refine a controlled
+row-circuit walk in the pointed lower-row deletion presentation to a graph-edge
+walk with polynomial total cost.
 
-The blocker belongs to an irredundant, strictly feasible, minimum-cardinality
-carrier model, is target-only for the local circuit step, strictly slack at the
-fixed final target, was already trapped at the phase reference, becomes newly
-zero at the step endpoint, and has a single-tight witness certifying that the
-row is indispensable.
-
-There are currently **no open pull requests** in the repository. The temporary
-hosted verification workflow used for PRs #139–#144 has been removed.
+Do not call this solved merely because the deletion outer has a polynomial
+*circuit* walk. `RowCircuitStep` is not `Adj`.
 
 ## Formal Open frontier
 
@@ -46,263 +53,252 @@ The sole Polynomial-Hirsch circuit-refinement leaf remains
 `Hirsch.polynomial_edge_refinement_of_circuit_walks_dim_ge_four`
 
 - theorem ID `73beca40-31bc-42d5-8350-5ec9ac28bd3e`;
-- live status **Open** in the latest authenticated publication transaction.
+- live status **Open** in the latest authenticated publication audit.
 
 Its parent `Hirsch.polynomial_edge_refinement_of_circuit_walks`
 (`099c6686-560c-48fc-b2c2-18b6a620a06e`) and the Polynomial Hirsch root remain
-Open. Do not mark any of them solved merely because additional carrier classes
-are cost-controlled.
+Open.
 
-The constructive circuit walk already has length `17*n^3`. Another polynomial
-count of hard carriers is not enough; the remaining theorem needs a polynomial
-bound on **total ordinary-edge cost** or a cost-controlled bypass for the
-residual carriers.
+The standard/slack construction already gives a padded circuit walk of length
+`17*n^3`. Another polynomial count of hard carriers is not enough: the missing
+result is a polynomial bound on **ordinary graph-edge cost** or a genuine
+cost-controlled bypass for the remaining pointed-deletion circuit steps.
 
-## Public high-excess routing theorem
+Do not create a child that is merely this theorem with one hypothesis renamed,
+and do not route through the broad target-face-access conjecture in a cyclic
+way.
 
-`Hirsch.hpoly_diameter_le_excess_of_independent_small_row_blocks`
+## Current active pull request
+
+At this update, PR #154 is the only active line:
+
+`Force vertices in nonempty injective H-polyhedra`
+
+It develops a pointed/noncompact replacement for compact extreme-point
+existence. Its intended conclusion is that every nonempty finite H-polyhedron
+with injective row map has an original vertex, using the verified compact cap
+classification. This is useful for generalizing checkpoint rounding to pointed
+unbounded deletion outers. Treat it as active until its focused gate resolves;
+do not duplicate it on another branch.
+
+## Exterior-cap line: now complete as a reduction to `D`
+
+### PRs #140–#144 — pointed deletion and explicit far cap
+
+The one-row deletion program proves:
+
+- `HirschDeletion.rowMapWithout_injective_of_bounded` — deleting any one row
+  from a nonempty bounded H-presentation leaves an injective row map;
+- an explicit negative row-sum cap functional is strictly positive on every
+  nonzero recession direction;
+- `deletionCappedOuter_isBounded_of_injective` and the bounded-parent
+  specialization — every finite cap level is bounded;
+- an explicit far cap level can be chosen above the whole original parent;
+- reinserting the deleted row at that level recovers the parent exactly and the
+  cap hyperplane is exterior to it.
+
+Thus unbounded deletion outers are pointed and admit a universal compactifying
+cap without adding any geometric mystery.
+
+### PR #147 — universal far-cap vertex/edge classification
+
+`Solutions/PolynomialCompactCapVertexClassification.lean` and
+`Solutions/PolynomialOneRowDeletionCapWitness.lean` close the historical cap
+classification gap.
+
+For a sufficiently far compact cap:
+
+- every old deletion-outer vertex survives;
+- every old deletion-outer edge survives;
+- every new capped vertex lies on the cap and is adjacent to an old vertex.
+
+Hosted verification was kernel-green and axiom-clean. Exact finite regressions
+are recorded in `research/CAP_VERTEX_CLASSIFICATION_EXACT_SUMMARY_2026-09-11.json`
+and the ordinary proof/verification handoff in
+`research/COMPACT_CAP_VERTEX_CLASSIFICATION_2026-09-11.md`.
+
+### PR #150 — current-main `D + 1 + B` exterior-cap assembly
+
+`Solutions/PolynomialCurrentExteriorCapRouting.lean` proves the current API
+version of the old exterior-cap idea:
+
+- `HirschExteriorCurrent.augmented_route_bound_of_cap_classification`;
+- `HirschExteriorCurrent.diamLE_single_clip_of_augmented_outer_routes`;
+- `HirschExteriorCurrent.diamLE_single_clip_of_old_routes_and_cap_classification`.
+
+The exact cost is
+
+```text
+old deletion-outer graph cost D
++ one cap correction
++ blocker-face budget B.
+```
+
+Cap-cap shortcuts are explicitly auxiliary non-edges; radial repair turns them
+into one final exposed-face charge before producing a genuine parent edge walk.
+
+Verification receipt:
+`research/CURRENT_EXTERIOR_CAP_ROUTING_VERIFICATION_2026-09-11.md`.
+Frozen proof source `b196d8927ef4c442435f3081ad42947ac23d8c46`,
+run `34657118412`, job `103451829683`.
+
+### PRs #149 and #152 — blocker-face `B` is not independent anymore
+
+PR #149 formalizes same-excess/lower-dimension facet reentry: repeated visits to
+one blocker facet can be compressed to one lower-dimensional recursion charge.
+
+PR #152 then weakens the cap repair so the blocker-face budget may be supplied
+by an **ambient parent-edge route** between vertices on the final cut face; the
+replacement route need not remain intrinsically inside that facet.
+
+Key declarations:
+
+- `HirschRegionRoute.route_of_preconnected_face_cover_with_parent_routes`;
+- `HirschExteriorCurrent.diamLE_single_clip_of_augmented_outer_routes_with_parent_face_route`;
+- `HirschExteriorCurrent.diamLE_single_clip_of_old_routes_and_cap_classification_with_parent_face_route`.
+
+PR #152 hosted verification: frozen head
+`0c80cd57020c412c18ba5d5c9ab01c20a48b7a7c`, run `34666541899`, job
+`103479443364`, artifact `10289432337`, digest
+`sha256:423119d575a05853262870fafe92db5cf18b1f48c69c110967ed6cbbad6fd61a`.
+
+Consequently `B` is supplied by the dimension-descent mechanism; the remaining
+numerical obstruction in this exterior-cap branch is `D`.
+
+## Pointed deletion outer: circuit existence and rank accounting are solved
+
+### PR #151 — cubic row-circuit walks need injectivity, not boundedness
+
+`Solutions/PolynomialInjectiveCubicCircuitWalk.lean` proves
+
+`HirschCircuit.rowCircuitWalk_explicit_cubic_of_injective`.
+
+If `rowMap a` is injective, any feasible source reaches any vertex target by a
+padded row-circuit walk of length `17*n^3`, with no boundedness assumption on
+`Hpoly a b`.
+
+`Solutions/PolynomialOneRowDeletionCubicCircuitWalk.lean` gives the canonical
+finite reindexing of all rows except `j`, proves that it describes exactly
+`HirschCapVertices.deletionOuterSet`, inherits row-map injectivity from the
+bounded parent, and obtains the cubic walk directly in the potentially
+unbounded deletion outer.
+
+Verification receipt:
+`research/INJECTIVE_DELETION_CUBIC_VERIFICATION_2026-09-11.md`.
+Frozen proof source `03c77f05a6f2876196c9c206ef33ff7e70131d83`, run
+`34666307907`, job `103478771634`, artifact `10289322319`, digest
+`sha256:6f52c63759e896de55a477537ffe03a79187feac450a44bc3466ce884681cec5`.
+
+This removes **circuit-walk existence** from `D`; it does not provide graph
+edges.
+
+### PR #153 — exact neutral rank / defect savings also need only injectivity
+
+New modules:
+
+- `Solutions/PolynomialCircuitInjectiveNeutralRank.lean`;
+- `Solutions/PolynomialCircuitInjectiveDeletionSavings.lean`;
+- `Solutions/PolynomialOneRowDeletionCircuitDefect.lean`.
+
+Under explicit `Function.Injective (rowMap a)` they prove:
+
+- `d <= n`;
+- the neutral kernel of a row circuit is exactly its circuit line;
+- exact neutral rank `dimension - 1` in the ambient space and any containing
+  subspace;
+- exact `commonFaceDim - 1` neutral rank on the circuit common direction;
+- selected neutral defect is paid by discarded neutral rows;
+- the complete five-term identity
+  `e_F + delta + kappa + s + t = n-d`;
+- the strengthened omitted-nonneutral-row savings inequality;
+- the old budget saturates iff all explicit savings vanish.
+
+The direct one-row deletion specializations prove these statements on the
+unbounded deletion presentation itself.
+
+Verification receipt:
+`research/INJECTIVE_CIRCUIT_DEFECT_VERIFICATION_2026-09-11.md`.
+Frozen proof source `982fc860f539cf46d6a2fd8121d81b11a47f1943`, run
+`34666807890`, job `103480243486`, artifact `10289323110`, digest
+`sha256:220e678a923d6c94d85df318f1cb355c8c339d61a5ab095898a48af709cd7d4a`.
+
+Therefore the deletion outer does **not** lose the sharp carrier rank/excess
+bookkeeping when boundedness is lost. The hard step is dynamic edge routing.
+
+## Earlier completed recursive interfaces to keep reusing
+
+### Strict lower-row-excess recursion
+
+`Solutions/PolynomialLowerExcessCarrierRecursion.lean` includes
+
+- `LowerExcessHpolyDiameterBound`;
+- `commonFace_diamLE_of_minPresentationExcess_lt`;
+- `feasible_sequence_edge_route_mul_of_carrier_minPresentationExcess_lt`.
+
+If `M_min-h < R`, the common carrier is transported to a bounded finite
+H-polyhedron of strictly lower row excess. No circuit structure is needed in the
+recursive child.
+
+### High-excess independent row blocks
+
+`HirschRowBlocks.hpoly_diamLE_sum_of_row_block_bounds` adds arbitrary proved
+factor budgets across explicit row-block product decompositions.
+
+Public theorem
+`Hirsch.hpoly_diameter_le_excess_of_independent_small_row_blocks`:
 
 - theorem ID `27737675-3725-4a3d-92d7-92a87e91031e`;
 - accepted submission `78085f91-e27d-4a2d-90ed-5c646a38f8ae`;
-- verdict **ACCEPTED** / live **Proved** on Prove2Me 0.10.1;
-- mission comment `d27715fd-94c0-42a3-8a25-3da83332e099`;
-- publication run `34644738674`, job `103412860556`;
-- accepted solution SHA-256
-  `e963ae734869955cc55f5166b5d2092c77e80d617fc77ccf7fcdc26694e4a5ec`.
-
-Statement: a nonempty bounded `n`-row H-polyhedron in dimension `d` satisfies
-`DiamLE P (n-d)` whenever an explicit invertible linear coordinate change
-splits the complete row presentation into independent factors and every factor
-has row excess at most three. Total excess and the number of factors are
-unrestricted.
-
-The proof explicitly reuses the already-Proved theorem
-`Hirsch.hpoly_diameter_le_excess_of_rows_le_dim_add_three`
-(`12426807-9602-4014-bd5e-c69fb43f4cb6`). See
-`research/HIGH_EXCESS_ROW_BLOCK_PUBLICATION_RECEIPT_2026-09-11.md` and
-`research/HIGH_EXCESS_ROW_BLOCK_HOSTED_VERIFICATION_2026-09-11.md`.
-
-## Product routing is a recursive interface
-
-Merged PR #138 adds
-
-`HirschRowBlocks.hpoly_diamLE_sum_of_row_block_bounds`.
-
-For any explicit row-block product decomposition, arbitrary proved factor
-budgets add:
-
-```text
-factor i has DiamLE B_i  for every i
--------------------------------------
-parent has DiamLE (sum_i B_i).
-```
-
-No small-excess assumption is used by this transport theorem. Thus a nontrivial
-product decomposition can recursively route harder factors; the excess-at-most-
-three theorem is only one source of factor budgets. Independent factor costs
-add rather than multiply.
-
-Merged PR #136 connects the product theorem to minimum common-carrier
-presentations:
-
-`commonFace_diamLE_minPresentationExcess_of_small_row_blocks`.
-
-If a minimum equivalent carrier presentation splits into independent blocks of
-excess at most three, its intrinsic graph cost is bounded by `M_min-h`, even
-when that total excess is large.
-
-## Strict branch: genuine lower-row-excess recursion
-
-Merged PR #133 adds `Solutions/PolynomialLowerExcessCarrierRecursion.lean`:
-
-```text
-LowerExcessHpolyDiameterBound R B
-commonFace_diamLE_of_minPresentationExcess_lt
-feasible_sequence_edge_route_mul_of_carrier_minPresentationExcess_lt
-```
-
-If `M_min-h < R`, the common carrier is transported to an actual bounded finite
-H-polyhedron of strictly lower row excess. The recursive call does not need any
-circuit structure inside the child.
-
-## Saturated branch: essential ordered blocker
-
-Merged PR #130 packages the minimum-presentation same-phase strict/equality
-split. Merged PR #131 strengthens equality to an irredundant, strictly feasible,
-minimum-cardinality model and an indispensable trapped blocker with a single-
-tight witness.
-
-Merged PR #137 packages the current three-way reduction:
-
-`rowCircuitStep_same_phase_recursive_or_factorized_or_essential_trapped_blocker`.
-
-Under the lower-excess induction hypothesis and small-excess base, every
-same-phase maximal circuit step is either:
-
-- recursively solved at lower row excess;
-- directly solved by independent small-row-block factorization; or
-- nonfactorable and accompanied by the essential trapped-blocker certificate.
-
-The third branch is the present target.
-
-## Blocker deletion and clipping: current formal state
-
-The already-Proved theorem
-
-`Hirsch.simultaneous_clipping_diameter_of_compact_outer`
-
-- theorem ID `75d26f37-e0bd-4d73-9128-688fe7d5a80c`;
-- accepted submission `2c038ea7-ebc9-4f22-80c6-328fab2ea613`;
-
-shows that clipping a compact convex outer region costs
-
-```text
-outer graph cost + sum(final exposed-face costs).
-```
-
-For one blocker this is `D+B`.
-
-The one-row deletion program is now formalized much further:
-
-### PR #139 — one-cut lower-excess routing
-
-`Solutions/PolynomialSingleCutLowerExcessRouting.lean` proves:
-
-- `diamLE_inter_halfspace_of_compact_outer`;
-- `hpoly_inter_halfspace_diamLE_of_lower_excess_outer`.
-
-If a deleted-row outer H-polyhedron is bounded and has strictly lower row
-excess, the induction hypothesis pays the outer cost; reinserting the blocker
-costs only the exposed blocker-face diameter.
-
-### PR #141 — automatic finite-row deletion model
-
-`Solutions/PolynomialDirectRowDeletionRouting.lean` proves:
-
-- `hpoly_eq_deleteRow_inter_row` using `Fin.succAbove`;
-- `hpoly_diamLE_of_bounded_deleteRow_outer`.
-
-For a `Fin (m+1)` presentation, deleting row `j` gives an explicit `m`-row
-outer. Under `d<=m`, its row excess is strictly lower. Thus **bounded blocker
-deletion is now an automatic recursive branch**, not an abstract certificate.
-
-### PR #140 — every one-row deletion outer is pointed
-
-`Solutions/PolynomialOneRowDeletionPointedness.lean` proves
-
-`HirschDeletion.rowMapWithout_injective_of_bounded`.
-
-Deleting any single inequality from a nonempty bounded H-presentation leaves
-the remaining-row evaluation map injective. The outer may become unbounded, but
-it cannot acquire lineality.
-
-### PR #142 — explicit positive cap functional
-
-`Solutions/PolynomialOneRowDeletionCapFunctional.lean` defines
-
-```text
-deleteCap(r) = - sum_{i != j} <a_i,r>
-```
-
-and proves it is strictly positive on every nonzero recession direction of the
-one-row deletion outer. No separation theorem or generic cap direction is
-needed.
-
-### PR #143 — every finite explicit cap level is bounded
-
-`Solutions/PolynomialOneRowDeletionCapBounded.lean` proves
-
-- `deletionCappedOuter_isBounded_of_injective`;
-- `deletionCappedOuter_isBounded_of_bounded_parent`.
-
-Original inequalities bound remaining row values from above; the negative-row-
-sum cap bounds them from below. The remaining-row map therefore lands in a
-bounded coordinate box. Mathlib's finite-dimensional
-`LinearMap.injective_iff_antilipschitz` and
-`AntilipschitzWith.isBounded_preimage` pull boundedness back to the capped
-outer.
-
-Thus **every finite cap level is bounded**. A cap only has to be chosen far for
-geometric preservation/classification, not for compactness.
-
-### PR #144 — explicit far level beyond the entire parent
-
-`Solutions/PolynomialOneRowDeletionFarCapLevel.lean` proves:
-
-- `exists_far_deletion_cap_level`;
-- `deletionCappedOuter_inter_deletedRow_eq_parent`;
-- `deletion_cap_face_disjoint_parent`.
-
-Using a closed-ball radius and Cauchy-Schwarz, it chooses an explicit cap level
-such that the entire original bounded parent lies **strictly below** the cap,
-the capped deletion outer is bounded, and reinserting the deleted blocker row
-recovers the parent exactly. Consequently the cap hyperplane is exterior to the
-final parent.
-
-### Remaining exterior-cap gap
-
-Historical PR #52 contains a kernel-verified theorem
-
-`HirschExterior.simultaneous_clip_diameter_from_exterior_cap`
-
-which proves the desired clipping diameter bound **given** an exterior-cap
-vertex classification: old vertices route in the outer graph and every new cap
-vertex lies on the cap and is adjacent to an old vertex. The general far-cap
-classification itself was not formalized there.
-
-After PRs #140–#144, the universal construction has formal pointedness, an
-explicit coercive cap direction, boundedness for every cap level, an explicit
-far level preserving the whole final parent, and exterior separation. The
-remaining universal cap theorem is therefore specifically the **new cap
-vertex/edge classification** (and then plugging that classification into the
-historical cap-witness routing theorem).
-
-Do not claim the universal exterior-cap routing theorem as kernel-Proved until
-that classification is completed.
-
-## Exact excess/defect accounting and why scalar amortization is insufficient
-
-`Solutions/PolynomialCircuitDeletionSavings.lean` (merged PR #122) proves
-
-```text
-e + delta + kappa + s + tau = n-d,
-```
-
-and in particular `e + delta + s <= n-d` for selected effective rows.
-
-Hosted full verification: run `34637525943`, job `103388953563`; all four
-transitive axiom reports contain only `propext`, `Classical.choice`, and
-`Quot.sound`.
-
-Two exact control families remain important:
-
-1. high carrier excess may have zero savings even in balanced genuine-facet
-   parents;
-2. per-carrier savings do not automatically telescope across a walk, even when
-   carriers are distinct.
-
-Do not revive a scalar savings induction without additional route-dependent
-structure.
-
-## Reuse these completed interfaces
-
-Do not repackage:
-
-- low-excess H-polyhedra through excess three;
-- intrinsic common-carrier excess-two/excess-three routing;
-- exact additive carrier budget composition;
-- injective affine graph-diameter transport;
-- minimum row-count representation invariance;
-- normalized two-moment/excess-two routing;
-- simultaneous compact-outer clipping;
-- the high-excess independent-row-block theorem and generic additive factor
-  budgets;
-- strict lower-row-excess common-carrier recursion;
-- one-row deletion pointedness/cap boundedness/far-level construction.
-
-## Other relevant public Prove2Me results
-
-Among the accepted reusable inputs:
+- **ACCEPTED / Proved** on Prove2Me 0.10.1.
+
+It handles arbitrary total excess when every independent factor has excess at
+most three.
+
+### Small-excess and carrier-to-edge tools
+
+Reuse rather than restating:
+
+- `row_circuit_common_face_dimension_bound` / common-face localization;
+- `row_circuit_step_adj_of_common_face_dim_le_one`;
+- excess-two/excess-three intrinsic routing;
+- rank-sensitive face covers and weighted cover interfaces;
+- affine graph-diameter transport;
+- common-face minimum-row-count invariance;
+- simultaneous clipping;
+- blocker characterization, blocker swaps, same-phase trapped-blocker
+  persistence, and saturated blocker progress.
+
+## What to attack next
+
+Highest-value work should address **edge refinement inside a pointed unbounded
+one-row deletion presentation** without simply restating the Open theorem.
+Promising genuinely smaller interfaces include:
+
+1. generalize compact checkpoint/face-preserving vertex selection to nonempty
+   injective H-polyhedra (PR #154 is already pursuing vertex existence; do not
+   duplicate it);
+2. identify which bounded carrier-to-edge lemmas use compactness only for
+   endpoint/checkpoint vertex selection and port those parts to injective
+   pointed presentations;
+3. exploit the deletion presentation's exact `h-1` neutral rank and savings
+   identity to isolate a subclass of its cubic circuit steps that has strictly
+   smaller row-excess, dimension, or carrier cost;
+4. formulate a step-level pointed-deletion refinement theorem only if it has a
+   measurable structural restriction beyond the original Open theorem (for
+   example a blocker/horizon condition supplied by the cap construction).
+
+Avoid broad arbitrary-unbounded-diameter claims: those merely move the global
+problem. Avoid the old `n=2d` balanced shortcut; the repo's balanced polynomial
+bound relies on target-face access and is cyclic here.
+
+## Publication discipline
+
+The Polynomial-Hirsch root and the d>=4 edge-refinement leaf remain Open.
+Kernel-green internal lemmas are not automatically public Prove2Me results.
+Only claim a theorem as Prove2Me-Proved when an authenticated submission has an
+ACCEPTED verdict and durable receipt.
+
+Relevant accepted reusable public results include:
 
 - `Hirsch.common_face_has_subpresentation_faceDim_add_row_excess`, theorem
   `eeac02bd-aa68-48e6-a246-63f921b4606d`;
@@ -313,24 +309,6 @@ Among the accepted reusable inputs:
 - `Hirsch.irredundant_rows_card_le_any_equivalent_presentation`, theorem
   `8538150b-8afe-47ad-94b0-d72189b80264`;
 - `Hirsch.common_face_diameter_two_of_rows_le_dim_add_two`, theorem
-  `ca4c980f-86d7-4810-be9e-30e473b9dd70`.
-
-Authenticated publication of the high-excess row-block theorem re-read the d>=4
-edge-refinement frontier as Open before and after; no theorem graph was modified
-and no conjectural child was created.
-
-## Operational handoff
-
-- `STATUS.md` is authoritative over older plans and handoffs.
-- The open PR queue is currently empty.
-- The temporary deletion verifier has been removed from `main` after all active
-  branches passed their hosted gates and were merged.
-- Publication-only workflows/branches must be removed/closed after receipts are
-  durable; the high-excess row-block publication transaction is already clean.
-- Credentials remain outside Git in repository secret `PROVE2ME_API_KEY`.
-- Source/kernel verification is not Prove2Me acceptance.
-- The next highest-value formal work is **cap vertex/edge classification for the
-  explicit one-row deletion far cap**, followed by applying the already-verified
-  exterior-cap witness routing theorem. If that route stalls, study the blocker
-  exposed face for recursive product structure rather than returning to scalar
-  savings accounting.
+  `ca4c980f-86d7-4810-be9e-30e473b9dd70`;
+- `Hirsch.simultaneous_clipping_diameter_of_compact_outer`, theorem
+  `75d26f37-e0bd-4d73-9128-688fe7d5a80c`.
