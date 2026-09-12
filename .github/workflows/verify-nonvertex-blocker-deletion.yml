@@ -1,0 +1,47 @@
+name: Verify nonvertex blocker deletion dichotomy
+on:
+  pull_request:
+    types: [opened, synchronize]
+permissions:
+  contents: read
+concurrency:
+  group: verify-nonvertex-blocker-deletion-${{ github.head_ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    if: >-
+      github.repository == 'jjoshua2/prove2me-work' &&
+      github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
+      github.head_ref == 'formal/nonvertex-blocker-delete-or-vertex-face'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - name: Check policy and pins
+        run: |
+          set -euo pipefail
+          python3 scripts/check_actions_policy.py
+          test "$(cat lean-toolchain)" = 'leanprover/lean4:v4.30.0'
+          grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
+      - name: Restore pinned Lean environment
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Compile and audit nonvertex blocker deletion
+        run: |
+          set -euo pipefail
+          lake build Solutions.PolynomialNonvertexBlockerDeletion
+          lake env lean Solutions/PolynomialNonvertexBlockerDeletion.lean 2>&1 | tee /tmp/nonvertex-blocker-deletion.log
+          python3 scripts/check_lean_axiom_log.py /tmp/nonvertex-blocker-deletion.log \
+            HirschCircuitLocalization.vertices_tight_on_unique_nonneutral_row \
+            HirschCircuitLocalization.rowCircuitStep_target_blocker_pointed_delete_or_all_vertices_tight \
+            HirschCircuitLocalization.diamLE_of_all_vertices_in_extreme_face \
+            HirschCircuitLocalization.rowCircuitStep_target_blocker_pointed_delete_or_face_controls_parent
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nonvertex-blocker-deletion-verification
+          retention-days: 14
+          path: /tmp/nonvertex-blocker-deletion.log
+          if-no-files-found: warn
