@@ -22,7 +22,9 @@ all selected rows tight at v.
 `exists_target_tight_basis` proves this without boundedness, strict feasibility,
 simplicity, or a supplied basis. This is classical finite linear algebra;
 the contribution is completing the missing formal interface, not a claim of
-a new basis-existence theorem in mathematics.
+a new basis-existence theorem in mathematics. Here automatic refers to removal
+of an input hypothesis by a noncomputable existence proof, not an executable
+basis-search routine.
 
 For a bounded presentation with a separately supplied point o strictly
 satisfying every row, feed this automatically selected basis into #206's
