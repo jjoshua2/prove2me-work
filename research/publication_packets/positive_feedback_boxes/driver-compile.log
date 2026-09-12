@@ -1,0 +1,95 @@
+research/publication_packets/positive_feedback_boxes/driver.lean:42:0: warning: automatically included section variable(s) unused in theorem `HirschPairedBases.PairedBasisModel.point_mem`:
+  [Fintype ι]
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+research/publication_packets/positive_feedback_boxes/driver.lean:44:0: warning: automatically included section variable(s) unused in theorem `HirschPairedBases.PairedBasisModel.point_equations`:
+  [Fintype ι]
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+research/publication_packets/positive_feedback_boxes/driver.lean:91:0: warning: automatically included section variable(s) unused in theorem `HirschPairedBases.PairedBasisModel.pairedPoly_convex`:
+  [Fintype ι]
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+research/publication_packets/positive_feedback_boxes/driver.lean:120:4: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+research/publication_packets/positive_feedback_boxes/driver.lean:125:4: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+research/publication_packets/positive_feedback_boxes/driver.lean:206:56: warning: This simp argument is unused:
+  neg_nonpos
+
+Hint: Omit it from the simp argument list.
+  simp [̵a̵,̵B̵,̵p̵a̵i̵r̵e̵d̵P̵o̵l̵y̵,̵l̵o̵w̵e̵r̵R̵o̵w̵,̵u̵p̵p̵e̵r̵R̵o̵w̵,̵S̵u̵m̵.̵f̵o̵r̵a̵l̵l̵,̵n̵e̵g̵_̵n̵o̵n̵p̵o̵s̵]̵[̲a̲,̲ ̲B̲,̲ ̲p̲a̲i̲r̲e̲d̲P̲o̲l̲y̲,̲ ̲l̲o̲w̲e̲r̲R̲o̲w̲,̲ ̲u̲p̲p̲e̲r̲R̲o̲w̲,̲ ̲S̲u̲m̲.̲f̲o̲r̲a̲l̲l̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+research/publication_packets/positive_feedback_boxes/driver.lean:245:0: warning: automatically included section variable(s) unused in theorem `HirschPairedBases.PairedBasisModel.shared_equations_extreme`:
+  [Fintype ι]
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+research/publication_packets/positive_feedback_boxes/driver.lean:375:38: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+research/publication_packets/positive_feedback_boxes/driver.lean:375:57: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+research/publication_packets/positive_feedback_boxes/driver.lean:425:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+research/publication_packets/positive_feedback_boxes/driver.lean:418:0: warning: automatically included section variable(s) unused in theorem `HirschPositiveBoxes.nonpos_of_le_positive_map`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+research/publication_packets/positive_feedback_boxes/driver.lean:490:0: warning: automatically included section variable(s) unused in theorem `HirschPositiveBoxes.masked_monotone`:
+  [Fintype ι]
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+research/publication_packets/positive_feedback_boxes/driver.lean:498:0: warning: automatically included section variable(s) unused in theorem `HirschPositiveBoxes.masked_weight`:
+  [Fintype ι]
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+research/publication_packets/positive_feedback_boxes/driver.lean:518:29: warning: This simp argument is unused:
+  hs
+
+Hint: Omit it from the simp argument list.
+  simp ̵[̵h̵s̵]̵
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+research/publication_packets/positive_feedback_boxes/driver.lean:590:53: warning: This simp argument is unused:
+  mul_assoc
+
+Hint: Omit it from the simp argument list.
+  simp [̵F̵i̵n̵s̵e̵t̵.̵m̵u̵l̵_̵s̵u̵m̵,̵m̵u̵l̵_̵a̵s̵s̵o̵c̵,̵m̵u̵l̵_̵l̵e̵f̵t̵_̵c̵o̵m̵m̵]̵[̲F̲i̲n̲s̲e̲t̲.̲m̲u̲l̲_̲s̲u̲m̲,̲ ̲m̲u̲l̲_̲l̲e̲f̲t̲_̲c̲o̲m̲m̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+research/publication_packets/positive_feedback_boxes/driver.lean:592:0: warning: automatically included section variable(s) unused in theorem `HirschPositiveBoxes.matrixMap_monotone`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]

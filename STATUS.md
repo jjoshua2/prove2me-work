@@ -295,3 +295,82 @@ The earlier #200 continuation passed `lake build Solutions.PolynomialTargetConeD
 [Integration PR #195](https://github.com/jjoshua2/prove2me-work/pull/195) preserves completed #192 publication receipts and the exact #194 theorem while excluding both temporary workflows. It supersedes both completed PRs; no historical experiment remains part of the active work queue. Do not reopen their old experiments as active work.
 
 Do not equate circuit steps with edges, replace a uniform polynomial by Larman/Kalai–Kleitman, infer low excess or factorization without certificates, or create circular reductions through an open ancestor.
+
+## Coupled positive-feedback boxes (#205)
+
+All three modules are locally compiled and transitively standard-axiom audited;
+final hosted run `34723396993` passed on `163caecb77418e3bd998e0b225f8685d45dc7139`.
+The direct matrix criterion `C>=0`, `b,w>0`, `Cw<w` gives actual ordinary-edge
+diameter at most the dimension. The image adapter routes the same selected
+carriers at cost `D+sum(h_i)`. No dimension cap or Larman premise is needed.
+[Precise verification and fixture boundary](research/COUPLED_BOXES_DELIVERY_2026-09-12.md).
+The four original Python sources were absent; the committed independent verifier
+checks the supplied examples and does not claim to rerun their historical suite.
+
+The standalone public theorem is `4096cd8a-6bf6-4788-89be-e67f84f6c92f`.
+Submission `05df606c-7c8c-42eb-9e69-794b6be48926` is **ACCEPTED**; the
+authenticated theorem status is **Proved**, and accepted-source readback matches
+the frozen solution hash. #205 is merged at `e1e8b9edb23b88f10bf3ead6ee3fd704f121efe5`.
+PR #206 is the active all-row joint
+mass continuation. PR #207 is the distinct portal-debt/near-geodesic draft;
+its new Lean sources and the missing geometric adapters remain to be verified.
+
+## Joint all-row carrier mass (#206)
+
+All four new modules compile locally. All twenty required declarations pass
+transitive axiom audits; the exact suite reruns 1,099 graphs, 148,126 incidence
+audits, 26 geometric instances, 61 actual carriers, and eight negative controls.
+The unchanged matrix-independent geometric inequality is
+`sum(delta_i)+r*s <= r*(n-d)+3*s`, hence `sum(delta_i)<=3e` at `s=e`.
+The supplied target-tight basis and separate strict center give an actual
+D=1 certificate with s=e, including nonsimple targets. Intrinsic dimension
+and row mass are <=3e and <=6e. An actual carrier dimension cap H gives
+`D+6e*2^(H-3)`, or `D+24e` for H<=5, with explicit Larman input.
+[Exact scope](research/GEODESIC_ALL_ROW_MASS_2026-09-12.md).
+
+Final hosted run `34723720395` passed at `8e4a666f9bc54c64ff38f93223a965c6181751b6`,
+with all twenty required axiom reports. The graph-only joint-budget theorem
+[b8f45079](https://prove2.me/theorems/b8f45079-9784-43a0-b659-0914a2038332) is
+**Proved**, submission `83ed9045-971b-4ad8-ae0d-3659c625e850` **ACCEPTED**.
+The accepted source matches the frozen packet. The actual geometric adapters
+have local/hosted verification, not their own platform verdict.
+Basis extraction and combining feedback carriers with the mass bound are now
+locally verified in #209 below. #207 remains the separate portal-debt and
+near-geodesic draft. New #208 develops additive-spill route trees and a detour
+mass bridge depending on #206/#207; its Lean verification and complete geometric
+existence wrapper are outstanding. Neither conditional recurrence closes Hirsch.
+
+## Automatic target bases and linear mixed carriers (#209)
+
+The three new modules and all eight printed declarations pass local compilation
+and transitive standard-axiom audits. Frozen source:
+`7ffa3fb3cede303c579164245f01286a49351b15`.
+[Proof and exact boundary](research/AUTOMATIC_BASIS_LINEAR_FEEDBACK_2026-09-12.md).
+
+- Every extreme point supplies d distinct original tight rows with injective
+  row evaluation, without simplicity, boundedness, or a supplied basis.
+- With boundedness and a separate strict interior point, the basis-star
+  certificate is now obtained automatically with D=1, s=n-d and total actual
+  carrier excess <=3(n-d), before any route/model callback.
+- Feedback carriers, optionally mixed with excess<=3 carriers, give 1+3(n-d).
+  Feedback carriers mixed with dimension<=5 carriers give 1+24(n-d).
+- The same automatic certificate gives the latter route or an actual selected
+  carrier of dimension>=6 without a PositiveBoxImage model. This identifies an
+  unresolved sufficient-criterion case, not a diameter lower bound.
+
+Final hosted run `34724365226` passed at
+`43ab319f30d698105ed878e0ae9b5cc82ef8cedd`, with eight required and 414 total
+standard-axiom reports. The standalone classical basis theorem
+`e46935cf-6286-4874-a742-01cc62269b2d` has submission
+`63c8d2b9-2c24-4c59-9c3a-6769a095f63e` **ACCEPTED**. Authenticated theorem
+readback says **Proved**, and its accepted source matches the frozen packet.
+All final gates for integration #209 have passed. The basis
+publication is not a platform verdict for the larger clipping assemblies.
+The active queue after this integration should contain only #207 and #208,
+with their distinct blockers and next local compile commands in their bodies.
+The root and sole leaf were refreshed by authenticated API and remain Open.
+
+Mission update `0ab0273f-42de-4318-b53d-0bfa4e33160f` links the accepted
+#205/#206/#209 public theorems and distinguishes the larger Lean assemblies.
+The new results are listed separately from the inventory's historical counts.
+No root dependency was added without a checked reduction proving applicability.

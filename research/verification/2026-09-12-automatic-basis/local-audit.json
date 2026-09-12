@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "required": [
+    "HirschTargetDeletion.target_tight_normals_span_top",
+    "HirschTargetDeletion.exists_target_tight_basis",
+    "HirschTargetDeletion.exists_automatic_basis_star_linear_mass",
+    "HirschRadial.DeferredClipCertificate.route_positive_boxes_of_all_row_mass",
+    "HirschRadial.DeferredClipCertificate.route_mixed_feedback_small_of_all_row_mass",
+    "HirschTargetDeletion.exists_automatic_basis_linear_mixed_route",
+    "HirschRadial.DeferredClipCertificate.route_feedback_or_dim_five_of_all_row_mass",
+    "HirschTargetDeletion.automatic_basis_linear_route_or_high_dim_nonfeedback_carrier"
+  ],
+  "reports": 414,
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "source_sha256": {
+    "PolynomialAutomaticTargetBasis": "d4223d853084afaf718d32fa80d0137e41db9bd0b1719ef59a6a4f734e959dc2",
+    "PolynomialLinearFeedbackMassRouting": "60c71801eaf45de13b0e2ce5419aa3d2a6b51b6247ece3d63e282cac7d4f8587",
+    "PolynomialFeedbackCarrierResidual": "d8aac3a2d470ddd0a06bbfeab8a75777f40b89a31a9f0b5cd545f57f81028ac2"
+  }
+}

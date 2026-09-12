@@ -1,0 +1,14 @@
+{
+  "theorem_name": "Hirsch.vertex_has_injective_target_tight_basis",
+  "theorem_title": "Every polyhedron vertex supplies an injective basis of original tight rows",
+  "formal_statement": "theorem Hirsch.vertex_has_injective_target_tight_basis {d n : \u2115} (a : Fin n \u2192 EuclideanSpace \u211d (Fin d)) (b : Fin n \u2192 \u211d)\n    (v : EuclideanSpace \u211d (Fin d)) (hv : v \u2208 extremePoints \u211d (Hpoly a b)) :\n    \u2203 e : Fin d \u21aa Fin n,\n      Function.Injective (fun x : EuclideanSpace \u211d (Fin d) => fun k : Fin d => \u27eaa (e k), x\u27eb) \u2227\n      \u2200 k, \u27eaa (e k), v\u27eb = b (e k) := by sorry",
+  "natural_language_statement": "At every extreme point v of an n-row real H-polyhedron in R^d, one can\nselect exactly d distinct original rows, all tight at v, whose row-evaluation\nmap is injective. No simplicity, boundedness, strict interior point, or supplied\nbasis is required. In particular this applies to nonsimple vertices with more\nthan d tight rows.\n\nThis is classical active-row basis extraction. Its role in the Polynomial\nHirsch workspace is to remove the previously explicit basis input from the\nfull-availability compact-star construction. The present statement itself\nasserts neither a diameter bound nor the existence of feedback models for\narbitrary carriers.",
+  "preamble": "import Mathlib\nimport Definitions.Def_Hirsch_model\nopen Set Hirsch\nopen scoped BigOperators RealInnerProductSpace",
+  "source": "Classical active-row basis theorem; explicit checked application at https://github.com/jjoshua2/prove2me-work/tree/7ffa3fb3cede303c579164245f01286a49351b15",
+  "tags": [
+    "polyhedra",
+    "linear-algebra",
+    "formalization"
+  ],
+  "env": "c5ea00351c28e24afc9f0f84379aa41082b1188f"
+}

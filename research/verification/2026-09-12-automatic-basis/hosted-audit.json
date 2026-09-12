@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "run_id": 34724365226,
+  "head_sha": "43ab319f30d698105ed878e0ae9b5cc82ef8cedd",
+  "required": [
+    "HirschTargetDeletion.target_tight_normals_span_top",
+    "HirschTargetDeletion.exists_target_tight_basis",
+    "HirschTargetDeletion.exists_automatic_basis_star_linear_mass",
+    "HirschRadial.DeferredClipCertificate.route_positive_boxes_of_all_row_mass",
+    "HirschRadial.DeferredClipCertificate.route_mixed_feedback_small_of_all_row_mass",
+    "HirschTargetDeletion.exists_automatic_basis_linear_mixed_route",
+    "HirschRadial.DeferredClipCertificate.route_feedback_or_dim_five_of_all_row_mass",
+    "HirschTargetDeletion.automatic_basis_linear_route_or_high_dim_nonfeedback_carrier"
+  ],
+  "reports": 414
+}

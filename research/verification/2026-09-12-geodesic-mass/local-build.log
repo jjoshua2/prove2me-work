@@ -1,0 +1,1001 @@
+ℹ [8476/8586] Replayed Solutions.PolynomialProductWalk
+info: Solutions/PolynomialProductWalk.lean:162:0: 'HirschProduct.diamLE_pi' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8477/8586] Replayed Solutions.PolynomialFaceReentrySplice
+info: Solutions/PolynomialFaceReentrySplice.lean:158:0: 'HirschFaceSplice.splice_reentry_through_extreme_face' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialFaceReentrySplice.lean:159:0: 'HirschFaceSplice.splice_reentry_no_growth' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialFaceReentrySplice.lean:160:0: 'HirschFaceSplice.splice_reentry_cost_at_most_face_diameter' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8478/8586] Replayed Solutions.PolynomialRegionRouting
+info: Solutions/PolynomialRegionRouting.lean:156:0: 'HirschRegionRoute.shared_point_walk' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialRegionRouting.lean:157:0: 'HirschRegionRoute.route_of_region_walk' depends on axioms: [propext, Quot.sound]
+info: Solutions/PolynomialRegionRouting.lean:158:0: 'HirschRegionRoute.nodup_cost_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialRegionRouting.lean:159:0: 'HirschRegionRoute.route_of_connected_regions' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialRegionRouting.lean:160:0: 'HirschRegionRoute.region_walk_of_step_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialRegionRouting.lean:161:0: 'HirschRegionRoute.route_of_step_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialRegionRouting.lean:162:0: 'HirschRegionRoute.extreme_face_region' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialRegionRouting.lean:163:0: 'HirschRegionRoute.route_of_face_covered_sequence' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8479/8586] Replayed Solutions.PolynomialMixedRegionRouting
+info: Solutions/PolynomialMixedRegionRouting.lean:85:0: 'HirschRegionRoute.route_one' depends on axioms: [propext, Quot.sound]
+info: Solutions/PolynomialMixedRegionRouting.lean:86:0: 'HirschRegionRoute.pair_region' depends on axioms: [propext, Quot.sound]
+info: Solutions/PolynomialMixedRegionRouting.lean:87:0: 'HirschRegionRoute.route_of_mixed_step_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialMixedRegionRouting.lean:88:0: 'HirschRegionRoute.route_of_faces_and_surviving_edges' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8480/8586] Replayed Solutions.PolynomialIntervalRegionRouting
+info: Solutions/PolynomialIntervalRegionRouting.lean:94:0: 'HirschRegionRoute.region_walk_of_interval_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialIntervalRegionRouting.lean:95:0: 'HirschRegionRoute.route_of_interval_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialIntervalRegionRouting.lean:96:0: 'HirschRegionRoute.route_of_face_interval_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8481/8586] Replayed Solutions.PolynomialIntervalStartPortals
+info: Solutions/PolynomialIntervalStartPortals.lean:88:0: 'HirschRegionRoute.interval_portal_of_start_containment' does not depend on any axioms
+info: Solutions/PolynomialIntervalStartPortals.lean:89:0: 'HirschRegionRoute.route_of_interval_cover_of_start_containment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialIntervalStartPortals.lean:90:0: 'HirschRegionRoute.route_of_face_interval_cover_of_start_containment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialIntervalStartPortals.lean:91:0: 'HirschRegionRoute.route_of_face_interval_cover_of_active_containment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8482/8586] Replayed Solutions.PolynomialFacePreservingCheckpoints
+info: Solutions/PolynomialFacePreservingCheckpoints.lean:159:0: 'HirschRegionRoute.compact_face_point_has_parent_vertex' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialFacePreservingCheckpoints.lean:160:0: 'HirschRegionRoute.exists_vertex_preserving_face_memberships' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialFacePreservingCheckpoints.lean:161:0: 'HirschRegionRoute.face_preserving_vertex_selection' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialFacePreservingCheckpoints.lean:162:0: 'HirschRegionRoute.compact_faces_shared_point_portal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialFacePreservingCheckpoints.lean:163:0: 'HirschRegionRoute.route_of_feasible_face_covered_sequence' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialFacePreservingCheckpoints.lean:164:0: 'HirschRegionRoute.route_of_face_interval_cover_of_feasible_start_containment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialFacePreservingCheckpoints.lean:165:0: 'HirschRegionRoute.route_of_face_interval_cover_of_feasible_active_containment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+⚠ [8483/8586] Replayed Solutions.PolynomialClosedFaceTrace
+warning: Solutions/PolynomialClosedFaceTrace.lean:18:13: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+info: Solutions/PolynomialClosedFaceTrace.lean:111:0: 'HirschRegionRoute.finite_closed_region_union' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialClosedFaceTrace.lean:112:0: 'HirschRegionRoute.region_walk_of_preconnected_closed_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialClosedFaceTrace.lean:113:0: 'HirschRegionRoute.face_walk_to_parent_vertex_walk' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialClosedFaceTrace.lean:114:0: 'HirschRegionRoute.route_of_preconnected_face_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8484/8586] Replayed Solutions.PolynomialParentRouteClosedFaceTrace
+info: Solutions/PolynomialParentRouteClosedFaceTrace.lean:42:0: 'HirschRegionRoute.route_of_preconnected_face_cover_with_parent_routes' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8485/8586] Replayed Solutions.PolynomialUsedRegionRouting
+info: Solutions/PolynomialUsedRegionRouting.lean:66:0: 'HirschRegionRoute.route_of_connected_regions_with_used_labels' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialUsedRegionRouting.lean:67:0: 'HirschRegionRoute.route_of_preconnected_face_cover_with_parent_routes_used_labels' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8486/8586] Replayed Solutions.PolynomialUsedRegionPortalPath
+info: Solutions/PolynomialUsedRegionPortalPath.lean:98:0: 'HirschRegionRoute.route_of_connected_regions_with_used_path' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialUsedRegionPortalPath.lean:99:0: 'HirschRegionRoute.route_of_preconnected_face_cover_with_parent_routes_used_path' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialUsedRegionPortalPath.lean:100:0: 'HirschRegionRoute.parent_vertex_portal_of_used_path_edge' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8487/8586] Replayed Solutions.PolynomialPairSpecificRegionLegs
+info: Solutions/PolynomialPairSpecificRegionLegs.lean:185:0: 'HirschRegionRoute.route_of_region_walk_with_pair_specific_legs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialPairSpecificRegionLegs.lean:186:0: 'HirschRegionRoute.route_of_connected_regions_with_pair_specific_legs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialPairSpecificRegionLegs.lean:187:0: 'HirschRegionRoute.route_of_preconnected_face_cover_with_pair_specific_legs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8488/8586] Replayed Solutions.PolynomialShortestRegionRouting
+info: Solutions/PolynomialShortestRegionRouting.lean:152:0: 'HirschRegionRoute.shortest_walk_chordless' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialShortestRegionRouting.lean:153:0: 'HirschRegionRoute.exists_shortest_chordless_walk' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialShortestRegionRouting.lean:154:0: 'HirschRegionRoute.route_of_connected_regions_with_shortest_pair_specific_legs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialShortestRegionRouting.lean:155:0: 'HirschRegionRoute.route_of_preconnected_face_cover_with_shortest_pair_specific_legs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8489/8586] Replayed Solutions.PolynomialChordlessSupportCount
+info: Solutions/PolynomialChordlessSupportCount.lean:185:0: 'HirschRegionRoute.chordless_support_neighbor_eq_prev_or_next' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialChordlessSupportCount.lean:186:0: 'HirschRegionRoute.supportNeighborFinset_card_le_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialChordlessSupportCount.lean:187:0: 'HirschRegionRoute.mem_nonneighborSelectedFinset' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialChordlessSupportCount.lean:188:0: 'HirschRegionRoute.nonneighborSelectedFinset_card_ge_sub_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8490/8586] Replayed Solutions.PolynomialGeodesicRowIncidence
+info: Solutions/PolynomialGeodesicRowIncidence.lean:171:0: 'HirschRegionRoute.geodesic_index_gap_le_walk' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialGeodesicRowIncidence.lean:172:0: 'HirschRegionRoute.geodesic_closedNear_index_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialGeodesicRowIncidence.lean:173:0: 'HirschRegionRoute.geodesicContactSupport_card_le_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialGeodesicRowIncidence.lean:174:0: 'HirschRegionRoute.geodesic_total_available_load' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialGeodesicRowIncidence.lean:175:0: 'HirschRegionRoute.geodesic_list_available_load' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialGeodesicRowIncidence.lean:176:0: 'HirschRegionRoute.list_sum_available_budget' depends on axioms: [propext, Quot.sound]
+ℹ [8491/8586] Replayed Solutions.PolynomialConvexSubsegment
+info: Solutions/PolynomialConvexSubsegment.lean:104:0: 'HirschSubsegment.linePoint_combo' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialConvexSubsegment.lean:105:0: 'HirschSubsegment.linePoint_mem_segment' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialConvexSubsegment.lean:106:0: 'HirschSubsegment.linePoint_mem_openSegment' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialConvexSubsegment.lean:107:0: 'HirschSubsegment.segment_point_parameter' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialConvexSubsegment.lean:108:0: 'HirschSubsegment.subset_of_ordered_extreme_parameters' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialConvexSubsegment.lean:109:0: 'HirschSubsegment.diamLE_of_convex_subsegment' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialConvexSubsegment.lean:110:0: 'HirschSubsegment.extreme_inter_of_parent_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8492/8586] Replayed Solutions.PolynomialRadialClipCells
+info: Solutions/PolynomialRadialClipCells.lean:98:0: 'HirschRadial.eval_point' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialRadialClipCells.lean:99:0: 'HirschRadial.point_mem_convex' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialRadialClipCells.lean:100:0: 'HirschRadial.point_satisfies_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialRadialClipCells.lean:101:0: 'HirschRadial.point_on_active_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialRadialClipCells.lean:102:0: 'HirschRadial.point_at_unit_scale' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialRadialClipCells.lean:103:0: 'HirschRadial.finite_radial_scale_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialRadialClipCells.lean:104:0: 'HirschRadial.point_mem_final_clip' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialRadialClipCells.lean:105:0: 'HirschRadial.point_mem_active_final_face' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialRadialClipCells.lean:106:0: 'HirschRadial.affine_dominance_on_cell' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8493/8586] Replayed Solutions.PolynomialRadialRetraction
+info: Solutions/PolynomialRadialRetraction.lean:125:0: 'HirschRadial.one_le_scale' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialRadialRetraction.lean:126:0: 'HirschRadial.le_scale' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialRadialRetraction.lean:127:0: 'HirschRadial.scale_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialRadialRetraction.lean:128:0: 'HirschRadial.scale_eq_one_or_row' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialRadialRetraction.lean:129:0: 'HirschRadial.continuous_scale' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialRadialRetraction.lean:130:0: 'HirschRadial.continuous_retract' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialRadialRetraction.lean:131:0: 'HirschRadial.retract_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialRadialRetraction.lean:132:0: 'HirschRadial.retract_fixes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialRadialRetraction.lean:133:0: 'HirschRadial.retract_eq_self_or_on_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialRadialRetraction.lean:134:0: 'HirschRadial.retract_on_cut_of_exceeded' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8494/8586] Replayed Solutions.PolynomialHalfspaceVertex
+info: Solutions/PolynomialHalfspaceVertex.lean:84:0: 'HirschCut.strict_cut_extreme_to_parent' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8495/8586] Replayed Solutions.PolynomialClipEndpointLift
+warning: Solutions/PolynomialClipEndpointLift.lean:69:15: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+info: Solutions/PolynomialClipEndpointLift.lean:107:0: 'HirschClipLift.supporting_equality_extreme' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialClipEndpointLift.lean:108:0: 'HirschClipLift.exists_extreme_above' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialClipEndpointLift.lean:109:0: 'HirschClipLift.strict_all_cuts_extreme_to_parent' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialClipEndpointLift.lean:110:0: 'HirschClipLift.endpoint_lift_to_outer_vertex' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8497/8586] Replayed Solutions.PolynomialSimultaneousClipDiameter
+warning: Solutions/PolynomialSimultaneousClipDiameter.lean:18:0: automatically included section variable(s) unused in theorem `HirschRadial.clipSet_convex`:
+  [Fintype ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Solutions/PolynomialSimultaneousClipDiameter.lean:28:0: automatically included section variable(s) unused in theorem `HirschRadial.clipSet_compact`:
+  [Fintype ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Solutions/PolynomialSimultaneousClipDiameter.lean:216:4: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+info: Solutions/PolynomialSimultaneousClipDiameter.lean:270:0: 'HirschRadial.clipSet_convex' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialSimultaneousClipDiameter.lean:271:0: 'HirschRadial.clipSet_compact' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialSimultaneousClipDiameter.lean:272:0: 'HirschRadial.walkTrace_start' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialSimultaneousClipDiameter.lean:273:0: 'HirschRadial.walkTrace_end' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialSimultaneousClipDiameter.lean:274:0: 'HirschRadial.walkTrace_preconnected' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialSimultaneousClipDiameter.lean:275:0: 'HirschRadial.singleton_diamLE_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialSimultaneousClipDiameter.lean:276:0: 'HirschRadial.diamLE_clip_of_strict_centre' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialSimultaneousClipDiameter.lean:277:0: 'HirschRadial.strict_centre_or_universal_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialSimultaneousClipDiameter.lean:278:0: 'HirschRadial.simultaneous_clipping_diameter_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8498/8586] Replayed Solutions.PolynomialSimultaneousClipParentRoutes
+info: Solutions/PolynomialSimultaneousClipParentRoutes.lean:212:0: 'HirschRadial.route_clip_of_lifted_endpoints_with_parent_routes' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialSimultaneousClipParentRoutes.lean:213:0: 'HirschRadial.diamLE_clip_of_strict_centre_with_parent_routes' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialSimultaneousClipParentRoutes.lean:214:0: 'HirschRadial.route_clip_from_root_with_parent_routes' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8499/8586] Replayed Solutions.PolynomialSimultaneousClipUsedRegions
+warning: Solutions/PolynomialSimultaneousClipUsedRegions.lean:62:0: automatically included section variable(s) unused in theorem `HirschRadial.clipRepairCutLabels_nodup`:
+  [Fintype ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Solutions/PolynomialSimultaneousClipUsedRegions.lean:72:0: automatically included section variable(s) unused in theorem `HirschRadial.clipRepairOldEdgeLabels_nodup`:
+  [Fintype ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Solutions/PolynomialSimultaneousClipUsedRegions.lean:82:0: automatically included section variable(s) unused in theorem `HirschRadial.clipRepairRegionCost_sum_eq_cut_add_old_length`:
+  [Fintype ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Solutions/PolynomialSimultaneousClipUsedRegions.lean:88:12: This simp argument is unused:
+  clipRepairRegionCost
+
+Hint: Omit it from the simp argument list.
+  simp [̵c̵l̵i̵p̵R̵e̵p̵a̵i̵r̵R̵e̵g̵i̵o̵n̵C̵o̵s̵t̵,̵ ̵c̵l̵i̵p̵R̵e̵p̵a̵i̵r̵C̵u̵t̵L̵a̵b̵e̵l̵s̵,̵[̲c̲l̲i̲p̲R̲e̲p̲a̲i̲r̲C̲u̲t̲L̲a̲b̲e̲l̲s̲,̲ clipRepairOldEdgeLabels]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Solutions/PolynomialSimultaneousClipUsedRegions.lean:92:25: This simp argument is unused:
+  Nat.add_comm
+
+Hint: Omit it from the simp argument list.
+  simp [clipRepairRegionCost, clipRepairCutLabels, clipRepairOldEdgeLabels, ih,
+           ̵ ̵Nat.add_assoc, Nat.add_c̵o̵m̵m̵,̵ ̵N̵a̵t̵.̵a̵d̵d̵_̵left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Solutions/PolynomialSimultaneousClipUsedRegions.lean:92:39: This simp argument is unused:
+  Nat.add_left_comm
+
+Hint: Omit it from the simp argument list.
+  simp [clipRepairRegionCost, clipRepairCutLabels, clipRepairOldEdgeLabels, ih,
+           ̵ ̵Nat.add_assoc, Nat.add_comm,̵ ̵N̵a̵t̵.̵a̵d̵d̵_̵l̵e̵f̵t̵_̵c̵o̵m̵m̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Solutions/PolynomialSimultaneousClipUsedRegions.lean:94:10: This simp argument is unused:
+  Nat.add_assoc
+
+Hint: Omit it from the simp argument list.
+  simp [clipRepairRegionCost, clipRepairCutLabels, clipRepairOldEdgeLabels, ih, N̵a̵t̵.̵a̵d̵d̵_̵a̵s̵s̵o̵c̵,̵ ̵Nat.add_comm,
+  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲Nat.add_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+info: Solutions/PolynomialSimultaneousClipUsedRegions.lean:400:0: 'HirschRadial.clipRepairRegionCost_sum_eq_cut_add_old_length' depends on axioms: [propext, Quot.sound]
+info: Solutions/PolynomialSimultaneousClipUsedRegions.lean:401:0: 'HirschRadial.route_clip_of_lifted_endpoints_with_parent_routes_used_regions' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialSimultaneousClipUsedRegions.lean:402:0: 'HirschRadial.route_clip_of_lifted_endpoints_with_parent_routes_used_cut_faces' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialSimultaneousClipUsedRegions.lean:403:0: 'HirschRadial.route_clip_with_parent_routes_used_regions' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialSimultaneousClipUsedRegions.lean:404:0: 'HirschRadial.route_clip_with_parent_routes_used_cut_faces' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialSimultaneousClipUsedRegions.lean:405:0: 'HirschRadial.route_clip_from_root_with_parent_routes_used_regions' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialSimultaneousClipUsedRegions.lean:406:0: 'HirschRadial.route_clip_from_root_with_parent_routes_used_cut_faces' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+⚠ [8500/8586] Replayed Solutions.PolynomialSimultaneousClipPairLegs
+warning: Solutions/PolynomialSimultaneousClipPairLegs.lean:57:0: automatically included section variable(s) unused in theorem `HirschRadial.clipRepairCutLeg_labels_eq`:
+  [Fintype ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Solutions/PolynomialSimultaneousClipPairLegs.lean:85:0: automatically included section variable(s) unused in theorem `HirschRadial.clipRepairPairCost_sum_eq_cut_add_old_length`:
+  [Fintype ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+info: Solutions/PolynomialSimultaneousClipPairLegs.lean:351:0: 'HirschRadial.clipRepairPairCost_sum_eq_cut_add_old_length' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialSimultaneousClipPairLegs.lean:352:0: 'HirschRadial.route_clip_of_lifted_endpoints_with_pair_specific_cut_legs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialSimultaneousClipPairLegs.lean:353:0: 'HirschRadial.route_clip_with_pair_specific_cut_legs' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8501/8586] Replayed Solutions.PolynomialSimultaneousClipShortestPairLegs
+info: Solutions/PolynomialSimultaneousClipShortestPairLegs.lean:318:0: 'HirschRadial.clipRepairPathRegion' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialSimultaneousClipShortestPairLegs.lean:319:0: 'HirschRadial.route_clip_of_lifted_endpoints_with_shortest_pair_specific_cut_legs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialSimultaneousClipShortestPairLegs.lean:320:0: 'HirschRadial.route_clip_with_shortest_pair_specific_cut_legs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8502/8586] Replayed Solutions.PolynomialDeferredRouteRegionCosts
+info: Solutions/PolynomialDeferredRouteRegionCosts.lean:163:0: 'HirschRegionRoute.route_of_connected_regions_with_shortest_deferred_route_legs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialDeferredRouteRegionCosts.lean:164:0: 'HirschRegionRoute.route_of_preconnected_face_cover_with_shortest_deferred_parent_legs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8503/8586] Replayed Solutions.PolynomialDeferredClipping
+info: Solutions/PolynomialDeferredClipping.lean:216:0: 'HirschRadial.deferred_clip_certificate_of_lifted_endpoints' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialDeferredClipping.lean:217:0: 'HirschRadial.deferred_clip_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8505/8586] Replayed Solutions.CircuitIrredundantModel
+info: Solutions/CircuitIrredundantModel.lean:122:0: 'HirschCircuit.irredundant_rows_nonzero_of_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitIrredundantModel.lean:123:0: 'HirschCircuit.exists_irredundant_strict_model' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8506/8586] Replayed Definitions.Def_Hirsch_common_face_geometry
+warning: Definitions/Def_Hirsch_common_face_geometry.lean:102:7: unused variable `x`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ℹ [8507/8586] Replayed Solutions.PolynomialVertexSpan
+info: Solutions/PolynomialVertexSpan.lean:76:0: 'HirschPolynomialAccess.vertex_tight_rows_span_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8509/8586] Replayed Solutions.PolynomialExcessFaceRank
+info: Solutions/PolynomialExcessFaceRank.lean:197:0: 'HirschPolynomialAccess.common_direction_finrank_le_neutral_rank' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialExcessFaceRank.lean:198:0: 'HirschPolynomialAccess.common_direction_finrank_le_excess' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8511/8586] Replayed Solutions.PolynomialCommonFaceCoords
+warning: Solutions/PolynomialCommonFaceCoords.lean:55:7: unused variable `x`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ℹ [8512/8586] Replayed Solutions.PolynomialCircuitLocalization
+info: Solutions/PolynomialCircuitLocalization.lean:292:0: 'HirschCircuitLocalization.commonFaceDim_le_sourceOnlyRows_card' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitLocalization.lean:293:0: 'HirschCircuitLocalization.commonFaceDim_le_targetOnlyRows_card' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitLocalization.lean:294:0: 'HirschCircuitLocalization.circuitNeutralRows_card_ge_dim_sub_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitLocalization.lean:295:0: 'HirschCircuitLocalization.rowCircuit_commonFaceDim_localization' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitLocalization.lean:296:0: 'HirschCircuitLocalization.rowCircuit_commonFaceDim_twice_le_excess_add_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8513/8586] Replayed Solutions.PolynomialCircuitNeutralRank
+info: Solutions/PolynomialCircuitNeutralRank.lean:125:0: 'HirschCircuitLocalization.rowCircuit_neutral_kernel_eq_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialCircuitNeutralRank.lean:126:0: 'HirschCircuitLocalization.rowCircuit_neutral_rank_eq_dim_sub_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8514/8586] Replayed Solutions.PolynomialCircuitFaceNeutralRank
+info: Solutions/PolynomialCircuitFaceNeutralRank.lean:114:0: 'HirschCircuitLocalization.rowCircuit_neutral_kernel_on_subspace_eq_span' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitFaceNeutralRank.lean:115:0: 'HirschCircuitLocalization.rowCircuit_neutral_rank_on_subspace_eq_dim_sub_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitFaceNeutralRank.lean:116:0: 'HirschCircuitLocalization.rowCircuit_neutral_rank_on_commonDirection_eq_commonFaceDim_sub_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8515/8586] Replayed Solutions.PolynomialRowRankDeletion
+info: Solutions/PolynomialRowRankDeletion.lean:103:0: 'HirschCircuitLocalization.restricted_rowEval_rank_le_subrank_add_deleted' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialRowRankDeletion.lean:104:0: 'HirschCircuitLocalization.restricted_rowEval_defect_le_deleted' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+⚠ [8516/8586] Replayed Solutions.PolynomialCommonFaceEffectiveRows
+warning: Solutions/PolynomialCommonFaceEffectiveRows.lean:104:6: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+info: Solutions/PolynomialCommonFaceEffectiveRows.lean:148:0: 'HirschCircuitLocalization.restricted_rowEval_effective_kernel_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCommonFaceEffectiveRows.lean:149:0: 'HirschCircuitLocalization.restricted_rowEval_effective_rank_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCommonFaceEffectiveRows.lean:150:0: 'HirschCircuitLocalization.commonDirection_effectiveRows_card_add_dim_le_rows_add_faceDim' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCommonFaceEffectiveRows.lean:151:0: 'HirschCircuitLocalization.rowCircuit_effectiveNeutral_rank_on_commonDirection_eq_faceDim_sub_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8517/8586] Replayed Solutions.PolynomialCircuitSelectedRowDefect
+info: Solutions/PolynomialCircuitSelectedRowDefect.lean:119:0: 'HirschCircuitLocalization.rowCircuit_selectedEffectiveRows_defect_budget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitSelectedRowDefect.lean:120:0: 'HirschCircuitLocalization.rowCircuit_selectedEffectiveRows_excess_defect' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8518/8586] Replayed Solutions.PolynomialCircuitDefectPublicBridge
+info: Solutions/PolynomialCircuitDefectPublicBridge.lean:63:0: 'HirschCircuitLocalization.effectiveRowsOn_commonDirection_eq_coordinateEffectiveRows' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitDefectPublicBridge.lean:64:0: 'HirschCircuitLocalization.effectiveRowsOn_commonDirection_eq_publicCommonFaceEffectiveRows' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8519/8586] Replayed Solutions.PolynomialCircuitSubpresentationDefect
+info: Solutions/PolynomialCircuitSubpresentationDefect.lean:82:0: 'HirschCircuitLocalization.rowCircuit_commonFace_subpresentation_defect_budget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8520/8586] Replayed Solutions.PolynomialCommonFaceSubpresentationRank
+info: Solutions/PolynomialCommonFaceSubpresentationRank.lean:119:0: 'HirschCircuitLocalization.commonFace_coord_zero_extreme' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialCommonFaceSubpresentationRank.lean:120:0: 'HirschCircuitLocalization.commonFace_subpresentation_effectiveRows_card_ge_dim' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8521/8586] Replayed Solutions.PolynomialCircuitSubpresentationExcess
+info: Solutions/PolynomialCircuitSubpresentationExcess.lean:134:0: 'HirschCircuitLocalization.rows_ge_dimension_of_vertex' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialCircuitSubpresentationExcess.lean:135:0: 'HirschCircuitLocalization.rowCircuit_commonFace_subpresentation_excess_defect' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+⚠ [8522/8586] Replayed Solutions.PolynomialCommonFaceIrredundantModel
+warning: Solutions/PolynomialCommonFaceIrredundantModel.lean:46:5: unused variable `hu`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+info: Solutions/PolynomialCommonFaceIrredundantModel.lean:205:0: 'HirschCircuitLocalization.commonFaceA_eq_zero_of_commonSourceRow' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCommonFaceIrredundantModel.lean:206:0: 'HirschCircuitLocalization.commonFace_coord_endpoint_separation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCommonFaceIrredundantModel.lean:207:0: 'HirschCircuitLocalization.commonFace_coord_irredundant_strict_subpresentation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCommonFaceIrredundantModel.lean:208:0: 'HirschCircuitLocalization.rowCircuit_commonFace_irredundant_strict_excess_defect' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8523/8586] Replayed Solutions.PolynomialCommonFaceRoutingModel
+info: Solutions/PolynomialCommonFaceRoutingModel.lean:250:0: 'HirschCircuitLocalization.commonFace_coord_extreme_of_parent_extreme' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCommonFaceRoutingModel.lean:251:0: 'HirschCircuitLocalization.commonFace_coord_target_extreme' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialCommonFaceRoutingModel.lean:252:0: 'HirschCircuitLocalization.commonFace_edgeRefinement_ready_model' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCommonFaceRoutingModel.lean:253:0: 'HirschCircuitLocalization.rowCircuit_commonFace_edgeRefinement_ready_excess_defect' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8524/8586] Replayed Solutions.PolynomialIrredundantRowCount
+info: Solutions/PolynomialIrredundantRowCount.lean:277:0: 'HirschRowCount.strict_on_nonzero_rows_strict_for_valid_row' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialIrredundantRowCount.lean:278:0: 'HirschRowCount.exists_nonzero_tight_row_of_valid_tight_row' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialIrredundantRowCount.lean:279:0: 'HirschRowCount.exists_single_tight_point_of_irredundant' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialIrredundantRowCount.lean:280:0: 'HirschRowCount.irredundant_rows_card_le_any_equivalent_presentation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialIrredundantRowCount.lean:281:0: 'HirschRowCount.strict_feasibility_transfers_to_equivalent_irredundant' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialIrredundantRowCount.lean:282:0: 'HirschRowCount.equivalent_irredundant_row_counts_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialIrredundantRowCount.lean:283:0: 'HirschRowCount.exists_globally_minimal_irredundant_subpresentation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8525/8586] Replayed Solutions.PolynomialCommonFaceMinimalSubpresentation
+info: Solutions/PolynomialCommonFaceMinimalSubpresentation.lean:263:0: 'HirschCircuitLocalization.commonFace_subpresentation_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialCommonFaceMinimalSubpresentation.lean:264:0: 'HirschCircuitLocalization.commonFaceMinSubpresentation_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialCommonFaceMinimalSubpresentation.lean:265:0: 'HirschCircuitLocalization.commonFaceMinSubpresentation_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialCommonFaceMinimalSubpresentation.lean:266:0: 'HirschCircuitLocalization.effective_subpresentation_preserves_hpoly' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCommonFaceMinimalSubpresentation.lean:267:0: 'HirschCircuitLocalization.commonFace_minSubpresentation_effective_witness' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCommonFaceMinimalSubpresentation.lean:268:0: 'HirschCircuitLocalization.rowCircuit_commonFace_minSubpresentation_excess_defect' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8526/8586] Replayed Solutions.PolynomialCommonFaceIntrinsicRowCount
+info: Solutions/PolynomialCommonFaceIntrinsicRowCount.lean:101:0: 'HirschCircuitLocalization.commonFace_minCount_eq_irredundant_subpresentation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCommonFaceIntrinsicRowCount.lean:102:0: 'HirschCircuitLocalization.commonFace_minCount_eq_any_irredundant_presentation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8527/8586] Replayed Solutions.PolynomialCommonFaceStrictRowSavings
+info: Solutions/PolynomialCommonFaceStrictRowSavings.lean:201:0: 'HirschCircuitLocalization.irredundant_commonFace_rows_disjoint_strict_rows' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCommonFaceStrictRowSavings.lean:202:0: 'HirschCircuitLocalization.commonFace_minExcess_add_strictRows_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCommonFaceStrictRowSavings.lean:203:0: 'HirschCircuitLocalization.commonFace_minExcess_le_of_strictRows_card' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8528/8586] Replayed Solutions.PolynomialDisjointCutCarrierSavings
+info: Solutions/PolynomialDisjointCutCarrierSavings.lean:175:0: 'HirschCircuitLocalization.row_ne_zero_of_tight_and_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialDisjointCutCarrierSavings.lean:176:0: 'HirschCircuitLocalization.closed_extreme_faces_disjoint_of_no_parent_vertex_portal' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialDisjointCutCarrierSavings.lean:177:0: 'HirschCircuitLocalization.closed_extreme_faces_disjoint_of_region_nonadj' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialDisjointCutCarrierSavings.lean:178:0: 'HirschCircuitLocalization.commonFace_subset_hpolyRowFace_of_tight' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialDisjointCutCarrierSavings.lean:179:0: 'HirschCircuitLocalization.row_strict_on_commonFace_of_disjoint_rowFaces' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialDisjointCutCarrierSavings.lean:180:0: 'HirschCircuitLocalization.commonFace_minExcess_add_disjoint_rowFaces_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialDisjointCutCarrierSavings.lean:181:0: 'HirschCircuitLocalization.commonFace_minExcess_add_disjoint_targetSlack_rowFaces_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8529/8586] Replayed Solutions.PolynomialChordlessCarrierExcessTradeoff
+info: Solutions/PolynomialChordlessCarrierExcessTradeoff.lean:142:0: 'HirschCircuitLocalization.commonFace_minExcess_add_selected_sub_three_le_of_chordless_rowFaces' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialChordlessCarrierExcessTradeoff.lean:143:0: 'HirschCircuitLocalization.commonFace_minExcess_le_three_of_chordless_maximal_rowFace_support' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8530/8586] Replayed Solutions.PolynomialCircuitCarrierEdge
+info: Solutions/PolynomialCircuitCarrierEdge.lean:179:0: 'HirschPolynomialAccess.rowCircuitStep_adj_of_commonFace_line' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitCarrierEdge.lean:180:0: 'HirschPolynomialAccess.commonFace_line_of_dim_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialCircuitCarrierEdge.lean:181:0: 'HirschPolynomialAccess.rowCircuitStep_adj_of_commonFaceDim_le_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8531/8586] Replayed Solutions.PolynomialCircuitCarrierRank
+info: Solutions/PolynomialCircuitCarrierRank.lean:118:0: 'HirschPolynomialAccess.activeNeutralRows_displacement_eq_commonSourceRows' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitCarrierRank.lean:119:0: 'HirschPolynomialAccess.commonSource_rank_add_commonFaceDim' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialCircuitCarrierRank.lean:120:0: 'HirschPolynomialAccess.commonFaceDim_le_one_of_commonSource_rank' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitCarrierRank.lean:121:0: 'HirschPolynomialAccess.rowCircuitStep_adj_of_commonSource_rank' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitCarrierRank.lean:122:0: 'HirschPolynomialAccess.rowCircuitStep_adj_of_activeNeutral_rank' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitCarrierRank.lean:123:0: 'HirschPolynomialAccess.rowCircuitStep_adj_of_activeNeutral_rank_dim_sub_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitCarrierRank.lean:124:0: 'HirschPolynomialAccess.rowCircuitStep_adj_of_activeNeutralDefect_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8532/8586] Replayed Solutions.PolynomialCircuitCarrierDefect
+info: Solutions/PolynomialCircuitCarrierDefect.lean:121:0: 'HirschPolynomialAccess.activeNeutralDefect_displacement_eq_commonFaceDim_sub_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitCarrierDefect.lean:122:0: 'HirschPolynomialAccess.activeNeutralDefect_displacement_zero_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitCarrierDefect.lean:123:0: 'HirschPolynomialAccess.commonFaceDim_pos_of_displacement_ne_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitCarrierDefect.lean:124:0: 'HirschPolynomialAccess.activeNeutralDefect_add_one_eq_commonFaceDim' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitCarrierDefect.lean:125:0: 'HirschPolynomialAccess.rowCircuit_activeNeutralDefect_eq_neutral_rank_loss' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitCarrierDefect.lean:126:0: 'HirschPolynomialAccess.rowCircuitStep_nonadj_activeNeutralDefect_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitCarrierDefect.lean:127:0: 'HirschPolynomialAccess.rowCircuit_vertex_pair_activeDefect_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitCarrierDefect.lean:128:0: 'HirschPolynomialAccess.rowCircuitStep_adj_of_row_excess_le_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8533/8586] Replayed Solutions.PolynomialCircuitCarrierRouting
+info: Solutions/PolynomialCircuitCarrierRouting.lean:71:0: 'HirschPolynomialAccess.commonFace_isClosed_of_compact_parent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitCarrierRouting.lean:72:0: 'HirschPolynomialAccess.route_of_feasible_commonFace_carrier_budgets' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+⚠ [8534/8586] Replayed Solutions.PolynomialAffineDiameterTransport
+warning: Solutions/PolynomialAffineDiameterTransport.lean:247:4: Try this: intro h x hx y hy
+info: Solutions/PolynomialAffineDiameterTransport.lean:286:0: 'Hirsch.affineEquiv_isExtreme_image' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialAffineDiameterTransport.lean:287:0: 'Hirsch.affineEquiv_image_extremePoints' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialAffineDiameterTransport.lean:288:0: 'Hirsch.affineEquiv_adj_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialAffineDiameterTransport.lean:289:0: 'Hirsch.affineEquiv_diamLE_image_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialAffineDiameterTransport.lean:290:0: 'Hirsch.affineMap_isExtreme_image_iff_of_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialAffineDiameterTransport.lean:291:0: 'Hirsch.affineMap_image_extremePoints_of_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialAffineDiameterTransport.lean:292:0: 'Hirsch.affineMap_adj_iff_of_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialAffineDiameterTransport.lean:293:0: 'Hirsch.affineMap_diamLE_image_iff_of_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8535/8586] Replayed Solutions.PolynomialCommonFaceSmallExcessDiameter
+info: Solutions/PolynomialCommonFaceSmallExcessDiameter.lean:133:0: 'HirschCircuitLocalization.commonFaceAffineMap_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialCommonFaceSmallExcessDiameter.lean:134:0: 'HirschCircuitLocalization.commonFaceAffineMap_image_coord' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialCommonFaceSmallExcessDiameter.lean:135:0: 'HirschCircuitLocalization.commonFace_diamLE_two_of_minCount_le_dim_add_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8536/8586] Replayed Solutions.PolynomialCommonFaceExcessTwoCarrier
+info: Solutions/PolynomialCommonFaceExcessTwoCarrier.lean:134:0: 'HirschCircuitLocalization.commonFace_diamLE_two_of_subpresentation_at_most' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCommonFaceExcessTwoCarrier.lean:135:0: 'HirschCircuitLocalization.commonFace_has_subpresentation_dim_add_two_of_rows_le_dim_add_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCommonFaceExcessTwoCarrier.lean:136:0: 'HirschCircuitLocalization.commonFace_diamLE_two_of_rows_le_dim_add_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8537/8586] Replayed Solutions.PolynomialExcessTwoWholeWalkRouting
+info: Solutions/PolynomialExcessTwoWholeWalkRouting.lean:80:0: 'HirschCircuitLocalization.hpoly_isClosed' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialExcessTwoWholeWalkRouting.lean:81:0: 'HirschCircuitLocalization.feasible_sequence_edge_route_two_mul_of_rows_le_dim_add_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialExcessTwoWholeWalkRouting.lean:82:0: 'HirschCircuitLocalization.rowCircuitWalk_edge_route_two_mul_of_rows_le_dim_add_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8538/8586] Replayed Solutions.PolynomialCarrierExcessThreeRouting
+info: Solutions/PolynomialCarrierExcessThreeRouting.lean:116:0: 'HirschCircuitLocalization.commonFace_diamLE_three_of_subpresentation_at_most' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCarrierExcessThreeRouting.lean:117:0: 'HirschCircuitLocalization.commonFace_diamLE_three_of_minCount_le_dim_add_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCarrierExcessThreeRouting.lean:118:0: 'HirschCircuitLocalization.feasible_sequence_edge_route_three_mul_of_carrier_minCount_le_dim_add_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8539/8586] Replayed Solutions.PolynomialCarrierSmallExcessBudgetRouting
+info: Solutions/PolynomialCarrierSmallExcessBudgetRouting.lean:95:0: 'HirschCircuitLocalization.commonFace_diamLE_of_subpresentation_excess_le_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCarrierSmallExcessBudgetRouting.lean:96:0: 'HirschCircuitLocalization.feasible_sequence_edge_route_of_carrier_excess_budgets_le_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+⚠ [8541/8586] Replayed Solutions.CircuitSlackTranslation
+warning: Solutions/CircuitSlackTranslation.lean:148:4: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Solutions/CircuitSlackTranslation.lean:149:4: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Solutions/CircuitSlackTranslation.lean:155:6: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+info: Solutions/CircuitSlackTranslation.lean:159:0: 'HirschCircuit.rowCircuitStep_iff_slackCircuitStep' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitSlackTranslation.lean:160:0: 'HirschCircuit.rowCircuitWalk_to_slackCircuitWalk' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8542/8586] Replayed Solutions.CircuitSlackBounded
+info: Solutions/CircuitSlackBounded.lean:48:0: 'HirschCircuit.rowMap_injective_of_bounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8543/8586] Replayed Solutions.PolynomialCircuitBoundedNeutralRank
+info: Solutions/PolynomialCircuitBoundedNeutralRank.lean:204:0: 'HirschCircuitLocalization.rows_ge_dimension_of_bounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialCircuitBoundedNeutralRank.lean:205:0: 'HirschCircuitLocalization.rowCircuit_neutral_kernel_eq_span_of_bounded' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitBoundedNeutralRank.lean:206:0: 'HirschCircuitLocalization.rowCircuit_neutral_rank_eq_dim_sub_one_of_bounded' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitBoundedNeutralRank.lean:207:0: 'HirschCircuitLocalization.rowCircuit_neutral_rank_on_commonDirection_eq_commonFaceDim_sub_one_of_bounded' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+⚠ [8544/8586] Replayed Solutions.PolynomialCircuitCheckpointLocalization
+warning: Solutions/PolynomialCircuitCheckpointLocalization.lean:101:38: This simp argument is unused:
+  and_left_comm
+
+Hint: Omit it from the simp argument list.
+  simp [commonSourceRows, and_comm, a̵n̵d̵_̵l̵e̵f̵t̵_̵c̵o̵m̵m̵,̵ ̵and_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Solutions/PolynomialCircuitCheckpointLocalization.lean:107:52: This simp argument is unused:
+  and_left_comm
+
+Hint: Omit it from the simp argument list.
+  simp [sourceOnlyRows, targetOnlyRows, and_comm, a̵n̵d̵_̵l̵e̵f̵t̵_̵c̵o̵m̵m̵,̵ ̵and_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+info: Solutions/PolynomialCircuitCheckpointLocalization.lean:199:0: 'HirschCircuitLocalization.rowEval_nullity_le_supernullity_add_deleted' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitCheckpointLocalization.lean:200:0: 'HirschCircuitLocalization.commonFaceDim_le_sourceOnlyRows_card_add_sourceNullity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitCheckpointLocalization.lean:201:0: 'HirschCircuitLocalization.commonFaceDim_le_targetOnlyRows_card_add_targetNullity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitCheckpointLocalization.lean:202:0: 'HirschCircuitLocalization.commonFaceDim_checkpoint_localization_with_directionDefect' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitCheckpointLocalization.lean:203:0: 'HirschCircuitLocalization.directionNeutralDefect_eq_zero_of_rowCircuit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitCheckpointLocalization.lean:204:0: 'HirschCircuitLocalization.rowCircuit_commonFaceDim_checkpoint_localization' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8545/8586] Replayed Solutions.PolynomialCircuitCheckpointMinSubpresentationDefect
+info: Solutions/PolynomialCircuitCheckpointMinSubpresentationDefect.lean:304:0: 'HirschCircuitLocalization.rowCircuit_selectedEffectiveRows_defect_budget_of_reference_vertex' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitCheckpointMinSubpresentationDefect.lean:305:0: 'HirschCircuitLocalization.rowCircuit_selectedEffectiveRows_excess_defect_of_reference_vertex' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitCheckpointMinSubpresentationDefect.lean:306:0: 'HirschCircuitLocalization.commonFace_minSubpresentation_effective_witness_of_feasible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitCheckpointMinSubpresentationDefect.lean:307:0: 'HirschCircuitLocalization.commonFaceDim_le_minSubpresentation_of_bounded_feasible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitCheckpointMinSubpresentationDefect.lean:308:0: 'HirschCircuitLocalization.rowCircuit_commonFace_minSubpresentation_excess_defect_checkpoint' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8546/8586] Replayed Solutions.PolynomialCircuitCheckpointMinSubpresentationDefectBounded
+info: Solutions/PolynomialCircuitCheckpointMinSubpresentationDefectBounded.lean:183:0: 'HirschCircuitLocalization.rowCircuit_selectedEffectiveRows_defect_budget_of_bounded' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitCheckpointMinSubpresentationDefectBounded.lean:184:0: 'HirschCircuitLocalization.rowCircuit_selectedEffectiveRows_excess_defect_of_bounded' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitCheckpointMinSubpresentationDefectBounded.lean:185:0: 'HirschCircuitLocalization.rowCircuit_commonFace_minSubpresentation_excess_defect_of_bounded' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8547/8586] Replayed Solutions.PolynomialMinCarrierExcessRouting
+info: Solutions/PolynomialMinCarrierExcessRouting.lean:134:0: 'HirschCircuitLocalization.commonFace_has_subpresentation_faceDim_add_minExcess' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialMinCarrierExcessRouting.lean:135:0: 'HirschCircuitLocalization.commonFace_diamLE_minPresentationExcess_of_le_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialMinCarrierExcessRouting.lean:136:0: 'HirschCircuitLocalization.feasible_sequence_edge_route_sum_minPresentationExcess_of_each_le_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialMinCarrierExcessRouting.lean:137:0: 'HirschCircuitLocalization.rowCircuitWalk_edge_route_sum_minPresentationExcess_of_each_le_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8548/8586] Replayed Solutions.PolynomialMaximalSupportClipping
+info: Solutions/PolynomialMaximalSupportClipping.lean:158:0: 'HirschRadial.DeferredClipCertificate.used_carrier_excess_le_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialMaximalSupportClipping.lean:159:0: 'HirschRadial.DeferredClipCertificate.route_of_used_carrier_excess_le_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialMaximalSupportClipping.lean:160:0: 'HirschRadial.DeferredClipCertificate.route_of_maximal_support' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8549/8586] Replayed Solutions.PolynomialLowDimensionalCarrierRouting
+info: Solutions/PolynomialLowDimensionalCarrierRouting.lean:48:0: 'HirschCircuitLocalization.commonFace_diamLE_four_mul_rows_of_dim_le_five' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialLowDimensionalCarrierRouting.lean:94:0: 'HirschRadial.DeferredClipCertificate.route_of_used_carriers_low_dimension_or_excess' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8550/8586] Replayed Solutions.PolynomialVertexCarrierIntrinsicBudget
+info: Solutions/PolynomialVertexCarrierIntrinsicBudget.lean:149:0: 'HirschCircuitLocalization.commonFace_two_mul_dim_le_minCount_of_vertices' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialVertexCarrierIntrinsicBudget.lean:150:0: 'HirschCircuitLocalization.commonFace_dim_le_minExcess_of_vertices' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialVertexCarrierIntrinsicBudget.lean:151:0: 'HirschCircuitLocalization.commonFace_minCount_le_two_mul_minExcess_of_vertices' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialVertexCarrierIntrinsicBudget.lean:152:0: 'HirschCircuitLocalization.commonFace_diamLE_minCount_mul_pow_dim' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialVertexCarrierIntrinsicBudget.lean:153:0: 'HirschCircuitLocalization.commonFace_diamLE_two_mul_cap_mul_pow' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialVertexCarrierIntrinsicBudget.lean:154:0: 'HirschCircuitLocalization.commonFace_diamLE_vertexCarrierBudget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8551/8586] Replayed Solutions.PolynomialAllCutCarrierMass
+info: Solutions/PolynomialAllCutCarrierMass.lean:218:0: 'HirschCircuitLocalization.commonFace_available_contact_budget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialAllCutCarrierMass.lean:219:0: 'HirschRadial.DeferredClipCertificate.allCutContactLoad_sum_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialAllCutCarrierMass.lean:220:0: 'HirschRadial.DeferredClipCertificate.used_carrier_all_available_budget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialAllCutCarrierMass.lean:221:0: 'HirschRadial.DeferredClipCertificate.carrier_mass_subtraction_free' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialAllCutCarrierMass.lean:222:0: 'HirschRadial.DeferredClipCertificate.carrier_mass_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8552/8586] Replayed Solutions.PolynomialCircuitStepProgress
+info: Solutions/PolynomialCircuitStepProgress.lean:172:0: 'HirschCircuitLocalization.rowCircuitStep_exists_target_blocking_row' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitStepProgress.lean:173:0: 'HirschCircuitLocalization.commonDirection_target_self_lt_of_rowCircuitStep' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitStepProgress.lean:174:0: 'HirschCircuitLocalization.rowCircuitStep_target_commonFaceDim_lt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitStepProgress.lean:175:0: 'HirschCircuitLocalization.rowCircuitStep_commonFaceDim_source_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCircuitStepProgress.lean:176:0: 'HirschCircuitLocalization.rowCircuitStep_target_commonFaceDim_progress' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8553/8586] Replayed Solutions.CircuitSlackWalkEquiv
+info: Solutions/CircuitSlackWalkEquiv.lean:64:0: 'HirschCircuit.slackCircuitWalk_to_rowCircuitWalk' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitSlackWalkEquiv.lean:65:0: 'HirschCircuit.rowCircuitWalk_iff_slackCircuitWalk' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8554/8586] Replayed Solutions.CircuitSlackExtreme
+info: Solutions/CircuitSlackExtreme.lean:77:0: 'HirschCircuit.image_slackAffineMap_Hpoly' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitSlackExtreme.lean:78:0: 'HirschCircuit.mem_extremePoints_image_of_affine_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitSlackExtreme.lean:79:0: 'HirschCircuit.slack_mem_extremePoints_of_mem_extremePoints' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8555/8586] Replayed Solutions.CircuitSourceBridge
+info: Solutions/CircuitSourceBridge.lean:142:0: 'HirschCircuit.slackPoly_eq_standardSlice' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitSourceBridge.lean:143:0: 'HirschCircuit.bounded_rowCircuitWalk_iff_standardCircuitWalk' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/CircuitSourceBridge.lean:144:0: 'HirschCircuit.rowCircuitWalk_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitSourceBridge.lean:145:0: 'HirschCircuit.cubic_circuit_walk_bound_of_standard' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8556/8586] Replayed Solutions.CircuitConformalBasics
+info: Solutions/CircuitConformalBasics.lean:136:0: 'HirschCircuit.conformalTo_sub_right' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitConformalBasics.lean:137:0: 'HirschCircuit.weightedL1_conformal_split' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitConformalBasics.lean:138:0: 'HirschCircuit.isElementaryIn_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8557/8586] Replayed Solutions.CircuitAugmentation
+info: Solutions/CircuitAugmentation.lean:123:0: 'HirschCircuit.exists_positive_maximal_nonnegative_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitAugmentation.lean:124:0: 'HirschCircuit.conformal_piece_feasible_at_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitAugmentation.lean:125:0: 'HirschCircuit.norm_step_preserves_trapped' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitAugmentation.lean:126:0: 'HirschCircuit.elimination_piece_zero_of_reference_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitAugmentation.lean:127:0: 'HirschCircuit.elimination_direction_nonnegative_at_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitAugmentation.lean:128:0: 'HirschCircuit.no_positive_step_of_negative_at_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8558/8586] Replayed Solutions.CircuitTargetSupport
+info: Solutions/CircuitTargetSupport.lean:98:0: 'HirschCircuit.eq_target_of_zero_off_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8559/8586] Replayed Solutions.CircuitPhaseProgress
+warning: Solutions/CircuitPhaseProgress.lean:41:20: This simp argument is unused:
+  if_neg
+
+Hint: Omit it from the simp argument list.
+  simp only [hv0,̵ ̵i̵f̵_̵n̵e̵g̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+info: Solutions/CircuitPhaseProgress.lean:129:0: 'HirschCircuit.phaseProgressSet_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitPhaseProgress.lean:130:0: 'HirschCircuit.phaseProgressSet_ssubset_of_event' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitPhaseProgress.lean:131:0: 'HirschCircuit.same_phase_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitPhaseProgress.lean:132:0: 'HirschCircuit.same_phase_trapped_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitPhaseProgress.lean:133:0: 'HirschCircuit.eq_target_of_full_phase_progress' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitPhaseProgress.lean:134:0: 'HirschCircuit.phase_progress_card_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8560/8586] Replayed Solutions.CircuitPhaseBlockerPersistence
+warning: Solutions/CircuitPhaseBlockerPersistence.lean:22:22: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Solutions/CircuitPhaseBlockerPersistence.lean:24:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Solutions/CircuitPhaseBlockerPersistence.lean:45:4: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+info: Solutions/CircuitPhaseBlockerPersistence.lean:119:0: 'HirschCircuit.standardSlice_line_affine_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitPhaseBlockerPersistence.lean:120:0: 'HirschCircuit.standardCircuitStep_exists_zero_blocker' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitPhaseBlockerPersistence.lean:121:0: 'HirschCircuit.same_phase_zero_blocker_is_trapped_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitPhaseBlockerPersistence.lean:122:0: 'HirschCircuit.standardCircuitStep_same_phase_has_trapped_positive_blocker' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+⚠ [8561/8586] Replayed Solutions.CircuitConformalPiece
+warning: Solutions/CircuitConformalPiece.lean:47:8: Try `simp at this` instead of `simpa using this`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Solutions/CircuitConformalPiece.lean:91:4: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+warning: Solutions/CircuitConformalPiece.lean:143:6: Try `simp at this` instead of `simpa using this`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Solutions/CircuitConformalPiece.lean:183:4: Try `simp at this` instead of `simpa using this`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+info: Solutions/CircuitConformalPiece.lean:250:0: 'HirschCircuit.half_perturb_conformal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitConformalPiece.lean:251:0: 'HirschCircuit.exists_elementary_conformal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitConformalPiece.lean:252:0: 'HirschCircuit.exists_saturating_elementary_conformal' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8562/8586] Replayed Solutions.CircuitConformalDecomposition
+info: Solutions/CircuitConformalDecomposition.lean:88:0: 'HirschCircuit.conformalTo_trans' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitConformalDecomposition.lean:89:0: 'HirschCircuit.exists_elementary_conformal_decomposition' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitConformalDecomposition.lean:90:0: 'HirschCircuit.exists_elementary_conformal_decomposition_le_n' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8563/8586] Replayed Solutions.CircuitStandardMaximalStep
+info: Solutions/CircuitStandardMaximalStep.lean:66:0: 'HirschCircuit.standardCircuitStep_of_maximal_direction' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitStandardMaximalStep.lean:67:0: 'HirschCircuit.exists_standardCircuitStep_along_elementary' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8564/8586] Replayed Solutions.CircuitAveraging
+info: Solutions/CircuitAveraging.lean:69:0: 'HirschCircuit.exists_mem_ge_average' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitAveraging.lean:70:0: 'HirschCircuit.list_nonempty_of_sum_ne_zero' depends on axioms: [propext]
+ℹ [8565/8586] Replayed Solutions.CircuitNormStep
+info: Solutions/CircuitNormStep.lean:210:0: 'HirschCircuit.phasePotential_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitNormStep.lean:211:0: 'HirschCircuit.exists_norm_reduction_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8566/8586] Replayed Solutions.CircuitEliminationInvariant
+info: Solutions/CircuitEliminationInvariant.lean:166:0: 'HirschCircuit.scalarConformalPiece_of_sign_abs' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitEliminationInvariant.lean:167:0: 'HirschCircuit.elimination_full_displacement_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitEliminationInvariant.lean:168:0: 'HirschCircuit.elimination_conformal_coordinate_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitEliminationInvariant.lean:169:0: 'HirschCircuit.extrapolation_eta_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitEliminationInvariant.lean:170:0: 'HirschCircuit.norm_step_trapped_upper' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitEliminationInvariant.lean:171:0: 'HirschCircuit.event_budget_le_cubic' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8567/8586] Replayed Solutions.CircuitEliminationStep
+info: Solutions/CircuitEliminationStep.lean:136:0: 'HirschCircuit.exists_support_safe_elimination_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8568/8586] Replayed Solutions.CircuitEliminationParameters
+warning: Solutions/CircuitEliminationParameters.lean:36:26: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: Solutions/CircuitEliminationParameters.lean:44:26: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: Solutions/CircuitEliminationParameters.lean:36:26: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: Solutions/CircuitEliminationParameters.lean:44:26: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+info: Solutions/CircuitEliminationParameters.lean:79:0: 'HirschCircuit.exists_elimination_step_of_small_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8569/8586] Replayed Solutions.CircuitPhasePotential
+info: Solutions/CircuitPhasePotential.lean:83:0: 'HirschCircuit.phasePotential_pos_of_ne_target' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitPhasePotential.lean:84:0: 'HirschCircuit.phasePotential_self_le_n' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitPhasePotential.lean:85:0: 'HirschCircuit.exists_elimination_step_of_small_potential' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8570/8586] Replayed Solutions.CircuitStandardWalkOps
+info: Solutions/CircuitStandardWalkOps.lean:80:0: 'HirschCircuit.standardCircuitWalk_stationary' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitStandardWalkOps.lean:81:0: 'HirschCircuit.standardCircuitWalk_trans' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitStandardWalkOps.lean:82:0: 'HirschCircuit.standardCircuitWalk_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitStandardWalkOps.lean:83:0: 'HirschCircuit.standardCircuitWalk_of_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8571/8586] Replayed Solutions.CircuitContractionBudget
+warning: Solutions/CircuitContractionBudget.lean:57:50: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+info: Solutions/CircuitContractionBudget.lean:92:0: 'HirschCircuit.contraction_block_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitContractionBudget.lean:93:0: 'HirschCircuit.two_mul_cube_le_two_pow_four_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitContractionBudget.lean:94:0: 'HirschCircuit.contraction_to_elimination_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8572/8586] Replayed Solutions.CircuitStandardRecenter
+info: Solutions/CircuitStandardRecenter.lean:62:0: 'HirschCircuit.standardSlice_recenter' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitStandardRecenter.lean:63:0: 'HirschCircuit.standardCircuitStep_recenter_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitStandardRecenter.lean:64:0: 'HirschCircuit.standardCircuitWalk_recenter_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitStandardRecenter.lean:65:0: 'HirschCircuit.extremePoint_recenter' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8573/8586] Replayed Solutions.CircuitPhaseRoute
+info: Solutions/CircuitPhaseRoute.lean:178:0: 'HirschCircuit.norm_steps_or_phase_progress' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitPhaseRoute.lean:179:0: 'HirschCircuit.exists_bounded_progress_phase' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitPhaseRoute.lean:180:0: 'HirschCircuit.standardCircuitWalk_phase_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitPhaseRoute.lean:181:0: 'HirschCircuit.standardCircuitWalk_cubic' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/CircuitPhaseRoute.lean:182:0: 'HirschCircuit.standard_cubic_circuit_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8574/8586] Replayed Solutions.PolynomialInjectiveCubicCircuitWalk
+info: Solutions/PolynomialInjectiveCubicCircuitWalk.lean:44:0: 'HirschCircuit.rowCircuitWalk_explicit_cubic_of_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8575/8586] Replayed Solutions.PolynomialOneRowDeletionPointedness
+warning: Solutions/PolynomialOneRowDeletionPointedness.lean:64:6: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+info: Solutions/PolynomialOneRowDeletionPointedness.lean:103:0: 'HirschDeletion.rowMapWithout_injective_of_bounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8576/8586] Replayed Solutions.PolynomialCompactCapVertexClassification
+info: Solutions/PolynomialCompactCapVertexClassification.lean:279:0: 'HirschCapVertices.cap_active_kernel_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialCompactCapVertexClassification.lean:280:0: 'HirschCapVertices.hpoly_extremePoints_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialCompactCapVertexClassification.lean:281:0: 'HirschCapVertices.compact_hpoly_cap_vertex_classification' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialCompactCapVertexClassification.lean:282:0: 'HirschCapVertices.exists_level_above_compact_and_outer_vertices' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialCompactCapVertexClassification.lean:283:0: 'HirschCapVertices.old_vertex_survives_cap' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialCompactCapVertexClassification.lean:284:0: 'HirschCapVertices.old_edge_survives_cap' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8577/8586] Replayed Solutions.PolynomialOneRowDeletionCapFunctional
+info: Solutions/PolynomialOneRowDeletionCapFunctional.lean:83:0: 'HirschDeletion.deletionCapValue_pos_of_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialOneRowDeletionCapFunctional.lean:84:0: 'HirschDeletion.deletionCapValue_pos_on_recession_of_bounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8578/8586] Replayed Solutions.PolynomialOneRowDeletionCapBounded
+info: Solutions/PolynomialOneRowDeletionCapBounded.lean:108:0: 'HirschDeletion.deletionCappedOuter_isBounded_of_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialOneRowDeletionCapBounded.lean:109:0: 'HirschDeletion.deletionCappedOuter_isBounded_of_bounded_parent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8579/8586] Replayed Solutions.PolynomialOneRowDeletionFarCapLevel
+info: Solutions/PolynomialOneRowDeletionFarCapLevel.lean:114:0: 'HirschDeletion.exists_far_deletion_cap_level' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialOneRowDeletionFarCapLevel.lean:115:0: 'HirschDeletion.deletionCappedOuter_inter_deletedRow_eq_parent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialOneRowDeletionFarCapLevel.lean:116:0: 'HirschDeletion.deletion_cap_face_disjoint_parent' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8580/8586] Replayed Solutions.PolynomialOneRowDeletionCapWitness
+info: Solutions/PolynomialOneRowDeletionCapWitness.lean:145:0: 'HirschCapVertices.erased_hpoly_eq_deletionOuterSet' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialOneRowDeletionCapWitness.lean:146:0: 'HirschCapVertices.deletionCapNormal_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialOneRowDeletionCapWitness.lean:147:0: 'HirschCapVertices.deletionOuterSet_cap_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialOneRowDeletionCapWitness.lean:148:0: 'HirschCapVertices.exists_deletion_cap_with_vertex_classification' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8581/8586] Replayed Solutions.PolynomialOneRowDeletionCubicCircuitWalk
+info: Solutions/PolynomialOneRowDeletionCubicCircuitWalk.lean:140:0: 'HirschDeletion.rowsWithout_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialOneRowDeletionCubicCircuitWalk.lean:141:0: 'HirschDeletion.hpoly_rowsWithout_eq_deletionOuterSet' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialOneRowDeletionCubicCircuitWalk.lean:142:0: 'HirschDeletion.rowMap_rowsWithout_injective_of_bounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialOneRowDeletionCubicCircuitWalk.lean:143:0: 'HirschDeletion.rowCircuitWalk_explicit_cubic_of_one_row_deletion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialOneRowDeletionCubicCircuitWalk.lean:144:0: 'HirschDeletion.rowCircuitWalk_explicit_cubic_of_deletionOuterSet' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+⚠ [8582/8586] Replayed Solutions.PolynomialTargetAnchoredDeletion
+warning: Solutions/PolynomialTargetAnchoredDeletion.lean:155:4: 'change ⟪a (e k), z - v⟫ = 0' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+info: Solutions/PolynomialTargetAnchoredDeletion.lean:275:0: 'HirschTargetDeletion.selected_rowMap_injective_of_covers_target_tight' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialTargetAnchoredDeletion.lean:276:0: 'HirschTargetDeletion.selected_vertex_of_covers_target_tight' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialTargetAnchoredDeletion.lean:277:0: 'HirschTargetDeletion.exists_target_preserving_batch_deletion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialTargetAnchoredDeletion.lean:278:0: 'HirschTargetDeletion.selected_tight_outer_extremePoints_eq_singleton' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialTargetAnchoredDeletion.lean:279:0: 'HirschTargetDeletion.selected_tight_outer_diamLE_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialTargetAnchoredDeletion.lean:280:0: 'HirschTargetDeletion.exists_zero_diameter_target_outer' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialTargetAnchoredDeletion.lean:281:0: 'HirschTargetDeletion.same_phase_step_has_target_preserving_blocker_deletion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8583/8586] Replayed Solutions.PolynomialInjectiveHpolyVertexExistence
+info: Solutions/PolynomialInjectiveHpolyVertexExistence.lean:144:0: 'HirschPointed.injectiveCapNormal_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialInjectiveHpolyVertexExistence.lean:145:0: 'HirschPointed.injectiveCappedHpoly_isBounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialInjectiveHpolyVertexExistence.lean:146:0: 'HirschPointed.hpoly_extremePoints_nonempty_of_rowMap_injective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8584/8586] Replayed Solutions.PolynomialTargetConeBatchReinsertion
+info: Solutions/PolynomialTargetConeBatchReinsertion.lean:215:0: 'HirschTargetDeletion.compact_cap_star_of_unique_vertex' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialTargetConeBatchReinsertion.lean:216:0: 'HirschTargetDeletion.diamLE_two_of_vertex_star' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialTargetConeBatchReinsertion.lean:217:0: 'HirschTargetDeletion.exists_compact_star_cap_of_target_tight_selection' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialTargetConeBatchReinsertion.lean:218:0: 'HirschTargetDeletion.target_slack_batch_reinsertion_with_parent_routes' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8585/8586] Built Solutions.PolynomialGeodesicMassRouting (6.9s)
+info: Solutions/PolynomialGeodesicMassRouting.lean:157:0: 'HirschRegionRoute.list_threshold_count_mul_le_mass' depends on axioms: [propext, Quot.sound]
+info: Solutions/PolynomialGeodesicMassRouting.lean:158:0: 'HirschRadial.DeferredClipCertificate.carrier_size_mass_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialGeodesicMassRouting.lean:159:0: 'HirschRadial.DeferredClipCertificate.route_of_all_cut_mass_dim_cap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialGeodesicMassRouting.lean:160:0: 'HirschRadial.DeferredClipCertificate.route_dim_five_all_excess_available' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8586/8586] Built Solutions.PolynomialBasisStarMass (7.9s)
+info: Solutions/PolynomialBasisStarMass.lean:199:0: 'HirschTargetDeletion.tight_outer_unique_vertex_of_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialBasisStarMass.lean:200:0: 'HirschTargetDeletion.compact_star_cap_of_spanning_tight_selection' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solutions/PolynomialBasisStarMass.lean:201:0: 'HirschTargetDeletion.basisRemainingRows_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialBasisStarMass.lean:202:0: 'HirschTargetDeletion.basis_star_deferred_clip_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialBasisStarMass.lean:203:0: 'HirschTargetDeletion.basis_star_exists_linear_carrier_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (8586 jobs).
