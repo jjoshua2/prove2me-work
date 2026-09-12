@@ -245,7 +245,7 @@ result with finite regression evidence, **not yet a Lean or accepted platform
 theorem**. Twelve rational examples pass 4,080 ordered routes and four invalid
 witness controls. Formalizing its vertex/edge classification is the next task.
 
-## Next research work, in order
+## Historical research priorities through #204 (see latest integrations below)
 
 1. **Control the sum of costs for coupled carriers when support deficit grows.**
    Fixed-deficit cases and the deficit-one internal-run case are now closed.
@@ -374,3 +374,25 @@ Mission update `0ab0273f-42de-4318-b53d-0bfa4e33160f` links the accepted
 #205/#206/#209 public theorems and distinguishes the larger Lean assemblies.
 The new results are listed separately from the inventory's historical counts.
 No root dependency was added without a checked reduction proving applicability.
+
+## Verified portal debt and near-geodesic windows (#207)
+
+All three modules compile and all 13 required declarations pass local/hosted
+standard-axiom audits. Frozen proof `35dc985`; final hosted run `34725296903`
+passed at `63725a915769acae1c31c554335ac8b633606d14`. The exact portal-debt,
+independent audit, and amplified-family suites were rerun successfully.
+The public occurrence-counted budget theorem
+[79bdd301](https://prove2.me/theorems/79bdd301-35e1-4cdb-a6ed-eb49b00e5c3c)
+is **Proved**, submission `1ede1000-2a0d-4d98-8736-1a828626eb2f` **ACCEPTED**.
+The accepted source matches the frozen packet. It allows repeated labels and
+bounds resource mass by (q+3)e at full availability. The finite-set and edge-tree
+debt invariants are also Lean-verified; the full simple-polytope identification
+and infinite geometric family are not silently upgraded to platform theorems.
+
+#209's basis theorem e46935cf-6286-4874-a742-01cc62269b2d was rechecked live and
+remains Proved; no duplicate submission was made. #208 is being integrated from
+its continued head 9fdbed3e5c8fea05ccb0a14ef5902ac6d05c7f0b, including the cyclic
+fixed-slack obstruction and explicit adaptive routes. Its final verification
+and publication states are recorded by the next integration. The next geometry
+must permit input-dependent portal chains or separately solve easy high-excess
+calls; fixed slack is not a viable universal premise in #208's specified family.
