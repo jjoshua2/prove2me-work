@@ -295,3 +295,21 @@ The earlier #200 continuation passed `lake build Solutions.PolynomialTargetConeD
 [Integration PR #195](https://github.com/jjoshua2/prove2me-work/pull/195) preserves completed #192 publication receipts and the exact #194 theorem while excluding both temporary workflows. It supersedes both completed PRs; no historical experiment remains part of the active work queue. Do not reopen their old experiments as active work.
 
 Do not equate circuit steps with edges, replace a uniform polynomial by Larman/Kalai–Kleitman, infer low excess or factorization without certificates, or create circular reductions through an open ancestor.
+
+## Coupled positive-feedback boxes (#205)
+
+All three modules are locally compiled and transitively standard-axiom audited;
+final hosted run `34723396993` passed on `163caecb77418e3bd998e0b225f8685d45dc7139`.
+The direct matrix criterion `C>=0`, `b,w>0`, `Cw<w` gives actual ordinary-edge
+diameter at most the dimension. The image adapter routes the same selected
+carriers at cost `D+sum(h_i)`. No dimension cap or Larman premise is needed.
+[Precise verification and fixture boundary](research/COUPLED_BOXES_DELIVERY_2026-09-12.md).
+The four original Python sources were absent; the committed independent verifier
+checks the supplied examples and does not claim to rerun their historical suite.
+
+The standalone public theorem is `4096cd8a-6bf6-4788-89be-e67f84f6c92f`.
+Submission `05df606c-7c8c-42eb-9e69-794b6be48926` is pending at this integration
+checkpoint. Poll it and record the authenticated verdict; no acceptance is
+inferred from the local or hosted checks. PR #206 is the active all-row joint
+mass continuation. PR #207 is the distinct portal-debt/near-geodesic draft;
+its new Lean sources and the missing geometric adapters remain to be verified.

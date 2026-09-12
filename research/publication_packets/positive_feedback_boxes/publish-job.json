@@ -1,0 +1,21 @@
+{
+  "id": "8367b6c9-0d49-41b7-a538-ad234732154c",
+  "kind": "problem",
+  "theorem_name": "Hirsch.positive_feedback_box_diameter_le_dimension",
+  "theorem_title": "Contractive nonnegative feedback boxes have ordinary-edge diameter at most their dimension",
+  "formal_statement": "theorem Hirsch.positive_feedback_box_diameter_le_dimension {d : \u2115} (C : Fin d \u2192 Fin d \u2192 \u211d) (hC : \u2200 i j, 0 \u2264 C i j)\n    (b w : Fin d \u2192 \u211d) (hb : \u2200 i, 0 < b i) (hw : \u2200 i, 0 < w i)\n    (hcw : \u2200 i, (\u2211 j, C i j * w j) < w i) :\n    DiamLE {x : Fin d \u2192 \u211d | (\u2200 i, 0 \u2264 x i) \u2227\n      \u2200 i, x i \u2264 b i + \u2211 j, C i j * x j} d := by sorry",
+  "natural_language_statement": "Let C be an entrywise nonnegative real d by d matrix and b a strictly\npositive vector. Suppose a strictly positive vector w satisfies Cw < w in\nevery coordinate. Then the ordinary-edge graph of the polytope\n{x : 0 <= x <= b + Cx} has diameter at most d.\n\nThe proof constructs and classifies its vertices by lower/upper binary\nsignatures and proves that changing one signature coordinate gives an\nordinary edge. It imposes no dimension cap or acyclicity condition on C.\nThe weighted maximum principle is classical; this is its explicit\nordinary-edge formalization for the Hirsch workspace. This sufficient class\ndoes not imply that arbitrary Hirsch carriers have this form.",
+  "definitions": "import Mathlib\nimport Definitions.Def_Hirsch_model\nopen Set Hirsch\nopen scoped BigOperators",
+  "source": "Classical complementary-basis and weighted maximum-principle argument, explicitly formalized at https://github.com/jjoshua2/prove2me-work/tree/9701b79441ce8ee2e935f7527ab7f01864407bff",
+  "tags": [
+    "polyhedra",
+    "graph-diameter",
+    "formalization"
+  ],
+  "visibility": "public",
+  "status": "PUBLISHED",
+  "error_message": "",
+  "theorem_id": "4096cd8a-6bf6-4788-89be-e67f84f6c92f",
+  "created_at": "2026-09-12T22:40:52.692326+00:00",
+  "updated_at": "2026-09-12T22:41:47.12309+00:00"
+}

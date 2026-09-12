@@ -1,0 +1,16 @@
+{
+  "source_commit": "9701b79441ce8ee2e935f7527ab7f01864407bff",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "source_blobs": {
+    "Solutions/PolynomialPairedBasisRouting.lean": "b816c0996ce4e0d9c13ecbdf6cef2a9620b0f488",
+    "Solutions/PolynomialPositiveFeedbackBoxes.lean": "4eb10bd9fbbb1d83b515610bd107c17cf4c3c2d1"
+  },
+  "public_dependencies": {},
+  "sha256": {
+    "solution.lean": "821ee28087921160ed97b2bbdd067335cec6b2619646aef158da3027dcaf3264",
+    "driver.lean": "bf9a57906aaea082bcd3ee465c4c3f0d13c7002b9f86e13196921b5184e00eb3",
+    "statement.lean": "4f6c78ef5181173735017e52dce34301e59a7d7d82e22f0d2a571205acf51d0e",
+    "explanation.md": "5b6bbab0e7846a4a87c8a5b863a3d73ccb27879b8c10d4ec1e3e78fa58efa63d",
+    "problem.json": "0e49da2c72e07be398ef23c7bafc63e277cba90bb00e6eb5a4b038555c87184c"
+  }
+}
