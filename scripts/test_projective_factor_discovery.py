@@ -192,7 +192,12 @@ def run()->dict[str,Any]:
     assert verify(encoded['input'],encoded['certificate'])['ordinary_edge_bound']==5
     root=Path(__file__).resolve().parents[1]
     hashes={str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest()
-            for directory in ('scripts','Solutions') for p in sorted((root/directory).glob('*')) if p.suffix in ('.py','.lean')}
+            for p in [root / name for name in (
+                'scripts/projective_factor_discovery.py',
+                'scripts/test_projective_factor_discovery.py',
+                'Definitions/Def_Hirsch_recursive_projective_products.lean',
+                'Solutions/PolynomialProjectiveSeparatorAlgebra.lean',
+                'Solutions/PolynomialRecursiveProjectiveProducts.lean')]}
     return {'status':'PASS','scope':'Exact rational computational regression only; no new Lean or platform verdict.',
             **total,'one_shot_exhaustive':one_shot,'cyclic_negative_controls':cyclic,
             'tower_certificates':records,'source_sha256':hashes}

@@ -7,7 +7,7 @@ A homogeneous describing row is (a,-b). Its image under shearProjection c is
 exactly a-b*c. The common kernel line is the candidate hyperplane at infinity.
 These primitives are independent of the geometry in #203. The dimension/rank
 recognition proof and its precise scope are recorded in the companion note.
-New proof candidates: no local Lean verification is claimed for this file.
+Verification receipts are maintained separately from the mathematical source.
 -/
 set_option autoImplicit false
 noncomputable section
