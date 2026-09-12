@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "command": "lake build Solutions.PolynomialPairedBasisRouting Solutions.PolynomialPositiveFeedbackBoxes Solutions.PolynomialCoupledBoxCarrierRouting",
+  "required": [
+    "HirschPairedBases.PairedBasisModel.point_extreme",
+    "HirschPairedBases.PairedBasisModel.extreme_eq_point",
+    "HirschPairedBases.PairedBasisModel.point_adj_update",
+    "HirschPairedBases.paired_basis_diamLE",
+    "HirschPositiveBoxes.nonpos_of_le_positive_map",
+    "HirschPositiveBoxes.id_sub_injective",
+    "HirschPositiveBoxes.positive_feedback_diamLE",
+    "HirschPositiveBoxes.positive_feedback_le_top",
+    "HirschPositiveBoxes.matrix_positive_feedback_diamLE",
+    "HirschPositiveBoxes.PositiveBoxImage.diamLE",
+    "HirschRadial.DeferredClipCertificate.route_of_used_positive_box_models",
+    "HirschRadial.DeferredClipCertificate.route_of_used_positive_box_models_padded"
+  ],
+  "reports": 267,
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "source_sha256": {
+    "PolynomialPairedBasisRouting": "0f0d6da9bf40b8ee74ac93a6c2ca56c578e64e8f0d59ad5724c1c87be9b0cf67",
+    "PolynomialPositiveFeedbackBoxes": "2243794f9f33e6986ca09f9c346affddded0fe701f960a33e7581d5d0c3ed481",
+    "PolynomialCoupledBoxCarrierRouting": "014fc4ff2a418aa18b970193fb4d40af08b0d5a04c1941d52c114d38cc8bc398"
+  }
+}

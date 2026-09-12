@@ -6,7 +6,7 @@ import Solutions.PolynomialRegionRouting
 
 The hypotheses are linear equations and feasibility, not a graph-isomorphism
 or a diameter premise. PolynomialPositiveFeedbackBoxes discharges them using
-one positive vector. New proof candidate: separate pinned Lean gate required.
+one positive vector. Verification receipts are maintained separately.
 -/
 open Set Hirsch HirschRegionRoute
 set_option autoImplicit false
@@ -83,7 +83,8 @@ private lemma active_scalar {a c p q B : ℝ}
   have hlt : p < B := lt_of_le_of_ne hp hn
   have h1 := mul_lt_mul_of_pos_left hlt ha
   have h2 := mul_le_mul_of_nonneg_left hq hc
-  nlinarith
+  have hscale : a*B+c*B=B := by rw [← add_mul, hac, one_mul]
+  linarith
 
 lemma pairedPoly_convex : Convex ℝ (pairedPoly L b) := by
   intro x hx y hy a c ha hc hac
@@ -95,7 +96,9 @@ lemma pairedPoly_convex : Convex ℝ (pairedPoly L b) := by
     simp only [map_add, map_smul, Pi.add_apply, Pi.smul_apply, smul_eq_mul]
     have h1 := mul_le_mul_of_nonneg_left (hx.2 i) ha
     have h2 := mul_le_mul_of_nonneg_left (hy.2 i) hc
-    nlinarith
+    calc
+      _ ≤ a*b i+c*b i := add_le_add h1 h2
+      _ = b i := by rw [← add_mul, hac, one_mul]
 
 lemma point_extreme (s : ι → Bool) : m.point s ∈ extremePoints ℝ (pairedPoly L b) := by
   refine ⟨m.point_mem s, ?_⟩
@@ -174,7 +177,7 @@ private lemma finite_linear_vertex_span {R E : Type*} [Fintype R]
 
 def lowerRow (i : ι) : Vec ι →ₗ[ℝ] ℝ where
   toFun x := -x i
-  map_add' x y := by simp
+  map_add' x y := by simp [add_comm]
   map_smul' a x := by simp
 
 def upperRow (i : ι) : Vec ι →ₗ[ℝ] ℝ where
@@ -287,7 +290,7 @@ theorem point_adj_update (s : ι → Bool) (i : ι) (hi : s i=false) :
     intro j hji
     have ht := m.point_equations t j
     rw [m.basis_spec]
-    simpa [t,Function.update_noteq hji,rhs] using ht
+    simpa [q,t,Function.update_of_ne hji,rhs] using ht
   have hFext : IsExtreme ℝ (pairedPoly L b) F := m.shared_equations_extreme s i
   have hFseg : F = segment ℝ p q := by
     apply Set.Subset.antisymm
@@ -324,8 +327,7 @@ theorem point_adj_update (s : ι → Bool) (i : ι) (hi : s i=false) :
       · intro j hji
         rw [←hcomb]
         simp only [map_add,map_smul,Pi.add_apply,Pi.smul_apply,smul_eq_mul]
-        rw [hpF.2 j hji,hqF.2 j hji]
-        nlinarith
+        rw [hpF.2 j hji,hqF.2 j hji, ← add_mul, hac, one_mul]
   refine ⟨?_,?_⟩
   · intro he
     have he' := congrFun he i
@@ -368,7 +370,7 @@ theorem paired_basis_diamLE {d : ℕ}
   let sig : ℕ → Fin d → Bool := fun k j => if j.val<k then t j else s j
   have h0 : sig 0=s := by funext j; simp [sig]
   have hd : sig d=t := by funext j; simp [sig,j.isLt]
-  refine ⟨fun k => m.point (sig k),by rw [h0],by rw [hd],?_⟩
+  refine ⟨fun k => m.point (sig k),by simpa only [h0],by simpa only [hd],?_⟩
   intro k hk
   let i : Fin d := ⟨k,hk⟩
   have hrest : ∀ j : Fin d, j≠i → sig k j=sig (k+1) j := by
@@ -381,7 +383,8 @@ theorem paired_basis_diamLE {d : ℕ}
       simp [sig,hlt,hlt']
   by_cases he : sig k i=sig (k+1) i
   · left
-    congr 1
+    change m.point (sig k) = m.point (sig (k+1))
+    apply congrArg m.point
     funext j
     by_cases hj : j=i
     · simpa [hj] using he

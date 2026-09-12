@@ -5,7 +5,7 @@ import Solutions.PolynomialPairedBasisRouting
 
 One checkable vector w>0, Cw<w replaces exponentially many complementary-basis
 checks. No acyclicity, small row sum, projective separator, recursive diameter
-input, or small-excess theorem is assumed. New source awaits Lean verification.
+input, or small-excess theorem is assumed. See the separate verification receipts.
 -/
 open Set Hirsch HirschPairedBases
 open scoped BigOperators
@@ -46,7 +46,7 @@ theorem nonpos_of_le_positive_map
 lemma nonneg_of_id_sub_nonneg
     (C : Vec ι →ₗ[ℝ] Vec ι) (hmono : Monotone C)
     (w : Vec ι) (hw : ∀ i, 0<w i) (hcw : ∀ i, C w i<w i)
-    (z : Vec ι) (hz : 0 ≤ (LinearMap.id-C) z) : 0 ≤ z := by
+    (z : Vec ι) (hz : 0 ≤ (LinearMap.id-C : Vec _ →ₗ[ℝ] Vec _) z) : 0 ≤ z := by
   have hn : -z ≤ C (-z) := by
     intro i
     have hi := hz i
@@ -57,14 +57,15 @@ lemma nonneg_of_id_sub_nonneg
   intro i
   have hi := h i
   change -z i≤0 at hi
+  change 0 ≤ z i
   linarith
 
 lemma id_sub_injective
     (C : Vec ι →ₗ[ℝ] Vec ι) (hmono : Monotone C)
     (w : Vec ι) (hw : ∀ i, 0<w i) (hcw : ∀ i, C w i<w i) :
-    Function.Injective (LinearMap.id-C) := by
+    Function.Injective (LinearMap.id-C : Vec _ →ₗ[ℝ] Vec _) := by
   intro x y hxy
-  have hz : (LinearMap.id-C) (x-y)=0 := by
+  have hz : (LinearMap.id-C : Vec _ →ₗ[ℝ] Vec _) (x-y)=0 := by
     rw [map_sub,hxy,sub_self]
   have hp := nonneg_of_id_sub_nonneg C hmono w hw hcw (x-y) (by rw [hz])
   have hm := nonneg_of_id_sub_nonneg C hmono w hw hcw (-(x-y))
@@ -80,14 +81,14 @@ def inverseBasis
     (C : Vec ι →ₗ[ℝ] Vec ι) (hmono : Monotone C)
     (w : Vec ι) (hw : ∀ i, 0<w i) (hcw : ∀ i, C w i<w i) :
     Vec ι ≃ₗ[ℝ] Vec ι :=
-  LinearEquiv.ofBijective (LinearMap.id-C)
+  LinearEquiv.ofBijective (LinearMap.id-C : Vec _ →ₗ[ℝ] Vec _)
     ⟨id_sub_injective C hmono w hw hcw,
       LinearMap.surjective_of_injective (id_sub_injective C hmono w hw hcw)⟩
 
 def maskMap (s : ι → Bool) : Vec ι →ₗ[ℝ] Vec ι where
   toFun x i := if s i then x i else 0
-  map_add' x y := by funext i; cases s i <;> simp
-  map_smul' a x := by funext i; cases s i <;> simp
+  map_add' x y := by funext i; cases hs : s i <;> simp [hs]
+  map_smul' a x := by funext i; cases hs : s i <;> simp [hs]
 
 lemma masked_monotone (C : Vec ι →ₗ[ℝ] Vec ι) (hmono : Monotone C) (s : ι → Bool) :
     Monotone ((maskMap s).comp C) := by
@@ -111,17 +112,17 @@ from the single weighted positivity witness. -/
 def positiveFeedbackModel
     (C : Vec ι →ₗ[ℝ] Vec ι) (hmono : Monotone C)
     (w : Vec ι) (hw : ∀ i, 0<w i) (hcw : ∀ i, C w i<w i)
-    (b : Vec ι) (hb : ∀ i, 0<b i) : PairedBasisModel (LinearMap.id-C) b := by
+    (b : Vec ι) (hb : ∀ i, 0<b i) : PairedBasisModel (LinearMap.id-C : Vec _ →ₗ[ℝ] Vec _) b := by
   let basis := fun s => inverseBasis ((maskMap s).comp C)
     (masked_monotone C hmono s) w hw (masked_weight C w hw hcw s)
-  have hspec : ∀ s x i, basis s x i = if s i then (LinearMap.id-C) x i else x i := by
+  have hspec : ∀ s x i, basis s x i = if s i then (LinearMap.id-C : Vec _ →ₗ[ℝ] Vec _) x i else x i := by
     intro s x i
     change x i-(if s i then C x i else 0)=_
-    cases s i <;> simp
+    cases hs : s i <;> simp [hs]
   refine ⟨basis,hspec,?_,?_⟩
   · intro s
     let x := (basis s).symm (rhs b s)
-    have he : (LinearMap.id-(maskMap s).comp C) x=rhs b s :=
+    have he : (LinearMap.id-(maskMap s).comp C : Vec _ →ₗ[ℝ] Vec _) x=rhs b s :=
       (basis s).apply_symm_apply _
     have hnonneg : 0≤x := by
       apply nonneg_of_id_sub_nonneg ((maskMap s).comp C)
@@ -140,16 +141,18 @@ def positiveFeedbackModel
     change x i-C x i≤b i
     cases hs : s i
     · have hx0 : x i=0 := by simpa [hs,rhs] using hei
-      have hc := hCx i
+      have hc : (0 : ℝ) ≤ C x i := hCx i
       rw [hx0]
       linarith [hb i]
     · have hxtop : x i-C x i=b i := by simpa [hs,rhs] using hei
       exact hxtop.le
   · intro x hx i hxi
-    have hCx : 0≤C x := by simpa only [map_zero] using hmono hx.1
+    have hCx : 0≤C x := by
+      have h := hmono (show (0 : Vec ι) ≤ x from hx.1)
+      simpa only [map_zero] using h
     change x i-C x i<b i
     rw [hxi]
-    have hci := hCx i
+    have hci : (0 : ℝ) ≤ C x i := hCx i
     linarith [hb i]
 
 /-- Direct ordinary-edge diameter theorem; no recursive geometric input. -/
@@ -157,7 +160,7 @@ theorem positive_feedback_diamLE {d : ℕ}
     (C : Vec (Fin d) →ₗ[ℝ] Vec (Fin d)) (hmono : Monotone C)
     (w : Vec (Fin d)) (hw : ∀ i, 0<w i) (hcw : ∀ i, C w i<w i)
     (b : Vec (Fin d)) (hb : ∀ i, 0<b i) :
-    DiamLE (pairedPoly (LinearMap.id-C) b) d :=
+    DiamLE (pairedPoly (LinearMap.id-C : Vec _ →ₗ[ℝ] Vec _) b) d :=
   paired_basis_diamLE (positiveFeedbackModel C hmono w hw hcw b hb)
 
 /-- The all-upper solution is a coordinatewise upper bound for the entire
@@ -166,7 +169,7 @@ theorem positive_feedback_le_top
     (C : Vec ι →ₗ[ℝ] Vec ι) (hmono : Monotone C)
     (w : Vec ι) (hw : ∀ i, 0<w i) (hcw : ∀ i, C w i<w i)
     (b : Vec ι) (hb : ∀ i, 0<b i)
-    (x : Vec ι) (hx : x ∈ pairedPoly (LinearMap.id-C) b) :
+    (x : Vec ι) (hx : x ∈ pairedPoly (LinearMap.id-C : Vec _ →ₗ[ℝ] Vec _) b) :
     x ≤ (positiveFeedbackModel C hmono w hw hcw b hb).point (fun _ => true) := by
   let m := positiveFeedbackModel C hmono w hw hcw b hb
   let v := m.point (fun _ => true)
@@ -201,7 +204,7 @@ theorem matrix_positive_feedback_diamLE {d : ℕ}
     (hcw : ∀ i, (∑ j, C i j*w j)<w i) :
     DiamLE {x : Fin d → ℝ | (∀ i, 0≤x i) ∧ ∀ i, x i≤b i+∑ j, C i j*x j} d := by
   have h := positive_feedback_diamLE (matrixMap C) (matrixMap_monotone C hC) w hw hcw b hb
-  have he : pairedPoly (LinearMap.id-matrixMap C) b =
+  have he : pairedPoly (LinearMap.id-matrixMap C : Vec _ →ₗ[ℝ] Vec _) b =
       {x : Fin d → ℝ | (∀ i, 0≤x i) ∧ ∀ i, x i≤b i+∑ j, C i j*x j} := by
     ext x
     simp only [pairedPoly,Set.mem_setOf_eq]
