@@ -91,3 +91,8 @@ exact regression suites were rerun successfully. The full infinite-family
 geometry and simple-polytope recognition remain paper/checker results, distinct
 from the compiled finite-set/graph/route-tree cores. Final hosted and public
 packet verdicts are recorded separately in STATUS.md and publication receipts.
+
+Final hosted run `34725296903` passed at `63725a915769acae1c31c554335ac8b633606d14`.
+Public near-geodesic theorem `79bdd301-35e1-4cdb-a6ed-eb49b00e5c3c` is Proved,
+submission `1ede1000-2a0d-4d98-8736-1a828626eb2f` ACCEPTED. Exact accepted-source
+readback matches `publication_packets/near_geodesic_budget/solution.lean`.
