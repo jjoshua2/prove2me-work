@@ -1,0 +1,45 @@
+{
+  "theorem_id": "58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac",
+  "theorem_name": "Hirsch.polynomial_hirsch_conjecture",
+  "theorem_title": "The polynomial Hirsch conjecture",
+  "status": "Open",
+  "formal_statement": "namespace Hirsch\n\ntheorem polynomial_hirsch_conjecture :\n    \u2203 c k : \u2115, \u2200 (d n : \u2115) (a : Fin n \u2192 EuclideanSpace \u211d (Fin d)) (b : Fin n \u2192 \u211d),\n      (Hpoly a b).Nonempty \u2192 Bornology.IsBounded (Hpoly a b) \u2192\n      DiamLE (Hpoly a b) (c * (n + d) ^ k) := by sorry\n\nend Hirsch",
+  "natural_language_statement": "**The polynomial Hirsch conjecture.** There exist constants $c, k \\in \\mathbb{N}$ such that every nonempty bounded H-polytope $P = \\{x \\in \\mathbb{R}^d \\mid \\langle a_i, x\\rangle \\le b_i,\\ i \\le n\\}$ has combinatorial diameter at most $c\\,(n+d)^k$: every two vertices are joined by a path of at most $c\\,(n+d)^k$ edges.\n\nEvery polynomial in $n$ and $d$ is dominated by some $c(n+d)^k$ and conversely, so the statement is exactly \"the diameter of a polytope is polynomially bounded in its dimension and number of defining inequalities\". The original Hirsch conjecture ($n - d$) was disproved by Santos (2012); all known counterexamples violate the bound by a constant factor, while the best proven upper bounds (Kalai--Kleitman 1992, Todd 2014) are quasi-polynomial, $n^{O(\\log d)}$. A positive answer is necessary for any pivot rule of the simplex method to be worst-case polynomial; the question was the subject of the Polymath 3 project.",
+  "created_at": "2026-08-22T02:25:36.75778+00:00",
+  "vote_count": 0,
+  "tags": [
+    "hirsch-conjecture",
+    "linear-programming",
+    "open-problem",
+    "polytopes"
+  ],
+  "preamble": "import Mathlib\nimport Definitions.Def_Hirsch_model",
+  "source": "Kalai, The polynomial Hirsch conjecture (Polymath 3), 2010, https://gilkalai.wordpress.com/2010/09/29/the-polynomial-hirsch-conjecture-a-proposal-for-polymath3/; survey: Santos, TOP 21 (2013), https://arxiv.org/abs/1307.5900",
+  "deprecated_at": null,
+  "deprecated_by": null,
+  "visibility": "public",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "audits": [
+    {
+      "audit_id": "9de8e6d4-8c1e-4060-9dcf-98e04df14a45",
+      "reviewer_id": "4f679efe-66cb-4e2a-b7f2-1810583af13c",
+      "reviewer_username": "ShouqiaoWang",
+      "decision": "confirm",
+      "comment": null,
+      "created_at": "2026-08-25T08:40:23.254824+00:00"
+    },
+    {
+      "audit_id": "7d57c5f2-6188-407e-85e6-956cb99ee4a0",
+      "reviewer_id": "136472b2-7660-4cad-97ab-bc0d424d2ccd",
+      "reviewer_username": "Shuze Chen",
+      "decision": "confirm",
+      "comment": "Confirmed by the mission captain (proposal self-audit).",
+      "created_at": "2026-08-25T08:40:35.769053+00:00"
+    }
+  ],
+  "readback": {
+    "readback": "# Read-back: `Hirsch.polynomial_hirsch_conjecture`\n\nThe statement asserts: **there exist natural numbers $c$ and $k$** (each possibly $0$) such that for **every** pair of natural numbers $d$ and $n$ (including $d = 0$ and $n = 0$), every family of vectors $a_1, \\dots, a_n \\in \\mathbb{R}^d$ (Euclidean space of dimension $d$), and every family of reals $b_1, \\dots, b_n \\in \\mathbb{R}$, the following holds. Let\n\n$$P = \\{\\, x \\in \\mathbb{R}^d \\mid \\langle a_i, x \\rangle \\le b_i \\text{ for all } i = 1, \\dots, n \\,\\},$$\n\nthe solution set of the $n$ linear inequalities (this is the unfolding of the custom definition `Hpoly`; when $n = 0$ it is all of $\\mathbb{R}^d$, and when $d = 0$ the ambient space is a single point). **If** $P$ is nonempty **and** $P$ is bounded (in the metric/bornology sense; closedness or compactness is not stated separately, though $P$ is an intersection of closed half-spaces), **then** the predicate $\\mathrm{DiamLE}\\big(P,\\; c\\,(n+d)^k\\big)$ holds, where the bound $B = c\\,(n+d)^k$ is computed in the natural numbers (in particular $(n+d)^0 = 1$, and $0^0 = 1$, so e.g. $k = 0$ gives the constant bound $c$).\n\nUnfolding the custom definition $\\mathrm{DiamLE}(P, B)$: for every $u$ and every $v$ that are **extreme points** of $P$ (points $x \\in P$ such that whenever $x$ lies in the open segment between two points of $P$, both of those points equal $x$), there exists a function $w : \\mathbb{N} \\to \\mathbb{R}^d$ with\n\n$$w_0 = u, \\qquad w_B = v,$$\n\nand for every index $i < B$, either $w_i = w_{i+1}$ (a stationary step) or $w_i$ and $w_{i+1}$ are **adjacent** on $P$ in the sense of the custom definition `Adj`. Only the values $w_0, \\dots, w_B$ are constrained; the intermediate points $w_i$ are not themselves required to be extreme points or even to lie in $P$ by the walk condition alone (membership follows only insofar as the adjacency condition forces it).\n\nUnfolding `Adj`: points $u, v$ are adjacent on $P$ iff $u \\ne v$ **and** the closed segment $[u, v]$ is an **extreme subset** of $P$, meaning: $[u, v] \\subseteq P$, and for any two points $x_1, x_2 \\in P$, if some point of $[u, v]$ lies in the open segment between $x_1$ and $x_2$, then both $x_1$ and $x_2$ belong to $[u, v]$.\n\nEdge cases the quantifiers silently include: the constants $c, k$ are chosen **uniformly, before** $d$, $n$, $a$, $b$ \u2014 a single pair must work for all dimensions and all inequality systems. If $P$ has no extreme points, $\\mathrm{DiamLE}$ holds vacuously (the two outer quantifiers range over an empty set). If $c = 0$ the bound $B$ is $0$, in which case $\\mathrm{DiamLE}(P, 0)$ demands $w_0 = u$ and $w_0 = v$, i.e. that $P$ has at most one extreme point; so the existential statement implicitly requires choosing $c \\ge 1$ (or the bound large enough) whenever some admissible $P$ has two or more extreme points. Because stationary steps ($w_i = w_{i+1}$) are allowed, the condition is that the graph distance between any two extreme points is **at most** $B$, i.e. the combinatorial diameter of the vertex\u2013edge graph of $P$ is $\\le c\\,(n+d)^k$, and in particular that this graph is connected between every pair of extreme points.\n\nThe declaration's proof is left as `sorry` (it is stated, not proved).\n",
+    "model": "claude-fable-5",
+    "created_at": "2026-08-22T02:25:38.626584+00:00"
+  }
+}

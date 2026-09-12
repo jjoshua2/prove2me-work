@@ -1,0 +1,3 @@
+'HirschPolynomialAccess.vertex_tight_rows_span_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HirschLowExcess.hpoly_diamLE_fixed_excess_larman' depends on axioms: [propext, Classical.choice, Quot.sound]
+'checked_fixed_excess_adapter' depends on axioms: [propext, Classical.choice, Quot.sound]

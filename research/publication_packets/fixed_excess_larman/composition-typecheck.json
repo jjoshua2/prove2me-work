@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "solution_sha256": "bea31dceceb2e20159d9ac825a85a676a508c3567e224b6a6c45b0a1647320f5",
+  "statement_sha256": "abfcb056179d9f3e4a2b20292c656f60cb07b6670ceede34f792ec0227aff577",
+  "commands": [
+    "lake env lean research/publication_packets/fixed_excess_larman/statement.lean",
+    "lake env lean research/publication_packets/fixed_excess_larman/solution.lean"
+  ],
+  "scope": "Typecheck using local placeholders for the two authenticated Proved public inputs. These placeholders are not local proof evidence. The separate explicit-premise driver passes the standard axiom audit; Prove2Me decides the unconditional composition."
+}

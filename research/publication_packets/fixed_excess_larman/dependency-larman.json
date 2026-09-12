@@ -1,0 +1,44 @@
+{
+  "theorem_id": "68453b6b-bcef-4672-b877-d04e56527e3f",
+  "theorem_name": "Hirsch.larman_bound",
+  "theorem_title": "Larman's bound $n\\,2^{d-3}$",
+  "status": "Proved",
+  "formal_statement": "namespace Hirsch\n\ntheorem larman_bound (d n : ℕ)\n    (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)\n    (hne : (Hpoly a b).Nonempty) (hbd : Bornology.IsBounded (Hpoly a b)) :\n    DiamLE (Hpoly a b) (n * 2 ^ (d - 3)) := by sorry\n\nend Hirsch",
+  "natural_language_statement": "(Larman 1970.) Every nonempty bounded H-polytope in $\\mathbb{R}^d$ described by $n$ inequalities has combinatorial diameter at most $n \\cdot 2^{d-3}$. The bound is linear in the number of inequalities for each fixed dimension — still the best known bound of that shape. The exponent $d - 3$ is truncated natural subtraction, so for $d \\le 3$ the asserted bound is $n$, which holds; lower-dimensional polytopes are included.",
+  "created_at": "2026-08-22T02:26:38.04556+00:00",
+  "vote_count": 0,
+  "tags": [
+    "diameter-bound",
+    "hirsch-conjecture",
+    "polytopes"
+  ],
+  "preamble": "import Mathlib\nimport Definitions.Def_Hirsch_model",
+  "source": "Larman, Paths on polytopes, Proc. London Math. Soc. s3-20 (1970) 161-178, https://doi.org/10.1112/plms/s3-20.2.249",
+  "deprecated_at": null,
+  "deprecated_by": null,
+  "visibility": "public",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "audits": [
+    {
+      "audit_id": "00f4302e-e3fb-4bba-8540-5dc9fa5e3d18",
+      "reviewer_id": "4f679efe-66cb-4e2a-b7f2-1810583af13c",
+      "reviewer_username": "ShouqiaoWang",
+      "decision": "confirm",
+      "comment": null,
+      "created_at": "2026-08-25T08:40:23.806539+00:00"
+    },
+    {
+      "audit_id": "b8d6e1d6-586a-466d-8db3-97799450df41",
+      "reviewer_id": "136472b2-7660-4cad-97ab-bc0d424d2ccd",
+      "reviewer_username": "Shuze Chen",
+      "decision": "confirm",
+      "comment": "Confirmed by the mission captain (proposal self-audit).",
+      "created_at": "2026-08-25T08:40:35.769053+00:00"
+    }
+  ],
+  "readback": {
+    "readback": "**Read-back of `Hirsch.larman_bound`.**\n\nFor every pair of natural numbers $d, n \\ge 0$, every family of vectors $a_1, \\dots, a_n \\in \\mathbb{R}^d$ (the Euclidean space $\\mathbb{R}^d$ with its standard inner product), and every family of reals $b_1, \\dots, b_n \\in \\mathbb{R}$, consider the set\n\n$$P = \\{\\, x \\in \\mathbb{R}^d \\mid \\langle a_i, x\\rangle \\le b_i \\text{ for all } i = 1, \\dots, n \\,\\},$$\n\ni.e. the solution set of the $n$ linear inequalities (with no assumption that the $a_i$ are nonzero or distinct; when $n = 0$ this is all of $\\mathbb{R}^d$). Under the two hypotheses that $P$ is **nonempty** and that $P$ is **bounded** (as a subset of the metric space $\\mathbb{R}^d$), the theorem asserts the following, where the bound is the natural number\n\n$$B = n \\cdot 2^{\\,d - 3}$$\n\nwith **truncated natural-number subtraction** in the exponent: $d - 3 = 0$ whenever $d \\le 3$, so for $d \\in \\{0,1,2,3\\}$ the bound is $B = n$, and $B = 0$ whenever $n = 0$.\n\nThe conclusion is the predicate \"$\\mathrm{DiamLE}(P, B)$\", which unfolds to: for every two extreme points $u, v$ of $P$ (an *extreme point* of $P$ is a point of $P$ that does not lie in the open segment between any two points of $P$ other than itself), there exists a sequence of points $w_0, w_1, w_2, \\dots \\in \\mathbb{R}^d$ (defined for all indices) such that\n\n- $w_0 = u$ and $w_B = v$, and\n- for every index $i < B$, either $w_i = w_{i+1}$ (a stationary step), or $w_i$ and $w_{i+1}$ are \"adjacent on $P$\", meaning: $w_i \\ne w_{i+1}$ and the closed segment $[w_i, w_{i+1}]$ is an **extreme subset** of $P$ — that is, $[w_i, w_{i+1}] \\subseteq P$, and whenever a point of $[w_i, w_{i+1}]$ lies strictly between two points $x, y \\in P$ (in the open segment from $x$ to $y$), both $x$ and $y$ already belong to $[w_i, w_{i+1}]$.\n\nIn words: any two extreme points of $P$ are joined by a walk of exactly $B$ steps, each step either staying put or moving along a segment that is an extreme subset of $P$; because stationary steps are allowed, this expresses that any two extreme points are connected by at most $B$ such moves. The intermediate points $w_i$ are quantified only through these step conditions — they are not separately required to be extreme points of $P$ (though each adjacency step forces its endpoints to lie in $P$). Note the degenerate instances included by the quantifiers: if $n = 0$ then $B = 0$ and the conclusion demands $u = v$ for all extreme points $u, v$ of $P = \\mathbb{R}^d$ (the boundedness hypothesis then restricts this case to $d = 0$); if $P$ has no extreme points, or fewer than two, the conclusion is vacuous or trivial. The theorem is universally quantified over all $d$, $n$, $a$, $b$ satisfying the two hypotheses, and the stated inequality on the walk length is non-strict ($\\le B$ in effect, via the stationary steps), with $B$ computed as the natural number $n \\cdot 2^{d-3}$ exactly as above.\n",
+    "model": "claude-fable-5",
+    "created_at": "2026-08-22T02:26:40.232775+00:00"
+  }
+}
