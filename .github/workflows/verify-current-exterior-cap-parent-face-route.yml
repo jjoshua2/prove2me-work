@@ -1,0 +1,50 @@
+name: Verify ambient-face exterior cap routing
+on:
+  pull_request:
+    types: [opened, synchronize]
+permissions:
+  contents: read
+concurrency:
+  group: verify-exterior-parent-face-${{ github.head_ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    if: >-
+      github.repository == 'jjoshua2/prove2me-work' &&
+      github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
+      github.head_ref == 'formal/current-exterior-cap-parent-face-route'
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - name: Check policy and pins
+        run: |
+          set -euo pipefail
+          python3 scripts/check_actions_policy.py
+          test "$(cat lean-toolchain)" = 'leanprover/lean4:v4.30.0'
+          grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
+      - name: Restore pinned Lean environment
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Compile and audit ambient-face exterior cap routing
+        run: |
+          set -euo pipefail
+          lake build Solutions.PolynomialParentRouteClosedFaceTrace Solutions.PolynomialCurrentExteriorCapParentFaceRoute
+          lake env lean Solutions/PolynomialParentRouteClosedFaceTrace.lean 2>&1 | tee /tmp/parent-face-trace.log
+          lake env lean Solutions/PolynomialCurrentExteriorCapParentFaceRoute.lean 2>&1 | tee /tmp/exterior-parent-face.log
+          python3 scripts/check_lean_axiom_log.py /tmp/parent-face-trace.log \
+            HirschRegionRoute.route_of_preconnected_face_cover_with_parent_routes
+          python3 scripts/check_lean_axiom_log.py /tmp/exterior-parent-face.log \
+            HirschExteriorCurrent.diamLE_single_clip_of_augmented_outer_routes_with_parent_face_route \
+            HirschExteriorCurrent.diamLE_single_clip_of_old_routes_and_cap_classification_with_parent_face_route
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ambient-face-exterior-cap-verification
+          retention-days: 14
+          path: |
+            /tmp/parent-face-trace.log
+            /tmp/exterior-parent-face.log
+          if-no-files-found: warn
