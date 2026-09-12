@@ -57,12 +57,13 @@ This fixes an interface obstacle in the next composition. The #194 statement has
 
 Both the source and exact standalone `theorem solution` passed Lean and axiom audits with only `propext`, `Classical.choice`, and `Quot.sound`. Prove2me theorem [ba2632b3](https://prove2.me/theorems/ba2632b3-1bec-43f9-8755-960e4b04936c), submission `59a4c70a-7584-4f2e-a429-23598e316dd8`, is **ACCEPTED**, and the live theorem is **Proved**. The [publication packet](research/publication_packets/deferred_region_costs/) preserves the exact statement, proof and receipts.
 
-## Deferred clipping and maximum-support closure (PR #197)
+## Deferred clipping and maximum-support closure after PRs #197-#198
 
 The first two items of the previous handoff are now locally verified.
-[Exact theorem scope and reproduction receipt](research/DEFERRED_CLIPPING_MAXIMAL_SUPPORT_2026-09-12.md). The active
-[PR #197](https://github.com/jjoshua2/prove2me-work/pull/197) supplies the padded
-route adapter; the continuation uses its exact source and adds the full geometric assembly.
+[Exact theorem scope and reproduction receipt](research/DEFERRED_CLIPPING_MAXIMAL_SUPPORT_2026-09-12.md). Merged [PR #197](https://github.com/jjoshua2/prove2me-work/pull/197) supplies the padded
+route adapter. Merged [PR #198](https://github.com/jjoshua2/prove2me-work/pull/198) supplies the
+projected clipping interface. This continuation preserves both interfaces and
+adds the full geometric certificate, maximum-support assembly and residual theorem.
 
 - [PolynomialDeferredClipping.lean](Solutions/PolynomialDeferredClipping.lean)
   returns a `DeferredClipCertificate` containing the shortest mixed path and its
@@ -121,7 +122,7 @@ The ridge-visible line is a complementary research direction. Its proved small-r
 
 ## Verification and continuation
 
-The continuation passed `lake build Solutions.PolynomialTargetConeDeferredCosts` and the standard-axiom audit for all 13 new/adapter declarations (373 reports checked across dependencies). Exact hashes and logs are under [verification/2026-09-12-deferred-clipping](research/verification/2026-09-12-deferred-clipping/). The previous targeted build also passed for the integrated shortest-clipping module, chordless carrier tradeoff, and minimum-carrier routing. The new standalone theorem has its own clean axiom audit. Full evidence is under [verification/2026-09-12-sync](research/verification/2026-09-12-sync/).
+The continuation passed `lake build Solutions.PolynomialTargetConeDeferredCosts` and the standard-axiom audit for all 15 new/adapter/projection declarations (375 reports checked across dependencies). Exact hashes and logs are under [verification/2026-09-12-deferred-clipping](research/verification/2026-09-12-deferred-clipping/). The previous targeted build also passed for the integrated shortest-clipping module, chordless carrier tradeoff, and minimum-carrier routing. The new standalone theorem has its own clean axiom audit. Full evidence is under [verification/2026-09-12-sync](research/verification/2026-09-12-sync/).
 
 [Integration PR #195](https://github.com/jjoshua2/prove2me-work/pull/195) preserves completed #192 publication receipts and the exact #194 theorem while excluding both temporary workflows. It supersedes both completed PRs; no historical experiment remains part of the active work queue. Do not reopen their old experiments as active work.
 

@@ -1,6 +1,6 @@
 # Deferred clipping closes the maximum-support regime
 
-Date: 2026-09-12. Integration: [PR #197](https://github.com/jjoshua2/prove2me-work/pull/197).
+Date: 2026-09-12. Continuation of merged [PR #197](https://github.com/jjoshua2/prove2me-work/pull/197) and [PR #198](https://github.com/jjoshua2/prove2me-work/pull/198).
 Frozen proof source: [`9f022ff39997a28e51a1ecc39155cb7d852ffd40`](https://github.com/jjoshua2/prove2me-work/commit/9f022ff39997a28e51a1ecc39155cb7d852ffd40).
 Lean 4.30.0 / Mathlib `c5ea00351c28e24afc9f0f84379aa41082b1188f`.
 
@@ -90,3 +90,12 @@ passed; its [axiom artifact](verification/2026-09-12-deferred-clipping/adapter-h
 is preserved. The completed one-shot workflow is removed from integration.
 The four subsequent modules were verified locally; the original hosted run
 is not claimed to cover them.
+
+The concurrently merged #198 clipping theorem interfaces are preserved as
+projections of the fuller certificate, eliminating a second copy of the radial
+proof. The [integration audit](verification/2026-09-12-deferred-clipping/integration-verification.json)
+checks both projected declarations plus the 13 previous declarations: all 15
+passed, with 375 dependency reports audited. Reproduce using
+`lake build Solutions.PolynomialTargetConeDeferredCosts Solutions.PolynomialSimultaneousClipDeferredPairLegs`.
+The original #198 source and hosted receipts remain in Git history and its
+durable [receipt](SIMULTANEOUS_CLIP_DEFERRED_CUT_COSTS_VERIFICATION_2026-09-12.md).
