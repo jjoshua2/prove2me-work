@@ -1,0 +1,60 @@
+name: Verify target-preserving blocker deletion once
+on:
+  pull_request:
+    types: [ready_for_review]
+permissions:
+  contents: read
+concurrency:
+  group: target-preserving-blocker-${{ github.head_ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    if: >-
+      github.repository == 'jjoshua2/prove2me-work' &&
+      github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
+      github.head_ref == 'formal/nonvertex-target-preserving-deletion'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - name: Check frozen source, exact regression and pins
+        shell: bash
+        run: |
+          set -euo pipefail
+          git rev-parse HEAD
+          python3 scripts/check_actions_policy.py
+          test "$(cat lean-toolchain)" = 'leanprover/lean4:v4.30.0'
+          grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
+          echo '5cea6e0d31c4bfa0c4ee8c7e836c42689c7a7488f613ca1e4c39f63ba9d851fd  Solutions/PolynomialTargetPreservingBlockerDeletion.lean' | sha256sum -c -
+          echo '7b602249161b8677fcc5bdca8086a7be4d4b99e4cd1d4898e899c03adfb9fd25  scripts/check_nonvertex_blocker_deletion.py' | sha256sum -c -
+          python3 scripts/check_nonvertex_blocker_deletion.py > /tmp/target-preserving-exact.json
+          echo 'f75e223f2c7fa436b78f1b438370025bf256c3f3bf4c71aa937a672e891587ad  /tmp/target-preserving-exact.json' | sha256sum -c -
+      - name: Restore shared pinned Lean environment
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Compile frozen target and audit seven declarations
+        shell: bash
+        run: |
+          set -euo pipefail
+          lake build Solutions.PolynomialTargetPreservingBlockerDeletion 2>&1 | tee /tmp/target-preserving-build.log
+          lake env lean Solutions/PolynomialTargetPreservingBlockerDeletion.lean 2>&1 | tee /tmp/target-preserving-axioms.log
+          python3 scripts/check_lean_axiom_log.py /tmp/target-preserving-axioms.log \
+            HirschDeletion.rowMap_rowsWithout_not_injective_of_unique_nonneutral \
+            HirschDeletion.rowCircuit_pointed_deletion_iff_other_nonneutral \
+            HirschDeletion.vertex_survives_rowsWithout_of_slack \
+            HirschDeletion.rowMap_rowsWithout_injective_of_slack_vertex \
+            HirschDeletion.rowsWithout_card_lt \
+            HirschDeletion.rowCircuitStep_same_phase_has_target_preserving_pointed_deletion \
+            HirschDeletion.slack_row_has_lower_excess_target_preserving_cubic_outer
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: target-preserving-blocker-deletion-verification
+          retention-days: 14
+          path: |
+            /tmp/target-preserving-exact.json
+            /tmp/target-preserving-build.log
+            /tmp/target-preserving-axioms.log
+          if-no-files-found: warn
