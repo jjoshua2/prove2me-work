@@ -1,4 +1,5 @@
 import Mathlib
+import Definitions.Def_Hirsch_circuit_model
 import Solutions.PolynomialCurrentExteriorCapParentFaceRoute
 import Solutions.PolynomialOneRowDeletionCapWitness
 import Solutions.PolynomialOneRowDeletionHorizonShadow
@@ -90,8 +91,9 @@ theorem hpoly_diamLE_of_deletionOuter_diam_and_parent_face_route
   have hOconv : Convex ℝ O := by
     simpa [O] using deletionOuterSet_convex a b j
   have hRconv : Convex ℝ R := by
+    change Convex ℝ (HirschDeletion.deletionCappedOuter a b j M)
     rw [deletionCappedOuter_eq_clipSet a b j M]
-    exact HirschRadial.clipSet_convex O hOconv
+    exact HirschRadial.clipSet_convex _ (deletionOuterSet_convex a b j)
       (fun _ : Fin 1 => HirschCapVertices.deletionCapNormal a j)
       (fun _ : Fin 1 => M)
   have hoO : o ∈ O := by
