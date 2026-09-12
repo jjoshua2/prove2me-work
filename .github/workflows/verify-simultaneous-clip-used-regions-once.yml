@@ -35,9 +35,13 @@ jobs:
           lake build Solutions.PolynomialSimultaneousClipUsedRegions
           lake env lean Solutions/PolynomialSimultaneousClipUsedRegions.lean 2>&1 | tee /tmp/simultaneous-clip-used-regions.log
           python3 scripts/check_lean_axiom_log.py /tmp/simultaneous-clip-used-regions.log \
+            HirschRadial.clipRepairRegionCost_sum_eq_cut_add_old_length \
             HirschRadial.route_clip_of_lifted_endpoints_with_parent_routes_used_regions \
+            HirschRadial.route_clip_of_lifted_endpoints_with_parent_routes_used_cut_faces \
             HirschRadial.route_clip_with_parent_routes_used_regions \
-            HirschRadial.route_clip_from_root_with_parent_routes_used_regions
+            HirschRadial.route_clip_with_parent_routes_used_cut_faces \
+            HirschRadial.route_clip_from_root_with_parent_routes_used_regions \
+            HirschRadial.route_clip_from_root_with_parent_routes_used_cut_faces
       - uses: actions/upload-artifact@v4
         if: always()
         with:
