@@ -2,7 +2,7 @@
 
 Date: 2026-09-11 (America/New_York)
 
-Status while written: candidate formalization; focused hosted Lean verification pending. This note does not claim kernel verification or Prove2Me publication.
+Status while written: candidate formalization in PR #158; focused hosted Lean verification is configured and pending. This note does not claim kernel verification or Prove2Me publication.
 
 ## Structural observation
 
