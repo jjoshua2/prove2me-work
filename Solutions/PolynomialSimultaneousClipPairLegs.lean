@@ -112,13 +112,7 @@ theorem clipRepairPairCost_sum_eq_cut_add_old_length {D : ℕ}
                 B leg.label leg.entry leg.exit).sum +
               Nat.succ (clipRepairOldEdgeLabels (legs.map RegionLeg.label)).length
           omega
-        · change
-            (legs.map fun leg =>
-              clipRepairPairCost (D := D) B leg.label leg.entry leg.exit).sum =
-            ((clipRepairCutLegs legs).map fun leg =>
-                B leg.label leg.entry leg.exit).sum +
-              (clipRepairOldEdgeLabels (legs.map RegionLeg.label)).length
-          exact ih
+        · simpa [clipRepairPairCost, clipRepairCutLegs, clipRepairOldEdgeLabels] using ih
 
 /-- Pair-specific simultaneous clipping on a supplied outer route.  Each
 projected cut leg is an actual parent-vertex pair tight on that cut row.  After
