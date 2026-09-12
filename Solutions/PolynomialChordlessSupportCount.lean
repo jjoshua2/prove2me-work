@@ -106,7 +106,9 @@ theorem supportNeighborFinset_card_le_two
       exact Or.inr (by simpa [r] using hnext)
   have hcard := Finset.card_le_card hsub
   have hpair : ({p.getVert (r - 1), p.getVert (r + 1)} : Finset V).card ≤ 2 := by
-    simp
+    have h := Finset.card_insert_le
+      (p.getVert (r - 1)) ({p.getVert (r + 1)} : Finset V)
+    simpa using h
   exact hcard.trans hpair
 
 /-- Selected support labels which are either the current label itself or adjacent
