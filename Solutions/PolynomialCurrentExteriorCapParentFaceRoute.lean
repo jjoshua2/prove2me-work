@@ -147,11 +147,9 @@ theorem diamLE_single_clip_of_augmented_outer_routes_with_parent_face_route
       simpa [C, P, aa, bb] using hroute
     · have hp0 : p = (if t = 0 then u else v) := by simpa [S] using hp.2
       have hq0 : q = (if t = 0 then u else v) := by simpa [S] using hq.2
-      have hpq : p = q := hp0.trans hq0.symm
-      subst q
-      have hzero : Route (Adj P) 0 p p :=
-        ⟨fun _ => p, rfl, rfl, by intro j hj; omega⟩
-      simpa [C] using hzero
+      rw [hp0, hq0]
+      change Route (Adj P) 0 (if t = 0 then u else v) (if t = 0 then u else v)
+      exact ⟨fun _ => (if t = 0 then u else v), rfl, rfl, by intro j hj; omega⟩
   let ρ := HirschRadial.retract aa bb o
   have hρP : ∀ z ∈ Q, ρ z ∈ P :=
     fun z hz => HirschRadial.retract_mem Q hQ aa bb o z ho hz hstrict'
