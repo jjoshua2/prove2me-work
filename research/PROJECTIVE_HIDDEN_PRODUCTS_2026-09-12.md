@@ -2,14 +2,34 @@
 
 ## Scope and dependency boundary
 
-The user assigned PR #202's Lean repair, verification, and publication to another
-agent and asked for further mathematics. This continuation leaves #201 and #202
-unchanged. It works from the existing affine row-block and graph interfaces on
-main `65dc76dd2a2e9cc01a3e0ae3f64464d4eebfbdd3`, not from a new open child.
+The three #203 proof modules now compile at Lean 4.30.0 / Mathlib c5ea003,
+with the merged #201/#202 state retained. The original candidate is preserved
+at `319a5fa5895939edead917ac307fbf4060d4b2db`; the corrected and extended proof
+source is frozen at `6cd06d52fa4bbd832d8eae1eddd85ded9f0bfec9`.
 
-**Status:** complete mathematical argument and 450 lines of new Lean proof
-candidates; the new modules have NOT been compiled or accepted by Prove2Me.
-Exact rational tests were actually executed; their receipt is separate.
+The corrections retain the chart certificate parameter explicitly (`include h`)
+and supply the explicit field/endpoints to `openSegment_subset_segment` in two
+places. Redundant tactic sequencing was removed. No mathematical hypothesis
+was weakened. A new `hpoly_diamLE_of_shear_multipliers` theorem consumes both
+finite denominator certificates directly, matching the rational verifier.
+
+The targeted local build and the single final
+[hosted verification](https://github.com/jjoshua2/prove2me-work/actions/runs/34710879303)
+pass. All 15 required new declarations and 28 total axiom reports use only
+standard logical axioms. The rational tests pass again with all original counts
+and direct imports of the existing row-block helper; the fresh receipt hashes
+that helper as well. The original candidate receipt remains unchanged.
+[Verification and exact hashes](verification/2026-09-12-projective-products/).
+
+The complete finite-certificate hidden-product criterion has a standalone
+[publication packet](publication_packets/projective_small_blocks/), importing
+only the already-Proved independent-small-row-block theorem. Its explicit-input
+local driver passes its own axiom audit; its exact public statement and solution
+also typecheck locally. The full finite-certificate criterion is now Prove2Me
+theorem `b6289eea-78b3-4bcf-a5d7-65fbab46a986`, **Proved**, with accepted
+submission `84cf11d7-d965-41c3-96b6-d0f108e8ce2e`. The authenticated accepted
+source matches the packet; its real dependency is the public row-block theorem.
+Mission comment `940e9078-b248-4385-afa7-2f60bab07663` records the result and gap.
 
 This is an extension of the repository's sufficient routing criteria, not a
 claim that projective invariance is a new classical theorem. The point is to
@@ -231,15 +251,17 @@ spurious bound. These finite checks do not verify the universal Lean source.
 
 Commands in the repository:
 
-    python3 scripts/test_projective_row_blocks.py
+    python3 scripts/test_projective_row_blocks.py --receipt /tmp/projective-check.json --fixture /tmp/projective-cube.json
     python3 scripts/projective_row_block_certificate.py research/projective_cube_4d_input.json
     lake build Solutions.PolynomialSegmentChartTransport \
       Solutions.PolynomialPositivePerspective Solutions.PolynomialProjectiveRowBlockRouting
 
-Fix ordinary elaboration errors locally. Inspect the transitive axioms of ALL
-new declarations, with the classical small-excess result an explicit input.
-No new workflow, dependency pin, platform submission or credential operation
-was made. Local proof compilation and platform acceptance remain distinct.
+The three source modules, new finite-certificate wrapper, standalone audit
+driver, and public composition all pass local Lean. The source audit has no
+placeholder imports; the public composition uses the exact local interface of
+the already-Proved row-block theorem, with platform verification kept separate.
+No workflow or dependency pin changed. The public proof uses finite multiplier
+hypotheses and the full row-block certificate, not assumed graph equivalence.
 
 ## 6. Next substantive mathematical target
 

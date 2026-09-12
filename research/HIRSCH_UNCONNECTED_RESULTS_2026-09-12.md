@@ -10,6 +10,15 @@ All six curated milestones are Proved. The open-leaves endpoint reports only [co
 
 Machine-readable IDs, edges, author attribution, milestone status, and catalog membership: [snapshot](verification/2026-09-12-sync/catalog-and-dependencies.json).
 
+## Additions after the frozen inventory
+
+The historical counts above are unchanged. Subsequent accepted results:
+
+- [Fixed-excess Larman bound](https://prove2.me/theorems/49576ed3-5185-4951-9215-43283ef6169e), accepted submission `cd24addc-446f-4d16-b814-85315057c98f`, uses Larman and facet reduction.
+- [Projectively hidden small blocks](https://prove2.me/theorems/b6289eea-78b3-4bcf-a5d7-65fbab46a986), accepted submission `84cf11d7-d965-41c3-96b6-d0f108e8ce2e`, uses the independent-small-row-block theorem `27737675`. The authenticated dependency and mission comment `940e9078-b248-4385-afa7-2f60bab07663` are preserved in [its packet](publication_packets/projective_small_blocks/).
+
+Both remain outside the root dependency closure: applicability to arbitrary growing-deficit carriers is unproved. Discussion links are navigation, not reductions.
+
 | Proved result | Submitted by | In mission discussion | Milestone |
 |---|---|---|---|
 | [Hirsch.closed_extreme_faces_disjoint_of_no_shared_parent_extreme](https://prove2.me/theorems/28f797e1-c7bd-49fd-b3b5-570c22329bdc) | jjosh | yes | no |

@@ -1,0 +1,22 @@
+{
+  "id": "e712f0e4-55f3-4e80-8fdc-50fae180b13a",
+  "kind": "problem",
+  "theorem_name": "Hirsch.hpoly_diameter_le_excess_of_projectively_hidden_small_row_blocks",
+  "theorem_title": "Hirsch routing for products hidden by a positive projective chart",
+  "formal_statement": "namespace Hirsch\ntheorem hpoly_diameter_le_excess_of_projectively_hidden_small_row_blocks\n{d n k : ℕ} (dims counts : Fin k → ℕ)\n    (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)\n    (T : EuclideanSpace ℝ (Fin d) ≃ₗ[ℝ]\n      (∀ i : Fin k, EuclideanSpace ℝ (Fin (dims i))))\n    (e : (Σ i : Fin k, Fin (counts i)) ≃ Fin n)\n    (A : ∀ i : Fin k, Fin (counts i) → EuclideanSpace ℝ (Fin (dims i)))\n    (hrows : ∀ z i j, ⟪a (e ⟨i, j⟩), T.symm z⟫ = ⟪A i j, z i⟫)\n    (hbd : Bornology.IsBounded (Hpoly a b)) (hne : (Hpoly a b).Nonempty)\n    (hcount : ∀ i, dims i ≤ counts i)\n    (hsmallcount : ∀ i, counts i ≤ dims i + 3)\n    (c : EuclideanSpace ℝ (Fin d)) (weights inverseWeights : Fin n → ℝ)\n    (hweights : ∀ i, 0 ≤ weights i)\n    (hnormal : (∑ i, weights i • a i) = -c)\n    (hmargin : (∑ i, weights i * b i) < 1)\n    (hinverseWeights : ∀ i, 0 ≤ inverseWeights i)\n    (hinverseNormal : (∑ i, inverseWeights i • (a i + b i • c)) = c)\n    (hinverseMargin : (∑ i, inverseWeights i * b i) < 1) :\n    DiamLE (Hpoly (fun i => a i + b i • c) b) (n - d) := by sorry\nend Hirsch",
+  "natural_language_statement": "Let $P=\\{x\\in\\mathbb R^d:a_i\\cdot x\\le b_i,\\ 1\\le i\\le n\\}$\nbe nonempty and bounded. Suppose an invertible linear change of coordinates\nand a partition of all describing rows identify $P$ with independent factors\n$P_j\\subseteq\\mathbb R^{d_j}$, each described by $n_j$ rows, where\n$d_j\\le n_j\\le d_j+3$. All combinations of factor points must be feasible;\nthe row identities certify an actual Cartesian product.\n\nChoose $c\\in\\mathbb R^d$ and define $a'_i=a_i+b_i c$. Suppose there are\nnonnegative weights $\\mu_i,\\nu_i$ satisfying\n\n$$\\sum_i\\mu_i a_i=-c,\\qquad \\sum_i\\mu_i b_i<1,\\qquad\n\\sum_i\\nu_i a'_i=c,\\qquad \\sum_i\\nu_i b_i<1.$$\n\nThen the polyhedron $Q=\\{y\\in\\mathbb R^d:a'_i\\cdot y\\le b_i\\}$ satisfies\n\n$$\\operatorname{diam}_{\\mathrm{edge}}(Q)\\le n-d.$$\n\nThere is no bound on total excess, number of factors, or repair-support deficit.\nThe criterion includes products hidden by a positive projective transformation,\neven when the target normals do not split into independent linear blocks.\nThe chart and factorization are supplied and certified; their existence for\narbitrary polyhedra is not asserted.\n\n**Formalization Note** Dimension and row partitions are explicit equivalences.\nStationary steps permit padding to exactly $n-d$ steps, with natural subtraction.\nThe certificate checker uses rational data; the theorem permits real coefficients.",
+  "definitions": "import Mathlib\nimport Definitions.Def_Hirsch_model\nopen scoped BigOperators RealInnerProductSpace\nopen Set Hirsch",
+  "source": "Exact statement, positive chart proof and certificate criterion: https://github.com/jjoshua2/prove2me-work/blob/6cd06d52fa4bbd832d8eae1eddd85ded9f0bfec9/Solutions/PolynomialProjectiveRowBlockRouting.lean . Classical context: Gouveia, Macchia, Thomas, Wiebe, The Slack Realization Space of a Polytope (2019), Section 2, equation (3) and Lemma 2.3, https://arxiv.org/html/1708.04739v4#S2 . The finite multiplier and row-block criterion is derived in the cited Lean source, not claimed to be a verbatim theorem of that paper.",
+  "tags": [
+    "hirsch-conjecture",
+    "polytopes",
+    "diameter-bound",
+    "projective-geometry"
+  ],
+  "visibility": "public",
+  "status": "PUBLISHED",
+  "error_message": "",
+  "theorem_id": "b6289eea-78b3-4bcf-a5d7-65fbab46a986",
+  "created_at": "2026-09-12T18:26:51.188728+00:00",
+  "updated_at": "2026-09-12T18:27:42.4013+00:00"
+}

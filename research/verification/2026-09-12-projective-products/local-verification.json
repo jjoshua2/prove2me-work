@@ -1,0 +1,34 @@
+{
+  "command": "lake build Solutions.PolynomialProjectiveRowBlockRouting",
+  "status": "PASS",
+  "required_declarations": [
+    "Hirsch.SegmentChart.isExtreme_image_iff",
+    "Hirsch.SegmentChart.image_extremePoints",
+    "Hirsch.SegmentChart.adj_iff",
+    "Hirsch.SegmentChart.diamLE_image",
+    "HirschPerspective.denominator_neg_perspective",
+    "HirschPerspective.perspective_inverse",
+    "HirschPerspective.perspective_mix",
+    "HirschPerspective.perspective_segmentChart",
+    "HirschPerspective.perspective_diamLE_image",
+    "HirschProjectiveBlocks.shear_slack_identity",
+    "HirschProjectiveBlocks.perspective_image_hpoly_eq_shear",
+    "HirschProjectiveBlocks.hpoly_diamLE_of_positive_shear",
+    "HirschProjectiveBlocks.positiveDomain_of_row_multipliers",
+    "HirschProjectiveBlocks.hpoly_diamLE_of_shear_multipliers",
+    "HirschProjectiveBlocks.hpoly_diamLE_excess_of_projectively_hidden_small_row_blocks"
+  ],
+  "required_count": 15,
+  "reports_checked": 28,
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "source_sha256": {
+    "Solutions/PolynomialSegmentChartTransport.lean": "fce902d103c3a1af7e79f8e011f1da89164d12ff309bc1f1073aedc32387689f",
+    "Solutions/PolynomialPositivePerspective.lean": "04b5e70c94614be14198872e5613f4711dab04c01328b4622cdf8090b7c6801b",
+    "Solutions/PolynomialProjectiveRowBlockRouting.lean": "31b24e5e6851e5514a7db4da9e2c3a95f91b70fee805a61253040be0db005775"
+  },
+  "source_commit": "6cd06d52fa4bbd832d8eae1eddd85ded9f0bfec9"
+}

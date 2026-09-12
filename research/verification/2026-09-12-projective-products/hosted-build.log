@@ -1,0 +1,51 @@
+##[group]Run set -euo pipefail
+[36;1mset -euo pipefail[0m
+[36;1mif [[ -z "${LEAN_TARGETS// }" ]]; then[0m
+[36;1m  lake build[0m
+[36;1melse[0m
+[36;1m  read -r -a targets <<< "$LEAN_TARGETS"[0m
+[36;1m  lake build "${targets[@]}"[0m
+[36;1mfi[0m
+shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+env:
+  LEAN_TARGETS: Solutions.PolynomialProjectiveRowBlockRouting
+##[endgroup]
+✔ [8475/8481] Built Definitions.Def_Hirsch_model (3.0s)
+ℹ [8476/8481] Built Solutions.PolynomialProductWalk (5.3s)
+info: Solutions/PolynomialProductWalk.lean:162:0: 'HirschProduct.diamLE_pi' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8477/8481] Built Solutions.PolynomialSegmentChartTransport (6.8s)
+info: Solutions/PolynomialSegmentChartTransport.lean:117:0: 'Hirsch.SegmentChart.isExtreme_image_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialSegmentChartTransport.lean:118:0: 'Hirsch.SegmentChart.image_extremePoints' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialSegmentChartTransport.lean:119:0: 'Hirsch.SegmentChart.adj_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialSegmentChartTransport.lean:120:0: 'Hirsch.SegmentChart.diamLE_image' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8478/8481] Built Solutions.PolynomialAffineDiameterTransport (7.5s)
+warning: Solutions/PolynomialAffineDiameterTransport.lean:247:4: Try this: intro h x hx y hy
+info: Solutions/PolynomialAffineDiameterTransport.lean:286:0: 'Hirsch.affineEquiv_isExtreme_image' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialAffineDiameterTransport.lean:287:0: 'Hirsch.affineEquiv_image_extremePoints' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialAffineDiameterTransport.lean:288:0: 'Hirsch.affineEquiv_adj_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialAffineDiameterTransport.lean:289:0: 'Hirsch.affineEquiv_diamLE_image_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialAffineDiameterTransport.lean:290:0: 'Hirsch.affineMap_isExtreme_image_iff_of_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialAffineDiameterTransport.lean:291:0: 'Hirsch.affineMap_image_extremePoints_of_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialAffineDiameterTransport.lean:292:0: 'Hirsch.affineMap_adj_iff_of_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialAffineDiameterTransport.lean:293:0: 'Hirsch.affineMap_diamLE_image_iff_of_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8479/8481] Built Solutions.PolynomialPositivePerspective (5.6s)
+info: Solutions/PolynomialPositivePerspective.lean:172:0: 'HirschPerspective.denominator_neg_perspective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialPositivePerspective.lean:173:0: 'HirschPerspective.perspective_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialPositivePerspective.lean:174:0: 'HirschPerspective.perspective_mix' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialPositivePerspective.lean:175:0: 'HirschPerspective.perspective_segmentChart' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialPositivePerspective.lean:176:0: 'HirschPerspective.perspective_diamLE_image' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8480/8481] Built Solutions.PolynomialRowBlockRouting (6.6s)
+info: Solutions/PolynomialRowBlockRouting.lean:116:0: 'HirschRowBlocks.image_hpoly_eq_pi_of_row_blocks' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialRowBlockRouting.lean:117:0: 'HirschRowBlocks.factors_bounded_of_row_blocks' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialRowBlockRouting.lean:118:0: 'HirschRowBlocks.row_block_excess_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialRowBlockRouting.lean:119:0: 'HirschRowBlocks.hpoly_diamLE_excess_of_small_row_blocks' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8481/8481] Built Solutions.PolynomialProjectiveRowBlockRouting (4.7s)
+info: Solutions/PolynomialProjectiveRowBlockRouting.lean:168:0: 'HirschProjectiveBlocks.shear_slack_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialProjectiveRowBlockRouting.lean:169:0: 'HirschProjectiveBlocks.perspective_image_hpoly_eq_shear' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialProjectiveRowBlockRouting.lean:170:0: 'HirschProjectiveBlocks.hpoly_diamLE_of_positive_shear' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialProjectiveRowBlockRouting.lean:171:0: 'HirschProjectiveBlocks.positiveDomain_of_row_multipliers' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialProjectiveRowBlockRouting.lean:172:0: 'HirschProjectiveBlocks.hpoly_diamLE_of_shear_multipliers' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solutions/PolynomialProjectiveRowBlockRouting.lean:173:0: 'HirschProjectiveBlocks.hpoly_diamLE_excess_of_projectively_hidden_small_row_blocks' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Build completed successfully (8481 jobs).

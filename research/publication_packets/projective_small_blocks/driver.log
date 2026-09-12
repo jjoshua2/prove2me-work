@@ -1,0 +1,25 @@
+'Hirsch.SegmentChart.isExtreme_image_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.SegmentChart.image_extremePoints' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.SegmentChart.adj_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.SegmentChart.diamLE_image' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HirschPerspective.denominator_neg_perspective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HirschPerspective.perspective_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HirschPerspective.perspective_mix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HirschPerspective.perspective_segmentChart' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HirschPerspective.perspective_diamLE_image' depends on axioms: [propext, Classical.choice, Quot.sound]
+research/publication_packets/projective_small_blocks/driver.lean:455:5: warning: unused variable `hrows`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+research/publication_packets/projective_small_blocks/driver.lean:456:5: warning: unused variable `hbd`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+research/publication_packets/projective_small_blocks/driver.lean:456:45: warning: unused variable `hne`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+research/publication_packets/projective_small_blocks/driver.lean:457:5: warning: unused variable `hcount`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+research/publication_packets/projective_small_blocks/driver.lean:458:5: warning: unused variable `hsmallcount`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'checked_projective_blocks_adapter' depends on axioms: [propext, Classical.choice, Quot.sound]
