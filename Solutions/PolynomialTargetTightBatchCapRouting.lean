@@ -22,6 +22,12 @@ def targetSlackRows
     (v : EuclideanSpace ℝ (Fin d)) :=
   {i : Fin n // ⟪a i, v⟫ < b i}
 
+noncomputable instance targetSlackRowsFintype
+    {d n : ℕ}
+    (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
+    (v : EuclideanSpace ℝ (Fin d)) :
+    Fintype (targetSlackRows a b v) := Fintype.ofFinite _
+
 /-- If an injective finite H-presentation has exactly one old vertex `v`, then
 any compactifying negative-row-sum cap placed strictly above `v` has ordinary
 vertex-edge diameter at most two. Every genuinely new cap vertex is adjacent
@@ -49,13 +55,16 @@ theorem injective_single_vertex_cap_diamLE_two
     Metric.isCompact_iff_isClosed_bounded.2 ⟨hRc, hRbd⟩
   have hmodel : R = Q ∩ {x | ⟪c, x⟫ ≤ M} := by
     simpa [Q, c, R] using HirschPointed.injectiveCappedHpoly_eq_inter a b M
+  have hcapCompact : IsCompact (Q ∩ {x | ⟪c, x⟫ ≤ M}) := by
+    rw [← hmodel]
+    exact hRcompact
   have hclass : ∀ z ∈ extremePoints ℝ R, z = v ∨ Adj R v z := by
     intro z hz
     have hzModel : z ∈ extremePoints ℝ (Q ∩ {x | ⟪c, x⟫ ≤ M}) := by
       rw [← hmodel]
       exact hz
     rcases HirschCapVertices.compact_hpoly_cap_vertex_classification
-        a b c M (by simpa [Q] using hRcompact) z hzModel with hold | hnew
+        a b c M (by simpa [Q] using hcapCompact) z hzModel with hold | hnew
     · left
       have hzv : z ∈ ({v} : Set _) := by
         rw [← hverts]
@@ -125,6 +134,9 @@ theorem target_tight_batch_reinsertion_diamLE_of_parent_face_routes
   let br : Fin m → ℝ := fun k => b (e k)
   let Q := Hpoly ar br
   let I := targetSlackRows a b v
+  letI : Fintype I := by
+    dsimp [I]
+    infer_instance
   let ca : I → EuclideanSpace ℝ (Fin d) := fun i => a i.1
   let cb : I → ℝ := fun i => b i.1
   let P := Hpoly a b
