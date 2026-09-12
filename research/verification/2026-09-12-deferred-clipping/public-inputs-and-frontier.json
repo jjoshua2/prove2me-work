@@ -1,0 +1,87 @@
+{
+  "Hirsch.larman_bound": [
+    {
+      "theorem_id": "67b51368-4d70-4c01-b2d5-f8c7b0610328",
+      "theorem_name": "Hirsch.larman_bound",
+      "theorem_title": "Larman's bound $n\\,2^{d-3}$",
+      "status": "Proved",
+      "formal_statement": "namespace Hirsch\n\ntheorem larman_bound (d n : \u2115)\n    (a : Fin n \u2192 EuclideanSpace \u211d (Fin d)) (b : Fin n \u2192 \u211d)\n    (hne : (Hpoly a b).Nonempty) (hbd : Bornology.IsBounded (Hpoly a b)) :\n    DiamLE (Hpoly a b) (n * 2 ^ (d - 3)) := by sorry\n\nend Hirsch",
+      "natural_language_statement": "(Larman 1970.) Every nonempty bounded H-polytope in $\\mathbb{R}^d$ described by $n$ inequalities has combinatorial diameter at most $n \\cdot 2^{d-3}$. The bound is linear in the number of inequalities for each fixed dimension \u2014 still the best known bound of that shape. The exponent $d - 3$ is truncated natural subtraction, so for $d \\le 3$ the asserted bound is $n$, which holds; lower-dimensional polytopes are included.",
+      "created_at": "2026-08-22T02:26:38.04556+00:00",
+      "vote_count": 0,
+      "preamble": "import Mathlib\nimport Definitions.Def_Hirsch_model",
+      "source": "Larman, Paths on polytopes, Proc. London Math. Soc. s3-20 (1970) 161-178, https://doi.org/10.1112/plms/s3-20.2.249",
+      "tags": [
+        "diameter-bound",
+        "hirsch-conjecture",
+        "polytopes"
+      ],
+      "created_by": "136472b2-7660-4cad-97ab-bc0d424d2ccd",
+      "created_by_username": "Shuze Chen",
+      "deprecated_at": null,
+      "visibility": "public",
+      "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+      "env_display_name": "Mathlib 0df444a (Lean v4.33.1)"
+    },
+    {
+      "theorem_id": "68453b6b-bcef-4672-b877-d04e56527e3f",
+      "theorem_name": "Hirsch.larman_bound",
+      "theorem_title": "Larman's bound $n\\,2^{d-3}$",
+      "status": "Proved",
+      "formal_statement": "namespace Hirsch\n\ntheorem larman_bound (d n : \u2115)\n    (a : Fin n \u2192 EuclideanSpace \u211d (Fin d)) (b : Fin n \u2192 \u211d)\n    (hne : (Hpoly a b).Nonempty) (hbd : Bornology.IsBounded (Hpoly a b)) :\n    DiamLE (Hpoly a b) (n * 2 ^ (d - 3)) := by sorry\n\nend Hirsch",
+      "natural_language_statement": "(Larman 1970.) Every nonempty bounded H-polytope in $\\mathbb{R}^d$ described by $n$ inequalities has combinatorial diameter at most $n \\cdot 2^{d-3}$. The bound is linear in the number of inequalities for each fixed dimension \u2014 still the best known bound of that shape. The exponent $d - 3$ is truncated natural subtraction, so for $d \\le 3$ the asserted bound is $n$, which holds; lower-dimensional polytopes are included.",
+      "created_at": "2026-08-22T02:26:38.04556+00:00",
+      "vote_count": 0,
+      "preamble": "import Mathlib\nimport Definitions.Def_Hirsch_model",
+      "source": "Larman, Paths on polytopes, Proc. London Math. Soc. s3-20 (1970) 161-178, https://doi.org/10.1112/plms/s3-20.2.249",
+      "tags": [
+        "diameter-bound",
+        "hirsch-conjecture",
+        "polytopes"
+      ],
+      "created_by": "136472b2-7660-4cad-97ab-bc0d424d2ccd",
+      "created_by_username": "Shuze Chen",
+      "deprecated_at": null,
+      "visibility": "public",
+      "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+      "env_display_name": "Mathlib c5ea003 (Lean v4.30.0)"
+    }
+  ],
+  "Hirsch.hpoly_diameter_le_excess_of_rows_le_dim_add_three": [
+    {
+      "theorem_id": "12426807-9602-4014-bd5e-c69fb43f4cb6",
+      "theorem_name": "Hirsch.hpoly_diameter_le_excess_of_rows_le_dim_add_three",
+      "theorem_title": "Hirsch bound for H-polyhedra with at most three excess rows",
+      "status": "Proved",
+      "formal_statement": "namespace Hirsch\ntheorem hpoly_diameter_le_excess_of_rows_le_dim_add_three\n    (d n : \u2115)\n    (a : Fin n \u2192 EuclideanSpace \u211d (Fin d)) (b : Fin n \u2192 \u211d)\n    (hrows : n \u2264 d + 3) (hbd : Bornology.IsBounded (Hpoly a b)) :\n    DiamLE (Hpoly a b) (n - d) := by sorry\nend Hirsch",
+      "natural_language_statement": "Let P be a bounded H-polyhedron in ambient R^d described by n real linear inequalities. If n is at most d+3, then its padded vertex-edge graph diameter is at most n-d (natural subtraction). The description may have redundant inequalities or zero normals, and P may be empty or lower dimensional. No strict feasibility or irredundancy is assumed. In particular, at most two excess describing rows gives diameter at most two. This is the classical small-excess consequence of low-dimensional Hirsch, not a uniform polynomial bound for arbitrary excess.",
+      "created_at": "2026-09-11T16:09:21.501107+00:00",
+      "vote_count": 0,
+      "preamble": "import Mathlib\nimport Definitions.Def_Hirsch_model\nopen scoped RealInnerProductSpace\nopen Set Hirsch",
+      "source": "https://github.com/jjoshua2/prove2me-work/commit/2774702c54078cb8efae7bed185ed1b4b93bce5b ; standalone Lean/Axiom gate Actions run 34619780682",
+      "tags": [
+        "formalization",
+        "graph-diameter",
+        "polyhedra"
+      ],
+      "created_by": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+      "created_by_username": "jjosh",
+      "deprecated_at": null,
+      "visibility": "public",
+      "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+      "env_display_name": "Mathlib c5ea003 (Lean v4.30.0)"
+    }
+  ],
+  "open_leaves": {
+    "root_id": "58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac",
+    "open_leaves": [
+      {
+        "theorem_id": "87a8b4f4-8b58-4340-8cb9-5fd1b548d01e",
+        "theorem_name": "Hirsch.common_face_diameter_of_dim_ge_six",
+        "status": "Open",
+        "closability": 0
+      }
+    ],
+    "total": 1
+  }
+}
