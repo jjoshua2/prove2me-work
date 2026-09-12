@@ -4,7 +4,7 @@ import Solutions.PolynomialMaximalSupportClipping
 /-!
 # Exact selected-neighbor budgets for the actual clipping certificate
 
-Candidate continuation of merged #200. NOT YET LEAN-COMPILED.
+Continuation of merged #200, retaining the actual selected-neighbor count.
 
 Do not replace the actual blocked-label count by its upper bound three.
 For r selected labels and selected degree deg(i), the exact geometric saving is
@@ -45,13 +45,14 @@ theorem blockedSelectedFinset_card_eq_selectedDegree_add_one
     (p : G.Walk u v) (cuts : Finset V) (i : V) (hi : i ∈ cuts) :
     (blockedSelectedFinset p cuts i).card =
       (selectedNeighborFinset p cuts i).card + 1 := by
+  classical
   have hnot : i ∉ selectedNeighborFinset p cuts i := by
     intro h
     have hneigh := (Finset.mem_inter.mp h).2
     have hadj := (Finset.mem_filter.mp hneigh).2
     exact hadj.ne rfl
   rw [blockedSelectedFinset_eq_insert_selectedNeighbor p cuts i hi,
-    Finset.card_insert_of_not_mem hnot]
+    Finset.card_insert_of_notMem hnot]
 
 /-- This identity is exact, including one-label and empty-neighbor cases. -/
 theorem nonneighbor_card_add_selectedDegree_add_one
@@ -295,3 +296,44 @@ end HirschRadial
 #print axioms HirschCircuitLocalization.commonFace_minExcess_add_selected_le_exact_degree_budget
 #print axioms HirschRadial.DeferredClipCertificate.used_carrier_exact_selected_budget
 #print axioms HirschRadial.DeferredClipCertificate.route_of_support_gap_selected_degree
+
+namespace HirschRadial
+open Set Hirsch HirschRegionRoute HirschCircuitLocalization
+variable {d n D : ℕ} {ι : Type*} [Fintype ι] [DecidableEq ι]
+
+theorem DeferredClipCertificate.selectedCutDegree_le_two
+    {P : Set (EuclideanSpace ℝ (Fin d))}
+    {aj : ι → EuclideanSpace ℝ (Fin d)} {bj : ι → ℝ}
+    {u v : EuclideanSpace ℝ (Fin d)} (c : DeferredClipCertificate P aj bj D u v)
+    (leg : RegionLeg ι (EuclideanSpace ℝ (Fin d)))
+    (hleg : leg ∈ clipRepairCutLegs c.legs) : c.selectedCutDegree leg.label ≤ 2 := by
+  have hm := (cut_leg_mem_iff c leg).mp hleg
+  have hl : Sum.inl leg.label ∈ c.legs.map RegionLeg.label :=
+    List.mem_map.mpr ⟨_, hm, rfl⟩
+  rw [c.labels] at hl
+  exact selectedNeighborFinset_card_le_two c.path c.chordless _ _ hl
+
+/-- Deficit-one high calls have exactly excess four and selected degree two.
+This is a localization of the small-excess cutoff, not a distance obstruction. -/
+theorem DeferredClipCertificate.excess_four_and_degree_two_of_deficit_one
+    (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
+    (row : ι → Fin n) (hinj : Function.Injective row)
+    {u v : EuclideanSpace ℝ (Fin d)}
+    (c : DeferredClipCertificate (Hpoly a b) (fun i => a (row i))
+      (fun i => b (row i)) D u v)
+    (hbd : Bornology.IsBounded (Hpoly a b))
+    (o : EuclideanSpace ℝ (Fin d)) (hstrict : ∀ i, ⟪a (row i), o⟫ < b (row i))
+    (hgap : c.cutSupport.card + 1 = n-d)
+    (leg : RegionLeg ι (EuclideanSpace ℝ (Fin d)))
+    (hleg : leg ∈ clipRepairCutLegs c.legs)
+    (hh : 4 ≤ commonFacePresentationExcess a b leg.entry leg.exit) :
+    commonFacePresentationExcess a b leg.entry leg.exit = 4 ∧
+      c.selectedCutDegree leg.label = 2 := by
+  have hb := c.used_carrier_exact_selected_budget a b row hinj hbd o hstrict leg hleg
+  have hd := c.selectedCutDegree_le_two leg hleg
+  omega
+
+
+#print axioms DeferredClipCertificate.selectedCutDegree_le_two
+#print axioms DeferredClipCertificate.excess_four_and_degree_two_of_deficit_one
+end HirschRadial
