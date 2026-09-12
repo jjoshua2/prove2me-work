@@ -100,6 +100,13 @@ at the committed Mathlib pin. This avoids importing local theorem placeholders;
 the new core proofs use only standard logical axioms. These new assemblies are
 **local Lean results**, not newly accepted platform theorem submissions.
 
+The companion [PR #199](https://github.com/jjoshua2/prove2me-work/pull/199)
+retains the exact abstract cost `D + sum(local minimum-presentation excesses)`
+and its `D+3e` bound under maximum support. Its initial hosted compile failed
+on an undefined cut-leg type; the corrected `RegionLeg` version passed local
+Lean and the standard-axiom audit. [Exact-cost receipt](research/MAXIMAL_CUT_SUPPORT_EXACT_COST_VERIFICATION_2026-09-12.md).
+This exact-cost companion is preserved alongside the stronger continuation below.
+
 ## Exact selected degrees and all fixed support deficits (#201/#202)
 
 The #201 candidate now compiles after two finite-cardinality elaboration fixes.
