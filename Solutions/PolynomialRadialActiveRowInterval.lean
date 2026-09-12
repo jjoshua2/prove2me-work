@@ -9,12 +9,11 @@ ambient point.  A row is active when its score attains the finite radial scale,
 which is the maximum of all row scores and the constant one.  Therefore the set
 where one fixed row is active is convex.
 
-Along any segment, if the same row is active at both endpoints then it remains
-active throughout the segment.  Its radial image consequently stays on that
-same final cut face.  This is the direct one-dimensional upper-envelope
-structure needed to reason about the chronological cut sequence on an
-endpoint-lift spoke; it is stronger than merely simplifying a region graph to
-a duplicate-free label path.
+Under strict centre slack, this active cell is exactly the preimage of the row's
+final supporting hyperplane under radial retraction.  Hence along any segment a
+fixed final cut face can occur only on one convex interval: if the retracted
+image is tight on that row at two points, it is tight throughout the segment
+between them.
 -/
 
 open scoped RealInnerProductSpace
@@ -134,6 +133,60 @@ theorem retract_mem_active_cut_of_mem_activeRowCell
   exact point_mem_active_final_face (row (a i)) (b i) o x hstrict
     (one_le_scale _) hx
 
+/-- Conversely, under strict centre slack a row can be tight at the retracted
+point only if it attains the radial scale. -/
+theorem mem_activeRowCell_of_retract_tight
+    (a : ι → EuclideanSpace ℝ (Fin d)) (b : ι → ℝ)
+    (o x : EuclideanSpace ℝ (Fin d)) (i : ι)
+    (hstrict : ⟪a i, o⟫ < b i)
+    (htight : ⟪a i, retract a b o x⟫ = b i) :
+    x ∈ activeRowCell a b o i := by
+  let μ : ℝ := scale (fun j => normalizedRow (a j) (b j) o x)
+  have hμ : 1 ≤ μ := by
+    dsimp [μ]
+    exact one_le_scale _
+  have hμpos : 0 < μ := lt_of_lt_of_le zero_lt_one hμ
+  have ht := htight
+  change (row (a i)) (point o x μ) = b i at ht
+  rw [eval_point] at ht
+  change ⟪a i, o⟫ + μ⁻¹ * (⟪a i, x⟫ - ⟪a i, o⟫) = b i at ht
+  have hdiff :
+      μ⁻¹ * (⟪a i, x⟫ - ⟪a i, o⟫) = b i - ⟪a i, o⟫ := by
+    linarith
+  have hmul :
+      μ * (b i - ⟪a i, o⟫) = ⟪a i, x⟫ - ⟪a i, o⟫ := by
+    rw [← hdiff, ← mul_assoc, mul_inv_cancel₀ hμpos.ne', one_mul]
+  change scale (fun j => normalizedRow (a j) (b j) o x) =
+    normalizedRow (a i) (b i) o x
+  change μ = normalizedRow (a i) (b i) o x
+  unfold normalizedRow
+  exact (eq_div_iff (sub_pos.mpr hstrict).ne').2 hmul
+
+/-- Under strict centre slack, the active-row predicate is exactly tightness of
+that row at the retracted point. -/
+theorem retract_tight_iff_mem_activeRowCell
+    (a : ι → EuclideanSpace ℝ (Fin d)) (b : ι → ℝ)
+    (o x : EuclideanSpace ℝ (Fin d)) (i : ι)
+    (hstrict : ⟪a i, o⟫ < b i) :
+    ⟪a i, retract a b o x⟫ = b i ↔ x ∈ activeRowCell a b o i := by
+  constructor
+  · exact mem_activeRowCell_of_retract_tight a b o x i hstrict
+  · exact retract_mem_active_cut_of_mem_activeRowCell a b o x i hstrict
+
+/-- Therefore the full preimage of one final cut face under radial retraction is
+convex.  On a one-dimensional spoke it is a single interval. -/
+theorem retract_tight_preimage_convex
+    (a : ι → EuclideanSpace ℝ (Fin d)) (b : ι → ℝ)
+    (o : EuclideanSpace ℝ (Fin d)) (i : ι)
+    (hstrict : ⟪a i, o⟫ < b i) :
+    Convex ℝ {x | ⟪a i, retract a b o x⟫ = b i} := by
+  have hset :
+      {x | ⟪a i, retract a b o x⟫ = b i} = activeRowCell a b o i := by
+    ext x
+    exact retract_tight_iff_mem_activeRowCell a b o x i hstrict
+  rw [hset]
+  exact activeRowCell_convex a b o i
+
 /-- Segment form: if the same row is active at both segment endpoints, the
 entire radial image of that segment stays on that row's final cut face. -/
 theorem retract_image_segment_subset_active_cut
@@ -153,6 +206,9 @@ theorem retract_image_segment_subset_active_cut
 #print axioms scale_eq_row_on_combo_of_endpoints
 #print axioms activeRowCell_convex
 #print axioms retract_mem_active_cut_of_mem_activeRowCell
+#print axioms mem_activeRowCell_of_retract_tight
+#print axioms retract_tight_iff_mem_activeRowCell
+#print axioms retract_tight_preimage_convex
 #print axioms retract_image_segment_subset_active_cut
 
 end HirschRadial
