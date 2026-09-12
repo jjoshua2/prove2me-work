@@ -2,19 +2,30 @@
 
 ## Scope, independence and status
 
-This is a continuation after #203. The user assigned #203 verification and
-publication to a separate agent and requested further mathematics. The present
-branch does not modify that work, STATUS.md, a workflow, a pin, or a platform
-record. Baseline main: `849c46c1043f83cbebfd34d70a0ffdb3fa4107bc` (merged #201,
-including the unchanged #202 source). The geometric import currently refers to
-#203's `PolynomialProjectiveRowBlockRouting` interface, examined at source
-`319a5fa5895939edead917ac307fbf4060d4b2db`.
+This continuation follows merged, platform-accepted #203 on main
+`a42d88d5a822428e9bb3965a7188e91ff06951d1`. The original #204 candidate is
+preserved at `55edf3dee8f80685fe100467f57f4b95b20c9b5a`.
+Both original Lean modules compiled unchanged against integrated #203.
+The final proof source `fcbb02425dececaa9a8f7abd90c341ae99dbafac` moves the
+geometric `ProductTree` predicate into a lightweight standalone definition,
+expanding the row-shear and denominator expressions there. The recursive
+induction, carrier adapter and separator proofs are unchanged.
 
-The mathematical arguments below are complete at the level of this note. The
-NEW Lean modules are proof candidates, not newly compiler-checked or accepted
-Prove2Me results. The Python tests were actually executed, use rational
-arithmetic throughout, and have a committed execution receipt. They are not a
-substitute for Lean checking. No unproved platform child is added.
+The final targeted local build passes. Seven required declarations and 272
+reports across dependencies use only standard logical axioms; the small-excess
+input remains explicit. The standalone recursive proof also passes its own
+standard-axiom audit, and the exact public composition typechecks. The public
+interface stub is typechecking evidence. Prove2Me theorem
+`4afd7668-51a9-4a5e-a991-2a02c53b9e1c` is **Proved**, with accepted submission
+`7f2bba60-85ad-42d5-8a1a-eed656add3f5`; the exact source readback is preserved
+in [the publication packet](publication_packets/recursive_projective_products/).
+The [verification directory](verification/2026-09-12-recursive-projective/)
+records fresh rational tests, the exact source and final hosted verification.
+
+The full recognition-completeness proof, generated-witness formulas and infinite
+family arguments remain mathematical proofs in this note; they are not all
+formalized Lean declarations. The exact rational checker does not emit Lean
+proof terms. No unproved platform child is added to the conjecture's root.
 
 The contribution is an exact, finite chart-discovery method and its combination
 with recursive cost-preserving geometric decompositions. Projective invariance,
@@ -287,6 +298,12 @@ implementation returns `unresolved`, NOT a lower bound or a false product
 certificate. These are finite exact negative controls; a new universal cyclic
 cube theorem is not claimed Lean-formalized here.
 
+The subsequent [contractive feedback proof](CONTRACTIVE_FEEDBACK_BOXES_2026-09-12.md)
+now supplies direct ordinary-edge routes for all these cyclic examples, in
+every dimension, using the witness M*w<w. It also proves that the cyclic family
+has no projective product split in d>=3. This is a paper proof with a separate
+finite regression, not an additional Lean theorem or acceptance claim.
+
 This sharpens the next mathematical target: route genuinely coupled systems
 with no projective product separator, or derive a joint carrier-cost potential
 that does not require a separator. Extending the tree by an unsupported
@@ -322,7 +339,7 @@ certificates, an invalid excess-four leaf, capped-search diagnostics, and the
 genuinely cyclic unresolved examples. Counts for the cyclic graph checks are
 reported separately and not inflated into the positive graph totals.
 
-The new Lean gate, after #203's dependency interface is available, is
+The verified targeted Lean gate is
 
 ```
 lake build Solutions.PolynomialProjectiveSeparatorAlgebra \
@@ -337,6 +354,9 @@ note, not all formalized Lean declarations. Individual JSON certificates are
 not emitted as Lean proof terms. Do not confuse the independently verified
 rational checker with a kernel certificate.
 
-Once this NEW source is locally green, follow the existing single final gate
-policy. No publication or hosted gate was attempted here. The other agent's
-#203 branch and acceptance records were left untouched.
+The final hosted gate is run `34712133611` on source `fcbb024`. An initial
+dispatch selected stale source `55edf3d` immediately after the push; that run
+`34712025298` was cancelled, and the correct remote ref was confirmed before
+redispatch. It is not verification evidence. No workflow or Lean pin changes
+were needed. Authenticated publication status is preserved in the packet and
+STATUS.md; local compilation alone does not establish platform acceptance.

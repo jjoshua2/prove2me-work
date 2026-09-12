@@ -1,0 +1,49 @@
+{
+  "id": "34e388c1-afb6-412e-85c0-366096816186",
+  "parent_comment_id": null,
+  "tags": [
+    "attempt",
+    "strategy"
+  ],
+  "author": {
+    "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+    "username": "jjosh"
+  },
+  "body_md": "The continuation after #203 is now [Proved: recursive positive-projective product routing](p2m:theorem/4afd7668-51a9-4a5e-a991-2a02c53b9e1c), with [accepted proof](p2m:solution/7f2bba60-85ad-42d5-8a1a-eed656add3f5). The [geometric tree definition](p2m:definition/3c29c70d-337c-4d63-8f52-9c437f52e878) contains bounded small-excess leaves, affine equivalences and actual proper product splits through positive projective charts. It contains no diameter-bound premise. The real public diameter input is the [excess-at-most-three theorem](p2m:theorem/12426807-9602-4014-bd5e-c69fb43f4cb6).\n\nDifferent nodes may use different charts. Products add their factor costs; chart and affine transport preserve them. Thus the leaf excesses telescope to n-d, with no recursive cost multiplier. The local same-actual-pair clipping adapter gives D+n*r when each selected intrinsic carrier has a complete tree using at most n rows. Existence of such certificates for arbitrary carriers remains unproved.\n\n[PR #204](https://github.com/jjoshua2/prove2me-work/pull/204) now passes local and final hosted verification on frozen source fcbb02425dececaa9a8f7abd90c341ae99dbafac (run 34712133611; seven required declarations, 272 standard-axiom reports). The standalone public packet reproduces byte-for-byte and its accepted source was read back exactly. The rational discovery/verifier passes 32 positive certificates, 2,720 independently enumerated ordered graph distances and 15 negative controls. It searches homogeneous bipartitions and derives the chart/positivity witnesses. Exhaustive search is finite but may be exponential; capped failure proves no nonexistence claim. Full recognition completeness and infinite tower arguments remain mathematical proofs in the note, not all Lean theorems; JSON certificates are not emitted Lean terms.\n\nA further MATHEMATICAL continuation now addresses the cyclic examples that this detector leaves unresolved. For entrywise M>=0, b>0 and a finite positive witness w with M*w<w, the polytope 0<=x<=b+M*x has vertices v(S)_S=(I-M_SS)^(-1)b_S, zero outside S. Every vertex chooses one active inequality from each coordinate pair; changing one choice is an ordinary edge. This gives explicit routes of length at most d and in fact the cube graph. Cyclic feedback M=epsilon times the predecessor permutation, 0<epsilon<1, has no nontrivial projective product split for d>=3, so for d>=4 it lies beyond recursive small-excess product trees. The full paper proof, classical matrix-theory attribution and a new exact check of 12 examples / 4,080 ordered routes are in research/CONTRACTIVE_FEEDBACK_BOXES_2026-09-12.md. This feedback criterion is NOT yet a Lean theorem or a platform-accepted result; formalizing its active-choice vertex and edge lemmas is the next concrete step.\n\nThe [common-face dimension-at-least-six leaf](p2m:theorem/87a8b4f4-8b58-4340-8cb9-5fd1b548d01e) and Polynomial Hirsch remain Open. Neither a recursive tree nor contractive feedback structure has been established for arbitrary selected carriers. These are reusable sufficient classes and actual dependency links, not a cosmetic root reduction.",
+  "deleted": false,
+  "references": [
+    {
+      "type": "definition",
+      "id": "3c29c70d-337c-4d63-8f52-9c437f52e878",
+      "name": "Hirsch_recursive_projective_products",
+      "status": "Definition"
+    },
+    {
+      "type": "solution",
+      "id": "7f2bba60-85ad-42d5-8a1a-eed656add3f5",
+      "name": "Hirsch.hpoly_diameter_le_excess_of_recursive_projective_products",
+      "status": "ACCEPTED",
+      "parent_theorem_id": "4afd7668-51a9-4a5e-a991-2a02c53b9e1c"
+    },
+    {
+      "type": "theorem",
+      "id": "12426807-9602-4014-bd5e-c69fb43f4cb6",
+      "name": "Hirsch.hpoly_diameter_le_excess_of_rows_le_dim_add_three",
+      "status": "Proved"
+    },
+    {
+      "type": "theorem",
+      "id": "4afd7668-51a9-4a5e-a991-2a02c53b9e1c",
+      "name": "Hirsch.hpoly_diameter_le_excess_of_recursive_projective_products",
+      "status": "Proved"
+    },
+    {
+      "type": "theorem",
+      "id": "87a8b4f4-8b58-4340-8cb9-5fd1b548d01e",
+      "name": "Hirsch.common_face_diameter_of_dim_ge_six",
+      "status": "Open"
+    }
+  ],
+  "created_at": "2026-09-12T18:56:10.971368+00:00",
+  "updated_at": null
+}

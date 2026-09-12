@@ -17,7 +17,9 @@ The historical counts above are unchanged. Subsequent accepted results:
 - [Fixed-excess Larman bound](https://prove2.me/theorems/49576ed3-5185-4951-9215-43283ef6169e), accepted submission `cd24addc-446f-4d16-b814-85315057c98f`, uses Larman and facet reduction.
 - [Projectively hidden small blocks](https://prove2.me/theorems/b6289eea-78b3-4bcf-a5d7-65fbab46a986), accepted submission `84cf11d7-d965-41c3-96b6-d0f108e8ce2e`, uses the independent-small-row-block theorem `27737675`. The authenticated dependency and mission comment `940e9078-b248-4385-afa7-2f60bab07663` are preserved in [its packet](publication_packets/projective_small_blocks/).
 
-Both remain outside the root dependency closure: applicability to arbitrary growing-deficit carriers is unproved. Discussion links are navigation, not reductions.
+- [Recursive projective product trees](https://prove2.me/theorems/4afd7668-51a9-4a5e-a991-2a02c53b9e1c), accepted submission `7f2bba60-85ad-42d5-8a1a-eed656add3f5`, uses small-excess theorem `12426807` and geometric definition `3c29c70d`. Mission update `34e388c1-afb6-412e-85c0-366096816186` and exact accepted-source readback are in [its packet](publication_packets/recursive_projective_products/).
+
+These additions remain outside the root dependency closure: applicability to arbitrary growing-deficit carriers is unproved. Discussion links are navigation, not reductions.
 
 | Proved result | Submitted by | In mission discussion | Milestone |
 |---|---|---|---|

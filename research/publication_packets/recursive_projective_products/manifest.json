@@ -1,0 +1,26 @@
+{
+  "source_commit": "fcbb02425dececaa9a8f7abd90c341ae99dbafac",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "source_blobs": {
+    "Solutions/PolynomialProductWalk.lean": "64e5977f9cd5fd9617b67e82f504550236d49b83",
+    "Solutions/PolynomialSegmentChartTransport.lean": "529f42febb56653654c4b29a7f162b24d59ffb24",
+    "Solutions/PolynomialPositivePerspective.lean": "e6f85672de74839e574a485f8502c1b7567c631d",
+    "Solutions/PolynomialAffineDiameterTransport.lean": "ada90a58fe876f5e0b31ec20a0f8c22b1c408dd1",
+    "Solutions/PolynomialRowBlockRouting.lean": "f410f77d854bf2853372492965d35561695f885b",
+    "Solutions/PolynomialProjectiveRowBlockRouting.lean": "6dd454940e8d306307b8e3bee4452fcafa50ebd0",
+    "Solutions/PolynomialRecursiveProjectiveProducts.lean": "be708f75b17667f5a7bdb7cc220e04490a62c968",
+    "Definitions/Def_Hirsch_recursive_projective_products.lean": "d77d90806497a14ff9d079557548878f502e7437"
+  },
+  "public_dependencies": {
+    "Hirsch.hpoly_diameter_le_excess_of_rows_le_dim_add_three": "12426807-9602-4014-bd5e-c69fb43f4cb6"
+  },
+  "sha256": {
+    "driver.lean": "1e0f5be13a600d692594283681ff297873d4af8820b08591e406d579bdc74fe6",
+    "solution.lean": "fbd81b21da646c930edb0e22116fd96f464501b1a24632a86523270790365c59",
+    "statement.lean": "9bc2af364b173df12ddd711c615ffcc73128e5a2c7bcbe1f0e6641d997b09cb4",
+    "definition.lean": "5ee8146a43984db5cd3ae19ab6593412f0b6479f218e9f03398ecf33a9a5edd5",
+    "definition.json": "ce6402cfff7132a894d3045c20b1d3571ea1d8a100d95f5b30a6cb9a57c8c8d3",
+    "problem.json": "c8c2812c58a8122b3b6bcab6b8d35d5c45c8e980b74ae761b74942b2084be2ac",
+    "explanation.md": "ec697c7e82474627f6c8fa1a46833ebcd68b26c81bb7a57d0ddeeac86b473396"
+  }
+}
