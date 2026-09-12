@@ -124,13 +124,8 @@ theorem vertex_strictly_slack_rows_card_le_row_excess
       Finset.mem_sdiff]
     constructor
     · intro hlt
-      refine ⟨Finset.mem_univ _, ?_⟩
-      intro htight
-      exact (ne_of_lt hlt) (Finset.mem_filter.mp htight).2
-    · rintro ⟨_, hnot⟩
-      have hne : ⟪a i, v⟫ ≠ b i := by
-        intro heq
-        exact hnot (Finset.mem_filter.mpr ⟨Finset.mem_univ _, heq⟩)
+      exact ne_of_lt hlt
+    · intro hne
       exact lt_of_le_of_ne (hv.1 i) hne
   have hcard : J.card + T.card = n := by
     rw [hpart]
