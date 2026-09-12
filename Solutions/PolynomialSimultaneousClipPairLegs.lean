@@ -10,10 +10,12 @@ repair still runs through the same mixed region cover (final cut faces, pieces
 of the chosen outer route, and two endpoint singletons), but the local cost of
 a final cut face may now depend on the actual parent-vertex entry/exit pair.
 
-The returned mixed `RegionLeg` list retains all portal geometry.  Its labels are
-duplicate-free.  The exact mixed cost splits into pair-specific cut-leg costs
-plus one unit for each used old outer-edge label; duplicate-freeness bounds the
-latter by the original outer route budget `D`.  Hence the clean route budget is
+The returned mixed `RegionLeg` list has duplicate-free labels.  Projecting it to
+cut legs retains the actual entry/exit vertices, which are certified parent
+extreme vertices tight on the corresponding cut row.  The exact mixed cost
+splits into pair-specific cut-leg costs plus one unit for each used old
+outer-edge label; duplicate-freeness bounds the latter by the original outer
+route budget `D`.  Hence the clean route budget is
 
 `D + sum(pair-specific costs of the actual used cut legs)`.
 
@@ -98,9 +100,10 @@ theorem clipRepairPairCost_sum_eq_cut_add_old_length {D : ℕ}
             ih, Nat.add_assoc, Nat.add_comm, Nat.add_left_comm]
         · simp [clipRepairPairCost, clipRepairCutLegs, clipRepairOldEdgeLabels, ih]
 
-/-- Pair-specific simultaneous clipping on a supplied outer route.  The mixed
-leg list retains the actual region entry/exit portal pairs.  After absorbing at
-most `D` distinct old-edge legs, only the actual cut-leg pair costs remain. -/
+/-- Pair-specific simultaneous clipping on a supplied outer route.  Each
+projected cut leg is an actual parent-vertex pair tight on that cut row.  After
+absorbing at most `D` distinct old-edge legs, only the actual cut-leg pair costs
+remain. -/
 theorem route_clip_of_lifted_endpoints_with_pair_specific_cut_legs
     (Q : Set (EuclideanSpace ℝ (Fin d))) (hQc : IsCompact Q) (hQ : Convex ℝ Q)
     (a : ι → EuclideanSpace ℝ (Fin d)) (b : ι → ℝ)
@@ -122,17 +125,11 @@ theorem route_clip_of_lifted_endpoints_with_pair_specific_cut_legs
     ∃ legs : List
         (RegionLeg (Sum ι (Sum (Fin D) (Fin 2))) (EuclideanSpace ℝ (Fin d))),
       (legs.map RegionLeg.label).Nodup ∧
-      (∀ leg ∈ legs,
-        RegionLegFits
-          (fun k => extremePoints ℝ (clipSet Q a b) ∩
-            match k with
-            | .inl i => clipSet Q a b ∩ {z | ⟪a i, z⟫ = b i}
-            | .inr (.inl e) =>
-                clipSet Q a b ∩ segment ℝ
-                  ((Classical.choose hwalk) e.val)
-                  ((Classical.choose hwalk) (e.val + 1))
-            | .inr (.inr t) => {if t = 0 then u else v})
-          u v leg) ∧
+      (∀ cut ∈ clipRepairCutLegs legs,
+        cut.entry ∈ extremePoints ℝ (clipSet Q a b) ∧
+        ⟪a cut.label, cut.entry⟫ = b cut.label ∧
+        cut.exit ∈ extremePoints ℝ (clipSet Q a b) ∧
+        ⟪a cut.label, cut.exit⟫ = b cut.label) ∧
       Route (Adj (clipSet Q a b))
         (D + ((clipRepairCutLegs legs).map fun leg =>
           B leg.label leg.entry leg.exit).sum) u v := by
@@ -266,9 +263,31 @@ theorem route_clip_of_lifted_endpoints_with_pair_specific_cut_legs
     ⟨u, Or.inl (Or.inl (left_mem_segment ℝ _ _)), hρfix u hu.1⟩
   have hvK : v ∈ ρ '' K :=
     ⟨v, Or.inr (left_mem_segment ℝ _ _), hρfix v hv.1⟩
-  obtain ⟨_i, _j, _hui, _hvj, _p, _hp, legs, hlabels, hnd, hfits, hr⟩ :=
+  obtain ⟨_i, _j, _hui, _hvj, _p, _hp, legs, _hlabels, hnd, hfits, hr⟩ :=
     route_of_preconnected_face_cover_with_pair_specific_legs
       P F C hPc hF hFc hlocal (ρ '' K) himage hcover u v hu hv huK hvK
+  have hcutValid : ∀ cut ∈ clipRepairCutLegs legs,
+      cut.entry ∈ extremePoints ℝ P ∧
+      ⟪a cut.label, cut.entry⟫ = b cut.label ∧
+      cut.exit ∈ extremePoints ℝ P ∧
+      ⟪a cut.label, cut.exit⟫ = b cut.label := by
+    intro cut hcut
+    change cut ∈ List.filterMap (fun leg =>
+      match leg.label with
+      | .inl i => some ⟨i, leg.entry, leg.exit⟩
+      | .inr _ => none) legs at hcut
+    rw [List.mem_filterMap] at hcut
+    obtain ⟨mixed, hmixed, hmap⟩ := hcut
+    rcases mixed with ⟨label, entry, exit⟩
+    rcases label with i | rest
+    · simp only at hmap
+      injection hmap with hEq
+      subst cut
+      have hf := hfits (RegionLeg.mk (Sum.inl i) entry exit) hmixed
+      have hentry : entry ∈ extremePoints ℝ P ∩ F (.inl i) := hf.1
+      have hexit : exit ∈ extremePoints ℝ P ∩ F (.inl i) := hf.2.1
+      exact ⟨hentry.1, hentry.2.2, hexit.1, hexit.2.2⟩
+    · simp at hmap
   have hold : (clipRepairOldEdgeLabels (legs.map RegionLeg.label)).length ≤ D :=
     clipRepairOldEdgeLabels_length_le hnd
   have hcost := clipRepairPairCost_sum_eq_cut_add_old_length B legs
@@ -280,9 +299,7 @@ theorem route_clip_of_lifted_endpoints_with_pair_specific_cut_legs
     rw [hcost]
     omega
   refine ⟨legs, hnd, ?_, ?_⟩
-  · intro leg hleg
-    have hf := hfits leg hleg
-    simpa [F, P, hw0, hwalk] using hf
+  · simpa [P] using hcutValid
   · obtain ⟨q, hq0, hqB, hqs⟩ := hr
     exact HirschProduct.pad_walk (Adj P) hle q hq0 hqB hqs
 
@@ -304,15 +321,18 @@ theorem route_clip_with_pair_specific_cut_legs
     ∃ legs : List
         (RegionLeg (Sum ι (Sum (Fin D) (Fin 2))) (EuclideanSpace ℝ (Fin d))),
       (legs.map RegionLeg.label).Nodup ∧
+      (∀ cut ∈ clipRepairCutLegs legs,
+        cut.entry ∈ extremePoints ℝ (clipSet Q a b) ∧
+        ⟪a cut.label, cut.entry⟫ = b cut.label ∧
+        cut.exit ∈ extremePoints ℝ (clipSet Q a b) ∧
+        ⟪a cut.label, cut.exit⟫ = b cut.label) ∧
       Route (Adj (clipSet Q a b))
         (D + ((clipRepairCutLegs legs).map fun leg =>
           B leg.label leg.entry leg.exit).sum) u v := by
   obtain ⟨x, hx, hux⟩ := HirschClipLift.endpoint_lift_to_outer_vertex Q hQc hQ a b u hu
   obtain ⟨y, hy, hvy⟩ := HirschClipLift.endpoint_lift_to_outer_vertex Q hQc hQ a b v hv
-  obtain ⟨legs, hnd, _hfits, hr⟩ :=
-    route_clip_of_lifted_endpoints_with_pair_specific_cut_legs
-      Q hQc hQ a b D B hFaces o ho hstrict u v hu hv x y hx hy hux hvy (hD x hx y hy)
-  exact ⟨legs, hnd, hr⟩
+  exact route_clip_of_lifted_endpoints_with_pair_specific_cut_legs
+    Q hQc hQ a b D B hFaces o ho hstrict u v hu hv x y hx hy hux hvy (hD x hx y hy)
 
 #print axioms clipRepairPairCost_sum_eq_cut_add_old_length
 #print axioms route_clip_of_lifted_endpoints_with_pair_specific_cut_legs
