@@ -43,9 +43,10 @@ theorem rowsWithout_card_le
     {n : ℕ} (j : Fin n) :
     Fintype.card {i : Fin n // i ≠ j} ≤ n := by
   classical
-  exact Fintype.card_le_of_injective
+  have hcard := Fintype.card_le_of_injective
     (fun i : {i : Fin n // i ≠ j} => i.1)
     (fun x y h => Subtype.ext h)
+  simpa only [Fintype.card_fin] using hcard
 
 /-- The canonical `Fin` reindexing describes exactly the same deletion outer
 used by the exterior-cap modules. -/
