@@ -27,7 +27,7 @@ jobs:
           test "$(cat lean-toolchain)" = 'leanprover/lean4:v4.30.0'
           grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
           printf '%s\n' \
-            'f9b5840fc7de9284a0e07048ff4d63249d63cb8ccc6a08414deac05e9f7b3108  Solutions/PolynomialSimultaneousClipParentRoutes.lean' \
+            'e53cc06362ad9ec947c6973c81d9558a815f6432e98d367ba814a9bdc00bcb2a  Solutions/PolynomialSimultaneousClipParentRoutes.lean' \
             '6585ca981ffa175015be4ea43770c1f95006c3d96ca8591426cb6780e0d34ec1  Solutions/PolynomialTargetConeBatchReinsertion.lean' \
             '205a9ad1ea9ddfa030f944a01593dffd2cecedf4c8bb85765ace53cdc721a1c8  scripts/check_target_cone_batch_reinsertion.py' \
             | sha256sum -c -
