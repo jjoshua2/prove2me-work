@@ -101,6 +101,7 @@ def prepare() -> None:
         "theorem_name": NAME,
         "external_definitions": ["Definitions.Def_Hirsch_model"],
         "tracked_theorem_dependencies": [],
+        "platform_version_expected": "0.10.3",
         "evidence_level": "generated standalone source; compile/axiom audit required before publish",
     }
     (PACKET / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
@@ -125,7 +126,9 @@ def publish() -> None:
         raise RuntimeError("reviewed client title slot changed")
     client = types.ModuleType("reviewed_target_tight_outer_publisher")
     exec(compile(text.replace(old_title, repr(TITLE), 1), CLIENT_PATH, "exec"), client.__dict__)
-    client.VERSION = "0.10.1"
+    # The authenticated preflight on run 34675263791 reported platform 0.10.3.
+    # Keep the fail-closed exact version check; only the observed expected value changes.
+    client.VERSION = "0.10.3"
     client.SOURCE = SOURCE
     client.SOURCE_RUN = os.environ.get("GITHUB_RUN_ID", "publication-gate")
     client.THEOREM_NAME = NAME
