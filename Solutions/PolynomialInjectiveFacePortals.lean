@@ -49,8 +49,7 @@ lemma hpoly_rowTightFace_eq
     refine ⟨hP, ?_⟩
     intro i hiS
     have hrev := hx (Fin.natAdd n i)
-    change ⟪(if i ∈ S then -a i else 0), x⟫ ≤
-      (if i ∈ S then -b i else 0) at hrev
+    simp only [rowTightFaceNormals, rowTightFaceBounds, Fin.append_right] at hrev
     have hle := hP i
     simp only [if_pos hiS, inner_neg_left] at hrev
     linarith
@@ -59,8 +58,7 @@ lemma hpoly_rowTightFace_eq
     · intro j
       simpa [rowTightFaceNormals, rowTightFaceBounds] using hP j
     · intro j
-      change ⟪(if j ∈ S then -a j else 0), x⟫ ≤
-        (if j ∈ S then -b j else 0)
+      simp only [rowTightFaceNormals, rowTightFaceBounds, Fin.append_right]
       by_cases hj : j ∈ S
       · have heq := htight j hj
         simp only [if_pos hj, inner_neg_left]
