@@ -1,0 +1,165 @@
+{
+  "certified_route_edges": 681,
+  "coordinatewise_edge_descent_counterexample": {
+    "feasible_nonvertex_coordinate_deletion": [
+      "1",
+      "0"
+    ],
+    "neighbors": [
+      [
+        "0",
+        "3/2"
+      ],
+      [
+        "3/2",
+        "0"
+      ]
+    ],
+    "vertex": [
+      "1",
+      "1"
+    ]
+  },
+  "dual_search_cases": 1,
+  "endpoint_face_dimensions_seen": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "explicit_routes": 296,
+  "large_example": {
+    "anchor_edges": [
+      8,
+      8
+    ],
+    "cuts": 30,
+    "dimension": 32,
+    "endpoint_face_dimensions": [
+      2,
+      2
+    ],
+    "global_cut_rank": 2,
+    "global_vertices_enumerated": 0,
+    "local_vertices_enumerated": [
+      32,
+      32
+    ],
+    "middle_edges": 30,
+    "ordinary_edges": 46,
+    "pair_budget": 64,
+    "scope": "Actual rational edge certificate, not a Lean/platform verdict; routes need not be shortest.",
+    "uniform_rank_budget": 66
+  },
+  "negative_controls": 28,
+  "noncube_normalizations": 24,
+  "normalization_edges": 370,
+  "normalization_ordered_distances": 3155,
+  "normalization_vertices": 211,
+  "normalizations": 25,
+  "packing_support_edges": 256,
+  "packing_support_large_example": {
+    "cut_rank": 2,
+    "cuts": 30,
+    "dimension": 64,
+    "endpoint_support_sizes": [
+      2,
+      2
+    ],
+    "global_rank_budget": 32,
+    "global_vertices_enumerated": 0,
+    "local_vertices_enumerated": [
+      32,
+      32
+    ],
+    "ordinary_edges": 16,
+    "scope": "Exact original-row edge checks, not shortest-path optimality or Lean/platform verification."
+  },
+  "packing_support_routes": 101,
+  "polygon_counts": [
+    {
+      "cuts": 2,
+      "diameter": 2,
+      "edges": 4,
+      "ordered_distances": 16,
+      "vertices": 4
+    },
+    {
+      "cuts": 3,
+      "diameter": 2,
+      "edges": 5,
+      "ordered_distances": 25,
+      "vertices": 5
+    },
+    {
+      "cuts": 4,
+      "diameter": 3,
+      "edges": 6,
+      "ordered_distances": 36,
+      "vertices": 6
+    },
+    {
+      "cuts": 5,
+      "diameter": 3,
+      "edges": 7,
+      "ordered_distances": 49,
+      "vertices": 7
+    },
+    {
+      "cuts": 8,
+      "diameter": 5,
+      "edges": 10,
+      "ordered_distances": 100,
+      "vertices": 10
+    },
+    {
+      "cuts": 12,
+      "diameter": 7,
+      "edges": 14,
+      "ordered_distances": 196,
+      "vertices": 14
+    },
+    {
+      "cuts": 20,
+      "diameter": 11,
+      "edges": 22,
+      "ordered_distances": 484,
+      "vertices": 22
+    },
+    {
+      "cuts": 32,
+      "diameter": 17,
+      "edges": 34,
+      "ordered_distances": 1156,
+      "vertices": 34
+    }
+  ],
+  "published_todd_regression": {
+    "diameter": 4,
+    "edges": 40,
+    "monotone_start_to_origin": 5,
+    "near_uniform_eta": "1/100000000",
+    "ordered_distances": 400,
+    "ordinary_start_to_origin": 4,
+    "orientation_preserved": true,
+    "packing_exact_cut_rank": 4,
+    "source": "https://arxiv.org/html/2302.03977#S2.SS2",
+    "vertices": 20
+  },
+  "route_models_edges": 197,
+  "route_models_ordered_distances": 1453,
+  "route_models_vertices": 121,
+  "routed_models": 13,
+  "scope": "Executed exact rational regressions only; no Lean or platform verification.",
+  "source_sha256": {
+    "Solutions/PolynomialActiveCutRank.lean": "5ae03eb85e8eefaee68ddba9945a6e05a0c06ec598a1aa79cf672f82472dd4bb",
+    "Solutions/PolynomialOrthantPackingNormalization.lean": "e4a34472a773f9c3fbb3e1aa0d57501f7445277b6428d2142014fe7659b3019a",
+    "Solutions/PolynomialPackingSupportRank.lean": "e211ce6a7b2c333d9df98ff8bd9d2cb05bad78bd4061422651da9703cb1cd2f8",
+    "scripts/hirsch_exact_geometry.py": "36b72c5e428aea63046866aceb1cbd5f46308ae7337ed8da43cb8198d5f4619b",
+    "scripts/packing_normalization.py": "24cd3cc428aa4be37fadb22d124ccfc5792f4f8f7f3f23c12361ea6fe33411be",
+    "scripts/packing_support_routes.py": "81b2b63db4610088315d50645598616ee3e76c2ac3e1580b9073d90e3385c277",
+    "scripts/rank_local_monotone_routes.py": "a058093bbd94f06a5286273323412947e0b49dde45b6eeb6002e13cb0e6528ff",
+    "scripts/test_packing_rank.py": "154dbcc98f97c09dcccfc031c0143aec9f9cfdc547de249ae6b0c93f6e238095"
+  },
+  "status": "PASS"
+}
