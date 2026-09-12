@@ -1,0 +1,4 @@
+'HirschRadial.route_clip_of_lifted_endpoints_with_shortest_deferred_cut_legs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'HirschRadial.route_clip_with_shortest_deferred_cut_legs' depends on axioms: [propext, Classical.choice, Quot.sound]

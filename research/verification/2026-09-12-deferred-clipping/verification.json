@@ -1,0 +1,88 @@
+{
+  "checked_at": "2026-09-12T16:33:22.479422+00:00",
+  "command": "lake build Solutions.PolynomialTargetConeDeferredCosts",
+  "build": "PASSED",
+  "axiom_audit": "PASSED",
+  "all_audited_declarations": 373,
+  "required_declarations": {
+    "HirschRegionRoute.route_of_connected_regions_with_shortest_deferred_route_legs": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.route_of_preconnected_face_cover_with_shortest_deferred_parent_legs": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.deferred_clip_certificate_of_lifted_endpoints": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.deferred_clip_certificate": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.DeferredClipCertificate.used_carrier_excess_le_three": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.DeferredClipCertificate.route_of_used_carrier_excess_le_three": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.DeferredClipCertificate.route_of_maximal_support": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFace_diamLE_four_mul_rows_of_dim_le_five": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.DeferredClipCertificate.route_of_used_carriers_low_dimension_or_excess": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschTargetDeletion.target_slack_linear_route_or_few_cut_high_excess_carrier": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschTargetDeletion.target_slack_quadratic_route_or_few_cut_high_dim_high_excess_carrier": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschTargetDeletion.target_slack_deferred_clip_certificates": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschTargetDeletion.target_slack_maximal_support_route": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "source_sha256": {
+    "Solutions/PolynomialDeferredRouteRegionCosts.lean": "ef1a3ad2ea7dc203231db47932ea3b179f832db83dfde739a32d45b8787fb87d",
+    "Solutions/PolynomialDeferredClipping.lean": "13fa207cb382a1b0a292afc734bdc7479394b3fd9791aec506339b39c5c8af1b",
+    "Solutions/PolynomialMaximalSupportClipping.lean": "726e6902060cf2edee579d5a1932ab6af9c67c1ab019412fe09729f768c23c9b",
+    "Solutions/PolynomialLowDimensionalCarrierRouting.lean": "ad05d12199e4d51cf583f991c9c0656e1590c98fd09fa52a54c07302bb1fa861",
+    "Solutions/PolynomialTargetConeDeferredCosts.lean": "4beb6c6e13594c160e8b8e6cb77e841636f1c28ae77b45eae2a07e04a923ceb0"
+  },
+  "lean_toolchain": "leanprover/lean4:v4.30.0",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "adapter_source_commit": "be8b34a4e37df36e8f2702938d83a9210f5e6338",
+  "adapter_hosted_run": "34705245819",
+  "adapter_hosted_conclusion": "success",
+  "scope": "Local conditional adapters using the exact already-Proved small-excess and Larman propositions as explicit inputs. No new Prove2me theorem submissions.",
+  "source_commit": "9f022ff39997a28e51a1ecc39155cb7d852ffd40"
+}

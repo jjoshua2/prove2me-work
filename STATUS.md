@@ -1,7 +1,7 @@
 # Current Polynomial Hirsch frontier
 
-Synchronized 2026-09-12 with GitHub, authenticated Prove2me 0.10.3, all 46 existing mission discussion posts, and recursively expanded theorem dependencies. The new progress post is comment `70d168d1-f966-4904-86f3-0afd25766a50`.
-Repository: `jjoshua2/prove2me-work`. Baseline main: `59be0de0447b23d257aee2e3f04ac3f4b1872e1f`.
+Synchronized 2026-09-12 with GitHub, authenticated Prove2me 0.10.3, all 46 existing mission discussion posts, and recursively expanded theorem dependencies. The original sync post is `70d168d1-f966-4904-86f3-0afd25766a50`; the verified continuation is posted as `313208d8-567e-42bf-b894-c33726ece3d8`.
+Repository: `jjoshua2/prove2me-work`. Integration baseline main: `977ac7752de444206917b4d67a285ed70e12d24a` (#195).
 Lean 4.30.0 / Mathlib `c5ea00351c28e24afc9f0f84379aa41082b1188f`.
 
 ## What remains open
@@ -57,17 +57,73 @@ This fixes an interface obstacle in the next composition. The #194 statement has
 
 Both the source and exact standalone `theorem solution` passed Lean and axiom audits with only `propext`, `Classical.choice`, and `Quot.sound`. Prove2me theorem [ba2632b3](https://prove2.me/theorems/ba2632b3-1bec-43f9-8755-960e4b04936c), submission `59a4c70a-7584-4f2e-a429-23598e316dd8`, is **ACCEPTED**, and the live theorem is **Proved**. The [publication packet](research/publication_packets/deferred_region_costs/) preserves the exact statement, proof and receipts.
 
+## Deferred clipping and maximum-support closure (PR #200)
+
+The first two items of the previous handoff are now locally verified in
+[integration PR #200](https://github.com/jjoshua2/prove2me-work/pull/200).
+[Exact theorem scope and reproduction receipt](research/DEFERRED_CLIPPING_MAXIMAL_SUPPORT_2026-09-12.md). Merged [PR #197](https://github.com/jjoshua2/prove2me-work/pull/197) supplies the padded
+route adapter. Merged [PR #198](https://github.com/jjoshua2/prove2me-work/pull/198) supplies the
+projected clipping interface. This continuation preserves both interfaces and
+adds the full geometric certificate, maximum-support assembly and residual theorem.
+
+- [PolynomialDeferredClipping.lean](Solutions/PolynomialDeferredClipping.lean)
+  returns a `DeferredClipCertificate` containing the shortest mixed path and its
+  actual parent-vertex portal pairs **without any local route premise**. Its
+  callback accepts routes only for the selected cut pairs and charges
+  `D + sum(actual cut costs)`.
+- [PolynomialMaximalSupportClipping.lean](Solutions/PolynomialMaximalSupportClipping.lean)
+  applies #193 to those same selected pairs. With `e=n-d` and `r` used cuts,
+  `r=e` forces each carrier's minimum-presentation excess to at most three.
+  The small-excess theorem discharges every cut call, proving `D+3e`.
+- [PolynomialTargetConeDeferredCosts.lean](Solutions/PolynomialTargetConeDeferredCosts.lean)
+  obtains such certificates for every bounded H-polyhedron and vertex pair,
+  with `D=1` from the target-tight compact star and `r<=e`. The maximum-support
+  regime therefore has an actual ordinary-edge route of length at most `1+3e`.
+- [PolynomialLowDimensionalCarrierRouting.lean](Solutions/PolynomialLowDimensionalCarrierRouting.lean)
+  uses intrinsic Larman coordinates to discharge dimension-at-most-five
+  carriers at cost `4n`. If each selected carrier has either dimension `<=5`
+  or excess `<=3`, the route costs at most `1+(4n+3)e`.
+
+The final theorem
+`target_slack_quadratic_route_or_few_cut_high_dim_high_excess_carrier`
+returns the same certificate and either that quadratic route, or `0<r<e`
+with an **actual selected cut pair** whose common carrier has dimension `>=6`
+and minimum-presentation excess `>=4`. The latter alternative does not assert
+that a short route is impossible. It identifies what the present estimates
+have not discharged.
+
+The core adapters keep `SmallExcessHpolyBound` and `LarmanHpolyBound` as explicit
+inputs. These match already-Proved platform theorems
+[12426807](https://prove2.me/theorems/12426807-9602-4014-bd5e-c69fb43f4cb6) and
+[68453b6b](https://prove2.me/theorems/68453b6b-bcef-4672-b877-d04e56527e3f)
+at the committed Mathlib pin. This avoids importing local theorem placeholders;
+the new core proofs use only standard logical axioms. These new assemblies are
+**local Lean results**, not newly accepted platform theorem submissions.
+
 ## Next research work, in order
 
-1. **Thread deferred local costs through simultaneous clipping and the target-cone specialization.** Return the shortest mixed path and actual parent-vertex portal pairs without `hFaces`; provide a callback accepting routes only for those pairs. Preserve the current old-edge charge `D` and endpoint lift cost. The new generic theorem is the assembly primitive.
-2. **Close the maximum-support regime with an end-to-end route theorem.** On that same path let `e=n-d` and `r` be the number of used cuts. When `r=e`, #193 makes every charged carrier's excess `<=3`. Instantiate the public small-excess theorem and sum actual costs. The immediate safe target is `D+3e`; the sharper `D+3e-2` requires a separate exact neighbor-count sum and the zero-support boundary case. Neither total bound is claimed proved here.
-3. **Attack few-used-cut, coupled high-excess carriers.** For `r<=3`, the present inequality gives no strict excess decrease. Even `r=4` allows four subcalls of excess `e-1`; iterating the corresponding independent-call majorant can grow exponentially. A global potential/charging argument, stronger separation, or a certified block decomposition is still required for a fixed-degree polynomial. This is a limitation of the current bound, not an exponential lower bound for polytope diameter.
+1. **Bound the sum of costs for the residual selected high-dimensional,
+   high-excess carriers.** The geometry and actual pairs now precede the costs,
+   and the maximum-support case is closed. Work on the same certificate with
+   `0<r<e`; do not reintroduce whole-face bounds for every unused pair.
+2. **Find a joint potential, stronger separation, or a certified block
+   decomposition.** For `r<=3`, the current tradeoff gives no strict excess
+   decrease. Even `r=4` allows four subcalls of excess `e-1`; iterating that
+   independent-call majorant can grow exponentially. This is a limitation of
+   the current estimate, not an exponential lower bound for polytope diameter.
+   A bound on one witness carrier alone does not control the sum of all calls.
+3. **Connect a uniform total-cost bound to the root with a checked reduction.**
+   The residual theorem now locates the dimension-at-least-six obstruction
+   inside actual target-rooted repairs. It does not prove the open leaf or
+   justify replacing it with a cosmetic graph dependency. Public submission
+   of the new geometric assembly needs its own self-contained packet and
+   server acceptance; the current discussion links to the verified GitHub source.
 
 The ridge-visible line is a complementary research direction. Its proved small-row thresholds and known pivot-collision obstruction are recorded in the mission discussion and inventory. Numerical examples support investigation but do not establish a uniform access theorem.
 
 ## Verification and continuation
 
-Local targeted build passed for the integrated shortest-clipping module, chordless carrier tradeoff, and minimum-carrier routing. The new standalone theorem has its own clean axiom audit. Full evidence is under [verification/2026-09-12-sync](research/verification/2026-09-12-sync/).
+The continuation passed `lake build Solutions.PolynomialTargetConeDeferredCosts` and the standard-axiom audit for all 15 new/adapter/projection declarations (375 reports checked across dependencies). Exact hashes and logs are under [verification/2026-09-12-deferred-clipping](research/verification/2026-09-12-deferred-clipping/). The previous targeted build also passed for the integrated shortest-clipping module, chordless carrier tradeoff, and minimum-carrier routing. The new standalone theorem has its own clean axiom audit. Full evidence is under [verification/2026-09-12-sync](research/verification/2026-09-12-sync/).
 
 [Integration PR #195](https://github.com/jjoshua2/prove2me-work/pull/195) preserves completed #192 publication receipts and the exact #194 theorem while excluding both temporary workflows. It supersedes both completed PRs; no historical experiment remains part of the active work queue. Do not reopen their old experiments as active work.
 

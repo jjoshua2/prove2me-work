@@ -1,0 +1,96 @@
+{
+  "command": "lake build Solutions.PolynomialTargetConeDeferredCosts Solutions.PolynomialSimultaneousClipDeferredPairLegs",
+  "result": "PASSED",
+  "required_declarations": {
+    "HirschRegionRoute.route_of_connected_regions_with_shortest_deferred_route_legs": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.route_of_preconnected_face_cover_with_shortest_deferred_parent_legs": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.deferred_clip_certificate_of_lifted_endpoints": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.deferred_clip_certificate": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.DeferredClipCertificate.used_carrier_excess_le_three": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.DeferredClipCertificate.route_of_used_carrier_excess_le_three": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.DeferredClipCertificate.route_of_maximal_support": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFace_diamLE_four_mul_rows_of_dim_le_five": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.DeferredClipCertificate.route_of_used_carriers_low_dimension_or_excess": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschTargetDeletion.target_slack_linear_route_or_few_cut_high_excess_carrier": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschTargetDeletion.target_slack_quadratic_route_or_few_cut_high_dim_high_excess_carrier": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschTargetDeletion.target_slack_deferred_clip_certificates": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschTargetDeletion.target_slack_maximal_support_route": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.route_clip_of_lifted_endpoints_with_shortest_deferred_cut_legs": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.route_clip_with_shortest_deferred_cut_legs": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "all_audited_declarations": 375,
+  "source_sha256": {
+    "Solutions/PolynomialDeferredRouteRegionCosts.lean": "ef1a3ad2ea7dc203231db47932ea3b179f832db83dfde739a32d45b8787fb87d",
+    "Solutions/PolynomialDeferredClipping.lean": "13fa207cb382a1b0a292afc734bdc7479394b3fd9791aec506339b39c5c8af1b",
+    "Solutions/PolynomialMaximalSupportClipping.lean": "726e6902060cf2edee579d5a1932ab6af9c67c1ab019412fe09729f768c23c9b",
+    "Solutions/PolynomialLowDimensionalCarrierRouting.lean": "ad05d12199e4d51cf583f991c9c0656e1590c98fd09fa52a54c07302bb1fa861",
+    "Solutions/PolynomialTargetConeDeferredCosts.lean": "4beb6c6e13594c160e8b8e6cb77e841636f1c28ae77b45eae2a07e04a923ceb0",
+    "Solutions/PolynomialSimultaneousClipDeferredPairLegs.lean": "d4c34a0ef391172d063a4a7ee80564d416f9ce10d7dbc96d6ea0ab8db41e3486"
+  },
+  "original_clipping_source": "7b75e7ca3c300177236b3b8e897906ad74f690c6",
+  "original_clipping_hosted_run": "34705587725",
+  "original_clipping_artifact_id": "10301269745",
+  "original_clipping_artifact_sha256": "5925e9c915080f2a6320b46e1564cc49c7ca0484fcee59b7dfde53fba9058aab",
+  "scope": "Preserves the original two clipping theorem types as projections of DeferredClipCertificate. The original hosted run covers the old proof; this local integration build covers the projection and entire continuation.",
+  "projection_source_commit": "4b12f2ddb14b61759360396cdcb59f471f5eeb42"
+}

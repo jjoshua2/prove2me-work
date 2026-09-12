@@ -1,0 +1,6 @@
+'HirschRegionRoute.route_of_connected_regions_with_shortest_deferred_route_legs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'HirschRegionRoute.route_of_preconnected_face_cover_with_shortest_deferred_parent_legs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
