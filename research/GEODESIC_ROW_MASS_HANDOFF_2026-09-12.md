@@ -73,3 +73,16 @@ the note includes an exponential independent-call majorant that satisfies it.
 The repository commits the generator and compact summary. Running the test
 creates all three numerical fixtures and the full detailed receipt; those
 generated files are also already included in the conversation ZIP.
+
+## Final integration verdict
+
+Hosted run [34723720395](https://github.com/jjoshua2/prove2me-work/actions/runs/34723720395)
+passed at `8e4a666f9bc54c64ff38f93223a965c6181751b6`; all twenty required
+transitive reports contain only standard logical axioms. The exact graph-budget
+packet is [Proved](https://prove2.me/theorems/b8f45079-9784-43a0-b659-0914a2038332),
+submission `83ed9045-971b-4ad8-ae0d-3659c625e850` ACCEPTED. Authenticated
+accepted-source readback matches its frozen hash. This platform theorem states
+the graph incidence and integer-budget consequence; the separately checked
+geometric adapters are not mislabeled as this theorem's platform verdict.
+The regenerated full numerical receipt and fixtures can be reproduced by the
+committed test script; the compact source-hashed summary is durable.
