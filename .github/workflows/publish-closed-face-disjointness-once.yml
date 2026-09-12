@@ -1,0 +1,73 @@
+name: Publish closed-face disjointness to Prove2Me once
+
+on:
+  pull_request:
+    types: [ready_for_review]
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    if: >-
+      github.repository == 'jjoshua2/prove2me-work' &&
+      github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
+      github.head_ref == 'publish/closed-face-disjointness-prove2me'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Check policy, pins, and frozen source receipt
+        run: |
+          set -euo pipefail
+          python3 scripts/check_actions_policy.py
+          test "$(cat lean-toolchain)" = 'leanprover/lean4:v4.30.0'
+          grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
+          test "$(git rev-parse fb1594e865b723ea2e6bf63baf46beeba7025027:Solutions/PolynomialClosedExtremeFacesDisjointPublic.lean)" = '523d3573a6b9be1bf6d81aa92ad0994285254abb'
+          grep -Fq 'run `34699009349`' research/CLOSED_EXTREME_FACE_DISJOINT_PUBLIC_VERIFICATION_2026-09-12.md
+          grep -Fq 'only `propext`, `Classical.choice`, and `Quot.sound`' research/CLOSED_EXTREME_FACE_DISJOINT_PUBLIC_VERIFICATION_2026-09-12.md
+      - name: Restore pinned Lean environment
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Prepare exact standalone publication packet
+        run: |
+          set -euo pipefail
+          python3 scripts/publish_closed_face_disjointness.py prepare
+      - name: Recompile and axiom-audit source and exact standalone proof
+        run: |
+          set -euo pipefail
+          lake env lean Solutions/PolynomialClosedExtremeFacesDisjointPublic.lean 2>&1 | tee /tmp/closed-face-source.log
+          python3 scripts/check_lean_axiom_log.py /tmp/closed-face-source.log \
+            Hirsch.closed_extreme_faces_disjoint_of_no_shared_parent_extreme
+          lake env lean /tmp/closed-extreme-face-disjoint-public/solution.lean 2>&1 | tee /tmp/closed-face-standalone.log
+          python3 scripts/check_lean_axiom_log.py /tmp/closed-face-standalone.log solution
+          proof_sha="$(sha256sum /tmp/closed-extreme-face-disjoint-public/solution.lean | awk '{print $1}')"
+          manifest_sha="$(python3 - <<'PY'
+import json
+from pathlib import Path
+print(json.loads(Path('/tmp/closed-extreme-face-disjoint-public/manifest.json').read_text())['proof_sha256'])
+PY
+)"
+          test "$proof_sha" = "$manifest_sha"
+          printf '%s\n' "$proof_sha" > /tmp/closed-extreme-face-disjoint-public/audit-passed.sha256
+      - name: Publish only after exact proof audit
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+          SOURCE_RUN: '34699009349'
+        run: |
+          set -euo pipefail
+          python3 scripts/publish_closed_face_disjointness.py publish
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: closed-face-disjointness-prove2me-publication
+          retention-days: 14
+          path: |
+            closed_face_disjoint_publication_receipts/
+            /tmp/closed-extreme-face-disjoint-public/manifest.json
+            /tmp/closed-extreme-face-disjoint-public/solution.lean
+            /tmp/closed-extreme-face-disjoint-public/audit-passed.sha256
+          if-no-files-found: warn
