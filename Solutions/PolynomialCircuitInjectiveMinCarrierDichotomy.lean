@@ -4,6 +4,7 @@ import Solutions.PolynomialCommonFaceIrredundantModel
 import Solutions.PolynomialCircuitInjectiveDeletionSavings
 import Solutions.PolynomialCircuitStepProgress
 import Solutions.CircuitPhaseBlockerPersistence
+import Solutions.PolynomialCircuitIrredundantMinCarrierDichotomy
 
 open scoped BigOperators RealInnerProductSpace
 open Set Module Hirsch
