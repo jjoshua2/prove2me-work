@@ -1,0 +1,29 @@
+{
+  "candidate_source_sha256": {
+    "Solutions/PolynomialSupportDeficitRouting.lean": "2690738e1aa621d9fc7bf6bb09bbfdc1fa20f1967a4f81c3049c615c1730caba",
+    "Solutions/PolynomialVertexCarrierIntrinsicBudget.lean": "42daba5bb463a479049d76140a6a0c2a0c09e4ea72a9e18faab8a4c049bd643e"
+  },
+  "clique_subsets_excluded_from_chordless_paths": 7814,
+  "cube_common_hub_dimensions_checked": 64,
+  "cube_pairs_modulo_symmetry": 8191,
+  "intrinsic_size_budget_cases": 15453,
+  "max_path_vertices": 12,
+  "max_support_deficit": 12,
+  "per_cut_uniform_costs": {
+    "0": 6,
+    "1": 16,
+    "2": 40,
+    "3": 96,
+    "4": 224,
+    "5": 512,
+    "6": 1152,
+    "7": 2560,
+    "8": 5632
+  },
+  "polynomial_implication_cases": 18388,
+  "scope": "Exact finite/integer regressions only; no Lean or platform verdict.",
+  "selected_path_gap_cases": 106483,
+  "simplex_vertex_pairs": 10416,
+  "status": "PASS",
+  "vertex_hypothesis_negative_control": "PASS: interior simplex pair violates h<=delta"
+}
