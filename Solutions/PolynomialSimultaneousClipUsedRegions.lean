@@ -14,9 +14,13 @@ Its labels distinguish:
 * surviving pieces of the chosen outer edge walk, charged by one;
 * the two endpoint-lift singletons, charged by zero.
 
-The returned label list is `Nodup`, so later accounting can reason about the
-actual cut faces used by one repair rather than automatically charging every
-available cut.  No polynomial bound on the selected face budgets is asserted.
+The returned label list is `Nodup`.  We then project that mixed support to a
+`Nodup` list of cut labels, prove the exact cost decomposition, and absorb only
+the distinct old-edge labels into the original outer budget `D`.  Thus the
+clean path-sensitive output costs `D + sum B` over the cut faces actually used,
+not over every available cut.
+
+No polynomial bound on the selected face budgets is asserted.
 -/
 
 open scoped BigOperators RealInnerProductSpace
@@ -38,6 +42,66 @@ def clipRepairRegionCost {D : ℕ} (B : ι → ℕ) :
   | .inl i => B i
   | .inr (.inl _) => 1
   | .inr (.inr _) => 0
+
+/-- Cut-face labels extracted from a mixed repair-region support list. -/
+def clipRepairCutLabels {D : ℕ}
+    (l : List (Sum ι (Sum (Fin D) (Fin 2)))) : List ι :=
+  l.filterMap fun
+    | .inl i => some i
+    | .inr _ => none
+
+/-- Old outer-edge labels extracted from a mixed repair-region support list. -/
+def clipRepairOldEdgeLabels {D : ℕ}
+    (l : List (Sum ι (Sum (Fin D) (Fin 2)))) : List (Fin D) :=
+  l.filterMap fun
+    | .inr (.inl k) => some k
+    | _ => none
+
+/-- Projecting a duplicate-free mixed repair support to cut labels preserves
+`Nodup`. -/
+theorem clipRepairCutLabels_nodup {D : ℕ}
+    {l : List (Sum ι (Sum (Fin D) (Fin 2)))} (hl : l.Nodup) :
+    (clipRepairCutLabels l).Nodup := by
+  unfold clipRepairCutLabels
+  apply hl.filterMap
+  intro x y z hx hy
+  rcases x with i | x <;> rcases y with j | y <;> simp_all
+
+/-- Projecting a duplicate-free mixed repair support to old outer-edge labels
+also preserves `Nodup`. -/
+theorem clipRepairOldEdgeLabels_nodup {D : ℕ}
+    {l : List (Sum ι (Sum (Fin D) (Fin 2)))} (hl : l.Nodup) :
+    (clipRepairOldEdgeLabels l).Nodup := by
+  unfold clipRepairOldEdgeLabels
+  apply hl.filterMap
+  intro x y z hx hy
+  rcases x with i | (k | t) <;> rcases y with j | (k' | t') <;> simp_all
+
+/-- Exact arithmetic decomposition of a mixed repair support: cut-face budgets
+plus one unit for each used old outer edge. Endpoint singleton labels vanish. -/
+theorem clipRepairRegionCost_sum_eq_cut_add_old_length {D : ℕ}
+    (B : ι → ℕ) (l : List (Sum ι (Sum (Fin D) (Fin 2)))) :
+    (l.map (clipRepairRegionCost (D := D) B)).sum =
+      ((clipRepairCutLabels l).map B).sum + (clipRepairOldEdgeLabels l).length := by
+  induction l with
+  | nil =>
+      simp [clipRepairRegionCost, clipRepairCutLabels, clipRepairOldEdgeLabels]
+  | cons x xs ih =>
+      rcases x with i | (k | t)
+      · simp [clipRepairRegionCost, clipRepairCutLabels, clipRepairOldEdgeLabels, ih,
+          Nat.add_assoc, Nat.add_comm, Nat.add_left_comm]
+      · simp [clipRepairRegionCost, clipRepairCutLabels, clipRepairOldEdgeLabels, ih,
+          Nat.add_assoc, Nat.add_comm, Nat.add_left_comm]
+      · simp [clipRepairRegionCost, clipRepairCutLabels, clipRepairOldEdgeLabels, ih]
+
+/-- A duplicate-free mixed support can use at most all `D` old outer-edge
+labels. -/
+theorem clipRepairOldEdgeLabels_length_le {D : ℕ}
+    {l : List (Sum ι (Sum (Fin D) (Fin 2)))} (hl : l.Nodup) :
+    (clipRepairOldEdgeLabels l).length ≤ D := by
+  have hnd : (clipRepairOldEdgeLabels l).Nodup :=
+    clipRepairOldEdgeLabels_nodup hl
+  simpa using hnd.length_le_card
 
 /-- Pairwise simultaneous clipping, exposing the exact simple region support
 used by the radial repair rather than padding to every cut label.
@@ -199,8 +263,51 @@ theorem route_clip_of_lifted_endpoints_with_parent_routes_used_regions
   refine ⟨l, hnd, ?_⟩
   simpa [C, clipRepairRegionCost] using hr
 
-/-- Endpoint-lifted path-sensitive diameter interface.  For each pair of clipped
-vertices, expose a distinct list of the actual repair regions used. -/
+/-- Project the exact mixed repair support to the distinct cut faces actually
+used.  All old-edge pieces fit inside the original outer budget `D`; endpoint
+singletons cost zero. -/
+theorem route_clip_of_lifted_endpoints_with_parent_routes_used_cut_faces
+    (Q : Set (EuclideanSpace ℝ (Fin d))) (hQc : IsCompact Q) (hQ : Convex ℝ Q)
+    (a : ι → EuclideanSpace ℝ (Fin d)) (b : ι → ℝ)
+    (D : ℕ) (B : ι → ℕ)
+    (hFaces : ∀ i, ∀ p ∈ extremePoints ℝ (clipSet Q a b),
+      ⟪a i, p⟫ = b i → ∀ q ∈ extremePoints ℝ (clipSet Q a b),
+      ⟪a i, q⟫ = b i → Route (Adj (clipSet Q a b)) (B i) p q)
+    (o : EuclideanSpace ℝ (Fin d)) (ho : o ∈ Q)
+    (hstrict : ∀ i, ⟪a i, o⟫ < b i)
+    (u v : EuclideanSpace ℝ (Fin d))
+    (hu : u ∈ extremePoints ℝ (clipSet Q a b))
+    (hv : v ∈ extremePoints ℝ (clipSet Q a b))
+    (x y : EuclideanSpace ℝ (Fin d))
+    (hx : x ∈ extremePoints ℝ Q) (hy : y ∈ extremePoints ℝ Q)
+    (hux : u = x ∨ ∃ i, ⟪a i, u⟫ = b i ∧ b i ≤ ⟪a i, x⟫)
+    (hvy : v = y ∨ ∃ i, ⟪a i, v⟫ = b i ∧ b i ≤ ⟪a i, y⟫)
+    (hwalk : Route (Adj Q) D x y) :
+    ∃ cuts : List ι,
+      cuts.Nodup ∧
+      Route (Adj (clipSet Q a b)) (D + (cuts.map B).sum) u v := by
+  obtain ⟨l, hnd, hr⟩ :=
+    route_clip_of_lifted_endpoints_with_parent_routes_used_regions
+      Q hQc hQ a b D B hFaces o ho hstrict u v hu hv x y hx hy hux hvy hwalk
+  let cuts := clipRepairCutLabels l
+  have hcuts : cuts.Nodup := by
+    dsimp [cuts]
+    exact clipRepairCutLabels_nodup hnd
+  have hold : (clipRepairOldEdgeLabels l).length ≤ D :=
+    clipRepairOldEdgeLabels_length_le hnd
+  have hcost := clipRepairRegionCost_sum_eq_cut_add_old_length B l
+  have hle :
+      (l.map (clipRepairRegionCost (D := D) B)).sum ≤
+        D + (cuts.map B).sum := by
+    rw [hcost]
+    dsimp [cuts]
+    omega
+  obtain ⟨w, hw0, hwL, hstep⟩ := hr
+  exact ⟨cuts, hcuts,
+    HirschProduct.pad_walk (Adj (clipSet Q a b)) hle w hw0 hwL hstep⟩
+
+/-- Endpoint-lifted path-sensitive interface retaining the raw mixed repair
+regions. -/
 theorem route_clip_with_parent_routes_used_regions
     (Q : Set (EuclideanSpace ℝ (Fin d))) (hQc : IsCompact Q) (hQ : Convex ℝ Q)
     (a : ι → EuclideanSpace ℝ (Fin d)) (b : ι → ℝ)
@@ -222,9 +329,29 @@ theorem route_clip_with_parent_routes_used_regions
   exact route_clip_of_lifted_endpoints_with_parent_routes_used_regions
     Q hQc hQ a b D B hFaces o ho hstrict u v hu hv x y hx hy hux hvy (hD x hx y hy)
 
-/-- Rooted path-sensitive version.  A surviving centre whose outer-vertex route
-budget is `D` reaches each clipped vertex through a `Nodup` list of exactly the
-repair regions used by that route. -/
+/-- Endpoint-lifted clean form: each pair of clipped vertices uses a distinct
+list of cut faces and pays only the outer budget plus those face budgets. -/
+theorem route_clip_with_parent_routes_used_cut_faces
+    (Q : Set (EuclideanSpace ℝ (Fin d))) (hQc : IsCompact Q) (hQ : Convex ℝ Q)
+    (a : ι → EuclideanSpace ℝ (Fin d)) (b : ι → ℝ)
+    (D : ℕ) (B : ι → ℕ) (hD : DiamLE Q D)
+    (hFaces : ∀ i, ∀ p ∈ extremePoints ℝ (clipSet Q a b),
+      ⟪a i, p⟫ = b i → ∀ q ∈ extremePoints ℝ (clipSet Q a b),
+      ⟪a i, q⟫ = b i → Route (Adj (clipSet Q a b)) (B i) p q)
+    (o : EuclideanSpace ℝ (Fin d)) (ho : o ∈ Q)
+    (hstrict : ∀ i, ⟪a i, o⟫ < b i)
+    (u v : EuclideanSpace ℝ (Fin d))
+    (hu : u ∈ extremePoints ℝ (clipSet Q a b))
+    (hv : v ∈ extremePoints ℝ (clipSet Q a b)) :
+    ∃ cuts : List ι,
+      cuts.Nodup ∧
+      Route (Adj (clipSet Q a b)) (D + (cuts.map B).sum) u v := by
+  obtain ⟨x, hx, hux⟩ := HirschClipLift.endpoint_lift_to_outer_vertex Q hQc hQ a b u hu
+  obtain ⟨y, hy, hvy⟩ := HirschClipLift.endpoint_lift_to_outer_vertex Q hQc hQ a b v hv
+  exact route_clip_of_lifted_endpoints_with_parent_routes_used_cut_faces
+    Q hQc hQ a b D B hFaces o ho hstrict u v hu hv x y hx hy hux hvy (hD x hx y hy)
+
+/-- Rooted path-sensitive version retaining the raw mixed repair regions. -/
 theorem route_clip_from_root_with_parent_routes_used_regions
     (Q : Set (EuclideanSpace ℝ (Fin d))) (hQc : IsCompact Q) (hQ : Convex ℝ Q)
     (a : ι → EuclideanSpace ℝ (Fin d)) (b : ι → ℝ)
@@ -247,8 +374,35 @@ theorem route_clip_from_root_with_parent_routes_used_regions
     Q hQc hQ a b D B hFaces o hoQ.1 hstrict o v hoP hv o y hoQ hy
     (Or.inl rfl) hvy (hRoot y hy)
 
+/-- Rooted clean form: only the distinct cut faces actually used by the repair
+are charged beyond the rooted outer budget. -/
+theorem route_clip_from_root_with_parent_routes_used_cut_faces
+    (Q : Set (EuclideanSpace ℝ (Fin d))) (hQc : IsCompact Q) (hQ : Convex ℝ Q)
+    (a : ι → EuclideanSpace ℝ (Fin d)) (b : ι → ℝ)
+    (D : ℕ) (B : ι → ℕ)
+    (hFaces : ∀ i, ∀ p ∈ extremePoints ℝ (clipSet Q a b),
+      ⟪a i, p⟫ = b i → ∀ q ∈ extremePoints ℝ (clipSet Q a b),
+      ⟪a i, q⟫ = b i → Route (Adj (clipSet Q a b)) (B i) p q)
+    (o : EuclideanSpace ℝ (Fin d))
+    (hoQ : o ∈ extremePoints ℝ Q) (hoP : o ∈ extremePoints ℝ (clipSet Q a b))
+    (hstrict : ∀ i, ⟪a i, o⟫ < b i)
+    (hRoot : ∀ y ∈ extremePoints ℝ Q, Route (Adj Q) D o y)
+    (v : EuclideanSpace ℝ (Fin d))
+    (hv : v ∈ extremePoints ℝ (clipSet Q a b)) :
+    ∃ cuts : List ι,
+      cuts.Nodup ∧
+      Route (Adj (clipSet Q a b)) (D + (cuts.map B).sum) o v := by
+  obtain ⟨y, hy, hvy⟩ := HirschClipLift.endpoint_lift_to_outer_vertex Q hQc hQ a b v hv
+  exact route_clip_of_lifted_endpoints_with_parent_routes_used_cut_faces
+    Q hQc hQ a b D B hFaces o hoQ.1 hstrict o v hoP hv o y hoQ hy
+    (Or.inl rfl) hvy (hRoot y hy)
+
+#print axioms clipRepairRegionCost_sum_eq_cut_add_old_length
 #print axioms route_clip_of_lifted_endpoints_with_parent_routes_used_regions
+#print axioms route_clip_of_lifted_endpoints_with_parent_routes_used_cut_faces
 #print axioms route_clip_with_parent_routes_used_regions
+#print axioms route_clip_with_parent_routes_used_cut_faces
 #print axioms route_clip_from_root_with_parent_routes_used_regions
+#print axioms route_clip_from_root_with_parent_routes_used_cut_faces
 
 end HirschRadial
