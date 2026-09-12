@@ -1,0 +1,23 @@
+{
+  "theorem_id": "4afd7668-51a9-4a5e-a991-2a02c53b9e1c",
+  "theorem_name": "Hirsch.hpoly_diameter_le_excess_of_recursive_projective_products",
+  "theorem_title": "Recursive positive projective product certificates give the Hirsch row-excess bound",
+  "status": "Open",
+  "formal_statement": "theorem Hirsch.hpoly_diameter_le_excess_of_recursive_projective_products {d n : \u2115} (a : Fin n \u2192 EuclideanSpace \u211d (Fin d)) (b : Fin n \u2192 \u211d)\n    (cert : HirschRecursiveProducts.ProductTree a b) : DiamLE (Hpoly a b) (n-d) := by sorry",
+  "natural_language_statement": "Let $P$ be described by $n$ real linear inequalities in $\\mathbb R^d$.\nSuppose it has a finite recursive geometric certificate built from the following operations.\nA leaf is a bounded H-polyhedron with at most three excess describing rows.\nAn affine step transports a certificate through an affine equivalence without\nchanging the dimension or number of rows. At a split, an invertible linear\ncoordinate map and a partition of all rows identify a source with a Cartesian\nproduct of at least two positive-dimensional certified factors. Each factor's\nrow count is at least its dimension. A positive projective map\n$x\\mapsto x/(1+c\\cdot x)$ then sends this source onto the parent with sheared\nrows $a_i+b_i c$; both forward and inverse denominators are required positive\non their full feasible sets. Different nodes may use different charts.\n\nThen the ordinary-edge graph diameter of $P$ is at most $n-d$.\nProduct costs add and chart/affine transport preserves them, so the sum of leaf\nexcesses is exactly the parent excess. There is no restriction on total excess\nor tree depth beyond the existence of the finite certificate.\n\nThis is a sufficient criterion. It does not assert that arbitrary polytopes\nadmit such trees, or that chart discovery is efficient. The separate exact\nrational search is not part of this Lean theorem. Natural subtraction and\nstationary walk steps follow the Hirsch model's padded diameter convention.",
+  "created_at": "2026-09-12T18:48:26.340851+00:00",
+  "vote_count": 0,
+  "tags": [
+    "formalization",
+    "graph-diameter",
+    "polyhedra"
+  ],
+  "preamble": "import Mathlib\nimport Definitions.Def_Hirsch_recursive_projective_products\nopen Set Hirsch\nopen scoped RealInnerProductSpace",
+  "source": "Derived geometric certificate criterion; https://github.com/jjoshua2/prove2me-work/blob/fcbb02425dececaa9a8f7abd90c341ae99dbafac/research/RECURSIVE_PROJECTIVE_DISCOVERY_2026-09-12.md sections 1-3; classical projective invariance and product graph additivity are reused, not claimed novel.",
+  "deprecated_at": null,
+  "deprecated_by": null,
+  "visibility": "public",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "audits": [],
+  "readback": null
+}

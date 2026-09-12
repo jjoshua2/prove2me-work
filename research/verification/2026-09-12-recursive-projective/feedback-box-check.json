@@ -1,0 +1,89 @@
+{
+  "status": "PASS",
+  "scope": "Exact finite mathematical regression, not Lean or Prove2Me acceptance.",
+  "examples": [
+    {
+      "family": "cycle",
+      "dimension": 2,
+      "vertices": 4,
+      "diameter": 2
+    },
+    {
+      "family": "dense",
+      "dimension": 2,
+      "vertices": 4,
+      "diameter": 2
+    },
+    {
+      "family": "weighted_dense",
+      "dimension": 2,
+      "vertices": 4,
+      "diameter": 2
+    },
+    {
+      "family": "cycle",
+      "dimension": 3,
+      "vertices": 8,
+      "diameter": 3
+    },
+    {
+      "family": "dense",
+      "dimension": 3,
+      "vertices": 8,
+      "diameter": 3
+    },
+    {
+      "family": "weighted_dense",
+      "dimension": 3,
+      "vertices": 8,
+      "diameter": 3
+    },
+    {
+      "family": "cycle",
+      "dimension": 4,
+      "vertices": 16,
+      "diameter": 4
+    },
+    {
+      "family": "dense",
+      "dimension": 4,
+      "vertices": 16,
+      "diameter": 4
+    },
+    {
+      "family": "weighted_dense",
+      "dimension": 4,
+      "vertices": 16,
+      "diameter": 4
+    },
+    {
+      "family": "cycle",
+      "dimension": 5,
+      "vertices": 32,
+      "diameter": 5
+    },
+    {
+      "family": "dense",
+      "dimension": 5,
+      "vertices": 32,
+      "diameter": 5
+    },
+    {
+      "family": "weighted_dense",
+      "dimension": 5,
+      "vertices": 32,
+      "diameter": 5
+    }
+  ],
+  "cases": 12,
+  "vertices": 180,
+  "edges": 384,
+  "ordered_routes": 4080,
+  "negative_controls": 4,
+  "sha256": {
+    "scripts/test_contractive_feedback_boxes.py": "296ffa15084875c8541f497952eae9f357857380a14ddd6eb9ddde8649fe6b03",
+    "scripts/projective_factor_discovery.py": "bcc2d730ece1efd37c8cd66807b795a9e5fef8c5ca76f426e51d0fd874a1693b",
+    "research/CONTRACTIVE_FEEDBACK_BOXES_2026-09-12.md": "0217cb6c8f9c4815022aa3c17c0c6e3fd74d6032c4993a88a2ad551fcc24b578"
+  }
+}
+

@@ -1,0 +1,5 @@
+{
+  "status": "PASS",
+  "solution_sha256": "fbd81b21da646c930edb0e22116fd96f464501b1a24632a86523270790365c59",
+  "scope": "Local public-interface typecheck only; standalone explicit-premise driver supplies standard-axiom evidence."
+}

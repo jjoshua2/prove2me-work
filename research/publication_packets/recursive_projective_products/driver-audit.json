@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "sha256": "1e0f5be13a600d692594283681ff297873d4af8820b08591e406d579bdc74fe6",
+  "reports": {
+    "HirschRecursiveProducts.ProductTree.diamLE": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  }
+}
