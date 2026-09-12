@@ -1,0 +1,182 @@
+{
+  "cyclic_negative_controls": [
+    {
+      "actual_graph_diameter": 4,
+      "admissible_first_splits": 0,
+      "dimension": 4
+    },
+    {
+      "actual_graph_diameter": 5,
+      "admissible_first_splits": 0,
+      "dimension": 5
+    }
+  ],
+  "graph_edges": 256,
+  "graph_vertices": 120,
+  "negative_controls": 15,
+  "one_shot_exhaustive": [
+    {
+      "all_chart_candidates": 1,
+      "dimension": 3,
+      "factor_excesses": [
+        2,
+        1
+      ]
+    },
+    {
+      "all_chart_candidates": 1,
+      "dimension": 4,
+      "factor_excesses": [
+        3,
+        1
+      ]
+    },
+    {
+      "all_chart_candidates": 1,
+      "dimension": 5,
+      "factor_excesses": [
+        4,
+        1
+      ]
+    },
+    {
+      "all_chart_candidates": 1,
+      "dimension": 6,
+      "factor_excesses": [
+        5,
+        1
+      ]
+    },
+    {
+      "all_chart_candidates": 1,
+      "dimension": 7,
+      "factor_excesses": [
+        6,
+        1
+      ]
+    }
+  ],
+  "ordered_graph_distances": 2720,
+  "positive_certificates": 32,
+  "scope": "Exact rational computational regression only; no new Lean or platform verdict.",
+  "source_sha256": {
+    "Solutions/PolynomialProjectiveSeparatorAlgebra.lean": "c366cb87bca8ae94944894a2a4f601bc5b7089d50e3606db4e6d2f435fc7995a",
+    "Solutions/PolynomialRecursiveProjectiveProducts.lean": "cb2ee84dda0a130b2b0d001e74adc51832877edf9f0001059fd6ad37d99546ff",
+    "scripts/projective_factor_discovery.py": "bcc2d730ece1efd37c8cd66807b795a9e5fef8c5ca76f426e51d0fd874a1693b",
+    "scripts/test_projective_factor_discovery.py": "69a51eb029acec38aaed5e10346c4a099ec1fd237e783c23b7f753071b92c6a0"
+  },
+  "source_target_vertex_maps": 32,
+  "status": "PASS",
+  "tower_certificates": [
+    {
+      "depth": 0,
+      "dimension": 2,
+      "excess": 2,
+      "family": "tower",
+      "leaves": 1,
+      "nodes": 0,
+      "ordinary_edge_bound": 2,
+      "rows": 4
+    },
+    {
+      "depth": 0,
+      "dimension": 3,
+      "excess": 3,
+      "family": "tower",
+      "leaves": 1,
+      "nodes": 0,
+      "ordinary_edge_bound": 3,
+      "rows": 6
+    },
+    {
+      "depth": 1,
+      "dimension": 4,
+      "excess": 4,
+      "family": "tower",
+      "leaves": 2,
+      "nodes": 1,
+      "ordinary_edge_bound": 4,
+      "rows": 8
+    },
+    {
+      "depth": 2,
+      "dimension": 5,
+      "excess": 5,
+      "family": "tower",
+      "leaves": 3,
+      "nodes": 2,
+      "ordinary_edge_bound": 5,
+      "rows": 10
+    },
+    {
+      "depth": 3,
+      "dimension": 6,
+      "excess": 6,
+      "family": "tower",
+      "leaves": 4,
+      "nodes": 3,
+      "ordinary_edge_bound": 6,
+      "rows": 12
+    },
+    {
+      "depth": 4,
+      "dimension": 7,
+      "excess": 7,
+      "family": "tower",
+      "leaves": 5,
+      "nodes": 4,
+      "ordinary_edge_bound": 7,
+      "rows": 14
+    },
+    {
+      "depth": 5,
+      "dimension": 8,
+      "excess": 8,
+      "family": "tower",
+      "leaves": 6,
+      "nodes": 5,
+      "ordinary_edge_bound": 8,
+      "rows": 16
+    },
+    {
+      "depth": 6,
+      "dimension": 9,
+      "excess": 9,
+      "family": "tower",
+      "leaves": 7,
+      "nodes": 6,
+      "ordinary_edge_bound": 9,
+      "rows": 18
+    },
+    {
+      "depth": 7,
+      "dimension": 10,
+      "excess": 10,
+      "family": "tower",
+      "leaves": 8,
+      "nodes": 7,
+      "ordinary_edge_bound": 10,
+      "rows": 20
+    },
+    {
+      "depth": 8,
+      "dimension": 11,
+      "excess": 11,
+      "family": "tower",
+      "leaves": 9,
+      "nodes": 8,
+      "ordinary_edge_bound": 11,
+      "rows": 22
+    },
+    {
+      "depth": 9,
+      "dimension": 12,
+      "excess": 12,
+      "family": "tower",
+      "leaves": 10,
+      "nodes": 9,
+      "ordinary_edge_bound": 12,
+      "rows": 24
+    }
+  ]
+}
