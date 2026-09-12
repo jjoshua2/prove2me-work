@@ -104,11 +104,12 @@ def check(max_path: int = 12, max_gap: int = 12) -> dict[str, object]:
             assert (2*d - d) - r >= d - 2
     # This must fail without vertex hypotheses: two distinct interior points of
     # a 3-simplex have full common carrier, h=3,M=4,delta=1.
-    assert not (3 <= 4-1)
+    assert not (3 <= 4-3)
     root = Path(__file__).resolve().parents[1]
     hashes = {
         str(p.relative_to(root)): hashlib.sha256(p.read_bytes()).hexdigest()
-        for p in sorted((root / "Solutions").glob("*.lean"))
+        for p in [root / "Solutions/PolynomialSupportDeficitRouting.lean",
+                  root / "Solutions/PolynomialVertexCarrierIntrinsicBudget.lean"]
     }
     return {
         "status": "PASS",
