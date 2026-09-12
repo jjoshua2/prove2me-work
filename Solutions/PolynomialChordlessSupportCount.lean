@@ -22,6 +22,7 @@ set_option autoImplicit false
 set_option maxHeartbeats 4000000
 
 noncomputable section
+attribute [local instance] Classical.propDecidable
 
 namespace HirschRegionRoute
 
@@ -69,8 +70,7 @@ theorem chordless_support_neighbor_eq_prev_or_next
       simpa [hir, hjs] using hij
     right
     rw [← hjs]
-    congr 1
-    omega
+    simpa [r] using congrArg p.getVert hstep
   · have hsr : s < r := by omega
     have hstep : r = s + 1 := by
       by_contra hne
@@ -78,10 +78,10 @@ theorem chordless_support_neighbor_eq_prev_or_next
       have hno := hchord s r hgap hrle
       apply hno
       simpa [hir, hjs] using hij.symm
+    have hs : s = r - 1 := by omega
     left
     rw [← hjs]
-    congr 1
-    omega
+    simpa [r] using congrArg p.getVert hs
 
 /-- A chordless support vertex has at most two graph-neighbors inside the full
 walk support. -/
@@ -94,16 +94,16 @@ theorem supportNeighborFinset_card_le_two
   have hsub : supportNeighborFinset p i ⊆
       ({p.getVert (r - 1), p.getVert (r + 1)} : Finset V) := by
     intro j hj
-    have hj' := Finset.mem_filter.mp hj
+    rw [supportNeighborFinset, Finset.mem_filter] at hj
     have hjsupp : j ∈ p.support := by
-      simpa using hj'.1
-    have hadj : G.Adj i j := hj'.2
+      simpa using hj.1
+    have hadj : G.Adj i j := hj.2
     rcases chordless_support_neighbor_eq_prev_or_next
       p hchord hi hjsupp hadj with hprev | hnext
-    · left
-      simpa [r] using hprev
-    · right
-      simpa [r] using hnext
+    · simp only [Finset.mem_insert, Finset.mem_singleton]
+      exact Or.inl (by simpa [r] using hprev)
+    · simp only [Finset.mem_insert, Finset.mem_singleton]
+      exact Or.inr (by simpa [r] using hnext)
   have hcard := Finset.card_le_card hsub
   have hpair : ({p.getVert (r - 1), p.getVert (r + 1)} : Finset V).card ≤ 2 := by
     simp
@@ -145,7 +145,7 @@ theorem mem_nonneighborSelectedFinset
     have hxsuppFin : x ∈ p.support.toFinset := hcuts hxcut
     have hxsupp : x ∈ p.support := by simpa using hxsuppFin
     have hxneighbor : x ∈ supportNeighborFinset p i := by
-      apply Finset.mem_filter.mpr
+      rw [supportNeighborFinset, Finset.mem_filter]
       exact ⟨by simpa using hxsupp, hadj⟩
     apply hxnot
     apply Finset.mem_inter.mpr
