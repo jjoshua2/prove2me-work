@@ -1,0 +1,47 @@
+name: Verify pair-specific region legs
+on:
+  pull_request:
+    types: [opened, synchronize, ready_for_review]
+permissions:
+  contents: read
+concurrency:
+  group: verify-pair-specific-region-legs-${{ github.head_ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    if: >-
+      github.repository == 'jjoshua2/prove2me-work' &&
+      github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
+      github.head_ref == 'formal/pair-specific-region-legs' &&
+      github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - name: Check policy and pins
+        run: |
+          set -euo pipefail
+          python3 scripts/check_actions_policy.py
+          test "$(cat lean-toolchain)" = 'leanprover/lean4:v4.30.0'
+          grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
+      - name: Restore pinned Lean environment
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Compile and audit pair-specific region legs
+        run: |
+          set -euo pipefail
+          lake build Solutions.PolynomialPairSpecificRegionLegs
+          lake env lean Solutions/PolynomialPairSpecificRegionLegs.lean 2>&1 | tee /tmp/pair-specific-region-legs.log
+          python3 scripts/check_lean_axiom_log.py /tmp/pair-specific-region-legs.log \
+            HirschRegionRoute.route_of_region_walk_with_pair_specific_legs \
+            HirschRegionRoute.route_of_connected_regions_with_pair_specific_legs \
+            HirschRegionRoute.route_of_preconnected_face_cover_with_pair_specific_legs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pair-specific-region-legs-verification
+          retention-days: 14
+          path: /tmp/pair-specific-region-legs.log
+          if-no-files-found: warn
