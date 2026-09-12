@@ -308,8 +308,34 @@ The four original Python sources were absent; the committed independent verifier
 checks the supplied examples and does not claim to rerun their historical suite.
 
 The standalone public theorem is `4096cd8a-6bf6-4788-89be-e67f84f6c92f`.
-Submission `05df606c-7c8c-42eb-9e69-794b6be48926` is pending at this integration
-checkpoint. Poll it and record the authenticated verdict; no acceptance is
-inferred from the local or hosted checks. PR #206 is the active all-row joint
+Submission `05df606c-7c8c-42eb-9e69-794b6be48926` is **ACCEPTED**; the
+authenticated theorem status is **Proved**, and accepted-source readback matches
+the frozen solution hash. #205 is merged at `e1e8b9edb23b88f10bf3ead6ee3fd704f121efe5`.
+PR #206 is the active all-row joint
 mass continuation. PR #207 is the distinct portal-debt/near-geodesic draft;
 its new Lean sources and the missing geometric adapters remain to be verified.
+
+## Joint all-row carrier mass (#206)
+
+All four new modules compile locally. All twenty required declarations pass
+transitive axiom audits; the exact suite reruns 1,099 graphs, 148,126 incidence
+audits, 26 geometric instances, 61 actual carriers, and eight negative controls.
+The unchanged matrix-independent geometric inequality is
+`sum(delta_i)+r*s <= r*(n-d)+3*s`, hence `sum(delta_i)<=3e` at `s=e`.
+The supplied target-tight basis and separate strict center give an actual
+D=1 certificate with s=e, including nonsimple targets. Intrinsic dimension
+and row mass are <=3e and <=6e. An actual carrier dimension cap H gives
+`D+6e*2^(H-3)`, or `D+24e` for H<=5, with explicit Larman input.
+[Exact scope](research/GEODESIC_ALL_ROW_MASS_2026-09-12.md).
+
+Final hosted run `34723720395` passed at `8e4a666f9bc54c64ff38f93223a965c6181751b6`,
+with all twenty required axiom reports. The graph-only joint-budget theorem
+[b8f45079](https://prove2.me/theorems/b8f45079-9784-43a0-b659-0914a2038332) is
+**Proved**, submission `83ed9045-971b-4ad8-ae0d-3659c625e850` **ACCEPTED**.
+The accepted source matches the frozen packet. The actual geometric adapters
+have local/hosted verification, not their own platform verdict.
+Basis extraction and combining feedback carriers with the mass bound are the
+next independent continuation. #207 remains the separate portal-debt and
+near-geodesic draft. New #208 develops additive-spill route trees and a detour
+mass bridge depending on #206/#207; its Lean verification and complete geometric
+existence wrapper are outstanding. Neither conditional recurrence closes Hirsch.

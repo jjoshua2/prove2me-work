@@ -51,3 +51,8 @@ axiom reports also pass. The exact standalone matrix theorem is registered as
 Submission `05df606c-7c8c-42eb-9e69-794b6be48926` is pending at this integration
 checkpoint; this is not yet an acceptance claim. Poll the existing submission
 with `scripts/publish_self_contained_packet.py` and preserve its verdict.
+
+**Final platform verdict:** submission `05df606c-7c8c-42eb-9e69-794b6be48926`
+is ACCEPTED. Authenticated readback says Proved and its exact accepted source
+matches the frozen solution. Receipts are in
+`publication_packets/positive_feedback_boxes/`. PR #205 is merged.
