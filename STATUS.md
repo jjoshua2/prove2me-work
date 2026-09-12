@@ -358,10 +358,19 @@ and transitive standard-axiom audits. Frozen source:
   carrier of dimension>=6 without a PositiveBoxImage model. This identifies an
   unresolved sufficient-criterion case, not a diameter lower bound.
 
-The standalone classical basis theorem is being published and final hosted
-verification is running. #209 is deliberately draft until these existing jobs
-finish; poll rather than resubmit, preserve receipts, then merge. The basis
+Final hosted run `34724365226` passed at
+`43ab319f30d698105ed878e0ae9b5cc82ef8cedd`, with eight required and 414 total
+standard-axiom reports. The standalone classical basis theorem
+`e46935cf-6286-4874-a742-01cc62269b2d` has submission
+`63c8d2b9-2c24-4c59-9c3a-6769a095f63e` **ACCEPTED**. Authenticated theorem
+readback says **Proved**, and its accepted source matches the frozen packet.
+All final gates for integration #209 have passed. The basis
 publication is not a platform verdict for the larger clipping assemblies.
 The active queue after this integration should contain only #207 and #208,
 with their distinct blockers and next local compile commands in their bodies.
 The root and sole leaf were refreshed by authenticated API and remain Open.
+
+Mission update `0ab0273f-42de-4318-b53d-0bfa4e33160f` links the accepted
+#205/#206/#209 public theorems and distinguishes the larger Lean assemblies.
+The new results are listed separately from the inventory's historical counts.
+No root dependency was added without a checked reduction proving applicability.

@@ -135,3 +135,18 @@ PRs. The automatic basis lemma now removes one setup obligation when that
 question is studied through full-availability basis-star certificates. It does
 not solve the portal-selection rule. Keep strict-center, actual-edge,
 dimension-drop and repeated-occurrence conditions explicit in that next work.
+
+## Final hosted verification
+
+Run [34724365226](https://github.com/jjoshua2/prove2me-work/actions/runs/34724365226)
+succeeded at `43ab319f30d698105ed878e0ae9b5cc82ef8cedd`. All eight required
+reports and all 414 transitive reports use only standard logical axioms.
+Subsequent edits preserve the exact frozen Lean blobs and record documentation
+and publication evidence. The standalone basis theorem has a separate platform
+submission; its authenticated verdict is recorded in the publication packet.
+
+The standalone [basis theorem](https://prove2.me/theorems/e46935cf-6286-4874-a742-01cc62269b2d)
+is **Proved**, submission `63c8d2b9-2c24-4c59-9c3a-6769a095f63e` **ACCEPTED**.
+Authenticated accepted-source readback matches the frozen packet. The larger
+geometric assemblies retain the local/hosted verification boundary described
+above. The mission update is `0ab0273f-42de-4318-b53d-0bfa4e33160f`.

@@ -182,6 +182,7 @@ the root's open high-dimensional common-face leaf.
 | Recursive geometric products (#204) | [4afd7668](https://prove2.me/theorems/4afd7668-51a9-4a5e-a991-2a02c53b9e1c) | 7f2bba60-85ad-42d5-8a1a-eed656add3f5 | Finite geometric certificate tree gives n-d |
 | Positive-feedback boxes (#205) | [4096cd8a](https://prove2.me/theorems/4096cd8a-6bf6-4788-89be-e67f84f6c92f) | 05df606c-7c8c-42eb-9e69-794b6be48926 | Nonnegative C, positive b,w, Cw<w give d |
 | All-available geodesic budget (#206) | [b8f45079](https://prove2.me/theorems/b8f45079-9784-43a0-b659-0914a2038332) | 83ed9045-971b-4ad8-ae0d-3659c625e850 | Graph contacts and explicit pointwise integer budgets |
+| Original target-tight basis (#209) | [e46935cf](https://prove2.me/theorems/e46935cf-6286-4874-a742-01cc62269b2d) | 63c8d2b9-2c24-4c59-9c3a-6769a095f63e | Every vertex supplies d distinct tight rows with injective evaluation |
 
 Each exact packet and authenticated readback is preserved under
 `research/publication_packets/`. #206's actual geometric carrier-mass adapters
