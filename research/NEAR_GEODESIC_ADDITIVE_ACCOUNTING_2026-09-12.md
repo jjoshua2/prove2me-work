@@ -4,8 +4,9 @@
 
 This continues the all-available-row mass argument in draft #206 without
 modifying that branch. The baseline read from main is
-`321f473d871aad2d692595acd97a667d6a648d06`. The two near-geodesic modules use
-#206's candidate incidence/geometric interfaces once integrated. The two
+`321f473d871aad2d692595acd97a667d6a648d06`. A concurrent #207 appeared before this handoff. The final near-geodesic bridge
+reuses its positional-window proof and #206's geometric interfaces rather than
+duplicating the shared file name. Both prerequisites must be integrated. The two
 cross-level accounting modules depend only on each other and the established
 `PolynomialRegionRouting` module on main. No workflow, pin, credential or
 platform record is changed.
@@ -23,7 +24,7 @@ There are three substantive results:
    shifting each large child's excess by b yields a conserved quantity and an
    explicit polynomial route bound.
 
-The four Lean files (447 lines, 14 axiom printouts) are new proof candidates,
+The four Lean files (375 lines, 11 axiom printouts) are new proof candidates,
 not locally compiled or accepted platform theorems. The written mathematical
 arguments and the exact finite tests have the scope stated below. Neither a
 universal bounded-spill decomposition nor Polynomial Hirsch is claimed.
@@ -80,8 +81,8 @@ At full availability s=e,
 
 An available row can be charged again at a repeated occurrence, but there can
 be at most k+3 such contacts at this level. The near-geodesic Lean module
-expresses contacts as a finite set of natural-number POSITIONS. The geometric
-module allows a position set and separate actual vertex pair at each position.
+expresses contacts as a finite set of natural-number POSITIONS. The bridge reuses the independently developed graph theorem in #207.
+The geometric module allows a position set and separate actual vertex pair at each position.
 It does not presume that one label has only one pair.
 
 Routes along an arbitrary finite region walk still concatenate. The existing
@@ -341,7 +342,7 @@ rejected. Separate valid-input failures record the lack of an admitted
 zero-charge/additive certificate at k=0 for P_12; these are not invalid-input
 or diameter claims.
 
-Four new Lean modules supply 14 printed declarations: near-geodesic positional
+Four new Lean modules supply 11 printed declarations: near-geodesic positional
 windows, geometric occurrence-mass bounds, finite charge-telescoping route
 certificates, and the shifted-excess additive-allowance polynomial theorem.
 They have not been compiled here. The complete polytope-to-JSON extraction,

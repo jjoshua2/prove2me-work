@@ -5,8 +5,9 @@
 Baseline main: `321f473d871aad2d692595acd97a667d6a648d06`.
 This packet does not edit #205, #206, STATUS.md, pins, workflows or platform
 records. It has four NEW Lean modules; no new Lean acceptance is claimed.
-The two near-geodesic modules consume #206's interfaces after that PR is
-integrated. The amortized/additive modules already depend only on main.
+The near-geodesic bridge reuses concurrent #207's graph proof and #206's
+geometric definitions. Both must be integrated. The amortized/additive modules
+depend only on main. No file collides with #207 in the final patch.
 
 ## Highest-value result
 
@@ -37,12 +38,12 @@ python3 scripts/additive_allowance_solver.py fixtures/cyclic_polar_12_input.json
   --allowance 2 --slack 1
 lake build Solutions.PolynomialAmortizedPortalRoutes \
   Solutions.PolynomialAdditiveAllowanceRouting
-# After the corresponding #206 interfaces have been integrated:
-lake build Solutions.PolynomialNearGeodesicWindows \
+# After the corresponding #206 and #207 interfaces have been integrated:
+lake build Solutions.PolynomialNearGeodesicMassBridge \
   Solutions.PolynomialNearGeodesicCarrierMass
 ```
 
-There are 14 axiom printouts across 447 Lean lines. Inspect the transitive
+There are 11 axiom printouts across 375 Lean lines. Inspect the transitive
 standard-logical-axiom closure and repair elaboration locally before using
 any existing final hosted gate. The candidate API-sensitive points are
 finite dependent-sum induction in `route_chain`, Finset cardinality <=1,

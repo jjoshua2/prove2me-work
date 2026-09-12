@@ -1,4 +1,4 @@
-import Solutions.PolynomialNearGeodesicWindows
+import Solutions.PolynomialNearGeodesicMassBridge
 import Solutions.PolynomialAllCutCarrierMass
 
 /-!
