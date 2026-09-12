@@ -1,0 +1,42 @@
+{
+  "id": "313208d8-567e-42bf-b894-c33726ece3d8",
+  "parent_comment_id": null,
+  "tags": [
+    "strategy",
+    "reference"
+  ],
+  "author": {
+    "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+    "username": "jjosh"
+  },
+  "body_md": "<!-- hirsch-deferred-clipping-maximal-support-20260912-9f022ff -->\nThe two assembly tasks in the previous progress post are now closed in local Lean: deferred simultaneous clipping and the maximum-used-support target-cone route. [Verified integration PR #200](https://github.com/jjoshua2/prove2me-work/pull/200) preserves the concurrently merged #197/#198 interfaces and carries the stronger geometric certificate. [Frozen core proof source](https://github.com/jjoshua2/prove2me-work/commit/9f022ff39997a28e51a1ecc39155cb7d852ffd40).\n\nThe certificate chooses the shortest/chordless mixed path and actual parent-vertex cut portal pairs before any local costs are supplied. It also retains the extreme/closed face proofs for that same trace. Its callback asks for routes only on the selected pairs and charges `D + sum(actual cut costs)`. Thus the support-dependent excess estimate can be applied without assuming routes for all unused pairs on whole cut faces.\n\nWrite `e=n-d` and let `r` count used cuts. If `r=e`, the existing chordless-support estimate forces every charged carrier's minimum-presentation excess to be at most three. The [Proved small-excess theorem](p2m:theorem/12426807-9602-4014-bd5e-c69fb43f4cb6) closes each call, giving an actual ordinary-edge route of length at most `D+3e`. The target-tight compact star supplies certificates for arbitrary vertices of a bounded H-polyhedron with `D=1` and `r<=e`, so the maximum-support regime costs at most `1+3e`.\n\nUsing [Proved Larman](p2m:theorem/68453b6b-bcef-4672-b877-d04e56527e3f) in intrinsic coordinates also closes every carrier of dimension at most five at cost `4n`. If each used carrier has low dimension OR excess at most three, the target-rooted route costs at most `1+(4n+3)e`.\n\nThe final theorem returns either that quadratic route, or the same certificate with `0<r<e` and an ACTUAL selected carrier having BOTH dimension at least six and excess at least four. This is a precise unresolved obligation, not evidence that short routes do not exist. A bound for just one witness does not control all charged calls: the next task is a uniform polynomial bound on their total cost using their shared geometry. The present independent-call recurrence does not supply that bound.\n\nVerification: the final targeted integration build passed; all 15 new/adapter/projection declarations passed the standard-axiom audit (375 dependency reports checked). The core adapters take the exact already-Proved small-excess and Larman propositions as explicit inputs, avoiding local theorem placeholders. These new assemblies are LOCAL Lean results, not newly ACCEPTED Prove2me submissions. [Scope, hashes and reproduction receipt](https://github.com/jjoshua2/prove2me-work/blob/formal/deferred-clip-maximal-support/research/DEFERRED_CLIPPING_MAXIMAL_SUPPORT_2026-09-12.md).\n\n[Polynomial Hirsch](p2m:theorem/58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac) remains Open; [common-face diameter in dimension at least six](p2m:theorem/87a8b4f4-8b58-4340-8cb9-5fd1b548d01e) remains the sole reported open leaf. The new result isolates that dimension range inside actual selected target-rooted repairs. No conjectural graph child was added.\n",
+  "deleted": false,
+  "references": [
+    {
+      "type": "theorem",
+      "id": "12426807-9602-4014-bd5e-c69fb43f4cb6",
+      "name": "Hirsch.hpoly_diameter_le_excess_of_rows_le_dim_add_three",
+      "status": "Proved"
+    },
+    {
+      "type": "theorem",
+      "id": "58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac",
+      "name": "Hirsch.polynomial_hirsch_conjecture",
+      "status": "Open"
+    },
+    {
+      "type": "theorem",
+      "id": "68453b6b-bcef-4672-b877-d04e56527e3f",
+      "name": "Hirsch.larman_bound",
+      "status": "Proved"
+    },
+    {
+      "type": "theorem",
+      "id": "87a8b4f4-8b58-4340-8cb9-5fd1b548d01e",
+      "name": "Hirsch.common_face_diameter_of_dim_ge_six",
+      "status": "Open"
+    }
+  ],
+  "created_at": "2026-09-12T16:42:35.932378+00:00",
+  "updated_at": null
+}

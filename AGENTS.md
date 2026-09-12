@@ -4,7 +4,7 @@ Read `STATUS.md`, then `CLOUD_AGENT.md`, then `SKILL.md`, before doing platform 
 
 ## Current Polynomial Hirsch handoff
 
-`STATUS.md` is authoritative. The synchronized 2026-09-12 frontier has one open leaf, `Hirsch.common_face_diameter_of_dim_ge_six` (`87a8b4f4-8b58-4340-8cb9-5fd1b548d01e`). Polynomial circuit-to-edge refinement remains an open ancestor. The deferred clipping/target-cone assembly and maximum-support regime are locally verified in the continuation of PRs #197-#198. The next obstruction is the total cost of actual selected carriers with dimension at least six and excess at least four, on repairs using fewer than n-d cuts. Consult the public-results inventory before reproving or republishing a partial result.
+`STATUS.md` is authoritative. The synchronized 2026-09-12 frontier has one open leaf, `Hirsch.common_face_diameter_of_dim_ge_six` (`87a8b4f4-8b58-4340-8cb9-5fd1b548d01e`). Polynomial circuit-to-edge refinement remains an open ancestor. The deferred clipping/target-cone assembly and maximum-support regime are locally verified in integration PR #200. The next obstruction is the total cost of actual selected carriers with dimension at least six and excess at least four, on repairs using fewer than n-d cuts. Consult the public-results inventory before reproving or republishing a partial result.
 
 Do not redo Santos/spindle work, circuit Child A, or already-published repair lemmas unless a defect is found. Do not create a cyclic child that depends back on an ancestor such as `balanced_polynomial_bound`.
 

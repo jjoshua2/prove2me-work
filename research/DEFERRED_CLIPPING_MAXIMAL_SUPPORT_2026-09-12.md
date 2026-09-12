@@ -1,6 +1,6 @@
 # Deferred clipping closes the maximum-support regime
 
-Date: 2026-09-12. Continuation of merged [PR #197](https://github.com/jjoshua2/prove2me-work/pull/197) and [PR #198](https://github.com/jjoshua2/prove2me-work/pull/198).
+Date: 2026-09-12. [Integration PR #200](https://github.com/jjoshua2/prove2me-work/pull/200). Continuation of merged [PR #197](https://github.com/jjoshua2/prove2me-work/pull/197) and [PR #198](https://github.com/jjoshua2/prove2me-work/pull/198).
 Frozen proof source: [`9f022ff39997a28e51a1ecc39155cb7d852ffd40`](https://github.com/jjoshua2/prove2me-work/commit/9f022ff39997a28e51a1ecc39155cb7d852ffd40).
 Lean 4.30.0 / Mathlib `c5ea00351c28e24afc9f0f84379aa41082b1188f`.
 
@@ -99,3 +99,8 @@ passed, with 375 dependency reports audited. Reproduce using
 `lake build Solutions.PolynomialTargetConeDeferredCosts Solutions.PolynomialSimultaneousClipDeferredPairLegs`.
 The original #198 source and hosted receipts remain in Git history and its
 durable [receipt](SIMULTANEOUS_CLIP_DEFERRED_CUT_COSTS_VERIFICATION_2026-09-12.md).
+
+The continuation was posted to the mission discussion as comment
+`313208d8-567e-42bf-b894-c33726ece3d8`. The exact body and all four theorem
+backlinks were read back successfully and are preserved in
+[mission-comment.json](verification/2026-09-12-deferred-clipping/mission-comment.json).

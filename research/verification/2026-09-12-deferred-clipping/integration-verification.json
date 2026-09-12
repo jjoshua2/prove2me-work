@@ -91,5 +91,6 @@
   "original_clipping_hosted_run": "34705587725",
   "original_clipping_artifact_id": "10301269745",
   "original_clipping_artifact_sha256": "5925e9c915080f2a6320b46e1564cc49c7ca0484fcee59b7dfde53fba9058aab",
-  "scope": "Preserves the original two clipping theorem types as projections of DeferredClipCertificate. The original hosted run covers the old proof; this local integration build covers the projection and entire continuation."
+  "scope": "Preserves the original two clipping theorem types as projections of DeferredClipCertificate. The original hosted run covers the old proof; this local integration build covers the projection and entire continuation.",
+  "projection_source_commit": "4b12f2ddb14b61759360396cdcb59f471f5eeb42"
 }

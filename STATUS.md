@@ -1,6 +1,6 @@
 # Current Polynomial Hirsch frontier
 
-Synchronized 2026-09-12 with GitHub, authenticated Prove2me 0.10.3, all 46 existing mission discussion posts, and recursively expanded theorem dependencies. The new progress post is comment `70d168d1-f966-4904-86f3-0afd25766a50`.
+Synchronized 2026-09-12 with GitHub, authenticated Prove2me 0.10.3, all 46 existing mission discussion posts, and recursively expanded theorem dependencies. The original sync post is `70d168d1-f966-4904-86f3-0afd25766a50`; the verified continuation is posted as `313208d8-567e-42bf-b894-c33726ece3d8`.
 Repository: `jjoshua2/prove2me-work`. Integration baseline main: `977ac7752de444206917b4d67a285ed70e12d24a` (#195).
 Lean 4.30.0 / Mathlib `c5ea00351c28e24afc9f0f84379aa41082b1188f`.
 
@@ -57,9 +57,10 @@ This fixes an interface obstacle in the next composition. The #194 statement has
 
 Both the source and exact standalone `theorem solution` passed Lean and axiom audits with only `propext`, `Classical.choice`, and `Quot.sound`. Prove2me theorem [ba2632b3](https://prove2.me/theorems/ba2632b3-1bec-43f9-8755-960e4b04936c), submission `59a4c70a-7584-4f2e-a429-23598e316dd8`, is **ACCEPTED**, and the live theorem is **Proved**. The [publication packet](research/publication_packets/deferred_region_costs/) preserves the exact statement, proof and receipts.
 
-## Deferred clipping and maximum-support closure after PRs #197-#198
+## Deferred clipping and maximum-support closure (PR #200)
 
-The first two items of the previous handoff are now locally verified.
+The first two items of the previous handoff are now locally verified in
+[integration PR #200](https://github.com/jjoshua2/prove2me-work/pull/200).
 [Exact theorem scope and reproduction receipt](research/DEFERRED_CLIPPING_MAXIMAL_SUPPORT_2026-09-12.md). Merged [PR #197](https://github.com/jjoshua2/prove2me-work/pull/197) supplies the padded
 route adapter. Merged [PR #198](https://github.com/jjoshua2/prove2me-work/pull/198) supplies the
 projected clipping interface. This continuation preserves both interfaces and
