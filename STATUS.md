@@ -1,180 +1,175 @@
 # Current Prove2Me Polynomial Hirsch frontier
 
-Authoritative continuation updated 2026-09-12 through merged, kernel-verified PR #185.
+Authoritative continuation updated 2026-09-12 through merged, kernel-verified PR #186 and authenticated Prove2Me sync PR #187.
 Repository: `jjoshua2/prove2me-work`.
-Current integrated main after #185: `f2d3fd3ce3b6fa1d171f2ff77e1ae169610e7087`.
+Current integrated main: `65cf63c4786210f9bf4ac83bb79873642d26894d`.
 Lean: `v4.30.0`; Mathlib: `c5ea00351c28e24afc9f0f84379aa41082b1188f`.
 
 ## Read first
 
-The remaining research task is still **cost-controlled ordinary-edge refinement**, not circuit-walk existence, pointedness, vertex existence, face-portal existence, or support counting.
+The remaining research task is **cost-controlled ordinary-edge refinement**. Circuit-walk existence, target-preserving deletion, compact target-star construction, support counting, parent-vertex portal extraction, and pair-specific repair accounting are already available.
 
-The target-anchored line has advanced substantially beyond the old #165 handoff. For a fixed original target vertex `v`, keeping the target-tight rows gives an outer with only `v` as an old vertex. All target-slack cuts can then be restored simultaneously. The repair now exposes the **actual final cut faces and actual parent-vertex portal pairs used**, and charges only those pair-specific calls.
+The target-anchored repair line now returns the **actual target-slack cut legs used**, including the parent-extreme entry/exit pair on each cut, and charges only those concrete pair-specific local calls. Target-rooted repair localizes its nontrivial cut cost to the endpoint-lift spoke. Radial active-row cells are convex along segments.
 
-For target-rooted repair, the centre-star edge itself needs no cut-face charge; the nontrivial cut cost is localized to the endpoint-lift spoke. The newest verified radial result (#185) shows fixed-row active cells on such radial geometry are convex, so along a segment one row cannot leave the radial upper envelope and later re-enter.
+PR #186 adds the first genuine decreasing-resource theorem in this line: ambient rows which are strictly slack throughout an actual portal-pair common carrier subtract directly from that carrier's minimum-presentation excess.
 
-No result below proves the global fixed-degree polynomial recurrence. A polynomial number of circuit steps, a bound on the number of used cut labels, or a sum of recursive budgets is not enough unless the recursive subproblems are shown to decrease under a globally amortized resource.
+No result below proves the global fixed-degree polynomial recurrence. A polynomial number of circuit steps, a bound on the number of used cuts, or independent smaller-looking recursive calls is insufficient unless their total ordinary-edge cost is globally amortized.
 
-## Recorded formal Open frontier
+## Live Prove2Me state
 
-The latest authenticated Prove2Me frontier audit was performed during PR #172 and left
+Authenticated sync run `34697880616`, job `103564398150`, against platform `0.10.3` verified:
 
-`Hirsch.polynomial_edge_refinement_of_circuit_walks_dim_ge_four`
+- `Hirsch.target_tight_outer_unique_vertex_zero_diameter`
+  - theorem `aa3abbb2-203b-41ab-86b6-f45ab734c57a`
+  - status **Proved**
+- `Hirsch.vertex_strictly_slack_rows_card_le_row_excess`
+  - theorem `804b7a8e-0572-4407-a014-2d9f4aaa6f87`
+  - status **Proved**
+- `Hirsch.polynomial_edge_refinement_of_circuit_walks_dim_ge_four`
+  - theorem `73beca40-31bc-42d5-8350-5ec9ac28bd3e`
+  - status **Open** before and after the sync
 
-Open, theorem ID `73beca40-31bc-42d5-8350-5ec9ac28bd3e`.
+Polynomial Hirsch mission discussion comment `f9b857cd-c188-45ca-b8f5-c721538ce5ae` records the current strategy through PR #186. Receipt: `research/PROVE2ME_FRONTIER_SYNC_2026-09-12.md`. No theorem status or frontier edge was changed by the sync.
+
 Its parent `Hirsch.polynomial_edge_refinement_of_circuit_walks`
-(`099c6686-560c-48fc-b2c2-18b6a620a06e`) and the Polynomial Hirsch root remained Open.
+(`099c6686-560c-48fc-b2c2-18b6a620a06e`) also remains part of the unresolved edge-refinement line.
 
-No later PR through #185 mutated the Prove2Me frontier. Kernel verification is not platform acceptance.
+Do not create cyclic children through `balanced_polynomial_bound` or broad target-face-access assumptions. Do not call a `RowCircuitStep` an `Adj` edge. Do not redo the already-complete cubic circuit Child A or Santos/spindle work without finding a defect.
 
-Do not create cyclic children through `balanced_polynomial_bound` or broad target-face-access assumptions. Do not call a `RowCircuitStep` an `Adj` edge. Do not redo already-complete circuit Child A or Santos/spindle work without finding a defect.
+## Verified target-anchored chain
 
-## New public Prove2Me results from the target-anchored line
+### #165–#166 — preserve a fixed target through deletion
 
-### PR #167 — target-tight outer has one vertex
+Rows strictly slack at a fixed original target vertex can be deleted simultaneously while preserving row-map injectivity, that same target vertex, and exact recovery on reinsertion. Keeping exactly the target-tight rows yields a relaxed outer whose only old vertex is the target. The canonical same-phase blocker deletion gives strict row-excess drop and a fresh cubic circuit walk, but that relaxed walk is still a circuit walk rather than an ordinary-edge route.
 
-Public theorem:
-`Hirsch.target_tight_outer_unique_vertex_zero_diameter`
+### #168, #170 — simultaneous reinsertion
 
-- theorem ID `aa3abbb2-203b-41ab-86b6-f45ab734c57a`
-- proof submission `9903527d-a915-4c03-9109-5142f582d801`
-- status **Proved**
+All target-slack cuts can be restored in one clipping construction. With supplied parent-edge budgets on final cut faces, repair cost is additive. The sharp public slack-row count gives at most `n-d` target-slack rows, but a uniform recursive face budget still produces the known multiplicative obstruction.
 
-Keeping exactly the rows tight at a chosen vertex gives a relaxed H-polyhedron whose extreme-point set is exactly that vertex, hence old-vertex graph diameter zero. The outer may be unbounded.
+### #171, #173–#175, #177 — pay only support actually used
 
-### PR #172 — sharp slack-row count
+Cycle-erased region routing exposes a `Nodup` used support. Simultaneous clipping preserves this support information, separates final cut labels from old-edge labels, and bounds distinct old-edge labels by the original outer budget `D`. Target-cone repair therefore pays only the final cut labels used by the repaired path, never every available cut.
 
-Public theorem:
-`Hirsch.vertex_strictly_slack_rows_card_le_row_excess`
+### #178–#179 — retain actual portal geometry
 
-- theorem ID `804b7a8e-0572-4407-a014-2d9f4aaa6f87`
-- proof submission `8dc241ef-cb1e-4eec-9423-a424b559d380`
-- status **Proved**
+The repair can retain the actual simple region path. In closed extreme-face routing every consecutive region transition has a shared **parent extreme vertex** portal. `RegionLeg` records `(label, entry, exit)`, so local costs may depend on the concrete parent-vertex pair rather than a whole-face diameter.
 
-At any vertex of an `n`-row H-presentation in dimension `d`, at most `n-d` describing rows are strictly slack. No boundedness, irredundancy, simplicity, or full-dimensionality assumption is used.
+### #181, #183 — pair-specific target-cone cost
 
-## Verified target-anchored / clipping chain through #185
-
-### #165–#166: preserve the fixed target under deletion
-
-- #165: any batch of rows strictly slack at a fixed original target vertex can be deleted simultaneously while preserving row-map injectivity, the target vertex, and exact recovery on reinsertion. Keeping exactly the target-tight rows gives the singleton-vertex outer.
-- #166: for the canonical same-phase destination blocker, one-row deletion preserves the same target and gives strict row-count / row-excess drop together with a fresh cubic circuit walk in the relaxed pointed model.
-
-The relaxed walk is still a circuit walk, not automatically an ordinary-edge route.
-
-### #168, #170: simultaneous target-cone reinsertion
-
-`HirschTargetDeletion.target_slack_batch_reinsertion_with_parent_routes`
-restores all target-slack cuts in one clipping construction. If each final cut face has an ambient parent-edge budget, pairwise and target-rooted repair costs are additive in those budgets.
-
-#170 combines this with the sharp target-slack cardinality bound. A uniform local budget `B` gives pairwise cost `2 + (n-d)*B` and rooted cost `1 + (n-d)*B`. This is not a polynomial recurrence because it does not supply `B`.
-
-### #171, #173–#175, #177: pay only support actually used
-
-- #171 exposes the simple-path region support after cycle erasure. The returned labels are `Nodup`; cost is the sum of local budgets on those labels, not on every available face.
-- #173/#174/#177 propagate that support through simultaneous radial clipping. Mixed repair labels distinguish final cut faces, surviving old-edge regions, and endpoint singletons. Projecting to cut labels stays `Nodup`; distinct old-edge labels contribute at most the original outer budget `D`.
-- #175 gives the target-cone statement: each repaired route uses a `Nodup` list of actual target-slack cuts of length at most `n-d`. Pairwise cost is `2 + sum used B_i`; target-rooted cost is `1 + sum used B_i`.
-
-Support counting alone still does not bound the weighted sum of the used face costs.
-
-### #178–#179: retain the actual parent-vertex portal pairs
-
-- #178 retains the actual simple intersection-graph path. Consecutive closed extreme-face regions come with a shared **parent extreme vertex** portal.
-- #179 introduces `RegionLeg`: every local call records `(label, entry, exit)`. Local costs may depend on that actual pair, and the global route cost is exactly the sum of pair-specific leg costs. The leg-label list is duplicate-free.
-
-This removes the interface-level reason to pay a whole-face diameter when only one concrete portal pair is needed.
-
-### #181 and #183: pair-specific target-cone accounting
-
-#181 propagates pair-specific portal costs through simultaneous clipping. For one outer route of padded length `D`, the final route costs
+For one simultaneous clipping repair, the final route costs
 
 `D + sum(pair-specific costs of actual used cut legs)`.
 
-Every used cut leg retains its concrete parent-extreme entry and exit vertices, both tight on its labelled cut row.
+#183 specializes this to the target-tight star. Each returned target-slack cut leg:
 
-#183 specializes this to the target-tight star. For the target-slack set `J`:
+- has a duplicate-free label among at most `n-d` cuts;
+- carries actual parent-extreme `entry` and `exit` vertices;
+- both endpoints are tight on that labelled row.
 
-- pairwise repair returns at most `n-d` duplicate-free actual cut legs and costs
-  `2 + Σ B(row, entry, exit)`;
-- target-rooted repair returns the analogous actual legs and costs
-  `1 + Σ B(row, entry, exit)`.
+Pairwise repair pays `2 + Σ B(row,entry,exit)` and target-rooted repair pays `1 + Σ B(row,entry,exit)`.
 
-This is the current clean statement of the remaining numerical obstruction: **control the sum of costs of the concrete portal pairs actually selected by the repair.**
+### #182, #185 — one-dimensional radial structure
 
-### #182 and #185: target-rooted radial structure
+Target-rooted center-to-outer-vertex motion can use only the old-edge region, so its cut cost is localized to the endpoint-lift spoke.
 
-#182 proves that radial retraction about its centre preserves every centre-to-point segment. In the target-tight star, the centre-to-outer-vertex edge can therefore be covered entirely by the old-edge repair region and needs no cut-face label. The nontrivial target-rooted cut cost is on the endpoint-lift spoke.
-
-#185 (`Solutions/PolynomialRadialActiveRowInterval.lean`) proves the next one-dimensional structural fact:
+PR #185 proves:
 
 - each normalized radial row score is affine;
-- if one row attains the radial scale at two points, it attains it on every convex combination;
 - every fixed-row active cell is convex;
-- under strict centre slack, a segment whose endpoints are active for one row retracts entirely into that final cut face.
+- a row active at both segment endpoints remains active throughout;
+- under strict centre slack, the whole retracted segment lies in that final cut face.
 
-Frozen source `fd7511f10153113446dcad73971f091ac6d5f9cf` passed run `34692904962`, job `103551222857`, artifact `10297421344`, digest `sha256:038b33fe502c512a91e97f9b5072360acc22e68ee674ef770929083d68999ffc`. Receipt: `research/RADIAL_ACTIVE_ROW_INTERVAL_VERIFICATION_2026-09-12.md`.
+Frozen source `fd7511f10153113446dcad73971f091ac6d5f9cf`; run `34692904962`, job `103551222857`, artifact `10297421344`, digest `sha256:038b33fe502c512a91e97f9b5072360acc22e68ee674ef770929083d68999ffc`. Receipt: `research/RADIAL_ACTIVE_ROW_INTERVAL_VERIFICATION_2026-09-12.md`.
 
-This gives chronological interval structure but still does not bound the parent-edge cost between the two portal vertices selected inside an active cut face.
+### #186 — strict unused rows buy carrier excess savings
+
+Module: `Solutions/PolynomialCommonFaceStrictRowSavings.lean`.
+
+Kernel-checked declarations:
+
+- `HirschCircuitLocalization.irredundant_commonFace_rows_disjoint_strict_rows`
+- `HirschCircuitLocalization.commonFace_minExcess_add_strictRows_le`
+- `HirschCircuitLocalization.commonFace_minExcess_le_of_strictRows_card`
+
+For a bounded `n`-row parent in dimension `d`, parent vertices `u,v`, and a set `J` of original rows which are strictly slack at **every point** of `commonFace a b u v`, let
+
+- `M = commonFaceMinSubpresentationCount a b u v`,
+- `h = commonFaceDim a b u v`.
+
+Then
+
+`(M - h) + J.card ≤ n - d`.
+
+Equivalently, if `n-d ≤ J.card + r`, the actual portal-pair carrier has minimum-presentation excess at most `r`.
+
+The proof uses the globally-minimal strictly-feasible irredundant carrier model. Every selected indispensable row has a feasible coordinate point where exactly that row is tight; mapping that witness into the ambient common face excludes every row strict throughout the carrier. Those excluded rows are disjoint from the selected rows and from the common-source rows which vanish on the carrier. Rank-nullity supplies the remaining `d-h` charge.
+
+Frozen head `7896d786797b67ff3f60957fe6dea37a1ef7ebff`; run `34697559250`, job `103563545980`, artifact `10299296580`, digest `sha256:97b0a239a0c3e7eff33109cd1813fa92e9a0b0ab105519f993238ac7c386c0fb`. All three axiom reports contain only `propext`, `Classical.choice`, and `Quot.sound`. Receipt: `research/COMMON_FACE_STRICT_ROW_SAVINGS_VERIFICATION_2026-09-12.md`.
+
+This is a resource theorem, not itself a diameter theorem.
 
 ## Completed interfaces to reuse
 
 ### Pointed carrier recursion: #151, #153–#161
 
-- #151: `rowCircuitWalk_explicit_cubic_of_injective` gives a `17*n^3` circuit walk from a feasible source to a vertex target under row-map injectivity, without boundedness.
-- #153: exact neutral-rank / selected-defect / savings identities work under injectivity.
-- #154–#157: nonempty injective H-polyhedra have vertices; intersecting carriers have genuine parent-vertex portals; feasible checkpoint sequences assemble from supplied local parent-edge budgets.
-- #158: retaining one nonneutral row kills the circuit-line kernel; with two nonneutral rows either can be deleted while preserving pointedness. Vertex-starting steps have opposite-sign blockers.
-- #159: equivalent nonempty common-face presentations inherit row-map injectivity and satisfy the expected dimension-vs-row count.
-- #160: minimum-carrier same-phase strict-resource / essential-trapped-blocker dichotomy works in pointed unbounded parents.
-- #161: strict minimum-carrier excess drop becomes a real conditional ordinary-edge budget through `LowerExcessInjectiveHpolyDiameterBound`.
+- `rowCircuitWalk_explicit_cubic_of_injective` gives a `17*n^3` circuit walk under row-map injectivity, without boundedness.
+- Exact neutral-rank / selected-defect / savings identities work under injectivity.
+- Nonempty injective H-polyhedra have vertices; intersecting carriers have genuine parent-vertex portals; feasible checkpoint sequences assemble from supplied local parent-edge budgets.
+- The same-phase minimum-carrier strict-resource / essential-trapped-blocker split works in pointed unbounded parents.
+- `LowerExcessInjectiveHpolyDiameterBound` turns strict excess decrease into a conditional ordinary-edge budget.
 
-**Important:** `LowerExcessInjectiveHpolyDiameterBound` is still an induction hypothesis, not a proved uniform global theorem. A future result must establish when the actual portal-pair carriers fall under a smaller resource.
+**Important:** that lower-excess bound is an induction hypothesis, not a proved global polynomial theorem.
 
-### One-row cap / facet descent: #140–#152, #164
+### Cap / facet descent: #140–#152, #164
 
-The exterior-cap line supplies explicit bounded caps, preservation of old vertices/edges for sufficiently far caps, classification of new cap vertices, and radial horizon repair. #149 gives same-excess/lower-dimension facet routing from an explicit lower-dimensional budget. #164 gives the one-cut wrapper `D + 1 + B`.
+The exterior-cap line supplies explicit bounded caps, preservation of old vertices/edges at far levels, new cap-vertex classification, and radial horizon repair. #149 gives same-excess/lower-dimension facet routing from an explicit lower-dimensional budget. #164 gives the one-cut `D + 1 + B` wrapper. Naive independent recursion on those budgets is still Pascal-type.
 
-These remain useful local tools but naive independent recursion on `D` and `B` is Pascal-type, not a fixed-degree polynomial proof.
+### Small-excess carrier routing
 
-### Existing small-excess and product tools
+`commonFace_diamLE_of_subpresentation_excess_le_three` converts an actual common carrier of minimum-presentation excess `r ≤ 3` into an intrinsic graph route of cost `r`, using the already-public small-excess H-polyhedron result. This is the intended endpoint of the next support-to-resource argument.
 
-Reuse common-face affine transport, minimum-presentation invariance, small-excess routing through row excess three, and independent row-block product budgets. In particular `commonFace_diamLE_of_subpresentation_excess_le_three` keeps the actual local excess `r ≤ 3` as the route budget rather than rounding everything to three.
+## Highest-value next theorem: shortest used paths force strict rows
 
-## Highest-value next theorem: used-path support must buy carrier row savings
+The next task is now narrower than the previous handoff: PR #186 already proves the row-savings inequality. What remains is to prove that the **actual used repair geometry supplies the required strict rows**.
 
-The next step should turn the support object into a **decreasing recursive resource**, not expose another variant of the same support.
+### Step 1 — choose a shortest region path before assigning pair costs
 
-A promising concrete target is the following ordinary theorem and Lean formalization.
+Strengthen the generic region-routing interface so a reachable intersection graph chooses a walk `p` with
 
-Let `C = commonFace a b p q`, let
+`p.length = (intersectionGraph S).dist i j`.
 
-- `h = commonFaceDim a b p q`,
-- `M = commonFaceMinSubpresentationCount a b p q`,
-- `J` be original row indices that are **strictly slack at every point of `C`**.
+Mathlib already provides `Reachable.exists_walk_length_eq_dist` and `Walk.isPath_of_length_eq_dist`.
 
-Prove
+Prove a reusable chordlessness statement: if `r + 1 < s ≤ p.length`, then
 
-`(M - h) + J.card ≤ n - d`.
+`¬ G.Adj (p.getVert r) (p.getVert s)`.
 
-Suggested declaration:
-`HirschCircuitLocalization.commonFace_minExcess_add_strictRows_le`.
+Otherwise prefix + chord + suffix would produce a shorter `i→j` walk, contradicting `p.length = G.dist i j`.
 
-Why this is the right resource statement: rows in `J` can be deleted simultaneously from the common-face coordinate presentation without changing that represented carrier. If `T` is the set of original nonzero rows tight throughout the carrier, then `d-h ≤ |T|`, and an equivalent presentation remains after removing both the rows vanishing on the carrier and the rows strictly slack everywhere on it. This yields `M + |T| + |J| ≤ n`, hence the displayed inequality.
+**Choose this shortest/chordless path before local pair costs are assigned.** A shortcut can change the portal pair and therefore its pair-specific cost.
 
-### Apply it to a chordless used-region path
+### Step 2 — convert nonadjacent used cut faces into strict rows
 
-Before assigning pair-specific local costs, choose a shortest/chordless path in the **full mixed repair-region graph**. Do not shortcut a path after costs are attached, because changing a portal pair can change its pair-specific cost.
+For an actual used cut leg labelled `i`, its `entry` and `exit` lie on row face `F_i`. Their common carrier is contained in `F_i` because row `i` is tight at both endpoints.
 
-For a used cut face `F_i`, every other used cut `F_j` that is not an immediate path neighbor must be disjoint from `F_i`; otherwise compact closed extreme-face intersection supplies a shared parent vertex and hence a chord. Therefore row `j` is strictly slack on every point of `F_i`, and hence on every common carrier of a portal pair routed inside `F_i`.
+If another used cut label `j` occurs nonconsecutively on the shortest full mixed-region path, chordlessness says the two region labels are not adjacent. For compact closed extreme cut faces, nonempty intersection would give a shared parent extreme vertex and hence an intersection-graph edge. Therefore `F_i ∩ F_j = ∅`.
 
-If
+Every point `z` in the portal-pair common carrier is feasible and lies in `F_i`. Since `F_i ∩ F_j = ∅`, row `j` cannot be tight at `z`; feasibility then gives
 
-- `e = n-d` is ambient row excess,
-- `r` is the number of used cut labels,
-- `c_i ∈ {0,1,2}` counts immediate path neighbors of cut `i` that are themselves cut labels,
-- `e_i = M_i-h_i` is the minimum-presentation excess of the actual entry/exit carrier on cut `i`,
+`⟪a j, z⟫ < b j`.
 
-then the desired consequence is
+So each nonneighboring used cut contributes one row eligible for PR #186.
+
+### Desired quantitative consequence
+
+Let
+
+- `e = n-d` be parent row excess,
+- `r` be the number of used cut labels on a shortest mixed repair path,
+- `c_i ∈ {0,1,2}` count immediate path neighbors of used cut `i` which are themselves cut labels,
+- `e_i = M_i-h_i` be the minimum-presentation excess of the actual portal-pair carrier routed inside cut `i`.
+
+Formalize
 
 `e_i + (r - 1 - c_i) ≤ e`,
 
@@ -182,28 +177,30 @@ hence
 
 `e_i ≤ e - r + 1 + c_i ≤ e - r + 3`.
 
-This is a genuine support-versus-subproblem-size tradeoff. It is materially stronger than `r ≤ e`.
+This is the support-versus-subproblem-size tradeoff needed by the current proof line.
 
-### Concrete payoff to target in the same proof line
+### Maximum-support payoff
 
-When a chordless repair uses the maximum possible number of cut labels, `r=e`, every actual cut-leg carrier has `e_i ≤ 3`. The already-verified small-excess carrier theorem can then discharge each local ordinary-edge cost directly. Summing `c_i` over the used cuts gives at most `2(r-1)`, so the total cut-leg cost is at most `3e-2`. Adding the old-edge contribution gives the concrete route certificate
+If a shortest repair uses the maximum `r=e` cut labels, then every actual cut-leg carrier has `e_i ≤ 3`. The existing small-excess carrier theorem can therefore discharge every local ordinary-edge call directly.
+
+Since `Σ c_i ≤ 2(r-1)`, total cut-leg cost is at most `3e-2`; adding distinct old-edge labels gives a route budget
 
 `D + 3e - 2`
 
-for that maximum-support repair case (with the obvious zero-support exception handled separately).
+for that maximum-support regime, with the zero-support case handled separately.
 
-This does **not** yet solve the cases with few used cuts, where one or more portal-pair carriers may retain large excess. But it would be the first theorem in this line that converts exact used support into a quantitatively smaller recursive problem and solves a nontrivial support regime outright.
+This would solve a nontrivial support regime outright. It would **not** yet solve few-used-cut cases where a local carrier may retain large excess.
 
-## Important falsifiers / proof hygiene for the next step
+## Proof hygiene / falsifiers
 
-- Simple path is not enough; use a chordless/shortest path when deriving nonintersection of nonneighbors.
-- A row slack only at the two selected portal vertices need not be removable. The hypothesis for the deletion lemma must be strict slack **throughout the carrier**.
-- Do not infer that pair-specific costs decrease under a graph shortcut; choose the shortcut path before assigning local pair costs.
+- A merely simple path is insufficient for nonintersection of nonneighbors; use a shortest/chordless path.
+- Slackness only at the two portal endpoints is insufficient. PR #186 requires strict slack throughout the common carrier.
+- Choose the shortest path before attaching pair-specific costs; do not assume shortcutting decreases those costs.
 - A `RowCircuitStep` is not an `Adj` edge.
-- A route budget may contain padded stays; do not call it a shortest-path length without an additional argument.
-- Do not declare a same-excess/lower-dimension or lower-excess induction budget polynomial merely because its index is smaller.
+- `Route R B` may include stays; do not call `B` a shortest-path length without a separate argument.
+- Smaller recursion indices do not automatically imply a uniform fixed-degree polynomial.
 - Preserve frozen verification receipts, remove one-shot workflows before integration, and distinguish ordinary deductions, kernel verification, and authenticated Prove2Me acceptance.
 
 ## Open PR queue at this handoff
 
-No open PRs remain after merging #185. New work should therefore start from current `main`, not from the historical #171–#185 branches.
+No open PRs remain after merging #187. New work should start from current `main`.
