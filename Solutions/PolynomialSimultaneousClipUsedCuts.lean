@@ -16,7 +16,7 @@ labels are also distinct. Therefore one repaired clipped route costs at most
 -/
 
 open scoped BigOperators RealInnerProductSpace
-open Set Hirsch
+open Set Hirsch HirschRegionRoute
 
 set_option autoImplicit false
 set_option maxHeartbeats 3000000
@@ -44,16 +44,22 @@ theorem clipUsedCutLabels_nodup {D : ℕ}
     (hl : l.Nodup) : (clipUsedCutLabels l).Nodup := by
   refine hl.filterMap ?_
   intro a a' z hz hz'
-  rcases a with i | r <;> rcases a' with j | r' <;> simp_all [clipUsedCutLabels]
+  rcases a with i | r <;> rcases a' with j | r' <;> simp_all
 
 theorem clipUsedOldLabels_nodup {D : ℕ}
     {l : List (Sum ι (Sum (Fin D) (Fin 2)))}
     (hl : l.Nodup) : (clipUsedOldLabels l).Nodup := by
   refine hl.filterMap ?_
   intro a a' z hz hz'
-  rcases a with i | r <;> rcases a' with j | r' <;>
-    rcases r with k | t <;> try rcases r' with k' | t' <;>
-    simp_all [clipUsedOldLabels]
+  rcases a with i | r
+  · simp at hz
+  · rcases r with k | t
+    · rcases a' with j | r'
+      · simp at hz'
+      · rcases r' with k' | t'
+        · simp_all
+        · simp at hz'
+    · simp at hz
 
 theorem clipUsedRegionCost_sum_eq_cut_old {D : ℕ}
     (B : ι → ℕ) (l : List (Sum ι (Sum (Fin D) (Fin 2)))) :
