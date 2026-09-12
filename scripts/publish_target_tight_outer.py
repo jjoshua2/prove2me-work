@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Build, audit-gate, and publish the public target-tight outer theorem.
 
-The proof source imports only Mathlib and public definition modules. Credentials
-are read only in `publish` mode, after the exact generated solution has compiled
-and an audit hash has been written by the GitHub Actions gate.
+The proof source imports only Mathlib and the public Hirsch model definition.
+Credentials are read only in `publish` mode, after the exact generated solution
+has compiled and an audit hash has been written by the GitHub Actions gate.
 """
 from __future__ import annotations
 
@@ -15,9 +15,9 @@ from pathlib import Path
 import subprocess
 import types
 
-SOURCE = "1fa9bd8cfcdbf11068bd435878ce3a23e99cf434"
+SOURCE = "36dd12b00cee1593dc2e88bff21b060f13a223b6"
 SOURCE_PATH = "Solutions/PolynomialTargetTightOuterPublic.lean"
-SOURCE_BLOB = "a23ef6804dc94f9d7c2d71c3557c235fac0e5101"
+SOURCE_BLOB = "577a1131671cc6dcb98055209b398e65f9d65659"
 CLIENT_COMMIT = "1692538ba9f7661ca079a86f2963fb48ac2270d1"
 CLIENT_PATH = "scripts/publish_excess_two_diameter_two.py"
 CLIENT_BLOB = "7da71d03920b59b688bae7cc8b4f9c15432adc4a"
@@ -25,7 +25,7 @@ PIN = "c5ea00351c28e24afc9f0f84379aa41082b1188f"
 PACKET = Path("/tmp/target-tight-outer-public")
 OUT = Path("target_tight_outer_publication_receipts")
 NAME = "Hirsch.target_tight_outer_unique_vertex_zero_diameter"
-TITLE = "A vertex's tight inequalities form a pointed outer with a unique vertex"
+TITLE = "A vertex's tight inequalities form an outer with a unique vertex"
 
 BINDERS = """    {d n : ℕ}
     (a : Fin n → EuclideanSpace ℝ (Fin d)) (b : Fin n → ℝ)
@@ -33,7 +33,6 @@ BINDERS = """    {d n : ℕ}
     (hv : v ∈ Set.extremePoints ℝ (Hirsch.Hpoly a b)) :
     ∃ m : ℕ, m ≤ n ∧ ∃ e : Fin m ↪ Fin n,
       (∀ i, (∃ k, e k = i) ↔ ⟪a i, v⟫ = b i) ∧
-      Function.Injective (HirschCircuit.rowMap (fun k => a (e k))) ∧
       Set.extremePoints ℝ (Hirsch.Hpoly (fun k => a (e k)) (fun k => b (e k))) = {v} ∧
       Hirsch.DiamLE (Hirsch.Hpoly (fun k => a (e k)) (fun k => b (e k))) 0"""
 
@@ -45,29 +44,28 @@ FORMAL = (
 
 PREAMBLE = """import Mathlib
 import Definitions.Def_Hirsch_model
-import Definitions.Def_Hirsch_circuit_model
 open scoped RealInnerProductSpace
 open Set
 """
 
 NATURAL = (
     "Let P={x in R^d : <a_i,x> <= b_i} be any finite H-polyhedron and let v be a vertex of P. "
-    "There is a subpresentation consisting exactly of the inequalities tight at v. Its row-evaluation "
-    "map is injective, v is its only vertex, and therefore its padded vertex-edge graph diameter is zero. "
-    "The relaxed outer is allowed to be unbounded and may contain infinitely many nonvertex points. "
-    "No boundedness, irredundancy, or full-dimensionality assumption is made."
+    "There is a subpresentation consisting exactly of the inequalities tight at v. In that relaxed outer, "
+    "v is the only vertex, and therefore the padded vertex-edge graph diameter is zero. The relaxed outer "
+    "is allowed to be unbounded and may contain infinitely many nonvertex points. No boundedness, "
+    "irredundancy, or full-dimensionality assumption is made."
 )
 
 EXPLANATION = (
     "At a vertex, the normals of all tight inequalities span the ambient direction space: otherwise a "
     "small symmetric perturbation along a nonzero annihilated direction would keep every inequality "
-    "feasible, contradicting extremality. Reindex exactly those tight rows. The spanning fact makes their "
-    "row map injective and also shows the original target remains extreme in the relaxed outer. If z is any "
-    "vertex of the relaxed outer, every retained row that is tight at z is also tight at v; applying the same "
-    "spanning argument inside the retained presentation to z-v forces z=v. Thus the relaxed outer has the "
-    "singleton vertex set {v}, so every pair of its vertices is identical and its padded graph diameter is "
-    "zero. This is a structural outer-reduction theorem, not a claim that restoring the omitted inequalities "
-    "has zero cost or that Polynomial Hirsch is solved."
+    "feasible, contradicting extremality. Reindex exactly those tight rows. The spanning fact shows the "
+    "original target remains extreme in the relaxed outer. If z is any vertex of the relaxed outer, every "
+    "retained row tight at z is also tight at v; applying the same finite-perturbation argument inside the "
+    "retained presentation to z-v forces z=v. Thus the relaxed outer has singleton vertex set {v}, so every "
+    "pair of its vertices is identical and its padded graph diameter is zero. This is a structural outer "
+    "reduction theorem, not a claim that restoring the omitted inequalities has zero cost or that Polynomial "
+    "Hirsch is solved."
 )
 
 
@@ -101,10 +99,7 @@ def prepare() -> None:
         "mathlib_rev": PIN,
         "standalone_sha256": hashlib.sha256(data).hexdigest(),
         "theorem_name": NAME,
-        "external_definitions": [
-            "Definitions.Def_Hirsch_model",
-            "Definitions.Def_Hirsch_circuit_model",
-        ],
+        "external_definitions": ["Definitions.Def_Hirsch_model"],
         "tracked_theorem_dependencies": [],
         "evidence_level": "generated standalone source; compile/axiom audit required before publish",
     }
@@ -149,12 +144,11 @@ def publish() -> None:
             f"Published [target-tight unique-vertex outer](p2m:theorem/{tid})"
             + (f" with [accepted proof](p2m:solution/{result['submission_id']})"
                if result.get("submission_id") else "")
-            + ": every vertex admits a subpresentation consisting exactly of its tight inequalities; "
-              "the retained row map is injective and the relaxed outer has that target as its unique "
-              "vertex, hence old-vertex graph diameter zero. The outer may be unbounded. This removes "
-              "the old-outer vertex cost in the target-anchored batch-deletion strategy, but restoring "
-              "the omitted cuts still carries the unresolved edge-routing cost. The d>=4 circuit-to-edge "
-              "refinement frontier remains Open."
+            + ": every vertex admits a subpresentation consisting exactly of its tight inequalities, "
+              "and the relaxed outer has that target as its unique vertex, hence old-vertex graph "
+              "diameter zero. The outer may be unbounded. This removes the old-outer vertex cost in "
+              "the target-anchored batch-deletion strategy, but restoring the omitted cuts still carries "
+              "the unresolved edge-routing cost. The d>=4 circuit-to-edge refinement frontier remains Open."
         )
         comment = api.request(f"/missions/{mid}/comments",
                               {"body_md": body, "tags": ["reference", "strategy"]}, "POST")
