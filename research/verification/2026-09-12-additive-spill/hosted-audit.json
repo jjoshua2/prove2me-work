@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "run_id": 34725721217,
+  "head_sha": "418e7a4158b54212a43df0bec9b11e40506066da",
+  "required": [
+    "HirschAmortized.route_chain",
+    "HirschAmortized.PortalRepair.sound",
+    "HirschAmortized.PortalRepair.route_le_dimension_mul_excess",
+    "HirschAmortized.local_charge_zero_of_mass_conservation",
+    "HirschAdditiveAllowance.shifted_child_excess_conserved",
+    "HirschAdditiveAllowance.additive_allowance_node_bound",
+    "HirschAdditiveAllowance.AdditiveRepair.sound",
+    "HirschRowTransport.forward_chain",
+    "HirschRowTransport.backward_chain",
+    "HirschRowTransport.retained_row_bridge",
+    "HirschRowTransport.separation_le_length_of_at_most_one_heavy",
+    "HirschRowTransport.two_heavy_mass_lower_bound",
+    "HirschSlackCertificates.vertex_of_tight_kernel_zero",
+    "HirschSlackCertificates.segment_of_common_tight_kernel",
+    "HirschSlackCertificates.edge_of_common_tight_kernel",
+    "HirschSlackCertificates.consecutive_root_factor_nonneg",
+    "HirschRegionRoute.near_geodesic_total_position_load",
+    "HirschCircuitLocalization.near_geodesic_actual_pair_mass",
+    "HirschCircuitLocalization.full_available_mass_cancellation",
+    "HirschCircuitLocalization.finite_cost_sum_of_mass_cap"
+  ],
+  "reports": 291
+}

@@ -56,3 +56,10 @@ The PR needs only the new source, note, handoff and receipt. Do not overwrite
 old #208 files or change old proof dependencies to absorb the new examples.
 Publication, if appropriate after formalization, needs its own honest exact
 interface and authenticated verdict. No platform mutation was made here.
+
+
+## Verification continuation (supersedes candidate-only status above)
+
+The continued #208 source is frozen at b7a832e9ff98743d53c66d6e471fd0828891d22d. All six Lean modules compile locally; all 20 required declarations and 291 transitive axiom reports pass the standard-axiom audit. The exact portal-detour and cyclic-slack suites were rerun after the elaboration repairs and pass. See `verification/2026-09-12-additive-spill/` for logs and the compact source-hash audit. The final hosted gate is run 34725721217 at 418e7a4158b54212a43df0bec9b11e40506066da; its final verdict is recorded in the durable receipt and STATUS.md.
+
+The public packet `publication_packets/additive_portal_repair/` isolates the conditional additive-spill route theorem with a named finite repair definition. It proves an actual route and cost at most C*e+(1+b*C)*h*(e-b), assuming the explicit repair tree, dimension drop, child monotonicity, sibling budget, and certified leaf routes. Numerical tags alone do not assert intrinsic geometric dimensions/excesses. The infinite cyclic obstruction and adaptive geometric construction remain mathematical-note results with exact finite regression checks; compiling their transport and supporting-kernel components does not formalize every step of that infinite argument.

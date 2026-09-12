@@ -396,3 +396,18 @@ fixed-slack obstruction and explicit adaptive routes. Its final verification
 and publication states are recorded by the next integration. The next geometry
 must permit input-dependent portal chains or separately solve easy high-excess
 calls; fixed slack is not a viable universal premise in #208's specified family.
+
+
+## Additive spill, adaptive portals, and submission closure (#208)
+
+The continued #208 source is frozen at `b7a832e9ff98743d53c66d6e471fd0828891d22d`. All six modules compile locally and in final hosted run [34725721217](https://github.com/jjoshua2/prove2me-work/actions/runs/34725721217), at `418e7a4158b54212a43df0bec9b11e40506066da`. Both audits check all 20 required declarations and 291 standard-axiom reports. Both exact regression suites were rerun after the elaboration repairs and pass. Final source hashes match. [Durable verification](research/verification/2026-09-12-additive-spill/).
+
+The public conditional theorem `Hirsch.additive_portal_repair_polynomial_route`, `32dbbfe9-bd4c-4685-8df6-7a4403175ef4`, uses the published finite repair definition `be8f4ff8-23bd-4894-a523-ab6271d326f0`. Submission `2a2dd9bd-9ee5-43fa-bc04-def26a5a2a98` contains the frozen proof. Its authenticated final verdict and accepted-source readback are preserved in [the packet](research/publication_packets/additive_portal_repair/).
+
+Given a finite repair tree with actual leaf routes, strictly decreasing dimensions, nonincreasing child excess, sibling excess sum at most e+b, and leaf cost at most C*e, the theorem produces an actual route and bound C*e+(1+b*C)*h*(e-b). Geometric existence and interpretation of the numerical tags remain explicit premises.
+
+The complete infinite fixed-slack cyclic obstruction and adaptive block-slide construction are mathematical-note results with exact finite tests; their transport and supporting-kernel cores compile, but not every step of the infinite argument is formalized. The obstruction concerns the specified first-original-edge/available-facet family, not all radial-cap constructions or actual shortest distance. It rules out universal fixed slack within that family; input-dependent long but cheap portal chains remain a legitimate next target.
+
+This section supersedes earlier candidate/draft statements for #207/#208. #207 is merged and its near-geodesic budget is Proved; #209 is merged and its basis-extraction theorem remains Proved without resubmission. The larger geometric adapters have their own local/hosted verification, distinct from these public theorem verdicts. The authenticated root and high-dimensional common-face leaf remain Open. No cosmetic or cyclic dependency was added.
+
+Publication checkpoint: #208 proof submission is PENDING. Keep #208 draft and poll submission `2a2dd9bd-9ee5-43fa-bc04-def26a5a2a98`; do not resubmit. Local and final hosted gates have passed.

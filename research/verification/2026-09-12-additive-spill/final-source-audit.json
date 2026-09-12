@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "core_commit": "b7a832e9ff98743d53c66d6e471fd0828891d22d",
+  "hosted_commit": "418e7a4158b54212a43df0bec9b11e40506066da",
+  "source_sha256": {
+    "PolynomialAmortizedPortalRoutes": "2c1dd7100f148bbe065945ef41b0620d33b1088489de711f382729c6b6521535",
+    "PolynomialAdditiveAllowanceRouting": "09a0666e239e392ea8b540adb4d1547a775d01444482ce839065e141b4410619",
+    "PolynomialTransportHeavyJumps": "0d10b8ca8c0375993386918704f1006b46e050353758a48a41164083385215f6",
+    "PolynomialSupportingSlackCertificates": "1e2072f05d2cc6eebd321c5e6466b17714c2b77d9fdd9d61921d78bbad185cd3",
+    "PolynomialNearGeodesicMassBridge": "3938ef0cb3f78006bc7f327d63891997706cce6eaa66fd87fdd5a6b18fa16470",
+    "PolynomialNearGeodesicCarrierMass": "a92feae83677a39c1a3bd6446c9e5ca486f1f82ba741770c4518bf16e86ffe2d"
+  },
+  "public_definition_sha256": "f4149c67c8c4098b1d10638a5d98d66ce953fc014ea63f40570cf50180feac71"
+}
