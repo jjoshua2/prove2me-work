@@ -120,7 +120,7 @@ def prepare() -> None:
 def load_reviewed_client(proof_hash: str):
     data = verify_blob(CLIENT_COMMIT, CLIENT_PATH, CLIENT_BLOB)
     source = data.decode("utf-8")
-    old_title = "Excess-two H-polyhedra have padded diameter at most two"
+    old_title = "Normalized two-moment slices have graph diameter at most two"
     if old_title not in source:
         raise RuntimeError("reviewed client title slot not found")
     source = source.replace(old_title, TITLE, 1)
@@ -133,7 +133,7 @@ def load_reviewed_client(proof_hash: str):
     module.SOURCE = SOURCE
     module.SOURCE_RUN = os.environ.get("SOURCE_RUN", "34699009349")
     module.THEOREM_NAME = NAME
-    module.SOLUTION = str(PACKET / "solution.lean")
+    module.SOLUTION = PACKET / "solution.lean"
     module.SOLUTION_SHA256 = proof_hash
     module.OUT = OUT
     module.PREAMBLE = PREAMBLE
@@ -158,18 +158,43 @@ def publish() -> None:
         raise RuntimeError("standalone proof has not passed the exact-hash audit gate")
 
     client = load_reviewed_client(proof_hash)
-    original_link = client.link_mission
 
-    def link_mission(api, theorem_id: str):
-        return original_link(
-            api,
-            theorem_id,
-            "Publication from the current Polynomial Hirsch repair line: compact closed extreme "
-            "faces with no shared parent extreme point are disjoint. This is the geometric bridge "
-            "used after shortest/chordless region routing: nonadjacent used face labels cannot "
-            "intersect, allowing disjoint target-slack row faces to feed the strict-row carrier "
-            "resource inequality. This theorem alone is not a diameter bound.",
+    def link_mission(api, mission: dict, result: dict):
+        mission_id = mission["id"]
+        theorem_id = result["theorem_id"]
+        existing = api.request(f"/missions/{mission_id}/comments?limit=100&offset=0")
+        for comment in existing.get("comments", []):
+            if any(r.get("type") == "theorem" and r.get("id") == theorem_id
+                   for r in comment.get("references", [])):
+                client.save(client.OUT / "mission-comment.json", comment)
+                return comment
+        theorem_link = (
+            f"[closed extreme-face disjointness](p2m:theorem/{theorem_id})"
         )
+        proof_clause = ""
+        if result.get("submission_id"):
+            proof_clause = (
+                f" with its [accepted Lean solution](p2m:solution/{result['submission_id']})"
+            )
+        body = (
+            f"Published {theorem_link}{proof_clause}: two compact-parent closed extreme faces "
+            "with no shared parent extreme point are disjoint. This is the geometric bridge in "
+            "the current shortest/chordless Polynomial Hirsch repair line: nonadjacent used face "
+            "labels cannot hide a nonvertex intersection, so disjoint target-slack row faces can "
+            "feed the strict-row carrier resource inequality. This theorem alone is not a graph "
+            "diameter bound, and the d>=4 circuit-to-edge refinement frontier remains Open."
+        )
+        comment = api.request(
+            f"/missions/{mission_id}/comments",
+            {"body_md": body, "tags": ["reference"]}, "POST"
+        )
+        client.save(client.OUT / "mission-comment.json", comment)
+        refs = {(r.get("type"), r.get("id")) for r in comment.get("references", [])}
+        if ("theorem", theorem_id) not in refs:
+            raise RuntimeError("mission comment did not resolve theorem reference")
+        if result.get("submission_id") and ("solution", result["submission_id"]) not in refs:
+            raise RuntimeError("mission comment did not resolve solution reference")
+        return comment
 
     client.link_mission = link_mission
     client.main()
