@@ -1,0 +1,18 @@
+{
+  "candidate_lean_sha256": "0fa2d483d00f04e0d0dc8da4140fa1c649b844722ae6b15a8dca0d83f55f473a",
+  "easy_support_cases_including_empty": 48048,
+  "four_call_majorant": {
+    "10": 4517,
+    "20": 104655701,
+    "4": 11,
+    "40": 56174384730953045,
+    "5": 29
+  },
+  "max_path_vertices": 14,
+  "max_support_deficit": 6,
+  "scope": "Finite path counting and integer regression checks only; not Lean verification or geometric realizability.",
+  "selected_subsets_checked": 32767,
+  "selected_vertex_counting_cases": 212993,
+  "status": "PASS",
+  "support_budget_cases": 229369
+}

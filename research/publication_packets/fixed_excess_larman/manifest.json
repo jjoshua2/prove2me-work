@@ -1,0 +1,37 @@
+{
+  "source_commit": "117709458ec4b071dc846cd8443feea19ca2669b",
+  "source_files": {
+    "Solutions/PolynomialVertexSpan.lean": {
+      "git_blob": "673e5a68f154b66556d01dd81977107329a3415e",
+      "sha256": "62764458eaf082dfead6fa2aca3176bee3a9030ba95b192a415050fa90401929"
+    },
+    "Solutions/PolynomialLowExcessSectionDescent.lean": {
+      "git_blob": "794126103cc9d9f60a95eb262d96d282f3e9ad4f",
+      "sha256": "a4273ffda1ad527cd48bf458297be0c50f9b37965dc3cc416ac9b4e933df8a4a"
+    },
+    "Solutions/PolynomialProductWalk.lean": {
+      "git_blob": "64e5977f9cd5fd9617b67e82f504550236d49b83",
+      "sha256": "649db9a5fed1202811be058bfb9631524b6c8df58c55cd4ec9b2967096b2451f"
+    },
+    "Solutions/PolynomialLowDimensionalCarrierRouting.lean": {
+      "git_blob": "8e24e448b0ee7a0b983cffbd86667def57cf6567",
+      "sha256": "ad05d12199e4d51cf583f991c9c0656e1590c98fd09fa52a54c07302bb1fa861"
+    },
+    "Solutions/PolynomialFixedExcessLarman.lean": {
+      "git_blob": "bf8005982bc940d8df50fb2575287cbdbcd70f0e",
+      "sha256": "c557b3c75e797bf823b11b291db22faba3bd526f1f57ccf5477b0213cc1cd64b"
+    }
+  },
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "public_dependencies": {
+    "Hirsch.larman_bound": "68453b6b-bcef-4672-b877-d04e56527e3f",
+    "Hirsch.facet_reduction": "11b3500a-b9f8-4b44-94aa-d71354441ddb"
+  },
+  "sha256": {
+    "driver.lean": "c5968e6519888bf532d460b1c4f9aae5dfec591fbcbd46062eb5597221924d25",
+    "solution.lean": "bea31dceceb2e20159d9ac825a85a676a508c3567e224b6a6c45b0a1647320f5",
+    "statement.lean": "abfcb056179d9f3e4a2b20292c656f60cb07b6670ceede34f792ec0227aff577",
+    "problem.json": "ad363fe26281034c131c38499fe02332bbfb61b5481bd15567e7133d532b3c5e",
+    "explanation.md": "94d2ce62fd063a8c98f1d6c70108a758fb22abbef18be1f9fa61bc26d919172e"
+  }
+}

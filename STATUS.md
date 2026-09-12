@@ -1,7 +1,7 @@
 # Current Polynomial Hirsch frontier
 
-Synchronized 2026-09-12 with GitHub, authenticated Prove2me 0.10.3, all 46 existing mission discussion posts, and recursively expanded theorem dependencies. The original sync post is `70d168d1-f966-4904-86f3-0afd25766a50`; the verified continuation is posted as `313208d8-567e-42bf-b894-c33726ece3d8`.
-Repository: `jjoshua2/prove2me-work`. Integration baseline main: `977ac7752de444206917b4d67a285ed70e12d24a` (#195).
+Synchronized 2026-09-12 with GitHub, authenticated Prove2me 0.10.3, the 48 mission discussion posts preceding this continuation, and recursively expanded theorem dependencies. The original sync post is `70d168d1-f966-4904-86f3-0afd25766a50`; the #200 continuation is `313208d8-567e-42bf-b894-c33726ece3d8`; the accepted fixed-excess and verified #201/#202 update is `a993112b-01dc-4060-8a72-89dc4af633a0`.
+Repository: `jjoshua2/prove2me-work`. Integration baseline main: `65dc76dd2a2e9cc01a3e0ae3f64464d4eebfbdd3` (after #200).
 Lean 4.30.0 / Mathlib `c5ea00351c28e24afc9f0f84379aa41082b1188f`.
 
 ## What remains open
@@ -105,32 +105,102 @@ retains the exact abstract cost `D + sum(local minimum-presentation excesses)`
 and its `D+3e` bound under maximum support. Its initial hosted compile failed
 on an undefined cut-leg type; the corrected `RegionLeg` version passed local
 Lean and the standard-axiom audit. [Exact-cost receipt](research/MAXIMAL_CUT_SUPPORT_EXACT_COST_VERIFICATION_2026-09-12.md).
-This does not change the few-used-cut residual frontier.
+This exact-cost companion is preserved alongside the stronger continuation below.
+
+## Exact selected degrees and all fixed support deficits (#201/#202)
+
+The #201 candidate now compiles after two finite-cardinality elaboration fixes.
+Its actual selected-pair estimate is `delta_i+r<=e+1+deg_S(i)`, where `e=n-d`.
+The new `PolynomialSelectedRunBudgets.lean` proves the selected-run degree
+identity and applies it to the SAME certificate, giving
+
+```
+sum(actual carrier excesses) + 2c <= r*(g+3),   r+g=e.
+```
+
+Here c counts selected-run starts on the chosen chordless path. In the regime
+`g+deg_S(i)<=2` for each used cut, the existing small-excess theorem converts
+this into an ordinary-edge route of length `D+(r*(g+3)-2c)`.
+Empty support is included. [Full proof note](research/EXACT_SELECTED_SUPPORT_2026-09-12.md).
+
+The independent #202 sources compile unchanged from
+`4797a18206c63e761628e556d5ca4bd1eef3c169` and are preserved in #201's integrated
+proof commit `117709458ec4b071dc846cd8443feea19ca2669b`. For an actual vertex-pair
+carrier, they prove `2h<=M`, hence `h<=delta=M-h` and `M<=2delta`.
+Consequently a dimension-at-least-six actual carrier has excess at least SIX.
+An excess-four or excess-five carrier is not that high-dimensional obstruction.
+
+Applying already-Proved Larman to the minimum intrinsic presentation closes
+EVERY selected call at fixed support deficit, without a recursive diameter
+premise or a selected-adjacency condition:
+
+```
+Route length <= D + 2*(g+3)*2^g*r.
+```
+
+Thus deficit one costs at most `D+16r`, and deficit two at most `D+40r`.
+For target-rooted certificates D=1. These safe constants are not claimed optimal.
+The route theorem uses Larman alone; the piecewise small-excess version also
+uses the already-Proved excess-at-most-three input.
+[Intrinsic carrier argument and cube stress test](research/SUPPORT_DEFICIT_INTRINSIC_BUDGET_2026-09-12.md).
+
+A separate short classical proof in `PolynomialFixedExcessLarman.lean` uses
+shared nonzero tight-row descent plus Larman to give
+`DiamLE(P,2*E*2^(E-3))` whenever `n<=d+E`. It includes empty, degenerate,
+redundant-row and zero-row descriptions. Its standalone platform packet and
+verification receipts are under
+[fixed_excess_larman](research/publication_packets/fixed_excess_larman/).
+The general constant is exponential in E; this is not a uniform polynomial.
+
+The standalone theorem is now **Proved** on Prove2Me:
+[49576ed3](https://prove2.me/theorems/49576ed3-5185-4951-9215-43283ef6169e),
+submission `cd24addc-446f-4d16-b814-85315057c98f` **ACCEPTED**.
+Its checked dependency edges use Larman and facet reduction, both already Proved.
+The new theorem remains outside the root's dependency closure; it is available
+for real future reductions. The larger selected-run/clipping assemblies are
+locally and GitHub-verified, not newly accepted platform theorem submissions.
+
 
 ## Next research work, in order
 
-1. **Bound the sum of costs for the residual selected high-dimensional,
-   high-excess carriers.** The geometry and actual pairs now precede the costs,
-   and the maximum-support case is closed. Work on the same certificate with
-   `0<r<e`; do not reintroduce whole-face bounds for every unused pair.
-2. **Find a joint potential, stronger separation, or a certified block
-   decomposition.** For `r<=3`, the current tradeoff gives no strict excess
-   decrease. Even `r=4` allows four subcalls of excess `e-1`; iterating that
-   independent-call majorant can grow exponentially. This is a limitation of
-   the current estimate, not an exponential lower bound for polytope diameter.
-   A bound on one witness carrier alone does not control the sum of all calls.
-3. **Connect a uniform total-cost bound to the root with a checked reduction.**
-   The residual theorem now locates the dimension-at-least-six obstruction
-   inside actual target-rooted repairs. It does not prove the open leaf or
-   justify replacing it with a cosmetic graph dependency. Public submission
-   of the new geometric assembly needs its own self-contained packet and
-   server acceptance; the current discussion links to the verified GitHub source.
+1. **Control the sum of costs for coupled carriers when support deficit grows.**
+   Fixed-deficit cases and the deficit-one internal-run case are now closed.
+   Work on the same selected pairs; avoid introducing whole-face bounds for
+   unused pairs. Use the stronger size information `h<=delta` and `M<=2delta`.
+2. **Find a joint potential or certified decomposition that handles products.**
+   The cube family in #202 rules out forcing logarithmic deficit for every
+   shortest certificate: target-slack face labels form a clique, so at most two
+   occur on a chordless path and `g>=d-2`, despite actual diameter d. This is a
+   mathematical counterexample with finite checks, not a Lean-formalized cube
+   theorem. Any proposed potential must pass this stress test. The existing
+   product-route theorem is useful only when actual factorization is supplied.
+   Endpoint savings still permit an exponential independent-call majorant;
+   they are not evidence for an exponential polytope diameter.
+3. **Connect a uniform total-cost bound to the root by a checked reduction.**
+   The current bound is exponential in growing g. It does not prove the open
+   leaf, and discussion links do not create root dependencies. Publish reusable
+   established consequences with their real inputs, while keeping any missing
+   geometric condition explicit. Do not add a cosmetic or cyclic graph child.
 
 The ridge-visible line is a complementary research direction. Its proved small-row thresholds and known pivot-collision obstruction are recorded in the mission discussion and inventory. Numerical examples support investigation but do not establish a uniform access theorem.
 
 ## Verification and continuation
 
-The continuation passed `lake build Solutions.PolynomialTargetConeDeferredCosts` and the standard-axiom audit for all 15 new/adapter/projection declarations (375 reports checked across dependencies). Exact hashes and logs are under [verification/2026-09-12-deferred-clipping](research/verification/2026-09-12-deferred-clipping/). The previous targeted build also passed for the integrated shortest-clipping module, chordless carrier tradeoff, and minimum-carrier routing. The new standalone theorem has its own clean axiom audit. Full evidence is under [verification/2026-09-12-sync](research/verification/2026-09-12-sync/).
+The #201/#202 integration passed
+`lake build Solutions.PolynomialSelectedRunBudgets Solutions.PolynomialFixedExcessLarman`.
+Its audit checks 30 required declarations and 406 reports across dependencies,
+all with standard logical axioms. Both finite checkers passed again; fresh
+receipts hash the current source, while original candidate receipts are
+preserved as history. See
+[verification/2026-09-12-exact-support](research/verification/2026-09-12-exact-support/).
+The standalone explicit-premise fixed-excess driver also passes its own audit;
+local typechecking of public composition uses exact theorem interface stubs.
+The subsequent authenticated server verdict accepts that composition. The single
+final [hosted verification run](https://github.com/jjoshua2/prove2me-work/actions/runs/34708143326)
+on source `117709458ec4b071dc846cd8443feea19ca2669b` also passed, with the same
+30 required declarations and 406 standard-axiom reports.
+
+The earlier #200 continuation passed `lake build Solutions.PolynomialTargetConeDeferredCosts` and the standard-axiom audit for all 15 new/adapter/projection declarations (375 reports checked across dependencies). Exact hashes and logs are under [verification/2026-09-12-deferred-clipping](research/verification/2026-09-12-deferred-clipping/). The previous targeted build also passed for the integrated shortest-clipping module, chordless carrier tradeoff, and minimum-carrier routing. The new standalone theorem has its own clean axiom audit. Full evidence is under [verification/2026-09-12-sync](research/verification/2026-09-12-sync/).
 
 [Integration PR #195](https://github.com/jjoshua2/prove2me-work/pull/195) preserves completed #192 publication receipts and the exact #194 theorem while excluding both temporary workflows. It supersedes both completed PRs; no historical experiment remains part of the active work queue. Do not reopen their old experiments as active work.
 

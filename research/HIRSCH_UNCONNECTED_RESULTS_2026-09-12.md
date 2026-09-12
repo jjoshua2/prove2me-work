@@ -147,3 +147,14 @@ Machine-readable IDs, edges, author attribution, milestone status, and catalog m
 | [Hirsch.santos_counterexample](https://prove2.me/theorems/d98c975f-3efb-4c49-93db-280b05b44b10) | Shuze Chen | yes | yes |
 | [Hirsch.todd_bound](https://prove2.me/theorems/38c56b77-6a7b-4478-b089-0400d8c6cfff) | Shuze Chen | no | yes |
 | [Hirsch.naddef_zero_one_bound](https://prove2.me/theorems/b39f16bd-cb64-4b54-8bc5-7a6e43fc5d26) | Shuze Chen | yes | yes |
+
+
+## Subsequent accepted fixed-excess consequence
+
+After the historical inventory above, theorem
+[49576ed3-5185-4951-9215-43283ef6169e](https://prove2.me/theorems/49576ed3-5185-4951-9215-43283ef6169e),
+`Hirsch.hpoly_diameter_le_fixed_excess_larman`, became **Proved** with accepted
+submission `cd24addc-446f-4d16-b814-85315057c98f`. It uses actual checked dependency
+edges to the already-Proved Larman and facet-reduction theorems. It is not a
+proof of the root's missing uniform polynomial estimate, and is not included in
+the historical counts above. [Packet and readbacks](publication_packets/fixed_excess_larman/).

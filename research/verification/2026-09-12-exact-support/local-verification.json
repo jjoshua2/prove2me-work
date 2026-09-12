@@ -1,0 +1,53 @@
+{
+  "command": "lake build Solutions.PolynomialSelectedRunBudgets Solutions.PolynomialFixedExcessLarman",
+  "status": "PASS",
+  "required_declarations": [
+    "HirschRegionRoute.blockedSelectedFinset_card_eq_selectedDegree_add_one",
+    "HirschRegionRoute.nonneighbor_card_add_selectedDegree_add_one",
+    "HirschRegionRoute.selectedNeighborFinset_card_le_two",
+    "HirschRegionRoute.sum_exact_selected_budgets",
+    "HirschRegionRoute.high_excess_forces_selected_degree",
+    "HirschCircuitLocalization.commonFace_minExcess_add_selected_le_exact_degree_budget",
+    "HirschRadial.DeferredClipCertificate.used_carrier_exact_selected_budget",
+    "HirschRadial.DeferredClipCertificate.route_of_support_gap_selected_degree",
+    "HirschRadial.DeferredClipCertificate.selectedCutDegree_le_two",
+    "HirschRadial.DeferredClipCertificate.excess_four_and_degree_two_of_deficit_one",
+    "HirschLowExcess.hpoly_diamLE_fixed_excess_larman",
+    "HirschCircuitLocalization.commonFace_diamLE_fixed_excess_larman",
+    "HirschCircuitLocalization.commonFace_diamLE_sixteen_of_excess_le_four",
+    "HirschRegionRoute.earlierSelectedNeighborFinset_card_le_one",
+    "HirschRegionRoute.sum_selected_degrees_add_twice_runStarts",
+    "HirschRegionRoute.sum_selected_budgets_with_run_correction",
+    "HirschRadial.DeferredClipCertificate.sum_carrier_excess_with_run_correction",
+    "HirschRadial.DeferredClipCertificate.route_with_run_corrected_cost",
+    "HirschRadial.DeferredClipCertificate.used_carrier_excess_le_support_deficit_add_three",
+    "HirschRadial.DeferredClipCertificate.route_of_used_carrier_excess_cap",
+    "HirschRadial.DeferredClipCertificate.route_of_support_deficit",
+    "HirschRadial.DeferredClipCertificate.route_of_support_deficit_le_two",
+    "HirschTargetDeletion.target_slack_route_with_support_deficit_budget",
+    "HirschTargetDeletion.support_deficit_budget_le_polynomial",
+    "HirschCircuitLocalization.commonFace_two_mul_dim_le_minCount_of_vertices",
+    "HirschCircuitLocalization.commonFace_dim_le_minExcess_of_vertices",
+    "HirschCircuitLocalization.commonFace_minCount_le_two_mul_minExcess_of_vertices",
+    "HirschCircuitLocalization.commonFace_diamLE_minCount_mul_pow_dim",
+    "HirschCircuitLocalization.commonFace_diamLE_two_mul_cap_mul_pow",
+    "HirschCircuitLocalization.commonFace_diamLE_vertexCarrierBudget"
+  ],
+  "required_count": 30,
+  "transitive_reports_checked": 406,
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "source_sha256": {
+    "Solutions/PolynomialExactSelectedSupport.lean": "4cead57faf4b2cae2ca9647a5b9d6867a76cdce7f277076de3c673bf262bf382",
+    "Solutions/PolynomialFixedExcessLarman.lean": "c557b3c75e797bf823b11b291db22faba3bd526f1f57ccf5477b0213cc1cd64b",
+    "Solutions/PolynomialSelectedRunBudgets.lean": "bd984b5d74ba9dd67eb2d7be318ed967af9bc630cd55c26810b9105247553c5a",
+    "Solutions/PolynomialSupportDeficitRouting.lean": "2690738e1aa621d9fc7bf6bb09bbfdc1fa20f1967a4f81c3049c615c1730caba",
+    "Solutions/PolynomialVertexCarrierIntrinsicBudget.lean": "42daba5bb463a479049d76140a6a0c2a0c09e4ea72a9e18faab8a4c049bd643e"
+  },
+  "pr202_source_commit": "4797a18206c63e761628e556d5ca4bd1eef3c169",
+  "pr202_source_unchanged": true,
+  "source_commit": "117709458ec4b071dc846cd8443feea19ca2669b"
+}

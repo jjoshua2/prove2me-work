@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "command": "lake env lean research/publication_packets/fixed_excess_larman/driver.lean",
+  "sha256": "c5968e6519888bf532d460b1c4f9aae5dfec591fbcbd46062eb5597221924d25",
+  "axioms": {
+    "HirschPolynomialAccess.vertex_tight_rows_span_checked": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschLowExcess.hpoly_diamLE_fixed_excess_larman": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "checked_fixed_excess_adapter": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  }
+}
