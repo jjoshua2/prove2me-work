@@ -1,6 +1,5 @@
 import Mathlib
 import Definitions.Def_Hirsch_model
-import Definitions.Def_Hirsch_circuit_model
 
 open scoped RealInnerProductSpace
 open Set
@@ -79,10 +78,9 @@ private theorem targetTight_vertex_tight_rows_span
     simpa using h
   exact (smul_eq_zero.mp hty).resolve_left (ne_of_gt ht)
 
-/-- Every vertex of a finite H-polyhedron has a pointed subpresentation made
-from exactly the inequalities tight at that vertex.  In that relaxed outer the
-chosen point is the unique vertex, so its old-vertex graph has padded diameter
-zero.
+/-- Every vertex of a finite H-polyhedron has a subpresentation made from
+exactly the inequalities tight at that vertex. In that relaxed outer the chosen
+point is the unique vertex, so its padded vertex-edge graph diameter is zero.
 
 The outer may be unbounded and may contain infinitely many nonvertex points.
 No boundedness, irredundancy, or full-dimensionality assumption is used. -/
@@ -93,7 +91,6 @@ theorem target_tight_outer_unique_vertex_zero_diameter
     (hv : v ∈ extremePoints ℝ (Hpoly a b)) :
     ∃ m : ℕ, m ≤ n ∧ ∃ e : Fin m ↪ Fin n,
       (∀ i, (∃ k, e k = i) ↔ ⟪a i, v⟫ = b i) ∧
-      Function.Injective (HirschCircuit.rowMap (fun k => a (e k))) ∧
       extremePoints ℝ (Hpoly (fun k => a (e k)) (fun k => b (e k))) = {v} ∧
       DiamLE (Hpoly (fun k => a (e k)) (fun k => b (e k))) 0 := by
   classical
@@ -119,16 +116,6 @@ theorem target_tight_outer_unique_vertex_zero_diameter
   have htight : ∀ k, ⟪a (e k), v⟫ = b (e k) := by
     intro k
     exact (hrange (e k)).1 ⟨k, rfl⟩
-  have hinj : Function.Injective (HirschCircuit.rowMap (fun k => a (e k))) := by
-    intro p q hpq
-    apply sub_eq_zero.mp
-    apply targetTight_vertex_tight_rows_span d n a b v hv (p - q)
-    intro i hi
-    obtain ⟨k, hk⟩ := (hrange i).2 hi
-    have h := congrFun hpq k
-    change ⟪a (e k), p⟫ = ⟪a (e k), q⟫ at h
-    rw [hk] at h
-    rw [inner_sub_right, h, sub_self]
   let Q := Hpoly (fun k => a (e k)) (fun k => b (e k))
   have hvQ : v ∈ extremePoints ℝ Q := by
     refine ⟨?_, ?_⟩
@@ -180,7 +167,7 @@ theorem target_tight_outer_unique_vertex_zero_diameter
     subst p
     subst q
     exact ⟨fun _ => v, rfl, rfl, by intro j hj; omega⟩
-  exact ⟨m, hm, e, hrange, hinj, hverts, hdiam⟩
+  exact ⟨m, hm, e, hrange, hverts, hdiam⟩
 
 #print axioms target_tight_outer_unique_vertex_zero_diameter
 
