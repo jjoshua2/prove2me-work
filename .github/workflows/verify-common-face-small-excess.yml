@@ -1,4 +1,4 @@
-name: Verify simultaneous clipping used labels
+name: Verify simultaneous clipping used cut labels
 
 on:
   pull_request:
@@ -8,12 +8,12 @@ permissions:
   contents: read
 
 concurrency:
-  group: verify-simultaneous-clip-used-labels-${{ github.event.pull_request.number }}
+  group: verify-simultaneous-clip-used-cuts-${{ github.event.pull_request.number }}
   cancel-in-progress: true
 
 jobs:
   verify:
-    if: github.head_ref == 'formal/simultaneous-clip-used-labels'
+    if: github.head_ref == 'formal/simultaneous-clip-used-cuts-v2'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -29,17 +29,20 @@ jobs:
           grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
       - name: Restore pinned Lean environment
         uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
-      - name: Compile and audit path-sensitive clipping theorem
+      - name: Compile and audit used-cut projection
         run: |
           set -euo pipefail
-          lake build Solutions.PolynomialSimultaneousClipUsedLabels 2>&1 | tee /tmp/clip-used-labels.log
+          lake build Solutions.PolynomialSimultaneousClipUsedCuts 2>&1 | tee /tmp/clip-used-cuts.log
           python3 - <<'PY'
           import re
           from pathlib import Path
-          text=Path('/tmp/clip-used-labels.log').read_text()
+          text=Path('/tmp/clip-used-cuts.log').read_text()
           names=[
-            'HirschRadial.clipUsedRegionCost',
-            'HirschRadial.route_clip_of_lifted_endpoints_with_parent_routes_used_labels',
+            'HirschRadial.clipUsedCutLabels_nodup',
+            'HirschRadial.clipUsedOldLabels_nodup',
+            'HirschRadial.clipUsedRegionCost_sum_eq_cut_old',
+            'HirschRadial.clipUsedOldLabels_length_le',
+            'HirschRadial.route_clip_of_lifted_endpoints_with_parent_routes_used_cuts',
           ]
           allowed={'propext','Classical.choice','Quot.sound'}
           pat=re.compile(r"'([^']+)' depends on axioms:\s*\[([^\]]*)\]",re.S)
@@ -50,5 +53,5 @@ jobs:
             bad=reports[n]-allowed
             if bad: raise SystemExit(f'unexpected axioms for {n}: {sorted(bad)}')
             print(n, sorted(reports[n]))
-          print('PASS: simultaneous clipping used-label theorem audited')
+          print('PASS: used-cut projection audited')
           PY
