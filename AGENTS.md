@@ -4,11 +4,7 @@ Read `STATUS.md`, then `CLOUD_AGENT.md`, then `SKILL.md`, before doing platform 
 
 ## Current Polynomial Hirsch handoff
 
-`STATUS.md` is authoritative. As of 2026-09-09:
-
-- `Hirsch.polynomial_edge_refinement_of_circuit_walks` (`099c6686-560c-48fc-b2c2-18b6a620a06e`) remains the formal Open bottleneck.
-- PR #50 has two new Prove2Me-Proved geometric results: simultaneous face-preserving rounding to parent vertices and start-containment routing with nonvertex marked checkpoints.
-- PR #50 also contains a verified radial fixed-final-face construction for simultaneous monotone clipping, but the complete `L + sum B_i` clipping theorem is not yet one end-to-end Lean declaration. Do not submit or describe that full theorem as Proved until the remaining breakpoint/face-cover and clipped-edge assembly is formalized.
+`STATUS.md` is authoritative. The synchronized 2026-09-12 frontier has one open leaf, `Hirsch.common_face_diameter_of_dim_ge_six` (`87a8b4f4-8b58-4340-8cb9-5fd1b548d01e`). Polynomial circuit-to-edge refinement remains an open ancestor. The next assembly uses deferred local costs on the actual shortest clipping path, then the maximum-support small-excess regime. Consult the public-results inventory before reproving or republishing a partial result.
 
 Do not redo Santos/spindle work, circuit Child A, or already-published repair lemmas unless a defect is found. Do not create a cyclic child that depends back on an ancestor such as `balanced_polynomial_bound`.
 

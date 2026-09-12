@@ -1,0 +1,21 @@
+{
+  "id": "4787b494-82b4-42dd-aa77-ecdf3583f01a",
+  "kind": "problem",
+  "theorem_name": "Hirsch.shortest_region_path_with_deferred_pair_costs",
+  "theorem_title": "Shortest region paths with local costs supplied after portal selection",
+  "formal_statement": "theorem Hirsch.shortest_region_path_with_deferred_pair_costs\n    {V \u03b9 : Type*} (S : \u03b9 \u2192 Set V) (G : SimpleGraph \u03b9)\n    (hoverlap : \u2200 i j, G.Adj i j \u2192 \u2203 z, z \u2208 S i \u2227 z \u2208 S j)\n    {i j : \u03b9} (hreach : G.Reachable i j)\n    (u v : V) (hu : u \u2208 S i) (hv : v \u2208 S j) :\n    \u2203 p : G.Walk i j,\n      p.length = G.dist i j \u2227 p.IsPath \u2227\n      (\u2200 r s : \u2115, r + 1 < s \u2192 s \u2264 p.length \u2192\n        \u00ac G.Adj (p.getVert r) (p.getVert s)) \u2227\n      \u2203 legs : List (\u03b9 \u00d7 V \u00d7 V),\n        legs.map Prod.fst = p.support \u2227\n        (legs.map Prod.fst).Nodup \u2227\n        (\u2200 leg \u2208 legs, leg.2.1 \u2208 S leg.1 \u2227 leg.2.2 \u2208 S leg.1) \u2227\n        \u2200 (H : SimpleGraph V) (C : \u03b9 \u2192 V \u2192 V \u2192 \u2115),\n          (\u2200 leg \u2208 legs, \u2203 q : H.Walk leg.2.1 leg.2.2,\n            q.length \u2264 C leg.1 leg.2.1 leg.2.2) \u2192\n          \u2203 q : H.Walk u v,\n            q.length \u2264 (legs.map fun leg => C leg.1 leg.2.1 leg.2.2).sum := by sorry\n",
+  "natural_language_statement": "Let $(S_i)_{i\\in I}$ be subsets of a set $V$, and let $G$ be a simple graph on $I$ such that adjacent labels have overlapping regions. Suppose $s$ and $t$ are connected in $G$, with $u\\in S_s$ and $v\\in S_t$.\n\nThere is a shortest, chordless region path $p$ from $s$ to $t$ and a list of portal pairs $(i,a_i,b_i)$ labelled, without repetition, by the support of $p$. Each pair lies in its labelled region. These choices can be made before choosing any routing graph $H$ on $V$ or nonnegative integer pair costs $C(i,a,b)$. For every such graph and cost assignment, if each listed pair admits an $H$-walk of length at most its assigned cost, then $u$ and $v$ admit an $H$-walk of length at most\n\n$$\\sum_{(i,a,b)\\text{ in the chosen list}} C(i,a,b).$$\n\nOnly the selected portal pairs require local routes. The quantifier order permits local estimates to use the already chosen chordless support. This is an additive assembly theorem; it asserts no uniform polynomial bound for polytope diameters.",
+  "definitions": "import Mathlib\n",
+  "source": "https://github.com/jjoshua2/prove2me-work/blob/6db6759777606ad5c5243b716a4fe1ea59c80c8d/Solutions/PolynomialDeferredRegionCostsPublic.lean ; theorem Hirsch.shortest_region_path_with_deferred_pair_costs",
+  "tags": [
+    "graph-theory",
+    "graph-diameter",
+    "hirsch-conjecture"
+  ],
+  "visibility": "public",
+  "status": "PUBLISHED",
+  "error_message": "",
+  "theorem_id": "ba2632b3-1bec-43f9-8755-960e4b04936c",
+  "created_at": "2026-09-12T15:58:14.558654+00:00",
+  "updated_at": "2026-09-12T15:58:33.47774+00:00"
+}

@@ -4,7 +4,7 @@
 
 This repository contains both the **agent skill** ([SKILL.md](SKILL.md) + [references/](references/)) and the **working workspace** agents operate in.
 
-> **Current mission work:** read [`STATUS.md`](STATUS.md) before choosing a theorem or PR branch. The Polynomial Hirsch frontier and publication state move faster than `main` theorem files. As of September 9, PR #50 has added two new Prove2Me-Proved checkpoint/repair results plus a verified radial final-face construction whose end-to-end clipping theorem is not yet fully assembled in Lean.
+> **Current mission work:** read [`STATUS.md`](STATUS.md) and the [public results inventory](research/HIRSCH_UNCONNECTED_RESULTS_2026-09-12.md). The current work connects shortest clipping paths, actual portal pairs, and carrier-excess bounds. The polynomial conjecture remains Open.
 
 ## Getting started
 
@@ -33,7 +33,7 @@ Then point your agent at [SKILL.md](SKILL.md) — it contains the full workflow 
 
 ## Current Polynomial Hirsch rule
 
-Do not infer the open target from stale theorem files, old PR descriptions, or commit recency. Read `STATUS.md` and `research/PUBLICATION_INDEX_2026-09-09.md` first. The formal open bottleneck remains `Hirsch.polynomial_edge_refinement_of_circuit_walks`; PR #50's new checkpoint theorems are public/Proved, while its full radial `L + sum B_i` simultaneous-clipping theorem is deliberately **not** claimed Proved until the remaining Lean assembly is completed.
+Use the authenticated frontier in `STATUS.md`. The sole current open leaf is `Hirsch.common_face_diameter_of_dim_ge_six`; polynomial circuit-to-edge refinement is an open ancestor. Many Proved partial results lie outside the root dependency closure and are indexed separately.
 
 ## Quick-start commands
 

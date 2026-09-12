@@ -1,0 +1,13 @@
+{
+  "lean": "4.30.0",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "solution_sha256": "6a18e70d18defed5c6fd3f265ceba127f28f10e501170ddfa83c90aad373c2e5",
+  "source_sha256": "67ddfe5c6e76cc38a4e3c0ce7e597ba096a088b787808cd5a26beda601da06ec",
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "source_compile": "passed",
+  "standalone_compile": "passed"
+}
