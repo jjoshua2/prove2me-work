@@ -1,0 +1,22 @@
+{
+  "checked_at": "2026-09-12T16:47:58.479723+00:00",
+  "source_commit": "fe48faeec207416fdaa15eca7f5170d84ce1eff8",
+  "source_path": "Solutions/PolynomialMaximalCutSupportRouting.lean",
+  "source_sha256": "4e122d55fc5f7e02b49f51f1faa8247d4c45042097b0aa90534e508fd6de200c",
+  "lean_toolchain": "leanprover/lean4:v4.30.0",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "command": "lake build Solutions.PolynomialMaximalCutSupportRouting",
+  "build": "PASSED",
+  "required_axiom_reports": {
+    "HirschMaxSupport.route_of_maximal_chordless_cut_support": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "all_audited_declarations": 246,
+  "original_hosted_run": "34705928992",
+  "original_hosted_conclusion": "failure",
+  "original_error": "Unknown identifier ClipRepairCutLeg at line 76; corrected to existing RegionLeg",
+  "publication": "LOCAL_VERIFICATION_ONLY"
+}
