@@ -1,5 +1,12 @@
 # Verification-agent handoff: joint all-available-row carrier mass
 
+**Integration update:** all four modules now compile locally at the committed
+pin. Two natural-number normalization repairs preserve every theorem hypothesis.
+All twenty required declarations pass the transitive standard-axiom audit.
+See [current verification](verification/2026-09-12-geodesic-mass/local-audit.json).
+The candidate-status language below describes the original submission; hosted
+verification and public acceptance are recorded separately when completed.
+
 This is independent of #205 and the rank-localized-cuts ZIP. Do not redo the
 product/feedback work to use it. All imported repository modules were present
 on main after #204. No dependency pin, workflow, or existing source is changed.

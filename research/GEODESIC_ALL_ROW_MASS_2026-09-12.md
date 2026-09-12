@@ -1,5 +1,12 @@
 # All-available-row incidence gives a joint carrier resource bound
 
+**Integration update:** all four modules now compile locally at the committed
+pin. Two natural-number normalization repairs preserve every theorem hypothesis.
+All twenty required declarations pass the transitive standard-axiom audit.
+See [current verification](verification/2026-09-12-geodesic-mass/local-audit.json).
+The candidate-status language below describes the original submission; hosted
+verification and public acceptance are recorded separately when completed.
+
 ## Status, dependencies, and contribution
 
 This is an independent mathematical continuation of the Polynomial Hirsch

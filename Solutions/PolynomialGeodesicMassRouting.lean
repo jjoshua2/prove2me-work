@@ -40,7 +40,7 @@ theorem list_threshold_count_mul_le_mass {α : Type*}
   | cons x xs ih =>
     by_cases hx : T ≤ mass x
     · have h := Nat.add_le_add hx ih
-      simpa [hx, Nat.succ_mul, Nat.add_comm] using h
+      simpa [hx, Nat.add_mul, Nat.add_comm] using h
     · have h :
           (xs.filter (fun x => decide (T ≤ mass x))).length * T ≤
             mass x + (xs.map mass).sum := by omega
@@ -151,7 +151,7 @@ theorem DeferredClipCertificate.route_dim_five_all_excess_available
     Route (Adj (Hpoly a b)) (D + 24 * (n-d)) u v := by
   have h := c.route_of_all_cut_mass_dim_cap hlar a b row hinj hbd o hstrict
     0 (by omega) 5 hH
-  norm_num [hall, Nat.mul_assoc] at h ⊢
+  norm_num [hall, ← Nat.mul_assoc] at h ⊢
   exact h
 
 #print axioms HirschRegionRoute.list_threshold_count_mul_le_mass
