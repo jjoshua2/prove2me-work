@@ -1,0 +1,37 @@
+{
+  "Solutions/PolynomialNearGeodesicWindows.lean": {
+    "bytes": 7208,
+    "git_blob_sha": "0dc68dcc0edc1f927e20329b224d95a35026c169",
+    "sha256": "63f3a20158be920d33c0e0470418d1243df0a198d7c0243ef74c5424b6ac83e9"
+  },
+  "Solutions/PolynomialPortalSignatureMass.lean": {
+    "bytes": 4567,
+    "git_blob_sha": "e4efed0056b9e9d4a64fd4105c9747aba49f6d81",
+    "sha256": "7f915b2b472584c702733074de7107c209689f039d60157e6564a6c30b532b1d"
+  },
+  "Solutions/PolynomialRecursivePortalDebt.lean": {
+    "bytes": 3609,
+    "git_blob_sha": "537e5c65a7d258b849c27cb06218ea978d1be546",
+    "sha256": "a01d1f71c8029de1a89a2bce36d541037defec0d0693d4202425b3912678f094"
+  },
+  "scripts/audit_portal_debt.py": {
+    "bytes": 9018,
+    "git_blob_sha": "362fad44e3bb4598d9e1f5905c39f84472110293",
+    "sha256": "0fc5195b4d207a34368e74dfe5c2025c7b6a3259305ccf870e04dcb92b3abc8f"
+  },
+  "scripts/portal_debt_router.py": {
+    "bytes": 15254,
+    "git_blob_sha": "0ec11c245ef73016a11f55557366201af186166e",
+    "sha256": "b270bc71944b6945596190a4123d1ba8d8ff276ef86b6b836f827fdd7a988dc0"
+  },
+  "scripts/test_portal_debt.py": {
+    "bytes": 6832,
+    "git_blob_sha": "34d4d597d244f8b6cf8734360c5418bc30037ab6",
+    "sha256": "94b8bc98e3dac1eb475b8204daa3b6e4b6ff91b4b9745123d656405e1b8e845e"
+  },
+  "scripts/test_portal_family.py": {
+    "bytes": 4407,
+    "git_blob_sha": "b6b9304be4f6ad26ae88a1bbd68ec9dc6c1f26da",
+    "sha256": "6d9035ac3f22271746ec80d23ba8e8b5ee64ee88be7bbe0e9b962b070ecb5e47"
+  }
+}
