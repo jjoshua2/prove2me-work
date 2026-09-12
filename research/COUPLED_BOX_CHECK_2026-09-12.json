@@ -1,0 +1,98 @@
+{
+  "actual_route_edges": 446,
+  "actual_routes": 147,
+  "cyclic_pair_partition_ranks": [
+    {
+      "dimension": 3,
+      "minimum_intersection_dimension_at_least": 2,
+      "partitions": 3
+    },
+    {
+      "dimension": 4,
+      "minimum_intersection_dimension_at_least": 2,
+      "partitions": 7
+    },
+    {
+      "dimension": 5,
+      "minimum_intersection_dimension_at_least": 2,
+      "partitions": 15
+    },
+    {
+      "dimension": 6,
+      "minimum_intersection_dimension_at_least": 2,
+      "partitions": 31
+    },
+    {
+      "dimension": 7,
+      "minimum_intersection_dimension_at_least": 2,
+      "partitions": 63
+    },
+    {
+      "dimension": 8,
+      "minimum_intersection_dimension_at_least": 2,
+      "partitions": 127
+    },
+    {
+      "dimension": 9,
+      "minimum_intersection_dimension_at_least": 2,
+      "partitions": 255
+    }
+  ],
+  "cyclic_partition_rank_cases": 501,
+  "face_image_vertices": 220,
+  "face_models": 36,
+  "graph_edges": 774,
+  "graph_vertices": 372,
+  "independent_previous_separator_rechecks": [
+    {
+      "all_homogeneous_partitions_searched": true,
+      "dimension": 4,
+      "partitions": 127,
+      "rank_one_candidates": 0
+    },
+    {
+      "all_homogeneous_partitions_searched": true,
+      "dimension": 5,
+      "partitions": 511,
+      "rank_one_candidates": 0
+    }
+  ],
+  "large_dimension_routes": [
+    {
+      "dimension": 12,
+      "edges": 12,
+      "enumerated_all_vertices": false,
+      "gain": "1/4",
+      "weighted": true
+    },
+    {
+      "dimension": 24,
+      "edges": 24,
+      "enumerated_all_vertices": false,
+      "gain": "999/1000",
+      "weighted": false
+    },
+    {
+      "dimension": 32,
+      "edges": 32,
+      "enumerated_all_vertices": false,
+      "gain": "1/4",
+      "weighted": false
+    }
+  ],
+  "negative_controls": 28,
+  "ordered_graph_distances": 8184,
+  "positive_normal_forms": 39,
+  "scope": "Exact computational regression; no new Lean or platform verdict.",
+  "singleton_face_models": 12,
+  "source_sha256": {
+    "Solutions/PolynomialCoupledBoxCarrierRouting.lean": "014fc4ff2a418aa18b970193fb4d40af08b0d5a04c1941d52c114d38cc8bc398",
+    "Solutions/PolynomialPairedBasisRouting.lean": "887cdcc8ccdd70045754564355acbd804c7b0ca041c9c6d84419055703035270",
+    "Solutions/PolynomialPositiveFeedbackBoxes.lean": "fdddb93b9d2402aad248cb6e067d1499a7b4636843fd8367d1f8012623a5f417",
+    "scripts/positive_box_monotone_cut.py": "3fb0f088ecdaff77e487b4f271e289be89cf7880b8fd374221e127ac26324a16",
+    "scripts/positive_feedback_box_certificate.py": "3ab4d287efef8fdc60fd9e0923e7fa5f81fed3093bc5e2042cba56b97f1123c6",
+    "scripts/test_positive_box_monotone_cut.py": "f515e32fddde093054200d0d00fec8c6a092295a0cc41794f0de435ddb63f20a",
+    "scripts/test_positive_feedback_boxes.py": "d4f25d4ed61117387f3dc72ed63e29c6f63e4317a7642677e2e782a8b2932d3e"
+  },
+  "status": "PASS"
+}

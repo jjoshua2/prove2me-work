@@ -1,0 +1,75 @@
+{
+  "clipped_vertices": 158,
+  "instances": [
+    {
+      "diameter": 2,
+      "dimension": 2,
+      "family": "cycle",
+      "largest_returned_route": 3,
+      "new_vertices": 2,
+      "vertices": 4
+    },
+    {
+      "diameter": 3,
+      "dimension": 3,
+      "family": "cycle",
+      "largest_returned_route": 5,
+      "new_vertices": 5,
+      "vertices": 10
+    },
+    {
+      "diameter": 4,
+      "dimension": 4,
+      "family": "cycle",
+      "largest_returned_route": 6,
+      "new_vertices": 8,
+      "vertices": 21
+    },
+    {
+      "diameter": 5,
+      "dimension": 5,
+      "family": "cycle",
+      "largest_returned_route": 6,
+      "new_vertices": 21,
+      "vertices": 44
+    },
+    {
+      "diameter": 2,
+      "dimension": 2,
+      "family": "dense",
+      "largest_returned_route": 3,
+      "new_vertices": 2,
+      "vertices": 4
+    },
+    {
+      "diameter": 3,
+      "dimension": 3,
+      "family": "dense",
+      "largest_returned_route": 5,
+      "new_vertices": 5,
+      "vertices": 10
+    },
+    {
+      "diameter": 4,
+      "dimension": 4,
+      "family": "dense",
+      "largest_returned_route": 6,
+      "new_vertices": 10,
+      "vertices": 21
+    },
+    {
+      "diameter": 5,
+      "dimension": 5,
+      "family": "dense",
+      "largest_returned_route": 6,
+      "new_vertices": 17,
+      "vertices": 44
+    }
+  ],
+  "negative_controls": 3,
+  "new_vertices": 70,
+  "route_edges": 3539,
+  "routes": 1288,
+  "scope": "Exact rational tests of one-cut mathematical theorem; not a Lean verdict.",
+  "status": "PASS"
+}
