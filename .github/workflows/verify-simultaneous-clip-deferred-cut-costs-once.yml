@@ -1,0 +1,51 @@
+name: Verify simultaneous clip deferred cut costs once
+
+on:
+  pull_request:
+    types: [ready_for_review]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: simultaneous-clip-deferred-cut-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    if: >-
+      github.repository == 'jjoshua2/prove2me-work' &&
+      github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
+      github.head_ref == 'formal/simultaneous-clip-deferred-cut-costs'
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - name: Check policy and pins
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/check_actions_policy.py
+          test "$(cat lean-toolchain)" = 'leanprover/lean4:v4.30.0'
+          grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
+      - name: Restore shared pinned Lean environment
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Compile and audit deferred clipping callback
+        shell: bash
+        run: |
+          set -euo pipefail
+          lake build Solutions.PolynomialSimultaneousClipDeferredPairLegs
+          lake env lean Solutions/PolynomialSimultaneousClipDeferredPairLegs.lean 2>&1 | tee /tmp/simultaneous-clip-deferred.log
+          python3 scripts/check_lean_axiom_log.py /tmp/simultaneous-clip-deferred.log \
+            HirschRadial.route_clip_of_lifted_endpoints_with_shortest_deferred_cut_legs \
+            HirschRadial.route_clip_with_shortest_deferred_cut_legs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: simultaneous-clip-deferred-cut-verification
+          retention-days: 14
+          path: /tmp/simultaneous-clip-deferred.log
+          if-no-files-found: warn
