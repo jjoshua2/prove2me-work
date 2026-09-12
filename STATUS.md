@@ -334,8 +334,43 @@ with all twenty required axiom reports. The graph-only joint-budget theorem
 **Proved**, submission `83ed9045-971b-4ad8-ae0d-3659c625e850` **ACCEPTED**.
 The accepted source matches the frozen packet. The actual geometric adapters
 have local/hosted verification, not their own platform verdict.
-Basis extraction and combining feedback carriers with the mass bound are the
-next independent continuation. #207 remains the separate portal-debt and
+Basis extraction and combining feedback carriers with the mass bound are now
+locally verified in #209 below. #207 remains the separate portal-debt and
 near-geodesic draft. New #208 develops additive-spill route trees and a detour
 mass bridge depending on #206/#207; its Lean verification and complete geometric
 existence wrapper are outstanding. Neither conditional recurrence closes Hirsch.
+
+## Automatic target bases and linear mixed carriers (#209)
+
+The three new modules and all eight printed declarations pass local compilation
+and transitive standard-axiom audits. Frozen source:
+`7ffa3fb3cede303c579164245f01286a49351b15`.
+[Proof and exact boundary](research/AUTOMATIC_BASIS_LINEAR_FEEDBACK_2026-09-12.md).
+
+- Every extreme point supplies d distinct original tight rows with injective
+  row evaluation, without simplicity, boundedness, or a supplied basis.
+- With boundedness and a separate strict interior point, the basis-star
+  certificate is now obtained automatically with D=1, s=n-d and total actual
+  carrier excess <=3(n-d), before any route/model callback.
+- Feedback carriers, optionally mixed with excess<=3 carriers, give 1+3(n-d).
+  Feedback carriers mixed with dimension<=5 carriers give 1+24(n-d).
+- The same automatic certificate gives the latter route or an actual selected
+  carrier of dimension>=6 without a PositiveBoxImage model. This identifies an
+  unresolved sufficient-criterion case, not a diameter lower bound.
+
+Final hosted run `34724365226` passed at
+`43ab319f30d698105ed878e0ae9b5cc82ef8cedd`, with eight required and 414 total
+standard-axiom reports. The standalone classical basis theorem
+`e46935cf-6286-4874-a742-01cc62269b2d` has submission
+`63c8d2b9-2c24-4c59-9c3a-6769a095f63e` **ACCEPTED**. Authenticated theorem
+readback says **Proved**, and its accepted source matches the frozen packet.
+All final gates for integration #209 have passed. The basis
+publication is not a platform verdict for the larger clipping assemblies.
+The active queue after this integration should contain only #207 and #208,
+with their distinct blockers and next local compile commands in their bodies.
+The root and sole leaf were refreshed by authenticated API and remain Open.
+
+Mission update `0ab0273f-42de-4318-b53d-0bfa4e33160f` links the accepted
+#205/#206/#209 public theorems and distinguishes the larger Lean assemblies.
+The new results are listed separately from the inventory's historical counts.
+No root dependency was added without a checked reduction proving applicability.

@@ -1,0 +1,23 @@
+{
+  "theorem_id": "b0e67752-022a-41ca-b026-4d247fe63787",
+  "theorem_name": "Hirsch.q28_chamber_basis_certificate",
+  "theorem_title": "Chamber-basis completeness for the $Q_{28}$ certificate",
+  "status": "Proved",
+  "formal_statement": "namespace Hirsch\ntheorem q28_chamber_basis_certificate :\n    (\u2200 r : \u2115, r < 2002 \u2192 certOkUnrank r = true) \u2227\n    (\u2200 s0 s1 s2 s3 s4 : \u2115,\n      s0 < s1 \u2192 s1 < s2 \u2192 s2 < s3 \u2192 s3 < s4 \u2192 s4 < 14 \u2192\n        unrank5 (combRank s0 s1 s2 s3 s4) = (s0, s1, s2, s3, s4)) \u2227\n    (\u2200 s0 s1 s2 s3 s4 : \u2115,\n      s0 < s1 \u2192 s1 < s2 \u2192 s2 < s3 \u2192 s3 < s4 \u2192 s4 < 14 \u2192\n        combRank s0 s1 s2 s3 s4 < 2002) := by sorry\nend Hirsch\n",
+  "natural_language_statement": "Let $P\\subset\\mathbb{R}^5$ be the polar of the Matschke--Santos--Weibel prismatoid $Q_{28}$. In the nonnegative chamber the description reduces to $14$ inequalities. The $\\binom{14}{5}=2002$ five-row subsystems of that chamber are indexed by combinadic rank.\n\nThis theorem records three facts about that enumeration:\n\n1. Every rank in $\\{0,\\ldots,2001\\}$ is accounted for by the stored singular, infeasible, or orbit tag of the $Q_{28}$ certificate.\n2. Combinadic rank is inverted by the stored unranking map on strictly increasing $5$-tuples from $\\{0,\\ldots,13\\}$.\n3. Those ranks lie in $\\{0,\\ldots,2001\\}$.\n\nThis is the completeness statement for the chamber-basis half of the finite incidence certificate of $Q_{28}$.\n\n**Formalization Note** The checkers `certOkUnrank`, `unrank5` and `combRank` are defined in `Definitions.Def_Hirsch_q28_cert`.\n",
+  "created_at": "2026-09-05T23:05:18.323738+00:00",
+  "vote_count": 0,
+  "tags": [
+    "hirsch-conjecture",
+    "polytopes",
+    "prismatoid"
+  ],
+  "preamble": "import Mathlib\nimport Definitions.Def_Hirsch_model\nimport Definitions.Def_Hirsch_q28\nimport Definitions.Def_Hirsch_q28_cert\n\nopen scoped RealInnerProductSpace\nopen Hirsch\n",
+  "source": "B. Matschke, F. Santos, C. Weibel, The width of five-dimensional prismatoids, Proc. London Math. Soc. 110 (2015) 647-672, arXiv:1202.4701, Corollary 2.9 and the explicit $Q_{28}$ vertex table; polar/spindle language as in F. Santos, A counterexample to the Hirsch conjecture, Ann. of Math. 176 (2012) 383-412, arXiv:1006.2814, Section 2.2.",
+  "deprecated_at": null,
+  "deprecated_by": null,
+  "visibility": "public",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "audits": [],
+  "readback": null
+}
