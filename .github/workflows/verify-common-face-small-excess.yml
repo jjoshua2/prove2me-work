@@ -1,4 +1,4 @@
-name: Verify simultaneous clipping used cut labels
+name: Verify target-cone used cut reinsertion
 
 on:
   pull_request:
@@ -8,12 +8,12 @@ permissions:
   contents: read
 
 concurrency:
-  group: verify-simultaneous-clip-used-cuts-${{ github.event.pull_request.number }}
+  group: verify-target-cone-used-cuts-${{ github.event.pull_request.number }}
   cancel-in-progress: true
 
 jobs:
   verify:
-    if: github.head_ref == 'formal/simultaneous-clip-used-labels'
+    if: github.head_ref == 'formal/target-cone-used-cuts-v2'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -29,29 +29,22 @@ jobs:
           grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
       - name: Restore pinned Lean environment
         uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
-      - name: Compile and audit used-cut projection
+      - name: Compile and audit target-cone used-cut theorem
         run: |
           set -euo pipefail
-          lake build Solutions.PolynomialSimultaneousClipUsedCuts 2>&1 | tee /tmp/clip-used-cuts.log
+          lake build Solutions.PolynomialTargetConeUsedCuts 2>&1 | tee /tmp/target-cone-used-cuts.log
           python3 - <<'PY'
           import re
           from pathlib import Path
-          text=Path('/tmp/clip-used-cuts.log').read_text()
-          names=[
-            'HirschRadial.clipUsedCutLabels_nodup',
-            'HirschRadial.clipUsedOldLabels_nodup',
-            'HirschRadial.clipUsedRegionCost_sum_eq_cut_old',
-            'HirschRadial.clipUsedOldLabels_length_le',
-            'HirschRadial.route_clip_of_lifted_endpoints_with_parent_routes_used_cuts',
-          ]
+          text=Path('/tmp/target-cone-used-cuts.log').read_text()
+          name='HirschTargetDeletion.target_slack_batch_reinsertion_with_parent_routes_used_cuts'
           allowed={'propext','Classical.choice','Quot.sound'}
           pat=re.compile(r"'([^']+)' depends on axioms:\s*\[([^\]]*)\]",re.S)
           reports={n:{x.strip() for x in raw.split(',') if x.strip()} for n,raw in pat.findall(text)}
           for n in re.findall(r"'([^']+)' does not depend on any axioms",text): reports[n]=set()
-          for n in names:
-            if n not in reports: raise SystemExit('missing axiom report for '+n)
-            bad=reports[n]-allowed
-            if bad: raise SystemExit(f'unexpected axioms for {n}: {sorted(bad)}')
-            print(n, sorted(reports[n]))
-          print('PASS: used-cut projection audited')
+          if name not in reports: raise SystemExit('missing axiom report for '+name)
+          bad=reports[name]-allowed
+          if bad: raise SystemExit(f'unexpected axioms for {name}: {sorted(bad)}')
+          print(name, sorted(reports[name]))
+          print('PASS: target-cone used-cut theorem audited')
           PY
