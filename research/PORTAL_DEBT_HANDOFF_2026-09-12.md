@@ -81,3 +81,13 @@ polytope interpretation. JSON checks are not Lean proof terms, and no public
 server verdict is claimed. After the new core is locally green and audited,
 a single existing hosted final gate can preserve its receipt. Publication needs
 its own honest exact interface and authenticated acceptance.
+
+## Integration verification
+
+All three modules now compile at the committed pin after renaming a reserved
+identifier and making the edge-tree universe match its vertex type. All 13
+required declarations pass the transitive standard-axiom audit. The three
+exact regression suites were rerun successfully. The full infinite-family
+geometry and simple-polytope recognition remain paper/checker results, distinct
+from the compiled finite-set/graph/route-tree cores. Final hosted and public
+packet verdicts are recorded separately in STATUS.md and publication receipts.

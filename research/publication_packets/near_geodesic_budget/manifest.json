@@ -1,0 +1,15 @@
+{
+  "source_commit": "35dc985f0736e6ca612f747dcc45d6f528c3d62f",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "source_blobs": {
+    "Solutions/PolynomialNearGeodesicWindows.lean": "0dc68dcc0edc1f927e20329b224d95a35026c169"
+  },
+  "public_dependencies": {},
+  "sha256": {
+    "solution.lean": "aa5fad19cc010fef202050eb293a190a93f9b1431e10a8c453a9a177443b597d",
+    "driver.lean": "9a43670b001ca577197175f70c29b459cd5c74664ac14c942ae6916b769bac3b",
+    "statement.lean": "1195173353e3879b481399a98ea2d8e1df009483ad7c5a212163ab65ea90e92a",
+    "problem.json": "242455ccf542bd32dd27c7795d79e7b4db716d9f5fd6b41acde11ef49cb120e3",
+    "explanation.md": "8e268a1fd1025452579b392224ff150a7ad47bc5c74b36f43e5fe3ade40805ed"
+  }
+}
