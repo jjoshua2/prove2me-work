@@ -1,0 +1,56 @@
+name: Verify saturated face-rank progress once
+
+on:
+  pull_request:
+    types: [ready_for_review]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: saturated-face-rank-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    if: >-
+      github.repository == 'jjoshua2/prove2me-work' &&
+      github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
+      github.head_ref == 'formal/saturated-face-rank-progress'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - name: Check policy and pins
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/check_actions_policy.py
+          test "$(cat lean-toolchain)" = 'leanprover/lean4:v4.30.0'
+          grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
+      - name: Restore shared pinned Lean environment
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Compile and audit saturated rank primitives
+        shell: bash
+        run: |
+          set -euo pipefail
+          lake build Solutions.PolynomialSaturatedFaceRankProgress
+          lake env lean Solutions/PolynomialSaturatedFaceRankProgress.lean 2>&1 | tee /tmp/saturated-face-rank.log
+          python3 scripts/check_lean_axiom_log.py /tmp/saturated-face-rank.log \
+            HirschSaturatedRank.rowSupportingFace_isExtreme \
+            HirschSaturatedRank.rowSection_isExtreme \
+            HirschSaturatedRank.faceRowSpan_mono \
+            HirschSaturatedRank.rowSection_ne_of_not_mem_faceRowSpan \
+            HirschSaturatedRank.faceRowSpan_lt_rowSection \
+            HirschSaturatedRank.faceRowSpan_finrank_lt_rowSection \
+            HirschSaturatedRank.faceRowSpan_finrank_le_dim
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: saturated-face-rank-verification
+          retention-days: 14
+          path: /tmp/saturated-face-rank.log
+          if-no-files-found: warn
