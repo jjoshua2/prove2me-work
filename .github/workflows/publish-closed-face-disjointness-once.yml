@@ -2,7 +2,7 @@ name: Publish closed-face disjointness to Prove2Me once
 
 on:
   pull_request:
-    types: [ready_for_review]
+    types: [synchronize, ready_for_review]
 
 permissions:
   contents: read
@@ -45,12 +45,7 @@ jobs:
           lake env lean /tmp/closed-extreme-face-disjoint-public/solution.lean 2>&1 | tee /tmp/closed-face-standalone.log
           python3 scripts/check_lean_axiom_log.py /tmp/closed-face-standalone.log solution
           proof_sha="$(sha256sum /tmp/closed-extreme-face-disjoint-public/solution.lean | awk '{print $1}')"
-          manifest_sha="$(python3 - <<'PY'
-import json
-from pathlib import Path
-print(json.loads(Path('/tmp/closed-extreme-face-disjoint-public/manifest.json').read_text())['proof_sha256'])
-PY
-)"
+          manifest_sha="$(python3 -c "import json; from pathlib import Path; print(json.loads(Path('/tmp/closed-extreme-face-disjoint-public/manifest.json').read_text())['proof_sha256'])")"
           test "$proof_sha" = "$manifest_sha"
           printf '%s\n' "$proof_sha" > /tmp/closed-extreme-face-disjoint-public/audit-passed.sha256
       - name: Publish only after exact proof audit
