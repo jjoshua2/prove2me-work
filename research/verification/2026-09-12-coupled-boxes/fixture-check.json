@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "scope": "New independent fixture audit, not a rerun of missing original checkers or a Lean verdict.",
+  "normal_forms": 2,
+  "route_vertices": 13,
+  "ordinary_edges": 11,
+  "same_face_vertices": 32,
+  "negative_controls": 4,
+  "sha256": {
+    "scripts/verify_coupled_box_fixtures.py": "b8785cdeda12bf5fe77276e54c0bcfb6d8f8672b67fb69e218ad006de725f3f8",
+    "scripts/projective_factor_discovery.py": "bcc2d730ece1efd37c8cd66807b795a9e5fef8c5ca76f426e51d0fd874a1693b",
+    "scripts/test_contractive_feedback_boxes.py": "296ffa15084875c8541f497952eae9f357857380a14ddd6eb9ddde8649fe6b03",
+    "research/coupled_cycle_6d_input.json": "3be43338b13de9d5f8bfa017cf2b8bddc0e7e869c74aebefb914f6b6858fb824",
+    "research/coupled_cycle_6d_certificate.json": "e5d793a87cbf37e8577495b1c43b995bf06b7c3879bb858897f8ec088cd06f3f",
+    "research/monotone_cut_4d_route.json": "97ad0d42a6815bc4f1d2bc13ef8b9dc6c9d848f1cd0e2ee007b4e7d11e8e3b82"
+  }
+}
+

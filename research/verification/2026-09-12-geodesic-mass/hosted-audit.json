@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "run_id": 34723720395,
+  "head_sha": "8e4a666f9bc54c64ff38f93223a965c6181751b6",
+  "required": [
+    "HirschRegionRoute.geodesic_index_gap_le_walk",
+    "HirschRegionRoute.geodesic_closedNear_index_span",
+    "HirschRegionRoute.geodesicContactSupport_card_le_three",
+    "HirschRegionRoute.geodesic_total_available_load",
+    "HirschRegionRoute.geodesic_list_available_load",
+    "HirschRegionRoute.list_sum_available_budget",
+    "HirschCircuitLocalization.commonFace_available_contact_budget",
+    "HirschRadial.DeferredClipCertificate.allCutContactLoad_sum_le",
+    "HirschRadial.DeferredClipCertificate.used_carrier_all_available_budget",
+    "HirschRadial.DeferredClipCertificate.carrier_mass_subtraction_free",
+    "HirschRadial.DeferredClipCertificate.carrier_mass_le",
+    "HirschRegionRoute.list_threshold_count_mul_le_mass",
+    "HirschRadial.DeferredClipCertificate.carrier_size_mass_le",
+    "HirschRadial.DeferredClipCertificate.route_of_all_cut_mass_dim_cap",
+    "HirschRadial.DeferredClipCertificate.route_dim_five_all_excess_available",
+    "HirschTargetDeletion.tight_outer_unique_vertex_of_injective",
+    "HirschTargetDeletion.compact_star_cap_of_spanning_tight_selection",
+    "HirschTargetDeletion.basisRemainingRows_card",
+    "HirschTargetDeletion.basis_star_deferred_clip_certificate",
+    "HirschTargetDeletion.basis_star_exists_linear_carrier_mass"
+  ],
+  "reports": 385
+}

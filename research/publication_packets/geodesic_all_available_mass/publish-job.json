@@ -1,0 +1,21 @@
+{
+  "id": "7491e394-612e-4e18-8333-7f8d9e523edf",
+  "kind": "problem",
+  "theorem_name": "Hirsch.geodesic_joint_budget_of_all_available_contacts",
+  "theorem_title": "All available vertices give a joint budget along a graph geodesic",
+  "formal_statement": "theorem Hirsch.geodesic_joint_budget_of_all_available_contacts {V : Type*} [DecidableEq V] {G : SimpleGraph V} [DecidableRel G.Adj]\n    {u v : V} (p : G.Walk u v) (hp : p.length = G.dist u v)\n    (available : Finset V) (labels : List V) (hnd : labels.Nodup)\n    (hsub : \u2200 i \u2208 labels, i \u2208 p.support) (delta : V \u2192 \u2115) (e : \u2115)\n    (hbudget : \u2200 i \u2208 labels, delta i + available.card \u2264 e +\n      (available.filter (fun j => j = i \u2228 G.Adj j i)).card) :\n    (labels.map delta).sum + labels.length * available.card \u2264\n      labels.length * e + 3 * available.card := by sorry",
+  "natural_language_statement": "Let p be a metric-shortest path in an undirected simple graph. Let A be\nany finite set of available vertices, including vertices off the path, and let\nL be a duplicate-free list of vertices on p. Suppose each selected vertex i\nhas a nonnegative integer budget delta_i satisfying\ndelta_i + |A| <= e + #{j in A : j=i or j is adjacent to i}.\nThen sum_i delta_i + |L|*|A| <= |L|*e + 3|A|.\nIn particular when |A|=e the total budget is at most 3e.\n\nEach available vertex contacts a window of at most three path positions:\notherwise it supplies a two-edge shortcut. Double-count those contacts and\nsum the pointwise inequalities. True metric shortestness is essential.\nThis theorem is a graph and integer-budget statement. The separate repository\nadapter proves its applicability to actual clipping carrier excesses; the\nstatement itself neither identifies delta with edge distance nor resolves\nthe Polynomial Hirsch conjecture.",
+  "definitions": "import Mathlib\nopen scoped BigOperators\nopen Set",
+  "source": "Geodesic shortcut and double-counting formalization, https://github.com/jjoshua2/prove2me-work/tree/21b4413f294d4503aa98b2c0ded939595724108e",
+  "tags": [
+    "graph-theory",
+    "polyhedra",
+    "formalization"
+  ],
+  "visibility": "public",
+  "status": "PUBLISHED",
+  "error_message": "",
+  "theorem_id": "b8f45079-9784-43a0-b659-0914a2038332",
+  "created_at": "2026-09-12T22:48:23.884229+00:00",
+  "updated_at": "2026-09-12T22:50:57.992703+00:00"
+}
