@@ -119,6 +119,7 @@ theorem hpoly_extremePoints_nonempty_of_rowMap_injective
   have hRbd : Bornology.IsBounded R :=
     injectiveCappedHpoly_isBounded a b M hinj
   have hRc : IsClosed R := by
+    change IsClosed (injectiveCappedHpoly a b M)
     rw [injectiveCappedHpoly_eq_inter]
     exact (HirschCapVertices.hpoly_isClosed a b).inter
       (isClosed_le (by fun_prop) continuous_const)
