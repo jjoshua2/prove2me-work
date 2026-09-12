@@ -1,0 +1,20 @@
+{
+  "id": "6123ed6a-e3d0-442c-84a5-435479c08f11",
+  "kind": "definition",
+  "theorem_name": "Hirsch_additive_portal_repair",
+  "theorem_title": "Finite additive-spill repair certificates with actual leaf routes",
+  "formal_statement": "",
+  "natural_language_statement": "A finite additive repair certificate assembles actual steps of a relation R.\nA leaf has excess e<=b and an actual route of cost<=C*e. A nonleaf records one\ninitial R-edge or stationary step, followed by child repairs. Child dimensions\nstrictly drop, each child excess is at most the parent e, and sibling excesses\nsum to at most e+b. Internal parents have positive dimension and e>b.\nThe tags must be separately justified when used for polytope geometry.",
+  "definitions": "import Mathlib\nopen scoped BigOperators\nnamespace HirschRegionRoute\ndef Route {V : Type*} (R : V \u2192 V \u2192 Prop) (B : \u2115) (u v : V) : Prop :=\n  \u2203 w : \u2115 \u2192 V, w 0 = u \u2227 w B = v \u2227\n    \u2200 j < B, w j = w (j + 1) \u2228 R (w j) (w (j + 1))\n\nend HirschRegionRoute\nnamespace HirschAdditiveAllowance\nopen HirschRegionRoute\nvariable {V : Type*}\ninductive AdditiveRepair (R : V \u2192 V \u2192 Prop) (b C : \u2115) :\n    V \u2192 V \u2192 \u2115 \u2192 \u2115 \u2192 \u2115 \u2192 Prop\n  | leaf (x y : V) (h e cost : \u2115) (he : e \u2264 b)\n      (hr : Route R cost x y) (hc : cost \u2264 C*e) : AdditiveRepair R b C x y h e cost\n  | node (h e n : \u2115) (u : V) (p : \u2115 \u2192 V)\n      (dims mass costs : Fin n \u2192 \u2115)\n      (he : b < e) (hh : 0 < h) (hfirst : u=p 0 \u2228 R u (p 0))\n      (hdrop : \u2200 i, dims i < h) (hmono : \u2200 i, mass i \u2264 e)\n      (hsum : (\u2211 i, mass i) \u2264 e+b)\n      (children : \u2200 i, AdditiveRepair R b C (p i.val) (p (i.val+1))\n        (dims i) (mass i) (costs i)) :\n      AdditiveRepair R b C u (p n) h e (1+\u2211 i, costs i)\n\nend HirschAdditiveAllowance\n",
+  "source": "Explicit conditional recurrence and actual-route assembly; https://github.com/jjoshua2/prove2me-work/tree/b7a832e9ff98743d53c66d6e471fd0828891d22d",
+  "tags": [
+    "polyhedra",
+    "formalization"
+  ],
+  "visibility": "public",
+  "status": "PENDING",
+  "error_message": "",
+  "theorem_id": null,
+  "created_at": "2026-09-12T23:32:21.457443+00:00",
+  "updated_at": "2026-09-12T23:32:21.457443+00:00"
+}
