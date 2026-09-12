@@ -73,7 +73,7 @@ theorem route_of_maximal_chordless_cut_support
     (hface : ∀ k, k ∈ cuts → F k = hpolyRowFace a b (row k))
     (hnonzero : ∀ k, k ∈ cuts → a (row k) ≠ 0)
     (hmax : cuts.card = n - d)
-    (legs : List (ClipRepairCutLeg ι (EuclideanSpace ℝ (Fin d))))
+    (legs : List (RegionLeg ι (EuclideanSpace ℝ (Fin d))))
     (mixedLabel : ι → κ)
     (hlegCut : ∀ leg ∈ legs, mixedLabel leg.label ∈ cuts)
     (hlegCount : legs.length ≤ cuts.card)
