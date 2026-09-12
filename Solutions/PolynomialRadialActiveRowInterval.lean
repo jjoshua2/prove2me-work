@@ -38,8 +38,17 @@ theorem normalizedRow_affine_combo
       s * normalizedRow a b o x + t * normalizedRow a b o y := by
   unfold normalizedRow
   simp only [inner_add_right, inner_smul_right]
-  rw [show ⟪a, o⟫ = (s + t) * ⟪a, o⟫ by rw [hst, one_mul]]
-  ring
+  rw [← mul_div_assoc, ← mul_div_assoc, ← add_div]
+  have hnum :
+      s * ⟪a, x⟫ + t * ⟪a, y⟫ - ⟪a, o⟫ =
+        s * (⟪a, x⟫ - ⟪a, o⟫) + t * (⟪a, y⟫ - ⟪a, o⟫) := by
+    calc
+      s * ⟪a, x⟫ + t * ⟪a, y⟫ - ⟪a, o⟫ =
+          s * ⟪a, x⟫ + t * ⟪a, y⟫ - (s + t) * ⟪a, o⟫ := by
+            rw [hst, one_mul]
+      _ = s * (⟪a, x⟫ - ⟪a, o⟫) +
+          t * (⟪a, y⟫ - ⟪a, o⟫) := by ring
+  exact congrArg (fun r : ℝ => r / (b - ⟪a, o⟫)) hnum
 
 /-- If one row attains the radial scale at two points, then it attains the scale
 at every convex combination of those points. -/
@@ -92,7 +101,8 @@ theorem scale_eq_row_on_combo_of_endpoints
           t * normalizedRow (a i) (b i) o y := by rfl
   apply le_antisymm
   · exact scale_le _ hone hrow
-  · exact le_scale _ i
+  · exact le_scale
+      (fun j => normalizedRow (a j) (b j) o (s • x + t • y)) i
 
 /-- The cell on which one fixed row attains the radial maximum. -/
 def activeRowCell
