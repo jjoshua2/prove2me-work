@@ -1,0 +1,14 @@
+{
+  "negative_controls": 2,
+  "report_sha256": "3106dc044009131b5a0e4ee781e1cbf8288fdab4ff348fcd2d0a27cebcd89fa3",
+  "status": "all exact checks passed",
+  "totals": {
+    "apex_edges": 744,
+    "cap_cases": 297,
+    "cap_vertices": 1041,
+    "final_face_budgets": 285,
+    "fixtures": 23,
+    "lost_original_vertices": 412,
+    "targets": 99
+  }
+}
