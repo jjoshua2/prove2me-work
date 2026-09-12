@@ -1,0 +1,55 @@
+name: Verify disjoint cut carrier savings once
+
+on:
+  pull_request:
+    types: [opened, synchronize, ready_for_review]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: disjoint-cut-carrier-savings-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    if: >-
+      github.repository == 'jjoshua2/prove2me-work' &&
+      github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
+      github.head_ref == 'formal/disjoint-cut-carrier-savings' &&
+      github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - name: Check policy and pins
+        run: |
+          set -euo pipefail
+          python3 scripts/check_actions_policy.py
+          test "$(cat lean-toolchain)" = 'leanprover/lean4:v4.30.0'
+          grep -Fq c5ea00351c28e24afc9f0f84379aa41082b1188f lake-manifest.json
+      - name: Restore pinned Lean environment
+        uses: jjoshua2/prove2me-work/.github/actions/setup-lean@main
+      - name: Compile and audit disjoint cut carrier savings
+        run: |
+          set -euo pipefail
+          lake build Solutions.PolynomialDisjointCutCarrierSavings
+          lake env lean Solutions/PolynomialDisjointCutCarrierSavings.lean 2>&1 | tee /tmp/disjoint-cut-carrier-savings.log
+          python3 scripts/check_lean_axiom_log.py /tmp/disjoint-cut-carrier-savings.log \
+            HirschCircuitLocalization.row_ne_zero_of_tight_and_strict \
+            HirschCircuitLocalization.closed_extreme_faces_disjoint_of_no_parent_vertex_portal \
+            HirschCircuitLocalization.closed_extreme_faces_disjoint_of_region_nonadj \
+            HirschCircuitLocalization.commonFace_subset_hpolyRowFace_of_tight \
+            HirschCircuitLocalization.row_strict_on_commonFace_of_disjoint_rowFaces \
+            HirschCircuitLocalization.commonFace_minExcess_add_disjoint_rowFaces_le \
+            HirschCircuitLocalization.commonFace_minExcess_add_disjoint_targetSlack_rowFaces_le
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: disjoint-cut-carrier-savings-verification
+          retention-days: 14
+          path: /tmp/disjoint-cut-carrier-savings.log
+          if-no-files-found: warn
