@@ -195,6 +195,56 @@ The generic transport and finite certificate criterion are Lean-verified;
 the unbounded family's matroid/deficit/lower-diameter description remains a
 mathematical argument with exact finite checks, not separate Lean declarations.
 
+## Recursive chart discovery and additive product trees (#204)
+
+Merged PR #204 supplies the next continuation. Its original two Lean modules compile
+unchanged against merged #203. Frozen verified source
+`fcbb02425dececaa9a8f7abd90c341ae99dbafac` extracts the geometric `ProductTree`
+into a standalone definition. Seven required declarations and 272 transitive
+reports pass the local standard-axiom audit. The independent recursive proof
+packet and exact public composition also compile locally.
+
+An exact rational discovery procedure now recovers charts from homogeneous
+row bipartitions. It derives source balance and both denominator certificates
+from a supplied strictly interior point, positive target normal balance and an
+exactly searched dual witness. It then recursively splits factors using distinct
+charts at different nodes. Products add costs and charts preserve them, giving
+`DiamLE(P,n-d)` whenever the resulting finite geometric tree is complete.
+For the SAME actual selected clipping pairs, equivalent intrinsic trees using
+at most n rows imply a route at cost `D+n*r`. The small-excess input is explicit
+in the local Lean induction and is already Proved on the platform.
+
+The triangular interval towers in the proof note are routed recursively even
+when no single chart exposes only excess-at-most-three factors. The full
+recognition-completeness and infinite-family arguments are mathematical proofs
+in that note; they are not all formalized Lean theorems. The JSON verifier
+checks rational identities and does not emit Lean proof terms. Fresh tests pass
+32 positive certificates, 2,720 ordered graph distances and 15 negative controls.
+The cyclic four-/five-dimensional examples have cube graphs but no homogeneous
+separator and are correctly left unresolved by this detector.
+
+The geometric definition is published as
+[3c29c70d](https://prove2.me/theorems/3c29c70d-337c-4d63-8f52-9c437f52e878).
+The [recursive routing theorem](https://prove2.me/theorems/4afd7668-51a9-4a5e-a991-2a02c53b9e1c)
+is **Proved**, with **ACCEPTED** submission
+`7f2bba60-85ad-42d5-8a1a-eed656add3f5`. The exact accepted source and definition
+match the frozen packet. Mission update `34e388c1-afb6-412e-85c0-366096816186`
+links the accepted proof and its real small-excess/definition dependencies. Consult
+[the packet](research/publication_packets/recursive_projective_products/).
+[Proof and precise boundaries](research/RECURSIVE_PROJECTIVE_DISCOVERY_2026-09-12.md).
+The final [hosted run 34712133611](https://github.com/jjoshua2/prove2me-work/actions/runs/34712133611)
+passes the same seven required declarations and 272 standard-axiom reports.
+The root conjecture and high-dimensional common-face leaf remain Open.
+
+A further [paper proof for contractive feedback boxes](research/CONTRACTIVE_FEEDBACK_BOXES_2026-09-12.md)
+now routes `0<=x<=b+M*x` in d ordinary edges when M>=0, b,w>0 and M*w<w.
+It classifies vertices by their active coordinate choices and toggles one choice
+per edge. The cyclic family has no projective product split in d>=3; for d>=4
+it lies outside recursive small-excess product trees. This is a mathematical
+result with finite regression evidence, **not yet a Lean or accepted platform
+theorem**. Twelve rational examples pass 4,080 ordered routes and four invalid
+witness controls. Formalizing its vertex/edge classification is the next task.
+
 ## Next research work, in order
 
 1. **Control the sum of costs for coupled carriers when support deficit grows.**
@@ -207,10 +257,13 @@ mathematical argument with exact finite checks, not separate Lean declarations.
    occur on a chordless path and `g>=d-2`, despite actual diameter d. This is a
    mathematical counterexample with finite checks, not a Lean-formalized cube
    theorem. Any proposed potential must pass this stress test. The projective extension also handles factorization hidden by a positive chart;
-   both the chart and source blocks currently must be supplied. Affine normal
-   connectivity is not a sound residual test. Work with homogeneous facet data
-   `(a_i,b_i)` to recover a chart from a finite partition certificate, while
-   keeping unknown partition discovery and arbitrary-carrier routing explicit.
+   the #204 continuation now searches charts and recursively exposes factors.
+   Neither affine normal connectivity nor failure of the projective separator
+   search is a diameter lower bound. Formalize the contractive-feedback
+   active-choice vertex and edge lemmas next, then connect equivalent models
+   to the actual selected carriers. Arbitrary carriers need a joint cost
+   argument beyond the known product and feedback classes. Search is finite but exponential in
+   the worst case; capped failure is not geometric nonexistence.
    Endpoint savings still permit an exponential independent-call majorant;
    they are not evidence for an exponential polytope diameter.
 3. **Connect a uniform total-cost bound to the root by a checked reduction.**

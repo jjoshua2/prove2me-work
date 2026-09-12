@@ -1,0 +1,1372 @@
+{
+  "status": "PASS",
+  "required": [
+    "HirschProjectiveDiscovery.shearProjection_kernel_vector",
+    "HirschProjectiveDiscovery.shearProjection_chart_unique",
+    "HirschProjectiveDiscovery.common_projected_vector_eq_zero",
+    "HirschProjectiveDiscovery.projected_spans_cover",
+    "HirschRecursiveProducts.ProductTree.diamLE",
+    "HirschRecursiveProducts.carrier_diamLE_rows_of_recursive_projective_model",
+    "HirschRecursiveProducts.route_of_used_recursive_projective_carriers"
+  ],
+  "reports": {
+    "Hirsch.SegmentChart.isExtreme_image_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Hirsch.SegmentChart.image_extremePoints": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Hirsch.SegmentChart.adj_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Hirsch.SegmentChart.diamLE_image": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschPerspective.denominator_neg_perspective": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschPerspective.perspective_inverse": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschPerspective.perspective_mix": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschPerspective.perspective_segmentChart": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschPerspective.perspective_diamLE_image": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschProduct.diamLE_pi": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Hirsch.affineEquiv_isExtreme_image": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Hirsch.affineEquiv_image_extremePoints": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Hirsch.affineEquiv_adj_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Hirsch.affineEquiv_diamLE_image_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Hirsch.affineMap_isExtreme_image_iff_of_injective": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Hirsch.affineMap_image_extremePoints_of_injective": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Hirsch.affineMap_adj_iff_of_injective": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Hirsch.affineMap_diamLE_image_iff_of_injective": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRowBlocks.image_hpoly_eq_pi_of_row_blocks": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRowBlocks.factors_bounded_of_row_blocks": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRowBlocks.row_block_excess_sum": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRowBlocks.hpoly_diamLE_excess_of_small_row_blocks": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschProjectiveBlocks.shear_slack_identity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschProjectiveBlocks.perspective_image_hpoly_eq_shear": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschProjectiveBlocks.hpoly_diamLE_of_positive_shear": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschProjectiveBlocks.positiveDomain_of_row_multipliers": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschProjectiveBlocks.hpoly_diamLE_of_shear_multipliers": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschProjectiveBlocks.hpoly_diamLE_excess_of_projectively_hidden_small_row_blocks": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschFaceSplice.splice_reentry_through_extreme_face": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschFaceSplice.splice_reentry_no_growth": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschFaceSplice.splice_reentry_cost_at_most_face_diameter": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.shared_point_walk": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.route_of_region_walk": [
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.nodup_cost_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.route_of_connected_regions": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.region_walk_of_step_cover": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.route_of_step_cover": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.extreme_face_region": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.route_of_face_covered_sequence": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.route_one": [
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.pair_region": [
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.route_of_mixed_step_cover": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.route_of_faces_and_surviving_edges": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.region_walk_of_interval_cover": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.route_of_interval_cover": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.route_of_face_interval_cover": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.route_of_interval_cover_of_start_containment": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.route_of_face_interval_cover_of_start_containment": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.route_of_face_interval_cover_of_active_containment": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.compact_face_point_has_parent_vertex": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.exists_vertex_preserving_face_memberships": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.face_preserving_vertex_selection": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.compact_faces_shared_point_portal": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.route_of_feasible_face_covered_sequence": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.route_of_face_interval_cover_of_feasible_start_containment": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.route_of_face_interval_cover_of_feasible_active_containment": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.finite_closed_region_union": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.region_walk_of_preconnected_closed_cover": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.face_walk_to_parent_vertex_walk": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.route_of_preconnected_face_cover": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschSubsegment.linePoint_combo": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschSubsegment.linePoint_mem_segment": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschSubsegment.linePoint_mem_openSegment": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschSubsegment.segment_point_parameter": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschSubsegment.subset_of_ordered_extreme_parameters": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschSubsegment.diamLE_of_convex_subsegment": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschSubsegment.extreme_inter_of_parent_subset": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.eval_point": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.point_mem_convex": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.point_satisfies_cut": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.point_on_active_cut": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.point_at_unit_scale": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.finite_radial_scale_exists": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.point_mem_final_clip": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.point_mem_active_final_face": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.affine_dominance_on_cell": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.one_le_scale": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.le_scale": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.scale_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.scale_eq_one_or_row": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.continuous_scale": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.continuous_retract": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.retract_mem": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.retract_fixes": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.retract_eq_self_or_on_cut": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.retract_on_cut_of_exceeded": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCut.strict_cut_extreme_to_parent": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschClipLift.supporting_equality_extreme": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschClipLift.exists_extreme_above": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschClipLift.strict_all_cuts_extreme_to_parent": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschClipLift.endpoint_lift_to_outer_vertex": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.clipSet_convex": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.clipSet_compact": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.walkTrace_start": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.walkTrace_end": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.walkTrace_preconnected": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.singleton_diamLE_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.diamLE_clip_of_strict_centre": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.strict_centre_or_universal_cut": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.simultaneous_clipping_diameter_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.route_of_preconnected_face_cover_with_parent_routes": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.route_clip_of_lifted_endpoints_with_parent_routes": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.diamLE_clip_of_strict_centre_with_parent_routes": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.route_clip_from_root_with_parent_routes": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.route_of_connected_regions_with_used_labels": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.route_of_preconnected_face_cover_with_parent_routes_used_labels": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.clipRepairRegionCost_sum_eq_cut_add_old_length": [
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.route_clip_of_lifted_endpoints_with_parent_routes_used_regions": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.route_clip_of_lifted_endpoints_with_parent_routes_used_cut_faces": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.route_clip_with_parent_routes_used_regions": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.route_clip_with_parent_routes_used_cut_faces": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.route_clip_from_root_with_parent_routes_used_regions": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.route_clip_from_root_with_parent_routes_used_cut_faces": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.route_of_connected_regions_with_used_path": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.route_of_preconnected_face_cover_with_parent_routes_used_path": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.parent_vertex_portal_of_used_path_edge": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.route_of_region_walk_with_pair_specific_legs": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.route_of_connected_regions_with_pair_specific_legs": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.route_of_preconnected_face_cover_with_pair_specific_legs": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.clipRepairPairCost_sum_eq_cut_add_old_length": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.route_clip_of_lifted_endpoints_with_pair_specific_cut_legs": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.route_clip_with_pair_specific_cut_legs": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.shortest_walk_chordless": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.exists_shortest_chordless_walk": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.route_of_connected_regions_with_shortest_pair_specific_legs": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.route_of_preconnected_face_cover_with_shortest_pair_specific_legs": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.clipRepairPathRegion": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.route_clip_of_lifted_endpoints_with_shortest_pair_specific_cut_legs": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.route_clip_with_shortest_pair_specific_cut_legs": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.route_of_connected_regions_with_shortest_deferred_route_legs": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.route_of_preconnected_face_cover_with_shortest_deferred_parent_legs": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.deferred_clip_certificate_of_lifted_endpoints": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.deferred_clip_certificate": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.chordless_support_neighbor_eq_prev_or_next": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.supportNeighborFinset_card_le_two": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.mem_nonneighborSelectedFinset": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.nonneighborSelectedFinset_card_ge_sub_three": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuit.irredundant_rows_nonzero_of_mem": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuit.exists_irredundant_strict_model": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschPolynomialAccess.vertex_tight_rows_span_checked": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschPolynomialAccess.common_direction_finrank_le_neutral_rank": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschPolynomialAccess.common_direction_finrank_le_excess": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFaceDim_le_sourceOnlyRows_card": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFaceDim_le_targetOnlyRows_card": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.circuitNeutralRows_card_ge_dim_sub_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.rowCircuit_commonFaceDim_localization": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.rowCircuit_commonFaceDim_twice_le_excess_add_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.rowCircuit_neutral_kernel_eq_span": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.rowCircuit_neutral_rank_eq_dim_sub_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.rowCircuit_neutral_kernel_on_subspace_eq_span": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.rowCircuit_neutral_rank_on_subspace_eq_dim_sub_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.rowCircuit_neutral_rank_on_commonDirection_eq_commonFaceDim_sub_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.restricted_rowEval_rank_le_subrank_add_deleted": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.restricted_rowEval_defect_le_deleted": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.restricted_rowEval_effective_kernel_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.restricted_rowEval_effective_rank_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonDirection_effectiveRows_card_add_dim_le_rows_add_faceDim": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.rowCircuit_effectiveNeutral_rank_on_commonDirection_eq_faceDim_sub_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.rowCircuit_selectedEffectiveRows_defect_budget": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.rowCircuit_selectedEffectiveRows_excess_defect": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.effectiveRowsOn_commonDirection_eq_coordinateEffectiveRows": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.effectiveRowsOn_commonDirection_eq_publicCommonFaceEffectiveRows": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.rowCircuit_commonFace_subpresentation_defect_budget": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFace_coord_zero_extreme": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFace_subpresentation_effectiveRows_card_ge_dim": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.rows_ge_dimension_of_vertex": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.rowCircuit_commonFace_subpresentation_excess_defect": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFaceA_eq_zero_of_commonSourceRow": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFace_coord_endpoint_separation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFace_coord_irredundant_strict_subpresentation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.rowCircuit_commonFace_irredundant_strict_excess_defect": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFace_coord_extreme_of_parent_extreme": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFace_coord_target_extreme": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFace_edgeRefinement_ready_model": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.rowCircuit_commonFace_edgeRefinement_ready_excess_defect": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRowCount.strict_on_nonzero_rows_strict_for_valid_row": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRowCount.exists_nonzero_tight_row_of_valid_tight_row": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRowCount.exists_single_tight_point_of_irredundant": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRowCount.irredundant_rows_card_le_any_equivalent_presentation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRowCount.strict_feasibility_transfers_to_equivalent_irredundant": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRowCount.equivalent_irredundant_row_counts_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRowCount.exists_globally_minimal_irredundant_subpresentation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFace_subpresentation_exists": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFaceMinSubpresentation_spec": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFaceMinSubpresentation_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.effective_subpresentation_preserves_hpoly": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFace_minSubpresentation_effective_witness": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.rowCircuit_commonFace_minSubpresentation_excess_defect": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFace_minCount_eq_irredundant_subpresentation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFace_minCount_eq_any_irredundant_presentation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.irredundant_commonFace_rows_disjoint_strict_rows": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFace_minExcess_add_strictRows_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFace_minExcess_le_of_strictRows_card": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.row_ne_zero_of_tight_and_strict": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.closed_extreme_faces_disjoint_of_no_parent_vertex_portal": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.closed_extreme_faces_disjoint_of_region_nonadj": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFace_subset_hpolyRowFace_of_tight": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.row_strict_on_commonFace_of_disjoint_rowFaces": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFace_minExcess_add_disjoint_rowFaces_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFace_minExcess_add_disjoint_targetSlack_rowFaces_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFace_minExcess_add_selected_sub_three_le_of_chordless_rowFaces": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFace_minExcess_le_three_of_chordless_maximal_rowFace_support": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschPolynomialAccess.rowCircuitStep_adj_of_commonFace_line": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschPolynomialAccess.commonFace_line_of_dim_le_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschPolynomialAccess.rowCircuitStep_adj_of_commonFaceDim_le_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschPolynomialAccess.activeNeutralRows_displacement_eq_commonSourceRows": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschPolynomialAccess.commonSource_rank_add_commonFaceDim": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschPolynomialAccess.commonFaceDim_le_one_of_commonSource_rank": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschPolynomialAccess.rowCircuitStep_adj_of_commonSource_rank": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschPolynomialAccess.rowCircuitStep_adj_of_activeNeutral_rank": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschPolynomialAccess.rowCircuitStep_adj_of_activeNeutral_rank_dim_sub_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschPolynomialAccess.rowCircuitStep_adj_of_activeNeutralDefect_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschPolynomialAccess.activeNeutralDefect_displacement_eq_commonFaceDim_sub_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschPolynomialAccess.activeNeutralDefect_displacement_zero_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschPolynomialAccess.commonFaceDim_pos_of_displacement_ne_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschPolynomialAccess.activeNeutralDefect_add_one_eq_commonFaceDim": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschPolynomialAccess.rowCircuit_activeNeutralDefect_eq_neutral_rank_loss": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschPolynomialAccess.rowCircuitStep_nonadj_activeNeutralDefect_pos": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschPolynomialAccess.rowCircuit_vertex_pair_activeDefect_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschPolynomialAccess.rowCircuitStep_adj_of_row_excess_le_two": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschPolynomialAccess.commonFace_isClosed_of_compact_parent": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschPolynomialAccess.route_of_feasible_commonFace_carrier_budgets": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFaceAffineMap_injective": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFaceAffineMap_image_coord": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFace_diamLE_two_of_minCount_le_dim_add_two": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFace_diamLE_two_of_subpresentation_at_most": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFace_has_subpresentation_dim_add_two_of_rows_le_dim_add_two": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFace_diamLE_two_of_rows_le_dim_add_two": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.hpoly_isClosed": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.feasible_sequence_edge_route_two_mul_of_rows_le_dim_add_two": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.rowCircuitWalk_edge_route_two_mul_of_rows_le_dim_add_two": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFace_diamLE_three_of_subpresentation_at_most": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFace_diamLE_three_of_minCount_le_dim_add_three": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.feasible_sequence_edge_route_three_mul_of_carrier_minCount_le_dim_add_three": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFace_diamLE_of_subpresentation_excess_le_three": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.feasible_sequence_edge_route_of_carrier_excess_budgets_le_three": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuit.rowCircuitStep_iff_slackCircuitStep": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuit.rowCircuitWalk_to_slackCircuitWalk": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuit.rowMap_injective_of_bounded": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.rows_ge_dimension_of_bounded": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.rowCircuit_neutral_kernel_eq_span_of_bounded": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.rowCircuit_neutral_rank_eq_dim_sub_one_of_bounded": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.rowCircuit_neutral_rank_on_commonDirection_eq_commonFaceDim_sub_one_of_bounded": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.rowEval_nullity_le_supernullity_add_deleted": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFaceDim_le_sourceOnlyRows_card_add_sourceNullity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFaceDim_le_targetOnlyRows_card_add_targetNullity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFaceDim_checkpoint_localization_with_directionDefect": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.directionNeutralDefect_eq_zero_of_rowCircuit": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.rowCircuit_commonFaceDim_checkpoint_localization": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.rowCircuit_selectedEffectiveRows_defect_budget_of_reference_vertex": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.rowCircuit_selectedEffectiveRows_excess_defect_of_reference_vertex": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFace_minSubpresentation_effective_witness_of_feasible": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFaceDim_le_minSubpresentation_of_bounded_feasible": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.rowCircuit_commonFace_minSubpresentation_excess_defect_checkpoint": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.rowCircuit_selectedEffectiveRows_defect_budget_of_bounded": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.rowCircuit_selectedEffectiveRows_excess_defect_of_bounded": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.rowCircuit_commonFace_minSubpresentation_excess_defect_of_bounded": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFace_has_subpresentation_faceDim_add_minExcess": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.commonFace_diamLE_minPresentationExcess_of_le_three": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.feasible_sequence_edge_route_sum_minPresentationExcess_of_each_le_three": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschCircuitLocalization.rowCircuitWalk_edge_route_sum_minPresentationExcess_of_each_le_three": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.DeferredClipCertificate.used_carrier_excess_le_three": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.DeferredClipCertificate.route_of_used_carrier_excess_le_three": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRadial.DeferredClipCertificate.route_of_maximal_support": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschProjectiveDiscovery.shearProjection_kernel_vector": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschProjectiveDiscovery.shearProjection_chart_unique": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschProjectiveDiscovery.common_projected_vector_eq_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschProjectiveDiscovery.projected_spans_cover": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRecursiveProducts.ProductTree.diamLE": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRecursiveProducts.carrier_diamLE_rows_of_recursive_projective_model": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRecursiveProducts.route_of_used_recursive_projective_carriers": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HirschRegionRoute.interval_portal_of_start_containment": []
+  },
+  "sha256": {
+    "Definitions/Def_Hirsch_recursive_projective_products.lean": "5ee8146a43984db5cd3ae19ab6593412f0b6479f218e9f03398ecf33a9a5edd5",
+    "Solutions/PolynomialProjectiveSeparatorAlgebra.lean": "f1d506a62103d3cd0ac5679432aa562b6f67f63240425f3d6ffb8567c43c5ae3",
+    "Solutions/PolynomialRecursiveProjectiveProducts.lean": "e7fd783538080aa423ee5257ba2f717f6394ea65caf927c9560fe1a9a93e67df"
+  },
+  "source_commit": "fcbb02425dececaa9a8f7abd90c341ae99dbafac"
+}
