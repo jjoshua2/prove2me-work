@@ -1,0 +1,42 @@
+name: Sync Polynomial Hirsch frontier to Prove2Me once
+
+on:
+  pull_request:
+    types: [ready_for_review]
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    if: >-
+      github.repository == 'jjoshua2/prove2me-work' &&
+      github.event.pull_request.head.repo.full_name == 'jjoshua2/prove2me-work' &&
+      github.head_ref == 'publish/frontier-sync-2026-09-12'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - name: Check policy and frozen verification receipt
+        run: |
+          set -euo pipefail
+          python3 scripts/check_actions_policy.py
+          test -f research/COMMON_FACE_STRICT_ROW_SAVINGS_VERIFICATION_2026-09-12.md
+          grep -Fq 'run `34697559250`' research/COMMON_FACE_STRICT_ROW_SAVINGS_VERIFICATION_2026-09-12.md
+          grep -Fq 'only `propext`, `Classical.choice`, and `Quot.sound`' research/COMMON_FACE_STRICT_ROW_SAVINGS_VERIFICATION_2026-09-12.md
+      - name: Authenticated Prove2Me mission sync
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+        run: |
+          set -euo pipefail
+          python3 scripts/post_prove2me_frontier_sync_2026_09_12.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: prove2me-frontier-sync-2026-09-12
+          retention-days: 14
+          path: prove2me_frontier_sync_receipts/
+          if-no-files-found: warn
