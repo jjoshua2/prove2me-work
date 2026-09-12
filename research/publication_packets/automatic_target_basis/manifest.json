@@ -1,0 +1,20 @@
+{
+  "source_commit": "7ffa3fb3cede303c579164245f01286a49351b15",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "source_blobs": {
+    "Solutions/PolynomialVertexSpan.lean": "673e5a68f154b66556d01dd81977107329a3415e",
+    "Solutions/PolynomialAutomaticTargetBasis.lean": "6204ecf41b90092f975f4c3487c0000a21696e52"
+  },
+  "public_dependencies": {},
+  "transformations": [
+    "Omit later clipping wrapper and unused namespace opens",
+    "Unfold rowMap into its coordinate-evaluation lambda"
+  ],
+  "sha256": {
+    "solution.lean": "7a9d824180512cb901e15192903cc4514c87853bdc00ad82116d956edf115326",
+    "driver.lean": "7058d2c6565c262073bf425defaef56c1ee2b029cd33acc1b80d2becaf6c95a7",
+    "statement.lean": "2e01a52dcda0ba0bff07f5f86318553d1e7ec45ccccd3f7daf0545d11312f1a4",
+    "problem.json": "ede9631bcabf03d3263d2c4ba2c3c2366ac9612bc321560c46cbd7d812826aee",
+    "explanation.md": "5263908eb263f88275a03ea82d7cbe1ed5fff1670a43181354e25e05319a61c4"
+  }
+}
