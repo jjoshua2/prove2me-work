@@ -14,3 +14,5 @@ The previous shortest-clipping statement is valid, but its universal `hFaces` pr
 - The root remains Open with `common_face_diameter_of_dim_ge_six` as its sole open leaf.
 
 The [publication packet](publication_packets/deferred_region_costs/) contains the exact formal statement, natural-language description, standalone proof, explanation, axiom logs, hash audit, registration response, accepted verdict and authenticated live readback.
+
+The result and next steps were posted to the [mission discussion](https://prove2.me/missions/The%20Polynomial%20Hirsch%20Conjecture/discussions), comment `70d168d1-f966-4904-86f3-0afd25766a50`, with exact body and resolved-reference readback preserved in `verification/2026-09-12-sync/mission-comment.json`. GitHub integration: [PR #195](https://github.com/jjoshua2/prove2me-work/pull/195).

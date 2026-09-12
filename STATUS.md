@@ -1,6 +1,6 @@
 # Current Polynomial Hirsch frontier
 
-Synchronized 2026-09-12 with GitHub, authenticated Prove2me 0.10.3, all 46 mission discussion posts, and recursively expanded theorem dependencies.
+Synchronized 2026-09-12 with GitHub, authenticated Prove2me 0.10.3, all 46 existing mission discussion posts, and recursively expanded theorem dependencies. The new progress post is comment `70d168d1-f966-4904-86f3-0afd25766a50`.
 Repository: `jjoshua2/prove2me-work`. Baseline main: `59be0de0447b23d257aee2e3f04ac3f4b1872e1f`.
 Lean 4.30.0 / Mathlib `c5ea00351c28e24afc9f0f84379aa41082b1188f`.
 
@@ -69,6 +69,6 @@ The ridge-visible line is a complementary research direction. Its proved small-r
 
 Local targeted build passed for the integrated shortest-clipping module, chordless carrier tradeoff, and minimum-carrier routing. The new standalone theorem has its own clean axiom audit. Full evidence is under [verification/2026-09-12-sync](research/verification/2026-09-12-sync/).
 
-The sync integration preserves completed #192 publication receipts and the exact #194 theorem while excluding both temporary workflows. Those PRs are superseded by the integration PR when it merges. Do not reopen their old experiments as active work.
+[Integration PR #195](https://github.com/jjoshua2/prove2me-work/pull/195) preserves completed #192 publication receipts and the exact #194 theorem while excluding both temporary workflows. It supersedes both completed PRs; no historical experiment remains part of the active work queue. Do not reopen their old experiments as active work.
 
 Do not equate circuit steps with edges, replace a uniform polynomial by Larman/Kalai–Kleitman, infer low excess or factorization without certificates, or create circular reductions through an open ancestor.

@@ -1,0 +1,55 @@
+{
+  "id": "70d168d1-f966-4904-86f3-0afd25766a50",
+  "parent_comment_id": null,
+  "tags": [
+    "strategy",
+    "reference"
+  ],
+  "author": {
+    "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+    "username": "jjosh"
+  },
+  "body_md": "<!-- hirsch-sync-20260912-pr195-deferred-costs -->\nPublished [shortest region paths with deferred pair costs](p2m:theorem/ba2632b3-1bec-43f9-8755-960e4b04936c), with [accepted proof](p2m:solution/59a4c70a-7584-4f2e-a429-23598e316dd8). The theorem chooses a shortest/chordless region path and its actual portal pairs before the routing graph and local costs are supplied. Routes for just the selected pairs then assemble with their summed cost.\n\nThis addresses a precise interface gap in the current clipping line: PR #194 retains the same shortest mixed repair path, but its `hFaces` premise asks for routes for every pair on every cut before returning that path. Support-dependent carrier estimates therefore need the stronger deferred-cost interface. The previous theorem is valid; the new result makes this next use possible without assuming bounds for unused pairs.\n\n[GitHub integration #195](https://github.com/jjoshua2/prove2me-work/pull/195) preserves the verified #194 source and the completed #192 [closed-face publication](p2m:theorem/28f797e1-c7bd-49fd-b3b5-570c22329bdc), along with exact proof hashes and receipts. It also refreshes the research handoff and [indexes the Proved results outside the root dependency closure](https://github.com/jjoshua2/prove2me-work/blob/sync/hirsch-frontier-20260912/research/HIRSCH_UNCONNECTED_RESULTS_2026-09-12.md). The pre-submission audit found 135 such Hirsch catalog results, including 108 submitted by this account; the total includes milestones and other contributors, not just new discoveries. The new theorem has its own receipt. The default root graph omitted deep nodes, so the audit recursively expanded `/decompositions`.\n\nNext steps:\n1. Thread the deferred-cost interface through the actual simultaneous-clipping and target-cone geometry, retaining its old-edge and endpoint costs.\n2. On that same path, maximum used support `r=n-d` makes #193 force every charged carrier's excess to at most three. Apply [the public small-excess carrier routing theorem](p2m:theorem/d42af13a-a00d-4a15-b22f-19abc4f49276) and prove the total route bound. The immediate target is `D+3(n-d)`; the sharper constant requires additional neighbor counting.\n3. Resolve few-used-cut coupled high-excess cases by a global cost argument. With `r<=3` the current tradeoff gives no excess saving; even four independent calls of excess `e-1` can produce an exponential recursive upper bound. This is a limitation of the bound, not a diameter lower bound.\n\nAll six milestones are Proved. [Polynomial Hirsch](p2m:theorem/58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac) remains Open, with [common-face diameter in dimension at least six](p2m:theorem/87a8b4f4-8b58-4340-8cb9-5fd1b548d01e) the sole reported open leaf. No cosmetic graph links or new conjectural children were added.\n",
+  "deleted": false,
+  "references": [
+    {
+      "type": "solution",
+      "id": "59a4c70a-7584-4f2e-a429-23598e316dd8",
+      "name": "Hirsch.shortest_region_path_with_deferred_pair_costs",
+      "status": "ACCEPTED",
+      "parent_theorem_id": "ba2632b3-1bec-43f9-8755-960e4b04936c"
+    },
+    {
+      "type": "theorem",
+      "id": "28f797e1-c7bd-49fd-b3b5-570c22329bdc",
+      "name": "Hirsch.closed_extreme_faces_disjoint_of_no_shared_parent_extreme",
+      "status": "Proved"
+    },
+    {
+      "type": "theorem",
+      "id": "58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac",
+      "name": "Hirsch.polynomial_hirsch_conjecture",
+      "status": "Open"
+    },
+    {
+      "type": "theorem",
+      "id": "87a8b4f4-8b58-4340-8cb9-5fd1b548d01e",
+      "name": "Hirsch.common_face_diameter_of_dim_ge_six",
+      "status": "Open"
+    },
+    {
+      "type": "theorem",
+      "id": "ba2632b3-1bec-43f9-8755-960e4b04936c",
+      "name": "Hirsch.shortest_region_path_with_deferred_pair_costs",
+      "status": "Proved"
+    },
+    {
+      "type": "theorem",
+      "id": "d42af13a-a00d-4a15-b22f-19abc4f49276",
+      "name": "Hirsch.common_face_diameter_of_subpresentation_excess_le_three",
+      "status": "Proved"
+    }
+  ],
+  "created_at": "2026-09-12T16:04:32.534896+00:00",
+  "updated_at": null
+}
