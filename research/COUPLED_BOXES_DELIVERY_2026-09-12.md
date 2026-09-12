@@ -43,3 +43,11 @@ is mathematical only; only the one-cut router is implemented.
 
 Platform acceptance and final hosted verification are recorded separately
 when completed; local compilation alone is not platform acceptance.
+
+Final hosted run [34723396993](https://github.com/jjoshua2/prove2me-work/actions/runs/34723396993)
+succeeded at `163caecb77418e3bd998e0b225f8685d45dc7139`; its twelve required
+axiom reports also pass. The exact standalone matrix theorem is registered as
+[4096cd8a](https://prove2.me/theorems/4096cd8a-6bf6-4788-89be-e67f84f6c92f).
+Submission `05df606c-7c8c-42eb-9e69-794b6be48926` is pending at this integration
+checkpoint; this is not yet an acceptance claim. Poll the existing submission
+with `scripts/publish_self_contained_packet.py` and preserve its verdict.

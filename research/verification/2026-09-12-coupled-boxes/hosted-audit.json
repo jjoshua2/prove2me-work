@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "run_id": 34723396993,
+  "head_sha": "163caecb77418e3bd998e0b225f8685d45dc7139",
+  "required": [
+    "HirschPairedBases.PairedBasisModel.point_extreme",
+    "HirschPairedBases.PairedBasisModel.extreme_eq_point",
+    "HirschPairedBases.PairedBasisModel.point_adj_update",
+    "HirschPairedBases.paired_basis_diamLE",
+    "HirschPositiveBoxes.nonpos_of_le_positive_map",
+    "HirschPositiveBoxes.id_sub_injective",
+    "HirschPositiveBoxes.positive_feedback_diamLE",
+    "HirschPositiveBoxes.positive_feedback_le_top",
+    "HirschPositiveBoxes.matrix_positive_feedback_diamLE",
+    "HirschPositiveBoxes.PositiveBoxImage.diamLE",
+    "HirschRadial.DeferredClipCertificate.route_of_used_positive_box_models",
+    "HirschRadial.DeferredClipCertificate.route_of_used_positive_box_models_padded"
+  ],
+  "reports": 267
+}
