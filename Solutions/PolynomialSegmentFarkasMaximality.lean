@@ -77,8 +77,7 @@ theorem any_segment_summand_le_sharp_width
   have h₁ := mul_le_mul_of_nonneg_left hfirst hi.le
   have h₂ := mul_le_mul_of_nonneg_left hlast (le_of_lt (neg_pos.mpr hj))
   have hprod : 0 < (a i g)*(-a j g) := mul_pos hi (neg_pos.mpr hj)
-  apply (mul_le_mul_right hprod).mp
-  nlinarith [hsharp]
+  nlinarith [h₁, h₂, hsharp, hprod]
 
 /-- RHS subtraction commutes once two exact extraction amounts are justified.
 The stronger invariance of maximal amounts under transverse extraction has a
