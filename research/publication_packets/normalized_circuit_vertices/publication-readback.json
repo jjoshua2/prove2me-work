@@ -1,0 +1,17 @@
+{
+  "record_kind": "derived local artifact readback, not raw platform API response",
+  "status": "PASS",
+  "proof_sha": "cfb93bd2618cf153f8eb00b11918be3ae874b9a7",
+  "workflow_sha": "3f14b4935165598ba592b11ba7cf22d20f891260",
+  "run_id": 34783508448,
+  "artifact_id": 10325772389,
+  "zip_sha256": "921643b04ad41a185002924fcc43e8b176f7a0e52c6515213510ae143faf413b",
+  "raw_archive_files": ["pr-comment.md", "publication-receipt.json"],
+  "publication_status": "PUBLISH_PENDING",
+  "publish_job_id": "b18391ed-b0fc-4e35-8ef2-eadaf500a154",
+  "theorem_id": null,
+  "submission_id": null,
+  "accepted": false,
+  "verdict_comment_id": 5656273613,
+  "verdict_comment_created_at": "2026-09-13T21:29:40Z"
+}
