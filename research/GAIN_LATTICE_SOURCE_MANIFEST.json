@@ -1,0 +1,27 @@
+{
+  "Solutions/PolynomialGainConditioningBarrier.lean": {
+    "bytes": 4898,
+    "git_blob_sha": "ead3ce52d2cbb0018e60ec8d13eff6c400085f4a",
+    "sha256": "6b70a08f2d090b5abed7ae2234b31287cf68b314ade97293be306fbb4164fdf3"
+  },
+  "Solutions/PolynomialQuantizedGainGeometry.lean": {
+    "bytes": 4926,
+    "git_blob_sha": "5852b33063ea0a94c7e16d625079f2908db60282",
+    "sha256": "7a3a111e3adc9ad988f031f01debefa2b6c55ab5325a08738adb34da6ae43950"
+  },
+  "scripts/gain_lattice_certificate.py": {
+    "bytes": 11140,
+    "git_blob_sha": "32b476e29a859ae0c31bd1158c92d32ead8705ba",
+    "sha256": "3ca86db0552517da10ff96725cde8793c0779ea4810ca572060e6abae07e3858"
+  },
+  "scripts/gain_shadow_extension.py": {
+    "bytes": 10578,
+    "git_blob_sha": "d230d694c8cd172b91f9cac35ad0cb021bfd7ca6",
+    "sha256": "92c028d6985691d02f338efa37f87889f14eae9f32b4941511e83bcad103d783"
+  },
+  "scripts/test_gain_lattice_routing.py": {
+    "bytes": 16768,
+    "git_blob_sha": "9b031a56ee102863e90d4f9d645868e09fb465bf",
+    "sha256": "a5b17f5204a61741855066c6e0f50d271e463fce0409e4ef658307964769a690"
+  }
+}
