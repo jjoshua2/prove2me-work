@@ -1,0 +1,22 @@
+{
+  "Solutions/PolynomialCoherentCarrierCosts.lean": {
+    "bytes": 3089,
+    "git_blob_sha": "07f9dfc1f1638a70a779de0f67eda99249d127c5",
+    "sha256": "321eef38ca6389fb5ad9b37f435659533064add3c7faab618e62bceb4ba2ef14"
+  },
+  "Solutions/PolynomialCoherentCycleCones.lean": {
+    "bytes": 5051,
+    "git_blob_sha": "bdd70255954caf997c58d8e62e5f1b6ee32dd256",
+    "sha256": "3663c7d6b97fa5d04a5afc91997beec8f63823f0ee2cbfa52305c159bbf39592"
+  },
+  "scripts/coherent_gain_cones.py": {
+    "bytes": 14339,
+    "git_blob_sha": "9291ae558bc3025ebdcd29ae31cf6a97c4ebdb01",
+    "sha256": "1c27547c5e579c35abf42e9c708119b304f3ad92f7655e1332d7a372caff27ae"
+  },
+  "scripts/test_coherent_gain_cones.py": {
+    "bytes": 13965,
+    "git_blob_sha": "174d72a8d1aad6f686bdb00cbeaaf437ae058a11",
+    "sha256": "169f46b4660a99ad4005051846e21b97beb6c5b2a83a83985f12de84e60d78ee"
+  }
+}
