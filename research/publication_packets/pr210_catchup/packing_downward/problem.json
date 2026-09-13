@@ -1,0 +1,10 @@
+{
+  "theorem_name": "Hirsch.nonnegative_packing_region_downward_closed",
+  "theorem_title": "Nonnegative linear packing regions are downward closed",
+  "formal_statement": "theorem Hirsch.nonnegative_packing_region_downward_closed\n    {ι κ : Type*} [Fintype ι] [Fintype κ]\n    (Γ : κ → ι → ℝ) (b : κ → ℝ)\n    (hΓ : ∀ j i, 0 ≤ Γ j i) {s t : ι → ℝ}\n    (ht_nonnegative : ∀ i, 0 ≤ t i)\n    (ht_rows : ∀ j, (∑ i, Γ j i * t i) ≤ b j)\n    (hs_nonnegative : ∀ i, 0 ≤ s i)\n    (hst : ∀ i, s i ≤ t i) :\n    (∀ i, 0 ≤ s i) ∧ ∀ j, (∑ i, Γ j i * s i) ≤ b j := by sorry",
+  "preamble": "import Mathlib\nopen scoped BigOperators\nset_option autoImplicit false\nnoncomputable section",
+  "env": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "natural_language_statement": "Let a feasible scale vector t satisfy a finite family of linear packing inequalities whose coefficients are all nonnegative. Any other nonnegative vector s bounded coordinatewise by t is feasible as well. This elementary downward-closure property is used for exact simultaneous Minkowski-summand extraction regions: once a collection of candidate scales can be removed, reducing any subset of those scales preserves feasibility.",
+  "source": "Standalone Lean proof from PR #210 finite-summand packing work: https://github.com/jjoshua2/prove2me-work/blob/formal/dual-wall-carrier-routing/research/publication_packets/pr210_catchup/packing_downward/solution.lean",
+  "tags": ["hirsch-conjecture", "polyhedra", "minkowski-sums", "packing-polytope"]
+}
