@@ -1,0 +1,32 @@
+{
+  "Solutions/PolynomialSegmentFarkasMaximality.lean": {
+    "bytes": 4430,
+    "git_blob_sha": "7e5acecfbfd7260fa6e38b19cb73d4fc59ee2976",
+    "sha256": "8de15a4d28384eb4eb702ef683ccf6b94855d8d7bea26fb4730ee660a250e636"
+  },
+  "Solutions/PolynomialSegmentFiberEquality.lean": {
+    "bytes": 5660,
+    "git_blob_sha": "692a95f2c5accc2f3c39968c1aecf392c6fb49fe",
+    "sha256": "a3465019d27455e0e920306451a0d04e7a570523d262cff838be0e2869026c8e"
+  },
+  "scripts/exact_farkas_lp.py": {
+    "bytes": 7028,
+    "git_blob_sha": "ea511a79164d953792942d8be3dd3537646738d6",
+    "sha256": "65a8731600a6750b5334307415cd37c79d201d47e179bea5cdcbd511363006d0"
+  },
+  "scripts/hpoly_segment_peeling.py": {
+    "bytes": 8765,
+    "git_blob_sha": "97cfd2a13bb7d489df56e6e9f22cd4c10ba7a19b",
+    "sha256": "946454c8ff22e832e512d46a491ba2d934586b4d15dca38e60fc72beb4ebb9d4"
+  },
+  "scripts/recognized_segment_routes.py": {
+    "bytes": 12342,
+    "git_blob_sha": "e5d1b3102ac69f20d984e4b50b5d23c5455b1870",
+    "sha256": "de72674e1a757157d1016e61d3f501919388698ee74494ec4f5c1087bc0f8153"
+  },
+  "scripts/test_segment_peeling.py": {
+    "bytes": 19389,
+    "git_blob_sha": "5d0fc79b9362b957fe56f63298566cdb3347c28f",
+    "sha256": "b0e906fae75be7a54d8c04fcc232bfdacf28f7fc83b3d454fbf16f1bb405c8eb"
+  }
+}
