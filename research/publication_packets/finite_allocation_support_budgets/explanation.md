@@ -1,25 +1,23 @@
 # Exact finite allocation budgets from original-H primal/dual witnesses
 
-This theorem composes two already-Proved interfaces without weakening either one.
+This theorem isolates the final algebraic adapter between the already-Proved finite-allocation criterion and exact original-H support certificates.
 
-`Hirsch.finite_allocation_minkowski_criterion` chooses a fixed finite family of nonnegative null multipliers for the allocation system associated to the original row family and generator map. For each multiplier `s`, write its original-row coordinates as `lambda_s` and its allocation-total coordinate as `nu_s`. Its accepted criterion says that whole-set Minkowski reconstruction is equivalent to the pointwise tests
+Its premise `hpointwise` is exactly the form supplied by `Hirsch.finite_allocation_minkowski_criterion`: for a fixed finite multiplier family `c_s=(lambda_s,mu_s,nu_s)`, whole-set Minkowski reconstruction is equivalent to
 
 `0 <= sum_i lambda_s,i * (b_i - a_i(x) - h_i) + nu_s*t`
 
-for every original feasible `x` and every fixed multiplier `s`.
+for every original feasible `x` and every multiplier `s`.
 
 Rearranging gives
 
 `sum_i lambda_s,i*h_i - nu_s*t <= sum_i lambda_s,i*b_i - sum_i lambda_s,i*a_i(x)`.
 
-For each `s`, the hypotheses of this theorem supply nonnegative original-row weights `alpha_s` and an original feasible point `xstar_s`. The weights represent the same linear objective as `lambda_s`, and complementary slackness holds at `xstar_s`. The accepted theorem `Hirsch.primal_dual_support_budget_exact` therefore turns the universal inequality over every feasible `x` into the exact scalar inequality
+For each `s`, this theorem additionally assumes nonnegative original-row weights `alpha_s` and an original feasible point `xstar_s`. The weights represent the same linear objective as `lambda_s`, and complementary slackness holds at `xstar_s`. Finite-row weak duality then bounds that objective at every feasible `x` by `sum_i alpha_s,i*b_i`; complementary slackness and feasibility show the bound is attained at `xstar_s`. Thus the universal pointwise inequality is equivalent to the single exact scalar budget
 
 `sum_i lambda_s,i*h_i - nu_s*t <= sum_i lambda_s,i*b_i - sum_i alpha_s,i*b_i`.
 
-Applying that equivalence independently to every member of the already-fixed finite allocation family yields the displayed finite scalar criterion for whole-set Minkowski reconstruction.
+The proof performs this argument independently for every member of the already-fixed finite family and rewrites through `hpointwise`. It is self-contained Mathlib code, so the repository axiom gate does not rely on `sorry`-bearing local stand-ins for platform theorems. Mathematically it is the direct adapter for the conclusions of accepted #219 and #221; neither accepted theorem is resubmitted or modified.
 
-No boundedness, full dimensionality, simplicity, strict feasibility, Farkas sufficiency, or LP-solver correctness premise is introduced. The original H-polyhedron may be unbounded or lower-dimensional and `G` need not be injective. The support bounds `h` concern the scaled candidate at scale `t`, exactly as in the accepted finite-allocation theorem.
+No boundedness, full dimensionality, simplicity, strict feasibility, Farkas sufficiency, or LP-solver correctness premise is introduced. The theorem does not construct the multiplier family, choose the primal/dual witnesses, prove an optimizer correct, establish executable circuit enumeration, discover a useful summand, route a residual polyhedron, or prove Polynomial Hirsch.
 
-The theorem deliberately does not choose the primal/dual support witnesses, prove that an external optimizer computed them correctly, establish executable circuit enumeration, discover a useful summand, route a residual polyhedron, or prove Polynomial Hirsch. Its role is narrower: once exact support witnesses are available, the remaining universal original-point quantifier is eliminated and the finite allocation criterion becomes a finite family of explicit scalar packing budgets.
-
-The submitted proof imports the two accepted Prove2Me theorems as platform dependencies. Local repository stubs reproduce their frozen formal statements solely so the same source can be compiled by the repository's pinned Lean environment before publication. Neither accepted dependency is resubmitted or modified.
+Applied to #219's fixed multiplier family, this theorem removes the remaining universal original-point quantifier whenever the #221-style support witnesses are available, leaving one explicit numerical packing inequality per multiplier.
