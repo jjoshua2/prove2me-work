@@ -30,21 +30,22 @@ theorem cross_ratio_determinant_identity (u v : Fin 2 → ℝ) (ε : ℝ) :
 /-- Normalized areas are sines in [0,1]. The determinant identity cancels
 all four row norms and forces delta^2<=epsilon. The Euclidean normalization
 bridge is in the paper argument, not hidden in an extra geometric axiom. -/
-theorem cross_ratio_forces_small_separation (s t u v δ ε : ℝ)
-    (hs : 0≤s) (ht : 0≤t) (hu : 0≤u) (hv : 0≤v)
-    (hu1 : u≤1) (hv1 : v≤1) (hδ : 0≤δ) (hε : 0≤ε)
-    (hδs : δ≤s) (hδt : δ≤t) (he : s*t=ε*u*v) : δ^2≤ε := by
-  have hl : δ^2≤s*t := by
+theorem cross_ratio_forces_small_separation (s t u v delta epsilon : ℝ)
+    (hs : 0 ≤ s) (ht : 0 ≤ t) (hu : 0 ≤ u) (hv : 0 ≤ v)
+    (hu1 : u ≤ 1) (hv1 : v ≤ 1) (hdelta : 0 ≤ delta) (hepsilon : 0 ≤ epsilon)
+    (hdelta_s : delta ≤ s) (hdelta_t : delta ≤ t)
+    (he : s * t = epsilon * u * v) : delta ^ 2 ≤ epsilon := by
+  have hl : delta ^ 2 ≤ s * t := by
     calc
-      δ^2 = δ*δ := by ring
-      _ ≤ s*δ := mul_le_mul_of_nonneg_right hδs hδ
-      _ ≤ s*t := mul_le_mul_of_nonneg_left hδt hs
-  have huv : u*v≤1 := by
+      delta ^ 2 = delta * delta := by ring
+      _ ≤ s * delta := mul_le_mul_of_nonneg_right hdelta_s hdelta
+      _ ≤ s * t := mul_le_mul_of_nonneg_left hdelta_t hs
+  have huv : u * v ≤ 1 := by
     calc
-      u*v ≤ 1*v := mul_le_mul_of_nonneg_right hu1 hv
-      _ ≤ 1*1 := mul_le_mul_of_nonneg_left hv1 (by norm_num : (0:ℝ)≤1)
+      u * v ≤ 1 * v := mul_le_mul_of_nonneg_right hu1 hv
+      _ ≤ 1 * 1 := mul_le_mul_of_nonneg_left hv1 (by norm_num : (0 : ℝ) ≤ 1)
       _ = 1 := by ring
-  have hr := mul_le_mul_of_nonneg_left huv hε
+  have hr := mul_le_mul_of_nonneg_left huv hepsilon
   nlinarith
 
 /-- Exact occurrence-indexed accounting for degree-four local solved costs. -/

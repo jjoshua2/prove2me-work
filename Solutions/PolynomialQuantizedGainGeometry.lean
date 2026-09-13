@@ -103,7 +103,7 @@ theorem normalized_column_bound (x root denominator Γ η : ℝ)
     (hΓ : 0≤Γ) (hη : 0<η) (hroot : 0 < |root|)
     (htransport : |x| ≤ Γ*|root|) (hgap : η*|root| ≤ |denominator|) :
     |x/denominator|≤Γ/η := by
-  have hd : 0<|denominator| := lt_of_lt_of_le (mul_pos hη hroot) hgap
+  have hd : 0 < |denominator| := lt_of_lt_of_le (mul_pos hη hroot) hgap
   rw [abs_div]
   apply (div_le_div_iff₀ hd hη).mpr
   have h₁ := mul_le_mul_of_nonneg_right htransport hη.le
