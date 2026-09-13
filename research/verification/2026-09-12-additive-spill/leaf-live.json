@@ -1,0 +1,24 @@
+{
+  "theorem_id": "87a8b4f4-8b58-4340-8cb9-5fd1b548d01e",
+  "theorem_name": "Hirsch.common_face_diameter_of_dim_ge_six",
+  "theorem_title": "Polynomial diameter of common faces of dimension at least six",
+  "status": "Open",
+  "formal_statement": "namespace Hirsch\n\ntheorem common_face_diameter_of_dim_ge_six :\n    \u2203 C k : \u2115, \u2200 (d n : \u2115)\n      (a : Fin n \u2192 EuclideanSpace \u211d (Fin d)) (b : Fin n \u2192 \u211d)\n      (u x : EuclideanSpace \u211d (Fin d)),\n      Bornology.IsBounded (Hpoly a b) \u2192\n      6 \u2264 HirschCommonFace.commonFaceDim a b u x \u2192\n      (HirschCommonFace.commonFace a b u x).Nonempty \u2192\n      DiamLE (HirschCommonFace.commonFace a b u x) (C * (n + d) ^ k) := by sorry\n\nend Hirsch\n",
+  "natural_language_statement": "Polynomial combinatorial diameter of a common face of dimension at least six.\n\nDimension five is already polynomial via Larman (budget 4n). This statement isolates the remaining uniform-in-dimension content. Larman n 2^{h-3} and Kalai--Kleitman are the wrong growth for a single pair C,k independent of dimension.\n\n**Formalization Note** Walks are padded.\n",
+  "created_at": "2026-09-11T03:30:15.376839+00:00",
+  "vote_count": 0,
+  "tags": [
+    "convex-geometry",
+    "graph-diameter",
+    "hirsch-conjecture",
+    "polytopes"
+  ],
+  "preamble": "import Definitions.Def_Hirsch_common_face_geometry\n\nset_option autoImplicit false\nopen scoped RealInnerProductSpace\nopen Hirsch\n",
+  "source": "Restriction of Hirsch.common_face_diameter_of_dim_ge_five after the h=5 Larman specialization. Complementary case Hirsch.common_face_diameter_of_dim_eq_five (Proved, budget 4n).",
+  "deprecated_at": null,
+  "deprecated_by": null,
+  "visibility": "public",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "audits": [],
+  "readback": null
+}

@@ -1,0 +1,22 @@
+{
+  "Solutions/PolynomialSupportingSlackCertificates.lean": {
+    "bytes": 5824,
+    "git_blob_sha": "6bb781e9aa0ac15c2d7076f96ff0c8e1a0bc0192",
+    "sha256": "d931c573a6692d8149ec79cb8d4913f8e46a5618642fad205c10707bcb38f811"
+  },
+  "Solutions/PolynomialTransportHeavyJumps.lean": {
+    "bytes": 7158,
+    "git_blob_sha": "6720a5b19fef85599815f6cede2eebcfabffee0d",
+    "sha256": "f73cd92745d8eee036b948412cda61fcf188adb4777398d0658d7c41e2507c36"
+  },
+  "scripts/cyclic_slack_obstruction.py": {
+    "bytes": 16192,
+    "git_blob_sha": "f0bf109732be909154d98139e58033bef55d4d84",
+    "sha256": "15e564972284c858945ed20878e87e6a4d7b9e30b2719146a5cd9bb44eebd5a9"
+  },
+  "scripts/test_cyclic_slack_obstruction.py": {
+    "bytes": 10908,
+    "git_blob_sha": "beee2c9dfcf91644e9c1e7be49729b3b6c484cca",
+    "sha256": "aa5827a79d5a1e03d3f2181a54e98c2509cee3f90124f7cc1f5c16c56a5b1066"
+  }
+}
