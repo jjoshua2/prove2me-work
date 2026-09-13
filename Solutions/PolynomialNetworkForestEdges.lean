@@ -246,20 +246,19 @@ theorem tight_path_forces_target_tight
     | succ m ih =>
       rw [Finset.sum_range_succ,ih]
       ring
-  have telescope : ∀ (m : ℕ) (x : ℕ → ℝ),
-      (∑ i : Fin m, (x (i.1+1)-x (i.1)))=x m-x 0 := by
-    intro m x
-    rw [←Finset.sum_range]
-    exact telescope_range m x
-  have he : u n-u 0=∑ i,cost i := by
-    rw [←telescope n u]
-    exact Finset.sum_congr rfl (fun i _ => hu i)
-  have hv' : (∑ i : Fin n, (v (i.1+1)-v (i.1)))≤∑ i : Fin n,cost i :=
-    Finset.sum_le_sum (fun i _ => hv i)
-  rw [telescope n v,hvtarget] at hv'
-  apply le_antisymm hutarget
-  rw [he]
-  exact hv'
+  have hsum :
+      (∑ i ∈ Finset.range n, (v (i+1)-v i)) ≤
+        ∑ i ∈ Finset.range n, (u (i+1)-u i) := by
+    apply Finset.sum_le_sum
+    intro i hi
+    have hin : i < n := Finset.mem_range.mp hi
+    let fi : Fin n := ⟨i, hin⟩
+    have hvi := hv fi
+    have hui := hu fi
+    dsimp [fi] at hvi hui
+    linarith
+  rw [telescope_range n v, telescope_range n u, hvtarget] at hsum
+  exact le_antisymm hutarget hsum
 
 #print axioms value_eq_of_row_walk
 #print axioms vertex_of_connected_tight_rows
