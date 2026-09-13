@@ -1,0 +1,15 @@
+{
+  "head_sha": "6c70eff2e854bd695855a316483820ca4fc81532",
+  "packets": [
+    {
+      "packet": "primal_dual_support_budget",
+      "status": "ACCEPTED",
+      "theorem_id": "55f129fe-ef35-4046-8b9b-ad76bf2c1c13",
+      "submission_id": "7f7c3497-e656-4baf-8b14-22ae1059adad",
+      "theorem_name": "Hirsch.primal_dual_support_budget_exact",
+      "registration": "REUSED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/primal_dual_support_budget"
+    }
+  ]
+}
