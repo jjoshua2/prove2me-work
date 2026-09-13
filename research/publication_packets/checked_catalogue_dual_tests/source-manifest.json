@@ -1,0 +1,24 @@
+{
+  "base_main": "a19cafc73d2d2cf94427233b84f22c94fdc711f6",
+  "lean": "v4.30.0",
+  "mathlib": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "accepted_dependency_blocks": {
+    "catalogue_core": {
+      "source_blob": "5abad44d65cdba898021c1950e4d7235180dd58e",
+      "artifact": 10326900522,
+      "lines": 443,
+      "sha256": "4be552d387012ee5a7b1480f6329f587e520cf784bf2bdae86fcd882aa1b731d"
+    },
+    "negative_circuit_core": {
+      "source_blob": "05926a8a263bde88f5d6bb29395d32f4ff97ccf8",
+      "artifact": 10324553494,
+      "lines": 128,
+      "sha256": "68d41dd1e5daa38627725c41a60d13c03cf67aa59f72f6d9fd259493a86c3971"
+    }
+  },
+  "local_lean_available": false,
+  "local_network_attempt": "curl: (6) Could not resolve host: github.com",
+  "solution_sha256": "5f661c7b4bff18859b12611e4f2b3b8f72be0100bd99a75a3fcd09a6609d1897",
+  "solution_blob": "7e96ab326fe36b96626cd8f46bff1fcbd7680d64",
+  "new_argument": "Normalize the accepted negative support-minimal witness, transport support minimality from Finset to Function.support, and apply the checked real-catalogue equivalence. All old dependency proof bodies are byte-for-byte preserved."
+}
