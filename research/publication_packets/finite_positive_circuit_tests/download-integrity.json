@@ -1,0 +1,21 @@
+{
+  "kind": "local artifact integrity summary; not a raw Prove2Me API response",
+  "run_id": 34778403314,
+  "proof_sha": "ad4345bb17066c91b13d09ab0c8e757cbc5b65c9",
+  "workflow_main_sha": "a7db9296e6645e92048f37089f0645f8a292f27c",
+  "archive_sha256": {
+    "10323829615": "e23fb417961f7e211768350f3af1674ba19b4dfc1d303b5ae3653483b6ec53ce",
+    "10324430655": "a3f354839e2338e4a5358de1e6805a2d5b89b7fa6c8f45a4d5125127cc86c4fa",
+    "10324440494": "7026254f27ca40c2b39bca6cffb494f60c8da24ba051f0e322d803cc0ca0ae76"
+  },
+  "all_archive_digests_match_github_metadata": true,
+  "all_five_frozen_manifest_hashes_match": true,
+  "prepared_solution_problem_explanation_match_frozen_bytes": true,
+  "source_sha256": "7b64b82bf4cec0fa348bed86676911eeec2725fccdcf75018e03ac1a418f7520",
+  "source_git_blob": "ed0d7a3e17e4afcbd9301a0b44da40b56c2c6ab2",
+  "authenticated_status_source": "publication-receipt.json from trusted publication artifact 10324440494",
+  "status": "ACCEPTED",
+  "live_status": "Proved",
+  "theorem_id": "8f3c4cc7-be73-4ecf-9e17-816c710e20d7",
+  "submission_id": "3fd7936c-8271-4a24-b342-d60bfd29529f"
+}

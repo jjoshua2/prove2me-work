@@ -17,7 +17,29 @@ Submission `2976ce68-c33c-4cab-b48e-8a7f46be211a`; live status `Proved`.
 Run: https://github.com/jjoshua2/prove2me-work/actions/runs/34776731744
 Evidence: `research/publication_packets/compact_dual_minkowski/accepted-evidence.md`.
 Do not resubmit it. It is a compact-convex whole-set sufficiency lemma, not a
-proof of Polynomial Hirsch. Finite circuit completeness remains a next bridge.
+proof of Polynomial Hirsch.
+
+## Accepted algebraic finite-circuit continuation (#218)
+
+`research/publication_packets/finite_positive_circuit_tests/` is also ACCEPTED,
+with authenticated live Proved status. Its 242-line direct proof compiled and
+passed the axiom audit unchanged on the first prepared hosted gate.
+
+Theorem `Hirsch.finite_positive_circuit_dual_tests`:
+`8f3c4cc7-be73-4ecf-9e17-816c710e20d7`.
+Submission: `3fd7936c-8271-4a24-b342-d60bfd29529f`.
+Proof SHA: `ad4345bb17066c91b13d09ab0c8e757cbc5b65c9`.
+Run: https://github.com/jjoshua2/prove2me-work/actions/runs/34778403314
+Evidence: `research/publication_packets/finite_positive_circuit_tests/accepted-evidence.md`.
+Handoff: `research/FINITE_POSITIVE_CIRCUIT_HANDOFF_2026-09-13.md`.
+
+One fixed support-indexed positive-circuit family detects every linear test on
+the nonnegative kernel. The negative-certificate support reduction and
+positive-ray uniqueness are proved, not assumed. Do not resubmit this packet.
+The sharper rank+1 support bound, executable enumeration, and whole geometric
+allocation adapter remain separate. `research/FINITE_CIRCUIT_ALLOCATION_NEXT.md`
+states the exact allocation matrix and next sufficiency target. Inspect newer
+work before choosing that obligation. No Polynomial Hirsch proof is claimed.
 
 ## Commands are real, new, top-level PR comments
 
@@ -84,9 +106,11 @@ receipts before choosing work. Another agent is handling #210: leave it alone
 unless I explicitly reassign it. Continue a concrete unowned proof obligation,
 reuse accepted results and avoid duplicate decompositions or submissions.
 
-The compact_dual_minkowski packet from #216 is ACCEPTED; do not resubmit it.
-Work toward its finite-circuit bridge or the actual current frontier. Preserve
-assumptions and the Lean/Mathlib pin; compile locally where available.
+The compact_dual_minkowski packet from #216 and finite_positive_circuit_tests
+packet from #218 are ACCEPTED; do not resubmit either. Work toward the exact
+allocation adapter in FINITE_CIRCUIT_ALLOCATION_NEXT.md or the actual newer
+frontier. Preserve assumptions and the Lean/Mathlib pin; compile locally where
+available.
 
 When a complete packet is ready on an open same-repo PR, actually post a NEW
 top-level PR comment with first line:

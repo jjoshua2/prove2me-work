@@ -1,0 +1,17 @@
+{
+  "kind": "local preparation record; NOT Lean or platform verification",
+  "base_main": "a7db9296e6645e92048f37089f0645f8a292f27c",
+  "lean_toolchain": "leanprover/lean4:v4.30.0",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "local_lean": "not installed; command -v lean and command -v lake returned no path",
+  "network_preflight": "git ls-remote failed: Could not resolve host: github.com",
+  "protected_pr_210_head_observed": "9b077abd1c537a7388acbaefd0f771ad63261b5c",
+  "pr_208_head_observed": "6446efee979b57d07b46215ec3f64efa1332329f",
+  "pr_208_existing_submission": "2a2dd9bd-9ee5-43fa-bc04-def26a5a2a98 (pending in handoff; no new poll or submission)",
+  "accepted_pr_216_submission": "2976ce68-c33c-4cab-b48e-8a7f46be211a (not resubmitted)",
+  "source_sha256": "7b64b82bf4cec0fa348bed86676911eeec2725fccdcf75018e03ac1a418f7520",
+  "checks": ["problem JSON parses", "formal type mechanically extracted from theorem solution header", "source reviewed against pinned finite-minimum and support APIs"],
+  "lean_compilation": "NOT RUN",
+  "axiom_audit": "NOT RUN",
+  "platform_submission": "NOT YET REQUESTED"
+}
