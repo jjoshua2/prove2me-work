@@ -118,7 +118,6 @@ theorem segment_equality_of_pair_widths
             rw [hUi]
             exact pair
           have hbound : (τ-U)*(-a j g) ≤ b j-a j x := by
-            apply (mul_le_mul_left hip).mp
             nlinarith [pair']
           by_cases hdiff : τ-U ≤ 0
           · have ht : t=0 := max_eq_left hdiff
