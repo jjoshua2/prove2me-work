@@ -34,6 +34,10 @@ AUDIT_FILES = ("driver.lean", "solution.lean", "statement.lean")
 FORBIDDEN = re.compile(r"\b(sorry|admit|native_decide)\b|^\s*(axiom|opaque)\s", re.M)
 COMMAND = re.compile(r"^/prove2me\s+(publish|verify)(?:\s+(.*))?$")
 TARGET_NAME = re.compile(r"^[A-Za-z][A-Za-z0-9_]*(\.[A-Za-z][A-Za-z0-9_]*)*$")
+PREAMBLE_DECL = re.compile(
+    r"(?m)^[ \t]*(?:(?:private|protected|noncomputable|unsafe|partial)\s+)*"
+    r"(?:def|structure|class|inductive|abbrev|theorem|lemma|instance|opaque|axiom|alias)\b"
+)
 SECRETISH = re.compile(r"p2m_[A-Za-z0-9]+|Bearer\s+\S+", re.I)
 TERMINAL_VERIFY = frozenset(
     {"ACCEPTED", "SKETCH_ACCEPTED", "CE", "WA", "SORRY", "FAILED", "ERROR"}
@@ -103,6 +107,11 @@ def parse_comment(body: str, actor: str) -> dict[str, Any]:
             targets.extend(normalize_target(part) for part in token.split(",") if part)
             taking_targets = False
             continue
+        if TARGET_NAME.match(token) and "." in token:
+            raise RequestError(
+                f"{token} looks like a Lake module. --targets consumes one token; "
+                "write --targets Mod.A,Mod.B or --targets=Mod.A,Mod.B"
+            )
         packets.append(token)
     if taking_targets:
         raise RequestError("--targets requires a Lake module name")
@@ -238,6 +247,35 @@ def build_targets(workspace: Path, targets: list[str]) -> None:
         raise RuntimeError(f"lake build failed for {' '.join(targets)}:\n{output}")
 
 
+def strip_lean_comments(text: str) -> str:
+    text = re.sub(r"/--.*?-/", " ", text, flags=re.S)
+    text = re.sub(r"/-.*?-/", " ", text, flags=re.S)
+    return re.sub(r"--[^\n]*", " ", text)
+
+
+def assert_preamble_platform_safe(problem: dict[str, Any], source: Path | None = None) -> None:
+    """Reject custom declarations in the registered preamble.
+
+    Prove2Me elaborates ``preamble + formal_statement`` as the target type, then
+    checks that a self-contained ``theorem solution`` has that same type.
+    Local compilation of statement.lean and solution.lean separately cannot see
+    that composition. A preamble ``structure``/``def`` that solution.lean also
+    redeclares is a classic WA: two isomorphic but distinct types.
+    """
+    preamble = str(problem.get("preamble") or "")
+    match = PREAMBLE_DECL.search(strip_lean_comments(preamble))
+    if match is None:
+        return
+    where = source.as_posix() if source is not None else "problem.json"
+    raise RequestError(
+        f"{where} preamble contains a local {match.group(0).strip()} declaration. "
+        "Prove2Me preambles may only hold imports, opens, variables, and options. "
+        "Publish reusable symbols with submit-definition, or inline the type using "
+        "Mathlib / Definitions.Def_* names so the registered target and theorem "
+        "solution have the same type."
+    )
+
+
 def generate_driver(solution: str) -> str:
     if "#print axioms solution" in solution:
         return solution if solution.endswith("\n") else solution + "\n"
@@ -267,6 +305,7 @@ def copy_packet(source: Path, destination: Path) -> dict[str, str]:
     problem = None
     if problem_path.is_file():
         problem = load_json(problem_path)
+        assert_preamble_platform_safe(problem, source / "problem.json")
         (destination / "problem.json").write_text(
             problem_path.read_text(encoding="utf-8"), encoding="utf-8"
         )
