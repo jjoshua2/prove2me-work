@@ -1,0 +1,12 @@
+{
+  "kind": "exact-rational-sanity-check-not-Lean-verification",
+  "matrix": [[1, 1, -1, 0]],
+  "normalized_rays": [["1/2", "0", "1/2", "0"], ["0", "1/2", "1/2", "0"], ["0", "0", "0", "1"]],
+  "rhs_vectors": 625,
+  "nonnegative_kernel_vectors_per_rhs": 125,
+  "total_pairings": 78125,
+  "negative_pairings_with_supported_normalized_ray_witness": 35816,
+  "closed_rhs_conditions": ["b0+b2 >= 0", "b1+b2 >= 0", "b3 >= 0"],
+  "method": "Enumerate b in {-2,-1,0,1,2}^4 and w=(a,c,a+c,d) for a,c,d in {0,1,2,3,4}, using exact fractions. Check ray inequalities against the displayed scalar conditions, nonnegative pairings whenever all ray tests pass, and a supported negative normalized ray for every negative pairing.",
+  "solution_sha256": "5f661c7b4bff18859b12611e4f2b3b8f72be0100bd99a75a3fcd09a6609d1897"
+}
