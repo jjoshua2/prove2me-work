@@ -1,0 +1,15 @@
+{
+  "theorem_name": "Hirsch.primal_dual_support_budget_exact",
+  "theorem_title": "Primal-dual support witnesses collapse universal row budgets",
+  "formal_statement": "namespace Hirsch\ntheorem primal_dual_support_budget_exact\n    {E ι : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E] [Fintype ι]\n    (a : ι → E →L[ℝ] ℝ) (b lambda alpha : ι → ℝ)\n    (xstar : E) (K : ℝ)\n    (halpha : ∀ i, 0 ≤ alpha i)\n    (hxstar : ∀ i, a i xstar ≤ b i)\n    (hforms : ∀ x : E,\n      (∑ i, lambda i * a i x) = ∑ i, alpha i * a i x)\n    (hcomp : ∀ i, alpha i * (b i - a i xstar) = 0) :\n    ((∀ x : E, (∀ i, a i x ≤ b i) →\n        K ≤ (∑ i, lambda i * b i) - ∑ i, lambda i * a i x) ↔\n      K ≤ (∑ i, lambda i * b i) - ∑ i, alpha i * b i) := by sorry\nend Hirsch",
+  "natural_language_statement": "For a finite H-system a_i(x) <= b_i, suppose alpha is a nonnegative row-multiplier certificate for the same linear objective as lambda, and a feasible point xstar satisfies complementary slackness for alpha. Then xstar is an exact maximizer of that objective over the H-system. Consequently, a universal budget inequality K <= lambda·b - lambda·a(x) for every feasible x is equivalent to the single scalar inequality K <= lambda·b - alpha·b. This is the exact support-optimality bridge needed to turn the remaining universal original-point tests in finite Minkowski extraction into certified numerical packing budgets.",
+  "preamble": "import Mathlib\nopen scoped BigOperators",
+  "env": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "source": "Finite-dimensional linear-programming weak duality plus complementary slackness, written directly as a finite-row Mathlib theorem. No LP solver, Farkas theorem, compactness, boundedness, strict feasibility, or diameter premise is assumed. Intended to compose with the accepted finite allocation Minkowski criterion 09c33216-ba2f-4c9f-b75e-e9d8279e8358.",
+  "tags": [
+    "hirsch-conjecture",
+    "linear-inequalities",
+    "linear-programming",
+    "convex-geometry"
+  ]
+}
