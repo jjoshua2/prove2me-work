@@ -60,12 +60,13 @@ lemma base_le_positive_power (q : ℝ) (hq : 1≤q) (k : ℕ) : q≤q^(k+1) := b
       q ≤ q^(k+1) := ih
       _ = q^(k+1)*1 := by ring
       _ ≤ q^(k+1)*q := mul_le_mul_of_nonneg_left hq hp
-      _ = q^(k+1+1) := by rw [pow_succ]
+      _ = q^(k+1+1) := by
+        exact (pow_succ q (k+1)).symm
 
 lemma inverse_le_one_of_base (q : ℝ) (hq : 1<q) : q⁻¹≤1 := by
   have hp : 0<q := by linarith
-  apply (mul_le_mul_left hp).mp
-  simpa [mul_inv_cancel₀ (ne_of_gt hp)] using hq.le
+  have h := mul_le_mul_of_nonneg_right hq.le (inv_nonneg.mpr hp.le)
+  simpa [mul_inv_cancel₀ (ne_of_gt hp)] using h
 
 /-- The gap 1-q^-1 also applies to positive powers, whose gap is actually larger. -/
 theorem positive_power_gap (q : ℝ) (hq : 1<q) (k : ℕ) :
@@ -83,11 +84,7 @@ theorem reciprocal_power_gap (q : ℝ) (hq : 1<q) (k : ℕ) :
   have hp := base_le_positive_power q hq.le k
   have hqpos : 0<q := by linarith
   have hrpos : 0<q^(k+1) := lt_of_lt_of_le hqpos hp
-  have hi : (q^(k+1))⁻¹≤q⁻¹ := by
-    apply (mul_le_mul_left hrpos).mp
-    rw [mul_inv_cancel₀ (ne_of_gt hrpos)]
-    have hm := mul_le_mul_of_nonneg_right hp (inv_nonneg.mpr hqpos.le)
-    simpa [mul_inv_cancel₀ (ne_of_gt hqpos)] using hm
+  have hi : (q^(k+1))⁻¹≤q⁻¹ := (inv_le_inv₀ hrpos hqpos).2 hp
   have htop := inverse_le_one_of_base q hq
   rw [abs_of_nonneg (by linarith : 0≤1-(q^(k+1))⁻¹)]
   linarith
@@ -103,8 +100,8 @@ theorem negative_sign_cycle_gap (q x : ℝ) (hq : 0<q) (hx : 0≤x) :
 /-- Normalize a deleted-row kernel column. The root-ratio and cycle-gap
 premises are supplied by the concrete graph proof, not by a determinant bound. -/
 theorem normalized_column_bound (x root denominator Γ η : ℝ)
-    (hΓ : 0≤Γ) (hη : 0<η) (hroot : 0<|root|)
-    (htransport : |x|≤Γ*|root|) (hgap : η*|root|≤|denominator|) :
+    (hΓ : 0≤Γ) (hη : 0<η) (hroot : 0 < |root|)
+    (htransport : |x| ≤ Γ*|root|) (hgap : η*|root| ≤ |denominator|) :
     |x/denominator|≤Γ/η := by
   have hd : 0<|denominator| := lt_of_lt_of_le (mul_pos hη hroot) hgap
   rw [abs_div]

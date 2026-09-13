@@ -79,6 +79,7 @@ theorem dual_margin_ball (a dual : ι → E) (c : E) (r : ℝ)
   simp only [inner_neg_left,norm_neg] at h
   have hn := mul_le_mul_of_nonneg_right hw (norm_nonneg (dual i))
   have hm := hmargin i
+  change 0 ≤ ⟪c+w,dual i⟫
   rw [inner_add_left]
   linarith
 

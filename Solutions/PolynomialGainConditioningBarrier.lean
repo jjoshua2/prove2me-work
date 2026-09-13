@@ -34,10 +34,16 @@ theorem cross_ratio_forces_small_separation (s t u v δ ε : ℝ)
     (hs : 0≤s) (ht : 0≤t) (hu : 0≤u) (hv : 0≤v)
     (hu1 : u≤1) (hv1 : v≤1) (hδ : 0≤δ) (hε : 0≤ε)
     (hδs : δ≤s) (hδt : δ≤t) (he : s*t=ε*u*v) : δ^2≤ε := by
-  have hl := mul_le_mul hδs hδt hδ hs
+  have hl : δ^2≤s*t := by
+    calc
+      δ^2 = δ*δ := by ring
+      _ ≤ s*δ := mul_le_mul_of_nonneg_right hδs hδ
+      _ ≤ s*t := mul_le_mul_of_nonneg_left hδt hs
   have huv : u*v≤1 := by
-    have h := mul_le_mul hu1 hv1 hv (by norm_num : (0:ℝ)≤1)
-    simpa using h
+    calc
+      u*v ≤ 1*v := mul_le_mul_of_nonneg_right hu1 hv
+      _ ≤ 1*1 := mul_le_mul_of_nonneg_left hv1 (by norm_num : (0:ℝ)≤1)
+      _ = 1 := by ring
   have hr := mul_le_mul_of_nonneg_left huv hε
   nlinarith
 
