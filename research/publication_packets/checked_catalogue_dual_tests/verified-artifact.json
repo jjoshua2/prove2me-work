@@ -1,0 +1,25 @@
+{
+  "head_sha": "8da78fd4f3d880fa053446d8170e11aa501cb43e",
+  "packets": [
+    {
+      "path": "research/publication_packets/checked_catalogue_dual_tests",
+      "name": "checked_catalogue_dual_tests",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "5f661c7b4bff18859b12611e4f2b3b8f72be0100bd99a75a3fcd09a6609d1897",
+        "driver.lean": "5f661c7b4bff18859b12611e4f2b3b8f72be0100bd99a75a3fcd09a6609d1897",
+        "statement.lean": "b80c86b6b180ddae9fbf171ac882bfa7075857561505f048d3d8f7864c8d1c22",
+        "problem.json": "d22fc3e8baf80b96c36de90aaad68b28781c9cdc7ea33df6b060c4f6c7f28e45",
+        "explanation.md": "835d2f05a600b1e683312d42c53c95b68a1283d3bd7236cc948471d08732a66d"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}
