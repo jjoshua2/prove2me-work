@@ -1,0 +1,25 @@
+{
+  "head_sha": "cfb93bd2618cf153f8eb00b11918be3ae874b9a7",
+  "packets": [
+    {
+      "path": "research/publication_packets/normalized_circuit_vertices",
+      "name": "normalized_circuit_vertices",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "4ce913d2d0b0fe5c1f7cb69c7d53b0dc8c1a6ad6553a074855ffedc9d3b55020",
+        "driver.lean": "4ce913d2d0b0fe5c1f7cb69c7d53b0dc8c1a6ad6553a074855ffedc9d3b55020",
+        "statement.lean": "828bb0c9ade4391a7d5c79d64c852d98f124e064aadeb38195a047a12b359372",
+        "problem.json": "8cb88b1e77ff466609e994befd256dc86ccd4c02bf575d6475f4a538593be896",
+        "explanation.md": "fa38c63d307025f30571e4eeab0b9edb93b5976072538b507a9ec186044df1bc"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}

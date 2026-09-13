@@ -1,0 +1,14 @@
+{
+  "head_sha": "cfb93bd2618cf153f8eb00b11918be3ae874b9a7",
+  "packets": [
+    {
+      "packet": "normalized_circuit_vertices",
+      "status": "PUBLISH_PENDING",
+      "publish_job_id": "b18391ed-b0fc-4e35-8ef2-eadaf500a154",
+      "theorem_name": "Hirsch.normalized_positive_circuits_iff_extreme_points",
+      "registration": "QUEUED",
+      "reason": "problem registration is still pending; rerun resumes this exact job",
+      "path": "research/publication_packets/normalized_circuit_vertices"
+    }
+  ]
+}
