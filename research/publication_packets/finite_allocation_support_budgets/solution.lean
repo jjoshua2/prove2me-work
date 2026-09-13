@@ -21,7 +21,7 @@ theorem solution
     (xstar : Finset (Fin m ⊕ Option (Fin k)) → E)
     (halpha : ∀ s i, 0 ≤ alpha s i)
     (hxstar : ∀ s i, a i (xstar s) ≤ b i)
-    (hforms : ∀ s x : E,
+    (hforms : ∀ s, ∀ x : E,
       (∑ i, c s (.inl i) * a i x) = ∑ i, alpha s i * a i x)
     (hcomp : ∀ s i, alpha s i * (b i - a i (xstar s)) = 0) :
     (({x : E | ∀ i, a i x ≤ b i} =
