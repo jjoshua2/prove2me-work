@@ -1,0 +1,10 @@
+{
+  "theorem_name": "Hirsch.positive_weighted_support_equals_common_tight_face",
+  "theorem_title": "A positive weighted sum of supporting inequalities exposes exactly their common tight face",
+  "formal_statement": "theorem Hirsch.positive_weighted_support_equals_common_tight_face\n    {E : Type*} [AddCommGroup E] [Module ℝ E]\n    {ι : Type*} [Fintype ι]\n    (P : Set E) (a : ι → E →ₗ[ℝ] ℝ) (b w : ι → ℝ)\n    (hw : ∀ i, 0 < w i)\n    (hb : ∀ i, ∀ x ∈ P, a i x ≤ b i) :\n    {x : E | x ∈ P ∧ (∑ i, w i * a i x) = (∑ i, w i * b i)} =\n      {x : E | x ∈ P ∧ ∀ i, a i x = b i} := by sorry",
+  "preamble": "import Mathlib\nopen Set\nopen scoped BigOperators",
+  "env": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "natural_language_statement": "Let finitely many linear functionals be bounded above on a set P by values b_i, and give every row a strictly positive weight w_i. A point of P attains the weighted sum of all upper bounds if and only if it attains every individual upper bound. Hence the supporting face exposed by the positive weighted sum is exactly the common tight face of all the component inequalities.",
+  "source": "Standalone proof extracted from PR #210 support-intersection work: https://github.com/jjoshua2/prove2me-work/blob/formal/dual-wall-carrier-routing/research/publication_packets/pr210_catchup/positive_weighted_common_face/solution.lean",
+  "tags": ["hirsch-conjecture", "polyhedra", "supporting-faces", "convex-geometry"]
+}
