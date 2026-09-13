@@ -1,0 +1,32 @@
+{
+  "Solutions/PolynomialFiniteSummandObstructions.lean": {
+    "bytes": 5435,
+    "git_blob_sha": "8ca2422b59573f5988934a67269aed9ea0eeb61f",
+    "sha256": "7e97aa941ee40729d4fc081356f67afa28ede40bdc16d56b2b3b8dfd5f4947b3"
+  },
+  "Solutions/PolynomialJointExtractionGeometry.lean": {
+    "bytes": 2920,
+    "git_blob_sha": "d046d5000b81bc97b1d953c8990c54627722e757",
+    "sha256": "83290305a17b5b825dba81d7b67e84935a4d79b9d560b8d2e93925313bbd7b16"
+  },
+  "scripts/finite_summand_capacity.py": {
+    "bytes": 10059,
+    "git_blob_sha": "c62cb97d6be7536b4829fc58e725daf705231740",
+    "sha256": "448c529dfa249328b87d3ba1664af2ad633a6c0aa1a25c214050cb8542be18e7"
+  },
+  "scripts/joint_summand_region.py": {
+    "bytes": 7570,
+    "git_blob_sha": "42ef4bd97720d0e38a327d9a7d049e9f69aa371e",
+    "sha256": "314f27fa59525f1421560c945f23ed6c3b74874f04a8ad156aa5d575dae40954"
+  },
+  "scripts/recognized_finite_summand_routes.py": {
+    "bytes": 7906,
+    "git_blob_sha": "09973171d399dfe42f4a1c3a5536a43e75cdba8b",
+    "sha256": "ffeccfcb97802b59a4c602cdaa5c18b61d558c4a8c46c369b7bd9ff7c67893e7"
+  },
+  "scripts/test_finite_summand_capacity.py": {
+    "bytes": 16756,
+    "git_blob_sha": "974a233d735aacaab2cdd43a1f4cdcd98f5fdaa2",
+    "sha256": "5d86e4ea6b7961a5f2e952601f4c1f2395beba2dcddfa745655b4696386de5df"
+  }
+}
