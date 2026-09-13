@@ -1,0 +1,27 @@
+{
+  "Solutions/PolynomialDualSweepRouting.lean": {
+    "bytes": 5340,
+    "git_blob_sha": "64e28a4124530a6c450692bc0262ba9df1b047ac",
+    "sha256": "51882658a111f927036aaa63257bc06dce668c901858fbaefb98c2e748a7d8fe"
+  },
+  "Solutions/PolynomialMinkowskiExposedEdges.lean": {
+    "bytes": 9411,
+    "git_blob_sha": "18faedac795d8bfbbeccd7fa44065c54cbe1e900",
+    "sha256": "be0c5a6fa681570b73af266be5767ce85724830dd93957225d6b5f22e6ab5cac"
+  },
+  "Solutions/PolynomialSeparatedFacetStars.lean": {
+    "bytes": 2852,
+    "git_blob_sha": "32fea7bd7efe8ec066dcb7ba94aff3a7856e7385",
+    "sha256": "550c02c44b0d07513a2bb32b56837658c8941240c279874804d63eb6592fe418"
+  },
+  "scripts/minkowski_wall_sweep.py": {
+    "bytes": 13346,
+    "git_blob_sha": "2b96e94e71cd30c1370cbc2580716281ae59c2f0",
+    "sha256": "63d09a8a962581f0f67d257d958cae3d07e9eaf2f82e8240eecb7c18aea250ab"
+  },
+  "scripts/test_minkowski_wall_sweep.py": {
+    "bytes": 20430,
+    "git_blob_sha": "2450326d48b600e1d6da1f9789f215211c1bee38",
+    "sha256": "0ee97a97905deb2cc4e62683021800a78b53ef91577172842c1e576f7dba902e"
+  }
+}
