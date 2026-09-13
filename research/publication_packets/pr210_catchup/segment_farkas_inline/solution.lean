@@ -115,7 +115,7 @@ theorem solution
           · have ht : t = τ-U := max_eq_right (le_of_not_ge hdiff)
             rw [ht]
             nlinarith
-    · rfl
+    · module
   · rintro x ⟨p, hp, t, ht, htτ, rfl⟩ i
     have h := hp i
     have hs := segment_scalar_bound (a i g) t τ ht htτ
