@@ -22,7 +22,7 @@ variable {ι ε : Type*} [Fintype ι] [DecidableEq ι]
 
 lemma sum_eq_group (I : Finset ι) (f : ι → ℝ)
     (hz : ∀ i, i ∉ I → f i = 0) :
-    (∑ i, f i) = ∑ i in I, f i := by
+    (∑ i, f i) = ∑ i ∈ I, f i := by
   symm
   apply Finset.sum_subset (Finset.subset_univ I)
   intro i _ hi
@@ -36,10 +36,10 @@ theorem global_budget_iff_group_budgets
     (hs : ∀ i, 0 ≤ scale i) (hl : ∀ e i, 0 ≤ length e i)
     (hcover : ∀ e, ∃ I ∈ groups, ∀ i, i ∉ I → length e i = 0) :
     (∀ e, (∑ i, scale i * length e i) ≤ capacity e) ↔
-      (∀ I ∈ groups, ∀ e, (∑ i in I, scale i * length e i) ≤ capacity e) := by
+      (∀ I ∈ groups, ∀ e, (∑ i ∈ I, scale i * length e i) ≤ capacity e) := by
   constructor
   · intro h I _ e
-    have hsub : (∑ i in I, scale i * length e i) ≤
+    have hsub : (∑ i ∈ I, scale i * length e i) ≤
         ∑ i, scale i * length e i := by
       apply Finset.sum_le_sum_of_subset_of_nonneg (Finset.subset_univ I)
       intro i _ _
@@ -59,7 +59,7 @@ theorem violated_budget_has_group_witness
     (capacity : ℝ)
     (hcover : ∃ I ∈ groups, ∀ i, i ∉ I → length i = 0)
     (hbad : capacity < ∑ i, scale i * length i) :
-    ∃ I ∈ groups, capacity < ∑ i in I, scale i * length i := by
+    ∃ I ∈ groups, capacity < ∑ i ∈ I, scale i * length i := by
   obtain ⟨I,hI,hzero⟩ := hcover
   refine ⟨I,hI,?_⟩
   have he := sum_eq_group I (fun i => scale i * length i)
