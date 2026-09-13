@@ -1,0 +1,22 @@
+{
+  "proof_head": "29fed598b7e8d0b2e99d5f5bd6c2ddb4edf780c1",
+  "run_id": 34782262056,
+  "verified_artifact_id": 10325012985,
+  "verified_artifact_sha256": "727972bb037735c7fc8e85279dadf08651298c7e70832e27dca2ea309fbe1a5a",
+  "packet": "research/publication_packets/positive_circuit_rank",
+  "compile": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "axioms": ["Classical.choice", "Quot.sound", "propext"],
+  "solution_sha256": "5360f2a04a68b580552470ba42d1fa011eec5a73275c1c9b7766475fea028ddc",
+  "statement_sha256": "344e4bbd9fdbc436aa75fa8bd6c65bd4634a1d42e3abc13d89584282e430483b",
+  "publication": {
+    "status": "REGISTRATION_POLL_TIMEOUT",
+    "receipt": null,
+    "theorem_id": null,
+    "submission_id": null,
+    "detail": "Trusted publisher timed out after 180 seconds while waiting for the asynchronous submit-problem publish job. No theorem ID or verification submission was observed. Do not resubmit until the existing registration job is resolved or safely recovered."
+  }
+}
