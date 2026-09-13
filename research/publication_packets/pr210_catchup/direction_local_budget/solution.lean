@@ -5,7 +5,7 @@ noncomputable section
 
 private lemma sum_eq_group {ι : Type*} [Fintype ι] [DecidableEq ι]
     (I : Finset ι) (f : ι → ℝ) (hz : ∀ i, i ∉ I → f i = 0) :
-    (∑ i, f i) = ∑ i in I, f i := by
+    (∑ i, f i) = ∑ i ∈ I, f i := by
   symm
   apply Finset.sum_subset (Finset.subset_univ I)
   intro i _ hi
@@ -18,10 +18,10 @@ theorem solution
     (hs : ∀ i, 0 ≤ scale i) (hl : ∀ e i, 0 ≤ length e i)
     (hcover : ∀ e, ∃ I ∈ groups, ∀ i, i ∉ I → length e i = 0) :
     (∀ e, (∑ i, scale i * length e i) ≤ capacity e) ↔
-      (∀ I ∈ groups, ∀ e, (∑ i in I, scale i * length e i) ≤ capacity e) := by
+      (∀ I ∈ groups, ∀ e, (∑ i ∈ I, scale i * length e i) ≤ capacity e) := by
   constructor
   · intro h I _ e
-    have hsub : (∑ i in I, scale i * length e i) ≤ ∑ i, scale i * length e i := by
+    have hsub : (∑ i ∈ I, scale i * length e i) ≤ ∑ i, scale i * length e i := by
       apply Finset.sum_le_sum_of_subset_of_nonneg (Finset.subset_univ I)
       intro i _ _
       exact mul_nonneg (hs i) (hl e i)
