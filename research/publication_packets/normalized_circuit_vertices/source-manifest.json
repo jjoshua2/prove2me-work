@@ -1,0 +1,9 @@
+{
+  "files": {
+    "explanation.md": "fa38c63d307025f30571e4eeab0b9edb93b5976072538b507a9ec186044df1bc",
+    "problem.json": "8cb88b1e77ff466609e994befd256dc86ccd4c02bf575d6475f4a538593be896",
+    "solution.lean": "4ce913d2d0b0fe5c1f7cb69c7d53b0dc8c1a6ad6553a074855ffedc9d3b55020"
+  },
+  "reused": "#218 support/pruning/same-support-ray helpers; #25 decomposition is not resubmitted",
+  "status": "prepared, not locally Lean-compiled"
+}
