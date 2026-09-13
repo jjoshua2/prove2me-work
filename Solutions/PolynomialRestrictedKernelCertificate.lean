@@ -71,7 +71,7 @@ theorem rref_basis_certificate_restricted_kernel_one_ray
         intro l _
         rw [hcol i hxi l]
       _ = z i - (x i / x j) * z j := by
-        simp [mul_sub, Finset.sum_sub_distrib]
+        simp [mul_sub, Finset.sum_sub_distrib, mul_comm]
   intro z hz hzx
   refine ⟨z j / x j, ?_⟩
   funext i
