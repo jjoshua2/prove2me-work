@@ -51,8 +51,11 @@ theorem mem_eroded_simplexSum_iff
   · rintro ⟨p,hp,z,hz,hx⟩
     refine ⟨z,hz,?_⟩
     intro i
-    have he := congrArg (fun w : E => a i w) hx
-    rw [map_add,apply_combination] at he
+    have he : a i x = a i p + ∑ j, z j * a i (g j) := by
+      calc
+        a i x = a i (p + combination g z) := congrArg (a i) hx
+        _ = a i p + a i (combination g z) := map_add (a i) p (combination g z)
+        _ = a i p + ∑ j, z j * a i (g j) := by rw [apply_combination]
     have hi := hp i
     linarith
   · rintro ⟨z,hz,hi⟩
@@ -84,16 +87,16 @@ theorem eroded_simplexSum_subset
 /-- Finite signed elimination identity. In the application V_ij=a_i(g_j)
 and R_i=b_i-a_i(x). All columns are bounded by gamma. -/
 theorem simplex_obstruction_bound
-    (V : ι → κ → ℝ) (R h λ : ι → ℝ) (z : κ → ℝ) (t γ : ℝ)
-    (hλ : ∀ i, 0 ≤ λ i) (hz : coefficients t z) (hγ : 0 ≤ γ)
-    (hcol : ∀ j, (∑ i, λ i*V i j) ≤ γ)
+    (V : ι → κ → ℝ) (R h lam : ι → ℝ) (z : κ → ℝ) (t γ : ℝ)
+    (hlam : ∀ i, 0 ≤ lam i) (hz : coefficients t z) (hγ : 0 ≤ γ)
+    (hcol : ∀ j, (∑ i, lam i*V i j) ≤ γ)
     (hlift : ∀ i, t*h i-R i ≤ ∑ j, z j*V i j) :
-    t*((∑ i, λ i*h i)-γ) ≤ ∑ i, λ i*R i := by
-  have hs : (∑ i, λ i*(t*h i-R i)) ≤
-      ∑ i, λ i*(∑ j, z j*V i j) :=
-    Finset.sum_le_sum (fun i _ => mul_le_mul_of_nonneg_left (hlift i) (hλ i))
-  have he : (∑ i, λ i*(∑ j, z j*V i j)) =
-      ∑ j, z j*(∑ i, λ i*V i j) := by
+    t*((∑ i, lam i*h i)-γ) ≤ ∑ i, lam i*R i := by
+  have hs : (∑ i, lam i*(t*h i-R i)) ≤
+      ∑ i, lam i*(∑ j, z j*V i j) :=
+    Finset.sum_le_sum (fun i _ => mul_le_mul_of_nonneg_left (hlift i) (hlam i))
+  have he : (∑ i, lam i*(∑ j, z j*V i j)) =
+      ∑ j, z j*(∑ i, lam i*V i j) := by
     simp_rw [Finset.mul_sum]
     rw [Finset.sum_comm]
     apply Finset.sum_congr rfl
@@ -101,14 +104,14 @@ theorem simplex_obstruction_bound
     apply Finset.sum_congr rfl
     intro i _
     ring
-  have hu : (∑ j, z j*(∑ i, λ i*V i j)) ≤ (∑ j, z j)*γ := by
+  have hu : (∑ j, z j*(∑ i, lam i*V i j)) ≤ (∑ j, z j)*γ := by
     calc
       _ ≤ ∑ j, z j*γ :=
         Finset.sum_le_sum (fun j _ => mul_le_mul_of_nonneg_left (hcol j) (hz.1 j))
       _ = _ := by rw [Finset.sum_mul]
   have ht := mul_le_mul_of_nonneg_right hz.2 hγ
-  have hl : (∑ i, λ i*(t*h i-R i)) =
-      t*(∑ i, λ i*h i)-(∑ i, λ i*R i) := by
+  have hl : (∑ i, lam i*(t*h i-R i)) =
+      t*(∑ i, lam i*h i)-(∑ i, lam i*R i) := by
     rw [Finset.mul_sum,←Finset.sum_sub_distrib]
     apply Finset.sum_congr rfl
     intro i _
@@ -122,7 +125,7 @@ theorem sharp_obstruction_maximal (cost demand capacity amount : ℝ)
     (hd : 0 < demand) (hsharp : cost=capacity*demand)
     (hnecessary : amount*demand ≤ cost) : amount ≤ capacity := by
   rw [hsharp] at hnecessary
-  exact (mul_le_mul_right hd).mp hnecessary
+  nlinarith
 
 /-- Negative pairing with a nonnegative kernel vector forbids feasibility.
 These vectors are algebraic elimination circuits, NOT polytope circuit walks. -/
