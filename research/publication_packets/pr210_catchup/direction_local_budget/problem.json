@@ -1,0 +1,10 @@
+{
+  "theorem_name": "Hirsch.direction_local_budget_iff_group_budgets",
+  "theorem_title": "Direction-local group budgets exactly characterize a covered global edge budget",
+  "formal_statement": "theorem Hirsch.direction_local_budget_iff_group_budgets\n    {ι ε : Type*} [Fintype ι] [DecidableEq ι]\n    (groups : Finset (Finset ι)) (length : ε → ι → ℝ)\n    (capacity : ε → ℝ) (scale : ι → ℝ)\n    (hs : ∀ i, 0 ≤ scale i) (hl : ∀ e i, 0 ≤ length e i)\n    (hcover : ∀ e, ∃ I ∈ groups, ∀ i, i ∉ I → length e i = 0) :\n    (∀ e, (∑ i, scale i * length e i) ≤ capacity e) ↔\n      (∀ I ∈ groups, ∀ e, (∑ i ∈ I, scale i * length e i) ≤ capacity e) := by sorry",
+  "preamble": "import Mathlib\nopen scoped BigOperators\nset_option autoImplicit false\nnoncomputable section",
+  "env": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "natural_language_statement": "Suppose nonnegative candidate scales contribute nonnegative lengths to a family of edge-capacity constraints. Assume every edge has a certified group containing all candidates with nonzero contribution on that edge. Then the full global capacity inequalities hold exactly when every listed group satisfies its corresponding restricted inequalities. Groups may overlap; no partition or disjointness assumption is required. This is the finite budget identity used by direction-local Minkowski extraction, while the geometric proof that candidate edge contributions admit such a cover is a separate ingredient.",
+  "source": "Standalone Lean proof from PR #210 direction-local extraction work: https://github.com/jjoshua2/prove2me-work/blob/formal/dual-wall-carrier-routing/research/publication_packets/pr210_catchup/direction_local_budget/solution.lean",
+  "tags": ["hirsch-conjecture", "polyhedra", "minkowski-sums", "budget-localization"]
+}
