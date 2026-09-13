@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "proof_sha": "cfb93bd2618cf153f8eb00b11918be3ae874b9a7",
+  "run_id": 34783508448,
+  "artifact_id": 10324494880,
+  "zip_sha256": "70529b4f2df3ff1a43e58d17165654a77c0936a8e3dae12760ece7301caa71b3",
+  "frozen_files_checked": [
+    "solution.lean",
+    "driver.lean",
+    "statement.lean",
+    "problem.json",
+    "explanation.md"
+  ],
+  "matching_original_packet": [
+    "solution.lean",
+    "problem.json",
+    "explanation.md"
+  ],
+  "local_lean_available": false,
+  "compiler": "GitHub Actions pinned Lean 4.30.0",
+  "publication": "not inferred from compilation; see separate trusted verdict"
+}
