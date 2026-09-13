@@ -1,0 +1,19 @@
+{
+  "head_sha": "3de29caf666037ebf7de60608792f8b0e8792b27",
+  "packets": [],
+  "targets": [
+    "Solutions.PolynomialSeparatedFacetStars",
+    "Solutions.PolynomialSimplexLiftObstructions"
+  ],
+  "target_results": [
+    {
+      "name": "Solutions.PolynomialSeparatedFacetStars",
+      "status": "built"
+    },
+    {
+      "name": "Solutions.PolynomialSimplexLiftObstructions",
+      "status": "built"
+    }
+  ],
+  "module_only": true
+}

@@ -1,0 +1,28 @@
+{
+  "record_kind": "derived local artifact verification, not a raw platform API response",
+  "status": "PASS",
+  "pr": 232,
+  "run_id": 34789669353,
+  "verified_head_sha": "3de29caf666037ebf7de60608792f8b0e8792b27",
+  "artifact_id": 10328035863,
+  "archive_sha256": "65618aafab60ee9a571d5230f0dd6ffd88121deb676f3f028345de8bf81c5ee6",
+  "archive_files": ["artifact.json", "pr-comment.md"],
+  "independent_digest_check": true,
+  "module_status_check": "both requested targets built",
+  "gate": "success",
+  "verify": "success",
+  "report_verify": "success",
+  "publish": "skipped",
+  "verdict_comment_id": 5657026622,
+  "verdict_comment_at": "2026-09-13T23:27:34Z",
+  "source_git_blobs": {
+    "Solutions/PolynomialSeparatedFacetStars.lean": "17fcd7cc6759a33ff5cdd237b86a1106413863aa",
+    "Solutions/PolynomialSimplexLiftObstructions.lean": "f5fe3019865087be6d4fcce3e8d7a3b38c58dc3b"
+  },
+  "source_provenance": "Exact original Git blobs reused from their successful historical verification heads; no retyped proof changes",
+  "archive_contains_source_hashes": false,
+  "archive_contains_transitive_axiom_lists": false,
+  "platform_submission": false,
+  "platform_acceptance_claimed": false,
+  "local_lean_available": false
+}
