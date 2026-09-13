@@ -1,0 +1,22 @@
+{
+  "Solutions/PolynomialSimplexLiftObstructions.lean": {
+    "bytes": 5943,
+    "git_blob_sha": "5de757bb21439cefc6a47b5fad35ae03552b2ce3",
+    "sha256": "dc359bab093fb33b9a5555aae2d4480458c1d91061f7100a7ac72f58140615fc"
+  },
+  "scripts/local_simplex_routes.py": {
+    "bytes": 9475,
+    "git_blob_sha": "f7391103939cc6f441c1f084d038d8da3cee8586",
+    "sha256": "f5042eb0958f05f6cad446c961763aa5adf380d45af8ed63df7582becc3954bc"
+  },
+  "scripts/simplex_summand_certificate.py": {
+    "bytes": 8861,
+    "git_blob_sha": "a2e91b2a65f17b1eb5eba078270dc10bf608905c",
+    "sha256": "64a061640e4e5d9d01c4eff40eb2ad8f33230896332409f7916f5c766fedc367"
+  },
+  "scripts/test_low_rank_simplex.py": {
+    "bytes": 16446,
+    "git_blob_sha": "237b0568b0118340e2abc28017975fa9c9452713",
+    "sha256": "063308c59d74eb29464e550a7bf85071e5e543c39103cc003dca8f3c8c900b99"
+  }
+}
