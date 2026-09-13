@@ -40,39 +40,39 @@ theorem scaledHull_support_bound
 /-- Positive combinations of original inequalities certify a global bound.
 The implementation stores the coefficients sparsely but checks this identity. -/
 theorem original_row_combination_bound
-    (a : ι → E →ₗ[ℝ] ℝ) (b λ : ι → ℝ) (x : E)
-    (hλ : ∀ i, 0 ≤ λ i) (hx : ∀ i, a i x ≤ b i) :
-    (∑ i, λ i • a i) x ≤ ∑ i, λ i*b i := by
+    (a : ι → E →ₗ[ℝ] ℝ) (b weight : ι → ℝ) (x : E)
+    (hweight : ∀ i, 0 ≤ weight i) (hx : ∀ i, a i x ≤ b i) :
+    (∑ i, weight i • a i) x ≤ ∑ i, weight i*b i := by
   simp only [LinearMap.sum_apply,LinearMap.smul_apply,smul_eq_mul]
-  exact Finset.sum_le_sum (fun i _ => mul_le_mul_of_nonneg_left (hx i) (hλ i))
+  exact Finset.sum_le_sum (fun i _ => mul_le_mul_of_nonneg_left (hx i) (hweight i))
 
 /-- A candidate support bound on the combined normal controls its allocation. -/
 theorem allocation_weighted_bound
-    (a : ι → E →ₗ[ℝ] ℝ) (G : κ → E) (λ : ι → ℝ)
+    (a : ι → E →ₗ[ℝ] ℝ) (G : κ → E) (weight : ι → ℝ)
     (ν τ : ℝ) (hν : 0 ≤ ν)
-    (hG : ∀ j, (∑ i, λ i * a i (G j)) ≤ ν)
+    (hG : ∀ j, (∑ i, weight i * a i (G j)) ≤ ν)
     {q : E} (hq : q ∈ scaledHull G τ) :
-    (∑ i, λ i • a i) q ≤ τ*ν := by
-  apply scaledHull_support_bound G (∑ i, λ i • a i) ν τ hν _ hq
+    (∑ i, weight i • a i) q ≤ τ*ν := by
+  apply scaledHull_support_bound G (∑ i, weight i • a i) ν τ hν _ hq
   intro j
   simpa only [LinearMap.sum_apply,LinearMap.smul_apply,smul_eq_mul] using hG j
 
 /-- Every decomposition into the endpoint erosion plus the scaled hull obeys
 all support-deficit inequalities. This lemma itself needs no enumeration. -/
 theorem decomposition_obeys_support_deficit
-    (a : ι → E →ₗ[ℝ] ℝ) (b h λ : ι → ℝ) (G : κ → E)
-    (τ ν : ℝ) (x p q : E) (hλ : ∀ i, 0 ≤ λ i)
+    (a : ι → E →ₗ[ℝ] ℝ) (b h weight : ι → ℝ) (G : κ → E)
+    (τ ν : ℝ) (x p q : E) (hweight : ∀ i, 0 ≤ weight i)
     (hp : ∀ i, a i p ≤ b i-τ*h i)
-    (hν : 0 ≤ ν) (hG : ∀ j, (∑ i, λ i*a i (G j)) ≤ ν)
+    (hν : 0 ≤ ν) (hG : ∀ j, (∑ i, weight i*a i (G j)) ≤ ν)
     (hq : q ∈ scaledHull G τ) (hx : x=p+q) :
-    τ*((∑ i, λ i*h i)-ν) ≤
-      (∑ i, λ i*b i)-(∑ i, λ i*a i x) := by
-  have hbase := original_row_combination_bound a (fun i => b i-τ*h i) λ p hλ hp
-  have hadded := allocation_weighted_bound a G λ ν τ hν hG hq
-  have he : (∑ i, λ i • a i) x =
-      (∑ i, λ i • a i) p+(∑ i, λ i • a i) q := by rw [hx,map_add]
-  have hb : (∑ i, λ i*(b i-τ*h i)) =
-      (∑ i, λ i*b i)-τ*(∑ i, λ i*h i) := by
+    τ*((∑ i, weight i*h i)-ν) ≤
+      (∑ i, weight i*b i)-(∑ i, weight i*a i x) := by
+  have hbase := original_row_combination_bound a (fun i => b i-τ*h i) weight p hweight hp
+  have hadded := allocation_weighted_bound a G weight ν τ hν hG hq
+  have he : (∑ i, weight i • a i) x =
+      (∑ i, weight i • a i) p+(∑ i, weight i • a i) q := by rw [hx,map_add]
+  have hb : (∑ i, weight i*(b i-τ*h i)) =
+      (∑ i, weight i*b i)-τ*(∑ i, weight i*h i) := by
     simp only [mul_sub,Finset.sum_sub_distrib]
     congr 1
     rw [Finset.mul_sum]
@@ -86,23 +86,23 @@ theorem decomposition_obeys_support_deficit
 /-- A strict violation is an actual failure to allocate this original point,
 not merely a failure of an optimization heuristic. -/
 theorem violated_deficit_forbids_allocation
-    (a : ι → E →ₗ[ℝ] ℝ) (b h λ : ι → ℝ) (G : κ → E)
-    (τ ν : ℝ) (x : E) (hλ : ∀ i, 0 ≤ λ i)
-    (hν : 0 ≤ ν) (hG : ∀ j, (∑ i, λ i*a i (G j)) ≤ ν)
-    (hbad : (∑ i, λ i*b i)-(∑ i, λ i*a i x) <
-      τ*((∑ i, λ i*h i)-ν)) :
+    (a : ι → E →ₗ[ℝ] ℝ) (b h weight : ι → ℝ) (G : κ → E)
+    (τ ν : ℝ) (x : E) (hweight : ∀ i, 0 ≤ weight i)
+    (hν : 0 ≤ ν) (hG : ∀ j, (∑ i, weight i*a i (G j)) ≤ ν)
+    (hbad : (∑ i, weight i*b i)-(∑ i, weight i*a i x) <
+      τ*((∑ i, weight i*h i)-ν)) :
     ¬ ∃ p q : E, (∀ i, a i p ≤ b i-τ*h i) ∧
       q ∈ scaledHull G τ ∧ x=p+q := by
   rintro ⟨p,q,hp,hq,hx⟩
-  have h := decomposition_obeys_support_deficit a b h λ G τ ν x p q hλ hp hν hG hq hx
+  have hcert := decomposition_obeys_support_deficit a b h weight G τ ν x p q
+    hweight hp hν hG hq hx
   linarith
 
 /-- A sharp point and a positive support deficit cap every admissible scale. -/
 theorem sharp_deficit_caps_scale (s μ gap slack : ℝ)
     (hgap : 0 < gap) (hadmissible : s*gap ≤ slack)
     (hsharp : slack=μ*gap) : s ≤ μ := by
-  rw [hsharp] at hadmissible
-  exact (mul_le_mul_right hgap).mp hadmissible
+  nlinarith [hadmissible, hsharp, hgap]
 
 /-- Pairwise feasibility is insufficient already for a triangular candidate.
 The circuit uses the two lower allocations and the simplex total bound. -/
