@@ -1,0 +1,17 @@
+{
+  "Solutions/PolynomialForkCorridorCertificates.lean": {
+    "bytes": 5510,
+    "git_blob_sha": "d52008fd2c8afaa8e12ec48b1bcac5933086d063",
+    "sha256": "833c5f7a37440de89aeb879330672e1ba1f6c0af640d9dd863b70019427b77ff"
+  },
+  "scripts/fork_balanced_gain_cones.py": {
+    "bytes": 15364,
+    "git_blob_sha": "7e6106a23330e7937e7c80aadb3ec0371eb5d99b",
+    "sha256": "3ba21381e5caf2423d8f37e714a5cf154814f5d4ab981f5061716153fd71888f"
+  },
+  "scripts/test_fork_balanced_gain_cones.py": {
+    "bytes": 17777,
+    "git_blob_sha": "7ef1ffdff58b4daf4c6ec2b023641101deb019e7",
+    "sha256": "d6c6b9340248035e7f8192acdcc4e1dc955f1690cb55d7e71d15990293c5dae1"
+  }
+}
