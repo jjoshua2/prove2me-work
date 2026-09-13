@@ -1,0 +1,15 @@
+{
+  "head_sha": "ad4345bb17066c91b13d09ab0c8e757cbc5b65c9",
+  "packets": [
+    {
+      "packet": "finite_positive_circuit_tests",
+      "status": "ACCEPTED",
+      "theorem_id": "8f3c4cc7-be73-4ecf-9e17-816c710e20d7",
+      "submission_id": "3fd7936c-8271-4a24-b342-d60bfd29529f",
+      "theorem_name": "Hirsch.finite_positive_circuit_dual_tests",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/finite_positive_circuit_tests"
+    }
+  ]
+}

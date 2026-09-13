@@ -1,0 +1,25 @@
+{
+  "head_sha": "ad4345bb17066c91b13d09ab0c8e757cbc5b65c9",
+  "packets": [
+    {
+      "path": "research/publication_packets/finite_positive_circuit_tests",
+      "name": "finite_positive_circuit_tests",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "7b64b82bf4cec0fa348bed86676911eeec2725fccdcf75018e03ac1a418f7520",
+        "driver.lean": "7b64b82bf4cec0fa348bed86676911eeec2725fccdcf75018e03ac1a418f7520",
+        "statement.lean": "b17af10cec3bb5c5aa19807b2c441638682cfd5541bd4a8fa73d97b5b6a6ca43",
+        "problem.json": "4b38f0a76658d10d512050f29dfb86c2010152889596f4fbb9d99f76454aa03f",
+        "explanation.md": "aeb838c00ef468d2c04a377faf477c9a5c94f9d560fbf2fce79d410acdc8e0b3"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}

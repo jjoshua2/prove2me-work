@@ -1,0 +1,14 @@
+_verified/packets/finite_positive_circuit_tests/driver.lean:32:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+_verified/packets/finite_positive_circuit_tests/driver.lean:115:4: warning: Try `simp at hbx` instead of `simpa using hbx`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+'Hirsch.PositiveCircuitTests.negative_circuit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.PositiveCircuitTests.same_support_ray' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.PositiveCircuitTests.finite_tests' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]
