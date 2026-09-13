@@ -42,6 +42,8 @@ SECRETISH = re.compile(r"p2m_[A-Za-z0-9]+|Bearer\s+\S+", re.I)
 TERMINAL_VERIFY = frozenset(
     {"ACCEPTED", "SKETCH_ACCEPTED", "CE", "WA", "SORRY", "FAILED", "ERROR"}
 )
+ACTIVE_PUBLISH = frozenset({"PENDING", "COMPILING"})
+TERMINAL_PUBLISH = frozenset({"PUBLISHED", "FAILED", "ERROR"})
 
 
 class RequestError(ValueError):
@@ -317,7 +319,7 @@ def copy_packet(source: Path, destination: Path) -> dict[str, str]:
         (destination / "explanation.md").write_text(
             text if text.endswith("\n") else text + "\n", encoding="utf-8"
         )
-        written["explanation.md"] = (destination / "explanation.md").read_text(encoding="utf-8")
+        written["explanation.md"] = text if text.endswith("\n") else text + "\n"
     elif problem and problem.get("natural_language_statement"):
         text = str(problem["natural_language_statement"]).rstrip() + "\n"
         (destination / "explanation.md").write_text(text, encoding="utf-8")
@@ -518,6 +520,60 @@ def existing_theorem(api, theorem_name: str, mathlib_rev: str) -> dict[str, Any]
     return api.request("/theorems/" + rows[0]["theorem_id"])
 
 
+def publish_job_rows(payload: dict[str, Any]) -> list[dict[str, Any]]:
+    for key in ("jobs", "items", "publish_jobs"):
+        rows = payload.get(key)
+        if isinstance(rows, list):
+            return [row for row in rows if isinstance(row, dict)]
+    return []
+
+
+def matching_publish_jobs(api, problem: dict[str, Any], mathlib_rev: str) -> list[dict[str, Any]]:
+    """Return exact matching active/published problem-registration jobs.
+
+    This is the durable retry guard for an asynchronous submit-problem call. A
+    timed-out GitHub job must resume the already queued Prove2Me job rather than
+    enqueueing the same theorem again. Jobs are accepted only when the theorem
+    name matches and every available disambiguator (statement/environment)
+    agrees with the frozen packet.
+    """
+    payload = api.request("/publish-jobs?" + urlencode({"kind": "problem", "limit": 100, "offset": 0}))
+    wanted_statement = whitespace_norm(problem.get("formal_statement") or "")
+    matches: list[dict[str, Any]] = []
+    for row in publish_job_rows(payload):
+        if row.get("theorem_name") != problem.get("theorem_name"):
+            continue
+        statement = row.get("formal_statement")
+        if statement is not None and whitespace_norm(str(statement)) != wanted_statement:
+            continue
+        row_env = row.get("mathlib_rev") or row.get("env")
+        if row_env is not None and str(row_env) != mathlib_rev:
+            continue
+        # If neither statement nor environment is echoed, theorem_name alone is
+        # insufficient because names are unique only within an environment.
+        if statement is None and row_env is None:
+            continue
+        if row.get("status") in ACTIVE_PUBLISH | {"PUBLISHED"}:
+            matches.append(row)
+    return matches
+
+
+def recover_publish_job(api, problem: dict[str, Any], mathlib_rev: str) -> dict[str, Any] | None:
+    matches = matching_publish_jobs(api, problem, mathlib_rev)
+    published = [row for row in matches if row.get("status") == "PUBLISHED" and row.get("theorem_id")]
+    if published:
+        # A completed exact job is unambiguous even if an obsolete duplicate is
+        # still visible in the history; prefer the newest list entry.
+        return published[0]
+    active = [row for row in matches if row.get("status") in ACTIVE_PUBLISH]
+    if len(active) > 1:
+        ids = [str(row.get("id") or row.get("job_id") or "?") for row in active]
+        raise RuntimeError(
+            f"multiple active publish jobs match {problem.get('theorem_name')}: {', '.join(ids)}"
+        )
+    return active[0] if active else None
+
+
 def publish_packet(api, packet: Path, timeout: int = 480) -> dict[str, Any]:
     manifest = validate_artifact_packet(packet)
     if not manifest.get("publishable"):
@@ -530,21 +586,47 @@ def publish_packet(api, packet: Path, timeout: int = 480) -> dict[str, Any]:
     live = existing_theorem(api, problem["theorem_name"], manifest["mathlib_rev"])
     dump_json(packet / "duplicate-check.json", {"existing": live})
     if live is None:
-        queued = api.request("/submit-problem", problem, "POST")
-        dump_json(packet / "publish-response.json", queued)
-        job_id = queued.get("job_id") or (queued.get("jobs") or [{}])[0].get("job_id")
-        if not job_id:
-            raise RuntimeError(f"{packet.name} publication did not return a job id")
-        job = wait_until(
-            lambda: api.request("/publish-jobs/" + job_id),
-            lambda data: data.get("status") in {"PUBLISHED", "FAILED", "ERROR"},
-            timeout=min(timeout, 180),
-        )
-        dump_json(packet / "publish-job.json", job)
-        if job.get("status") != "PUBLISHED":
-            raise RuntimeError(f"{packet.name} publication failed: {job.get('status')}")
-        theorem_id = job["theorem_id"]
-        registration = "PUBLISHED"
+        prior = recover_publish_job(api, problem, manifest["mathlib_rev"])
+        if prior is None:
+            queued = api.request("/submit-problem", problem, "POST")
+            dump_json(packet / "publish-response.json", queued)
+            job_id = queued.get("job_id") or (queued.get("jobs") or [{}])[0].get("job_id")
+            registration = "QUEUED"
+        else:
+            dump_json(packet / "publish-response.json", {"resumed": True, "job": prior})
+            job_id = prior.get("id") or prior.get("job_id")
+            registration = "RESUMED"
+            if prior.get("status") == "PUBLISHED" and prior.get("theorem_id"):
+                job_id = None
+                theorem_id = prior["theorem_id"]
+                registration = "RESUMED_PUBLISHED"
+        if prior is None or prior.get("status") != "PUBLISHED":
+            if not job_id:
+                raise RuntimeError(f"{packet.name} publication did not return a job id")
+            try:
+                job = wait_until(
+                    lambda: api.request("/publish-jobs/" + str(job_id)),
+                    lambda data: data.get("status") in TERMINAL_PUBLISH,
+                    timeout=timeout,
+                )
+            except TimeoutError:
+                latest = api.request("/publish-jobs/" + str(job_id))
+                dump_json(packet / "publish-job.json", latest)
+                return {
+                    "packet": packet.name,
+                    "status": "PUBLISH_PENDING",
+                    "publish_job_id": job_id,
+                    "theorem_name": problem["theorem_name"],
+                    "registration": registration,
+                    "reason": "problem registration is still pending; rerun resumes this exact job",
+                }
+            dump_json(packet / "publish-job.json", job)
+            if job.get("status") != "PUBLISHED":
+                raise RuntimeError(f"{packet.name} publication failed: {job.get('status')}")
+            theorem_id = job["theorem_id"]
+            registration = "PUBLISHED" if registration == "QUEUED" else "RESUMED_PUBLISHED"
+        else:
+            dump_json(packet / "publish-job.json", prior)
     else:
         if whitespace_norm(live.get("formal_statement") or "") != whitespace_norm(problem["formal_statement"]):
             raise RuntimeError(f"{packet.name} existing theorem has a different formal statement")
@@ -658,6 +740,8 @@ def comment_markdown(kind: str, payload: dict[str, Any], run_url: str = "") -> s
             lines.append(f"  - theorem `{item['theorem_id']}`")
         if item.get("submission_id"):
             lines.append(f"  - submission `{item['submission_id']}`")
+        if item.get("publish_job_id"):
+            lines.append(f"  - publish job `{item['publish_job_id']}`")
         if item.get("reason"):
             lines.append(f"  - {item['reason']}")
         if item.get("path"):
@@ -749,7 +833,12 @@ def cmd_publish(args: argparse.Namespace) -> int:
     markdown = comment_markdown("publication", receipt, args.run_url)
     (Path(args.out) / "pr-comment.md").write_text(markdown, encoding="utf-8")
     print(markdown)
-    failed = [item for item in receipt["packets"] if item.get("status") not in {"ACCEPTED", "SKIPPED_ALREADY_PROVED", "SKIPPED_NOT_PUBLISHABLE"}]
+    failed = [
+        item
+        for item in receipt["packets"]
+        if item.get("status")
+        not in {"ACCEPTED", "SKIPPED_ALREADY_PROVED", "SKIPPED_NOT_PUBLISHABLE", "PUBLISH_PENDING"}
+    ]
     return 1 if failed else 0
 
 
