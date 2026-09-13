@@ -1,0 +1,22 @@
+{
+  "Solutions/PolynomialPositiveSupportIntersections.lean": {
+    "bytes": 4340,
+    "git_blob_sha": "255a7b7cd0f2c0072263be92b82190f77be26bf1",
+    "sha256": "a8453e2329e1f2e7704ab5e1f75602afc2227b5de71b09600f89d3b257e814e0"
+  },
+  "Solutions/PolynomialWallRefinementBudgets.lean": {
+    "bytes": 5704,
+    "git_blob_sha": "5b4d8246fb3916b29a575c11b55e64a274943f22",
+    "sha256": "a701ca28c7c34b5b23c1bf2f6a0f0277834ceb2db8a13e8a8b3da3d1954dfd30"
+  },
+  "scripts/implicit_minkowski_lift.py": {
+    "bytes": 17823,
+    "git_blob_sha": "290cbe9d587dd4fcea58765084fb7291badc0b7e",
+    "sha256": "d73c27da8b098cf654a27a1c5f0c2e0484de9f5e00b1ba74fc5199459ecb121b"
+  },
+  "scripts/test_implicit_minkowski_lift.py": {
+    "bytes": 18775,
+    "git_blob_sha": "7c326270840c60e300e33330f3d90e24d11f3280",
+    "sha256": "60bbb889d450dc62fe8a454b550a220bf97a8fc5cb72f7e23542632bead0e9e3"
+  }
+}
