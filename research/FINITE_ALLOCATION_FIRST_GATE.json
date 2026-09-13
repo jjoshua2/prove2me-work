@@ -1,0 +1,18 @@
+{
+  "run_id": 34780706092,
+  "proof_head": "abf775d89164bd559b08d6f9c146c4602ce617ef",
+  "verify_job": 103787108861,
+  "gate": "success",
+  "pinned_environment": "success",
+  "driver_compile": "failed",
+  "publication": "not started",
+  "failure_at": "2026-09-13T20:26:57Z",
+  "source_errors": [
+    {"line": 311, "message": "Unknown identifier j", "repair": "Explicit Fin k sum binder and parenthesized entire additive summand"},
+    {"line": 392, "message": "Pi.single has unresolved dependent function type", "repair": "Explicit Fin k binder and Fin k -> Real type annotation"},
+    {"line": 463, "message": "map_smul leaves RingHom.id Real r unreduced", "repair": "Add RingHom.id_apply to exact simp set"},
+    {"line": 475, "message": "map_smul leaves RingHom.id Real r unreduced", "repair": "Add RingHom.id_apply to exact simp set"}
+  ],
+  "repair_scope": "Exactly four source lines; all theorem signatures and assumptions byte-for-byte unchanged. No local Lean result; one targeted final repair check, not a speculative repeated proof search.",
+  "raw_log_source": "https://github.com/jjoshua2/prove2me-work/actions/runs/34780706092/job/103787108861"
+}

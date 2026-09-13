@@ -308,7 +308,7 @@ lemma allocationSimplex_convex (k : ℕ) (t : ℝ) :
   intro x hx y hy α β hα hβ hab
   refine ⟨fun j => add_nonneg (mul_nonneg hα (hx.1 j))
     (mul_nonneg hβ (hy.1 j)), ?_⟩
-  change (∑ j, α * x j + β * y j) ≤ t
+  change (∑ j : Fin k, (α * x j + β * y j)) ≤ t
   rw [Finset.sum_add_distrib, ← Finset.mul_sum, ← Finset.mul_sum]
   have h₁ := mul_le_mul_of_nonneg_left hx.2 hα
   have h₂ := mul_le_mul_of_nonneg_left hy.2 hβ
@@ -389,7 +389,7 @@ lemma weighted_simplex_minimum {m k : ℕ}
         · subst i
           simpa using ht
         · simp [Pi.smul_apply, Pi.single_apply, hi, Ne.symm hi]
-      · change (∑ i, t * Pi.single j (1 : ℝ) i) ≤ t
+      · change (∑ i : Fin k, t * (Pi.single j (1 : ℝ) : Fin k → ℝ) i) ≤ t
         simp [Pi.single_apply, mul_ite]
     · intro i
       change r i - (r i + ν) + ν = 0
@@ -462,7 +462,7 @@ def dualMap {m k : ℕ} (a : Fin m → (Fin k → ℝ) →L[ℝ] ℝ) :
     ring
   map_smul' r w := by
     funext j
-    simp only [Pi.smul_apply, smul_eq_mul, mul_assoc, ← Finset.mul_sum]
+    simp only [Pi.smul_apply, smul_eq_mul, RingHom.id_apply, mul_assoc, ← Finset.mul_sum]
     ring
 
 /-- Pair an allocation multiplier with the right side (b,0,t). -/
@@ -473,7 +473,7 @@ def dualBudget {m k : ℕ} (b : Fin m → ℝ) (t : ℝ) :
     simp only [Pi.add_apply, add_mul, Finset.sum_add_distrib]
     ring
   map_smul' r w := by
-    simp only [Pi.smul_apply, smul_eq_mul, mul_assoc, ← Finset.mul_sum]
+    simp only [Pi.smul_apply, smul_eq_mul, RingHom.id_apply, mul_assoc, ← Finset.mul_sum]
     ring
 
 /-- One family, chosen before b and t, is sufficient for actual primal allocation.

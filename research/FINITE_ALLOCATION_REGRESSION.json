@@ -7,6 +7,6 @@
   "circuit_tests": 1127,
   "independently_checked_minima": 280,
   "negative_controls": 5,
-  "solution_sha256": "19b89e2ca5f53b9a1e1b39ed0a7fd8380c090137eadf7db36ff717e3f42f7754",
+  "solution_sha256": "e64de998b0268de6be40916492b69ed9622672ba2a73243f4b9d57b17fb470bd",
   "regression_sha256": "a26377fb411a0c613d580f15c4504904fece799c9638c489fedbcfe43e22c746"
 }
