@@ -63,6 +63,21 @@ class ParseTests(unittest.TestCase):
         self.assertEqual(request["action"], "verify")
         self.assertEqual(request["packets"], ["packing_downward"])
 
+    def test_verify_targets_only(self) -> None:
+        request = pub.parse_comment(
+            "/prove2me verify --targets Solutions.PolynomialDirectionLocalBudgets\n",
+            "jjoshua2",
+        )
+        self.assertEqual(request["action"], "verify")
+        self.assertEqual(request["packets"], [])
+        self.assertEqual(request["targets"], ["Solutions.PolynomialDirectionLocalBudgets"])
+
+    def test_rejects_invalid_target(self) -> None:
+        with self.assertRaises(pub.RequestError):
+            pub.parse_comment("/prove2me verify --targets ../Secrets\n", "jjoshua2")
+        with self.assertRaises(pub.RequestError):
+            pub.parse_comment("/prove2me verify --targets foo;rm\n", "jjoshua2")
+
     def test_rejects_other_actors(self) -> None:
         with self.assertRaises(pub.RequestError):
             pub.parse_comment("/prove2me publish\n", "someone-else")
@@ -135,6 +150,22 @@ class SelectTests(unittest.TestCase):
         )
         self.assertEqual(len(found), 1)
 
+    def test_verify_targets_only_skips_packet_discovery(self) -> None:
+        found = pub.select_packets(
+            {"action": "verify", "packets": [], "targets": ["Solutions.Foo"]},
+            ["research/publication_packets/pr210_catchup/direction_local_budget/solution.lean"],
+            self.root,
+        )
+        self.assertEqual(found, [])
+
+    def test_publish_still_requires_a_packet(self) -> None:
+        with self.assertRaises(pub.RequestError):
+            pub.select_packets(
+                {"action": "publish", "packets": [], "targets": ["Solutions.Foo"]},
+                [],
+                self.root / "empty",
+            )
+
 
 class VerifyTests(unittest.TestCase):
     def setUp(self) -> None:
@@ -191,6 +222,27 @@ class VerifyTests(unittest.TestCase):
                 self.root / "_verified",
                 runner=self.runner,
             )
+
+    def test_module_only_verify_builds_targets(self) -> None:
+        built: list[str] = []
+
+        def builder(_workspace: Path, targets: list[str]) -> None:
+            built.extend(targets)
+
+        out = self.root / "_verified"
+        summary = pub.verify_packets(
+            self.root,
+            [],
+            "abc123",
+            out,
+            targets=["Solutions.PolynomialDirectionLocalBudgets"],
+            runner=self.runner,
+            builder=builder,
+        )
+        self.assertEqual(built, ["Solutions.PolynomialDirectionLocalBudgets"])
+        self.assertTrue(summary["module_only"])
+        self.assertEqual(summary["packets"], [])
+        self.assertEqual(summary["targets"], ["Solutions.PolynomialDirectionLocalBudgets"])
 
 
 class PublishGuardTests(unittest.TestCase):
@@ -255,6 +307,23 @@ class PublishGuardTests(unittest.TestCase):
         with patch.dict("os.environ", {}, clear=True):
             with self.assertRaises(RuntimeError):
                 pub.api_client()
+
+    def test_module_only_artifact_cannot_be_published(self) -> None:
+        artifact = Path(self.tmp.name)
+        write(
+            artifact / "artifact.json",
+            json.dumps(
+                {
+                    "head_sha": "abc123",
+                    "packets": [],
+                    "targets": ["Solutions.Foo"],
+                    "module_only": True,
+                },
+                indent=2,
+            ),
+        )
+        with self.assertRaises(RuntimeError):
+            pub.publish_artifact(artifact, artifact / "out")
 
 
 class PolicyTests(unittest.TestCase):

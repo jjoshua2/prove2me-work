@@ -62,7 +62,7 @@ Do **not** put `PROVE2ME_API_KEY` in ChatGPT, a chat upload, the git repo, or `c
 /prove2me publish
 ```
 
-on the pull request, optionally followed by packet paths and `--targets Module.Name`. The durable [`prove2me-comment-publish.yml`](.github/workflows/prove2me-comment-publish.yml) workflow on `main` then:
+on the pull request, optionally followed by packet paths. `--targets Module.Name` adds a `lake build` of that module. With `/prove2me verify` and no packet, that is a module-only compile of intermediate theorem modules; it does not publish. `/prove2me publish` still requires a packet. The durable [`prove2me-comment-publish.yml`](.github/workflows/prove2me-comment-publish.yml) workflow on `main` then:
 
 1. resolves the PR's exact head SHA;
 2. compiles and axiom-audits the standalone packet **with no Prove2Me secret**;
@@ -70,7 +70,7 @@ on the pull request, optionally followed by packet paths and `--targets Module.N
 4. runs the trusted publisher from `main` with `PROVE2ME_API_KEY`;
 5. comments theorem/submission IDs and the authenticated verdict back on the PR.
 
-`/prove2me verify` runs the same compilation/audit and stops before publication. This is not a push-triggered experiment workflow. Agents must still iterate locally first; the comment is the final hosted gate.
+`/prove2me verify` compiles packets without publishing. `/prove2me verify --targets Solutions.SomeModule` compiles that Lake module even when no packet is present. This is not a push-triggered experiment workflow. Agents must still iterate locally first; the comment is the final hosted gate.
 
 Publication workflows must preserve the same discipline: rebuild/audit the intended proof packet, never print credentials, and record the authenticated Prove2Me verdict before updating durable status.
 
