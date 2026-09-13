@@ -1,0 +1,10 @@
+{
+  "status": "ACCEPTED",
+  "live_status": "Proved",
+  "theorem_id": "09c33216-ba2f-4c9f-b75e-e9d8279e8358",
+  "submission_id": "f5304244-5800-46f7-b0c5-98cdf4c6d71a",
+  "proof_head": "9d3aea2f4120f44a6c43b882d79c9f6f7fcb00c6",
+  "run_id": 34781016108,
+  "evidence_kind": "Summary of the trusted publisher publication-receipt.json, not a raw platform API response.",
+  "source_sha256": "e64de998b0268de6be40916492b69ed9622672ba2a73243f4b9d57b17fb470bd"
+}
