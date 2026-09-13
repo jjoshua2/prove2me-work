@@ -33,6 +33,7 @@ REQUIRED_SOLUTION = "solution.lean"
 AUDIT_FILES = ("driver.lean", "solution.lean", "statement.lean")
 FORBIDDEN = re.compile(r"\b(sorry|admit|native_decide)\b|^\s*(axiom|opaque)\s", re.M)
 COMMAND = re.compile(r"^/prove2me\s+(publish|verify)(?:\s+(.*))?$")
+TARGET_NAME = re.compile(r"^[A-Za-z][A-Za-z0-9_]*(\.[A-Za-z][A-Za-z0-9_]*)*$")
 SECRETISH = re.compile(r"p2m_[A-Za-z0-9]+|Bearer\s+\S+", re.I)
 TERMINAL_VERIFY = frozenset(
     {"ACCEPTED", "SKETCH_ACCEPTED", "CE", "WA", "SORRY", "FAILED", "ERROR"}
@@ -94,12 +95,12 @@ def parse_comment(body: str, actor: str) -> dict[str, Any]:
         if token.startswith("--targets="):
             taking_targets = False
             value = token.split("=", 1)[1]
-            targets.extend(part for part in value.split(",") if part)
+            targets.extend(normalize_target(part) for part in value.split(",") if part)
             continue
         if token.startswith("--"):
             raise RequestError(f"unknown flag {token!r}")
         if taking_targets:
-            targets.extend(part for part in token.split(",") if part)
+            targets.extend(normalize_target(part) for part in token.split(",") if part)
             taking_targets = False
             continue
         packets.append(token)
@@ -111,6 +112,13 @@ def parse_comment(body: str, actor: str) -> dict[str, Any]:
         "packets": packets,
         "targets": targets,
     }
+
+
+def normalize_target(raw: str) -> str:
+    name = raw.strip()
+    if not name or not TARGET_NAME.match(name):
+        raise RequestError(f"invalid Lake target {raw!r}; expected a module name such as Solutions.Foo")
+    return name
 
 
 def normalize_packet_path(raw: str) -> str:
@@ -182,13 +190,22 @@ def select_packets(request: dict[str, Any], changed_files: list[str], workspace:
     specified = [normalize_packet_path(item) for item in request.get("packets") or []]
     if specified:
         return specified
+    action = request.get("action") or "publish"
+    targets = [normalize_target(item) for item in request.get("targets") or []]
+    if action == "verify" and targets:
+        return []
     discovered = discover_packets(changed_files, workspace)
-    if not discovered:
+    if discovered:
+        return discovered
+    if action == "publish":
         raise RequestError(
-            "no unpublished packets found under research/publication_packets; "
-            "pass packet paths after `/prove2me publish`"
+            "publication requires a packet directory under research/publication_packets; "
+            "--targets only adds a Lake build"
         )
-    return discovered
+    raise RequestError(
+        "no unpublished packets found and no --targets given; "
+        "pass packet paths or `/prove2me verify --targets Module.Name`"
+    )
 
 
 def lean_runner(workspace: Path) -> Callable[[Path], tuple[int, str]]:
@@ -360,10 +377,14 @@ def verify_packets(
     out: Path,
     targets: list[str] | None = None,
     runner: Callable[[Path], tuple[int, str]] | None = None,
+    builder: Callable[[Path, list[str]], None] | None = None,
 ) -> dict[str, Any]:
     from check_lean_axiom_log import audit
 
-    build_targets(workspace, targets or [])
+    selected_targets = [normalize_target(item) for item in targets or []]
+    if not packets and not selected_targets:
+        raise RequestError("verification requires a packet directory or --targets Module.Name")
+    (builder or build_targets)(workspace, selected_targets)
     compile = runner or lean_runner(workspace)
     out.mkdir(parents=True, exist_ok=True)
     results = []
@@ -386,7 +407,9 @@ def verify_packets(
     summary = {
         "head_sha": head_sha,
         "packets": results,
-        "targets": targets or [],
+        "targets": selected_targets,
+        "target_results": [{"name": name, "status": "built"} for name in selected_targets],
+        "module_only": not bool(results),
     }
     dump_json(out / "artifact.json", summary)
     return summary
@@ -541,6 +564,8 @@ def publish_packet(api, packet: Path, timeout: int = 480) -> dict[str, Any]:
 
 def publish_artifact(artifact: Path, out: Path, timeout: int = 480) -> dict[str, Any]:
     summary = load_json(artifact / "artifact.json")
+    if summary.get("module_only") or not summary.get("packets"):
+        raise RuntimeError("publication requires a verified packet; module-only --targets verification cannot be published")
     api = api_client()
     results = []
     for item in summary["packets"]:
@@ -582,6 +607,10 @@ def comment_markdown(kind: str, payload: dict[str, Any], run_url: str = "") -> s
         lines.append(f"Head SHA: `{payload['head_sha']}`")
     if run_url:
         lines.append(f"Actions run: {run_url}")
+    if payload.get("targets"):
+        lines.append("Lake targets: " + ", ".join(f"`{name}`" for name in payload["targets"]))
+    if payload.get("module_only"):
+        lines.append("Module-only verification: no packet was published or submitted.")
     for item in packet_items(payload):
         name = item.get("theorem_name") or item.get("packet") or item.get("name")
         status = item.get("status") or kind
@@ -648,6 +677,8 @@ def cmd_select(args: argparse.Namespace) -> int:
     resolved = {
         **request,
         "packets": packets,
+        "targets": request.get("targets") or [],
+        "module_only": request.get("action") == "verify" and not packets,
         "head_sha": args.head_sha,
         "pr": args.pr,
     }

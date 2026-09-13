@@ -24,7 +24,7 @@ on:
         default: ""
         type: string
       targets:
-        description: Optional comma-separated Lake targets to build before packet compile
+        description: Optional comma-separated Lake modules. With /prove2me verify and no packet, this is a module-only compile. Publication still requires a packet.
         required: false
         default: ""
         type: string
@@ -205,7 +205,7 @@ jobs:
       - name: Restore pinned Lean environment
         uses: ./.github/actions/setup-lean
 
-      - name: Compile and axiom-audit frozen packets
+      - name: Compile Lake targets and axiom-audit packets
         env:
           GITHUB_TOKEN: ""
           PROVE2ME_API_KEY: ""
