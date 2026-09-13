@@ -1,0 +1,9 @@
+{
+  "status": "prepared; no local Lean compiler",
+  "files": {
+    "solution.lean": "03574331e84f874759a60dbe9ba815deced1707565941027296918eca6797818",
+    "problem.json": "f3147c1f8609ec44399b0d6fd395741f5d4668d480b4aad771851593fe51394e",
+    "explanation.md": "6503d5c12be71e7da27e861fdcd9f6739733aa78434e100c0ac4b4a65f9db41d"
+  },
+  "reused_rank_source_sha256": "5360f2a04a68b580552470ba42d1fa011eec5a73275c1c9b7766475fea028ddc"
+}
