@@ -78,15 +78,17 @@ theorem inequality_of_directed_path
     (n : ℕ) (x : ℕ → ℝ) (cost : Fin n → ℝ) (C : ℝ)
     (h : ∀ i : Fin n,x (i.val+1)-x i.val≤cost i)
     (hsum : (∑ i,cost i)≤C) : x n-x 0≤C := by
-  have ht : (∑ i ∈ Finset.range n, (x (i+1)-x i))=x n-x 0 := by
-    induction n with
+  have telescope_range : ∀ (m : ℕ) (y : ℕ → ℝ),
+      (∑ i ∈ Finset.range m, (y (i+1)-y i))=y m-y 0 := by
+    intro m y
+    induction m with
     | zero => simp
-    | succ n ih =>
+    | succ m ih =>
       rw [Finset.sum_range_succ,ih]
       ring
   have hh : (∑ i : Fin n, (x (i.val+1)-x i.val))≤∑ i : Fin n,cost i :=
     Finset.sum_le_sum (fun i _ => h i)
-  rw [Fin.sum_univ_eq_sum_range (fun i => x (i+1)-x i), ht] at hh
+  rw [Fin.sum_univ_eq_sum_range (fun i => x (i+1)-x i), telescope_range n x] at hh
   exact hh.trans hsum
 
 /-- The midpoint is strictly feasible in every noncommon endpoint row.
