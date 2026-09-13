@@ -1,0 +1,15 @@
+{
+  "head_sha": "138958023c529f34cf91c1c24add46ca92b01a84",
+  "packets": [
+    {
+      "packet": "finite_allocation_support_budgets",
+      "status": "ACCEPTED",
+      "theorem_id": "2c1c4631-ba41-4cff-aa3b-d4ef1ce80a46",
+      "submission_id": "930c75c8-3cc5-4ea0-abaf-a01012f50709",
+      "theorem_name": "Hirsch.finite_allocation_pointwise_primal_dual_budgets",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/finite_allocation_support_budgets"
+    }
+  ]
+}
