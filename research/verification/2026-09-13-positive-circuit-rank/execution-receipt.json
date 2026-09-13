@@ -1,0 +1,37 @@
+{
+  "observed_at_utc": "2026-09-13T20:45:23.648305+00:00",
+  "proof_commit": "6ca03d3f84243c3ae6528ec367fbd75b30ba1e9d",
+  "branch": "proof/positive-circuit-rank-cutoff",
+  "remote_git_blobs": {
+    "solution.lean": "215a09214fe2975b91701f17e7750444fb3031ac",
+    "problem.json": "9bfe0e2517c6aedccb854d15512ef2456504ecde",
+    "explanation.md": "d7eb9a01ace23bc64b6eccfb094c047598f36465"
+  },
+  "all_three_remote_blobs_match_local_bytes": true,
+  "compile_attempt": {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "research/publication_packets/positive_circuit_rank/solution.lean"
+    ],
+    "started": false,
+    "reason": "lake executable not found",
+    "lean_compilation_performed": false
+  },
+  "github_mutations": {
+    "branch_creation": "succeeded",
+    "proof_commit": "succeeded",
+    "nonforce_ref_update": "succeeded",
+    "coordination_comment_on_219": "blocked by tool safety checks; not retried",
+    "pull_request_creation": "blocked by tool safety checks; not retried"
+  },
+  "new_pr_number": null,
+  "new_trigger_comment_id": null,
+  "new_workflow_run_id": null,
+  "new_platform_submission_id": null,
+  "lean_verified": false,
+  "axiom_audited": false,
+  "accepted": false,
+  "live_proved": false
+}

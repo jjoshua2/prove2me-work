@@ -1,0 +1,24 @@
+{
+  "kind": "local_digest_check_of_existing_other_PR_artifacts",
+  "pr_number": 219,
+  "run_id": 34781016108,
+  "proof_sha": "9d3aea2f4120f44a6c43b882d79c9f6f7fcb00c6",
+  "workflow_sha": "89bbe65dd21710c6feb36fe4f0e1e633ab0159fb",
+  "publication_artifact": {
+    "id": 10325022995,
+    "sha256": "2f719400ae9c686c656cb005c50c4b484f27fe921f0ed0900973b75058deab65",
+    "digest_matches": true
+  },
+  "verified_packet_artifact": {
+    "id": 10324553494,
+    "sha256": "c26d220a92f47e40c0cdf0d37210c5f77e3064774d2c13be59c2b9306cb72995",
+    "digest_matches": true
+  },
+  "all_five_manifest_hashes_match": true,
+  "compiler_logs_read": true,
+  "driver_solution_statement_exit_codes": [0, 0, 0],
+  "recorded_platform_status": "ACCEPTED",
+  "publisher_recorded_live_status": "Proved",
+  "fresh_independent_platform_api_poll": false,
+  "this_is_verification_of_the_new_rank_candidate": false
+}
