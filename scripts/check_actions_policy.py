@@ -5,6 +5,10 @@ The repository intentionally permits automatic push triggers only for a tiny set
 of durable main-branch maintenance workflows. Proof experiments and publication
 workflows must remain manual/reusable so cloud agents cannot use hosted Actions
 as a trial-and-error Lean compiler.
+
+A durable ``issue_comment`` publication gate is allowed: it is not a push
+trigger, and the trusted publisher must still compile locally-green packets
+before using ``PROVE2ME_API_KEY``.
 """
 from __future__ import annotations
 

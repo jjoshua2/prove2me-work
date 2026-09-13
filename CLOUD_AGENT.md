@@ -56,6 +56,22 @@ Codex agent internet access is off by default. Enable it for the selected enviro
 
 GitHub Actions repository secrets are independent of Codex environment configuration. The manual workflow [`prove2me-auth-smoke.yml`](.github/workflows/prove2me-auth-smoke.yml) expects a repository secret named `PROVE2ME_API_KEY`. It tests DNS, health, token refresh, and an authenticated read; it never publishes or submits a theorem.
 
+Do **not** put `PROVE2ME_API_KEY` in ChatGPT, a chat upload, the git repo, or `credentials.json` on a PR. The key stays in GitHub Actions. After a packet is committed, `jjoshua2` (including a GitHub-connected agent posting as that user) can publish it by commenting exactly:
+
+```text
+/prove2me publish
+```
+
+on the pull request, optionally followed by packet paths and `--targets Module.Name`. The durable [`prove2me-comment-publish.yml`](.github/workflows/prove2me-comment-publish.yml) workflow on `main` then:
+
+1. resolves the PR's exact head SHA;
+2. compiles and axiom-audits the standalone packet **with no Prove2Me secret**;
+3. freezes the verified files as an Actions artifact;
+4. runs the trusted publisher from `main` with `PROVE2ME_API_KEY`;
+5. comments theorem/submission IDs and the authenticated verdict back on the PR.
+
+`/prove2me verify` runs the same compilation/audit and stops before publication. This is not a push-triggered experiment workflow. Agents must still iterate locally first; the comment is the final hosted gate.
+
 Publication workflows must preserve the same discipline: rebuild/audit the intended proof packet, never print credentials, and record the authenticated Prove2Me verdict before updating durable status.
 
 Hosted Actions are intentionally **not** the normal edit/compile loop. Agents must iterate with the local/cloud Lean environment first and use Actions only once a candidate is locally green or when GitHub-only secrets/publication are actually required.
