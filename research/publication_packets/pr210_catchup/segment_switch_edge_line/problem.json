@@ -1,0 +1,10 @@
+{
+  "theorem_name": "Hirsch.segment_switch_direction_lies_in_edge_line",
+  "theorem_title": "A changing segment allocation forces the segment direction into the common edge line",
+  "formal_statement": "theorem Hirsch.segment_switch_direction_lies_in_edge_line\n    {E : Type*} [AddCommGroup E] [Module ℝ E]\n    {ι : Type*} (a : ι → E →ₗ[ℝ] ℝ) (b : ι → ℝ)\n    (τ : ℝ) (x y g : E) (hτ : 0 < τ)\n    (hx : ∀ i, a i x = b i) (hy : ∀ i, a i y = b i)\n    (hforward : ∀ i, a i (x + τ • g) ≤ b i)\n    (hbackward : ∀ i, a i (y - τ • g) ≤ b i)\n    (hkernel : ∀ z : E, (∀ i, a i z = 0) → ∃ r : ℝ, z = r • (y-x)) :\n    ∃ r : ℝ, g = r • (y-x) := by sorry",
+  "preamble": "import Mathlib",
+  "env": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "natural_language_statement": "Let x and y lie on all of a family of common tight hyperplanes. Suppose the common kernel of those rows is exactly the line spanned by y-x. If a positive segment in direction g can be moved forward from x and backward from y while remaining feasible for all those rows, then g must lie in that same line. In a polytope application, this says that when a Minkowski segment factor switches endpoint allocation across an ordinary edge, its direction is parallel to that edge.",
+  "source": "Standalone proof extracted from PR #210 antipodal segment-discovery work: https://github.com/jjoshua2/prove2me-work/blob/formal/dual-wall-carrier-routing/research/publication_packets/pr210_catchup/segment_switch_edge_line/solution.lean",
+  "tags": ["hirsch-conjecture", "polyhedra", "minkowski-sums", "edge-directions"]
+}
