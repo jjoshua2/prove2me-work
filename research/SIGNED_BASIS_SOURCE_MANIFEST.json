@@ -1,0 +1,22 @@
+{
+  "Solutions/PolynomialSignedBasisGeometry.lean": {
+    "bytes": 5502,
+    "git_blob_sha": "f4724d8a553a4834792ac0813378b4c9458568b6",
+    "sha256": "9168fac3788675b6a20f1ef44e30fa6d20bf7be8a50fa5b1650b16b7073d09b1"
+  },
+  "Solutions/PolynomialSignedCarrierAggregation.lean": {
+    "bytes": 3643,
+    "git_blob_sha": "b566b3ef0c1b99a7f818ba500560d3064f3b3fac",
+    "sha256": "611ee15c5d0e76dce6568eda1c326a423214a4c09520ffa845466ff2e12bfe24"
+  },
+  "scripts/signed_basis_shadow.py": {
+    "bytes": 17336,
+    "git_blob_sha": "71327202b44a622a170defa778f158085a9e581b",
+    "sha256": "233befb8e006138276817677a20a4153ed259c18b8668ace4e61fef3980d7af7"
+  },
+  "scripts/test_signed_basis_shadow.py": {
+    "bytes": 12419,
+    "git_blob_sha": "94a82c0f64b0f45e12cd670e396363039f804ad4",
+    "sha256": "1088b42e5cfb066b3e91c1e1aef363c7a389575dd44d7ace1347850a6f89814f"
+  }
+}
