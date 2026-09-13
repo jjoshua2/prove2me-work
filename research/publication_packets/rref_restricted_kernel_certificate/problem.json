@@ -1,0 +1,15 @@
+{
+  "theorem_name": "Hirsch.rref_basis_certificate_restricted_kernel_one_ray",
+  "theorem_title": "Finite basis-row certificates force a one-ray restricted kernel",
+  "formal_statement": "namespace Hirsch\ntheorem rref_basis_certificate_restricted_kernel_one_ray\n    (n k : ℕ) (A : (Fin n → ℝ) →ₗ[ℝ] (Fin k → ℝ))\n    (x : Fin n → ℝ) (j : Fin n) (dual : Fin n → Fin k → ℝ)\n    (hxj : x j ≠ 0)\n    (hcol : ∀ i, x i ≠ 0 → ∀ l : Fin n,\n      (∑ r, dual i r * (A (fun q => if l = q then (1 : ℝ) else 0)) r) =\n        (if l = i then 1 else 0) -\n          (x i / x j) * (if l = j then 1 else 0)) :\n    ∀ z : Fin n → ℝ, A z = 0 →\n      Function.support z ⊆ Function.support x → ∃ t : ℝ, z = t • x := by sorry\nend Hirsch",
+  "natural_language_statement": "Let A be a real k-by-n linear system, x a candidate vector, and j a nonzero coordinate of x. Suppose that for each nonzero coordinate i of x we have explicit row-combination coefficients dual_i such that, when tested on every standard coordinate column of A, the resulting linear functional equals coordinate i minus (x_i/x_j) times coordinate j. Then every signed null vector of A whose support is contained in the support of x is a scalar multiple of x. Thus finitely many exact basis-column identities certify the one-dimensional restricted-kernel condition used by positive-circuit enumeration. The theorem does not assert that a particular RREF implementation produced the certificates, nor positivity/minimality of x, nor a Hirsch diameter bound.",
+  "preamble": "import Mathlib\nopen scoped BigOperators",
+  "env": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "source": "Elementary finite-dimensional linear algebra. The column certificates are the dual row relations naturally emitted by exact Gaussian/RREF elimination. Linearity extends them from standard columns to all vectors, after which a support-contained null vector is reconstructed from its pivot coordinate. This is a new executable-certificate adapter for the existing Polynomial Hirsch workspace, not a claim of historical novelty.",
+  "tags": [
+    "hirsch-conjecture",
+    "linear-algebra",
+    "positive-circuits",
+    "certificates"
+  ]
+}
