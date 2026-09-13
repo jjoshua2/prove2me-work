@@ -29,7 +29,7 @@ theorem solution
   · intro h e
     obtain ⟨I,hI,hzero⟩ := hcover e
     have he := sum_eq_group I (fun i => scale i * length e i)
-      (fun i hi => by rw [hzero i hi, mul_zero])
+      (fun i hi => by simp [hzero i hi])
     rw [he]
     exact h I hI e
 
