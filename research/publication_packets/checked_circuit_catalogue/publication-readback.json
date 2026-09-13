@@ -1,0 +1,18 @@
+{
+  "record_kind": "derived local artifact readback, not raw platform API response",
+  "status": "PASS",
+  "run_id": 34785744936,
+  "artifact_id": 10326184309,
+  "proof_sha": "1f13787356e7aee48c2fa6e026915f2d4c0805b2",
+  "archive_sha256": "fc8baa146ee6b80a0ac8e375de2acf6463450dbe608683c35206873edee05f6f",
+  "archive_files": [
+    "pr-comment.md",
+    "publication-receipt.json"
+  ],
+  "publication_status": "ACCEPTED",
+  "live_status": "Proved",
+  "live_status_source": "authenticated trusted publisher receipt; no separate direct platform poll",
+  "raw_per_theorem_api_responses_in_archive": false,
+  "theorem_id": "49468d71-eb2e-4908-a15e-a89d1d23622a",
+  "submission_id": "0dcf5eea-df74-4295-9a5e-c71edb96589d"
+}

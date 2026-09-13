@@ -1,0 +1,15 @@
+{
+  "head_sha": "1f13787356e7aee48c2fa6e026915f2d4c0805b2",
+  "packets": [
+    {
+      "packet": "checked_circuit_catalogue",
+      "status": "ACCEPTED",
+      "theorem_id": "49468d71-eb2e-4908-a15e-a89d1d23622a",
+      "submission_id": "0dcf5eea-df74-4295-9a5e-c71edb96589d",
+      "theorem_name": "Hirsch.checked_rational_circuit_catalogue_exact",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/checked_circuit_catalogue"
+    }
+  ]
+}

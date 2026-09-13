@@ -1,0 +1,25 @@
+{
+  "head_sha": "1f13787356e7aee48c2fa6e026915f2d4c0805b2",
+  "packets": [
+    {
+      "path": "research/publication_packets/checked_circuit_catalogue",
+      "name": "checked_circuit_catalogue",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "62851ef9329efae8497e5726fc79b90dd11b6d2049114146ae37428b71fa7010",
+        "driver.lean": "62851ef9329efae8497e5726fc79b90dd11b6d2049114146ae37428b71fa7010",
+        "statement.lean": "ec99c6b0d6a07c3fed3a6f25ac8d7fbae10b2a115bf7c8ca75a8d8588644de1b",
+        "problem.json": "f3147c1f8609ec44399b0d6fd395741f5d4668d480b4aad771851593fe51394e",
+        "explanation.md": "6503d5c12be71e7da27e861fdcd9f6739733aa78434e100c0ac4b4a65f9db41d"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}

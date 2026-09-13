@@ -1,0 +1,22 @@
+{
+  "record_kind": "derived from actual GitHub Actions compiler log",
+  "run_id": 34785381971,
+  "job_id": 103799819282,
+  "proof_sha": "af2d89387f1fb0058e5eb17d4c3762a5b93208c4",
+  "status": "COMPILE_FAILED",
+  "publication": "SKIPPED_NOT_REGISTERED_OR_SUBMITTED",
+  "errors": [
+    {"line": 406, "kind": "exact_mod_cast needs beta reduction of reconstructed coordinate function"},
+    {"line": 408, "kind": "exact_mod_cast needs beta reduction of reconstructed coordinate function"},
+    {"lines": [518,519,520], "kind": "default decide elaborator reduction stuck"}
+  ],
+  "targeted_repairs": [
+    "two explicit beta-normalizing change steps before exact_mod_cast",
+    "direct inferInstanceAs definitions for computational decision instances",
+    "use decide +kernel for the same three concrete examples, retaining exact kernel evaluation and no native axiom"
+  ],
+  "statement_changed": false,
+  "assumptions_changed": false,
+  "checker_predicates_changed": false,
+  "local_compiler": false
+}
