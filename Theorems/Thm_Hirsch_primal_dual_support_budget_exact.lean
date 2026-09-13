@@ -1,5 +1,7 @@
 import Mathlib
 open scoped BigOperators
+set_option autoImplicit false
+noncomputable section
 
 namespace Hirsch
 
@@ -15,6 +17,27 @@ theorem primal_dual_support_budget_exact
     ((∀ x : E, (∀ i, a i x ≤ b i) →
         K ≤ (∑ i, lambda i * b i) - ∑ i, lambda i * a i x) ↔
       K ≤ (∑ i, lambda i * b i) - ∑ i, alpha i * b i) := by
-  sorry
+  have hstar :
+      (∑ i, alpha i * a i xstar) = ∑ i, alpha i * b i := by
+    apply Finset.sum_congr rfl
+    intro i hi
+    have hc := hcomp i
+    calc
+      alpha i * a i xstar =
+          alpha i * b i - alpha i * (b i - a i xstar) := by ring
+      _ = alpha i * b i := by rw [hc]; ring
+  constructor
+  · intro h
+    have hs := h xstar hxstar
+    rw [hforms xstar, hstar] at hs
+    exact hs
+  · intro h x hx
+    have hupper :
+        (∑ i, alpha i * a i x) ≤ ∑ i, alpha i * b i := by
+      apply Finset.sum_le_sum
+      intro i hi
+      exact mul_le_mul_of_nonneg_left (hx i) (halpha i)
+    rw [hforms x]
+    linarith
 
 end Hirsch
