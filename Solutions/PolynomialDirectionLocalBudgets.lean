@@ -48,7 +48,7 @@ theorem global_budget_iff_group_budgets
   · intro h e
     obtain ⟨I,hI,hzero⟩ := hcover e
     have he := sum_eq_group I (fun i => scale i * length e i)
-      (fun i hi => by rw [hzero i hi, mul_zero])
+      (fun i hi => by simp [hzero i hi])
     rw [he]
     exact h I hI e
 
@@ -63,7 +63,7 @@ theorem violated_budget_has_group_witness
   obtain ⟨I,hI,hzero⟩ := hcover
   refine ⟨I,hI,?_⟩
   have he := sum_eq_group I (fun i => scale i * length i)
-    (fun i hi => by rw [hzero i hi, mul_zero])
+    (fun i hi => by simp [hzero i hi])
   rwa [he] at hbad
 
 /-- Each endpoint-discrepant factor needs at least one transition. A nonnegative
