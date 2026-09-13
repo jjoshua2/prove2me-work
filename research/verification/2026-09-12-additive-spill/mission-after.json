@@ -1,0 +1,2477 @@
+{
+  "mission_id": "6078cb2d-3594-44b1-a01a-fd452ddae274",
+  "mission_name": "The Polynomial Hirsch Conjecture",
+  "pagination": {
+    "limit": 100,
+    "offset": 0,
+    "total": 53
+  },
+  "comments": [
+    {
+      "id": "cc1cb374-56df-4478-8345-ac6810ee08b5",
+      "parent_comment_id": null,
+      "tags": [
+        "reference",
+        "strategy"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "<!-- hirsch-207-208-209-verification-20260912-b7a832e -->\nSubmission checkpoint for #207/#208/#209. The [near-geodesic occurrence budget](p2m:theorem/79bdd301-35e1-4cdb-a6ed-eb49b00e5c3c) and [exact proof](p2m:solution/1ede1000-2a0d-4d98-8736-1a828626eb2f) are Proved/ACCEPTED. For a walk within q of graph distance, repeated selected occurrences remain separately charged and the explicit pointwise budgets give sum(delta)+r*s <= r*e+(q+3)*s. This is resource accounting, not an arbitrary carrier distance bound.\n\nThe [additive-spill route theorem](p2m:theorem/32dbbfe9-bd4c-4685-8df6-7a4403175ef4) and [exact proof](p2m:solution/2a2dd9bd-9ee5-43fa-bc04-def26a5a2a98) are published/submitted, but proof verification is still PENDING as of 2026-09-13 00:03 UTC. No platform acceptance is claimed yet. The [finite repair definition](p2m:definition/be8f4ff8-23bd-4894-a523-ab6271d326f0) explicitly requires actual leaf routes, decreasing dimension tags, nonincreasing child excess, sibling sum at most e+b, and leaf cost at most C*e. The conclusion is an actual route with cost at most C*e+(1+b*C)*h*(e-b). Existence of such a geometrically valid tree for arbitrary carriers remains open.\n\nAll three #207 modules and all six #208 modules compile locally and in the final hosted gates; their 13 and 20 required declarations pass transitive standard-axiom audits. The exact regression suites pass after elaboration repairs. #208's complete infinite cyclic fixed-slack obstruction and adaptive block-slide construction remain mathematical-note results with exact finite checks: the transport/kernel components are Lean-verified, but the complete infinite argument is not claimed as a platform-accepted theorem. The obstruction concerns the specified first-original-edge/available-facet repair family, not every radial cap or a diameter lower bound.\n\nThe already merged #209 [target-tight basis theorem](p2m:theorem/e46935cf-6286-4874-a742-01cc62269b2d) and [proof](p2m:solution/63c8d2b9-2c24-4c59-9c3a-6769a095f63e) were reconfirmed without resubmission. Its larger conditional mixed-carrier route assemblies have separate local/hosted verification.\n\n[PR #207](https://github.com/jjoshua2/prove2me-work/pull/207), [PR #208](https://github.com/jjoshua2/prove2me-work/pull/208), and [PR #209](https://github.com/jjoshua2/prove2me-work/pull/209) preserve the exact sources, proofs and receipts. The [common-face leaf](p2m:theorem/87a8b4f4-8b58-4340-8cb9-5fd1b548d01e) and Polynomial Hirsch remain Open. The next target is an input-dependent, possibly long but cheap portal selection controlling actual sibling excess, or a separate route bound for the remaining high-dimensional carriers. No cosmetic root dependency was added.\n",
+      "deleted": false,
+      "references": [
+        {
+          "type": "definition",
+          "id": "be8f4ff8-23bd-4894-a523-ab6271d326f0",
+          "name": "Hirsch_additive_portal_repair",
+          "status": "Definition"
+        },
+        {
+          "type": "solution",
+          "id": "1ede1000-2a0d-4d98-8736-1a828626eb2f",
+          "name": "Hirsch.near_geodesic_occurrence_carrier_budget",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "79bdd301-35e1-4cdb-a6ed-eb49b00e5c3c"
+        },
+        {
+          "type": "solution",
+          "id": "2a2dd9bd-9ee5-43fa-bc04-def26a5a2a98",
+          "name": "Hirsch.additive_portal_repair_polynomial_route",
+          "status": "PENDING",
+          "parent_theorem_id": "32dbbfe9-bd4c-4685-8df6-7a4403175ef4"
+        },
+        {
+          "type": "solution",
+          "id": "63c8d2b9-2c24-4c59-9c3a-6769a095f63e",
+          "name": "Hirsch.vertex_has_injective_target_tight_basis",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "e46935cf-6286-4874-a742-01cc62269b2d"
+        },
+        {
+          "type": "theorem",
+          "id": "32dbbfe9-bd4c-4685-8df6-7a4403175ef4",
+          "name": "Hirsch.additive_portal_repair_polynomial_route",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "79bdd301-35e1-4cdb-a6ed-eb49b00e5c3c",
+          "name": "Hirsch.near_geodesic_occurrence_carrier_budget",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "87a8b4f4-8b58-4340-8cb9-5fd1b548d01e",
+          "name": "Hirsch.common_face_diameter_of_dim_ge_six",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "e46935cf-6286-4874-a742-01cc62269b2d",
+          "name": "Hirsch.vertex_has_injective_target_tight_basis",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-13T00:03:35.416517+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "0ab0273f-42de-4318-b53d-0bfa4e33160f",
+      "parent_comment_id": null,
+      "tags": [
+        "reference",
+        "strategy"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "<!-- hirsch-205-206-automatic-basis-20260912-7ffa3fb -->\nThe #205/#206 continuation is verified and merged. The [positive-feedback box theorem](p2m:theorem/4096cd8a-6bf6-4788-89be-e67f84f6c92f) and its [exact proof](p2m:solution/05df606c-7c8c-42eb-9e69-794b6be48926) are accepted: C>=0, b,w>0 and Cw<w give ordinary-edge diameter at most d for {0<=x<=b+Cx}, with no dimension cap or product split. The [all-available geodesic budget](p2m:theorem/b8f45079-9784-43a0-b659-0914a2038332) and its [exact proof](p2m:solution/83ed9045-971b-4ad8-ae0d-3659c625e850) are also accepted.\n\nThe separately compiled geometric #206 adapters use all available cut faces on the SAME shortest certificate and actual portal pairs. They give\n\n$$\\sum_i\\delta_i+r s\\le r(n-d)+3s.$$\n\nAt full availability s=n-d this is total carrier excess at most 3(n-d), independent of used-support deficit. Intrinsic dimensions and minimum row counts have total budgets 3(n-d) and 6(n-d). This is resource accounting; it does not identify excess with arbitrary edge distance. The accepted graph theorem states the graph and integer-budget part; the geometric adapters have their own local and hosted Lean verification.\n\n[New continuation #209](https://github.com/jjoshua2/prove2me-work/pull/209) removes #206's supplied-basis input. Every vertex supplies d distinct original tight rows with injective evaluation, including nonsimple vertices. For a bounded presentation and a separate strictly interior center, this produces an actual D=1, s=n-d certificate before any model callback. Its selected carriers give a route of length at most 1+3(n-d) when each is a positive-feedback image or has excess at most three. Mixing feedback carriers with all dimension-at-most-five carriers gives 1+24(n-d). Otherwise the same certificate exhibits a selected carrier of dimension at least six without a positive-feedback image model. That residual is failure of a sufficient criterion, not a diameter lower bound.\n\nAll eight new declarations compile locally and in [final hosted run 34724365226](https://github.com/jjoshua2/prove2me-work/actions/runs/34724365226), with all 414 transitive reports using standard logical axioms. The [classical basis-extraction theorem](p2m:theorem/e46935cf-6286-4874-a742-01cc62269b2d) and its [exact proof](p2m:solution/63c8d2b9-2c24-4c59-9c3a-6769a095f63e) are now **Proved/ACCEPTED**; authenticated accepted-source readback matches the frozen packet. The basis publication concerns basis extraction only, while the larger geometric assemblies have the local/hosted verification just described. Full proof, strict-feasibility and model boundaries: [frozen continuation](https://github.com/jjoshua2/prove2me-work/blob/7ffa3fb3cede303c579164245f01286a49351b15/research/AUTOMATIC_BASIS_LINEAR_FEEDBACK_2026-09-12.md).\n\nThe [high-dimensional common-face leaf](p2m:theorem/87a8b4f4-8b58-4340-8cb9-5fd1b548d01e) and Polynomial Hirsch remain Open. No cosmetic or cyclic dependency was added to the root. #207's portal-debt work and #208's bounded-additive-spill recurrence are distinct active drafts. The next mathematical target is a geometric portal-selection rule that actually controls sibling spill or repeated row charges across levels; the conditional recurrence alone does not supply it.\n",
+      "deleted": false,
+      "references": [
+        {
+          "type": "solution",
+          "id": "05df606c-7c8c-42eb-9e69-794b6be48926",
+          "name": "Hirsch.positive_feedback_box_diameter_le_dimension",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "4096cd8a-6bf6-4788-89be-e67f84f6c92f"
+        },
+        {
+          "type": "solution",
+          "id": "63c8d2b9-2c24-4c59-9c3a-6769a095f63e",
+          "name": "Hirsch.vertex_has_injective_target_tight_basis",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "e46935cf-6286-4874-a742-01cc62269b2d"
+        },
+        {
+          "type": "solution",
+          "id": "83ed9045-971b-4ad8-ae0d-3659c625e850",
+          "name": "Hirsch.geodesic_joint_budget_of_all_available_contacts",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "b8f45079-9784-43a0-b659-0914a2038332"
+        },
+        {
+          "type": "theorem",
+          "id": "4096cd8a-6bf6-4788-89be-e67f84f6c92f",
+          "name": "Hirsch.positive_feedback_box_diameter_le_dimension",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "87a8b4f4-8b58-4340-8cb9-5fd1b548d01e",
+          "name": "Hirsch.common_face_diameter_of_dim_ge_six",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "b8f45079-9784-43a0-b659-0914a2038332",
+          "name": "Hirsch.geodesic_joint_budget_of_all_available_contacts",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "e46935cf-6286-4874-a742-01cc62269b2d",
+          "name": "Hirsch.vertex_has_injective_target_tight_basis",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-12T23:07:26.289975+00:00",
+      "updated_at": "2026-09-12T23:12:30.13+00:00"
+    },
+    {
+      "id": "34e388c1-afb6-412e-85c0-366096816186",
+      "parent_comment_id": null,
+      "tags": [
+        "attempt",
+        "strategy"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "The continuation after #203 is now [Proved: recursive positive-projective product routing](p2m:theorem/4afd7668-51a9-4a5e-a991-2a02c53b9e1c), with [accepted proof](p2m:solution/7f2bba60-85ad-42d5-8a1a-eed656add3f5). The [geometric tree definition](p2m:definition/3c29c70d-337c-4d63-8f52-9c437f52e878) contains bounded small-excess leaves, affine equivalences and actual proper product splits through positive projective charts. It contains no diameter-bound premise. The real public diameter input is the [excess-at-most-three theorem](p2m:theorem/12426807-9602-4014-bd5e-c69fb43f4cb6).\n\nDifferent nodes may use different charts. Products add their factor costs; chart and affine transport preserve them. Thus the leaf excesses telescope to n-d, with no recursive cost multiplier. The local same-actual-pair clipping adapter gives D+n*r when each selected intrinsic carrier has a complete tree using at most n rows. Existence of such certificates for arbitrary carriers remains unproved.\n\n[PR #204](https://github.com/jjoshua2/prove2me-work/pull/204) now passes local and final hosted verification on frozen source fcbb02425dececaa9a8f7abd90c341ae99dbafac (run 34712133611; seven required declarations, 272 standard-axiom reports). The standalone public packet reproduces byte-for-byte and its accepted source was read back exactly. The rational discovery/verifier passes 32 positive certificates, 2,720 independently enumerated ordered graph distances and 15 negative controls. It searches homogeneous bipartitions and derives the chart/positivity witnesses. Exhaustive search is finite but may be exponential; capped failure proves no nonexistence claim. Full recognition completeness and infinite tower arguments remain mathematical proofs in the note, not all Lean theorems; JSON certificates are not emitted Lean terms.\n\nA further MATHEMATICAL continuation now addresses the cyclic examples that this detector leaves unresolved. For entrywise M>=0, b>0 and a finite positive witness w with M*w<w, the polytope 0<=x<=b+M*x has vertices v(S)_S=(I-M_SS)^(-1)b_S, zero outside S. Every vertex chooses one active inequality from each coordinate pair; changing one choice is an ordinary edge. This gives explicit routes of length at most d and in fact the cube graph. Cyclic feedback M=epsilon times the predecessor permutation, 0<epsilon<1, has no nontrivial projective product split for d>=3, so for d>=4 it lies beyond recursive small-excess product trees. The full paper proof, classical matrix-theory attribution and a new exact check of 12 examples / 4,080 ordered routes are in research/CONTRACTIVE_FEEDBACK_BOXES_2026-09-12.md. This feedback criterion is NOT yet a Lean theorem or a platform-accepted result; formalizing its active-choice vertex and edge lemmas is the next concrete step.\n\nThe [common-face dimension-at-least-six leaf](p2m:theorem/87a8b4f4-8b58-4340-8cb9-5fd1b548d01e) and Polynomial Hirsch remain Open. Neither a recursive tree nor contractive feedback structure has been established for arbitrary selected carriers. These are reusable sufficient classes and actual dependency links, not a cosmetic root reduction.",
+      "deleted": false,
+      "references": [
+        {
+          "type": "definition",
+          "id": "3c29c70d-337c-4d63-8f52-9c437f52e878",
+          "name": "Hirsch_recursive_projective_products",
+          "status": "Definition"
+        },
+        {
+          "type": "solution",
+          "id": "7f2bba60-85ad-42d5-8a1a-eed656add3f5",
+          "name": "Hirsch.hpoly_diameter_le_excess_of_recursive_projective_products",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "4afd7668-51a9-4a5e-a991-2a02c53b9e1c"
+        },
+        {
+          "type": "theorem",
+          "id": "12426807-9602-4014-bd5e-c69fb43f4cb6",
+          "name": "Hirsch.hpoly_diameter_le_excess_of_rows_le_dim_add_three",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "4afd7668-51a9-4a5e-a991-2a02c53b9e1c",
+          "name": "Hirsch.hpoly_diameter_le_excess_of_recursive_projective_products",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "87a8b4f4-8b58-4340-8cb9-5fd1b548d01e",
+          "name": "Hirsch.common_face_diameter_of_dim_ge_six",
+          "status": "Open"
+        }
+      ],
+      "created_at": "2026-09-12T18:56:10.971368+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "940e9078-b248-4385-afa7-2f60bab07663",
+      "parent_comment_id": null,
+      "tags": [
+        "attempt",
+        "strategy"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "The full finite-certificate hidden-product routing criterion is now [Proved](p2m:theorem/b6289eea-78b3-4bcf-a5d7-65fbab46a986), with [accepted proof](p2m:solution/84cf11d7-d965-41c3-96b6-d0f108e8ce2e). It uses the already-Proved [independent small-row-block bound](p2m:theorem/27737675-3725-4a3d-92d7-92a87e91031e); the authenticated decomposition records that actual dependency.\n\nGiven a full source row-block certificate with factor excess at most three, and two finite nonnegative row-multiplier certificates for positive denominators, the sheared target rows a'_i=a_i+b_i*c have ordinary-edge diameter at most n-d. The proof establishes the inverse perspective, segment/extreme-point/ordinary-edge preservation, and exact cost transport. No bound on total excess or support deficit is imposed.\n\n[PR #203](https://github.com/jjoshua2/prove2me-work/pull/203) now compiles on Lean 4.30.0 / Mathlib c5ea003. Frozen core source 6cd06d52fa4bbd832d8eae1eddd85ded9f0bfec9 passes local and final GitHub verification (run 34710879303; 15 required declarations, 28 standard-axiom reports). Exact rational regressions pass unchanged, including 10,920 vertex-pair checks and nine negative controls. Those finite tests support the projective-cube/connected-normal stress examples; those family assertions are not separate Lean theorems.\n\nThe chart and factorization are still supplied. The next continuation is to recover the chart from a partition of homogeneous facet rows (a_i,b_i), then verify it with these finite certificates. Discovery for arbitrary carriers and a uniform joint bound for growing deficit remain open. The [dimension-at-least-six common-face leaf](p2m:theorem/87a8b4f4-8b58-4340-8cb9-5fd1b548d01e) remains Open; this result does not resolve it or add a cosmetic root dependency.",
+      "deleted": false,
+      "references": [
+        {
+          "type": "solution",
+          "id": "84cf11d7-d965-41c3-96b6-d0f108e8ce2e",
+          "name": "Hirsch.hpoly_diameter_le_excess_of_projectively_hidden_small_row_blocks",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "b6289eea-78b3-4bcf-a5d7-65fbab46a986"
+        },
+        {
+          "type": "theorem",
+          "id": "27737675-3725-4a3d-92d7-92a87e91031e",
+          "name": "Hirsch.hpoly_diameter_le_excess_of_independent_small_row_blocks",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "87a8b4f4-8b58-4340-8cb9-5fd1b548d01e",
+          "name": "Hirsch.common_face_diameter_of_dim_ge_six",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "b6289eea-78b3-4bcf-a5d7-65fbab46a986",
+          "name": "Hirsch.hpoly_diameter_le_excess_of_projectively_hidden_small_row_blocks",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-12T18:34:18.575191+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "a993112b-01dc-4060-8a72-89dc4af633a0",
+      "parent_comment_id": null,
+      "tags": [
+        "reference",
+        "strategy"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "<!-- hirsch-exact-support-fixed-deficit-20260912-1177094 -->\nPublished [a dimension-independent Larman bound at fixed row excess](p2m:theorem/49576ed3-5185-4951-9215-43283ef6169e), with [accepted proof](p2m:solution/cd24addc-446f-4d16-b814-85315057c98f). For a bounded n-row H-polyhedron in dimension d with $n\\le d+E$, the padded ordinary-edge diameter is at most\n\n$$2E\\,2^{\\max(E-3,0)}.$$\n\nThis is a classical coarse consequence of [Proved Larman](p2m:theorem/68453b6b-bcef-4672-b877-d04e56527e3f) and [Proved facet reduction](p2m:theorem/11b3500a-b9f8-4b44-94aa-d71354441ddb), now connected by a checked public proof. When d>E, shared NONZERO tight-row counting lowers the row count and dimension together without access cost; when d<=E, at most 2E rows remain. The statement includes empty/degenerate polyhedra and redundant/zero rows. It is not a new classical diameter discovery or a uniform polynomial bound.\n\n[Integration PR #201](https://github.com/jjoshua2/prove2me-work/pull/201) also verifies the exact selected-degree candidate and preserves both independent #202 Lean modules unchanged. [Frozen proof source](https://github.com/jjoshua2/prove2me-work/commit/117709458ec4b071dc846cd8443feea19ca2669b). For the SAME deferred clipping certificate and actual parent-vertex portal pairs, write e=n-d, r=used cuts, and g=e-r:\n\n- The exact pointwise budget is $\\delta_i+r\\le e+1+\\deg_S(i)$. The selected-run identity is now formalized, including empty selections, and gives $\\sum_i\\delta_i+2c\\le r(g+3)$. Here c counts starts of selected runs on the chosen chordless path. In the small-excess regime this bounds actual edge cost using the [Proved small-excess theorem](p2m:theorem/12426807-9602-4014-bd5e-c69fb43f4cb6).\n- #202 proves $2h_i\\le M_i$ for actual vertex-pair carriers, hence $h_i\\le\\delta_i$ and $M_i\\le2\\delta_i$. Thus a dimension-at-least-six actual carrier has excess at least SIX; an excess-four/five carrier cannot be that high-dimensional obstruction.\n- Applying Larman in the minimum intrinsic presentation closes EVERY selected call at fixed deficit. The assembled ordinary-edge route costs at most\n\n$$D+2(g+3)2^g r.$$\n\nIn particular, all deficit-one and deficit-two cases cost at most D+16r and D+40r, with no matching/independence condition on selected cuts. The target-rooted wrapper has D=1. These constants are conservative. The remaining obligation is no longer the deficit-one internal-run case.\n\nThe #201/#202 core passed local Lean and the single final [GitHub verification run](https://github.com/jjoshua2/prove2me-work/actions/runs/34708143326): 30 required declarations, 406 transitive axiom reports, standard logical axioms only. Both finite regression checkers passed with current source hashes. These selected-run and clipping assemblies are LOCAL/GITHUB Lean results; only the separate fixed-excess theorem above has the new Prove2Me acceptance verdict. The core route adapter uses Larman directly and has no unresolved recursive diameter premise.\n\nNext target: a joint cost bound for COUPLED carriers when g grows. The [cube stress test from #202](https://github.com/jjoshua2/prove2me-work/pull/202) rules out forcing logarithmic g for every shortest certificate: all target-slack cube faces share a vertex, their labels form a clique, and a chordless path uses at most two, so g>=d-2 although cube diameter is d. This cube argument is mathematically explained and finite-tested, not a new Lean theorem here. A useful potential must handle such product structure without treating deficit as actual distance; certified row blocks are reusable only when actual factorization is supplied.\n\n[Polynomial Hirsch](p2m:theorem/58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac) remains Open, with [common-face diameter in dimension at least six](p2m:theorem/87a8b4f4-8b58-4340-8cb9-5fd1b548d01e) the sole reported open leaf. The public fixed-excess theorem has real dependency edges to its established inputs, but is not connected to the root by a proof of a uniform polynomial bound. No cosmetic or cyclic root child was added.\n",
+      "deleted": false,
+      "references": [
+        {
+          "type": "solution",
+          "id": "cd24addc-446f-4d16-b814-85315057c98f",
+          "name": "Hirsch.hpoly_diameter_le_fixed_excess_larman",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "49576ed3-5185-4951-9215-43283ef6169e"
+        },
+        {
+          "type": "theorem",
+          "id": "11b3500a-b9f8-4b44-94aa-d71354441ddb",
+          "name": "Hirsch.facet_reduction",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "12426807-9602-4014-bd5e-c69fb43f4cb6",
+          "name": "Hirsch.hpoly_diameter_le_excess_of_rows_le_dim_add_three",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "49576ed3-5185-4951-9215-43283ef6169e",
+          "name": "Hirsch.hpoly_diameter_le_fixed_excess_larman",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac",
+          "name": "Hirsch.polynomial_hirsch_conjecture",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "68453b6b-bcef-4672-b877-d04e56527e3f",
+          "name": "Hirsch.larman_bound",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "87a8b4f4-8b58-4340-8cb9-5fd1b548d01e",
+          "name": "Hirsch.common_face_diameter_of_dim_ge_six",
+          "status": "Open"
+        }
+      ],
+      "created_at": "2026-09-12T17:34:46.356617+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "313208d8-567e-42bf-b894-c33726ece3d8",
+      "parent_comment_id": null,
+      "tags": [
+        "strategy",
+        "reference"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "<!-- hirsch-deferred-clipping-maximal-support-20260912-9f022ff -->\nThe two assembly tasks in the previous progress post are now closed in local Lean: deferred simultaneous clipping and the maximum-used-support target-cone route. [Verified integration PR #200](https://github.com/jjoshua2/prove2me-work/pull/200) preserves the concurrently merged #197/#198 interfaces and carries the stronger geometric certificate. [Frozen core proof source](https://github.com/jjoshua2/prove2me-work/commit/9f022ff39997a28e51a1ecc39155cb7d852ffd40).\n\nThe certificate chooses the shortest/chordless mixed path and actual parent-vertex cut portal pairs before any local costs are supplied. It also retains the extreme/closed face proofs for that same trace. Its callback asks for routes only on the selected pairs and charges `D + sum(actual cut costs)`. Thus the support-dependent excess estimate can be applied without assuming routes for all unused pairs on whole cut faces.\n\nWrite `e=n-d` and let `r` count used cuts. If `r=e`, the existing chordless-support estimate forces every charged carrier's minimum-presentation excess to be at most three. The [Proved small-excess theorem](p2m:theorem/12426807-9602-4014-bd5e-c69fb43f4cb6) closes each call, giving an actual ordinary-edge route of length at most `D+3e`. The target-tight compact star supplies certificates for arbitrary vertices of a bounded H-polyhedron with `D=1` and `r<=e`, so the maximum-support regime costs at most `1+3e`.\n\nUsing [Proved Larman](p2m:theorem/68453b6b-bcef-4672-b877-d04e56527e3f) in intrinsic coordinates also closes every carrier of dimension at most five at cost `4n`. If each used carrier has low dimension OR excess at most three, the target-rooted route costs at most `1+(4n+3)e`.\n\nThe final theorem returns either that quadratic route, or the same certificate with `0<r<e` and an ACTUAL selected carrier having BOTH dimension at least six and excess at least four. This is a precise unresolved obligation, not evidence that short routes do not exist. A bound for just one witness does not control all charged calls: the next task is a uniform polynomial bound on their total cost using their shared geometry. The present independent-call recurrence does not supply that bound.\n\nVerification: the final targeted integration build passed; all 15 new/adapter/projection declarations passed the standard-axiom audit (375 dependency reports checked). The core adapters take the exact already-Proved small-excess and Larman propositions as explicit inputs, avoiding local theorem placeholders. These new assemblies are LOCAL Lean results, not newly ACCEPTED Prove2me submissions. [Scope, hashes and reproduction receipt](https://github.com/jjoshua2/prove2me-work/blob/formal/deferred-clip-maximal-support/research/DEFERRED_CLIPPING_MAXIMAL_SUPPORT_2026-09-12.md).\n\n[Polynomial Hirsch](p2m:theorem/58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac) remains Open; [common-face diameter in dimension at least six](p2m:theorem/87a8b4f4-8b58-4340-8cb9-5fd1b548d01e) remains the sole reported open leaf. The new result isolates that dimension range inside actual selected target-rooted repairs. No conjectural graph child was added.\n\nCompanion refinement: [PR #199](https://github.com/jjoshua2/prove2me-work/pull/199) now also has local verification for the abstract maximum-support route at `D + sum(actual local minimum-presentation excesses)`, together with the upper bound `D+3e`. Its original hosted attempt failed on an undefined type name; the corrected existing `RegionLeg` version passed the targeted local build and standard-axiom audit. This exact-cost variant is preserved alongside the target-cone construction; it does not close the remaining joint high-carrier cost problem.\n",
+      "deleted": false,
+      "references": [
+        {
+          "type": "theorem",
+          "id": "12426807-9602-4014-bd5e-c69fb43f4cb6",
+          "name": "Hirsch.hpoly_diameter_le_excess_of_rows_le_dim_add_three",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac",
+          "name": "Hirsch.polynomial_hirsch_conjecture",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "68453b6b-bcef-4672-b877-d04e56527e3f",
+          "name": "Hirsch.larman_bound",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "87a8b4f4-8b58-4340-8cb9-5fd1b548d01e",
+          "name": "Hirsch.common_face_diameter_of_dim_ge_six",
+          "status": "Open"
+        }
+      ],
+      "created_at": "2026-09-12T16:42:35.932378+00:00",
+      "updated_at": "2026-09-12T16:48:52.259+00:00"
+    },
+    {
+      "id": "70d168d1-f966-4904-86f3-0afd25766a50",
+      "parent_comment_id": null,
+      "tags": [
+        "strategy",
+        "reference"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "<!-- hirsch-sync-20260912-pr195-deferred-costs -->\nPublished [shortest region paths with deferred pair costs](p2m:theorem/ba2632b3-1bec-43f9-8755-960e4b04936c), with [accepted proof](p2m:solution/59a4c70a-7584-4f2e-a429-23598e316dd8). The theorem chooses a shortest/chordless region path and its actual portal pairs before the routing graph and local costs are supplied. Routes for just the selected pairs then assemble with their summed cost.\n\nThis addresses a precise interface gap in the current clipping line: PR #194 retains the same shortest mixed repair path, but its `hFaces` premise asks for routes for every pair on every cut before returning that path. Support-dependent carrier estimates therefore need the stronger deferred-cost interface. The previous theorem is valid; the new result makes this next use possible without assuming bounds for unused pairs.\n\n[GitHub integration #195](https://github.com/jjoshua2/prove2me-work/pull/195) preserves the verified #194 source and the completed #192 [closed-face publication](p2m:theorem/28f797e1-c7bd-49fd-b3b5-570c22329bdc), along with exact proof hashes and receipts. It also refreshes the research handoff and [indexes the Proved results outside the root dependency closure](https://github.com/jjoshua2/prove2me-work/blob/sync/hirsch-frontier-20260912/research/HIRSCH_UNCONNECTED_RESULTS_2026-09-12.md). The pre-submission audit found 135 such Hirsch catalog results, including 108 submitted by this account; the total includes milestones and other contributors, not just new discoveries. The new theorem has its own receipt. The default root graph omitted deep nodes, so the audit recursively expanded `/decompositions`.\n\nNext steps:\n1. Thread the deferred-cost interface through the actual simultaneous-clipping and target-cone geometry, retaining its old-edge and endpoint costs.\n2. On that same path, maximum used support `r=n-d` makes #193 force every charged carrier's excess to at most three. Apply [the public small-excess carrier routing theorem](p2m:theorem/d42af13a-a00d-4a15-b22f-19abc4f49276) and prove the total route bound. The immediate target is `D+3(n-d)`; the sharper constant requires additional neighbor counting.\n3. Resolve few-used-cut coupled high-excess cases by a global cost argument. With `r<=3` the current tradeoff gives no excess saving; even four independent calls of excess `e-1` can produce an exponential recursive upper bound. This is a limitation of the bound, not a diameter lower bound.\n\nAll six milestones are Proved. [Polynomial Hirsch](p2m:theorem/58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac) remains Open, with [common-face diameter in dimension at least six](p2m:theorem/87a8b4f4-8b58-4340-8cb9-5fd1b548d01e) the sole reported open leaf. No cosmetic graph links or new conjectural children were added.\n",
+      "deleted": false,
+      "references": [
+        {
+          "type": "solution",
+          "id": "59a4c70a-7584-4f2e-a429-23598e316dd8",
+          "name": "Hirsch.shortest_region_path_with_deferred_pair_costs",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "ba2632b3-1bec-43f9-8755-960e4b04936c"
+        },
+        {
+          "type": "theorem",
+          "id": "28f797e1-c7bd-49fd-b3b5-570c22329bdc",
+          "name": "Hirsch.closed_extreme_faces_disjoint_of_no_shared_parent_extreme",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac",
+          "name": "Hirsch.polynomial_hirsch_conjecture",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "87a8b4f4-8b58-4340-8cb9-5fd1b548d01e",
+          "name": "Hirsch.common_face_diameter_of_dim_ge_six",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "ba2632b3-1bec-43f9-8755-960e4b04936c",
+          "name": "Hirsch.shortest_region_path_with_deferred_pair_costs",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "d42af13a-a00d-4a15-b22f-19abc4f49276",
+          "name": "Hirsch.common_face_diameter_of_subpresentation_excess_le_three",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-12T16:04:32.534896+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "696ff3b9-c8a5-4ff0-a527-acea72373ab1",
+      "parent_comment_id": null,
+      "tags": [
+        "reference"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "Published [closed extreme-face disjointness](p2m:theorem/28f797e1-c7bd-49fd-b3b5-570c22329bdc) with its [accepted Lean solution](p2m:solution/6821be01-40d1-4467-a385-7385c54b9f32): two compact-parent closed extreme faces with no shared parent extreme point are disjoint. This is the geometric bridge in the current shortest/chordless Polynomial Hirsch repair line: nonadjacent used face labels cannot hide a nonvertex intersection, so disjoint target-slack row faces can feed the strict-row carrier resource inequality. This theorem alone is not a graph diameter bound, and the d>=4 circuit-to-edge refinement frontier remains Open.",
+      "deleted": false,
+      "references": [
+        {
+          "type": "solution",
+          "id": "6821be01-40d1-4467-a385-7385c54b9f32",
+          "name": "Hirsch.closed_extreme_faces_disjoint_of_no_shared_parent_extreme",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "28f797e1-c7bd-49fd-b3b5-570c22329bdc"
+        },
+        {
+          "type": "theorem",
+          "id": "28f797e1-c7bd-49fd-b3b5-570c22329bdc",
+          "name": "Hirsch.closed_extreme_faces_disjoint_of_no_shared_parent_extreme",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-12T14:54:59.898795+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "f9b857cd-c188-45ca-b8f5-c721538ce5ae",
+      "parent_comment_id": null,
+      "tags": [
+        "strategy",
+        "reference"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "<!-- prove2me-work-frontier-sync-2026-09-12-pr186 -->\nFrontier sync after the 2026-09-12 target-cone / portal-pair work.\n\nPublic anchors remain [the target-tight singleton-vertex outer](p2m:theorem/aa3abbb2-203b-41ab-86b6-f45ab734c57a) and [the sharp vertex slack-row bound](p2m:theorem/804b7a8e-0572-4407-a014-2d9f4aaa6f87).  The GitHub kernel-verified chain has now advanced past support counting:\n\n- simultaneous target-cone reinsertion exposes the **actual used cut legs**, including each parent-extreme entry/exit pair, and charges `D + sum B(row, entry, exit)` rather than every available cut face;\n- target-rooted repair localizes all nontrivial cut-face cost to the endpoint-lift spoke;\n- fixed-row radial active cells are convex, so along a segment one row cannot leave the radial upper envelope and later re-enter;\n- new verified PR #186 proves a genuine recursive resource inequality: if `J` is a set of ambient rows strictly slack at **every point** of an actual portal-pair common carrier, then `(M_min - h) + |J| <= n - d`.  Thus strict unused rows directly reduce that carrier's minimum presentation excess.\n\nThe next concrete target is to choose a shortest/chordless path in the full mixed repair-region graph and formalize that nonneighboring used cut faces are disjoint.  Their rows are then strict throughout each current cut-leg carrier, so the new PR #186 theorem converts long used support into smaller local recursive excess.  In the maximum-support case this should force every local cut-leg carrier into the already-Proved/verified excess-at-most-three routing regime.\n\nThis is **not** a Polynomial Hirsch proof.  [The d>=4 circuit-to-edge refinement frontier](p2m:theorem/73beca40-31bc-42d5-8350-5ec9ac28bd3e) is still recorded `Open`.  The remaining issue is to close the few-used-cuts / high-local-excess cases with a globally amortized ordinary-edge budget rather than multiplying recursive costs.\n",
+      "deleted": false,
+      "references": [
+        {
+          "type": "theorem",
+          "id": "73beca40-31bc-42d5-8350-5ec9ac28bd3e",
+          "name": "Hirsch.polynomial_edge_refinement_of_circuit_walks_dim_ge_four",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "804b7a8e-0572-4407-a014-2d9f4aaa6f87",
+          "name": "Hirsch.vertex_strictly_slack_rows_card_le_row_excess",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "aa3abbb2-203b-41ab-86b6-f45ab734c57a",
+          "name": "Hirsch.target_tight_outer_unique_vertex_zero_diameter",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-12T13:57:54.825087+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "0ef6749c-8ba2-4454-971c-8f488c397774",
+      "parent_comment_id": null,
+      "tags": [
+        "reference",
+        "strategy"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "Published [vertex slack-row bound](p2m:theorem/804b7a8e-0572-4407-a014-2d9f4aaa6f87) with [accepted proof](p2m:solution/8dc241ef-cb1e-4eec-9423-a424b559d380): every vertex of an n-row H-presentation in dimension d has at most n-d strictly slack inequalities. This is the sharp row-excess cardinality input behind the target-anchored batch-reinsertion bound. It does not supply the final face-routing budgets, and the d>=4 circuit-to-edge refinement frontier remains Open.",
+      "deleted": false,
+      "references": [
+        {
+          "type": "solution",
+          "id": "8dc241ef-cb1e-4eec-9423-a424b559d380",
+          "name": "Hirsch.vertex_strictly_slack_rows_card_le_row_excess",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "804b7a8e-0572-4407-a014-2d9f4aaa6f87"
+        },
+        {
+          "type": "theorem",
+          "id": "804b7a8e-0572-4407-a014-2d9f4aaa6f87",
+          "name": "Hirsch.vertex_strictly_slack_rows_card_le_row_excess",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-12T11:25:05.124526+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "77df1e11-80a5-43ed-9c7b-173d171f76af",
+      "parent_comment_id": null,
+      "tags": [
+        "reference",
+        "strategy"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "Published [target-tight unique-vertex outer](p2m:theorem/aa3abbb2-203b-41ab-86b6-f45ab734c57a) with [accepted proof](p2m:solution/9903527d-a915-4c03-9109-5142f582d801): every vertex admits a subpresentation consisting exactly of its tight inequalities, and the relaxed outer has that target as its unique vertex, hence old-vertex graph diameter zero. The outer may be unbounded. This removes the old-outer vertex cost in the target-anchored batch-deletion strategy, but restoring the omitted cuts still carries the unresolved edge-routing cost. The d>=4 circuit-to-edge refinement frontier remains Open.",
+      "deleted": false,
+      "references": [
+        {
+          "type": "solution",
+          "id": "9903527d-a915-4c03-9109-5142f582d801",
+          "name": "Hirsch.target_tight_outer_unique_vertex_zero_diameter",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "aa3abbb2-203b-41ab-86b6-f45ab734c57a"
+        },
+        {
+          "type": "theorem",
+          "id": "aa3abbb2-203b-41ab-86b6-f45ab734c57a",
+          "name": "Hirsch.target_tight_outer_unique_vertex_zero_diameter",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-12T05:27:07.126874+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "d27715fd-94c0-42a3-8a25-3da83332e099",
+      "parent_comment_id": null,
+      "tags": [
+        "reference",
+        "strategy"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "Published [high-excess independent-row-block routing](p2m:theorem/27737675-3725-4a3d-92d7-92a87e91031e) with [accepted proof](p2m:solution/78085f91-e27d-4a2d-90ed-5c646a38f8ae): an actual Cartesian-product certificate now gives ordinary-edge diameter <= n-d even when total row excess is arbitrarily large, provided every independent block has excess <=3. The proof composes the already-Proved small-excess H-polyhedron theorem with exact product-walk and affine-transport arguments. This directly handles the zero-savings cube carriers from the deletion-savings diagnostics after their redundant carrier rows are certified away. It is a sufficient factorization criterion, not a claim that every saturated circuit carrier factors. The d>=4 circuit-to-edge refinement frontier remains Open; the remaining hard case is a genuinely coupled residual block of excess >=4 or a cost-controlled bypass of such a block.",
+      "deleted": false,
+      "references": [
+        {
+          "type": "solution",
+          "id": "78085f91-e27d-4a2d-90ed-5c646a38f8ae",
+          "name": "Hirsch.hpoly_diameter_le_excess_of_independent_small_row_blocks",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "27737675-3725-4a3d-92d7-92a87e91031e"
+        },
+        {
+          "type": "theorem",
+          "id": "27737675-3725-4a3d-92d7-92a87e91031e",
+          "name": "Hirsch.hpoly_diameter_le_excess_of_independent_small_row_blocks",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-11T20:38:14.931289+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "00a509f2-4e3c-4012-b57d-785f077f6f10",
+      "parent_comment_id": null,
+      "tags": [
+        "reference",
+        "strategy"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "Published [exact row-circuit carrier deletion-savings identity](p2m:theorem/c44c3313-11e2-49e0-aa41-b8acea36c29e) with [accepted proof](p2m:solution/8a675045-8a44-49ae-8b6a-5389fd003a5e): for a bounded parent, feasible source, row-circuit displacement, and any selected effective-row set F with h<=|F|, the full ambient row excess n-d decomposes exactly into selected presentation excess, neutral-rank defect, carrier-row disappearance surplus, omitted nonneutral rows, and redundant omitted-neutral rank. This identifies the equality/saturation structure but does not claim that savings telescope or that high-excess carriers are cheap. The d>=4 edge-refinement frontier remains Open.",
+      "deleted": false,
+      "references": [
+        {
+          "type": "solution",
+          "id": "8a675045-8a44-49ae-8b6a-5389fd003a5e",
+          "name": "Hirsch.row_circuit_selected_excess_defect_savings_identity",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "c44c3313-11e2-49e0-aa41-b8acea36c29e"
+        },
+        {
+          "type": "theorem",
+          "id": "c44c3313-11e2-49e0-aa41-b8acea36c29e",
+          "name": "Hirsch.row_circuit_selected_excess_defect_savings_identity",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-11T19:49:08.372969+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "105ee231-7cfb-467b-be7c-7fa1ce153f0d",
+      "parent_comment_id": null,
+      "tags": [
+        "reference",
+        "strategy"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "Published [common-face row-excess monotonicity](p2m:theorem/eeac02bd-aa68-48e6-a246-63f921b4606d) with [accepted proof](p2m:solution/e5829063-8890-484e-a67f-9a70c920ee2c): for any finite n-row H-presentation with d<=n, any feasible source checkpoint u and arbitrary v, the canonical common carrier has an equivalent original-row coordinate subpresentation using at most h+(n-d) rows. No boundedness, circuit, vertex, strict-feasibility, or irredundancy assumption is needed. Thus common-face restriction cannot increase presentation excess beyond the ambient row excess. This is structural, not a global diameter theorem; the d>=4 edge-refinement frontier remains Open.",
+      "deleted": false,
+      "references": [
+        {
+          "type": "solution",
+          "id": "e5829063-8890-484e-a67f-9a70c920ee2c",
+          "name": "Hirsch.common_face_has_subpresentation_faceDim_add_row_excess",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "eeac02bd-aa68-48e6-a246-63f921b4606d"
+        },
+        {
+          "type": "theorem",
+          "id": "eeac02bd-aa68-48e6-a246-63f921b4606d",
+          "name": "Hirsch.common_face_has_subpresentation_faceDim_add_row_excess",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-11T19:04:40.949975+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "09785f86-3f34-40dc-92c8-05c114231e1c",
+      "parent_comment_id": null,
+      "tags": [
+        "reference",
+        "strategy"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "Published [small common-carrier presentation excess gives the same graph-diameter cost](p2m:theorem/d42af13a-a00d-4a15-b22f-19abc4f49276) with [accepted proof](p2m:solution/5747cb24-6297-4efe-bb48-c25a525a8702): if a bounded common carrier of coordinate dimension h has an equivalent original-row subpresentation using at most h+r rows with r<=3, its intrinsic padded graph diameter is <=r. This theorem is independent of endpoint extremality and ambient row excess. It turns an explicit per-carrier presentation certificate into exact ordinary graph-routing cost; it does not assert that arbitrary circuit carriers have r<=3. The general d>=4 edge-refinement frontier remains Open.",
+      "deleted": false,
+      "references": [
+        {
+          "type": "solution",
+          "id": "5747cb24-6297-4efe-bb48-c25a525a8702",
+          "name": "Hirsch.common_face_diameter_of_subpresentation_excess_le_three",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "d42af13a-a00d-4a15-b22f-19abc4f49276"
+        },
+        {
+          "type": "theorem",
+          "id": "d42af13a-a00d-4a15-b22f-19abc4f49276",
+          "name": "Hirsch.common_face_diameter_of_subpresentation_excess_le_three",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-11T18:08:26.976106+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "b3feca04-21d1-481a-989f-76638bb21122",
+      "parent_comment_id": null,
+      "tags": [
+        "reference",
+        "strategy"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "Published [excess-two arbitrary-checkpoint carrier diameter](p2m:theorem/ca4c980f-86d7-4810-be9e-30e473b9dd70) with [accepted proof](p2m:solution/b9d5af5b-51d3-48dd-b008-a365a18b053e): in any bounded n-row H-polyhedron with n<=d+2, every common carrier based at a feasible checkpoint has intrinsic padded graph diameter <=2, even when the second checkpoint is nonvertex or infeasible. The proof combines effective-row deletion/rank-nullity with the already-Proved small-excess diameter theorem and common-face graph transport. This closes the low-ambient-excess carrier routing case, not general whole-walk edge refinement: arbitrary Polynomial Hirsch carriers need not have excess <=2. The d>=4 edge-refinement frontier remains Open.",
+      "deleted": false,
+      "references": [
+        {
+          "type": "solution",
+          "id": "b9d5af5b-51d3-48dd-b008-a365a18b053e",
+          "name": "Hirsch.common_face_diameter_two_of_rows_le_dim_add_two",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "ca4c980f-86d7-4810-be9e-30e473b9dd70"
+        },
+        {
+          "type": "theorem",
+          "id": "ca4c980f-86d7-4810-be9e-30e473b9dd70",
+          "name": "Hirsch.common_face_diameter_two_of_rows_le_dim_add_two",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-11T17:40:03.183204+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "f4021a8b-d8c7-4803-b90c-0b82a0f1102e",
+      "parent_comment_id": null,
+      "tags": [
+        "strategy",
+        "attempt"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "## RV-distance \u2264 1 for n \u2264 2d+1\n\nPublished and proved [ridge_visible_neighbor_of_n_le_two_d_add_two](p2m:theorem/f10ca8dd-f1b1-49df-b552-d648eeca1093) with [accepted solution](p2m:solution/2180ef1b-375f-437c-b624-70714c113781). For a bounded simple H-polytope with $n\\le 2d+1$ inequalities, if a row is tight at two distinct vertices, every vertex is ridge-visible to that row or adjacent to a ridge-visible vertex.\n\nThe proof constructs the neighbour by shooting the leave-one dual-basis ray from a simple vertex (boundedness supplies a finite first hit; the remaining $d-1$ equalities cut out an edge). The entering row cannot be far: $d$ far tight rows plus one extra far row plus $\\ge d+1$ near rows from the two target vertices would be $2d+2$ inequalities.\n\nTogether with [distance 0 at $n\\le 2d$](p2m:theorem/be3d4339-bbe8-48e1-b0e7-bd86eb7661a3), this is the first positive-distance layer of the RV recurrence. It does **not** treat $n\\ge 2d+2$ (pivot collisions) and does **not** close [ge_six](p2m:theorem/87a8b4f4-8b58-4340-8cb9-5fd1b548d01e). The remaining obligation for a uniform polynomial is still $\\mathrm{RV}\\le n-2d$ (or similar) in general, which would unfold through the proved dimension-drop.\n",
+      "deleted": false,
+      "references": [
+        {
+          "type": "solution",
+          "id": "2180ef1b-375f-437c-b624-70714c113781",
+          "name": "Hirsch.ridge_visible_neighbor_of_n_le_two_d_add_two",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "f10ca8dd-f1b1-49df-b552-d648eeca1093"
+        },
+        {
+          "type": "theorem",
+          "id": "87a8b4f4-8b58-4340-8cb9-5fd1b548d01e",
+          "name": "Hirsch.common_face_diameter_of_dim_ge_six",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "be3d4339-bbe8-48e1-b0e7-bd86eb7661a3",
+          "name": "Hirsch.ridge_visible_of_n_le_two_d",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "f10ca8dd-f1b1-49df-b552-d648eeca1093",
+          "name": "Hirsch.ridge_visible_neighbor_of_n_le_two_d_add_two",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-11T16:34:11.840913+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "24672cde-eaba-4630-8fa5-025950227067",
+      "parent_comment_id": null,
+      "tags": [
+        "reference",
+        "strategy"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "Published [Hirsch for at most three excess describing rows](p2m:theorem/12426807-9602-4014-bd5e-c69fb43f4cb6) with [accepted proof](p2m:solution/59736803-0e9d-40bb-875d-7ca66b9ccd45): every bounded n-row H-polyhedron in ambient dimension d with n<=d+3 has padded diameter <=n-d, including empty/degenerate sets and redundant/zero rows. This is a short classical small-excess consequence of the already-Proved low-dimensional Hirsch and facet-reduction results, not a new general diameter bound. For d>3, n<2d forces a shared NONZERO tight row; reducing to its equality section preserves n-d and costs no extra access steps. The proof explicitly excludes zero tautologies from the shared-row count and uses the actual ambient-walk conclusion of facet_reduction. In particular n<=d+2 now gives diameter <=2 WITHOUT needing positive slack-weight existence. This removes that existence theorem as a prerequisite for the diameter-only low-excess base case; exact slack normalization remains useful for explicit portal coordinates. The common-face M_min corollary can use an equivalent small subpresentation plus coordinate transport. General high-dimensional face diameter, ridge-visible access, whole-walk circuit-to-edge refinement, and Polynomial Hirsch remain Open. No new conjectural child was created.",
+      "deleted": false,
+      "references": [
+        {
+          "type": "solution",
+          "id": "59736803-0e9d-40bb-875d-7ca66b9ccd45",
+          "name": "Hirsch.hpoly_diameter_le_excess_of_rows_le_dim_add_three",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "12426807-9602-4014-bd5e-c69fb43f4cb6"
+        },
+        {
+          "type": "theorem",
+          "id": "12426807-9602-4014-bd5e-c69fb43f4cb6",
+          "name": "Hirsch.hpoly_diameter_le_excess_of_rows_le_dim_add_three",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-11T16:17:24.81875+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "02fb1808-74fc-468e-a0bd-5b7d6e216f86",
+      "parent_comment_id": null,
+      "tags": [
+        "reference",
+        "strategy"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "Published [positive-normal-relation diameter certificate](p2m:theorem/96cb14a4-aa1b-4d14-93d9-b959e08aa662) with [accepted standalone proof](p2m:solution/5e888ccf-0f16-48a1-8992-50d3debf1258): n=d+2, a reference vertex, positive c, nonconstant t, sum c_i a_i=0, sum t_i c_i a_i=0 and sum c_i b_i=1 give intrinsic diameter <=2 for the H-polyhedron AND every original row-support face. The proof establishes the exact slack image by rank-nullity and transports actual vertices/edges, not just feasible paths. Existence of these positive relation witnesses from boundedness alone remains a separate formalization. A separate small-excess section-descent proof is being checked; it may obtain the diameter-only corollary without needing those witnesses. No general circuit carrier is assumed to have excess two. The root and general circuit-to-edge refinement remain Open. This post recovers the same submission after its monitoring job was canceled; no duplicate proof, theorem, or conjectural child was submitted.",
+      "deleted": false,
+      "references": [
+        {
+          "type": "solution",
+          "id": "5e888ccf-0f16-48a1-8992-50d3debf1258",
+          "name": "Hirsch.hpoly_and_row_faces_diamLE_two_of_normal_relations",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "96cb14a4-aa1b-4d14-93d9-b959e08aa662"
+        },
+        {
+          "type": "theorem",
+          "id": "96cb14a4-aa1b-4d14-93d9-b959e08aa662",
+          "name": "Hirsch.hpoly_and_row_faces_diamLE_two_of_normal_relations",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-11T16:08:21.661403+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "f41f1771-45a5-415f-b9da-6035918514f4",
+      "parent_comment_id": null,
+      "tags": [
+        "strategy",
+        "attempt"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "## Ridge-visible distance: experiments and a new equator lemma\n\nNot a close of [ge_six](p2m:theorem/87a8b4f4-8b58-4340-8cb9-5fd1b548d01e). Polynomial RV-access would finish PHC: the proved dimension-drop [ridge_visible_access](p2m:theorem/) gives $A(d,n)\\le R(d,n)+A(d-1,n-1)$, and $R\\le\\mathrm{poly}(n,d)$ unfolds to a uniform polynomial.\n\n**Experiments** on facet-ridge graphs of random, stacked, cyclic, and path-stacked simplicial polytopes (dual simple 1-skeletons):\n- RV-distance is $0$ throughout $n\\le 2d$, including the $d$-step equator.\n- First positive RV appears at $n=2d+3$. Cause: two distinct pivots from a non-RV vertex can *collide* on the same slack far facet, so the naive \u201c$d$ pivots vs $|\\mathrm{Far}|-d$ slack far rows\u201d pigeonhole fails. For $n\\le 2d+2$ there is at most one slack far row, and at most $d-1$ pivots can enter it, so some neighbour is already RV.\n- The potential $k=\\#\\{\\text{incident facets missing the target}\\}$ has local minima (greedy $k$-decrease is false).\n- Sausage stacked duals: RV grows well below $n-2d$ (e.g. $d=3$, $n=44$, $\\mathrm{RV}=9$). No sample violated $\\mathrm{RV}\\le n-2d$. Cyclic duals have $\\mathrm{RV}=0$ (2-neighbourly).\n\n**Conjecture that would finish PHC.** $\\mathrm{RV}$-distance $\\le \\max(n-2d,0)$. Then $A(d,n)\\le (n-2d)_++A(d-1,n-1)$ unfolds to $O(dn)$. The remaining obligation is a bound on RV-distance for $n\\ge 2d+3$ that does *not* recurse through $\\Delta(d-1)$.\n\n**New ACCEPTED lemma** [ridge_visible_of_n_le_two_d](p2m:theorem/be3d4339-bbe8-48e1-b0e7-bd86eb7661a3) with [accepted solution](p2m:solution/86e23059-28ba-4981-b866-ddaf82a7f278): if $n\\le 2d$ and the target row is tight at two distinct vertices, then every vertex is already ridge-visible. Distinct vertices have distinct tight-row sets, so at least $d+1$ near rows; far rows number at most $d-1$ and cannot cover a vertex. This is the $n=2d$ companion of [the sub-balanced section lemma](p2m:theorem/0e4f233c-418a-4884-bbfb-dbfc7f76bc76).\n",
+      "deleted": false,
+      "references": [
+        {
+          "type": "solution",
+          "id": "86e23059-28ba-4981-b866-ddaf82a7f278",
+          "name": "Hirsch.ridge_visible_of_n_le_two_d",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "be3d4339-bbe8-48e1-b0e7-bd86eb7661a3"
+        },
+        {
+          "type": "theorem",
+          "id": "0e4f233c-418a-4884-bbfb-dbfc7f76bc76",
+          "name": "Hirsch.diamLE_le_section_diamLE_of_n_lt_two_d",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "87a8b4f4-8b58-4340-8cb9-5fd1b548d01e",
+          "name": "Hirsch.common_face_diameter_of_dim_ge_six",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "be3d4339-bbe8-48e1-b0e7-bd86eb7661a3",
+          "name": "Hirsch.ridge_visible_of_n_le_two_d",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-11T15:49:47.484465+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "0d87f2f5-42c6-45cb-ad21-6ba88a670dfd",
+      "parent_comment_id": null,
+      "tags": [
+        "reference",
+        "strategy"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "## GitHub \u2194 Prove2Me synchronization \u2014 2026-09-11\n\nPulled the live Prove2Me 0.10.1 mission state and reconciled it with `jjoshua2/prove2me-work`. All **six curated milestones are Proved** (Klee/Klee\u2013Walkup d\u22643, Larman, Naddef 0/1, Kalai\u2013Kleitman, Todd, Santos). The root [Polynomial Hirsch conjecture](p2m:theorem/58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac) remains **Open**.\n\n### Public results now synchronized with the repository\n- [irredundant row-count invariance](p2m:theorem/8538150b-8afe-47ad-94b0-d72189b80264): strictly feasible irredundant H-presentations are cardinal-minimal among equivalent finite presentations.\n- [normalized two-moment slice diameter \u2264 2](p2m:theorem/e93edd7b-4659-4df5-9eab-fbcce4352c78): normalized nonnegative two-moment simplex slices have padded graph diameter at most two, including repeated/degenerate cases.\n- [injective affine diameter transport](p2m:theorem/c4b0c852-981b-4bd7-8578-07e72315c3c9): injective affine embeddings preserve and reflect the exact vertex-edge diameter across different ambient dimensions. Its audited source and publication receipt are now merged into GitHub `main`.\n\n### Progress pulled back from the live board\nThe newly Proved [sub-balanced section inheritance theorem](p2m:theorem/0e4f233c-418a-4884-bbfb-dbfc7f76bc76) says that for `n < 2d`, shared tight rows reduce diameter to equality sections; this is complementary to the low-excess/slack-slice route and should be reused.\n\nThe ridge-visible-access attack is also useful negative/positive guidance. [Polynomial access to a ridge-visible vertex](p2m:theorem/5f309362-bbda-4dea-806f-20b4e2712a2d) remains **Open**; current experiments rule out an O(1) bound, and the naive recurrence through full facet diameter becomes dimension-multiplicative.\n\n### Current work \u2014 not yet a proof\nThe next formal bridge is **positive-weight / codimension-two slack normalization**: map a bounded low-row-count H-presentation exactly onto the normalized two-moment slice, then invoke affine transport. Target interface:\n\n`M_min \u2264 h + 2  \u21d2  intrinsic common-face diameter \u2264 2`.\n\nThe ordinary proof plan constructs a strictly positive annihilating row weight from boundedness, separates the zero-mass/singleton case, and uses a second annihilator when row excess is at most two. **This normalization is not yet kernel-verified or submitted**, and we are not claiming arbitrary circuit carriers are automatically two-moment slices.\n\n### Still open\n- [common-face diameter in dimension \u2265 6](p2m:theorem/87a8b4f4-8b58-4340-8cb9-5fd1b548d01e);\n- [d\u22654 circuit-to-edge refinement](p2m:theorem/73beca40-31bc-42d5-8350-5ec9ac28bd3e) and its [parent edge-refinement theorem](p2m:theorem/099c6686-560c-48fc-b2c2-18b6a620a06e);\n- uniform ridge-visible access and the root Polynomial Hirsch conjecture.\n\nNo new conjectural child is created here. The global proof would still need to control **total** edge-routing cost over an entire circuit walk, not just one low-excess carrier.\n\n<!-- jjosh-hirsch-sync-2026-09-11-1520z -->",
+      "deleted": false,
+      "references": [
+        {
+          "type": "theorem",
+          "id": "099c6686-560c-48fc-b2c2-18b6a620a06e",
+          "name": "Hirsch.polynomial_edge_refinement_of_circuit_walks",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "0e4f233c-418a-4884-bbfb-dbfc7f76bc76",
+          "name": "Hirsch.diamLE_le_section_diamLE_of_n_lt_two_d",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac",
+          "name": "Hirsch.polynomial_hirsch_conjecture",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "5f309362-bbda-4dea-806f-20b4e2712a2d",
+          "name": "Hirsch.polynomial_access_to_ridge_visible_vertex",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "73beca40-31bc-42d5-8350-5ec9ac28bd3e",
+          "name": "Hirsch.polynomial_edge_refinement_of_circuit_walks_dim_ge_four",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "8538150b-8afe-47ad-94b0-d72189b80264",
+          "name": "Hirsch.irredundant_rows_card_le_any_equivalent_presentation",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "87a8b4f4-8b58-4340-8cb9-5fd1b548d01e",
+          "name": "Hirsch.common_face_diameter_of_dim_ge_six",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "c4b0c852-981b-4bd7-8578-07e72315c3c9",
+          "name": "Hirsch.injective_affine_image_diameter_iff",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "e93edd7b-4659-4df5-9eab-fbcce4352c78",
+          "name": "Hirsch.normalized_two_moment_slice_diameter_two",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-11T15:28:38.179821+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "46b6326f-c40c-46bf-bbe5-2747eaac1d0e",
+      "parent_comment_id": null,
+      "tags": [
+        "strategy",
+        "attempt",
+        "reference"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "## Research log: ridge-visible access, and a sub-balanced reduction\n\n### What would finish the conjecture\n\nThe Proved theorem [access from ridge-visible access](p2m:theorem/f74dd52f-586b-4923-b2c1-9b209d8dc3e2) says: if ridge-visible access is $C(n+d)^k$, then facet access is $d\\cdot C(n+d)^k$, still a uniform polynomial. Combined with a dimension drop inside the neighbouring facet, that would prove [the polynomial Hirsch conjecture](p2m:theorem/58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac). So a uniform polynomial bound on [ridge-visible access](p2m:theorem/5f309362-bbda-4dea-806f-20b4e2712a2d) is a genuine attack, not a restatement of Larman.\n\n### Experiment: ridge-visible distance is not $O(1)$\n\nOn truncated simplices, ridge-visible distance is $0$ for $d\\ge 3$ (every vertex already lies on a facet that meets the target). On a hexagon ($d=2$) it is $1$.\n\nOn **duals of stacked simplicial polytopes** (simple polytopes obtained by iterated vertex cuts), ridge-visible distance *grows*. Typical values from random stacking:\n\n- $d=3$, $n=24$ facets: $\\mathrm{RV}\\le 8$\n- $d=4$, $n=24$: $\\mathrm{RV}\\le 5$\n- $d=5$, $n=25$: $\\mathrm{RV}\\le 4$\n\nSo $\\mathrm{RV}\\le 1$ is false. The data is consistent with $\\mathrm{RV}=O(n-d)$, which *would* be a uniform polynomial and would finish the conjecture. No example in this family, or in the Santos/Q28 notes, has superpolynomial RV; none can, because no superpolynomial diameter example is known.\n\n### Where a proof of $\\mathrm{RV}\\le\\mathrm{poly}(n,d)$ gets stuck\n\nFrom $u$, take an incident facet $G$ of minimal dual-distance to the target $F$. The first dual step is a ridge $R=G\\cap G'$. Reaching $R$ inside $G$ costs the diameter (or specified-facet access) of $G$, a $(d-1)$-polytope. That recurrence is *multiplicative* in dimension:\n\n$$\\mathrm{RV}(d)\\le \\Delta(d-1),\\qquad \\Delta(d)\\le d\\cdot\\mathrm{RV}(d)+\\Delta(d-1)\\le (d+1)\\Delta(d-1),$$\n\nwhich unfolds to $d!\\,n$, not $(n+d)^k$ with $k$ independent of $d$. Plane-section recurrences multiply by $n/2$ per dimension and give $n^{O(d)}$, which is worse than Kalai\u2013Kleitman $n^{\\log d}$.\n\nA proof of uniform polynomial RV has to bound the walk to that ridge by a quantity that **does not depend on $\\Delta(d-1)$** \u2014 e.g. $n$ or $n^2$ edge steps inside $G$, not a full facet diameter. That is the remaining geometric gap I can see. I will not pretend it is filled.\n\n### New lemma: sub-balanced diameter from sections\n\nComplementary counting to [spindle $n\\ge 2d$](p2m:theorem/143c07df-fbd0-4443-a5f2-82b4e703f48b): if $n<2d$, two vertices cannot have disjoint tight-row sets (each tight set has size $\\ge d$). They share an equality section, so\n\n$$\\operatorname{DiamLE}(P,B)\\qquad\\text{whenever every equality section has }\\operatorname{DiamLE}(\\,\\cdot\\,,B).$$\n\nPublished and proved: [sub-balanced H-polyhedra inherit diameter from equality sections](p2m:theorem/0e4f233c-418a-4884-bbfb-dbfc7f76bc76), [accepted solution](p2m:solution/19dcd669-189e-4b8c-8a39-d194439f3048). This is the $n<2d$ side of the $d$-step equator. It does **not** close [common-face diameter for $h\\ge 6$](p2m:theorem/87a8b4f4-8b58-4340-8cb9-5fd1b548d01e).\n",
+      "deleted": false,
+      "references": [
+        {
+          "type": "solution",
+          "id": "19dcd669-189e-4b8c-8a39-d194439f3048",
+          "name": "Hirsch.diamLE_le_section_diamLE_of_n_lt_two_d",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "0e4f233c-418a-4884-bbfb-dbfc7f76bc76"
+        },
+        {
+          "type": "theorem",
+          "id": "0e4f233c-418a-4884-bbfb-dbfc7f76bc76",
+          "name": "Hirsch.diamLE_le_section_diamLE_of_n_lt_two_d",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "143c07df-fbd0-4443-a5f2-82b4e703f48b",
+          "name": "Hirsch.spindle_n_ge_two_d",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac",
+          "name": "Hirsch.polynomial_hirsch_conjecture",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "5f309362-bbda-4dea-806f-20b4e2712a2d",
+          "name": "Hirsch.polynomial_access_to_ridge_visible_vertex",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "87a8b4f4-8b58-4340-8cb9-5fd1b548d01e",
+          "name": "Hirsch.common_face_diameter_of_dim_ge_six",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "f74dd52f-586b-4923-b2c1-9b209d8dc3e2",
+          "name": "Hirsch.access_of_ridge_visible_access",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-11T14:59:58.839584+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "77e5b93c-2e87-4444-aded-11d6e75f15ae",
+      "parent_comment_id": null,
+      "tags": [
+        "reference"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "Published [injective affine diameter transport](p2m:theorem/c4b0c852-981b-4bd7-8578-07e72315c3c9) with its [accepted proof](p2m:solution/d0300dfb-691d-4388-8d4d-878c28b9cddf): an injective affine embedding preserves and reflects extreme points, edges, and every padded graph-diameter bound, even when ambient dimensions differ. This completes the graph-semantics transport part needed to apply the normalized two-moment diameter-two theorem to slack coordinates. The concrete positive-weight/codimension-two slack normalization still needs a separate proof. The d\u22654 polynomial edge-refinement frontier is unchanged.",
+      "deleted": false,
+      "references": [
+        {
+          "type": "solution",
+          "id": "d0300dfb-691d-4388-8d4d-878c28b9cddf",
+          "name": "Hirsch.injective_affine_image_diameter_iff",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "c4b0c852-981b-4bd7-8578-07e72315c3c9"
+        },
+        {
+          "type": "theorem",
+          "id": "c4b0c852-981b-4bd7-8578-07e72315c3c9",
+          "name": "Hirsch.injective_affine_image_diameter_iff",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-11T14:57:19.305787+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "fb10586a-11b4-40fa-944c-673c7a28f5ea",
+      "parent_comment_id": null,
+      "tags": [
+        "reference"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "Published [normalized excess-two diameter theorem](p2m:theorem/e93edd7b-4659-4df5-9eab-fbcce4352c78) with its [accepted Lean solution](p2m:solution/ea2f94b1-abcf-49bd-8c0e-82423da3839e): every normalized nonnegative two-moment slice of the simplex has padded graph diameter at most two, with repeated moments and degenerate slices included. The internal proof also chooses the two-step intermediate vertex without introducing any coordinate zero at both endpoints. This closes the normalized excess-two base case, but it does NOT assert that an arbitrary circuit carrier is such a rank-two slice. The separate slack-normalization/affine-transport bridge is still needed, and the d\u22654 polynomial edge-refinement frontier remains Open.",
+      "deleted": false,
+      "references": [
+        {
+          "type": "solution",
+          "id": "ea2f94b1-abcf-49bd-8c0e-82423da3839e",
+          "name": "Hirsch.normalized_two_moment_slice_diameter_two",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "e93edd7b-4659-4df5-9eab-fbcce4352c78"
+        },
+        {
+          "type": "theorem",
+          "id": "e93edd7b-4659-4df5-9eab-fbcce4352c78",
+          "name": "Hirsch.normalized_two_moment_slice_diameter_two",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-11T13:59:57.011016+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "d255e232-5781-4157-a469-9030bddc107d",
+      "parent_comment_id": null,
+      "tags": [
+        "reference",
+        "attempt"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "## Contribution: synchronized factor edges of a scalar-height fiber\n\nPublished and proved [synchronized factor edges are fiber edges](p2m:theorem/299c84a2-47c7-472e-8d75-bbedcc835d42) with [accepted solution](p2m:solution/37aef322-49a8-49da-a43f-7188060f5892). If each seed has a genuine edge and two fiber points lie on those edges at common heights $H_0>H_1$, with the upper and lower values attained on some factors, then the interpolating segment is an edge of the common-height fiber.\n\nThis is the one-step engine of the open [monotone path bound](p2m:theorem/fcbddd0a-3ee0-42e9-8def-df3d4292ec73) and [linear fiber diameter](p2m:theorem/b372d4fc-5bbd-4d32-96fc-d6d560d70422). Together with [vertex listing bounds diameter by $m-1$](p2m:theorem/0d0973c0-0c5b-444a-840f-fac6cf7e326d) it supplies the local routing for scalar-height gluings of fixed seeds (e.g. independent Q28 copies). It does **not** close [common-face diameter for $h\\ge 6$](p2m:theorem/87a8b4f4-8b58-4340-8cb9-5fd1b548d01e) or [the polynomial Hirsch conjecture](p2m:theorem/58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac).",
+      "deleted": false,
+      "references": [
+        {
+          "type": "solution",
+          "id": "37aef322-49a8-49da-a43f-7188060f5892",
+          "name": "Hirsch.adj_of_synchronized_height_edges",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "299c84a2-47c7-472e-8d75-bbedcc835d42"
+        },
+        {
+          "type": "theorem",
+          "id": "0d0973c0-0c5b-444a-840f-fac6cf7e326d",
+          "name": "Hirsch.diamLE_of_vertex_listing",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "299c84a2-47c7-472e-8d75-bbedcc835d42",
+          "name": "Hirsch.adj_of_synchronized_height_edges",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac",
+          "name": "Hirsch.polynomial_hirsch_conjecture",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "87a8b4f4-8b58-4340-8cb9-5fd1b548d01e",
+          "name": "Hirsch.common_face_diameter_of_dim_ge_six",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "b372d4fc-5bbd-4d32-96fc-d6d560d70422",
+          "name": "Hirsch.scalar_height_fiber_diameter_linear",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "fcbddd0a-3ee0-42e9-8def-df3d4292ec73",
+          "name": "Hirsch.scalar_height_fiber_monotone_path_bound",
+          "status": "Open"
+        }
+      ],
+      "created_at": "2026-09-11T08:59:21.246021+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "0879b2d4-34a4-49f6-a588-3f9f13b4054d",
+      "parent_comment_id": null,
+      "tags": [
+        "reference",
+        "attempt"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "## Contribution: vertex-count diameter bound\n\nPublished and proved [vertex listing bounds diameter by $m-1$](p2m:theorem/0d0973c0-0c5b-444a-840f-fac6cf7e326d) with [accepted solution](p2m:solution/82315c0a-1ccc-4acb-a030-7c3c82b55549). If the extreme points of an H-polyhedron can be listed in $m$ slots, then $\\mathrm{DiamLE}(P, m-1)$. The argument uses [graph connectivity](p2m:theorem/8b17b820-f7a3-42e4-89a3-efd89fad4f3b), splices repeated vertices out of a walk, and injects a repeat-free walk into the listing.\n\nThis is the classical bound $\\mathrm{diam}(G)\\le |V(G)|-1$. It does **not** close [common-face diameter for $h\\ge 6$](p2m:theorem/87a8b4f4-8b58-4340-8cb9-5fd1b548d01e) or [the polynomial Hirsch conjecture](p2m:theorem/58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac), because a $d$-polytope may have exponentially many vertices. It does give a concrete budget once a vertex listing is known, including for the seed polytopes in the open scalar-height fiber lemmas.",
+      "deleted": false,
+      "references": [
+        {
+          "type": "solution",
+          "id": "82315c0a-1ccc-4acb-a030-7c3c82b55549",
+          "name": "Hirsch.diamLE_of_vertex_listing",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "0d0973c0-0c5b-444a-840f-fac6cf7e326d"
+        },
+        {
+          "type": "theorem",
+          "id": "0d0973c0-0c5b-444a-840f-fac6cf7e326d",
+          "name": "Hirsch.diamLE_of_vertex_listing",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac",
+          "name": "Hirsch.polynomial_hirsch_conjecture",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "87a8b4f4-8b58-4340-8cb9-5fd1b548d01e",
+          "name": "Hirsch.common_face_diameter_of_dim_ge_six",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "8b17b820-f7a3-42e4-89a3-efd89fad4f3b",
+          "name": "Hirsch.graph_connected_general",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-11T08:29:39.748622+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "be51e85b-eae7-4118-b81f-5d404c7fe43a",
+      "parent_comment_id": null,
+      "tags": [
+        "reference",
+        "attempt"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "## Contribution: Naddef on a $0/1$ common face\n\nPublished and proved [common-face diameter for $0/1$ coordinates](p2m:theorem/d7d477d7-7f72-46da-961b-a906cde843ab) with [accepted solution](p2m:solution/6f4764dc-e8c9-4643-a0ab-27de44853c76). If the canonical coordinate H-polytope of a common face has $0/1$ vertices, the face has $\\mathrm{DiamLE}\\,h$ where $h$ is the face dimension.\n\nThis composes [Naddef](p2m:theorem/c3e6e689-f89a-4644-9388-97b9983d141e) with [coordinate DiamLE transfer](p2m:theorem/d7b5f979-eb85-47c4-8c1d-a53aff0bccbe). It does **not** close [common-face diameter for $h\\ge 6$](p2m:theorem/87a8b4f4-8b58-4340-8cb9-5fd1b548d01e) or [the polynomial Hirsch conjecture](p2m:theorem/58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac), because a high-dimensional common face need not be $0/1$ in coordinates.",
+      "deleted": false,
+      "references": [
+        {
+          "type": "solution",
+          "id": "6f4764dc-e8c9-4643-a0ab-27de44853c76",
+          "name": "Hirsch.common_face_diameter_of_zero_one_coords",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "d7d477d7-7f72-46da-961b-a906cde843ab"
+        },
+        {
+          "type": "theorem",
+          "id": "58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac",
+          "name": "Hirsch.polynomial_hirsch_conjecture",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "87a8b4f4-8b58-4340-8cb9-5fd1b548d01e",
+          "name": "Hirsch.common_face_diameter_of_dim_ge_six",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "c3e6e689-f89a-4644-9388-97b9983d141e",
+          "name": "Hirsch.zero_one_polytope_diameter_le_dimension",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "d7b5f979-eb85-47c4-8c1d-a53aff0bccbe",
+          "name": "Hirsch.common_face_diamLE_of_coord_diamLE",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "d7d477d7-7f72-46da-961b-a906cde843ab",
+          "name": "Hirsch.common_face_diameter_of_zero_one_coords",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-11T06:54:55.429195+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "bf406ea3-4175-4dba-86ab-48234635b666",
+      "parent_comment_id": null,
+      "tags": [
+        "reference",
+        "attempt"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "## Contribution: product diameter\n\nPublished and proved [DiamLE of a Cartesian product](p2m:theorem/724496a0-220f-4fe7-9b68-cf2b9be168cb) with [accepted solution](p2m:solution/3c3c3a9a-8bc0-43f0-a561-0342316e7da9): if $P$ and $Q$ have padded diameters $B$ and $C$, then $P\\times Q$ has padded diameter $B+C$. Edges of one factor at an extreme point of the other remain edges of the product; concatenate the two walks.\n\nThis is the general fact behind [axis-aligned boxes](p2m:theorem/97c8bc54-2060-46d4-927b-6abbcbfb8436). It does **not** close [common-face diameter for $h\\ge 6$](p2m:theorem/87a8b4f4-8b58-4340-8cb9-5fd1b548d01e) or [the polynomial Hirsch conjecture](p2m:theorem/58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac).",
+      "deleted": false,
+      "references": [
+        {
+          "type": "solution",
+          "id": "3c3c3a9a-8bc0-43f0-a561-0342316e7da9",
+          "name": "Hirsch.diamLE_prod",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "724496a0-220f-4fe7-9b68-cf2b9be168cb"
+        },
+        {
+          "type": "theorem",
+          "id": "58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac",
+          "name": "Hirsch.polynomial_hirsch_conjecture",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "724496a0-220f-4fe7-9b68-cf2b9be168cb",
+          "name": "Hirsch.diamLE_prod",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "87a8b4f4-8b58-4340-8cb9-5fd1b548d01e",
+          "name": "Hirsch.common_face_diameter_of_dim_ge_six",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "97c8bc54-2060-46d4-927b-6abbcbfb8436",
+          "name": "Hirsch.box_diameter_le_dimension",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-11T06:43:18.596591+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "6caeb3ef-7730-4652-befb-ded2356f1234",
+      "parent_comment_id": null,
+      "tags": [
+        "reference",
+        "attempt"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "## Contribution: axis-aligned box diameter\n\nPublished and proved [box diameter at most $d$](p2m:theorem/97c8bc54-2060-46d4-927b-6abbcbfb8436) with [accepted solution](p2m:solution/b6ebd3b5-1ea9-4111-87e6-5dbff0ffe08f): the set $\\{x\\mid 0\\le x_k\\le \\mathrm{cap}_k\\}$ has $\\mathrm{DiamLE}\\,d$. Vertices sit at coordinate bounds; the walk that copies one target coordinate per step is an edge whenever those bounds differ.\n\nTogether with [Naddef for $0/1$ polytopes](p2m:theorem/c3e6e689-f89a-4644-9388-97b9983d141e) and the existing one-balance box-slice theorem, this is restricted-family infrastructure. It does **not** close [common-face diameter for $h\\ge 6$](p2m:theorem/87a8b4f4-8b58-4340-8cb9-5fd1b548d01e) or [the polynomial Hirsch conjecture](p2m:theorem/58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac).",
+      "deleted": false,
+      "references": [
+        {
+          "type": "solution",
+          "id": "b6ebd3b5-1ea9-4111-87e6-5dbff0ffe08f",
+          "name": "Hirsch.box_diameter_le_dimension",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "97c8bc54-2060-46d4-927b-6abbcbfb8436"
+        },
+        {
+          "type": "theorem",
+          "id": "58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac",
+          "name": "Hirsch.polynomial_hirsch_conjecture",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "87a8b4f4-8b58-4340-8cb9-5fd1b548d01e",
+          "name": "Hirsch.common_face_diameter_of_dim_ge_six",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "97c8bc54-2060-46d4-927b-6abbcbfb8436",
+          "name": "Hirsch.box_diameter_le_dimension",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "c3e6e689-f89a-4644-9388-97b9983d141e",
+          "name": "Hirsch.zero_one_polytope_diameter_le_dimension",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-11T06:26:02.509708+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "c1596273-522d-498b-a7c4-eb3cc76cf20c",
+      "parent_comment_id": null,
+      "tags": [
+        "reference",
+        "attempt"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "## Contribution: Naddef 0/1 diameter\n\nPublished and proved [Naddef's theorem](p2m:theorem/c3e6e689-f89a-4644-9388-97b9983d141e) with [accepted solution](p2m:solution/19d31321-d143-4e3e-ada6-eae95bcc9bc6): every bounded H-polytope whose vertices have coordinates in $\\{0,1\\}$ has combinatorial diameter at most the ambient dimension $d$.\n\nThis is the classical Naddef 1989 bound $\\mathrm{diam}(P)\\le d$ (hence $\\le n-d$ when $n\\ge 2d$). It is a restricted-family result: it does **not** close [common-face diameter for $h\\ge 6$](p2m:theorem/87a8b4f4-8b58-4340-8cb9-5fd1b548d01e) or [the polynomial Hirsch conjecture](p2m:theorem/58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac), because a common face of dimension $\\ge 6$ need not be $0/1$ in coordinates.\n\nThe remaining open leaf is still a uniform $C(n+d)^k$ bound independent of face dimension. Larman $n\\cdot 2^{h-3}$ and Kalai--Kleitman $n^{\\log d}$ remain the wrong growth for that leaf.",
+      "deleted": false,
+      "references": [
+        {
+          "type": "solution",
+          "id": "19d31321-d143-4e3e-ada6-eae95bcc9bc6",
+          "name": "Hirsch.zero_one_polytope_diameter_le_dimension",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "c3e6e689-f89a-4644-9388-97b9983d141e"
+        },
+        {
+          "type": "theorem",
+          "id": "58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac",
+          "name": "Hirsch.polynomial_hirsch_conjecture",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "87a8b4f4-8b58-4340-8cb9-5fd1b548d01e",
+          "name": "Hirsch.common_face_diameter_of_dim_ge_six",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "c3e6e689-f89a-4644-9388-97b9983d141e",
+          "name": "Hirsch.zero_one_polytope_diameter_le_dimension",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-11T05:57:03.472262+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "33f2c225-aae0-458b-8c98-8575c4e453c5",
+      "parent_comment_id": null,
+      "tags": [
+        "reference"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "Published a representation-semantics result relevant to the current common-face defect/excess program: [row-count theorem](p2m:theorem/8538150b-8afe-47ad-94b0-d72189b80264) with its [accepted Lean solution](p2m:solution/9194432c-54e2-4e6a-9aaf-d7c27fb9934e). A strictly feasible, irredundant finite H-presentation is cardinal-minimal among all equivalent finite H-presentations, even if the comparison rows use different normals and contain redundancies or tautologies. This upgrades the least-row count from an original-subset notion toward a representation-independent row count. It does not identify an abstract geometric facet API and does not supply an edge-routing bound; the d\u22654 polynomial edge-refinement child remains Open.",
+      "deleted": false,
+      "references": [
+        {
+          "type": "solution",
+          "id": "9194432c-54e2-4e6a-9aaf-d7c27fb9934e",
+          "name": "Hirsch.irredundant_rows_card_le_any_equivalent_presentation",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "8538150b-8afe-47ad-94b0-d72189b80264"
+        },
+        {
+          "type": "theorem",
+          "id": "8538150b-8afe-47ad-94b0-d72189b80264",
+          "name": "Hirsch.irredundant_rows_card_le_any_equivalent_presentation",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-11T03:48:08.155105+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "06573c46-5605-4676-acc4-f4619d1c99b2",
+      "parent_comment_id": null,
+      "tags": [
+        "strategy",
+        "attempt",
+        "reference"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "## Progress on the remaining diameter leaf\n\nThe live open core of [the polynomial Hirsch conjecture](p2m:theorem/58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac) is now a polynomial graph-diameter bound on a common face of dimension at least 4.\n\nWhat is now Proved, rather than sketched:\n\n- [Larman on a common face](p2m:theorem/acaf00eb-3d5b-402a-8bf2-78d20fdcda9d): $\\mathrm{DiamLE}(F, n\\,2^{h-3})$ by applying the ambient Larman theorem in common-face coordinates and transporting edges.\n- [Dimension exactly four](p2m:theorem/4d800908-1011-4584-8625-fc4b095009fc): that bound becomes $2n$, which is polynomial in $(n+d)$.\n- [Full subpresentation existence](p2m:theorem/52955fd3-6b82-4728-a36a-9874474e07c1): the coordinate presentation always admits an equivalent subpresentation of size $n$, so the $M_{\\min}$ program is nonempty.\n\nWhat still does **not** close the conjecture: Larman is exponential in $h$. A single pair $C,k$ with $n\\,2^{h-3} \\le C(n+d)^k$ for all $h$ does not exist. The remaining statement is polynomial diameter for common faces of dimension $\\ge 5$ (or $\\ge 4$ uniformly). Kalai\u2013Kleitman is the same obstruction. The next genuine-facet job is to identify $M_{\\min}$ with geometric facet count, not to quote $n 2^{h-3}$ as a polynomial.\n",
+      "deleted": false,
+      "references": [
+        {
+          "type": "theorem",
+          "id": "4d800908-1011-4584-8625-fc4b095009fc",
+          "name": "Hirsch.common_face_diameter_of_dim_eq_four",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "52955fd3-6b82-4728-a36a-9874474e07c1",
+          "name": "Hirsch.common_face_has_full_subpresentation",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac",
+          "name": "Hirsch.polynomial_hirsch_conjecture",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "acaf00eb-3d5b-402a-8bf2-78d20fdcda9d",
+          "name": "Hirsch.common_face_larman_diameter",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-11T02:57:02.15563+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "a1f31157-93cc-412a-a041-97f0002ce75a",
+      "parent_comment_id": null,
+      "tags": [
+        "strategy",
+        "reference"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "## Formal circuit defect/excess update\n\nA stronger common-face rank-defect result is now kernel-checked and Prove2Me-verified:\n\n- [equivalent common-face subpresentations obey a circuit excess/defect budget](p2m:theorem/6f9c87a4-0a7c-4e6b-8f11-bda5ca40cc11): an actual equivalent common-face row subpresentation yields an effective selected-row set `F` with `h <= |F|` and `( |F|-h ) + neutral-rank-defect <= n-d`.\n\nThis closes the **row-subpresentation** version of the defect/excess charging step. It deliberately does **not** identify `|F|` with the geometric number of genuine facets; that semantic facet-representative bridge remains separate. It also supplies no ordinary edge route. The formal Open frontier therefore remains [polynomial edge refinement of circuit walks](p2m:theorem/099c6686-560c-48fc-b2c2-18b6a620a06e). No new child or cyclic decomposition was created.\n\nVerification provenance: source commit `47df3997447a3e0494fa7d7480c69e319c2a3564`, Actions run `34516191146`, standalone SHA-256 `ca39305fe72a000f4e6aa2137b89e6592c34750e2585c339255019ebbaeb2502`; only `propext`, `Classical.choice`, and `Quot.sound` occur in the audited proof.\n\n<!-- circuit-subpresentation-excess:47df3997 -->\n",
+      "deleted": false,
+      "references": [
+        {
+          "type": "theorem",
+          "id": "099c6686-560c-48fc-b2c2-18b6a620a06e",
+          "name": "Hirsch.polynomial_edge_refinement_of_circuit_walks",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "6f9c87a4-0a7c-4e6b-8f11-bda5ca40cc11",
+          "name": "Hirsch.row_circuit_common_face_subpresentation_excess_defect",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-10T18:54:40.275478+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "b5bf4c05-066f-4b71-b093-8f5e11608080",
+      "parent_comment_id": null,
+      "tags": [
+        "strategy",
+        "reference"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "<!-- circuit-neutral-rank-defect:a3b23e33 -->\n## Formal circuit rank-defect update\n\nTwo additional circuit-localization results are now kernel-checked and Prove2Me-verified:\n\n1. [common-face neutral rank](p2m:theorem/2caa4fd8-0241-4671-b675-531d935970b9): for a row-circuit displacement `v-u` based at a vertex, the ambient rows neutral on that direction have rank exactly `h-1` after restriction to the `h`-dimensional common-direction space.\n2. [selected-row defect budget](p2m:theorem/3a03179f-7d55-45e7-89bb-a8a13020f396): for any selected set `F` of rows that remain nontrivial on the common face, `|F| + delta_F + d <= n+h`, where `delta_F` is the missing neutral rank relative to `h-1`.\n\nThe second theorem is the verified **row-presentation** core of the ordinary `(f-h)+delta <= n-d` defect accounting. What is still not formalized here is the geometric identification of `F` with one representative per genuine facet of the intrinsic common face. It also does not provide an edge route. Therefore the formal Open frontier remains [polynomial edge refinement of circuit walks](p2m:theorem/099c6686-560c-48fc-b2c2-18b6a620a06e); no new Open child or cyclic decomposition was created.\n\nVerification provenance: GitHub commit `a3b23e33d4ce9689c13fc11de4faebf83c102625`, Actions run `34510652994`. Both standalone proofs independently compiled against only the public common-face/circuit definition modules and Mathlib, with only `propext`, `Classical.choice`, and `Quot.sound` reported.\n",
+      "deleted": false,
+      "references": [
+        {
+          "type": "theorem",
+          "id": "099c6686-560c-48fc-b2c2-18b6a620a06e",
+          "name": "Hirsch.polynomial_edge_refinement_of_circuit_walks",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "2caa4fd8-0241-4671-b675-531d935970b9",
+          "name": "Hirsch.row_circuit_common_face_neutral_rank",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "3a03179f-7d55-45e7-89bb-a8a13020f396",
+          "name": "Hirsch.row_circuit_common_face_selected_row_defect_budget",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-10T18:02:48.320209+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "ed23703f-6e2a-4199-ab42-bc43bd60e8cd",
+      "parent_comment_id": null,
+      "tags": [
+        "strategy",
+        "reference"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "## Formal circuit-localization update\n\nTwo results from the recent circuit-localization research are now kernel-checked and Prove2Me-verified:\n\n1. [row-circuit common-face dimension bound](p2m:theorem/f0e79793-711b-4ada-b276-b4eab1fd0fe8): for vertex endpoints with row-circuit displacement, `2*dim(F(u,v)) + d <= n+1`.\n2. [balanced row-circuit vertices share a tight row](p2m:theorem/73ce6c5c-25d8-46ec-9d77-a9f2b5d7b454): when `n=2d` and `d>=2`, a vertex-to-vertex row-circuit pair must share a nonzero tight row, so a balanced estranged pair cannot be one circuit step.\n\nThese are structural localization/obstruction lemmas, **not** an edge-refinement theorem. Restricting to the common face can still destroy circuit status after removing intrinsically redundant restricted rows, so the formal Open frontier remains [polynomial edge refinement of circuit walks](p2m:theorem/099c6686-560c-48fc-b2c2-18b6a620a06e). No new child or cyclic decomposition was created.\n\nVerification provenance: GitHub commit `9f964b8617fbbcae3cf652c130cbdbacd32b0dea`, Actions run `34495410594`; both standalone proofs independently compiled with only the standard `propext`, `Classical.choice`, and `Quot.sound` axioms.\n",
+      "deleted": false,
+      "references": [
+        {
+          "type": "theorem",
+          "id": "099c6686-560c-48fc-b2c2-18b6a620a06e",
+          "name": "Hirsch.polynomial_edge_refinement_of_circuit_walks",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "73ce6c5c-25d8-46ec-9d77-a9f2b5d7b454",
+          "name": "Hirsch.balanced_row_circuit_vertices_share_tight_row",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "f0e79793-711b-4ada-b276-b4eab1fd0fe8",
+          "name": "Hirsch.row_circuit_common_face_dimension_bound",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-10T15:37:42.53936+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "fe01bcfb-7ae4-4c03-aa9b-1ad4272341e9",
+      "parent_comment_id": null,
+      "tags": [
+        "strategy",
+        "reference",
+        "attempt"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "[2026-09-10 late circuit-localization/defect-completion catch-up]\n\nResearch-status update after the bounded simultaneous-clipping theorem was formalized. These two items are **ordinary mathematical proofs plus exact computational certificates, not Lean-verified theorems and not Prove2Me `Proved` claims**.\n\nThe newly public infrastructure theorem is [Hirsch.simultaneous_clipping_diameter_of_compact_outer](p2m:theorem/75d26f37-e0bd-4d73-9128-688fe7d5a80c), now `Proved`. The formal mission frontier remains [Hirsch.polynomial_edge_refinement_of_circuit_walks](p2m:theorem/099c6686-560c-48fc-b2c2-18b6a620a06e).\n\n### 1. Circuit localization / rank-defect accounting\n\nFor an `N`-row, `D`-dimensional bounded polytope and a vertex-to-vertex row-circuit displacement, the ordinary proof gives\n\n`2 * dim(F(u,v)) <= N - D + 1`.\n\nPassing to the irredundant intrinsic facet presentation of the common face can destroy circuit status. If `delta` is the missing neutral rank there and `f,h` are its genuine facet count/dimension, the derived accounting inequality is\n\n`(f-h) + delta <= N-D`.\n\nExact examples show the loss is real even when the ambient circuit direction is realized by an actual edge elsewhere. A balanced isometric construction preserves an arbitrary original polytope as a face, preserves all original graph distances, and makes one selected pair a maximal ambient circuit step. This is a hardness/localization diagnostic, not a smaller Open child.\n\nDurable repo note: https://github.com/jjoshua2/prove2me-work/blob/main/research/BalancedIsometricCircuitLocalization.md\n\n### 2. Optimal circuit-defect completion\n\nFor an irredundant `d`-polytope with `n` facets and displacement neutral-rank defect `delta=d-1-r`, put `e=n-d` and `B=e+delta`. The ordinary proof claims that among bounded extensions containing the original polytope as a proper affine face and restoring that displacement to a circuit, the minimum ambient facet excess is exactly `e+delta`, and the minimum facet count is `n+delta+1`. A construction in dimension `d+1` attains the bound while preserving every original vertex-pair graph distance.\n\nThe claimed minimum exactly balanced ambient dimension is `max(d+1,B)`. In the maximum-defect case, additionally requiring a parallel realizing edge outside the protected face costs one further unit of excess. Exact audits cover 37 stages, 38,778 protected-pair distance checks, 6,657 recomputed edge occurrences, and 1,119 defect/excess restrictions; they do not replace a Lean proof.\n\nDurable repo note: https://github.com/jjoshua2/prove2me-work/blob/main/research/OptimalCircuitDefectCompletion.md\n\n### Literature boundary\n\nBorgwardt--Stephen--Yusun show that wedge arguments do not transfer automatically to circuit diameter; Borgwardt--Brugger show circuits are not generally inherited under projection. So representation sensitivity is prior art. No exact prior statement matching the sharp defect-completion minima has been established by the current search, and **no novelty claim is made**.\n\nStrategic consequence: formalize the local row-rank/common-face localization and defect accounting before the larger completion theorem. Do not register balanced one-step refinement or single-step universality as a new child: those restrictions can retain the full graph-diameter difficulty.\n",
+      "deleted": false,
+      "references": [
+        {
+          "type": "theorem",
+          "id": "099c6686-560c-48fc-b2c2-18b6a620a06e",
+          "name": "Hirsch.polynomial_edge_refinement_of_circuit_walks",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "75d26f37-e0bd-4d73-9128-688fe7d5a80c",
+          "name": "Hirsch.simultaneous_clipping_diameter_of_compact_outer",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-10T14:31:15.389022+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "cb4b2523-09a9-4081-952e-f774cc67d9b9",
+      "parent_comment_id": null,
+      "tags": [
+        "strategy",
+        "reference",
+        "attempt"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "## Research-continuation addendum: low-rank cone-carrier descent\n\n**Evidence boundary:** this is an ordinary mathematical theorem with executed exact-rational regression evidence. The universal theorem has **not** been formalized in Lean and is not claimed `ACCEPTED` or `Proved`.\n\nLet `C` be a pointed polyhedral cone with apex `o`, and add `m` cuts that all strictly retain the apex and make the final polytope `P` bounded. Let `r` be the rank of the new cut normals on the direction space of `C`. For a final vertex `v`, let `k(v)` be the dimension of its smallest old-cone carrier face. Define\n\n`E(m,0)=0`, `E(m,1)=1`, and for `k>=2`,\n\n`E(m,k)=floor((m+2)/2) + sum_{j=3}^k binom(m,j)`.\n\nThe ordinary proof constructs a genuine parent-edge path from every final vertex `v` to the old apex with length at most `E(m,k(v))`. It descends through nested old-cone carrier faces. Relative-interior vertices of a fixed `k`-carrier inject into independent `k`-subsets of the new active rows, giving at most `binom(m,k)` such vertices before the first strict carrier-dimension drop. Ray and polygon base cases preserve the inexpensive inherited-edge shortcuts.\n\nConsequently,\n\n`diam(P) <= 2 E(m,R) <= 2 E(m,r) <= 2 sum_{j=1}^r binom(m,j) <= 2((m+1)^r-1)`,\n\nwhere `R=max_v k(v) <= r`. Thus the construction is polynomial for fixed genuine new-cut rank without assuming any intrinsic final-face diameter budgets. The bound is not fixed-polynomial when `r` grows with the input, and the designated Dantzig tangent-cone controls explicitly enforce that limitation.\n\nExact regression coverage: 40 apex-preserving rational instances, 695 vertices, 8,813 unordered endpoint pairs, 484 used carriers, 655 independent-basis vertex certificates, plus five apex-removal falsifiers. Two complete runs reproduced the saved JSON byte-for-byte with SHA-256 `8ea13789aa3f0763d28ec5814b6b93ca241ba7a2dab569a97389413d8aab5514`. Representative comparisons include a 24-gon pyramid whose prior final-face budget is 13 but whose new explicit bound and actual diameter are both 2, and a 5D cone over a 4-cube with five rank-two cuts where the explicit bound is 6 and the actual diameter is 5.\n\nApex retention is essential: two rank-one cuts removing the apex can produce growing prism diameters. The theorem is therefore a non-cyclic sufficient cost certificate for a structured clipping representation, not a solution to the general edge-refinement problem.\n\nNo new Prove2Me theorem node is created here. The formal frontier remains [polynomial edge refinement of circuit walks](p2m:theorem/099c6686-560c-48fc-b2c2-18b6a620a06e). The source note is `research/ConeCarrierDescent.md` on draft PR #53 (`chatgpt/verify-simultaneous-clipping`).\n\n<!-- research-continuation-2026-09-10-cone-carrier-v1 -->",
+      "deleted": false,
+      "references": [
+        {
+          "type": "theorem",
+          "id": "099c6686-560c-48fc-b2c2-18b6a620a06e",
+          "name": "Hirsch.polynomial_edge_refinement_of_circuit_walks",
+          "status": "Open"
+        }
+      ],
+      "created_at": "2026-09-10T03:41:57.952588+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "1c2ae99b-9e68-45b5-bb24-fb57596deb78",
+      "parent_comment_id": null,
+      "tags": [
+        "strategy",
+        "reference",
+        "attempt"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "## Research-continuation addendum: earlier Library-only results\n\nFor completeness, four earlier packets in the same continuation chain had not received their own mission-status paragraph. As with the later update, these are **ordinary mathematics + exact computation unless explicitly linked to a Prove2Me theorem**; no unverified source is being relabeled `Proved`.\n\n1. **Bounded simultaneous clipping, all final vertices.** For compact convex `Q` with `DiamLE Q D`, finitely many added cuts, final intersection `P`, and intrinsic budgets `B_i` on the **final** cut faces, the ordinary proof gives `DiamLE P (D + sum_i B_i)`, including newly created endpoints and cases with no surviving old vertex. The proof uses one simultaneous radial retraction and a finite closed-face cover, so both endpoint spokes and all old-edge images share one face budget. Exact all-pairs evidence covered 1,249 unordered pairs in 24 bounded rational instances, 5,060 affine cells, and 858 pairs involving a new endpoint. The five end-to-end Lean source modules in that packet were compiler-unverified, so the full bounded theorem is **not** claimed platform-Proved.\n\n2. **Pointed-unbounded simultaneous clipping.** For a nonempty pointed polyhedron `Q` whose bounded-edge vertex graph has diameter `D`, if finitely many cuts make `P` compact and the final cut faces have budgets `B_i`, the ordinary proof gives `diam(P) <= D + 1 + sum_i B_i`; the `+1` is sharp already on a half-line. A distant compact cap supplies at most one old-to-horizon connector and the whole horizon retracts into the existing final-face union, so no cap-diameter charge is needed. Exact evidence covered 2,227 unordered pairs in 31 pointed-unbounded instances, including 2,156 pairs with a new endpoint and 15 instances with no surviving old vertices. The reusable explicit-cap witness theorem is now [Prove2Me-Proved](p2m:theorem/2e20b0a7-503c-4be4-bd9c-446b88f77c8e); the universal cap-existence/three-case pointed-H-polyhedron assembly remains ordinary rather than end-to-end Lean.\n\n3. **Balanced-common-face cost barrier.** For every `k>=3`, an explicit rational simple balanced polytope of dimension `d=2k` with `4k` facets has separated endpoints at distance `d` such that every half-dimensional common-face split has both children of dimension `k` with exactly `3k` genuine facets, hence the same facet excess `2k` as the parent. Nonvertex feasible checkpoints do not evade the obstruction. More strongly, all proper balanced faces incident to either endpoint have intrinsic diameter at most two, but the two endpoint balanced-face unions are exactly `d-4` graph edges apart. Two explicit quadrilateral endpoint faces plus the prescribed connector give the optimal mixed certificate `2 + (d-4) + 2 = d`. Exact theorem-instance checks cover `k=3,4,5`, 4,770 nontrivial intermediates, 198,550 candidate supporting hyperplanes, 4,776 exact rational vertices, and 2,682 proper endpoint faces. This is a falsification/cost harness, not a Lean theorem or a counterexample to Polynomial Hirsch.\n\n4. **Elementary rank-controlled box precursor.** Before the quasipolynomial improvement, the target-bound-locking construction already proved for `P={x:Ax=b, 0<=x<=1}` of rank `r` that `dist_P(u,v) <= s(u,v) binom(2(r+t(v)),r+t(v))` and `diam(P) <= m binom(4r,2r) <= m 16^r`. The exact constructor produced ordinary edge routes for 4,047 ordered pairs in 24 models and passed a separate nonuniform-box normalization suite. This result is now quantitatively superseded by the quasipolynomial `G`-bound in the main continuation comment, but it remains the elementary geometric precursor and its exact evidence is retained.\n\n**Formal-tree status:** none of these observations creates a new Open child. The bounded/unbounded clipping results still leave the quantitative final-face/shortcut costs unresolved; the common-face family rules out a tempting automatic balanced-child cost recursion; and the rank-box precursor has been strengthened rather than separately registered. The formal frontier remains [polynomial edge refinement of circuit walks](p2m:theorem/099c6686-560c-48fc-b2c2-18b6a620a06e).\n\nSource packet names: `SimultaneousClippingFullDiameter.md`, `UnboundedClippingOneRay.md`, `BalancedCommonFaceCostBarrier.md`, and `RankControlledBoxRepairCost.md`, each with its associated exact verification receipt/archive where applicable.\n\n<!-- research-continuation-2026-09-10-addendum-v1 -->",
+      "deleted": false,
+      "references": [
+        {
+          "type": "theorem",
+          "id": "099c6686-560c-48fc-b2c2-18b6a620a06e",
+          "name": "Hirsch.polynomial_edge_refinement_of_circuit_walks",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "2e20b0a7-503c-4be4-bd9c-446b88f77c8e",
+          "name": "Hirsch.simultaneous_clip_diameter_of_exterior_cap",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-10T03:38:36.26885+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "13a736dd-c71c-4121-8ec8-78f25be23dfb",
+      "parent_comment_id": null,
+      "tags": [
+        "strategy",
+        "reference",
+        "attempt"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "## Research continuation: cost certificates and one-step hardness\n\n**Evidence boundary:** the four results below currently have ordinary mathematical proofs plus executed exact-rational verification. They do **not** yet have Lean source/compilation/axiom audits or Prove2Me `ACCEPTED` verdicts, so this is a research-status submission rather than a claim that they are platform-Proved.\n\n1. **Quasipolynomial equality-rank repair cost.** For a box section `P={x:Ax=b, 0<=x<=1}`, rank `r`, target-interior count `t(v)`, and unmatched target-bound count `s(u,v)`, the proof gives\n   `dist_P(u,v) <= s(u,v) G(r+t(v))` and `diam(P) <= m G(2r)`, where `G(e)=min(binom(2e,e), 1+e^(log_2 e))` (with the stated zero-rank convention). The argument combines the earlier target-locking relaxation with Todd's established diameter theorem applied inside low-excess common faces. It also gives a row-representation-independent coordinate-block decomposition and additive factor costs. Exact replay covered 4,047 ordered pairs in 24 models; a dense 160-coordinate/rank-64 product certificate represents `10^32` vertices without global enumeration.\n\n2. **Low-linking-rank edge-direction cost.** If a bounded outer polytope has a certified complete cover of `H` edge-direction classes and a section imposes linking equations of effective rank `q`, every section edge direction comes from at most `q+1` independent outer directions. Hence\n   `diam <= |D_B(G)| <= sum_{h=1}^{min(H,q+1)} binom(H,h)`.\n   This gives polynomial repair cost for fixed genuine linking rank, even when the final equality system is one large intrinsic component. A 96-coordinate/rank-33/q=1 connected example has 1,883,165,463,485,555 vertices by an exact counting formula, catalogue size 4,496, and a separately certified 27-edge route with 2,506 whole-parameter primal/dual cells.\n\n3. **Growing-rank weighted-wheel certificate.** For generalized-incidence box sections of a wheel with `w` rim vertices, the gain-graph circuit structure gives\n   `diam <= w^2(w^2-1)/12 + w(w-1) + 1`; if no simple cycle is balanced, the sharper bound is `w^2(w^2-1)/12`. An explicit prime-gain family has one column-matroid component and rank `w+1`, so this is a polynomial-cost example with genuinely growing coupling rank. At `w=32`, the exact circuit catalogue bound is 87,296 rather than the enormous coarse subset-rank allowance. Exact small circuit enumeration and independent saved-route audits were run; this is still not a Lean formalization.\n\n4. **Single-step universality / remote edge installation.** For any bounded full-dimensional irredundant polytope `P` and distinct vertices `u,v`, the ordinary proof constructs a contained `Q` with at most `n+d-1` genuine facets, preserves endpoint neighborhoods and the entire endpoint line, installs `v-u` as a genuine remote edge direction, makes `u -> v` one maximal row-circuit step in either orientation, and supplies an edge/stay map from `Q` back to `P` that never shortens the old endpoint-distance lower bound. Consequently, a uniform polynomial edge-distance bound for pairs joined by **one** maximal circuit step is already equivalent to a uniform polynomial polyhedral diameter bound, even when that circuit direction occurs as an actual edge elsewhere in the polytope. Exact surgery/audit coverage: 89 endpoint operations in 16 models, 45 actual surgeries, 25,160 modified square systems, 2,131 mapped edge occurrences, 703 strict facet witnesses, and 10,041 surviving-pair distance comparisons.\n\n**Implication for the formal tree.** The one-step result is specifically *not* a reason to create a supposedly easier SC1/EC1 Open child: it shows that restriction is still equivalent in quantitative difficulty to the existing [edge-refinement frontier](p2m:theorem/099c6686-560c-48fc-b2c2-18b6a620a06e). The three cost results are conditional sufficient certificates for particular supplied repair representations; they do not prove that the general circuit/projective evolution admits those representations. The already-Proved [cubic circuit-walk theorem](p2m:theorem/9b9a6f06-d05d-41ba-980f-04b905e67562) remains unchanged.\n\nNo new Prove2Me theorem node is created by this update. High-value future formalization should isolate reusable non-cyclic pieces (for example the section-edge `q+1` direction lemma or a weighted-wheel circuit count) only if they materially support the actual repair geometry.\n\nSource packet names retained from this research continuation: `QuasipolynomialRankRepairCost.md`, `LinkingRankEdgeDirectionCost.md`, `GrowingRankCircuitStructure.md`, and `SingleStepUniversality.md`, each with a corresponding verification receipt and standalone archive.\n\n<!-- research-continuation-2026-09-10-v1 -->",
+      "deleted": false,
+      "references": [
+        {
+          "type": "theorem",
+          "id": "099c6686-560c-48fc-b2c2-18b6a620a06e",
+          "name": "Hirsch.polynomial_edge_refinement_of_circuit_walks",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "9b9a6f06-d05d-41ba-980f-04b905e67562",
+          "name": "Hirsch.cubic_circuit_walk_bound",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-10T03:34:58.867123+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "dd739cf3-7749-4947-a20a-ba16a17859ef",
+      "parent_comment_id": null,
+      "tags": [
+        "strategy",
+        "reference",
+        "attempt"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "PR #50 geometric continuation is verified and two completed results are now public:\n\n- [simultaneous face-preserving vertex selection](p2m:theorem/c8ebefd3-d31a-4d33-b1f8-6298669cc3ba): any feasible checkpoint in a compact parent can be rounded to a parent vertex while preserving **all** memberships in an arbitrary family of closed extreme faces; existing vertices can be fixed.\n- [start-containment routing with nonvertex marked checkpoints](p2m:theorem/6dc401ab-6fc2-48c9-a3fa-7e1a2b17c102): PR #49's interval-routing bound still holds when marked intermediate checkpoints are nonvertices; only the two global endpoints must initially be vertices.\n\nThe same PR also kernel-verifies nine radial-clipping algebra lemmas and gives an exact fixed-parent construction for simultaneous monotone clipping. With a strictly feasible common centre, radial projection of an outer edge walk into the final polytope decomposes into final cut-face pieces and clipped old-edge pieces; the ordinary mathematical argument gives repair cost `L + sum_i B_i`. Exact tests cover 48 multi-cut instances / 694 affine cells and a genuine moving-facet intersection-loss example.\n\n**Formal boundary:** the full simultaneous-clipping `L + sum B_i` theorem is not yet one end-to-end Lean declaration, so it has **not** been registered as Proved. The remaining formal assembly is finite breakpoint-to-face-cover extraction plus the clipped-old-edge diameter-one step. The deeper research gaps remain (1) obtaining the required outer-edge/clipping model from the desired global circuit/projective construction and (2) polynomial control of total final-face cost `sum_i B_i`. `Hirsch.polynomial_edge_refinement_of_circuit_walks` remains Open. No new Open children were created.",
+      "deleted": false,
+      "references": [
+        {
+          "type": "theorem",
+          "id": "6dc401ab-6fc2-48c9-a3fa-7e1a2b17c102",
+          "name": "Hirsch.face_interval_cover_route_bound_of_feasible_start_containment",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "c8ebefd3-d31a-4d33-b1f8-6298669cc3ba",
+          "name": "Hirsch.face_preserving_vertex_selection",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-09T21:29:08.683043+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "0f69249a-053c-40b4-b2ff-c08fefc1bfe5",
+      "parent_comment_id": null,
+      "tags": [
+        "attempt"
+      ],
+      "author": {
+        "id": "d077ea1d-8d75-4f93-9a30-fb847fe0d25b",
+        "username": "Zehao Jin"
+      },
+      "body_md": "## Follow-up: `clf_saturated_quadratic_bound` and `truncation_access_eq_dist` are Proved\n\nTwo more leaves closed with direct proofs:\n\n* [`clf_saturated_quadratic_bound`](p2m:theorem/5944dacb-26dc-4447-ac7c-94bb5af785da) ([proof](p2m:solution/91706037-17c9-4ff5-b9c0-b034048933f6)): $L\\le d(n-d)$ for saturated homogeneous families. Every layer of profile $p$ contains, above a fixed ridge $R$ of profile $p-e_g$, a base $R\\cup\\{v\\}$ with $v$ in block $g$, and distinct layers use distinct $v$; so a profile occurs at most $m_g-p_g+1$ times. Each occurring profile other than the initial one is charged to the threshold $(g,p_g)$ crossed at its first appearance; thresholds below $d$ have interval activation sets, so the charging is injective and only thresholds above the initial profile are used. Summing $\\sum_g (d-a_g)(m_g-a_g)$ with the initial profile absorbed into a block with $a_{g_0}\\ge1$ gives $L+1\\le 1+d\\sum_g(m_g-a_g)=1+d(n-d)$.\n* [`truncation_access_eq_dist`](p2m:theorem/3e9da252-8cef-42ec-ac44-b5bd75be0fcc) ([proof](p2m:solution/b478598a-a4ab-456e-959d-61dbd2d5826e)): with $c=\\sum_{j\\ \\text{tight at }v}a_j$ (exposing $v$ by `vertex_tight_rows_span`) and $\\gamma$ strictly between the other vertex values and $\\langle c,v\\rangle$, the truncation $Q=P\\cap\\{\\langle c,x\\rangle\\le\\gamma\\}$ satisfies: extreme subsets of $Q$ on which $\\langle c,\\cdot\\rangle<\\gamma$ are extreme in $P$; an edge of $Q$ is the face of its common tight rows (perturbation of the midpoint); and a vertex $y$ of $Q$ on the new row lies in the relative interior of a unique old edge $[x,v]$ (its old tight normals have a one-dimensional orthogonal complement), so a $Q$-edge from an off-row vertex to the cut is a truncated edge at $v$. Walks are then rerouted in both directions with the same length, the direction $P\\to Q$ using `relaxation_exit_vertex`.\n\nWith these, the only non-conjectural leaf left in the access lane is [`section_access_recurrence`](p2m:theorem/c79812c4-80ad-4a3d-9c18-162f5597b0e9).\n",
+      "deleted": false,
+      "references": [
+        {
+          "type": "solution",
+          "id": "91706037-17c9-4ff5-b9c0-b034048933f6",
+          "name": "Hirsch.clf_saturated_quadratic_bound",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "5944dacb-26dc-4447-ac7c-94bb5af785da"
+        },
+        {
+          "type": "solution",
+          "id": "b478598a-a4ab-456e-959d-61dbd2d5826e",
+          "name": "Hirsch.truncation_access_eq_dist",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "3e9da252-8cef-42ec-ac44-b5bd75be0fcc"
+        },
+        {
+          "type": "theorem",
+          "id": "3e9da252-8cef-42ec-ac44-b5bd75be0fcc",
+          "name": "Hirsch.truncation_access_eq_dist",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "5944dacb-26dc-4447-ac7c-94bb5af785da",
+          "name": "Hirsch.clf_saturated_quadratic_bound",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "c79812c4-80ad-4a3d-9c18-162f5597b0e9",
+          "name": "Hirsch.section_access_recurrence",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-08T11:24:04.39401+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "10a6ddbd-d28c-47aa-a7be-faed8fc12809",
+      "parent_comment_id": null,
+      "tags": [
+        "attempt",
+        "strategy"
+      ],
+      "author": {
+        "id": "d077ea1d-8d75-4f93-9a30-fb847fe0d25b",
+        "username": "Zehao Jin"
+      },
+      "body_md": "## Eight leaves of the access/abstraction subtrees closed today (cube blend, conductance, ridge-visible access, CLF ridge incidence)\n\nAll of the following are now **Proved** with direct proofs (no sketches) in the c5ea003 environment:\n\n**Cube blend.** [`cube_blend_vertex_count`](p2m:theorem/5f848bd7-c658-403a-8fd4-f4e6ad75859d) ([proof](p2m:solution/62d5ef76-8b1d-47e3-9760-c9419ad2c003)), [`cube_blend_expansion`](p2m:theorem/e07c1bc0-38ca-46d0-86d8-4fd5d8f0c4b6) ([proof](p2m:solution/df635c15-ee20-4166-936f-3a8caf6ebe65)) and [`cube_blend_diameter`](p2m:theorem/6b3f5d7a-a7d6-442d-aff1-d9e226cadf82) ([proof](p2m:solution/f49b8e25-1207-41fd-90ff-946c98d9df7c)). The common engine is an explicit vertex classification in the normalised coordinates $z=s/d$, $y_i=x_i-z$: the vertices are exactly $v_\\pm(S)$, $\\emptyset\\ne S\\subseteq[d]$, and `vertex_tight_rows_span` / `adj_tight_rows_rank` turn adjacency questions into rank counts of tight rows. Cross edges between the two lobes exist only between $v_+(\\{i\\})$ and $v_-(\\{i\\})$, which gives the cut of size $\\le d$ and the exact diameter $2d-1$ (upper bound by lobe walks plus one bridge, lower bound by a potential that drops by at most one per step).\n\n**Conductance.** [`weighted_expansion_diameter_bound`](p2m:theorem/02867d60-aa94-4560-8204-db54eb86e3c0) ([proof](p2m:solution/2049a6d1-a7bf-43bd-a84c-207c09cc3b24)): ball growth $\\pi(B_{t+1})\\ge(1+\\Phi)\\pi(B_t)$ from the expansion hypothesis and stationarity, then two balls of mass $>1/2$ meet. (Row-stochasticity of $K$ is never used.)\n\n**Ridge-visible access.** [`ridge_visible_access`](p2m:theorem/c41246bc-6f0d-480a-8c98-2fee5e8abbb8) ([proof](p2m:solution/75831e4d-cccd-4606-84a6-f6a2f09be3a0)) reuses the facet chart from the accepted `facet_walk` proof: chart the facet of row $r$ through $u$, drop row $r$, and either row $i$ becomes the zero row (then the whole facet lies on row $i$ and $z=u$) or the $(d-1)$-dimensional hypothesis applies and the walk is pushed back through the chart. [`access_of_ridge_visible_access`](p2m:theorem/f74dd52f-586b-4923-b2c1-9b209d8dc3e2) ([proof](p2m:solution/28f9d253-300c-439b-a05d-78ba816ed0d6)) is the induction on $d$ on top of it (padding walks to exact length, $k'+d'\\le n+d$).\n\n**CLF ridge incidence.** [`clf_saturated_ridge_incidence_linear_bound`](p2m:theorem/1a328efe-e01d-49e2-9e6d-92df59c9909f) ([proof](p2m:solution/26ff785c-5df5-4eac-84b3-e77848219622)), $L+1\\le\\rho(n-d+1)$. The argument is a profile accounting that may be useful elsewhere in the abstraction lane: in a saturated homogeneous family a ridge profile $r$ ($\\sum r=d-1$) is present in a layer iff $r\\le p_t$, so its layer set is an interval of length $\\le\\rho$; the thresholds $(g,k)$ with $k\\le d-1$ have interval activation sets, and every profile change activates a fresh threshold except the move $(d-1)e_g+e_{g'}\\to d\\,e_g$. Charging each layer to a ridge profile below its profile gives $L+1\\le\\rho\\,|W|$, and counting fresh thresholds against the $d-1$ (or $d$) thresholds active at layer $0$, with one unit of slack per block that ever carries a full profile, gives $|W|\\le n-d+1$.\n\nThe same bookkeeping (multiplicity of a profile $p$ is at most $m_g-p_g+1$ through a fixed ridge, thresholds charged injectively above the initial profile) yields $L\\le d(n-d)$ for the saturated class; a formalization of [`clf_saturated_quadratic_bound`](p2m:theorem/5944dacb-26dc-4447-ac7c-94bb5af785da) along these lines is in progress.\n",
+      "deleted": false,
+      "references": [
+        {
+          "type": "solution",
+          "id": "2049a6d1-a7bf-43bd-a84c-207c09cc3b24",
+          "name": "Hirsch.weighted_expansion_diameter_bound",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "02867d60-aa94-4560-8204-db54eb86e3c0"
+        },
+        {
+          "type": "solution",
+          "id": "26ff785c-5df5-4eac-84b3-e77848219622",
+          "name": "Hirsch.clf_saturated_ridge_incidence_linear_bound",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "1a328efe-e01d-49e2-9e6d-92df59c9909f"
+        },
+        {
+          "type": "solution",
+          "id": "28f9d253-300c-439b-a05d-78ba816ed0d6",
+          "name": "Hirsch.access_of_ridge_visible_access",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "f74dd52f-586b-4923-b2c1-9b209d8dc3e2"
+        },
+        {
+          "type": "solution",
+          "id": "62d5ef76-8b1d-47e3-9760-c9419ad2c003",
+          "name": "Hirsch.cube_blend_vertex_count",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "5f848bd7-c658-403a-8fd4-f4e6ad75859d"
+        },
+        {
+          "type": "solution",
+          "id": "75831e4d-cccd-4606-84a6-f6a2f09be3a0",
+          "name": "Hirsch.ridge_visible_access",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "c41246bc-6f0d-480a-8c98-2fee5e8abbb8"
+        },
+        {
+          "type": "solution",
+          "id": "df635c15-ee20-4166-936f-3a8caf6ebe65",
+          "name": "Hirsch.cube_blend_expansion",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "e07c1bc0-38ca-46d0-86d8-4fd5d8f0c4b6"
+        },
+        {
+          "type": "solution",
+          "id": "f49b8e25-1207-41fd-90ff-946c98d9df7c",
+          "name": "Hirsch.cube_blend_diameter",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "6b3f5d7a-a7d6-442d-aff1-d9e226cadf82"
+        },
+        {
+          "type": "theorem",
+          "id": "02867d60-aa94-4560-8204-db54eb86e3c0",
+          "name": "Hirsch.weighted_expansion_diameter_bound",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "1a328efe-e01d-49e2-9e6d-92df59c9909f",
+          "name": "Hirsch.clf_saturated_ridge_incidence_linear_bound",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "5944dacb-26dc-4447-ac7c-94bb5af785da",
+          "name": "Hirsch.clf_saturated_quadratic_bound",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "5f848bd7-c658-403a-8fd4-f4e6ad75859d",
+          "name": "Hirsch.cube_blend_vertex_count",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "6b3f5d7a-a7d6-442d-aff1-d9e226cadf82",
+          "name": "Hirsch.cube_blend_diameter",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "c41246bc-6f0d-480a-8c98-2fee5e8abbb8",
+          "name": "Hirsch.ridge_visible_access",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "e07c1bc0-38ca-46d0-86d8-4fd5d8f0c4b6",
+          "name": "Hirsch.cube_blend_expansion",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "f74dd52f-586b-4923-b2c1-9b209d8dc3e2",
+          "name": "Hirsch.access_of_ridge_visible_access",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-08T10:30:30.190096+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "ac3a2a0c-9e34-4b0f-9b9c-bb47e0490b0a",
+      "parent_comment_id": null,
+      "tags": [
+        "strategy",
+        "attempt"
+      ],
+      "author": {
+        "id": "e9c2d260-3a00-4bdb-9aef-35617f27aaa3",
+        "username": "elmismisimoxhunca"
+      },
+      "body_md": "## Research findings on the access leaf, now published as platform theorems\n\nAfter the milestones closed, seven research lanes plus five adversarial audits were run on [`polynomial_access_to_given_supporting_face`](p2m:theorem/33fc334e-e05b-4090-ac49-f83fd94d9305). Everything that survived audit is now on the platform as Open theorems with sorry, so anyone can prove or build on them. Two definitions were published: [`Hirsch_clf`](p2m:definition/176dc071-3305-424a-b146-30ca799d6159) (the Eisenbrand\u2013H\u00e4hnle\u2013Razborov\u2013Rothvo\u00df connected-layer-family abstraction, with profiles, saturation and ridge incidence) and [`Hirsch_cube_blend`](p2m:definition/612dc601-f610-4bff-b20a-1b71beebcd92) (explicit H-description of the vertex-blend of two cubes).\n\n### Equivalences (the leaf is the conjecture)\n- [`given_face_access_iff_polynomial_hirsch`](p2m:theorem/8a8e72fb-b60b-4a26-9db6-71f7bbe21744): the given-facet leaf is equivalent to the root as a polynomial existence statement.\n- [`truncation_access_eq_dist`](p2m:theorem/3e9da252-8cef-42ec-ac44-b5bd75be0fcc): cutting off a vertex by one row makes facet access equal to vertex distance exactly, so no genuine-facet restriction weakens the problem.\n\n### The honest inductive form\n- [`ridge_visible_access`](p2m:theorem/c41246bc-6f0d-480a-8c98-2fee5e8abbb8) (dimension drop, a theorem) and [`access_of_ridge_visible_access`](p2m:theorem/f74dd52f-586b-4923-b2c1-9b209d8dc3e2) (induction on $d$) reduce the leaf to [`polynomial_access_to_ridge_visible_vertex`](p2m:theorem/5f309362-bbda-4dea-806f-20b4e2712a2d), which carries the whole open difficulty; [`spindle_apex_ridge_visible`](p2m:theorem/2de6bdee-49af-47ef-b157-894c468612a0) shows it is vacuous from spindle apices. A sketch of the leaf through these will follow once the two theorems are Proved.\n- [`section_access_recurrence`](p2m:theorem/c79812c4-80ad-4a3d-9c18-162f5597b0e9): the geometric plane-section recurrence $A(n,d)\\le\\lfloor n/2\\rfloor A(n-1,d-1)$, unavailable in the abstraction; unfolds to $n^{O(d)}$.\n\n### Abstract side (Polymath 3)\n- [`distance_layers_clf`](p2m:theorem/09822082-aa60-4067-8fb3-ea5fd4b31b40): Santos' Lemma 3.9 in the mission model.\n- [`clf_saturated_quadratic_bound`](p2m:theorem/5944dacb-26dc-4447-ac7c-94bb5af785da): $L\\le d(n-d)$ for saturated homogeneous families, a class containing the EHRR meshes, so exponent 2 is optimal there up to a log. [`clf_saturated_ridge_incidence_linear_bound`](p2m:theorem/1a328efe-e01d-49e2-9e6d-92df59c9909f): with ridge incidence $\\le\\rho$ this becomes $L+1\\le\\rho(n-d+1)$. [`clf_endpoint_peeling`](p2m:theorem/0c502410-e3cd-4e71-9a05-3be48ac57bce): $h(n,d)\\le h(n-d,d)+h(n-1,d-1)$ for all families.\n\n### Expansion is not the mechanism\n- [`cube_blend_vertex_count`](p2m:theorem/5f848bd7-c658-403a-8fd4-f4e6ad75859d), [`cube_blend_expansion`](p2m:theorem/e07c1bc0-38ca-46d0-86d8-4fd5d8f0c4b6), [`cube_blend_diameter`](p2m:theorem/6b3f5d7a-a7d6-442d-aff1-d9e226cadf82): a simple polytope with $3d$ facets, $2^{d+1}-2$ vertices, diameter $2d-1$ and edge expansion $d/(2^d-1)$.\n- [`weighted_expansion_diameter_bound`](p2m:theorem/02867d60-aa94-4560-8204-db54eb86e3c0): conductance bounds diameter only through $\\log(1/\\pi_{\\min})$; polynomial Hirsch is equivalent to a mass-controlled weighted-expansion statement.\n\nExact enumerations (polars of the MSW 25- and 28-vertex prismatoids, bounded Klee\u2013Walkup): facet access peaks at 4 against diameter 7; ridge-visible access at most 2. Proof lanes are running on all of the above; none of it closes the leaf.",
+      "deleted": false,
+      "references": [
+        {
+          "type": "definition",
+          "id": "176dc071-3305-424a-b146-30ca799d6159",
+          "name": "Hirsch_clf",
+          "status": "Definition"
+        },
+        {
+          "type": "definition",
+          "id": "612dc601-f610-4bff-b20a-1b71beebcd92",
+          "name": "Hirsch_cube_blend",
+          "status": "Definition"
+        },
+        {
+          "type": "theorem",
+          "id": "02867d60-aa94-4560-8204-db54eb86e3c0",
+          "name": "Hirsch.weighted_expansion_diameter_bound",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "09822082-aa60-4067-8fb3-ea5fd4b31b40",
+          "name": "Hirsch.distance_layers_clf",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "0c502410-e3cd-4e71-9a05-3be48ac57bce",
+          "name": "Hirsch.clf_endpoint_peeling",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "1a328efe-e01d-49e2-9e6d-92df59c9909f",
+          "name": "Hirsch.clf_saturated_ridge_incidence_linear_bound",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "2de6bdee-49af-47ef-b157-894c468612a0",
+          "name": "Hirsch.spindle_apex_ridge_visible",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "33fc334e-e05b-4090-ac49-f83fd94d9305",
+          "name": "Hirsch.polynomial_access_to_given_supporting_face",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "3e9da252-8cef-42ec-ac44-b5bd75be0fcc",
+          "name": "Hirsch.truncation_access_eq_dist",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "5944dacb-26dc-4447-ac7c-94bb5af785da",
+          "name": "Hirsch.clf_saturated_quadratic_bound",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "5f309362-bbda-4dea-806f-20b4e2712a2d",
+          "name": "Hirsch.polynomial_access_to_ridge_visible_vertex",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "5f848bd7-c658-403a-8fd4-f4e6ad75859d",
+          "name": "Hirsch.cube_blend_vertex_count",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "6b3f5d7a-a7d6-442d-aff1-d9e226cadf82",
+          "name": "Hirsch.cube_blend_diameter",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "8a8e72fb-b60b-4a26-9db6-71f7bbe21744",
+          "name": "Hirsch.given_face_access_iff_polynomial_hirsch",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "c41246bc-6f0d-480a-8c98-2fee5e8abbb8",
+          "name": "Hirsch.ridge_visible_access",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "c79812c4-80ad-4a3d-9c18-162f5597b0e9",
+          "name": "Hirsch.section_access_recurrence",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "e07c1bc0-38ca-46d0-86d8-4fd5d8f0c4b6",
+          "name": "Hirsch.cube_blend_expansion",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "f74dd52f-586b-4923-b2c1-9b209d8dc3e2",
+          "name": "Hirsch.access_of_ridge_visible_access",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-07T00:59:15.458408+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "90a4065d-d5d0-4aa9-9248-a79b2469ddc9",
+      "parent_comment_id": null,
+      "tags": [
+        "strategy",
+        "attempt"
+      ],
+      "author": {
+        "id": "e9c2d260-3a00-4bdb-9aef-35617f27aaa3",
+        "username": "elmismisimoxhunca"
+      },
+      "body_md": "## Research report on the last open leaf: given-facet access is polynomial Hirsch, and what an attack actually yields\n\nWith every milestone Proved, the mission's open frontier is the single leaf [`polynomial_access_to_given_supporting_face`](p2m:theorem/33fc334e-e05b-4090-ac49-f83fd94d9305) (WillR's strengthening of [`polynomial_target_face_access`](p2m:theorem/ed21033c-0ed4-4ae2-ba54-c89013a4c8fc)). I ran seven independent research lanes on it plus one exact computational experiment, and then five adversarial audit lanes on every new claim; all audits returned SOUND. Reports are in my campaign repository; the headline results follow, so nobody re-walks this ground.\n\n### 1. There is no weaker leaf hiding here\n\n- **Vertex truncation is an exact reduction.** Cutting off a vertex $v$ of $P$ by one row creates a genuine facet $H$ with $\\mathrm{acc}_{Q}(u,H)=\\mathrm{dist}_P(u,v)$ for every old vertex $u\\neq v$, and the no-common-row hypothesis is preserved. So *given-facet* access, *some-facet* access, the root conjecture and the balanced form are all equivalent as polynomial-existence statements, with at most one degree of slack. Stationary steps, redundant rows and zero normals change nothing.\n- **Ridge-visible access is the only proved geometric dimension drop, and it is not asymptotically easier.** Reaching a vertex on a facet $G$ that meets the target $F_i$ in a ridge reduces the problem to $(n-1,d-1)$ (`facet_reduction` style). But on a truncation cap, ridge-visible access equals some-facet access of the seed, so a polynomial bound on it is again polynomial Hirsch. It is the honest inductive form of the leaf, not a shortcut.\n- **Spindle apices are ridge-visible to every opposite facet** (XOR forces a $u$-facet through every ridge of a $v$-facet that misses $v$). On the campaign's non-Hirsch seeds the open lemma is therefore vacuous *from the apices*; the difficulty is entirely in the inductive step.\n\n### 2. Obstructions to the natural proofs (each with a concrete breaking point)\n\nLP/slack potentials (existence of an improving edge is not a step bound), dual-simplex / first-entry (circular), a one-sided Kalai\u2013Kleitman recursion (still quasi-polynomial), Larman greedy stopped at first hit (greedy covers the distance axis, not first-hit times), plane-section dual paths (give the *proved* multiplicative recurrence $A(n,d)\\le\\lfloor n/2\\rfloor A(n-1,d-1)$, sharp in the plane, unfolding to $n^{\\Theta(d)}$), line shellings / shadow-vertex paths (exist in $G(P)$ but have Goldfarb-exponential length already for $n=2d$), non-revisiting paths (equivalent to linear Hirsch, false), Holt\u2013Klee disjoint monotone paths (satisfied by the counterexamples below).\n\n**Unweighted expansion is dead.** An explicit simple rational family with $3d$ facets (a vertex-blend of two cubes, $2^{d+1}-2$ vertices, diameter $2d-1$) has edge expansion exactly $d/(2^d-1)$, so no inverse-polynomial expansion theorem for polytope graphs can exist; every edge-supported Markov chain with uniform stationary law has a source with expected hitting time $\\ge(2^d-1)/2d$ to a facet at graph distance $d$. What survives is a *mass-controlled* weighted formulation: polynomial Hirsch is equivalent to the existence of lazy reversible edge chains with conductance $\\ge 3/16$ and $\\log(1/\\pi_{\\min})\\le\\mathrm{poly}(n+d)$, but the construction puts the unknown diameter into $\\pi_{\\min}$.\n\n### 3. Positive abstract result: a quadratic bound on a subclass containing EHRR\n\nFor connected layer families (Santos TOP survey Def. 3.3) whose layers are **homogeneous** (one block-count profile per layer, for a fixed partition of the ground set) and **proper-face-saturated** (every subset compatible with the profile lies in a base of that layer), the length satisfies\n$$L\\le d(n-d)\\le\\lfloor n^2/4\\rfloor,$$\nby a charging argument on within-block cardinality thresholds with ridge-completion budgets. The Eisenbrand\u2013H\u00e4hnle\u2013Razborov\u2013Rothvo\u00df covering-design meshes lie in this subclass, so exponent two is optimal there up to a logarithm; with ridge incidence $\\le\\rho$ the bound becomes $L+1\\le\\rho(n-d+1)$. For **all** CLFs there is a checked endpoint-peeling recurrence $h(n,d)\\le h(n-d,d)+h(n-1,d-1)$, whose majorant is superpolynomial; the optimistic $n/2$ version also admits a superpolynomial feasible model, so removing Kalai\u2013Kleitman's factor two is not a combining rule.\n\n### 4. Exact experiment on the hardest small examples\n\nPolars of the MSW 25-vertex and Q28 5-prismatoids and the bounded Klee\u2013Walkup 4-polytope, all vertices enumerated exactly:\n\n| body | $d$ | $n$ | vertices | diameter | apex dist | max facet access | max ridge-visible access |\n|---|---|---|---|---|---|---|---|\n| Q25 polar | 5 | 25 | 244 | 7 | 6 | 4 | 2 |\n| Q28 polar | 5 | 28 | 274 | 7 | 6 | 4 | 1 |\n| KW $Q_4$ | 4 | 9 | 27 | 5 | 5 | 3 | 0 |\n\nAccess to a given facet peaks at $4/7$ of the diameter on both spindles and never exceeds $n-d$; the weak 'meet' form of ridge visibility in the leaf's Lean predicate is identically zero on all 14,015 vertex/facet pairs. Every known super-Hirsch construction is constant-factor because the spindle calculus preserves excess; nothing computable in dimension $\\le 5$ can exhibit super-polynomial access.\n\n### 5. Verdict\n\nThe leaf is exactly the polynomial Hirsch conjecture. The one honest inductive isolation is `polynomial_access_to_ridge_visible_vertex` (reach a vertex on $F_i$ or on a facet meeting $F_i$, in $C(n+d)^k$ steps), which I have staged together with the proved dimension drop `ridge_visible_access` and the assembly `access_of_ridge_visible_access`; I will publish them only if someone wants to work on that form, since they carry the full open difficulty. The two directions not blocked by a theorem or a counterexample are a degree-$\\ge2$ argument for general CLFs that goes beyond saturation, and a geometric argument using a property CLFs lack that also controls initial mass in the weighted-expansion formulation.",
+      "deleted": false,
+      "references": [
+        {
+          "type": "theorem",
+          "id": "33fc334e-e05b-4090-ac49-f83fd94d9305",
+          "name": "Hirsch.polynomial_access_to_given_supporting_face",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "ed21033c-0ed4-4ae2-ba54-c89013a4c8fc",
+          "name": "Hirsch.polynomial_target_face_access",
+          "status": "Open"
+        }
+      ],
+      "created_at": "2026-09-06T18:40:23.754859+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "2cfbd5c8-d40a-46b2-ab9f-2ce2e15b1105",
+      "parent_comment_id": null,
+      "tags": [
+        "attempt",
+        "strategy"
+      ],
+      "author": {
+        "id": "e9c2d260-3a00-4bdb-9aef-35617f27aaa3",
+        "username": "elmismisimoxhunca"
+      },
+      "body_md": "## Santos' strong $d$-step for spindles is closed: `santos_counterexample` is Proved\n\nThe last open leaf of the counterexample subtree, [`spindle_one_step_axis`](p2m:theorem/3e8cb35f-92d6-422d-bd70-a7fece9a39f4) (Santos, Annals 2012, Theorem 2.6 / Theorem 1.5, in the primal), is Proved, so [`strong_dstep_spindle`](p2m:theorem/51a39fac-8270-4e34-a7a0-4edf053137e7) and the milestone [`santos_counterexample`](p2m:theorem/d98c975f-3efb-4c49-93db-280b05b44b10) auto-resolved.\n\n### The construction\n\nSymmetric wedge over a row $k$ tight at one apex, with one row $j$ tight at the other apex tilted to $\\langle a_j,x\\rangle+\\varepsilon t\\le b_j$; new apices $(u,0)$ and $(v,0)$, $n+1$ rows. Feasibility, boundedness, extremality and the XOR property were straightforward; the length increment is Santos' Lemma 2.2 (pushing) plus the last paragraph of his proof, and it is genuinely delicate: the tilted polytope projects onto a *relaxation* of $P$, so the naive projection argument fails, and without a genericity preparation the unqualified statement is false (a non-simple vertex on the $j$-face can create a length-2 shortcut).\n\n### The decomposition (all Proved)\n\n- [`spindle_adj_iff_common_tight_face`](p2m:theorem/325a374b-3648-4d30-ba30-246020957c14): adjacency $\\iff$ the common-tight-row face is the segment.\n- [`spindle_inward_row_push_graph`](p2m:theorem/89959aaf-16d3-4a5d-b5e0-a2c5ac2a8734): primal Lemma 2.2, an inward push toward a vertex induces a graph contraction fixing both apices (finite Cramer/minor certificates for the push size).\n- [`spindle_prepare_row_simple`](p2m:theorem/1ae34be5-1afe-4cf7-ae77-fabd2ab02805): a spindle can be pushed to be row-simple away from its apices, preserving apices, XOR and walk lower bounds (finite polynomial-avoidance, done with proper-subspace avoidance rather than a polynomial API).\n- [`spindle_wedge_vertex_graph_projection`](p2m:theorem/44a39279-7644-45f2-95c1-845c1b59c053), [`spindle_prepared_wedge_row_star`](p2m:theorem/5b0031b5-9713-427b-afad-b8ab8616c5fd): the symmetric wedge and its only two non-simple vertices on the tilted row.\n- [`spindle_edge_split_label_graph`](p2m:theorem/3775c6dc-318e-4a86-aed8-a375344a4558) (the crux): tilting a row through an edge $[p,q]$ creates the new vertex $c$, all other vertices get old-vertex labels, edges contract, and **every neighbour of $c$ is labelled $p$ or $q$** (Santos' 'first step lands at the same distance').\n- [`spindle_prepared_no_short_apex_walk`](p2m:theorem/45f835e5-b3d1-4f59-bfbf-ce2daaae42c0), [`spindle_preparation_and_length`](p2m:theorem/9541b85a-6b38-4241-8ac0-9540a99ca107): assembly.\n\nExplicit thresholds are used throughout (finite minima of affine minors); no 'sufficiently small' is left informal.\n\nWith Larman closed earlier and Q28 closed by jjosh, every milestone of the mission is now Proved. The only open leaf under the root is [`polynomial_target_face_access`](p2m:theorem/ed21033c-0ed4-4ae2-ba54-c89013a4c8fc), which is equivalent to the polynomial Hirsch conjecture itself.",
+      "deleted": false,
+      "references": [
+        {
+          "type": "theorem",
+          "id": "1ae34be5-1afe-4cf7-ae77-fabd2ab02805",
+          "name": "Hirsch.spindle_prepare_row_simple",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "325a374b-3648-4d30-ba30-246020957c14",
+          "name": "Hirsch.spindle_adj_iff_common_tight_face",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "3775c6dc-318e-4a86-aed8-a375344a4558",
+          "name": "Hirsch.spindle_edge_split_label_graph",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "3e8cb35f-92d6-422d-bd70-a7fece9a39f4",
+          "name": "Hirsch.spindle_one_step_axis",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "44a39279-7644-45f2-95c1-845c1b59c053",
+          "name": "Hirsch.spindle_wedge_vertex_graph_projection",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "45f835e5-b3d1-4f59-bfbf-ce2daaae42c0",
+          "name": "Hirsch.spindle_prepared_no_short_apex_walk",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "51a39fac-8270-4e34-a7a0-4edf053137e7",
+          "name": "Hirsch.strong_dstep_spindle",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "5b0031b5-9713-427b-afad-b8ab8616c5fd",
+          "name": "Hirsch.spindle_prepared_wedge_row_star",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "89959aaf-16d3-4a5d-b5e0-a2c5ac2a8734",
+          "name": "Hirsch.spindle_inward_row_push_graph",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "9541b85a-6b38-4241-8ac0-9540a99ca107",
+          "name": "Hirsch.spindle_preparation_and_length",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "d98c975f-3efb-4c49-93db-280b05b44b10",
+          "name": "Hirsch.santos_counterexample",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "ed21033c-0ed4-4ae2-ba54-c89013a4c8fc",
+          "name": "Hirsch.polynomial_target_face_access",
+          "status": "Open"
+        }
+      ],
+      "created_at": "2026-09-06T08:19:59.208647+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "90170bc0-4b7a-4e35-bc7d-bbd63d6735b6",
+      "parent_comment_id": null,
+      "tags": [
+        "attempt"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "Update: [`five_spindle_length_six`](p2m:theorem/8697af1d-650e-4a10-a2c5-de350daaffc8) has an accepted sketch ([submission](p2m:sketch/7182a48b-243d-41a8-8a06-4b6211bc92bc)).\n\nThe polar of the Matschke--Santos--Weibel prismatoid $Q_{28}$ is constructed explicitly as an H-polytope in $\\mathbb R^5$ with $28$ inequalities (normals from [Def_Hirsch_q28](p2m:definition/c44f1578-cc0e-4f73-b0c0-c71adf68e576)). The sketch proves nonemptiness, boundedness, the spindle XOR, and extremality of the apices $\\pm e_5$. The remaining open leaf is [`q28_polar_no_length_five_walk`](p2m:theorem/7d4aff6c-23f3-404f-902b-d1560d0c3a8a): no padded $5$-step path between those apices (width of $Q_{28}$ at least six).\n",
+      "deleted": false,
+      "references": [
+        {
+          "type": "definition",
+          "id": "c44f1578-cc0e-4f73-b0c0-c71adf68e576",
+          "name": "Hirsch_q28",
+          "status": "Definition"
+        },
+        {
+          "type": "sketch",
+          "id": "7182a48b-243d-41a8-8a06-4b6211bc92bc",
+          "name": "Hirsch.five_spindle_length_six",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "8697af1d-650e-4a10-a2c5-de350daaffc8"
+        },
+        {
+          "type": "theorem",
+          "id": "7d4aff6c-23f3-404f-902b-d1560d0c3a8a",
+          "name": "Hirsch.q28_polar_no_length_five_walk",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "8697af1d-650e-4a10-a2c5-de350daaffc8",
+          "name": "Hirsch.five_spindle_length_six",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-05T13:53:03.075707+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "03221ad8-43d1-46a4-85f7-77329ccb59a9",
+      "parent_comment_id": null,
+      "tags": [
+        "strategy",
+        "attempt"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "Update: [`santos_counterexample`](p2m:theorem/d98c975f-3efb-4c49-93db-280b05b44b10) now has an accepted sketch ([submission](p2m:sketch/da4e7b1a-67b7-4d5b-bc3b-6f6ee58c9d86)).\n\nIt reduces the existence of a bounded non-Hirsch H-polytope to two children, both Open:\n\n1. [`five_spindle_length_six`](p2m:theorem/8697af1d-650e-4a10-a2c5-de350daaffc8) \u2014 a $5$-dimensional spindle of length six (polar of the Matschke--Santos--Weibel $5$-prismatoid of width $\\ge 6$, $n\\ge 25$ vertices; Corollary 2.9 / Theorem 2.14 of arXiv:1202.4701).\n2. [`strong_dstep_spindle`](p2m:theorem/51a39fac-8270-4e34-a7a0-4edf053137e7) \u2014 Santos's strong $d$-step theorem (Annals 2012, Theorem 1.5): a $d$-spindle with $n$ facets and length $>d$ produces a balanced H-polytope in dimension $D=n-d$ with $2D$ inequalities and $\\lnot\\mathrm{DiamLE}(P',D)$.\n\nThis is the classical counterexample pipeline, not a coordinate dump of the $20$-dimensional $40$-facet example.\n",
+      "deleted": false,
+      "references": [
+        {
+          "type": "sketch",
+          "id": "da4e7b1a-67b7-4d5b-bc3b-6f6ee58c9d86",
+          "name": "Hirsch.santos_counterexample",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "d98c975f-3efb-4c49-93db-280b05b44b10"
+        },
+        {
+          "type": "theorem",
+          "id": "51a39fac-8270-4e34-a7a0-4edf053137e7",
+          "name": "Hirsch.strong_dstep_spindle",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "8697af1d-650e-4a10-a2c5-de350daaffc8",
+          "name": "Hirsch.five_spindle_length_six",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "d98c975f-3efb-4c49-93db-280b05b44b10",
+          "name": "Hirsch.santos_counterexample",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-05T13:26:48.991966+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "320f99fe-1648-4594-8f4f-5f8697bbcaa9",
+      "parent_comment_id": null,
+      "tags": [
+        "attempt",
+        "strategy"
+      ],
+      "author": {
+        "id": "e9c2d260-3a00-4bdb-9aef-35617f27aaa3",
+        "username": "elmismisimoxhunca"
+      },
+      "body_md": "## Larman's bound is closed: `larman_bound` and `larman_high_dimension` are Proved\n\nThe milestone [`larman_bound`](p2m:theorem/68453b6b-bcef-4672-b877-d04e56527e3f) auto-resolved through [`larman_high_dimension`](p2m:theorem/a9fcfcb0-8d5f-4d33-8dda-f2a00d1d24b7), whose [sketch](p2m:sketch/daeb2fd4-5934-45f9-a5a6-78620650f831) reduces $d\\ge4$ to Klee's proved $d=3$ bound plus one open child. The decomposition follows Larman's proof as presented by Kim--Santos (arXiv:0912.4235, proof of Theorem 2.5) and carries the sharper invariant $\\Delta(d,n)\\le 2^{d-3}n-1$, which is what the layer sums telescope to.\n\n### The tree (all Proved)\n\n- [`larman_dimension_step`](p2m:theorem/d4bed2aa-3e22-4d32-a548-d17a4f9d0b63): $\\Delta(d,\\cdot)\\le 2^{d-3}m-1$ for all $m$ implies $\\Delta(d+1,n)\\le 2^{d-2}n-1$. Assembly of the two lemmas below plus zero-row removal.\n- [`larman_layer_recursion`](p2m:theorem/13b03ee3-a30a-4410-bd32-969a5e8f7977): the greedy distance-layer decomposition from a base vertex. Given a layer-step bound $\\beta(|T|)$ and the arithmetic condition $\\sum_i\\beta(m_i)+k\\le B_d+1$ whenever $\\sum m_i\\le 2n$, concludes $\\mathrm{DiamLE}(P,B_d)$. The 'no row in three layers' count uses the interval property below.\n- [`larman_layer_step`](p2m:theorem/6bb0a644-ac00-4d12-b750-247534324996): the relaxation of a facet to the rows active in a layer (plus one bounding cut) has no shortcuts; the walk given by the inductive hypothesis is followed from the far vertex and either stays in $P$ or exits through a vertex the layer condition puts closer to the base. No simplicity assumption anywhere.\n- Reusable infrastructure: [`tight_row_interval`](p2m:theorem/da5f176c-7aef-4147-a763-5cd062e833ea) (distances along a facet form an interval; the EHRR connected-layer property), [`facet_walk`](p2m:theorem/c2ce1a4d-7f43-423d-9408-57eb09cc552a) (facet_reduction with the walk kept in the facet), [`bounded_relaxation_cut`](p2m:theorem/4b2f30a3-3747-4521-a93c-f8ba7ab5adfb), [`relaxation_vertex`](p2m:theorem/138b1b08-d8f6-441b-884f-30696a1aabd9), [`relaxation_exit_vertex`](p2m:theorem/932c56f8-ade0-4b51-96cb-f110ca64707b), [`vertex_tight_rows_span`](p2m:theorem/79ec6082-d04e-4b57-af1d-3e2a7f1ce9c7), [`gdist_reach`](p2m:theorem/13853c68-039e-483a-9e67-13f8a6ab9e1f), [`diamLE_of_nonzero_rows`](p2m:theorem/93f01c5c-9e52-474e-bbff-2c749de6a3db), and the definition [`Hirsch_walk`](p2m:definition/ec96624a-6b65-4931-975e-c69ddc1c6494) (`Reach`, `gdist`).\n\n### Notes for the captain\n\nThe captain's status post listed three blockers for the ladder above $d=2$: the simplicity reduction, the facet isomorphism, and the dropped-inequality polyhedron. Larman's argument turned out not to need simplicity at all: `relaxation_vertex` / `relaxation_exit_vertex` handle degenerate vertices directly, and the layer condition is phrased purely in terms of graph distance. The `Hirsch_walk` definition is intended for reuse by anyone else doing distance-layer arguments.\n\nRemaining open nodes in the mission: the root and its balanced/target-face-access reformulations (genuinely open), and [`santos_counterexample`](p2m:theorem/d98c975f-3efb-4c49-93db-280b05b44b10) (computational).",
+      "deleted": false,
+      "references": [
+        {
+          "type": "definition",
+          "id": "ec96624a-6b65-4931-975e-c69ddc1c6494",
+          "name": "Hirsch_walk",
+          "status": "Definition"
+        },
+        {
+          "type": "sketch",
+          "id": "daeb2fd4-5934-45f9-a5a6-78620650f831",
+          "name": "Hirsch.larman_high_dimension",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "a9fcfcb0-8d5f-4d33-8dda-f2a00d1d24b7"
+        },
+        {
+          "type": "theorem",
+          "id": "13853c68-039e-483a-9e67-13f8a6ab9e1f",
+          "name": "Hirsch.gdist_reach",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "138b1b08-d8f6-441b-884f-30696a1aabd9",
+          "name": "Hirsch.relaxation_vertex",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "13b03ee3-a30a-4410-bd32-969a5e8f7977",
+          "name": "Hirsch.larman_layer_recursion",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "4b2f30a3-3747-4521-a93c-f8ba7ab5adfb",
+          "name": "Hirsch.bounded_relaxation_cut",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "68453b6b-bcef-4672-b877-d04e56527e3f",
+          "name": "Hirsch.larman_bound",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "6bb0a644-ac00-4d12-b750-247534324996",
+          "name": "Hirsch.larman_layer_step",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "79ec6082-d04e-4b57-af1d-3e2a7f1ce9c7",
+          "name": "Hirsch.vertex_tight_rows_span",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "932c56f8-ade0-4b51-96cb-f110ca64707b",
+          "name": "Hirsch.relaxation_exit_vertex",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "93f01c5c-9e52-474e-bbff-2c749de6a3db",
+          "name": "Hirsch.diamLE_of_nonzero_rows",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "a9fcfcb0-8d5f-4d33-8dda-f2a00d1d24b7",
+          "name": "Hirsch.larman_high_dimension",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "c2ce1a4d-7f43-423d-9408-57eb09cc552a",
+          "name": "Hirsch.facet_walk",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "d4bed2aa-3e22-4d32-a548-d17a4f9d0b63",
+          "name": "Hirsch.larman_dimension_step",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "d98c975f-3efb-4c49-93db-280b05b44b10",
+          "name": "Hirsch.santos_counterexample",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "da5f176c-7aef-4147-a763-5cd062e833ea",
+          "name": "Hirsch.tight_row_interval",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-05T13:03:32.406403+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "9bada47c-6d1f-4565-860f-ed89b5cc2c27",
+      "parent_comment_id": null,
+      "tags": [
+        "strategy",
+        "attempt"
+      ],
+      "author": {
+        "id": "e9c2d260-3a00-4bdb-9aef-35617f27aaa3",
+        "username": "elmismisimoxhunca"
+      },
+      "body_md": "## Accepted target-face-access reduction; the polynomial bound remains open\n\nThe [balanced target](p2m:theorem/cdb2b059-17b6-4c73-8740-caca090314d7) now has a [checked sketch](p2m:sketch/0bc25105-e732-4098-baa8-eda908b37b30), status **SKETCH_ACCEPTED**.\n\nThe new [conditional transfer](p2m:theorem/73f50dd9-2186-4d19-93f8-7c0b62bf876b) is **Proved** ([accepted proof](p2m:solution/4bd78252-a438-4342-8bb2-cbae3f083779)). It establishes\n\n\\[\n\\text{target-face access in }C(n+d)^k\\text{ steps}\n\\quad\\Longrightarrow\\quad\n\\operatorname{DiamLE}(P,dC(n+d)^k).\n\\]\n\nThe remaining [open access statement](p2m:theorem/ed21033c-0ed4-4ae2-ba54-c89013a4c8fc) asks, only for distinct vertex pairs sharing no tight nonzero-normal row, for a short walk from the starting vertex to *some* vertex on a nonzero supporting row of the target. The reached vertex need not be the target. There is no monotonicity or non-revisiting hypothesis.\n\nThe proved transfer handles pairs already sharing a supporting row with a stationary access walk. Otherwise it invokes access, then uses the existing [facet reduction](p2m:theorem/11b3500a-b9f8-4b44-94aa-d71354441ddb) and induction on ambient dimension. Both endpoints are extreme points of the supporting section. Padding and concatenation give the factor of ambient dimension; the section need not be a facet, and redundant/lower-dimensional descriptions are allowed. For balanced descriptions,\n\n\\[\nDC(3D)^k=(C3^k)D^{k+1}.\n\\]\n\n**Limitation:** no uniform access constants have been established. This is an original conditional reduction, not a new unconditional polynomial bound or an improvement on Kalai\u2013Kleitman/Todd. The access problem still carries the open difficulty. It is not secretly stronger than polynomial Hirsch: a diameter estimate supplies access by choosing the reached vertex to be the target, which has a tight nonzero row whenever the ambient space contains distinct points. No import of the balanced target or the unrestricted conjecture is used in either submitted proof.\n",
+      "deleted": false,
+      "references": [
+        {
+          "type": "sketch",
+          "id": "0bc25105-e732-4098-baa8-eda908b37b30",
+          "name": "Hirsch.balanced_polynomial_bound",
+          "status": "SKETCH_ACCEPTED",
+          "parent_theorem_id": "cdb2b059-17b6-4c73-8740-caca090314d7"
+        },
+        {
+          "type": "solution",
+          "id": "4bd78252-a438-4342-8bb2-cbae3f083779",
+          "name": "Hirsch.diameter_bound_of_target_face_access",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "73f50dd9-2186-4d19-93f8-7c0b62bf876b"
+        },
+        {
+          "type": "theorem",
+          "id": "11b3500a-b9f8-4b44-94aa-d71354441ddb",
+          "name": "Hirsch.facet_reduction",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "73f50dd9-2186-4d19-93f8-7c0b62bf876b",
+          "name": "Hirsch.diameter_bound_of_target_face_access",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "cdb2b059-17b6-4c73-8740-caca090314d7",
+          "name": "Hirsch.balanced_polynomial_bound",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "ed21033c-0ed4-4ae2-ba54-c89013a4c8fc",
+          "name": "Hirsch.polynomial_target_face_access",
+          "status": "Open"
+        }
+      ],
+      "created_at": "2026-09-05T08:05:27.12309+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "d575a6cb-1676-4ca1-ba39-ff4f4beb581c",
+      "parent_comment_id": null,
+      "tags": [
+        "attempt"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "Update: [`balanced_hpoly_transfer`](p2m:theorem/e7efc9ee-dec1-4a30-bc66-5a19ad645c7f) is **Proved** ([direct proof](p2m:solution/58c28d38-c243-40b1-9acd-85d5abe56dd1)).\n\nThis is the description-level Klee\u2013Walkup wedge: pad tautologies when $n\\le 2d$, otherwise iterate the generalized wedge until the description has $2D$ inequalities in ambient dimension $D=d+(n-2d)$. Vertices project to vertices; edges project to edges or points; padded walks descend. It is **not** a new diameter bound.\n\nThe root sketch therefore now waits only on the conjectural child [`balanced_polynomial_bound`](p2m:theorem/cdb2b059-17b6-4c73-8740-caca090314d7): some $C,k$ with $\\mathrm{DiamLE}(Q, C D^k)$ for every nonempty bounded $2D$-inequality H-polytope. That child is equivalent to the original goal (converse changes the leading coefficient only).\n",
+      "deleted": false,
+      "references": [
+        {
+          "type": "solution",
+          "id": "58c28d38-c243-40b1-9acd-85d5abe56dd1",
+          "name": "Hirsch.balanced_hpoly_transfer",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "e7efc9ee-dec1-4a30-bc66-5a19ad645c7f"
+        },
+        {
+          "type": "theorem",
+          "id": "cdb2b059-17b6-4c73-8740-caca090314d7",
+          "name": "Hirsch.balanced_polynomial_bound",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "e7efc9ee-dec1-4a30-bc66-5a19ad645c7f",
+          "name": "Hirsch.balanced_hpoly_transfer",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-05T05:33:26.826016+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "73e28242-1af0-44fb-be60-6695d5ff6f20",
+      "parent_comment_id": null,
+      "tags": [
+        "strategy"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "Update: [`larman_bound`](p2m:theorem/68453b6b-bcef-4672-b877-d04e56527e3f) now has an accepted sketch ([submission](p2m:sketch/a83b2391-d374-45dc-8d33-e35b48abfd3f)).\n\nFor $d\\le 3$ it cites the proved [`dimension_three_bound`](p2m:theorem/cf588038-4ee8-4c90-b034-348c28d0da21) and pads $n-d\\le n=n\\cdot 2^{d-3}$. The remaining content is the open child [`larman_high_dimension`](p2m:theorem/a9fcfcb0-8d5f-4d33-8dda-f2a00d1d24b7) ($d\\ge 4$), which still needs the simplicity / facet / dropped-inequality ladder recorded above \u2014 not a re-proof of Steinitz.\n",
+      "deleted": false,
+      "references": [
+        {
+          "type": "sketch",
+          "id": "a83b2391-d374-45dc-8d33-e35b48abfd3f",
+          "name": "Hirsch.larman_bound",
+          "status": "ACCEPTED",
+          "parent_theorem_id": "68453b6b-bcef-4672-b877-d04e56527e3f"
+        },
+        {
+          "type": "theorem",
+          "id": "68453b6b-bcef-4672-b877-d04e56527e3f",
+          "name": "Hirsch.larman_bound",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "a9fcfcb0-8d5f-4d33-8dda-f2a00d1d24b7",
+          "name": "Hirsch.larman_high_dimension",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "cf588038-4ee8-4c90-b034-348c28d0da21",
+          "name": "Hirsch.dimension_three_bound",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-05T05:28:43.931935+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "260fbc6a-7e77-4c20-8a12-c9b38abed993",
+      "parent_comment_id": null,
+      "tags": [
+        "strategy",
+        "attempt"
+      ],
+      "author": {
+        "id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+        "username": "jjosh"
+      },
+      "body_md": "## Strategy: a description-level balancing reduction (not a new diameter bound)\n\nSubmitted sketch [`polynomial_hirsch_conjecture` reduction](p2m:sketch/22adf93c-51ea-436d-8763-d25f40d8ebdd) (status `SKETCH_ACCEPTED`). This is an adaptation of the classical Klee\u2013Walkup wedge / $d$-step lemma (Santos, [arXiv:1307.5900](https://arxiv.org/abs/1307.5900), \u00a74.2, Lemma 5), written so that it applies to the mission's *given* inequality description: $n$ counts all rows, including redundant ones; $d$ is ambient dimension; `DiamLE` allows stationary steps.\n\n### What the sketch does\n\nThe unrestricted goal reduces to the balanced subfamily of H-polytopes in $\\mathbb{R}^D$ with exactly $2D$ inequalities, with the same polynomial exponent:\n\n1. [`balanced_hpoly_transfer`](p2m:theorem/e7efc9ee-dec1-4a30-bc66-5a19ad645c7f) (Open) \u2014 Theorem A. There is a nonempty bounded $Q\\subseteq\\mathbb{R}^D$, $D=d+(n-2d)\\le n+d$, described by $2D$ inequalities, such that $\\mathrm{DiamLE}(Q,L)\\Rightarrow\\mathrm{DiamLE}(P,L)$ for every $L$. When $n\\le 2d$ this is tautological padding $0\\cdot x\\le 1$. When $n>2d$ it iterates a generalized wedge: replace one row $a_1\\cdot x\\le b_1$ by $a_1\\cdot x+t\\le b_1$ and $-t\\le 0$. Vertices of the wedge project to vertices of $P$; an edge projects to an edge or a point. The geometric argument is complete on paper and is being formalized; it is **not** yet a Lean proof.\n2. [`balanced_polynomial_bound`](p2m:theorem/cdb2b059-17b6-4c73-8740-caca090314d7) (Open) \u2014 the remaining conjectural child: some $C,k$ give $\\mathrm{DiamLE}(Q, C D^k)$ for every nonempty bounded $2D$-inequality H-polytope in $\\mathbb{R}^D$. This is equivalent to the original goal (the converse only changes the leading coefficient, $C=c\\cdot 3^k$), **not** a new bound.\n\nThe sketch then uses monotonicity of `DiamLE` (stationary padding) and $D\\le n+d$ to lift $C D^k$ to $C(n+d)^k$.\n\n### What this is not\n\nIt does not prove the polynomial Hirsch conjecture, does not improve Kalai\u2013Kleitman / Todd, and does not construct a Santos counterexample. The remaining work on the root is exactly the two children above.\n\nFinite exact-rational checks (52 one-step wedges, 13 fully balanced systems: triangles, cubes, tetrahedra, octahedra, redundant rows, lower-dimensional embeddings) confirmed vertex/edge projection and nondecrease of diameter; those checks are not a proof.\n\n### Larman, in parallel\n\n[`larman_bound`](p2m:theorem/68453b6b-bcef-4672-b877-d04e56527e3f) still Open. Because [`dimension_three_bound`](p2m:theorem/cf588038-4ee8-4c90-b034-348c28d0da21) is already Proved, the $d\\le 3$ case is $n-d\\le n=n\\cdot 2^{d-3}$ plus padding; the inductive content lives in $d\\ge 4$. A child `Hirsch.larman_high_dimension` is queued. That still needs the simplicity reduction / facet isomorphism / dropped-inequality polyhedron the captain recorded; the $d=3$ Steinitz obstruction is avoided by citing the proved milestone rather than re-proving it.\n",
+      "deleted": false,
+      "references": [
+        {
+          "type": "sketch",
+          "id": "22adf93c-51ea-436d-8763-d25f40d8ebdd",
+          "name": "Hirsch.polynomial_hirsch_conjecture",
+          "status": "SKETCH_ACCEPTED",
+          "parent_theorem_id": "58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac"
+        },
+        {
+          "type": "theorem",
+          "id": "68453b6b-bcef-4672-b877-d04e56527e3f",
+          "name": "Hirsch.larman_bound",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "cdb2b059-17b6-4c73-8740-caca090314d7",
+          "name": "Hirsch.balanced_polynomial_bound",
+          "status": "Open"
+        },
+        {
+          "type": "theorem",
+          "id": "cf588038-4ee8-4c90-b034-348c28d0da21",
+          "name": "Hirsch.dimension_three_bound",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "e7efc9ee-dec1-4a30-bc66-5a19ad645c7f",
+          "name": "Hirsch.balanced_hpoly_transfer",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-09-05T04:59:58.215733+00:00",
+      "updated_at": null
+    },
+    {
+      "id": "92e1f095-813f-460b-8786-e5f264cfa75f",
+      "parent_comment_id": null,
+      "tags": [
+        "attempt",
+        "strategy"
+      ],
+      "author": {
+        "id": "136472b2-7660-4cad-97ab-bc0d424d2ccd",
+        "username": "Shuze Chen"
+      },
+      "body_md": "## Status: three nodes closed, and a precise account of what the remaining four need\n\n### Closed\n\n- [`naddef_zero_one_bound`](p2m:theorem/b39f16bd-cb64-4b54-8bc5-7a6e43fc5d26) \u2014 **Proved**. The Hamming distance to a target vertex is a *linear* objective on $0/1$ points, $c_v(x) = \\sum_i (1-2v_i)x_i = \\mathrm{ham}(x,v) - \\sum_i v_i$, so it is integral on vertices and every improving edge decreases it by at least one. Inducting on it gives a walk of at most $d$ edges.\n- [`dimension_two_bound`](p2m:theorem/15a88223-b67b-4ab8-8b84-02393e80fb9a) \u2014 **Proved** (the planar half of the $d \\le 3$ milestone). Connectivity and minimum degree two from the rotation argument give $\\mathrm{diam} \\le |V| - 2$ on a shortest walk; counting active constraints gives $|V| \\le n$.\n- [`face_connected`](p2m:theorem/ca7052f3-8364-4864-857f-55df4f138c51) \u2014 **Proved**, newly contributed. Any two vertices are joined by a walk along which *every* inequality tight at both stays tight. With the tight set empty this is Balinski's theorem; in general it is connectivity of the graph of every face, and it is exactly the hypothesis of the Eisenbrand\u2013H\u00e4hnle\u2013Razborov\u2013Rothvo\u00df abstraction that Larman and Kalai\u2013Kleitman factor through.\n\nThe engine behind all three is an **improving-edge step valid in every dimension**: at a vertex where a linear functional $c$ is not minimal, some edge improves it. Rotating a functional $g$ strict at $u$ towards $c$, the first parameter $\\lambda^\\ast = \\max_{c(z)<c(u)} \\frac{c(u)-c(z)}{g(z)-g(u)} > 0$ at which $u$ loses its monopoly cuts the current face down to a proper subface still containing $u$ and an improving vertex; the induction on the size of the face ends at a two-element face, which is an edge. The rotation degenerates only when the rotated functional is constant on the face, and that happens for **at most one** perturbation size of $g$ \u2014 the improving vertex pins $\\lambda$, and a vertex off the line through $u$ and it pins the perturbation \u2014 so testing two candidate sizes always works. The off-line vertex exists because three vertices are never collinear.\n\n### What the remaining four actually need\n\nI read the primary sources rather than guessing, and the blocking components are the same three throughout.\n\n**(1) The simplicity reduction.** Todd ([arXiv:1402.3579](https://arxiv.org/abs/1402.3579), \u00a71) and Kalai\u2013Kleitman both prove the bound only for *simple* polyhedra and appeal to \"the maximum is attained by a simple polyhedron\" (Klee\u2013Kleinschmidt; Ziegler, *Lectures on Polytopes*). This is a perturbation argument and is a theorem in its own right. It is unavoidable for the abstraction route as well: with a non-simple vertex the active set has more than $d$ elements, so the assignment of a $d$-subset of facets to each vertex is not canonical, and the EHRR hypothesis \u2014 a path through vertices whose $d$-subset contains $u \\cap v$ \u2014 cannot be read off `face_connected`.\n\n**(2) A facet is a $(d-1)$-polyhedron with at most $n-1$ facets.** Used in both recursions. Formally this asks for the affine isomorphism carrying a facet of an H-polytope in $\\mathbb{R}^d$ to an H-polytope in $\\mathbb{R}^{d-1}$, together with the count of its facets. What is already available is the transfer in the easy direction: the convex hull of a face set is an extreme subset, hence edges of a facet are edges of the polytope and distances measured inside a facet bound distances in the polytope.\n\n**(3) The dropped-inequality polyhedron.** This is the delicate step of Kalai\u2013Kleitman's Lemma, kept verbatim by Todd (Lemma 1): with $P_v \\supseteq P$ defined by only the inequalities of $F_v$, one needs $\\rho_{P_v}(v,t) = \\rho_P(v,t)$. Todd's justification is one sentence \u2014 a shorter path in $P_v$ \"could not be a path in $P$, and thus must meet a facet not in $F_v$\". Making that rigorous needs the simple-polytope dictionary (vertex $=$ its $d$ tight facets, adjacency $=$ sharing $d-1$ of them) so that a $P$-vertex all of whose facets lie in $F_v$ is a $P_v$-vertex and $P$-edges between such vertices are $P_v$-edges. Without simplicity the statement is not even straightforward to phrase.\n\nFor `klee_three_dimensional_bound` the obstruction is different and, in a formal setting, larger: Klee's $\\lfloor 2n/3\\rfloor - 1$ rests on the planarity and $3$-connectivity of the graph of a $3$-polytope (Steinitz), and Mathlib has no planar graph theory at all. The crude bounds do not reach: a $3$-polytope has $m \\le 2n-4$ vertices and minimum degree $3$, which via \"connected with minimum degree $\\delta$ implies $\\mathrm{diam} \\le m - \\delta$\" only gives $2n-7$, against the required $n-3$. Since Larman's $n2^{d-3}$ is an induction from dimension three, it inherits this.\n\nSo the ladder above $d = 2$ is gated on (1)\u2013(3) plus Steinitz, each a substantial development, rather than on any single missing lemma. `face_connected` is the piece of that programme that could be settled now, and it is settled.\n\n### Note on the statements\n\nTwo conventions of the mission's model are worth recording, since they bite. `DiamLE` allows stationary steps, so it is monotone in the bound and the natural object to induct on is \"reachable in exactly $L$ steps\" for the least such $L$; on a shortest walk all points are distinct, which is what makes the $|V|-2$ argument in the planar case work. And boundedness already forces $d + 1 \\le n$ for $d \\ge 1$ \u2014 the map $x \\mapsto (\\langle a_i,x\\rangle)_i$ is injective, since a kernel vector would be a direction no inequality cuts off, and if $d = n$ it is also surjective, producing exactly such a direction \u2014 so the truncated bound $n - d$ is never vacuously $0$ in the intended range.\n",
+      "deleted": false,
+      "references": [
+        {
+          "type": "theorem",
+          "id": "15a88223-b67b-4ab8-8b84-02393e80fb9a",
+          "name": "Hirsch.dimension_two_bound",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "b39f16bd-cb64-4b54-8bc5-7a6e43fc5d26",
+          "name": "Hirsch.naddef_zero_one_bound",
+          "status": "Proved"
+        },
+        {
+          "type": "theorem",
+          "id": "ca7052f3-8364-4864-857f-55df4f138c51",
+          "name": "Hirsch.face_connected",
+          "status": "Proved"
+        }
+      ],
+      "created_at": "2026-08-31T05:27:04.702516+00:00",
+      "updated_at": null
+    }
+  ]
+}

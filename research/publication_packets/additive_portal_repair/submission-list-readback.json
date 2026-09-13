@@ -1,0 +1,19 @@
+{
+  "submissions": [
+    {
+      "id": "2a2dd9bd-9ee5-43fa-bc04-def26a5a2a98",
+      "theorem_id": "32dbbfe9-bd4c-4685-8df6-7a4403175ef4",
+      "user_id": "c7399005-c54f-46c6-83fd-0131738d1e3f",
+      "username": "jjosh",
+      "status": "PENDING",
+      "error_message": "",
+      "file_path": "32dbbfe9-bd4c-4685-8df6-7a4403175ef4/c7399005-c54f-46c6-83fd-0131738d1e3f/2a2dd9bd-9ee5-43fa-bc04-def26a5a2a98.lean",
+      "created_at": "2026-09-12T23:50:49.46388+00:00",
+      "updated_at": "2026-09-12T23:50:49.612792+00:00",
+      "vote_count": 0,
+      "explanation": "Conserve shifted child excess sum(max(e_i-b,0))<=max(e-b,0). With zero or one large child this follows from individual monotonicity; with two or more the subtraction of b per child pays the additive sibling spill. Multiply shifted mass by the strictly decreasing dimension and induct over the finite repair certificate. The polynomial potential pays the initial step and every child's budget. Concatenating the actual bounded leaf routes proves the route conclusion simultaneously. No universal geometric certificate existence is assumed or concluded, and fixed-slack portal selection is not asserted.\n",
+      "deprecated_at": null
+    }
+  ],
+  "total": 1
+}

@@ -1,0 +1,8 @@
+research/publication_packets/additive_portal_repair/driver.lean:155:58: warning: This simp argument is unused:
+  nsmul_eq_mul
+
+Hint: Omit it from the simp argument list.
+  simp [Finset.sum_add_distrib, Finset.sum_const,̵ ̵n̵s̵m̵u̵l̵_̵e̵q̵_̵m̵u̵l̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]

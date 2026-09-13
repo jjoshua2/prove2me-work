@@ -1,0 +1,21 @@
+{
+  "id": "7fe547ad-d4ff-4d27-84a8-d1f62fe019f6",
+  "kind": "problem",
+  "theorem_name": "Hirsch.additive_portal_repair_polynomial_route",
+  "theorem_title": "Bounded additive sibling spill gives a polynomial actual route bound",
+  "formal_statement": "theorem Hirsch.additive_portal_repair_polynomial_route {V : Type*} {R : V \u2192 V \u2192 Prop} {b C h e cost : \u2115} {x y : V}\n    (cert : HirschAdditiveAllowance.AdditiveRepair R b C x y h e cost) :\n    HirschRegionRoute.Route R cost x y \u2227 cost \u2264 C*e+(1+b*C)*h*(e-b) := by sorry",
+  "natural_language_statement": "A finite additive repair certificate assembles actual steps of a relation R.\nA leaf has excess e<=b and an actual route of cost<=C*e. A nonleaf records one\ninitial R-edge or stationary step, followed by child repairs. Child dimensions\nstrictly drop, each child excess is at most the parent e, and sibling excesses\nsum to at most e+b. Internal parents have positive dimension and e>b.\nThen the certificate gives an actual route of its recorded cost, and that cost\nis at most C*e+(1+b*C)*h*max(e-b,0). Fixed b and C give a quadratic bound.\nThe certificate is a conditional interface: dimension/excess tags are not\nautomatically geometric, and arbitrary polytopes are not asserted to admit it.\nThe cyclic fixed-slack obstruction and its adaptive routes are separate work.",
+  "definitions": "import Mathlib\nimport Definitions.Def_Hirsch_additive_portal_repair\nopen scoped BigOperators\nopen HirschRegionRoute HirschAdditiveAllowance",
+  "source": "Explicit conditional recurrence and actual-route assembly; https://github.com/jjoshua2/prove2me-work/tree/b7a832e9ff98743d53c66d6e471fd0828891d22d",
+  "tags": [
+    "polyhedra",
+    "graph-theory",
+    "formalization"
+  ],
+  "visibility": "public",
+  "status": "PUBLISHED",
+  "error_message": "",
+  "theorem_id": "32dbbfe9-bd4c-4685-8df6-7a4403175ef4",
+  "created_at": "2026-09-12T23:40:12.355068+00:00",
+  "updated_at": "2026-09-12T23:50:37.361258+00:00"
+}

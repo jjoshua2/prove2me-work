@@ -29,7 +29,24 @@ def run(p, stage):
         assert evidence['exit_codes'][name] == 0
     api = VersionCheckedAPI(os.environ.get('PROVE2ME_API_KEY') or json.loads(Path('credentials.json').read_text())['api_key'])
     problem = read('problem.json')
-    if stage == 'publish':
+    if stage == 'definition':
+        assert manifest.get('definition_name')
+        assert not (p / 'definition-response.json').exists(), 'Poll the existing definition.'
+        payload = read('definition.json')
+        dup = save('definition-duplicate-check.json', api.request('/theorems?' + urlencode({'q': payload['definition_name'], 'env': manifest['mathlib_rev']})))
+        assert dup['total'] == 0
+        result = save('definition-response.json', api.request('/submit-definition', payload, 'POST'))
+    elif stage == 'poll-definition':
+        response = read('definition-response.json')
+        job = response.get('job_id') or response['jobs'][0]['job_id']
+        result = save('definition-job.json', api.request('/publish-jobs/' + job))
+    elif stage == 'publish':
+        if manifest.get('definition_name'):
+            job = read('definition-job.json')
+            assert job['status'] == 'PUBLISHED'
+            live = save('definition-live.json', api.request('/theorems/' + job['theorem_id']))
+            assert live['status'] == 'Definition' and live['mathlib_rev'] == manifest['mathlib_rev']
+            assert live['definition'] == read('definition.json')['definition']
         assert not (p / 'publish-response.json').exists(), 'Poll the existing publication.'
         dup = save('duplicate-check.json', api.request('/theorems?' + urlencode({'q': problem['theorem_name'], 'env': manifest['mathlib_rev']})))
         assert dup['total'] == 0, 'Compare and reuse the existing theorem.'
@@ -63,6 +80,6 @@ def run(p, stage):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--packet', type=Path, required=True)
-    parser.add_argument('stage', choices=['publish', 'poll-publish', 'submit', 'poll-verify'])
+    parser.add_argument('stage', choices=['definition', 'poll-definition', 'publish', 'poll-publish', 'submit', 'poll-verify'])
     args = parser.parse_args()
     run(args.packet, args.stage)
