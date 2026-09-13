@@ -6,7 +6,7 @@ Read this file, AGENTS.md, CLOUD_AGENT.md, SKILL.md and CONTINUE_HIRSCH.md,
 then the LIVE PR heads/comments before choosing work. Historical next-step
 paragraphs are not evidence that a later accepted result remains unproved.
 
-The previous 400-line status overview is preserved verbatim in
+The previous status overview is preserved verbatim in
 [the frontier archive](research/FRONTIER_ARCHIVE_BEFORE_CHECKED_DUAL_TESTS_2026-09-13.md),
 Git blob `256e16e82e9b7679fe08d38f410be1c14e5881e4`. Its older proof history,
 mission discussion IDs, cost bounds and receipts have not been discarded.
@@ -36,7 +36,7 @@ Santos, circuit walks, fixed-dimensional bounds or accepted repair lemmas.
 
 ## Accepted algebraic and allocation results: do not resubmit
 
-Every row below has its own accepted-evidence/receipt under the linked packet.
+Every row below has its own accepted-evidence/receipt under its packet.
 Read the exact statement before composing it; an informal description is not
 an extra hypothesis or a stronger conclusion.
 
@@ -51,6 +51,7 @@ an extra hypothesis or a stronger conclusion.
 | #227 | Pointwise allocation tests collapse to scalar budgets given exact support witnesses | [finite_allocation_support_budgets](research/publication_packets/finite_allocation_support_budgets/) |
 | #229 | Actual rational Boolean checker/output filter gives exactly all normalized REAL circuits | [checked_circuit_catalogue](research/publication_packets/checked_circuit_catalogue/) |
 | #230 | Supplied finite row identities imply a one-ray restricted kernel | [rref_restricted_kernel_certificate](research/publication_packets/rref_restricted_kernel_certificate/) |
+| #233 | The ACTUAL checked catalogue tests every real linear functional on the entire nonnegative kernel | [checked_catalogue_dual_tests](research/publication_packets/checked_catalogue_dual_tests/) |
 
 #229 theorem: `49468d71-eb2e-4908-a15e-a89d1d23622a`;
 submission: `0dcf5eea-df74-4295-9a5e-c71edb96589d`, ACCEPTED.
@@ -64,10 +65,14 @@ submission: `de82dc98-0819-4305-968d-cff93ef9ada6`, ACCEPTED.
 Use its actual column-identity assumptions; it is not an unconditional
 correctness theorem for an imperative row-reduction implementation.
 
-## New concrete bridge: PR #233
+## Newly accepted concrete bridge: PR #233
 
-Packet: [checked_catalogue_dual_tests](research/publication_packets/checked_catalogue_dual_tests/).
 Public name: `Hirsch.checked_rational_catalogue_dual_tests`.
+Theorem: `3999b5a0-22c8-44a5-9886-6838b03fd07f`.
+Submission: `c31a55eb-d210-4678-8401-fed4f4d005bd`, **ACCEPTED**;
+authenticated publisher readback: **Proved**.
+See [accepted evidence](research/publication_packets/checked_catalogue_dual_tests/accepted-evidence.md)
+and the unchanged downloaded publication-receipt.json beside it.
 
 For the ACTUAL catalogue C returned by #229's passing finite arithmetic check,
 this proves, for EVERY real linear functional B,
@@ -85,15 +90,16 @@ specializes B to arbitrary real RHS pairings. Of 711 standalone source lines,
 571 reuse accepted proof blocks unchanged; 140 contain the new bridge,
 specialization, statement adapter and axiom printouts.
 
-The FIRST prepared gate, run `34790147221`, passed without any proof edit at
-frozen head `8da78fd4f3d880fa053446d8170e11aa501cb43e`. Driver, solution and
-statement all compiled with exit code zero. All three printed declarations
-use only `propext`, `Classical.choice`, `Quot.sound` transitively. See the
-[downloaded audit and hash evidence](research/publication_packets/checked_catalogue_dual_tests/verification-evidence.md).
+The FIRST prepared gate and first authenticated submission succeeded in run
+`34790147221`, frozen head `8da78fd4f3d880fa053446d8170e11aa501cb43e`.
+Driver, solution and statement all compiled with exit code zero; all three
+printed declarations use only `propext`, `Classical.choice`, `Quot.sound`
+transitively. No proof edit, retry or duplicate registration was needed.
 Solution SHA-256: `5f661c7b4bff18859b12611e4f2b3b8f72be0100bd99a75a3fcd09a6609d1897`.
-The trusted publish job was still running at this status update. Do not equate
-that clean Lean gate with authenticated acceptance; inspect the live #233
-bot verdict before resuming or submitting anything.
+Both verification and publication archives were downloaded, hash-checked,
+and preserved as raw records plus explicitly derived inspection summaries.
+The prior verification-evidence.md is a historical intermediate record,
+not a reason to resume this now-ACCEPTED submission. Do not resubmit #233.
 
 ## Next exact proof obligation
 
@@ -120,25 +126,26 @@ This is one concrete adapter chain; do not publish new open children that
 merely restate it. Useful shape selection and arbitrary residual ordinary-edge
 routing remain separate mathematical problems even after this composition.
 
-## Active PR queue and retired ancestry
+## PR lifecycle and retired ancestry
 
-- #233: concrete checked-catalogue dual-test proof; first gate green, trusted
-  publication running at the update above. Preserve the exact job/packet;
-  do not create duplicate registration if it reports PUBLISH_PENDING.
-- #208: distinct additive-spill/portal-selection line. Existing submission
-  `2a2dd9bd-9ee5-43fa-bc04-def26a5a2a98` is PENDING in its latest persisted
-  receipt. Poll that submission through the approved existing path; do NOT
-  resubmit. Its geometric selection/existence premise remains explicit.
-- #210: CLOSED as a superseded historical research stack. Its branch
-  `formal/dual-wall-carrier-routing` at `11172b1165b31a81e8755bd9f88651a2a9ed4b8c`
-  and all research/fixtures remain retained. Do not merge its obsolete ancestry.
+#233's mathematical and publication work is complete. Its follow-up changes
+only evidence and handoff; it requires no further proof or publication run.
+Consult GitHub for its final integration state before changing the branch.
 
-Clean integration successors of #210 are merged #225, #226, #228, #231 and
-#232. In particular, #231's three residual modules passed `34785937763`;
-#232's two repaired geometric cores passed clean-main run `34789669353` and
-merged as `f452b23a06f0122c9b9dda774fadad1ed99813b7`. These are module builds,
-not new Prove2Me acceptances. Historical UNCOMPILED source headers do not
-override later successful receipts. Uncommitted or tool-blocked covering-budget
+#208 remains the distinct additive-spill/portal-selection draft. Existing
+submission `2a2dd9bd-9ee5-43fa-bc04-def26a5a2a98` is PENDING in its latest
+persisted receipt. Poll that submission through the approved existing path;
+do NOT resubmit. Its geometric selection/existence premise remains explicit.
+
+#210 is CLOSED as a superseded historical research stack. Its branch
+`formal/dual-wall-carrier-routing` at `11172b1165b31a81e8755bd9f88651a2a9ed4b8c`
+and all research/fixtures remain retained. Do not merge its obsolete ancestry.
+Clean integration successors are merged #225, #226, #228, #231 and #232.
+#231's three residual modules passed `34785937763`; #232's two repaired
+geometric cores passed clean-main run `34789669353` and merged as
+`f452b23a06f0122c9b9dda774fadad1ed99813b7`. These are module builds, not new
+Prove2Me acceptances. Historical UNCOMPILED source headers do not override
+later successful receipts. Uncommitted or tool-blocked covering-budget
 candidates mentioned in older chats are not silently included in these merges.
 
 ## Execution discipline
