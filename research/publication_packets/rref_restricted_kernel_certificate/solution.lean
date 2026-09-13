@@ -4,7 +4,7 @@ open scoped BigOperators
 set_option autoImplicit false
 noncomputable section
 
- theorem solution
+theorem solution
     (n k : ℕ) (A : (Fin n → ℝ) →ₗ[ℝ] (Fin k → ℝ))
     (x : Fin n → ℝ) (j : Fin n) (dual : Fin n → Fin k → ℝ)
     (hxj : x j ≠ 0)
@@ -54,7 +54,7 @@ noncomputable section
         intro l _
         rw [hcol i hxi l]
       _ = z i - (x i / x j) * z j := by
-        simp [mul_sub, Finset.sum_sub_distrib]
+        simp [mul_sub, Finset.sum_sub_distrib, mul_comm]
   intro z hz hzx
   refine ⟨z j / x j, ?_⟩
   funext i
