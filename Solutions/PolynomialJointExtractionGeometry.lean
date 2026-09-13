@@ -35,9 +35,11 @@ theorem scaleRegion_convex (Γ : κ → ι → ℝ) (b : κ → ℝ) :
       apply Finset.sum_congr rfl
       intro i _
       ring
+    have hb : s*b j+t*b j=b j := by
+      rw [←add_mul,hst,one_mul]
     change (∑ i, Γ j i*(s*x i+t*y i)) ≤ b j
-    rw [he]
-    nlinarith
+    rw [he,←hb]
+    exact add_le_add h₁ h₂
 
 theorem scaleRegion_downward (Γ : κ → ι → ℝ) (b : κ → ℝ)
     (hΓ : ∀ j i, 0 ≤ Γ j i) {s t : ι → ℝ}
