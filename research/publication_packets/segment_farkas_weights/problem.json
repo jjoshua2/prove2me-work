@@ -1,0 +1,10 @@
+{
+  "theorem_name": "Hirsch.segment_summand_equality_of_finite_farkas_weights",
+  "theorem_title": "Finite nonnegative Farkas weights certify an exact segment Minkowski summand",
+  "formal_statement": "theorem Hirsch.segment_summand_equality_of_finite_farkas_weights\n    {E : Type*} [AddCommGroup E] [Module ℝ E]\n    {ι : Type*} [Fintype ι]\n    (a : ι → E →ₗ[ℝ] ℝ) (b : ι → ℝ) (g : E) (τ : ℝ)\n    (hτ : 0 ≤ τ) (hplus : ∃ i, 0 < a i g)\n    (cert : ∀ i j, 0 < a i g → a j g < 0 →\n      ∃ w : ι → ℝ,\n        (∀ k, 0 ≤ w k) ∧\n        (∑ k, w k • a k) = (-a j g) • a i + (a i g) • a j ∧\n        (∑ k, w k * b k) ≤\n          (-a j g) * b i + (a i g) * b j - τ * (a i g) * (-a j g)) :\n    {x : E | ∀ i, a i x ≤ b i} =\n      {x : E | ∃ p : E,\n        (∀ i, a i p ≤ b i - τ * max (a i g) 0) ∧\n        ∃ t : ℝ, 0 ≤ t ∧ t ≤ τ ∧ x = p + t • g} := by sorry",
+  "preamble": "import Mathlib\nopen Set\nopen scoped BigOperators",
+  "env": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "natural_language_statement": "Let a finite halfspace system be given, together with a direction g and nonnegative length τ. For every original row that increases along g and every original row that decreases along g, suppose there is a nonnegative combination of the original inequalities whose normal is the corresponding opposing-row combination and whose constant certifies at least τ units of fiber width. Then the whole halfspace set is exactly the Minkowski sum of its endpoint erosion by the segment [0,τg] and that segment. The statement uses only the original rows and finite nonnegative weights; no proposed residual polytope or vertex enumeration is assumed.",
+  "source": "Corrected public-symbol-only packet extracted from PR #210 segment-peeling work after an earlier custom-preamble registration received WA: https://github.com/jjoshua2/prove2me-work/blob/formal/dual-wall-carrier-routing/research/publication_packets/pr210_catchup/segment_farkas_inline/solution.lean",
+  "tags": ["hirsch-conjecture", "polyhedra", "minkowski-sums", "farkas-lemma"]
+}
