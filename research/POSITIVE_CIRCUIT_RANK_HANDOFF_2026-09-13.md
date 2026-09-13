@@ -1,89 +1,73 @@
-# Positive-circuit rank handoff: committed, not yet verified
+# Positive-circuit rank handoff: ACCEPTED and live Proved
 
-## Exact new work and location
+## Accepted theorem
 
-Branch: proof/positive-circuit-rank-cutoff.
-Proof commit: 6ca03d3f84243c3ae6528ec367fbd75b30ba1e9d.
-Base: merged #218 at 89bbe65dd21710c6feb36fe4f0e1e633ab0159fb.
-Packet: research/publication_packets/positive_circuit_rank.
-Target: Hirsch.positive_circuit_signed_kernel_and_rank.
+PR #222 proves the rank cutoff left separate by accepted #218/#219.
 
-The 168-line self-contained Lean candidate proves positive-support minimality
-is equivalent to every SIGNED null vector on the support being a scalar
-multiple, and derives |support| <= dim(range(A))+1 by an explicit injection.
-This is the rank cutoff left separate by accepted #218 and #219, not a duplicate
-finite-test or allocation-sufficiency theorem. The minimality premise is exactly
-what #218 already supplies. No full-rank or generator-independence premise is
-added. The explanation contains the complete elementary argument and scope.
+- Theorem: `Hirsch.positive_circuit_signed_kernel_and_rank`
+- Theorem ID: `864c87b2-cf47-469a-884a-4a6352e0ab23`
+- Submission ID: `f60b3d5d-7617-4b01-a11d-121b24d9ff42`
+- Final audited proof head: `c3eff585fd047892f28a5287752ab015767ab29b`
+- Final Actions run: `34783103887`
+- Authenticated status: `ACCEPTED`; live theorem readback: `Proved`
+- Packet: `research/publication_packets/positive_circuit_rank/`
 
-The three packet files were read back by Git blob hash and match local bytes:
-solution.lean: 215a09214fe2975b91701f17e7750444fb3031ac
-problem.json: 9bfe0e2517c6aedccb854d15512ef2456504ecde
-explanation.md: d7eb9a01ace23bc64b6eccfb094c047598f36465
-Solution SHA-256: 5bcb41a1327da8909bfff682397382c22be6223a052b6136bfbed47d5e834382.
-The receipt-only continuation leaves all three proof-packet blobs unchanged.
+The theorem says that for a real linear map `A`, a nonzero nonnegative null
+vector has support minimal among all nonzero nonnegative null vectors iff every
+SIGNED null vector supported there is a scalar multiple of it. It then proves
 
-## Actual execution boundary
+    |support(x)| <= finrank(range A) + 1.
 
-GitHub branch creation, tree/commit creation and non-force branch update
-SUCCEEDED. A coordination comment on #219 and creation of the new rank PR were
-BLOCKED by the tool safety checks. Neither blocked action was retried or routed
-through an alternative endpoint. There is NO new rank PR, trigger comment,
-Actions run, platform registration, submission, or acceptance in this turn.
-Do not describe a missing PR as a missing source commit: the branch is real.
+The proof uses an explicit minimum-ratio subtraction and an injection into
+`range(A) × R`. No full-rank, generator-independence, boundedness, simplicity,
+Farkas, feasibility, or diameter premise is added.
 
-A local `lake env lean research/publication_packets/positive_circuit_rank/solution.lean`
-attempt could not start because lake is absent. Lean/Elan lookup found no local
-compiler; a direct toolchain-download attempt failed DNS. No local compilation,
-axiom audit, or formal verdict is claimed. Type-text matching, no-admission
-source inspection and hash checks are NOT Lean verification.
+## Verification and publication receipts
 
-Execution receipt: research/verification/2026-09-13-positive-circuit-rank/execution-receipt.json.
-No workflow, allowlist, credential, secret separation or Lean/Mathlib pin changed.
-#210 is reserved and was not modified or triggered; its last read head was
-9af9cddeb818ced989f14b1c7ea1bcaa470e2be1. #208's pending proof was not resubmitted.
+The first hosted attempt exposed one elaboration-only gap in the zero-coordinate
+branch of the extension map. Commit `29fed598b7e8d0b2e99d5f5bd6c2ddb4edf780c1`
+changed only that proof branch by deriving `x i = 0` from `¬ x i ≠ 0`; theorem
+statement and packet metadata stayed unchanged.
 
-## Existing allocation bridge now ACCEPTED, separate from this candidate
+The corrected packet compiled in run `34782262056`, but the old trusted
+publisher discarded its problem-registration `job_id` after a 180-second poll
+timeout. PR #223 fixed that infrastructure without changing the actor allowlist,
+secret separation, workflow permissions, or Lean pin. The safe-resume run
+`34783103887` recompiled the exact packet and the publisher reported
+`registration: REUSED`, so it found the theorem created by the earlier
+registration rather than submitting a duplicate problem.
 
-#219's existing run 34781016108 completed gate, verify and publish successfully;
-report-verify was skipped. The bot verdict is issuecomment-5655963994.
-Resolved proof SHA: 9d3aea2f4120f44a6c43b882d79c9f6f7fcb00c6.
-Workflow-main SHA: 89bbe65dd21710c6feb36fe4f0e1e633ab0159fb.
-Theorem: 09c33216-ba2f-4c9f-b75e-e9d8279e8358.
-Submission: f5304244-5800-46f7-b0c5-98cdf4c6d71a.
-Authenticated publisher receipt: ACCEPTED, live_status Proved.
+Final frozen evidence:
 
-Downloaded and digest-checked publication artifact 10325022995 and verified
-packet artifact 10324553494. All five frozen manifest hashes match. Compiler
-logs were read: driver, solution and statement exit codes are all zero. The
-three printed declarations use only Classical.choice, Quot.sound and propext.
-These are #219's receipts, NOT verification of the new rank proof. This is the
-publisher's recorded live readback, not a separate fresh Prove2Me API poll.
-Raw publication receipt, packet audit and manifest are copied with pr219- prefixes
-under the verification directory. Archive digests and exact scope are in
-pr219-artifact-check.json. Full downloaded archives and logs accompany the
-conversation's continuation bundle. No #219 source or submission was changed.
-#216 and #218 remain accepted references and were not resubmitted.
+- driver / solution / statement exit codes: all `0`
+- axioms: only `Classical.choice`, `Quot.sound`, `propext`
+- solution SHA-256: `5360f2a04a68b580552470ba42d1fa011eec5a73275c1c9b7766475fea028ddc`
+- statement SHA-256: `344e4bbd9fdbc436aa75fa8bd6c65bd4634a1d42e3abc13d89584282e430483b`
+- verified artifact `10325579396`, digest
+  `sha256:485c3b4c47c4a1121bbe7eba88062630c7c9c743f5a877c0da7a8fa9ff494809`
+- publication artifact `10325721762`, digest
+  `sha256:29acb077f7bb6bf94152b7bd6f0f37c1a1a47934ae42c29f10ce0c7f6bf39d78`
 
-## Resume without duplicating work
+`packet-audit.json`, `manifest.json`, `publication-receipt.json`, and
+`accepted-evidence.md` are preserved beside the packet. The trusted publisher
+also requires byte-for-byte accepted-source readback before returning ACCEPTED.
 
-Use this existing branch and packet, not the older conversation-only finite-
-circuit draft. First compile locally in a pinned Lean workspace and audit all
-three declarations. If Lean rejects the candidate, fix it locally. The current
-turn has no compiler errors to diagnose because compilation never started.
+## Remaining exact frontier
 
-Once a complete packet is on an OPEN SAME-REPOSITORY PR through an authorized
-write, its first requested final gate is a NEW top-level conversation comment:
+Do not resubmit this packet, accepted #216, #218, or #219.
 
-    /prove2me publish research/publication_packets/positive_circuit_rank
+The rank cutoff now justifies restricting a true positive-circuit search to
+small supports. The remaining enumerator bridge is to connect exact rational
+restricted-nullspace computation and normalized positive-ray output to the
+actual support-minimal Circuit predicate. Another agent announced work on the
+distinct constructive decomposition of arbitrary nonnegative null vectors; do
+not duplicate that line.
 
-Read back the actual comment and bot-resolved SHA, jobs, logs, frozen artifacts,
-and authenticated verdict. Do not use an inline review, workflow_dispatch, a
-secret/allowlist change or someone else's PR as a workaround for the blocked
-creation. No existing rank submission is pending to poll or duplicate.
+The original-point optimization bridge is handled separately by PR #221. Once
+that theorem is accepted, compose it with #219: for each allocation multiplier
+`(lambda,mu,nu)`, set `K = sum lambda_i*h_i - nu*t`; an original-H primal/dual
+support certificate collapses #219's universal `x` test to the scalar budget
+`K <= lambda·b - alpha·b`. That is the next clean extraction composition.
 
-After verification: formally restrict #218's finite universal family to the
-rank-bounded supports, connect the executable exact nullspace enumeration,
-and eliminate x by original-row support-optimality certificates in #219's
-allocation tests. Arbitrary residual ordinary-edge routing and Polynomial
-Hirsch remain unresolved. No new root dependency is claimed.
+#210 remains reserved to its other agent and was not modified or triggered.
+Arbitrary residual ordinary-edge routing and Polynomial Hirsch remain open.
