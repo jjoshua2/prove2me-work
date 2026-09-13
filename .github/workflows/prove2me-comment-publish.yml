@@ -1,0 +1,317 @@
+name: Prove2Me comment publish
+
+# Durable publication gate. Untrusted pull-request code is compiled in the
+# verify job with no Prove2Me secret. Only the trusted publisher on main may
+# read PROVE2ME_API_KEY. This is an issue_comment / workflow_dispatch gate, not
+# a push-triggered experiment workflow.
+on:
+  issue_comment:
+    types: [created]
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: Pull request number whose head SHA should be verified and published
+        required: true
+        type: string
+      command:
+        description: First-line command, for example "/prove2me publish"
+        required: false
+        default: "/prove2me publish"
+        type: string
+      packets:
+        description: Optional space-separated packet directories
+        required: false
+        default: ""
+        type: string
+      targets:
+        description: Optional comma-separated Lake targets to build before packet compile
+        required: false
+        default: ""
+        type: string
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+  actions: read
+
+concurrency:
+  group: prove2me-comment-publish-${{ github.event.issue.number || github.event.inputs.pr }}
+  cancel-in-progress: false
+
+jobs:
+  gate:
+    if: >
+      (github.event_name == 'issue_comment' &&
+       github.event.issue.pull_request &&
+       github.event.comment.user.login == 'jjoshua2' &&
+       startsWith(github.event.comment.body, '/prove2me')) ||
+      (github.event_name == 'workflow_dispatch' && github.actor == 'jjoshua2')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      should_run: ${{ steps.select.outputs.should_run }}
+      action: ${{ steps.select.outputs.action }}
+      head_sha: ${{ steps.select.outputs.head_sha }}
+      packets: ${{ steps.select.outputs.packets }}
+      pr: ${{ steps.pr.outputs.pr }}
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Resolve pull request
+        id: pr
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EVENT_NAME: ${{ github.event_name }}
+          COMMENT_PR: ${{ github.event.issue.number }}
+          DISPATCH_PR: ${{ github.event.inputs.pr }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "$EVENT_NAME" == "workflow_dispatch" ]]; then
+            pr="$DISPATCH_PR"
+          else
+            pr="$COMMENT_PR"
+          fi
+          echo "pr=$pr" >> "$GITHUB_OUTPUT"
+          gh api "repos/${{ github.repository }}/pulls/$pr" > /tmp/pr.json
+          head_repo="$(jq -r .head.repo.full_name /tmp/pr.json)"
+          head_sha="$(jq -r .head.sha /tmp/pr.json)"
+          state="$(jq -r .state /tmp/pr.json)"
+          if [[ "$head_repo" != "${{ github.repository }}" ]]; then
+            echo "::error::Refusing to publish a fork pull request."
+            exit 1
+          fi
+          if [[ "$state" != "open" ]]; then
+            echo "::error::Pull request #$pr is not open."
+            exit 1
+          fi
+          echo "head_sha=$head_sha" >> "$GITHUB_OUTPUT"
+          gh api --paginate "repos/${{ github.repository }}/pulls/$pr/files" --jq '.[].filename' > /tmp/pr-files.txt
+
+      - name: Parse command
+        id: parse
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          COMMENT_BODY: ${{ github.event.comment.body }}
+          DISPATCH_COMMAND: ${{ github.event.inputs.command }}
+          DISPATCH_PACKETS: ${{ github.event.inputs.packets }}
+          DISPATCH_TARGETS: ${{ github.event.inputs.targets }}
+          ACTOR: ${{ github.event.comment.user.login || github.actor }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "$EVENT_NAME" == "workflow_dispatch" ]]; then
+            body="$DISPATCH_COMMAND"
+            if [[ -n "${DISPATCH_PACKETS// }" ]]; then
+              body="$body $DISPATCH_PACKETS"
+            fi
+            if [[ -n "${DISPATCH_TARGETS// }" ]]; then
+              body="$body --targets $DISPATCH_TARGETS"
+            fi
+          else
+            body="$COMMENT_BODY"
+          fi
+          printf '%s' "$body" > /tmp/comment.txt
+          python3 scripts/prove2me_comment_publish.py parse \
+            --actor "$ACTOR" \
+            --comment-file /tmp/comment.txt \
+            --out /tmp/request.json
+
+      - name: Select packets
+        id: select
+        env:
+          HEAD_SHA: ${{ steps.pr.outputs.head_sha }}
+          PR_NUMBER: ${{ steps.pr.outputs.pr }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/prove2me_comment_publish.py select \
+            --request /tmp/request.json \
+            --files /tmp/pr-files.txt \
+            --workspace "$GITHUB_WORKSPACE" \
+            --head-sha "$HEAD_SHA" \
+            --pr "$PR_NUMBER" \
+            --out resolved.json
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: prove2me-publish-request
+          retention-days: 3
+          path: resolved.json
+
+      - name: Comment that the gate started
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ steps.pr.outputs.pr }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/prove2me_comment_publish.py comment \
+            --kind "queued ${{ steps.select.outputs.action }}" \
+            --payload resolved.json \
+            --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            > /tmp/start-comment.md
+          gh pr comment "$PR_NUMBER" --body-file /tmp/start-comment.md
+
+  verify:
+    needs: gate
+    if: needs.gate.outputs.should_run == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout trusted publisher from main
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Preserve trusted scripts and Lean setup
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/trusted
+          cp -a scripts /tmp/trusted/scripts
+          cp -a .github/actions /tmp/trusted/actions
+
+      - name: Checkout the exact pull-request SHA
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          ref: ${{ needs.gate.outputs.head_sha }}
+
+      - name: Restore trusted Lean setup action
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf .github/actions
+          mkdir -p .github
+          cp -a /tmp/trusted/actions .github/actions
+
+      - name: Download frozen publish request
+        uses: actions/download-artifact@v4
+        with:
+          name: prove2me-publish-request
+          path: /tmp/request
+
+      - name: Restore pinned Lean environment
+        uses: ./.github/actions/setup-lean
+
+      - name: Compile and axiom-audit frozen packets
+        env:
+          GITHUB_TOKEN: ""
+          PROVE2ME_API_KEY: ""
+          PYTHONPATH: /tmp/trusted/scripts
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 /tmp/trusted/scripts/prove2me_comment_publish.py verify \
+            --request /tmp/request/resolved.json \
+            --workspace "$GITHUB_WORKSPACE" \
+            --out _verified \
+            --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: prove2me-verified-packets
+          retention-days: 14
+          path: _verified/
+
+  publish:
+    needs: [gate, verify]
+    if: needs.gate.outputs.should_run == 'true' && needs.gate.outputs.action == 'publish'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: prove2me
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
+      actions: read
+    steps:
+      - name: Checkout trusted publisher from main
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Download immutable verified packets
+        uses: actions/download-artifact@v4
+        with:
+          name: prove2me-verified-packets
+          path: _verified
+
+      - name: Publish audited packets
+        env:
+          PROVE2ME_API_KEY: ${{ secrets.PROVE2ME_API_KEY }}
+          PYTHONPATH: scripts
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "${PROVE2ME_API_KEY:-}" ]]; then
+            echo "::error::PROVE2ME_API_KEY is not available to the trusted publisher."
+            exit 1
+          fi
+          python3 scripts/prove2me_comment_publish.py publish \
+            --artifact _verified \
+            --out _receipts \
+            --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: prove2me-publication-receipts
+          retention-days: 30
+          if-no-files-found: warn
+          path: _receipts/
+
+      - name: Comment the authenticated verdict
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ needs.gate.outputs.pr }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -f _receipts/pr-comment.md ]]; then
+            gh pr comment "$PR_NUMBER" --body-file _receipts/pr-comment.md
+          else
+            gh pr comment "$PR_NUMBER" --body "Prove2Me publication job finished without a receipt. See the Actions run."
+          fi
+
+  report-verify:
+    needs: [gate, verify]
+    if: needs.gate.outputs.should_run == 'true' && needs.gate.outputs.action == 'verify'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
+      actions: read
+    steps:
+      - name: Download verification comment
+        uses: actions/download-artifact@v4
+        with:
+          name: prove2me-verified-packets
+          path: _verified
+
+      - name: Comment the local verification result
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ needs.gate.outputs.pr }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -f _verified/pr-comment.md ]]; then
+            gh pr comment "$PR_NUMBER" --body-file _verified/pr-comment.md
+          else
+            gh pr comment "$PR_NUMBER" --body "Prove2Me verification finished. See the Actions run for logs. This is not a platform verdict."
+          fi

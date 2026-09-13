@@ -52,7 +52,9 @@ Agent internet access must also permit `prove2.me`. Core solver/publishing work 
 
 ### GitHub Actions
 
-GitHub repository secrets are a separate mechanism from Codex environment variables. The manual workflow `.github/workflows/prove2me-auth-smoke.yml` expects a repository secret named `PROVE2ME_API_KEY`. Run that workflow to verify that GitHub Actions can resolve Prove2Me, exchange the key, and make an authenticated API read. It performs no publication or proof submission.
+GitHub repository secrets are a separate mechanism from Codex environment variables. The manual workflow `.github/workflows/prove2me-auth-smoke.yml` expects a repository secret named `PROVE2ME_API_KEY`. Run that workflow to verify that GitHub Actions can resolve Prove2Me, exchange the key, and make an authenticated API read. It performs no publication or proof submission. Do not copy that key into ChatGPT or a chat file.
+
+The durable comment gate is `.github/workflows/prove2me-comment-publish.yml`. Once a locally green standalone packet is on a same-repo PR, post `/prove2me publish` as `jjoshua2`. The verify job compiles the PR SHA without the API key; only the trusted `main` publisher sees `PROVE2ME_API_KEY`. `/prove2me verify` compiles without publishing. This does not replace local Lean iteration and is not a push-triggered experiment workflow.
 
 #### Actions cost discipline — mandatory for cloud agents
 
