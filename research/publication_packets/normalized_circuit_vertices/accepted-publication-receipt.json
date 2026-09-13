@@ -1,0 +1,15 @@
+{
+  "head_sha": "59407e2e1753605a1e378e9d86131337d8c9bd85",
+  "packets": [
+    {
+      "packet": "normalized_circuit_vertices",
+      "status": "ACCEPTED",
+      "theorem_id": "56d0cf40-7b2f-49cb-98c5-fe6a074637d5",
+      "submission_id": "9367eda0-1710-493c-b2f7-19458fba31ed",
+      "theorem_name": "Hirsch.normalized_positive_circuits_iff_extreme_points",
+      "registration": "REUSED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/normalized_circuit_vertices"
+    }
+  ]
+}
