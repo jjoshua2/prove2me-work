@@ -1,0 +1,10 @@
+{
+  "theorem_name": "Hirsch.cross_ratio_product_forces_small_separation",
+  "theorem_title": "A cross-ratio product identity forces one normalized separation to be small",
+  "formal_statement": "theorem Hirsch.cross_ratio_product_forces_small_separation (s t u v delta epsilon : ℝ)\n    (hs : 0 ≤ s) (ht : 0 ≤ t) (hu : 0 ≤ u) (hv : 0 ≤ v)\n    (hu1 : u ≤ 1) (hv1 : v ≤ 1) (hdelta : 0 ≤ delta) (hepsilon : 0 ≤ epsilon)\n    (hdelta_s : delta ≤ s) (hdelta_t : delta ≤ t)\n    (heq : s * t = epsilon * u * v) : delta ^ 2 ≤ epsilon := by sorry",
+  "preamble": "import Mathlib\nset_option autoImplicit false\nnoncomputable section",
+  "env": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "natural_language_statement": "If two nonnegative normalized separations s and t are both at least delta, two auxiliary normalized factors u and v lie in [0,1], and their cross-ratio product satisfies s*t = epsilon*u*v, then delta squared is at most epsilon. This is the scalar obstruction used to show that a four-line configuration cannot be uniformly separated by affine preconditioning.",
+  "source": "Standalone Mathlib-only restatement of the affine-conditioning obstruction developed in PR #210.",
+  "tags": ["hirsch-conjecture", "polyhedra", "cross-ratio", "conditioning"]
+}

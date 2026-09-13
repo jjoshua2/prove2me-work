@@ -1,0 +1,10 @@
+{
+  "theorem_name": "Hirsch.network_tight_path_forces_target_tight",
+  "theorem_title": "A tight difference-constraint path must saturate a target inequality saturated by another feasible path",
+  "formal_statement": "theorem Hirsch.network_tight_path_forces_target_tight\n    (n : ℕ) (u v : ℕ → ℝ) (cost : Fin n → ℝ) (C : ℝ)\n    (hu : ∀ i : Fin n, u (i.val + 1) - u i.val = cost i)\n    (hv : ∀ i : Fin n, v (i.val + 1) - v i.val ≤ cost i)\n    (hvtarget : v n - v 0 = C)\n    (hutarget : u n - u 0 ≤ C) :\n    u n - u 0 = C := by sorry",
+  "preamble": "import Mathlib\nset_option autoImplicit false\nnoncomputable section",
+  "env": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "natural_language_statement": "Suppose u saturates every consecutive difference constraint along a directed path, v satisfies all the same path constraints, v saturates a shortcut/target inequality with bound C, and u satisfies that target inequality. Then u must also saturate the target inequality. This is the scalar core used in the network-potential routing argument to force a backward tight row during target insertion.",
+  "source": "Standalone Mathlib-only restatement of the target-tightness primitive developed in PR #210.",
+  "tags": ["hirsch-conjecture", "polyhedra", "difference-constraints", "network-routing"]
+}

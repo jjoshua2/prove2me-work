@@ -1,0 +1,10 @@
+{
+  "theorem_name": "Hirsch.gain_normalized_column_bound",
+  "theorem_title": "Transport and cycle-gap bounds control a normalized inverse-column entry",
+  "formal_statement": "theorem Hirsch.gain_normalized_column_bound (x root denominator Gamma eta : ℝ)\n    (hGamma : 0 ≤ Gamma) (heta : 0 < eta) (hroot : 0 < |root|)\n    (htransport : |x| ≤ Gamma * |root|)\n    (hgap : eta * |root| ≤ |denominator|) :\n    |x / denominator| ≤ Gamma / eta := by sorry",
+  "preamble": "import Mathlib\nset_option autoImplicit false\nnoncomputable section",
+  "env": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "natural_language_statement": "Suppose a transported coordinate is at most Gamma times a positive root magnitude, while the normalization denominator is at least eta times that root magnitude. If Gamma is nonnegative and eta is positive, then the normalized coordinate is at most Gamma/eta. This is the scalar core of the gain-lattice inverse-column bound.",
+  "source": "Standalone Mathlib-only restatement of the gain-lattice normalization primitive developed in PR #210.",
+  "tags": ["hirsch-conjecture", "polyhedra", "gain-graphs", "conditioning"]
+}
