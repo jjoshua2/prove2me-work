@@ -32,7 +32,8 @@ private lemma active_scalar {a c x y β : ℝ}
   have hlt : x<β := lt_of_le_of_ne hx hn
   have h₁ := mul_lt_mul_of_pos_left hlt ha
   have h₂ := mul_le_mul_of_nonneg_left hy hc
-  nlinarith
+  have hscale : a*β+c*β=β := by rw [←add_mul,hac,one_mul]
+  linarith
 
 /-- A supporting maximum slice is an extreme subset, even before convexity. -/
 theorem supportFace_isExtreme (P : Set E) (f : E →ₗ[ℝ] ℝ) (β : ℝ)
@@ -66,7 +67,10 @@ theorem convexHull_support_contained (S F : Set E) (f : E →ₗ[ℝ] ℝ) (β :
     have h₁ := mul_le_mul_of_nonneg_left hx.1 ha
     have h₂ := mul_le_mul_of_nonneg_left hy.1 hc
     refine ⟨?_, ?_⟩
-    · rw [he]; nlinarith
+    · rw [he]
+      calc
+        a*f x+c*f y ≤ a*β+c*β := add_le_add h₁ h₂
+        _ = β := by rw [←add_mul,hac,one_mul]
     · intro ht
       by_cases ha0 : a=0
       · have hc1 : c=1 := by linarith
@@ -103,7 +107,7 @@ theorem convexHull_supportFace_eq_segment (S : Set E)
         (subset_convexHull ℝ S hb) hr hs hrs
     · rw [←hcomb]
       simp only [map_add,map_smul,smul_eq_mul,hfa,hfb]
-      nlinarith
+      rw [←add_mul,hrs,one_mul]
 
 theorem sumSet_support_bound (S : ι → Set E) (f : E →ₗ[ℝ] ℝ) (β : ι → ℝ)
     (hbound : ∀ i, ∀ x∈S i, f x≤β i) :
@@ -163,7 +167,12 @@ theorem sumSet_intervalLine (a : ι → E) (g : E) (η : ι → ℝ)
       · intro i
         exact ⟨r*η i,mul_nonneg hr0 (hη i),
           by simpa using mul_le_mul_of_nonneg_right hr1 (hη i),rfl⟩
-      · simp only [Finset.sum_add_distrib,Finset.sum_smul,←Finset.mul_sum,hrt]
+      · rw [Finset.sum_add_distrib]
+        congr 1
+        calc
+          (∑ i, (r*η i) • g) = (∑ i, r*η i) • g := by rw [Finset.sum_smul]
+          _ = (r*(∑ i,η i)) • g := by rw [Finset.mul_sum]
+          _ = t • g := by rw [hrt]
 
 lemma intervalLine_eq_segment (a g : E) (η : ℝ) (hη : 0≤η) :
     intervalLine a g η = segment ℝ a (a+η • g) := by
