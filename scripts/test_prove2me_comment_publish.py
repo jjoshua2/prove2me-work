@@ -336,6 +336,9 @@ class PolicyTests(unittest.TestCase):
         self.assertGreater(publish_at, text.index("\n  verify:\n"))
         self.assertIn("secrets.PROVE2ME_API_KEY", text[publish_at:])
         self.assertNotIn("secrets.PROVE2ME_API_KEY", text[:publish_at])
+        report = text[text.index("\n  report-verify:\n"):]
+        self.assertIn("GH_REPO: ${{ github.repository }}", report)
+        self.assertNotIn("secrets.PROVE2ME_API_KEY", report)
 
 
 if __name__ == "__main__":
