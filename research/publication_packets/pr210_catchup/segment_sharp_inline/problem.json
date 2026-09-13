@@ -1,0 +1,10 @@
+{
+  "theorem_name": "Hirsch.sharp_fiber_caps_every_segment_summand",
+  "theorem_title": "A sharp opposing-row fiber witness caps every segment summand",
+  "formal_statement": "theorem Hirsch.sharp_fiber_caps_every_segment_summand\n    {E : Type*} [AddCommGroup E] [Module ℝ E]\n    {ι : Type*} [Fintype ι]\n    (a : ι → E →ₗ[ℝ] ℝ) (b : ι → ℝ) (g x : E) (τ s : ℝ)\n    (i j : ι) (hi : 0 < a i g) (hj : a j g < 0)\n    (hx : ∀ k, a k x ≤ b k)\n    (hsharp : (-a j g)*(b i-a i x)+(a i g)*(b j-a j x) =\n      τ*(a i g)*(-a j g))\n    (P : Set E) (hs : 0 ≤ s)\n    (hdecomp : {y : E | ∀ k, a k y ≤ b k} =\n      {y : E | ∃ p ∈ P, ∃ t : ℝ, 0 ≤ t ∧ t ≤ s ∧ y = p+t • g}) : s ≤ τ := by sorry",
+  "preamble": "import Mathlib\nopen Set",
+  "env": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "natural_language_statement": "Suppose a feasible point x and two inequalities pointing in opposite directions along g witness a complete parallel-fiber width exactly τ. If the whole halfspace set is any Minkowski sum of an arbitrary residual P with a segment [0,sg], then s cannot exceed τ. Thus one sharp shortest-fiber witness globally caps every segment summand in that direction, independently of how the residual is chosen.",
+  "source": "Corrected public-symbol-only packet extracted from PR #210 segment-peeling work after the earlier custom-preamble registration received WA: https://github.com/jjoshua2/prove2me-work/blob/formal/dual-wall-carrier-routing/research/publication_packets/pr210_catchup/segment_sharp_inline/solution.lean",
+  "tags": ["hirsch-conjecture", "polyhedra", "minkowski-sums", "maximality"]
+}
