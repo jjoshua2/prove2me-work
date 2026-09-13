@@ -1,0 +1,22 @@
+{
+  "proof_head": "739876d882fd711240bcccee5cff7a6bb475c2af",
+  "run_id": 34782296307,
+  "verified_artifact_id": 10325319172,
+  "verified_artifact_sha256": "023ed8ef0b24873379c7903f71ac298fb6f0a4c05140c522aedde9e4778f4be3",
+  "packet": "research/publication_packets/primal_dual_support_budget",
+  "compile": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "axioms": ["Classical.choice", "Quot.sound", "propext"],
+  "solution_sha256": "7de89858319a401f2f5f391d242d7bac0773616c5edc27744c7b6414f8f81604",
+  "statement_sha256": "7c971a8c5480b15423d4f3c1af6abf2f5a1ccca5b70d4f5123d9ab1dc313bebe",
+  "publication": {
+    "status": "REGISTRATION_POLL_TIMEOUT",
+    "receipt": null,
+    "theorem_id": null,
+    "submission_id": null,
+    "detail": "Trusted publisher timed out after 180 seconds while waiting for the asynchronous submit-problem publish job. No theorem ID or verification submission was observed. Do not resubmit until the existing registration job is resolved or safely recovered."
+  }
+}
