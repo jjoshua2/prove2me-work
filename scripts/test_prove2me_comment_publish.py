@@ -78,6 +78,21 @@ class ParseTests(unittest.TestCase):
         with self.assertRaises(pub.RequestError):
             pub.parse_comment("/prove2me verify --targets foo;rm\n", "jjoshua2")
 
+    def test_space_separated_modules_are_not_packets(self) -> None:
+        with self.assertRaises(pub.RequestError):
+            pub.parse_comment(
+                "/prove2me verify --targets Solutions.Foo Solutions.Bar\n",
+                "jjoshua2",
+            )
+
+    def test_comma_separated_targets_remain_targets(self) -> None:
+        request = pub.parse_comment(
+            "/prove2me verify --targets Solutions.Foo,Solutions.Bar\n",
+            "jjoshua2",
+        )
+        self.assertEqual(request["targets"], ["Solutions.Foo", "Solutions.Bar"])
+        self.assertEqual(request["packets"], [])
+
     def test_rejects_other_actors(self) -> None:
         with self.assertRaises(pub.RequestError):
             pub.parse_comment("/prove2me publish\n", "someone-else")
@@ -222,6 +237,22 @@ class VerifyTests(unittest.TestCase):
                 self.root / "_verified",
                 runner=self.runner,
             )
+
+    def test_custom_preamble_declarations_are_rejected(self) -> None:
+        problem = dict(PROBLEM)
+        problem["preamble"] = "import Mathlib\nstructure Halfspace where\n  a : Nat\n"
+        write(self.packet / "problem.json", json.dumps(problem, indent=2))
+        with self.assertRaises(pub.RequestError):
+            pub.verify_packets(
+                self.root,
+                ["research/publication_packets/demo"],
+                "abc123",
+                self.root / "_verified",
+                runner=self.runner,
+            )
+
+    def test_import_only_preamble_is_allowed(self) -> None:
+        pub.assert_preamble_platform_safe(PROBLEM)
 
     def test_module_only_verify_builds_targets(self) -> None:
         built: list[str] = []

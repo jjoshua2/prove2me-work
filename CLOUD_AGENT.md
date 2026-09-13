@@ -70,7 +70,9 @@ on the pull request, optionally followed by packet paths. `--targets Module.Name
 4. runs the trusted publisher from `main` with `PROVE2ME_API_KEY`;
 5. comments theorem/submission IDs and the authenticated verdict back on the PR.
 
-`/prove2me verify` compiles packets without publishing. `/prove2me verify --targets Solutions.SomeModule` compiles that Lake module even when no packet is present. This is not a push-triggered experiment workflow. Agents must still iterate locally first; the comment is the final hosted gate.
+`/prove2me verify` compiles packets without publishing. `/prove2me verify --targets Solutions.SomeModule` compiles that Lake module even when no packet is present. Multiple modules must be comma-separated (`--targets A,B` or `--targets=A,B`); a second space-separated `Solutions.Foo` is not a target. This is not a push-triggered experiment workflow. Agents must still iterate locally first; the comment is the final hosted gate.
+
+A green local or Actions compile of `statement.lean` and `solution.lean` separately is not a Prove2Me type match. The platform elaborates `preamble + formal_statement` as the target type and requires `theorem solution` to have that exact type. Packet preambles must be imports/opens/variables only. Do not put local `def`/`structure` declarations in the preamble and redeclare them in `solution.lean`; that returns **WA**. Custom symbols belong in `Definitions.Def_*` or must be inlined with Mathlib names. A WA target is immutable — register a corrected statement under a new theorem name rather than resubmitting the same packet.
 
 Publication workflows must preserve the same discipline: rebuild/audit the intended proof packet, never print credentials, and record the authenticated Prove2Me verdict before updating durable status.
 
