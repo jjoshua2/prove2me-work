@@ -50,7 +50,13 @@ private lemma active_scalar {a c p q B : ℝ}
   have hlt := lt_of_le_of_ne hp hn
   have h₁ := mul_lt_mul_of_pos_left hlt ha
   have h₂ := mul_le_mul_of_nonneg_left hq hc
-  nlinarith
+  have hsum : a*p+c*q < a*B+c*B := add_lt_add_of_lt_of_le h₁ h₂
+  have hB : a*B+c*B=B := by
+    calc
+      a*B+c*B = (a+c)*B := by ring
+      _ = B := by rw [hac]; ring
+  rw [he,hB] at hsum
+  exact (lt_irrefl _ hsum)
 
 /-- The path witnesses are ordinary finite graph connectivity, not graph
 routes between polytope vertices and not any diameter premise. -/
@@ -158,7 +164,17 @@ theorem edge_of_common_network_kernel
       simp only [Pi.add_apply,Pi.smul_apply,smul_eq_mul] at h
       have h₁ := mul_le_mul_of_nonneg_left (hx.2 e) ha
       have h₂ := mul_le_mul_of_nonneg_left (hy.2 e) hc
-      nlinarith
+      calc
+        z (head e)-z (tail e) =
+            a*(x (head e)-x (tail e))+c*(y (head e)-y (tail e)) := by
+          calc
+            _ = a*x (head e)+c*y (head e)-(a*x (tail e)+c*y (tail e)) := h.symm
+            _ = _ := by ring
+        _ ≤ a*bound e+c*bound e := add_le_add h₁ h₂
+        _ = bound e := by
+          calc
+            _ = (a+c)*bound e := by ring
+            _ = _ := by rw [hac]; ring
   · intro p hp q hq z hz hseg
     apply hsegment p hp
     intro e he
@@ -168,11 +184,26 @@ theorem edge_of_common_network_kernel
       simp only [Pi.add_apply,Pi.smul_apply,smul_eq_mul] at h
       have h₁ := htx e he
       have h₂ := hty e he
-      nlinarith
+      calc
+        z (head e)-z (tail e) =
+            a*(x (head e)-x (tail e))+c*(y (head e)-y (tail e)) := by
+          calc
+            _ = a*x (head e)+c*y (head e)-(a*x (tail e)+c*y (tail e)) := h.symm
+            _ = _ := by ring
+        _ = a*bound e+c*bound e := by rw [h₁,h₂]
+        _ = bound e := by
+          calc
+            _ = (a+c)*bound e := by ring
+            _ = _ := by rw [hac]; ring
     obtain ⟨a,c,ha,hc,hac,hcomb⟩ := hseg
     have h := congrArg (fun v : V → ℝ => v (head e)-v (tail e)) hcomb
     simp only [Pi.add_apply,Pi.smul_apply,smul_eq_mul] at h
-    exact active_scalar ha hc.le hac (hp.2 e) (hq.2 e) (by nlinarith)
+    have heq : a*(p (head e)-p (tail e))+c*(q (head e)-q (tail e))=bound e := by
+      calc
+        _ = a*p (head e)+c*q (head e)-(a*p (tail e)+c*q (tail e)) := by ring
+        _ = z (head e)-z (tail e) := h
+        _ = bound e := hzt
+    exact active_scalar ha hc.le hac (hp.2 e) (hq.2 e) heq
 
 /-- The two component path certificates discharge the analytic kernel-line
 premise of the ordinary-edge lemma. The positive cut step is not an oracle. -/
@@ -207,22 +238,28 @@ theorem tight_path_forces_target_tight
     (hu : ∀ i : Fin n,u (i.val+1)-u i.val=cost i)
     (hv : ∀ i : Fin n,v (i.val+1)-v i.val≤cost i)
     (hvtarget : v n-v 0=C) (hutarget : u n-u 0≤C) : u n-u 0=C := by
-  have telescope : ∀ (m : ℕ) (x : ℕ → ℝ),
-      (∑ i : Fin m, x (i.val+1)-x i.val)=x m-x 0 := by
+  have telescope_range : ∀ (m : ℕ) (x : ℕ → ℝ),
+      (∑ i ∈ Finset.range m, (x (i+1)-x i))=x m-x 0 := by
     intro m x
     induction m with
     | zero => simp
     | succ m ih =>
-      rw [Fin.sum_univ_castSucc]
-      simp only [Fin.val_castSucc,Fin.val_last]
-      rw [ih]
+      rw [Finset.sum_range_succ,ih]
       ring
+  have telescope : ∀ (m : ℕ) (x : ℕ → ℝ),
+      (∑ i : Fin m, x (i.val+1)-x i.val)=x m-x 0 := by
+    intro m x
+    rw [←Finset.sum_range]
+    exact telescope_range m x
   have he : u n-u 0=∑ i,cost i := by
     rw [←telescope n u]
     exact Finset.sum_congr rfl (fun i _ => hu i)
-  have hv' := Finset.sum_le_sum (fun i _ => hv i)
+  have hv' : (∑ i : Fin n, v (i.val+1)-v i.val)≤∑ i : Fin n,cost i :=
+    Finset.sum_le_sum (fun i _ => hv i)
   rw [telescope n v,hvtarget] at hv'
-  linarith
+  apply le_antisymm hutarget
+  rw [he]
+  exact hv'
 
 #print axioms value_eq_of_row_walk
 #print axioms vertex_of_connected_tight_rows

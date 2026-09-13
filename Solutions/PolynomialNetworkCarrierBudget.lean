@@ -77,7 +77,10 @@ theorem DeferredClipCertificate.route_of_intrinsic_network_costs
   have hm := (c.carrier_size_mass_le a b row hinj hbd o hstrict 0 (by omega)).2
   have hm' : ((clipRepairCutLegs c.legs).map fun leg =>
       commonFaceMinSubpresentationCount a b leg.entry leg.exit).sum≤6*(n-d) := by
-    simpa [hall,Nat.mul_assoc] using hm
+    have h : ((clipRepairCutLegs c.legs).map fun leg =>
+        commonFaceMinSubpresentationCount a b leg.entry leg.exit).sum≤2*(3*(n-d)) := by
+      simpa [hall] using hm
+    omega
   have hs := sum_network_cost_le_mass (clipRepairCutLegs c.legs)
     (fun leg => cost leg.label leg.entry leg.exit)
     (fun leg => commonFaceDim a b leg.entry leg.exit)
