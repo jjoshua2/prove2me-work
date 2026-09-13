@@ -1,0 +1,10 @@
+{
+  "source_sha256": {
+    "solution.lean": "3032a185f44670ad8408fe2c9c2eecafcfb56ec9967408d7bb92d066e8edcc92",
+    "problem.json": "b7c4137c016725ddba09c7083b792bcba0b04ad4ce3fae9f80ddf9f9dc1f965a",
+    "explanation.md": "669e66075792a0647a8e788c0faa09c44477bc755c0128bfb482d678c83ea185"
+  },
+  "local_compile": "not_run_toolchain_unavailable",
+  "mathlib": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "statement_signature_matches": true
+}
