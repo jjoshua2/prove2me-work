@@ -1,0 +1,14 @@
+{
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "public_dependencies": {},
+  "prepared_status": "uncompiled; one final gate requested",
+  "source_provenance": {
+    "compact_helper": "verbatim accepted #216 compact_linear_feasible_iff and dependency",
+    "finite_tests": "accepted #218 generalized from Fin n to arbitrary finite coordinate type"
+  },
+  "sha256": {
+    "solution.lean": "19b89e2ca5f53b9a1e1b39ed0a7fd8380c090137eadf7db36ff717e3f42f7754",
+    "problem.json": "3b8ab3d798fd860f51b8c6b666eca085e85e470cf004a241b3e0c9f6592b2546",
+    "explanation.md": "7dc4416dd7f2b7deb8669ba99b1e88c700c31b06cc3c9ae0ba8383978dd271a4"
+  }
+}
