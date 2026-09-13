@@ -79,7 +79,10 @@ theorem support_card_le_rank_add_one (n k : ℕ)
       map_add' := by
         intro u v
         funext i
-        by_cases h : x i ≠ 0 <;> simp [h]
+        by_cases h : x i ≠ 0
+        · simp [h]
+        · have hx0 : x i = 0 := by simpa using h
+          simp [h, hx0]
       map_smul' := by
         intro r v
         funext i
