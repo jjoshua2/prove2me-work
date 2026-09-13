@@ -1,0 +1,22 @@
+{
+  "Solutions/PolynomialAntipodalSegmentCoverage.lean": {
+    "bytes": 7476,
+    "git_blob_sha": "094a09b6800c5347abcf71f1ffd3c95a2374b745",
+    "sha256": "368ec27778cf2bf1891294a13b8229dcb5f0e7504ca2562e53a09bf8c7c7360b"
+  },
+  "scripts/antipodal_segment_catalogue.py": {
+    "bytes": 12125,
+    "git_blob_sha": "8b4d23990240417075c063d7c6a59b033092bc7e",
+    "sha256": "e1bac792852414b51b43fcca7fa549da7c17f03c5c38c2af46a6258098a9bb89"
+  },
+  "scripts/automatic_segment_routes.py": {
+    "bytes": 10003,
+    "git_blob_sha": "aa65ab85e62e66963bfd6eb8aa5ddef38449e7ac",
+    "sha256": "bb33547622e90813040aeb1adb1217dc08b0f64a5065c041a4c35c3336b94142"
+  },
+  "scripts/test_antipodal_catalogue.py": {
+    "bytes": 13976,
+    "git_blob_sha": "63f6cc963e5c27f73003c6c8b89b1229bd151ece",
+    "sha256": "f63452bb4433fa0f474ddc7450a410e9919c18c6949c229cefe786482c8860ad"
+  }
+}
