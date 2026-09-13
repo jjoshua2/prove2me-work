@@ -159,7 +159,12 @@ def CellOK (n k : ℕ) (A : QMatrix n k)
 
 instance (n k : ℕ) (A : QMatrix n k) (tag : Finset (Fin n) → Bool)
     (L : LeftData n k) (z : Finset (Fin n) → Fin n → ℚ) (s : Finset (Fin n)) :
-    Decidable (CellOK n k A tag L z s) := by unfold CellOK; infer_instance
+    Decidable (CellOK n k A tag L z s) :=
+  inferInstanceAs (Decidable (if tag s then
+    (∃ i, z s i ≠ 0) ∧ (∀ i, i ∉ s → z s i = 0) ∧
+      (∀ r, (∑ i, A r i * z s i) = 0) ∧ (∑ i, z s i) = 0
+    else ∀ i ∈ s, ∀ j ∈ s,
+      (∑ r, L s i (some r) * A r j) + L s i none = if i = j then 1 else 0))
 
 def Emit (n k : ℕ) (A : QMatrix n k)
     (tag : Finset (Fin n) → Bool) (L : LeftData n k) (s : Finset (Fin n)) : Prop :=
@@ -169,7 +174,10 @@ def Emit (n k : ℕ) (A : QMatrix n k)
 
 instance (n k : ℕ) (A : QMatrix n k) (tag : Finset (Fin n) → Bool)
     (L : LeftData n k) (s : Finset (Fin n)) :
-    Decidable (Emit n k A tag L s) := by unfold Emit; infer_instance
+    Decidable (Emit n k A tag L s) :=
+  inferInstanceAs (Decidable (tag s = false ∧ (∀ i ∈ s, 0 < L s i none) ∧
+    (∀ r, (∑ i, A r i * column n k L s i) = 0) ∧
+    (∑ i, column n k L s i) = 1))
 
 /-- Enumerate cardinalities separately; do not generate the entire powerset
 and then pretend that filtering it was bounded-support enumeration. -/
@@ -403,8 +411,10 @@ theorem table_complete (n k : ℕ) (A : QMatrix n k)
       have ha := congrFun hAx r
       change (∑ i, (A r i : ℝ) * x i) = 0 at ha
       rw [hxc] at ha
+      change (∑ i, (A r i : ℝ) * (column n k L s i : ℝ)) = 0 at ha
       exact_mod_cast ha
     · rw [hxc] at hmass
+      change (∑ i, (column n k L s i : ℝ)) = 1 at hmass
       exact_mod_cast hmass
   exact ⟨column n k L s, Finset.mem_image.mpr
     ⟨s, Finset.mem_filter.mpr ⟨hs, hem⟩, rfl⟩, hxc⟩
@@ -515,7 +525,7 @@ def L (s : Finset (Fin 4)) (i : Fin 4) (r : Option (Fin 1)) : ℚ :=
   else
   0
 
-example : check 4 1 A tag L z = true := by decide
-example : (catalogue 4 1 A tag L).card = 3 := by decide
-example : check 4 1 A (fun _ => false) (fun _ _ _ => 0) (fun _ _ => 0) = false := by decide
+example : check 4 1 A tag L z = true := by decide +kernel
+example : (catalogue 4 1 A tag L).card = 3 := by decide +kernel
+example : check 4 1 A (fun _ => false) (fun _ _ _ => 0) (fun _ _ => 0) = false := by decide +kernel
 end Hirsch.CheckedCatalogue.KernelSmoke
