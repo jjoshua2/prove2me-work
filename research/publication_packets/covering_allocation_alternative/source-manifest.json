@@ -1,0 +1,11 @@
+{
+  "status": "PREPARED_FOR_FINAL_GATE_NOT_LOCALLY_COMPILED",
+  "files": {
+    "solution.lean": "0f3b70e88d6b989ccf2d3cc16676258ae714b6c05eefb49a9ba109a8729f7b3e",
+    "problem.json": "cfca534055b8e2c33e8177f49b018e437a9360814cebf684eae7ec2f9033be53",
+    "explanation.md": "6f0feff837f12f3a992eb70a5956c3ebfbaef5e1c2ae02846e81dddad40f3b0c"
+  },
+  "accepted_core_source_git_blob": "05926a8a263bde88f5d6bb29395d32f4ff97ccf8",
+  "accepted_core_proof_head": "9d3aea2f4120f44a6c43b882d79c9f6f7fcb00c6",
+  "local_lean": false
+}
