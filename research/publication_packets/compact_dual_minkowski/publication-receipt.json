@@ -1,0 +1,15 @@
+{
+  "head_sha": "115b3ede788bca52bcac568d1aa05e62a0d92559",
+  "packets": [
+    {
+      "packet": "compact_dual_minkowski",
+      "status": "ACCEPTED",
+      "theorem_id": "a6e2a38d-00e3-46d6-b232-7cddee5e30e1",
+      "submission_id": "2976ce68-c33c-4cab-b48e-8a7f46be211a",
+      "theorem_name": "Hirsch.compact_dual_minkowski_erosion",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/compact_dual_minkowski"
+    }
+  ]
+}
