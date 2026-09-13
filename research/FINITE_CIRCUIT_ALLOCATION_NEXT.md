@@ -1,30 +1,64 @@
-# Exact remaining allocation adapter after finite-circuit tests
+# Finite allocation is accepted; remaining support and enumeration bridges
 
-This is a mathematical interface/next proof target, not an additional Lean-verified declaration or an assumed axiom. Reuse the finite-circuit theorem from PR #218 and the accepted compact-dual theorem from #216; do not resubmit either.
+## Completed in PR #219
 
-Let a:R^d->R^m be the original row map and R={x:a(x)<=b}. Let G:R^k->R^d send allocation coordinates to listed shape vectors, Q=conv{0,g_1,...,g_k}, and let h_i be valid support bounds for Q. For t>=0 set P_t={p:a(p)<=b-t*h}. No boundedness or full dimensionality of R is needed for the following pointwise identities.
+The exact bounded-allocation sufficiency target previously stated in this file
+is now proved in `research/publication_packets/finite_allocation_minkowski/`.
+Theorem `Hirsch.finite_allocation_minkowski_criterion`:
+`09c33216-ba2f-4c9f-b75e-e9d8279e8358`.
+Submission `f5304244-5800-46f7-b0c5-98cdf4c6d71a` is ACCEPTED; the trusted
+publisher's authenticated live readback is Proved. Run34781016108 verified
+proof head9d3aea2f4120f44a6c43b882d79c9f6f7fcb00c6.
+Do not resubmit it, or accepted #216/#218.
 
-Use the fixed (m+k+1)-row allocation system
+For the original continuous row map a and generator map G, the proof chooses a
+fixed finite family c_s in the nonnegative kernel of
 
-    C theta = (-a(G theta), -theta, sum_j theta_j),
-    d(x,t) = (b-a(x)-t*h, 0, t).
+    (lambda,mu,nu) |-> -G^T a^T lambda-mu+nu*1.
 
-Then x is in P_t+tQ exactly when C theta <= d(x,t) for some theta. The bottom blocks enforce theta>=0 and sum(theta)<=t. This remains valid at t=0; nonnegative theta with zero sum is zero. The forward inclusion P_t+tQ subset R follows from the original support bounds and t>=0.
+The family is chosen BEFORE the original RHS, scale, support bound and point.
+For Delta_t={theta>=0:sum(theta)<=t}, Q_t=G(Delta_t), support bounds h on Q_t,
+R={a(x)<=b}, and P={a(p)<=b-h}, the proved statement is
 
-The missing alternative theorem is the FULL sufficiency statement
+    R=P+Q_t iff for every x in R and every s,
+    lambda_s.(b-a(x)-h)+nu_s*t >= 0.
 
-    (exists theta, C theta <= d)
-      iff (forall w>=0, C^T w=0 -> dot(w,d)>=0).
+Its full primal sufficiency is derived using compact separation from #216 and
+an explicit weighted minimum on Delta_t, then composed with #218's finite
+nonnegative-kernel tests. No Farkas sufficiency or allocation hypothesis is
+inserted. Original R may be unbounded or lower-dimensional, and G need not be
+injective. The support bounds h concern the SCALED candidate; for unscaled h0
+substitute h=t*h0.
 
-Necessity follows by summing inequalities. Sufficiency must be proved from available separation/finite-dimensional closed-cone facts; it must NOT be added as a new axiom or merely restated as a hypothesis in a claimed completion. The cone range(C)+R_+^M is finitely generated and hence closed; supplying that closedness is one direct route to the geometric alternative already present in pinned Mathlib. In the present bounded-simplex allocation setting, a compact-feasibility route can avoid proving the fully general alternative.
+## Remaining original-H support-optimality bridge
 
-Apply PR #218 with A=C^T and the linear functional b_d(w)=dot(w,d). Its support-indexed family c_s depends only on C, not x or t. The exact finite geometric target is consequently
+For each chosen lambda, put f(x)=lambda.a(x). A feasible point x_star and
+nonnegative original-row weights rho prove an exact maximum if
 
-    R = P_t+tQ
-      iff (forall x in R, forall s, dot(c_s,d(x,t))>=0).
+    sum rho_i*a_i = f,
+    sum rho_i*b_i = f(x_star).
 
-This is not yet a claim that the remaining universal quantifier over original x has been finitely or efficiently eliminated. For a circuit c_s=(lambda,mu,nu), the tested inequality is
+For any x in R, summing original inequalities proves f(x)<=sum rho_i*b_i.
+Feasibility of x_star gives equality is attained, so a universal inequality
+f(x)<=M on R is equivalent to f(x_star)<=M. Applying this to each chosen dual
+multiplier removes the remaining universal x quantifier in #219 and yields
+exact numerical packing budgets. Merely sufficient upper bounds must not be
+labeled exact maxima. No original row may be dropped without a proved implication.
 
-    (t*(dot(lambda,h)-nu)) <= dot(lambda,b)-dot(lambda,a(x)).
+This is a focused next theorem, not an existing axiom or an already-formalized
+optimizer. Inspect newer PRs before claiming it; another agent may be working
+on the support-optimality step.
 
-Thus the existing original-H primal/dual support witnesses can eliminate x into budgets, once their support-optimality bridge is formalized. No original row may be dropped; no merely sufficient dual witness may be labeled an exact optimum. Multiple supplied shapes use one allocation block each and the SAME shared scale vector. Correctness of the executable enumerator, the support bound rank(C)+1, and polynomial complexity remain separate from finite dual completeness.
+## Separate rank cutoff and enumerator correspondence
+
+The accepted finite family is indexed by all supports, at most2^(m+k+1) slots.
+It does not yet prove the executable rank-plus-one support cutoff. The explicit
+injectivity proof in `FINITE_CIRCUIT_RANK_NEXT.md` is a mathematical next-step
+note, not a Lean verification result. After the cutoff, connect rational
+row-reduction output and normalized ray choices to the actual Circuit predicate.
+Do not weaken support minimality or define circuits to include the desired bound.
+
+Joint shapes require one allocation block each and the SAME shared scale vector.
+Candidate discovery, residual route recognition, polynomial-size enumeration,
+and uniform ordinary-edge cost on arbitrary carriers remain separate. Nothing
+in this completed allocation result proves Polynomial Hirsch.

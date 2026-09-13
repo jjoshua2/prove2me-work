@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "proof_head": "9d3aea2f4120f44a6c43b882d79c9f6f7fcb00c6",
+  "archives": [
+    {
+      "name": "prove2me-verified-packets",
+      "artifact_id": 10324553494,
+      "sha256": "c26d220a92f47e40c0cdf0d37210c5f77e3064774d2c13be59c2b9306cb72995"
+    },
+    {
+      "name": "prove2me-publication-receipts",
+      "artifact_id": 10325022995,
+      "sha256": "2f719400ae9c686c656cb005c50c4b484f27fe921f0ed0900973b75058deab65"
+    }
+  ],
+  "frozen_file_sha256": {
+    "solution.lean": "e64de998b0268de6be40916492b69ed9622672ba2a73243f4b9d57b17fb470bd",
+    "driver.lean": "e64de998b0268de6be40916492b69ed9622672ba2a73243f4b9d57b17fb470bd",
+    "statement.lean": "8cd8ac3b56cc35ecd1574ea420bdb00408bec2b0502f92249bdf3d6ba1de992b",
+    "problem.json": "3b8ab3d798fd860f51b8c6b666eca085e85e470cf004a241b3e0c9f6592b2546",
+    "explanation.md": "7dc4416dd7f2b7deb8669ba99b1e88c700c31b06cc3c9ae0ba8383978dd271a4"
+  },
+  "all_frozen_hashes_match": true,
+  "working_solution_matches_frozen_source": true,
+  "source_of_live_status": "Authenticated readback enforced by trusted publisher; aggregate downloaded receipt records Proved.",
+  "raw_platform_responses_in_download": false,
+  "no_independent_platform_repoll": true
+}

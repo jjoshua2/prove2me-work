@@ -1,0 +1,15 @@
+{
+  "head_sha": "9d3aea2f4120f44a6c43b882d79c9f6f7fcb00c6",
+  "packets": [
+    {
+      "packet": "finite_allocation_minkowski",
+      "status": "ACCEPTED",
+      "theorem_id": "09c33216-ba2f-4c9f-b75e-e9d8279e8358",
+      "submission_id": "f5304244-5800-46f7-b0c5-98cdf4c6d71a",
+      "theorem_name": "Hirsch.finite_allocation_minkowski_criterion",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/finite_allocation_minkowski"
+    }
+  ]
+}
