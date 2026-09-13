@@ -188,3 +188,20 @@ Each exact packet and authenticated readback is preserved under
 `research/publication_packets/`. #206's actual geometric carrier-mass adapters
 and #209's automatic mixed-routing assemblies have separate Lean verification;
 they are not all consequences stated by the smaller public graph theorem.
+
+
+## Subsequent portal-accounting publication checkpoint
+
+Historical counts above are unchanged. #207's near-geodesic occurrence budget
+[79bdd301-35e1-4cdb-a6ed-eb49b00e5c3c](https://prove2.me/theorems/79bdd301-35e1-4cdb-a6ed-eb49b00e5c3c)
+is Proved, with accepted submission `1ede1000-2a0d-4d98-8736-1a828626eb2f`.
+It states the graph occurrence and explicit integer-budget consequence.
+
+#208's conditional additive-spill route theorem
+[32dbbfe9-bd4c-4685-8df6-7a4403175ef4](https://prove2.me/theorems/32dbbfe9-bd4c-4685-8df6-7a4403175ef4)
+is published; proof submission `2a2dd9bd-9ee5-43fa-bc04-def26a5a2a98` remains
+PENDING at this checkpoint. Its definition `be8f4ff8-23bd-4894-a523-ab6271d326f0`
+is published. It is not yet counted as an accepted result.
+
+Mission comment `cc1cb374-56df-4478-8345-ac6810ee08b5` links both results and
+reconfirms #209's existing acceptance. No root dependency was added.
