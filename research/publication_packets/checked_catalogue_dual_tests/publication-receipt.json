@@ -1,0 +1,15 @@
+{
+  "head_sha": "8da78fd4f3d880fa053446d8170e11aa501cb43e",
+  "packets": [
+    {
+      "packet": "checked_catalogue_dual_tests",
+      "status": "ACCEPTED",
+      "theorem_id": "3999b5a0-22c8-44a5-9886-6838b03fd07f",
+      "submission_id": "c31a55eb-d210-4678-8401-fed4f4d005bd",
+      "theorem_name": "Hirsch.checked_rational_catalogue_dual_tests",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/checked_catalogue_dual_tests"
+    }
+  ]
+}
