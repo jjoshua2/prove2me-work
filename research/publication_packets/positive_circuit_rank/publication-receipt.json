@@ -1,0 +1,15 @@
+{
+  "head_sha": "c3eff585fd047892f28a5287752ab015767ab29b",
+  "packets": [
+    {
+      "packet": "positive_circuit_rank",
+      "status": "ACCEPTED",
+      "theorem_id": "864c87b2-cf47-469a-884a-4a6352e0ab23",
+      "submission_id": "f60b3d5d-7617-4b01-a11d-121b24d9ff42",
+      "theorem_name": "Hirsch.positive_circuit_signed_kernel_and_rank",
+      "registration": "REUSED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/positive_circuit_rank"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "sha256": {
+    "driver.lean": "e64de998b0268de6be40916492b69ed9622672ba2a73243f4b9d57b17fb470bd",
+    "solution.lean": "e64de998b0268de6be40916492b69ed9622672ba2a73243f4b9d57b17fb470bd",
+    "statement.lean": "8cd8ac3b56cc35ecd1574ea420bdb00408bec2b0502f92249bdf3d6ba1de992b"
+  },
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ]
+}
