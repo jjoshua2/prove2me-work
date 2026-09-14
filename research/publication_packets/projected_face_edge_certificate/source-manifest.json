@@ -1,0 +1,8 @@
+{
+  "status": "targeted single-line elaboration repair; no local Lean compiler",
+  "files": {
+    "solution.lean": "ed1c5764e172d07a24ce815cc9c4eaaac36f9af7aefd557d23242ae006668aeb",
+    "problem.json": "1d963885e49ab63d237dc8f3b91c55c2f93fac6f8ea89a4d3e3253cf9ba319a6",
+    "explanation.md": "9b41a44f8c1132c37f82dbfbb2f1a2f6ee69b5774915e6458fb0ef189c2618ad"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "theorem_name": "Hirsch.projected_face_edge_from_row_certificates",
+  "theorem_title": "Original-row quotient certificates expose genuine image edges with arbitrary fibres",
+  "formal_statement": "namespace Hirsch\ntheorem projected_face_edge_from_row_certificates {d p m r : ℕ}\n    (a : Fin m → (Fin d → ℝ) →ₗ[ℝ] ℝ) (b : Fin m → ℝ)\n    (G : (Fin d → ℝ) →ₗ[ℝ] (Fin p → ℝ))\n    (f : (Fin p → ℝ) →ₗ[ℝ] ℝ) (φ : (Fin d → ℝ) →ₗ[ℝ] ℝ)\n    (row : Fin r → Fin m) (lam : Fin r → ℝ) (w : Fin r → (Fin p → ℝ))\n    (lower upper : Fin m → ℝ) (lowerEq upperEq : Fin r → ℝ)\n    (x y : Fin d → ℝ)\n    (hx : ∀ i, a i x ≤ b i) (hy : ∀ i, a i y ≤ b i)\n    (hxJ : ∀ j, a (row j) x = b (row j)) (hyJ : ∀ j, a (row j) y = b (row j))\n    (hne : G x ≠ G y) (hφ : φ y - φ x = 1)\n    (hlam : ∀ j, 0 < lam j)\n    (hexpose : f.comp G = ∑ j, lam j • a (row j))\n    (hline : ∀ i, G (Pi.single i (1 : ℝ)) =\n      φ (Pi.single i (1 : ℝ)) • (G y - G x) +\n        ∑ j, a (row j) (Pi.single i (1 : ℝ)) • w j)\n    (hlower : ∀ i, 0 ≤ lower i) (hupper : ∀ i, 0 ≤ upper i)\n    (hlform : -φ = (∑ i, lower i • a i) + ∑ j, lowerEq j • a (row j))\n    (huform : φ = (∑ i, upper i • a i) + ∑ j, upperEq j • a (row j))\n    (hlsharp : -φ x = (∑ i, lower i * b i) + ∑ j, lowerEq j * b (row j))\n    (husharp : φ y = (∑ i, upper i * b i) + ∑ j, upperEq j * b (row j)) :\n    let P := {z : Fin d → ℝ | ∀ i, a i z ≤ b i}\n    let β := ∑ j, lam j * b (row j)\n    (∀ z ∈ G '' P, f z ≤ β) ∧\n      {z | z ∈ G '' P ∧ f z = β} = segment ℝ (G x) (G y) ∧\n      G x ≠ G y ∧ IsExtreme ℝ (G '' P) (segment ℝ (G x) (G y)) := by sorry\nend Hirsch",
+  "natural_language_statement": "For a finite real H-polyhedron and a linear image map, finite original-row identities prove an entire exposed image edge without assuming source adjacency, source vertices, boundedness, or one-dimensional source faces. A strictly positive exposing row combination, a rank-one quotient identity checked on finitely many columns, and sharp endpoint inequalities prove that the whole image supporting slice is the nondegenerate segment between the supplied projected endpoints. Its actual Mathlib extreme-set property is concluded. Certificate discovery and uniform path-length bounds are not assumed or concluded.",
+  "preamble": "import Mathlib\nopen Set\nopen scoped BigOperators",
+  "env": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "source": "Classical support-face and finite linear algebra, formalized directly. Uses actual Mathlib IsExtreme and segment definitions, matching Definitions.Def_Hirsch_model adjacency. No new classical novelty, projection-diameter theorem, source-edge hypothesis or support-slice oracle is asserted. Mathlib documentation: https://leanprover-community.github.io/mathlib4_docs/Mathlib/Analysis/Convex/Exposed.html",
+  "tags": [
+    "hirsch-conjecture",
+    "convex-geometry",
+    "linear-algebra",
+    "polytope-edges"
+  ]
+}

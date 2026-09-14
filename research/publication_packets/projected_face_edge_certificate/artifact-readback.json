@@ -1,0 +1,22 @@
+{
+  "record_kind": "derived local hash verification; not raw platform API",
+  "status": "PASS",
+  "proof_sha": "3b6ebc129873cc4d19462e0efc2ec3e66d6cb878",
+  "run_id": 34862741785,
+  "artifact_id": 10355631618,
+  "archive_sha256": "7db00e21c83e841ea3526995d02fe7c621d45884640ccfda6c8cffc238cdb44d",
+  "frozen_files_checked": [
+    "solution.lean",
+    "driver.lean",
+    "statement.lean",
+    "problem.json",
+    "explanation.md"
+  ],
+  "original_files_byte_equal": [
+    "solution.lean",
+    "problem.json",
+    "explanation.md"
+  ],
+  "local_lean_available": false,
+  "publication": "separate, not inferred from compilation"
+}
