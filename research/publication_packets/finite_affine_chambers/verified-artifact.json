@@ -1,0 +1,25 @@
+{
+  "head_sha": "65e683ec0b19dc98932b6e62782976dc3de3385e",
+  "packets": [
+    {
+      "path": "research/publication_packets/finite_affine_chambers",
+      "name": "finite_affine_chambers",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "c26a8737a7d2b3c697b9b5a197f0733b3129f2ad60b16071adb6f15e3a5ec8dc",
+        "driver.lean": "c26a8737a7d2b3c697b9b5a197f0733b3129f2ad60b16071adb6f15e3a5ec8dc",
+        "statement.lean": "41eb5c21062258a102a7d2c3d52edfaad9d75dd5b5dd40f2a7e69b8c82e5b483",
+        "problem.json": "71179d81161f2af35a0e49b9149ca54eda071e9d363162c62d3d6c9c13380172",
+        "explanation.md": "a067574f2e5ab0be7feb987abe55db1f9fc3655a05f5540a548536ccc0f303e1"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}

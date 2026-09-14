@@ -1,0 +1,15 @@
+{
+  "head_sha": "65e683ec0b19dc98932b6e62782976dc3de3385e",
+  "packets": [
+    {
+      "packet": "finite_affine_chambers",
+      "status": "ACCEPTED",
+      "theorem_id": "8b5a47c4-8e01-4823-9014-ed546f69991f",
+      "submission_id": "cf94f560-6133-4340-867d-36624f0e82db",
+      "theorem_name": "Hirsch.finite_affine_envelope_crossing_sequence",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/finite_affine_chambers"
+    }
+  ]
+}

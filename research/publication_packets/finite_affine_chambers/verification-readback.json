@@ -1,0 +1,14 @@
+{
+  "kind": "Independently derived archive and source readback, not a raw platform response",
+  "run_id": 34804405107,
+  "proof_sha": "65e683ec0b19dc98932b6e62782976dc3de3385e",
+  "artifact_id": 10332617541,
+  "archive_sha256": "6a1c43065b1bbbfca525d22f0099f8645f46f7a8b0e3efa96185a9a27c76480b",
+  "all_five_frozen_file_hashes_recomputed": true,
+  "frozen_solution_equals_prepared_repaired_source_byte_for_byte": true,
+  "solution_git_blob": "739565818329af52b9b939fac7f8dd6685dcf309",
+  "solution_sha256": "c26a8737a7d2b3c697b9b5a197f0733b3129f2ad60b16071adb6f15e3a5ec8dc",
+  "problem_json_semantics_equal_prepared_metadata": true,
+  "eight_printed_declarations_standard_axioms_only": true,
+  "scope": "Successful Lean compile/axiom gate; no platform verdict asserted by this file"
+}
