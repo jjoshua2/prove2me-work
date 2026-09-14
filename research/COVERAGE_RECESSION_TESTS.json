@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "scope": "rational tests, not Lean compilation",
+  "systems": 134,
+  "coverage_cases": 65,
+  "recession_cases": 69,
+  "feasibility_comparisons": 268,
+  "constructed_coverage_witnesses": 65,
+  "constructed_recession_witnesses": 69,
+  "verified_unbounded_ray_points": 345,
+  "bounded_polyhedron_vertices_checked": 172,
+  "naive_columnwise_control": "fails, coupled ray verified",
+  "empty_feasible_set_control": "PASS",
+  "large_certificate_only": {
+    "allocation_coordinates": 64,
+    "budget_rows": 32,
+    "full_catalogue_or_graph_enumerated": false
+  },
+  "negative_controls": [
+    "negative_coverage",
+    "insufficient_coverage",
+    "missing_coordinate",
+    "zero_recession_vector",
+    "wrong_ray_mass",
+    "signed_fake_nonnegative_ray",
+    "wrong_recession_direction"
+  ],
+  "negative_control_count": 7,
+  "seconds": 1.557,
+  "source_sha256": {
+    "scripts/test_coverage_recession.py": "adcaec76029bdf99540344a7c6f953ff861ca7b79c65b8e21644d3ee6a61c9ec",
+    "research/publication_packets/coverage_recession_alternative/solution.lean": "bebca540b9e3ce83256c8b070b3009ee793467b7917a48c8babb478d6fb03043"
+  }
+}

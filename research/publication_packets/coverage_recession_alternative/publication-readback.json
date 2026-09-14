@@ -1,0 +1,17 @@
+{
+  "record_kind": "derived local artifact readback; not raw platform API",
+  "status": "PASS",
+  "proof_sha": "3f771d9c0cd2dd3d749fa4b525cc332bd4a4d80c",
+  "run_id": 34792692858,
+  "artifact_id": 10328714091,
+  "archive_sha256": "a7d3d67ce7a2580e518361c573556996e2de8970155712e36143c88fb516637d",
+  "archive_files": [
+    "pr-comment.md",
+    "publication-receipt.json"
+  ],
+  "theorem_id": "cf116009-df29-405e-9304-46035751b50e",
+  "submission_id": "da18a16c-4603-4ec5-9913-1d4e6effb865",
+  "publication_status": "ACCEPTED",
+  "live_status": "Proved",
+  "live_status_source": "trusted authenticated publisher receipt, not a separate direct platform query"
+}
