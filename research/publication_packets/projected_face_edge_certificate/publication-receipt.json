@@ -1,0 +1,15 @@
+{
+  "head_sha": "3b6ebc129873cc4d19462e0efc2ec3e66d6cb878",
+  "packets": [
+    {
+      "packet": "projected_face_edge_certificate",
+      "status": "ACCEPTED",
+      "theorem_id": "8c81d5ed-3389-4b7f-a509-c34b7ccbb3a7",
+      "submission_id": "f4fd4d09-ef80-458c-b298-94365846f15e",
+      "theorem_name": "Hirsch.projected_face_edge_from_row_certificates",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/projected_face_edge_certificate"
+    }
+  ]
+}

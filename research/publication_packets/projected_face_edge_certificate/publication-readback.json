@@ -1,0 +1,17 @@
+{
+  "record_kind": "derived local artifact inspection; not raw platform API",
+  "status": "PASS",
+  "run_id": 34862741785,
+  "artifact_id": 10355073719,
+  "proof_sha": "3b6ebc129873cc4d19462e0efc2ec3e66d6cb878",
+  "archive_sha256": "d428581f79e67b7cb550901deb7cfedd1b5f158b1b6414134e819d35cfe8f628",
+  "archive_files": [
+    "pr-comment.md",
+    "publication-receipt.json"
+  ],
+  "theorem_id": "8c81d5ed-3389-4b7f-a509-c34b7ccbb3a7",
+  "submission_id": "f4fd4d09-ef80-458c-b298-94365846f15e",
+  "publication_status": "ACCEPTED",
+  "live_status": "Proved",
+  "live_status_source": "authenticated trusted-publisher receipt, not a separate direct platform poll"
+}
