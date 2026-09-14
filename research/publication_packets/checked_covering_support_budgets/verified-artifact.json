@@ -1,0 +1,25 @@
+{
+  "head_sha": "b4264971ef5ee43bb72a3330542c9731c7d46b66",
+  "packets": [
+    {
+      "path": "research/publication_packets/checked_covering_support_budgets",
+      "name": "checked_covering_support_budgets",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "a1efed81793ec31c85109b7d4d4fbff8de03cc51ba4fdbd8f44b6378ca94dd2d",
+        "driver.lean": "a1efed81793ec31c85109b7d4d4fbff8de03cc51ba4fdbd8f44b6378ca94dd2d",
+        "statement.lean": "4dddbe70d28cd3fb4c278ce480538f9b956306a3dd8363e7e4ace1c24ff2f74c",
+        "problem.json": "9143b959ac822a05a49fa90d03cffe3fd04e071f8851ce1764cabdcce33d1945",
+        "explanation.md": "fee30fbddb090682fd32d4fbbf5d4e8e7c06c66b6aa5ca5d8a4f563eead9cc31"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}

@@ -1,0 +1,93 @@
+{
+  "status": "PASS",
+  "scope": "Exact rational regression, not Lean compilation",
+  "models": [
+    {
+      "name": "independent_segments_square",
+      "dimension": 2,
+      "allocation_coordinates": 2,
+      "budget_rows": 2,
+      "original_vertices": 4,
+      "support_cells": 93,
+      "circuits": 8
+    },
+    {
+      "name": "competing_triangle_square",
+      "dimension": 2,
+      "allocation_coordinates": 5,
+      "budget_rows": 2,
+      "original_vertices": 6,
+      "support_cells": 4096,
+      "circuits": 18
+    },
+    {
+      "name": "empty_block_and_segment",
+      "dimension": 1,
+      "allocation_coordinates": 1,
+      "budget_rows": 2,
+      "original_vertices": 2,
+      "support_cells": 16,
+      "circuits": 5
+    },
+    {
+      "name": "dependent_generators",
+      "dimension": 1,
+      "allocation_coordinates": 3,
+      "budget_rows": 2,
+      "original_vertices": 2,
+      "support_cells": 99,
+      "circuits": 5
+    },
+    {
+      "name": "overlapping_budgets_square",
+      "dimension": 2,
+      "allocation_coordinates": 3,
+      "budget_rows": 2,
+      "original_vertices": 4,
+      "support_cells": 256,
+      "circuits": 8
+    },
+    {
+      "name": "signed_budget_trapezoid",
+      "dimension": 2,
+      "allocation_coordinates": 2,
+      "budget_rows": 2,
+      "original_vertices": 4,
+      "support_cells": 93,
+      "circuits": 10
+    },
+    {
+      "name": "zero_allocation_coordinates",
+      "dimension": 1,
+      "allocation_coordinates": 0,
+      "budget_rows": 1,
+      "original_vertices": 2,
+      "support_cells": 4,
+      "circuits": 3
+    }
+  ],
+  "row_permutations": 14,
+  "scalar_region_checks": 200,
+  "original_vertex_allocation_checks": 720,
+  "candidate_support_certificates": 720,
+  "sharp_support_certificates": 114,
+  "transported_kernel_and_rhs_checks": 7472,
+  "rejected": [
+    "omitted_emitted_obstruction",
+    "wrong_original_row",
+    "nonbijective_row_map",
+    "forgotten_rhs_row_permutation",
+    "negative_envelope_multiplier",
+    "missing_support_domination",
+    "false_candidate_support_value",
+    "negative_original_support_multiplier",
+    "infeasible_support_point",
+    "wrong_support_objective"
+  ],
+  "rejected_count": 10,
+  "elapsed_seconds": 13.185,
+  "source_sha256": {
+    "scripts/check_checked_covering_composition.py": "8063955dbb9169cef41a89c8234402093a9148b7712944e447fd10ce11e8b33e",
+    "scripts/checked_circuit_catalogue.py": "6738dd3296a55d58fb839e06b232db293bde0c9c9eb19091ff15e4cf87deb2b1"
+  }
+}
