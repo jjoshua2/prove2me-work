@@ -1,0 +1,4 @@
+'HirschEdgeLift.generic_edge_objective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HirschEdgeLift.finite_parallel_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HirschEdgeLift.exposed_core_edge_lift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]
