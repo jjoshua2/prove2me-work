@@ -190,3 +190,85 @@ resume must reuse the exact existing job; never duplicate accepted or pending
 problems. Keep secrets inside the trusted main publisher. Label derived local
 readbacks and never fabricate missing raw API responses. Report last observed
 state without promises of background work after the turn.
+
+## Accepted ordinary-edge sweep certificate: PR #239
+
+Public theorem: `Hirsch.affine_envelope_exposed_edge_budget`.
+Theorem ID: `98b9fed3-829a-49fe-b099-e46f0f2b08a8`.
+Submission ID: `19eef3a9-597b-492d-a108-e2c999e1676b`, ACCEPTED;
+authenticated publisher live readback: Proved.
+Frozen proof `5be362ef7a907fa0bfc4edd8f13d8fbd8233e18e`, run `34794299415`.
+[Accepted evidence](research/publication_packets/simultaneous_envelope_edges/accepted-evidence.md),
+[full geometric argument](research/SIMULTANEOUS_MINKOWSKI_LIFT.md), and
+[handoff](research/SIMULTANEOUS_LIFT_HANDOFF.md) preserve the exact scope.
+Do not resubmit this packet.
+
+The finite Lean theorem derives N<=sum_i(k_i-1) from increasing sample times
+and actual strict affine-maximizer comparisons. It does not assume no-revisiting
+or a desired switch count. Entire global supporting slices equal to the listed
+segments certify ordinary edges. The first hosted gate failed on one reflexive
+inequality remaining after simplification; adding `exact le_rfl` changed no
+other proof line or assumption. The corrected175-line driver, solution and
+statement compiled; all three axiom reports contain only standard logical
+axioms. Its first actual platform submission was accepted. Failed diagnostics
+and successful raw receipts are preserved separately. Local Lean is absent;
+Python/static checks are not compilation evidence.
+
+The written simultaneous normal-fan argument gives, for an ACTUAL decomposition
+R=P+sum_i Q_i and an L-edge core walk, an R-route with at most L+(L+1)K edges,
+where K=sum_i(f0(Q_i)-1). This replaces an iterated PRODUCT of factor vertex
+budgets by their SUM. The generic fibre/bridge existence argument is classical
+geometry in the note, not the public finite Lean target; no historical novelty
+is claimed. The exact constructor/checker is committed, not Lean-extracted.
+Its127 routes contain513 certified edges;388 small edges were independently
+checked against complete point-sum sets. The32D pyramid-plus24-triangle example
+has50 certified route edges and bound146;2^31+1 counts CORE vertices only.
+
+For actual carriers with core cost<=L0 and K<=c*h, the existing sum h<=3e,r<=e
+would give D+[L0+3(L0+1)c]e. Those controlled decompositions are NOT established
+for arbitrary high-dimensional carriers. This is still the applicability gap.
+Another agent claimed formal generic bridge existence in #239 comment5657561418;
+inspect live ownership before working on it. #238 separately owns sharp support
+witness existence. #208 and retired #210 were neither changed nor triggered.
+Check GitHub for #239's final integration state rather than restarting its
+completed publication.
+
+## Accepted exposed core-edge bridge: PR #240
+
+The generic core-edge claim above is now completed as
+`Hirsch.exposed_core_edge_has_minkowski_bridge`, theorem
+`9265e218-624c-4c18-86a6-7406004fc14a`, submission
+`c2872155-4d73-4bdd-b9bd-153dab8c619e`: ACCEPTED, authenticated publisher
+live Proved. Frozen proof `80f533255175a6dc24c3132feaa01b10ec275180`,
+run `34795161919`. The original443-line source passed its FIRST compile/axiom
+gate and first submission unchanged; all three compile exits are0 and all
+four axiom reports contain only standard logical axioms. No retry occurred.
+[Accepted evidence](research/publication_packets/generic_minkowski_edge_lift/accepted-evidence.md),
+[raw receipt](research/publication_packets/generic_minkowski_edge_lift/publication-receipt.json),
+[proof and constructor](research/GENERIC_MINKOWSKI_EDGE_LIFT.md), and
+[handoff](research/GENERIC_EDGE_LIFT_HANDOFF.md) preserve the exact scope.
+
+From an explicitly exposed core edge in one nonempty finite hull, the theorem
+CONSTRUCTS a new objective and every factor's full parallel support segment.
+Their Minkowski sum is a nondegenerate exposed edge with the required core
+components. Quotient finite separation and a small perturbation derive the
+genericity; no sum-edge certificate, normal-fan genericity or edge-surjectivity
+oracle is assumed. Point, parallel, lower-dimensional and redundant-point
+factors are included. This formalizes a forward exposed-edge specialization
+of classical Deza--Pournin Lemma3.8, not a historical novelty claim.
+
+The exact producer uses a finite rational root-avoidance grid and checks all
+component points;96 instances,7366 exhaustive small/stress point-sum tuples
+and12 negative controls pass. Large dimensions16/32/48 do not enumerate the
+product of point choices. Software/JSON checks are not Lean extraction.
+Both artifact archives and all five frozen hashes were independently checked;
+raw logs, audit, manifest and authenticated receipt are committed. The source
+and target are unchanged by receipt/documentation integration.
+
+The next concrete geometry is generic FIBRE-PATH existence preserving a fixed
+core vertex and both sum endpoints while deriving the full segment slices
+required by accepted #239. Then instantiate the route assembler using the
+actual bridges above. Controlled decompositions of arbitrary high-dimensional
+carriers remain unproved; no uniform polynomial Hirsch diameter bound is
+claimed. Do not resubmit #240 or the accepted #239/#236 ingredients. #238,
+pending #208 and retired #210 are unchanged. Check live PR integration state.
