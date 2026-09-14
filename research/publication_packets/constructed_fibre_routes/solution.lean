@@ -1273,6 +1273,7 @@ theorem finite_sum_exposed_route_preserving
     Generic.generic_objectives f0 g0 comp0 comp1 delta hc0 hc1 hd
   have hfa : ∀ i, Function.Injective (fun q => f (v i q)) := by
     intro i p q he
+    change f (v i p) = f (v i q) at he
     by_contra hpq
     have hn := hfd ⟨⟨i,(p,q)⟩,hpq⟩
     apply hn
@@ -1387,8 +1388,8 @@ theorem fixed_core_fibre_route
     finite_sum_exposed_route_preserving comp r k v hinj p0 p1 f0 g0 hp0 hp1 hcomp0 hcomp1
   have ho : core o∈P := subset_convexHull ℝ _ (Finset.mem_image.mpr ⟨o,Finset.mem_univ _,rfl⟩)
   refine ⟨N,hN,(fun j => core o+path j),?_,?_,?_,?_,?_⟩
-  · rw [h0]
-  · rw [h1]
+  · exact congrArg (fun z : E => core o+z) h0
+  · exact congrArg (fun z : E => core o+z) h1
   · intro j hj
     exact ⟨core o,ho,path j,hmem j hj,rfl⟩
   · intro j hj

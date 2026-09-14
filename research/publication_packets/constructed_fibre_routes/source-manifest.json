@@ -1,7 +1,7 @@
 {
-  "status": "prepared; not locally Lean-compiled",
+  "status": "targeted repair of three beta-normalization rewrite sites; not locally compiled",
   "files": {
-    "solution.lean": "ddd695d237e0c4b74d4f500d9190e7cc47202616d63ad99975599498598718f6",
+    "solution.lean": "05cd2756d449434c21fca91b5750e2edce99d557129808645307ac3a76076b9d",
     "problem.json": "e383c4817ee8bb784be19142b4d61383afc1591eb5a8178caaca7eb2288d1b41",
     "explanation.md": "fc1a936d50cc0d8a678024ba1fd8f5a287f423ea83f018ee84b1881dfa57e420"
   },
@@ -10,7 +10,7 @@
   "new_modules": {
     "PolynomialFiniteAffineSequenceCore.lean": "0c6dc002cb9fe3361c3105efeefc5bb29debad03bbb43a88237233358e85bb2b",
     "PolynomialFiniteEnvelopeSequence.lean": "68257610595581fcee214714805e1314afc3fdc7459609ea31794ef5afb9f229",
-    "PolynomialConstructedFibreRoutes.lean": "776534e0db45085128a962d59c50d645737f593ebd5ed414a75aef498e0627f8"
+    "PolynomialConstructedFibreRoutes.lean": "56b0f11fedfe64e63bb77be7995be159c1f42b47fe78602ef313752a385a10c9"
   },
   "bundle_module_candidates": "not committed or separately module-build verified; full proof bodies are in the submitted standalone source"
 }
