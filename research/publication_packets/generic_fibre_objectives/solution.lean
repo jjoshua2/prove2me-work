@@ -89,7 +89,7 @@ private theorem two_affine_zeros_force_determinant
     linear_combination a*hj-c*hi
   exact (mul_eq_zero.mp he).resolve_left ht
 
-/-- Any two nonempty finite strict endpoint cones admit an objective segment
+/-- Any two nonempty finite strict endpoint cones have an objective segment
 that never annihilates two linearly independent listed difference vectors.
 Every endpoint comparison is preserved. No normal-fan genericity oracle,
 full-dimensionality, or probabilistic assumption is supplied. -/
