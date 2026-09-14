@@ -1,0 +1,12 @@
+_verified/packets/projected_face_discovery/solution.lean:15:0: warning: automatically included section variable(s) unused in theorem `Hirsch.ProjectedFaceDiscovery.dual_zero_off_active`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+'Hirsch.ProjectedFaceDiscovery.dual_zero_off_active' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.ProjectedFaceDiscovery.constructed_exposer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.ProjectedFaceDiscovery.local_kernel_steps' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.ProjectedFaceDiscovery.minimal_image_face' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.ProjectedFaceDiscovery.image_kernel_tests' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,25 @@
+{
+  "head_sha": "6dbd85efa51b866151301d4255ecb268db8efcfb",
+  "packets": [
+    {
+      "path": "research/publication_packets/projected_face_discovery",
+      "name": "projected_face_discovery",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "f06d51585f7741405e8adffdd2012c8844c224110672df9c5d70e4648f39804a",
+        "driver.lean": "f06d51585f7741405e8adffdd2012c8844c224110672df9c5d70e4648f39804a",
+        "statement.lean": "4fb4be1558f29bbcfb6443571bd342ba2698c540845b2b8e70e03ff1cbae29b3",
+        "problem.json": "acf7d4a0abf0a940b1b417a6aa9d0bc97506d0926065108058fec141236184ab",
+        "explanation.md": "bc44364fd8f1c7938bc785067d6a61a49f0cfe01ef459ee00d5e51478039e31c"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}

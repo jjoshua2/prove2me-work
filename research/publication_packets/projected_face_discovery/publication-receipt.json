@@ -1,0 +1,15 @@
+{
+  "head_sha": "6dbd85efa51b866151301d4255ecb268db8efcfb",
+  "packets": [
+    {
+      "packet": "projected_face_discovery",
+      "status": "ACCEPTED",
+      "theorem_id": "2e10b83d-9a75-4d41-a7e5-95a483d787aa",
+      "submission_id": "4f1c0864-fd8d-47d1-96b6-2c823601c987",
+      "theorem_name": "Hirsch.projected_minimal_face_from_fibre_duals",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/projected_face_discovery"
+    }
+  ]
+}
