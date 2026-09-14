@@ -1,0 +1,59 @@
+{
+  "kind": "Derived source/readback and clean local replay record, not Lean or platform evidence",
+  "development_base": "8a124f0e9db9d330cc3733b7ca39cf37ec0219ae",
+  "read_back_head": "92e791941ceec1bdb85db6b23185e7ef8ace3da1",
+  "added_files": {
+    "scripts/target_roof_phase_barrier.py": {
+      "bytes": 15338,
+      "git_blob_sha": "87c82480b19b3c699d2c9bcf1919d3bb8ea16058",
+      "sha256": "79f287b1a23b44da80314dbdde4cc7de338d195f4438036f9bc88bf3115111f8"
+    },
+    "scripts/test_target_roof_phase_barrier.py": {
+      "bytes": 10513,
+      "git_blob_sha": "f678b49a9688d206b188d9b622c6b0143f822bfa",
+      "sha256": "a74899e7873350668d3e5666461fc6f4b74ebea20c2450629d030c2b5c878ba0"
+    },
+    "research/TARGET_ROOF_CONSTANT_FACE_BARRIER.md": {
+      "bytes": 16331,
+      "git_blob_sha": "21cb963d1a0bd98da54a808d8ed3d9445b61d64c",
+      "sha256": "992e7edb522a52d9832e8d510ad5236bc58175027b34889f5002fb0739de0871"
+    },
+    "research/TARGET_ROOF_HANDOFF.md": {
+      "bytes": 3811,
+      "git_blob_sha": "fa9da7d215c4d386a15d6af4c7120d6d4df4c312",
+      "sha256": "30447b193ee074df50dd1152bb10cbe8da484c3db138e9c140918d8a10015516"
+    },
+    "research/TARGET_ROOF_PHASE_CHECK.json": {
+      "bytes": 9782,
+      "git_blob_sha": "f98ce006db90184e70261075112abc781b27d784",
+      "sha256": "28b3ed7017a3a0806647c91390cf0b4009c5946b831b22c2b77d81cac6955c2a"
+    }
+  },
+  "all_five_added_blob_hashes_read_back_from_GitHub": true,
+  "unchanged_dependency": {
+    "path": "scripts/simple_tangent_policy_audit.py",
+    "bytes": 8284,
+    "git_blob_sha": "73dc32b9753d7d0fe5e67ca1f4fad0534b6b1976",
+    "sha256": "28d7e66e3e2f6d6589e55a2e07e42a7a2081d56860621ba8838db9708a458440"
+  },
+  "clean_replay": {
+    "full_dimensions": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "all_numeric_results_and_source_hashes_equal_ignoring_timing": true,
+    "all_eight_generated_fixture_files_equal_byte_for_byte": true,
+    "environment": "Fresh local dependency workspace, not a full repository clone",
+    "lean_or_actions_run": false
+  },
+  "publication": "Research-only; no new Lean source, compile audit, or Prove2Me submission"
+}
