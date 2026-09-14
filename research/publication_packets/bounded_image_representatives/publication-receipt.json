@@ -1,0 +1,15 @@
+{
+  "head_sha": "afcf0a524c124ca20c6be6b0417fe4089e9be4d3",
+  "packets": [
+    {
+      "packet": "bounded_image_representatives",
+      "status": "ACCEPTED",
+      "theorem_id": "45f5569d-e24c-4a42-9572-de74ca0629c0",
+      "submission_id": "0a3332a7-8c22-4fe4-90c1-9fd858b95a71",
+      "theorem_name": "Hirsch.bounded_image_compact_representatives",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/bounded_image_representatives"
+    }
+  ]
+}
