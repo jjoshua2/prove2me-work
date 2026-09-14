@@ -1,238 +1,192 @@
 # Current Polynomial Hirsch frontier
 
-Repository: `jjoshua2/prove2me-work`. GitHub state refreshed 2026-09-13.
+Repository: `jjoshua2/prove2me-work`. GitHub state refreshed 2026-09-14 UTC.
 Keep Lean `v4.30.0` and Mathlib `c5ea00351c28e24afc9f0f84379aa41082b1188f`.
 Read this file, AGENTS.md, CLOUD_AGENT.md, SKILL.md and CONTINUE_HIRSCH.md,
-then the LIVE PR heads/comments before choosing work. Historical next-step
-paragraphs are not evidence that a later accepted result remains unproved.
+then the LIVE PR heads/comments before choosing work. This file supersedes
+older next-step descriptions that still ask for the now accepted composition.
 
-The previous status overview is preserved verbatim in
-[the frontier archive](research/FRONTIER_ARCHIVE_BEFORE_CHECKED_DUAL_TESTS_2026-09-13.md),
-Git blob `256e16e82e9b7679fe08d38f410be1c14e5881e4`. Its older proof history,
-mission discussion IDs, cost bounds and receipts have not been discarded.
+The immediately preceding overview is preserved byte-for-byte in Git history:
+[STATUS before the completed composition](https://github.com/jjoshua2/prove2me-work/blob/beb24477c173dbddd86a1da0041ce6b9f255dbcd/STATUS.md),
+blob `d8907e223022e911b8730c2d987ae10813464825`.
+The earlier geometric history, discussion IDs and detailed clipping estimates
+remain in [the frontier archive](research/FRONTIER_ARCHIVE_BEFORE_CHECKED_DUAL_TESTS_2026-09-13.md).
+Do not interpret historical status prose as a fresh platform poll.
 
-## The mathematical objective
+## Mathematical objective
 
-The last authenticated mission audit preserved in the archive reports the
-Polynomial Hirsch root `58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac` Open and the six
-curated milestones Proved. Its remaining open leaf is
-`Hirsch.common_face_diameter_of_dim_ge_six`,
-`87a8b4f4-8b58-4340-8cb9-5fd1b548d01e`.
-This GitHub refresh is NOT a new authenticated poll of that root or leaf.
+The last authenticated mission audit in the archive reports the Polynomial
+Hirsch root `58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac` Open, six curated milestones
+Proved, and remaining leaf `Hirsch.common_face_diameter_of_dim_ge_six`,
+`87a8b4f4-8b58-4340-8cb9-5fd1b548d01e`. This GitHub refresh is NOT a new
+authenticated query of that root or leaf.
 
-The objective remains a uniform ordinary-edge diameter bound for arbitrary
-high-dimensional common faces, with constants independent of dimension.
-Auxiliary nonnegative-kernel circuits and their normalized-section vertices
-are not ordinary edges or vertices of the original polytope. Finite exact
-allocation tests alone do not prove a polynomial graph-diameter bound.
+The objective is still a uniform ordinary-edge diameter bound for arbitrary
+high-dimensional common faces. Auxiliary nonnegative-kernel circuits and
+normalized-section vertices are not original polytope edges or vertices.
+Completed exact decomposition tests do not by themselves prove a polynomial
+graph-diameter bound or find useful candidate decompositions.
 
-The integrated clipping framework selects actual portal pairs before charging
-their local route costs. Fixed support deficit, small intrinsic excess, low
-dimension, and the verified sufficient geometric models already have their
-own estimates. Arbitrary high-dimensional carriers and cross-level control
-of repeated charges are not discharged by a factor-three mass bound alone.
-Reuse the archive and the public-results inventory rather than reproving
-Santos, circuit walks, fixed-dimensional bounds or accepted repair lemmas.
+The integrated clipping framework chooses actual portal pairs before their
+local costs. Fixed support deficit, low dimension, small intrinsic excess,
+and verified special models have their own bounds. Arbitrary high-dimensional
+carriers and repeated cross-level charges are not controlled by a factor-three
+sibling mass estimate alone. Reuse the archive and public-results inventory;
+do not redo Santos, classical circuit walks or accepted repair lemmas.
 
-## Accepted algebraic and allocation results: do not resubmit
+## Accepted ingredients — do not resubmit
 
-Every row below has its own accepted-evidence/receipt under its packet.
-Read the exact statement before composing it; an informal description is not
-an extra hypothesis or a stronger conclusion.
+Read each exact packet and its authenticated receipt before composing it.
+Older UNCOMPILED source comments do not override later verification receipts.
 
-| PR | Accepted result | Packet under research/publication_packets/ |
+| PR | Accepted statement/interface | Packet under research/publication_packets/ |
 |---|---|---|
-| #216 | Compact-convex whole-set sufficiency from weighted tests | [compact_dual_minkowski](research/publication_packets/compact_dual_minkowski/) |
-| #218 | One support-indexed positive-circuit family tests the whole nonnegative kernel | [finite_positive_circuit_tests](research/publication_packets/finite_positive_circuit_tests/) |
-| #219 | Bounded-simplex allocation alternative and finite whole-set Minkowski criterion | [finite_allocation_minkowski](research/publication_packets/finite_allocation_minkowski/) |
-| #221 | Exact original-H primal/dual support witnesses | Inspect #221's merged packet and receipt |
-| #222 | Signed-kernel characterization and rank-plus-one circuit support cutoff | [positive_circuit_rank](research/publication_packets/positive_circuit_rank/) |
-| #224 | Normalized positive circuits are exactly auxiliary kernel-section extreme points | [normalized_circuit_vertices](research/publication_packets/normalized_circuit_vertices/) |
-| #227 | Pointwise allocation tests collapse to scalar budgets given exact support witnesses | [finite_allocation_support_budgets](research/publication_packets/finite_allocation_support_budgets/) |
-| #229 | Actual rational Boolean checker/output filter gives exactly all normalized REAL circuits | [checked_circuit_catalogue](research/publication_packets/checked_circuit_catalogue/) |
-| #230 | Supplied finite row identities imply a one-ray restricted kernel | [rref_restricted_kernel_certificate](research/publication_packets/rref_restricted_kernel_certificate/) |
-| #233 | The ACTUAL checked catalogue tests every real linear functional on the entire nonnegative kernel | [checked_catalogue_dual_tests](research/publication_packets/checked_catalogue_dual_tests/) |
-| #234 | Full allocation alternative for separate, overlapping and signed budgets with finite coverage | [covering_allocation_alternative](research/publication_packets/covering_allocation_alternative/) |
-| #235 | External minimal joint circuits have exact support multipliers, nonnegative deficits and a common-maximizer zero pattern | [joint_circuit_support_deficits](research/publication_packets/joint_circuit_support_deficits/) |
+| #216 | Compact weighted tests imply simultaneous whole-set feasibility | compact_dual_minkowski |
+| #218 | A fixed positive-circuit family tests the nonnegative kernel | finite_positive_circuit_tests |
+| #219 | Bounded-simplex allocation alternative and finite Minkowski criterion | finite_allocation_minkowski |
+| #221 | Exact original-H primal/dual support witnesses | Inspect merged #221's packet |
+| #222 | Signed supported-kernel and rank-plus-one support bound | positive_circuit_rank |
+| #224 | Normalized positive circuits are actual auxiliary-section extreme points | normalized_circuit_vertices |
+| #227 | Supplied pointwise criterion plus exact supports gives scalar budgets | finite_allocation_support_budgets |
+| #229 | Executable rational audit/output is the complete REAL circuit catalogue | checked_circuit_catalogue |
+| #230 | Finite column identities certify one-ray restricted kernels | rref_restricted_kernel_certificate |
+| #233 | The ACTUAL checked output tests every real nonnegative null vector | checked_catalogue_dual_tests |
+| #234 | Covering separate/overlapping resource budgets have a full allocation alternative | covering_allocation_alternative |
+| #235 | External minimal joint circuits have exact support, nonnegative deficits and zero patterns | joint_circuit_support_deficits |
+| #236 | ACTUAL checked catalogue, matrix binding, allocation, geometry and sharp budgets compose | checked_covering_support_budgets |
+| #237 | Coverage exists exactly when normalized nonnegative resource recession is absent | coverage_recession_alternative |
 
-#229 theorem: `49468d71-eb2e-4908-a15e-a89d1d23622a`;
-submission: `0dcf5eea-df74-4295-9a5e-c71edb96589d`, ACCEPTED.
-Its checker certifies omitted supports as well as emitted rays; catalogue
-completeness is no longer an open obligation. Python producer/auditor code is
-committed, but arbitrary JSON does not become kernel-certified without
-instantiating and evaluating the Lean checker.
+#229 certifies excluded supports as well as emitted rays. #233 proves actual
+output sufficiency, not semantic catalogue completeness assumed as an oracle.
+Python producers/JSON parsers are not Lean-extracted. Generic checker acceptance
+does not certify each concrete JSON instance without checking its finite data
+in Lean. #235 requires true support minimality; a nonminimal external multiplier
+can have negative deficits. Internal-only tests are automatic only at the
+appropriate nonnegative scales. These boundaries remain unchanged.
 
-#230 theorem: `4a5d83c2-d0fa-4e24-93b2-29bb39eb55e8`;
-submission: `de82dc98-0819-4305-968d-cff93ef9ada6`, ACCEPTED.
-Use its actual column-identity assumptions; it is not an unconditional
-correctness theorem for an imperative row-reduction implementation.
+## Completed composition: PR #236, ACCEPTED and merged
 
-## Accepted concrete catalogue bridge: PR #233
+Public name: `Hirsch.checked_covering_minkowski_support_budgets`.
+Theorem: `44ee8d0b-dcc7-4b12-aae2-92aff22ab5da`.
+Submission: `52ab0db3-9f64-40fe-abff-fa1f3e2884fb`, **ACCEPTED**;
+trusted authenticated publisher readback: **Proved**.
+Original proof: `b4264971ef5ee43bb72a3330542c9731c7d46b66`.
+Accepted resume request: `1ae14c3b216c093294a8bd9e2847c220baacf1ef`.
+Run: `34793017071`; merge: `5d365e9e9ea4fa712b90b05f0af843e2930f2723`.
+[Accepted evidence](research/publication_packets/checked_covering_support_budgets/accepted-evidence.md)
+and the unchanged accepted-publication-receipt.json preserve the exact result.
 
-Public name: `Hirsch.checked_rational_catalogue_dual_tests`.
-Theorem: `3999b5a0-22c8-44a5-9886-6838b03fd07f`.
-Submission: `c31a55eb-d210-4678-8401-fed4f4d005bd`, **ACCEPTED**;
-authenticated publisher readback: **Proved**.
-See [accepted evidence](research/publication_packets/checked_catalogue_dual_tests/accepted-evidence.md)
-and the unchanged downloaded publication-receipt.json beside it.
+The 1368-line source passed its first compile/axiom gate unchanged. Its first
+registration remained pending under job73a0e76e-1ad7-49ce-9378-ea3a2a037530.
+One safe resume after the prior run ended reused that registration, confirmed
+by receipt registration=REUSED. No proof changes or second theorem registration.
+Both original accepted archives were independently hash-checked, including all
+five frozen file hashes. The proof source hash remains
+`a1efed81793ec31c85109b7d4d4fbff8de03cc51ba4fdbd8f44b6378ca94dd2d`.
 
-For the ACTUAL catalogue C returned by #229's passing finite arithmetic check,
-this proves, for EVERY real linear functional B,
+This now DERIVES the desired pointwise criterion for the actual finite checker
+output, rather than using #227's criterion as an unproved input. Rational matrix
+M is explicitly bound to C=(-aG,-I,B) through a finite index bijection. Null and
+RHS transports feed #233 and #234, producing simultaneous feasible coefficients
+and whole-set reconstruction. Finite budget-row envelope certificates establish
+candidate support. Exact original-H sharp witnesses eliminate the universal x:
 
-```text
-B(w) >= 0 for every real w >= 0 with A*w=0
-  iff
-B(cast(q)) >= 0 for every q in C.
-```
+    R = {p:a(p)<=b-h}+{G(theta):theta>=0,B(theta)<=t}
+      iff for every actual emitted circuit c,
+        lambda_c.h-nu_c.t <= lambda_c.b-alpha_c.b.
 
-The proof normalizes the accepted negative support-minimal witness, transports
-its support predicate, and invokes the checked catalogue's real completeness.
-It does not assume completeness as an oracle. The helper `checked_rhs_tests`
-specializes B to arbitrary real RHS pairings. Of 711 standalone source lines,
-571 reuse accepted proof blocks unchanged; 140 contain the new bridge,
-specialization, statement adapter and axiom printouts.
+Coverage rho, actual coefficient/index identities, valid finite candidate
+support envelopes and exact original-H support witnesses remain explicit
+certificate data. No semantic catalogue completeness, Farkas, or pre-existing
+pointwise-equivalence premise is assumed. Signed/overlapping resource budgets
+must be interpreted as their actual allocation image, not automatically as
+independent Minkowski shapes. No arbitrary residual edge route is provided.
 
-The FIRST prepared gate and first authenticated submission succeeded in run
-`34790147221`, frozen head `8da78fd4f3d880fa053446d8170e11aa501cb43e`.
-Driver, solution and statement all compiled with exit code zero; all three
-printed declarations use only `propext`, `Classical.choice`, `Quot.sound`
-transitively. No proof edit, retry or duplicate registration was needed.
-Solution SHA-256: `5f661c7b4bff18859b12611e4f2b3b8f72be0100bd99a75a3fcd09a6609d1897`.
-Both verification and publication archives were downloaded, hash-checked,
-and preserved as raw records plus explicitly derived inspection summaries.
-The prior verification-evidence.md is a historical intermediate record,
-not a reason to resume this now-ACCEPTED submission. Do not resubmit #233.
+The earlier blocked 1170-line one-block composition and independent duplicate
+preparations are superseded as targets. Do not republish them, restart #236's
+registration, or announce its completed adapter as the next missing theorem.
 
-## Accepted covering-budget alternative: PR #234
+## Coverage completeness: PR #237, ACCEPTED and merged
 
-Public name: `Hirsch.covering_budget_allocation_alternative`.
-Theorem: `124be5aa-74ac-45b3-be3b-f02f8f9d4242`.
-Submission: `81b93d5c-1b53-4c6c-9074-7d5c8eb9d736`, **ACCEPTED**;
-authenticated publisher readback: **Proved**.
-Proof head `fb182322048816ba626cb6f1c821d4cb332224d3`, run `34790733652`.
-Merged in `6a2eabd05dc79ced01c5ce74d194dece1014a368`.
-See [accepted evidence](research/publication_packets/covering_allocation_alternative/accepted-evidence.md)
-and the raw packet audit, verified manifest and publication receipt beside it.
+Public name: `Hirsch.coverage_certificate_iff_no_recession`.
+Theorem: `cf116009-df29-405e-9304-46035751b50e`.
+Submission: `da18a16c-4603-4ec5-9913-1d4e6effb865`, **ACCEPTED**;
+trusted publisher live readback: **Proved**.
+Proof: `3f771d9c0cd2dd3d749fa4b525cc332bd4a4d80c`.
+Run: `34792692858`; merge: `beb24477c173dbddd86a1da0041ce6b9f255dbcd`.
+[Accepted evidence](research/publication_packets/coverage_recession_alternative/accepted-evidence.md)
+and raw audit/manifest/publication receipt are committed beside the proof.
 
-For actual constraint rows a and resource rows B, supplied rho>=0 with
-B^T*rho>=1 gives the full nonnegative allocation alternative for a*x<=b,
-B*x<=t. Right sides and individual B coefficients may be signed. All original
-budgets are retained; the extra redundant total-mass multiplier is absorbed
-into budget and nonnegativity multipliers. No Farkas, strict-feasibility,
-full-rank or already-feasible-allocation premise is assumed. Coverage remains
-an explicit finite condition.
+For ANY real finite budget family B, the theorem proves
 
-The original 427-line candidate passed its first prepared compile/axiom gate
-and first submission unchanged. All three compile exit codes are zero; all
-four audited declarations use only standard logical axioms. Source SHA-256:
-`0f3b70e88d6b989ccf2d3cc16676258ae714b6c05eefb49a9ba109a8729f7b3e`.
-The old blocked-commit/uncompiled notes are superseded for this exact packet.
-They are not evidence that another covering alternative needs to be written.
-Do not resubmit #234. This acceptance does not verify the older 1170-line
-one-block composition or the entire multi-block Minkowski adapter.
+    (exists rho>=0, B^T*rho>=1)
+      iff NOT(exists v>=0, B*v<=0, sum(v)=1).
 
-## Accepted joint-circuit sign and zero-pattern theorem: PR #235
+At every explicitly nonempty X_t={theta>=0:B theta<=t}, coverage is equivalent
+to a finite total-mass upper bound. A helper constructs arbitrarily large
+feasible mass from any feasible basepoint if recession occurs. Signed rows/RHS,
+empty row types and zero dimensions are included. Nonemptiness is necessary:
+an empty set is vacuously bounded even when coverage fails.
 
-Public name: `Hirsch.joint_external_circuit_support_and_zero_deficit`.
-Theorem: `215a5bbf-fda4-467b-9e99-8714e6ec007b`.
-Submission: `108c2171-0be9-48bd-a1f2-191f35f8b6fc`, **ACCEPTED**;
-authenticated publisher live readback: **Proved**.
-Frozen head `e78b966247f66bbe3906851395a1fd63bfb243b0`, run `34791096717`.
-Read [accepted evidence](research/publication_packets/joint_circuit_support_deficits/accepted-evidence.md)
-and [the handoff](research/JOINT_CIRCUIT_HANDOFF_2026-09-13.md).
-The old local-only candidate passed its FIRST prepared compile/axiom gate and
-first platform submission unchanged. All three compile exits are zero and all
-four audited declarations use only standard logical axioms. Post-gate work
-preserves raw receipts, full compile logs and the exact tested Python source;
-it does not alter the proof, problem or frozen explanation. No retry occurred.
+The original 443-line proof passed its FIRST compile/axiom gate and FIRST
+submission unchanged. All three compile exits are zero; all five axiom reports
+contain only propext, Classical.choice, Quot.sound. Source hash:
+`bebca540b9e3ce83256c8b070b3009ee793467b7917a48c8babb478d6fb03043`.
+The exact rational regression is committed:134 systems,65 coverage/69 recession
+cases,268 independent decisions,345 escape points,172 mass-bound vertex checks,
+seven invalid witnesses rejected. That software is supporting evidence, not
+what establishes Lean verification. Both original archives and all frozen
+hashes were independently checked. Do not resubmit this accepted packet.
 
-For external support-minimal nonnegative null multipliers of the actual
-independent simplex-block allocation rows, each total multiplier is the
-attained support of the combined original rows. Thus valid nonnegative
-candidate support bounds give nonnegative packing deficits Gamma. Gamma=0
-iff one listed point (including the anchor) attains every positively weighted
-row bound. This supplies exact coefficient signs and their zero pattern,
-not an original-H support optimizer or an ordinary-edge bound. Empty,
-repeated and dependent generator lists are included.
+## Remaining work — do not confuse geometry with representation
 
-Internal-only multipliers instead give automatic budgets at nonnegative scales.
-External nonminimal multipliers can have negative deficits: keep full support
-minimality from #218/#229, rather than inferring it from #219's weaker public
-nonnegative-null invariant. The named Solutions mirror in the earlier local
-bundle has no separate module-build claim; the verified source here is the
-standalone publication packet. The committed regression script checks 59
-systems and 267 circuits; this software evidence is distinct from Lean proof.
-Do not resubmit #235 or label its universal tightening routine Lean-extracted.
+The complete checked-output-to-budget adapter is now available. High-value
+next work must use it, or address an actual remaining ordinary-edge obligation,
+rather than create another decomposition of these accepted duality interfaces.
 
-## Next exact proof obligation
+One precise boundary is bounded IMAGE versus bounded COEFFICIENT set. #237
+characterizes the latter. B=0,G=0 has unbounded coefficients but image {0};
+coverage cannot be demanded merely because the image shape is bounded. A
+potential new task is to certify bounded representatives of each image fiber,
+remove image-invisible nonnegative recession, or prove the matching more general
+allocation theorem. No such quotient/representative result is claimed here.
 
-Compose #233's ACTUAL catalogue tests with the accepted allocation alternatives,
-not with a newly assumed Farkas or catalogue-completeness statement.
-For one simplex, explicitly reindex J=Fin m+Option(Fin k) and the transpose of
-`(-aG,-I,ones)` into the rational checker's coordinate type. Prove row-sum and
-RHS pairing transport for arbitrary real weights, then apply #219.
+Another concrete task is an end-to-end kernel-evaluated rational geometric
+instance applying #236 to exported finite data, rather than Python-only tests.
+That is an application/certificate integration, not a new classical theorem.
+Neither task alone ensures useful decompositions or short routes for arbitrary
+high-dimensional carriers. Keep the root's geometric bottleneck explicit.
 
-For multiple candidate blocks or covering resource budgets, use #234 and
-C=(-aG,-I,B). Independent simplex blocks have automatic coverage rho=1.
-The actual point-dependent RHS is
+The other agent's internal-slack-normal-form work was recorded as local and
+uncompiled in a comment on #236. Inspect its latest branch/status before
+choosing that direction. Do not overwrite or duplicate a concurrent agent.
 
-```text
-d(x,t)=(b-a(x)-H*t,0,t).
-```
+## PR lifecycle, retained ancestry and execution
 
-After coefficient/index binding, #233 supplies every real null test from the
-actual emitted catalogue, and #234 produces one simultaneous feasible allocation.
-This yields x=(x-G*theta)+G*theta in the claimed erosion-plus-allocation image.
-Finally #227's exact original-H sharp support witnesses replace the universal
-original-point tests by explicit scalar budgets. Retain valid candidate support
-bounds, the shared scale vector, all original rows and every rational-to-real
-coefficient correspondence. Overlapping resource budgets do not automatically
-represent independent Minkowski summands; use their actual allocation image.
-For independent simplex blocks, transport true circuit minimality to #235 to
-derive nonnegative coefficients and discard automatic internal/zero rows.
+#236 and #237 are merged and accepted. #208 remains a separate draft; its
+persisted submission2a2dd9bd-9ee5-43fa-bc04-def26a5a2a98 was PENDING at its
+last recorded poll. This refresh does not claim a new platform poll. Do not
+resubmit it; use the existing approved poll/resume path and preserve identity.
 
-See [the precise next interface](research/COVERING_CHECKED_COMPOSITION_NEXT.md).
-The old local composition may provide proof ideas, but its catalogue-to-dual
-subproof is now superseded by #233. Do not copy or republish completed ingredients.
-This is one concrete adapter chain; do not publish new open children that
-merely restate it. Useful shape selection and arbitrary residual ordinary-edge
-routing remain separate mathematical problems even after this composition.
+#210 is closed historical research ancestry, retained at
+formal/dual-wall-carrier-routing. Clean successors #225,#226,#228,#231,#232
+are merged. #231 and #232 are module-build integrations, not additional
+Prove2Me theorem acceptances. Do not merge obsolete research ancestry merely
+to preserve already-transplanted results. Old source headers do not override
+actual successful verification receipts.
 
-## PR lifecycle and retired ancestry
-
-#233 and #234 are accepted and merged with exact evidence. Neither requires
-another proof or publication run. #235 is also accepted with its receipts;
-check GitHub for its final integration state before changing its branch.
-Check live ownership before choosing the remaining adapter or a genuinely new
-geometric routing obligation.
-
-#208 remains the distinct additive-spill/portal-selection draft. Existing
-submission `2a2dd9bd-9ee5-43fa-bc04-def26a5a2a98` is PENDING in its latest
-persisted receipt. Poll that submission through the approved existing path;
-do NOT resubmit. Its geometric selection/existence premise remains explicit.
-
-#210 is CLOSED as a superseded historical research stack. Its branch
-`formal/dual-wall-carrier-routing` at `11172b1165b31a81e8755bd9f88651a2a9ed4b8c`
-and all research/fixtures remain retained. Do not merge its obsolete ancestry.
-Clean integration successors are merged #225, #226, #228, #231 and #232.
-#231's three residual modules passed `34785937763`; #232's two repaired
-geometric cores passed clean-main run `34789669353` and merged as
-`f452b23a06f0122c9b9dda774fadad1ed99813b7`. These are module builds, not new
-Prove2Me acceptances. Historical UNCOMPILED source headers do not override
-later successful receipts. #234 is the separate accepted covering-budget
-packet; it was not silently included in those earlier integration merges.
-
-## Execution discipline
-
-Use the committed pin and local Lean when available. Source-text and exact
-Python checks are not Lean verification. Hosted Actions are prepared final
-gates, not a speculative edit/compile loop. Publish only a complete packet on
-an open same-repository PR with a NEW top-level conversation comment:
+Use the committed pin and local Lean when available. Exact Python and source
+checks are not compilation; hosted Actions are prepared final gates rather
+than speculative edit/compile loops. A NEW top-level comment on an OPEN
+same-repository PR triggers the publication gate:
 
     /prove2me publish research/publication_packets/PACKET
 
-Read back the bot's exact SHA/run, audit logs/artifacts, and authenticated
-verdict. Keep secrets only in the trusted main publisher. Preserve source
-hashes and raw receipts before artifact expiry; distinguish derived summaries.
-Keep completed/superseded PRs out of the active queue and update this handoff
-when the recorded publication state changes.
+Module-only verification is /prove2me verify --targets Module.Name; it cannot
+publish a theorem. Inspect the bot's resolved proof SHA, not merely the workflow
+main SHA. Preserve exact logs, source hashes and authenticated receipts. Treat
+queued/compiled/audited/ACCEPTED/Proved as distinct states. A safe registration
+resume must reuse the exact existing job; never duplicate accepted or pending
+problems. Keep secrets inside the trusted main publisher. Label derived local
+readbacks and never fabricate missing raw API responses. Report last observed
+state without promises of background work after the turn.
