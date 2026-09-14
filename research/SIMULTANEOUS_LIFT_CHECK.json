@@ -1,0 +1,18 @@
+{
+  "kind": "derived_compact_execution_summary",
+  "status": "PASS",
+  "seed": 20260914,
+  "counts": {"routes": 127, "ordinary_edges": 513, "independent_full_sum_edges": 388, "planar_graph_pairs": 80, "nonshortest_routes": 9, "rejected_controls": 14},
+  "large": [
+    {"dimension": 8, "triangle_factors": 8, "core_vertices_formula": 129, "input_representation": "pyramid core and finite lists; not newly discovered H-equality", "core_edges": 2, "factor_vertex_budget": 16, "fibre_edges": 16, "ordinary_edges": 18, "additive_bound": 50, "iterated_vertex_bound": 19682, "exposed_edge_certificates": 18, "generic_retries": 0},
+    {"dimension": 16, "triangle_factors": 12, "core_vertices_formula": 32769, "input_representation": "pyramid core and finite lists; not newly discovered H-equality", "core_edges": 2, "factor_vertex_budget": 24, "fibre_edges": 23, "ordinary_edges": 25, "additive_bound": 74, "iterated_vertex_bound": 1594322, "exposed_edge_certificates": 25, "generic_retries": 0},
+    {"dimension": 24, "triangle_factors": 16, "core_vertices_formula": 8388609, "input_representation": "pyramid core and finite lists; not newly discovered H-equality", "core_edges": 2, "factor_vertex_budget": 32, "fibre_edges": 30, "ordinary_edges": 32, "additive_bound": 98, "iterated_vertex_bound": 129140162, "exposed_edge_certificates": 32, "generic_retries": 0},
+    {"dimension": 32, "triangle_factors": 24, "core_vertices_formula": 2147483649, "input_representation": "pyramid core and finite lists; not newly discovered H-equality", "core_edges": 2, "factor_vertex_budget": 48, "fibre_edges": 48, "ordinary_edges": 50, "additive_bound": 146, "iterated_vertex_bound": 847288609442, "exposed_edge_certificates": 50, "generic_retries": 0}
+  ],
+  "source_sha256": {"test_simultaneous_minkowski_lift.py": "f6f0a8081f1df396e26e4adfff094393b2a6c1794a4ee9220629e9fb276916cf", "simultaneous_minkowski_lift.py": "db7a7738d5c6b4393b0edac60612bd7990e0dc9746b90719446684b8481dbf80"},
+  "source_git_blobs": {"simultaneous_minkowski_lift.py": "3a0013968e64175d7b670f67820b643d24e7aa9f", "test_simultaneous_minkowski_lift.py": "7813472b431146cc6d9e91753f7512e77778ce47"},
+  "clean_directory_replay": {"all_three_receipts_identical": true, "serialized_32d_fixture_identical": true, "separate_json_verifier_passed": true},
+  "raw_receipt_sha256": {"small": "521cb4b31e1fbfb7d9e873362ada985786fba501b14ae7ec60c962cd4c0e5bc1", "large": "20b9f8d5986856630ea204bed900759902072eec667da8cbab9dc5cd983ae38b", "negative": "01ccc96f64ddd226ed7a0e4a0491191950b7c309f9eadf62ccdaaca6257752ae"},
+  "fixture_sha256": "4d638939f660e46b35f9232cc6a99a53c4feffba06e163c68a5a601f7eb44522",
+  "scope": "Exact rational tests in the supplied factor presentation; no discovered arbitrary original-H equality, large-graph enumeration, final-sum vertex count, Lean compilation, or universal Python correctness claim."
+}

@@ -1,0 +1,13 @@
+Excerpt from GitHub Actions job103823746914 in run34794086601, read through fetch_workflow_job_logs. This is an excerpt, not the full runner log.
+
+2026-09-14T00:54:08.5847187Z simultaneous_envelope_edges/driver.lean failed to compile:
+2026-09-14T00:54:08.5848104Z _verified/packets/simultaneous_envelope_edges/driver.lean:83:6: error: unsolved goals
+2026-09-14T00:54:08.5848563Z case pos
+2026-09-14T00:54:08.5855546Z hi : pick j i = pick (j + 1) i
+2026-09-14T00:54:08.5856107Z ⊢ slopeRank (b i) (pick (j + 1) i) ≤ slopeRank (b i) (pick (j + 1) i)
+2026-09-14T00:54:08.5857564Z 'Hirsch.affine_envelope_switch_bound' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-14T00:54:08.5858741Z '_private._verified.packets.simultaneous_envelope_edges.driver.0.exposed_segment_isExtreme' depends on axioms: [propext,
+2026-09-14T00:54:08.5859528Z  Classical.choice,
+2026-09-14T00:54:08.5859826Z  Quot.sound]
+2026-09-14T00:54:08.5860352Z 'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-14T00:54:08.6025811Z ##[error]Process completed with exit code 1.

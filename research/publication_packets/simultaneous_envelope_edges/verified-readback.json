@@ -1,0 +1,14 @@
+{
+  "kind": "derived_local_verified_artifact_inspection",
+  "run_id": 34794299415,
+  "artifact_id": 10329530572,
+  "archive_sha256": "aad296734b6b4f912718bd350cf90f0233d0f5aa4dd3517f17e0204a50fb55df",
+  "archive_digest_matches": true,
+  "all_five_frozen_file_hashes_match": true,
+  "solution_problem_explanation_match_local_bytes": true,
+  "proof_head": "5be362ef7a907fa0bfc4edd8f13d8fbd8233e18e",
+  "compile_exit_codes": {"driver.lean": 0, "solution.lean": 0, "statement.lean": 0},
+  "audited_declarations": 3,
+  "axioms": ["propext", "Classical.choice", "Quot.sound"],
+  "scope": "Exact finite envelope/exposed-edge certificate; full normal-fan existence is the separate written proof. This is not platform acceptance. Raw manifest, audit and compile logs are copied from the downloaded artifact; its full driver/statement bytes accompany the conversation archive."
+}
