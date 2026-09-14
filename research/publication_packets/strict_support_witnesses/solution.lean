@@ -377,11 +377,11 @@ theorem alternative {m k r : ℕ}
         simpa only [hsplit j] using hker j
       have habs := absorb_global_multiplier
         (fun q j => B q (Pi.single j (1 : ℝ))) rho nu mu
-        (fun j => ∑ i, w i * a i (Pi.single j (1 : ℝ))) eta
-        hrho (fun q => hv _) hmu heta hcover hker'
+        (fun j => mu j * 0 + ∑ i, w i * a i (Pi.single j (1 : ℝ))) eta
+        hrho (fun q => hv _) hmu heta hcover (by simpa using hker')
       have hh := hdual w
         (fun j => mu j + eta * ((∑ q, rho q * B q (Pi.single j (1 : ℝ))) - 1))
-        (fun q => nu q + eta * rho q) (fun i => hv _) habs.2.1 habs.1 habs.2.2
+        (fun q => nu q + eta * rho q) (fun i => hv _) habs.2.1 habs.1 (by simpa using habs.2.2)
       have hb' : (∑ u, v u * b' u) = (∑ i, w i * b i) + ∑ q, nu q * t q := by
         rw [← Equiv.sum_comp e (fun u => v u * b' u)]
         simp [b', w, nu, Fintype.sum_sum_type]
@@ -553,7 +553,7 @@ theorem valid_bound_has_row_certificate {m d : ℕ}
       dsimp [eta] at hh
       nlinarith
     · have he : eta = 0 := le_antisymm (le_of_not_gt hpos) heta
-      have hn0 : nu 0 = 0 := by dsimp [eta] at he; linarith
+      have hn0 : nu 0 = 0 := by dsimp [eta] at he; linarith [hnu 0]
       have hl0 : lam = 0 := by dsimp [eta] at he; linarith [hnu 0]
       have hy : ∀ i, a i y ≤ 0 := by
         intro i
@@ -569,7 +569,12 @@ theorem valid_bound_has_row_certificate {m d : ℕ}
     intro j
     have hp := hrows (e (.inl j))
     have hn := hrows (e (.inr (.inl j)))
-    simp [rows, rhs, mul_comm] at hp hn
+    have hp' : (∑ i, alpha i * a i (Pi.single j (1 : ℝ))) ≤
+        f (Pi.single j (1 : ℝ)) := by
+      simpa [rows, rhs, mul_comm] using hp
+    have hn' : -(∑ i, alpha i * a i (Pi.single j (1 : ℝ))) ≤
+        -f (Pi.single j (1 : ℝ)) := by
+      simpa [rows, rhs, mul_comm] using hn
     linarith
   refine ⟨alpha, ha, ?_, ?_⟩
   · intro x
