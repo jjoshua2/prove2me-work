@@ -1,0 +1,12 @@
+{
+  "status": "prepared; no local Lean compiler",
+  "files": {
+    "solution.lean": "a1efed81793ec31c85109b7d4d4fbff8de03cc51ba4fdbd8f44b6378ca94dd2d",
+    "problem.json": "9143b959ac822a05a49fa90d03cffe3fd04e071f8851ce1764cabdcce33d1945",
+    "explanation.md": "fee30fbddb090682fd32d4fbbf5d4e8e7c06c66b6aa5ca5d8a4f563eead9cc31"
+  },
+  "accepted_helper_sources": {
+    "checked_catalogue_dual_tests": "5f661c7b4bff18859b12611e4f2b3b8f72be0100bd99a75a3fcd09a6609d1897",
+    "covering_allocation_alternative": "0f3b70e88d6b989ccf2d3cc16676258ae714b6c05eefb49a9ba109a8729f7b3e"
+  }
+}
