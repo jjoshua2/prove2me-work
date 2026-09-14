@@ -1,0 +1,12 @@
+_verified/packets/uniform_bridge_endpoint_exposers/solution.lean:162:5: warning: unused variable `ha`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+_verified/packets/uniform_bridge_endpoint_exposers/solution.lean:162:27: warning: unused variable `hb`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'Hirsch.BridgeEndpointExposers.uniform_two_sided_radius' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.BridgeEndpointExposers.segment_coordinate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.BridgeEndpointExposers.hull_unique_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.BridgeEndpointExposers.sum_unique_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.BridgeEndpointExposers.uniform_endpoint_exposers' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]
