@@ -251,14 +251,17 @@ theorem allocation_representative_bound {k r d : ℕ}
         intro u v
         apply Prod.ext
         · change B ((fun i => u (Sum.inl i)) + (fun i => v (Sum.inl i))) +
-            ((fun q => u (Sum.inr q)) + (fun q => v (Sum.inr q))) = _
+            ((fun q => u (Sum.inr q)) + (fun q => v (Sum.inr q))) =
+            (B (fun i => u (Sum.inl i)) + (fun q => u (Sum.inr q))) +
+              (B (fun i => v (Sum.inl i)) + (fun q => v (Sum.inr q)))
           rw [map_add]
           abel
         · exact G.map_add _ _
       map_smul' := by
         intro c z
         apply Prod.ext
-        · change B (c • (fun i => z (Sum.inl i))) + c • (fun q => z (Sum.inr q)) = _
+        · change B (c • (fun i => z (Sum.inl i))) + c • (fun q => z (Sum.inr q)) =
+            c • (B (fun i => z (Sum.inl i)) + (fun q => z (Sum.inr q)))
           rw [map_smul, smul_add]
         · exact G.map_smul c _
       cont := by fun_prop }
@@ -361,7 +364,7 @@ theorem bounded_image_compact_representatives {k r d : ℕ}
   · rintro u ⟨x, hx, rfl⟩
     obtain ⟨y, hy, hBy, hGy, _hzero, _htight, hm⟩ := hc t x hx.1 hx.2
     have hmR : (∑ i, y i) ≤ R := hm.trans
-      (mul_le_mul_of_nonneg_left (add_le_add_left (himage x hx.1 hx.2) _) hC.le)
+      (mul_le_mul_of_nonneg_left (add_le_add (le_refl ‖t‖) (himage x hx.1 hx.2)) hC.le)
     exact ⟨y, ⟨hy, hBy, hmR⟩, hGy⟩
   · rintro u ⟨x, hx, rfl⟩
     exact ⟨x, ⟨hx.1, hx.2.1⟩, rfl⟩

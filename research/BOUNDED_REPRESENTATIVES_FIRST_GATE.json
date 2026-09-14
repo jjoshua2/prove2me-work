@@ -1,0 +1,19 @@
+{
+  "kind": "derived from actual GitHub Actions job log, not a raw artifact",
+  "run_id": 34897054853,
+  "job_id": 104153726613,
+  "proof_sha": "2c82165d45ee074101dcfe2161f66db788e76292",
+  "status": "COMPILE_FAILED",
+  "publication": "SKIPPED; no registration or submission",
+  "original_solution_sha256": "85ba15dd0d66cc88ec29a691e5ed26fcb3ef744a403d6a34b8ff4269d8c6a8d6",
+  "errors": [
+    {"line":253,"reason":"product projection on RHS not reduced in slack-map addition proof"},
+    {"line":262,"reason":"product scalar projection and identity ring homomorphism not reduced"},
+    {"line":364,"reason":"addition-order mismatch in norm bound"}
+  ],
+  "repair": "explicit full RHS in two change statements; add_le_add for the two-term norm bound",
+  "statement_changed": false,
+  "hypotheses_changed": false,
+  "core_support_descent_and_nonnegative_fiber_bound": "compiled with standard axioms in the failed driver",
+  "local_lean_available": false
+}
