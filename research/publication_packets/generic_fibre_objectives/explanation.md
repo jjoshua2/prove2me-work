@@ -1,0 +1,11 @@
+# Generic objective existence inside prescribed endpoint cones
+
+This packet finishes the previous local generic-fibre-objectives candidate, rather than resubmitting #239's count or #240's accepted exposed bridge. The solution and problem files are unchanged from the conversation bundle. Its first actual verification/publication gate is requested only after live PR and receipt inspection. Local Lean/Lake remain unavailable; source and rational regression checks are not compilation.
+
+First perturb the objective selecting the starting point so it avoids all nonzero finite within-factor differences while preserving all strict endpoint comparisons. For each nonparallel pair d,e, the vector f(d)e-f(e)d is nonzero. Perturb the second objective inside its own strict endpoint cone to avoid these vectors and the original differences. The resulting two-by-two determinants are nonzero. Two simultaneous zeros of the affine objective would force the corresponding determinant to vanish, so every simultaneous nonzero tie direction is parallel. A separate named lemma preserves any common strict comparison throughout the closed objective interval, including a fixed core vertex's comparisons.
+
+This derives generic objectives rather than assuming a generic normal-fan path or desired support-slice equalities. Empty index types and arbitrary real vector spaces are included. Full crossing-sequence assembly and supporting-slice transport into #239's route certificate remain separate; the theorem by itself does not claim a complete fibre route, useful decomposition discovery, or Polynomial Hirsch.
+
+The earlier deterministic exact rational constructor and independent verifier are retained in the accompanying files. They use finite polynomial-root avoidance, preserve endpoint tuples, and check whole component faces. Their 85 paths/103 edges and negative controls are supporting finite tests, not Lean extraction or a universal correctness proof for Python/JSON. No accepted or pending packet, pin, workflow, actor allowlist, or secret separation is changed.
+
+Classical source: Deza--Pournin, Diameter, decomposability, and Minkowski sums of polytopes, arXiv:1806.07643v1, Lemma 3.7. The finite separation lemma is Module.exists_dual_forall_apply_ne_zero in the committed Mathlib Algebra/Module/Submodule/Union.lean. No historical novelty claim is made.
