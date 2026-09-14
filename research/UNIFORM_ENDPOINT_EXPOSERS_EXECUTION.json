@@ -1,0 +1,16 @@
+{
+  "kind": "Derived summary of the executed exact rational regression; full fixtures regenerate from the committed script",
+  "status": "PASS",
+  "scope": "Exact rational regression, not Lean compilation, kernel evaluation of JSON, or an ordinary-edge route count",
+  "source_sha256": "ac24ae1ef62c0c29fa7b6bbd5b03320bb365e838385f7e4e8c56bf9c8e9465ea",
+  "test_sha256": "43c876d4d6d25c4201f7d32274de54a2dc382943174236e7ada93a58727d0890",
+  "full_generated_receipt_sha256": "1d0b803ba58a7ad915f067efae43dda2becdf37f7a5e85c2c844611b1feb4f0d",
+  "totals": {"cases": 128, "factors": 383, "tied_points": 1166, "off_support_points": 1140, "component_sample_checks": 18448, "full_tuple_comparisons": 264616},
+  "rejected": 14,
+  "negative_cases": ["zero_radius", "oversized_radius", "zero_coordinate", "reversed_coordinate", "zero_direction", "unsupported_common_direction", "negative_length", "wrong_endpoint_displacement", "missing_right_endpoint", "point_above_support", "extra_point_on_zero_length_support", "point_beyond_support_segment", "higher_dimensional_support_face", "floating_radius"],
+  "large_case": {"dimension": 12, "factors": 64, "component_sample_checks": 3272, "full_tuple_comparisons": 0, "tuple_sums_enumerated": false},
+  "public_statement_text_matches_solution": true,
+  "local_lean_available": false,
+  "local_toolchain_network": "DNS resolution of github.com failed; no compiler installed",
+  "new_platform_submission_at_record_time": false
+}
