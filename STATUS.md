@@ -190,3 +190,45 @@ resume must reuse the exact existing job; never duplicate accepted or pending
 problems. Keep secrets inside the trusted main publisher. Label derived local
 readbacks and never fabricate missing raw API responses. Report last observed
 state without promises of background work after the turn.
+
+## Accepted ordinary-edge sweep certificate: PR #239
+
+Public theorem: `Hirsch.affine_envelope_exposed_edge_budget`.
+Theorem ID: `98b9fed3-829a-49fe-b099-e46f0f2b08a8`.
+Submission ID: `19eef3a9-597b-492d-a108-e2c999e1676b`, ACCEPTED;
+authenticated publisher live readback: Proved.
+Frozen proof `5be362ef7a907fa0bfc4edd8f13d8fbd8233e18e`, run `34794299415`.
+[Accepted evidence](research/publication_packets/simultaneous_envelope_edges/accepted-evidence.md),
+[full geometric argument](research/SIMULTANEOUS_MINKOWSKI_LIFT.md), and
+[handoff](research/SIMULTANEOUS_LIFT_HANDOFF.md) preserve the exact scope.
+Do not resubmit this packet.
+
+The finite Lean theorem derives N<=sum_i(k_i-1) from increasing sample times
+and actual strict affine-maximizer comparisons. It does not assume no-revisiting
+or a desired switch count. Entire global supporting slices equal to the listed
+segments certify ordinary edges. The first hosted gate failed on one reflexive
+inequality remaining after simplification; adding `exact le_rfl` changed no
+other proof line or assumption. The corrected175-line driver, solution and
+statement compiled; all three axiom reports contain only standard logical
+axioms. Its first actual platform submission was accepted. Failed diagnostics
+and successful raw receipts are preserved separately. Local Lean is absent;
+Python/static checks are not compilation evidence.
+
+The written simultaneous normal-fan argument gives, for an ACTUAL decomposition
+R=P+sum_i Q_i and an L-edge core walk, an R-route with at most L+(L+1)K edges,
+where K=sum_i(f0(Q_i)-1). This replaces an iterated PRODUCT of factor vertex
+budgets by their SUM. The generic fibre/bridge existence argument is classical
+geometry in the note, not the public finite Lean target; no historical novelty
+is claimed. The exact constructor/checker is committed, not Lean-extracted.
+Its127 routes contain513 certified edges;388 small edges were independently
+checked against complete point-sum sets. The32D pyramid-plus24-triangle example
+has50 certified route edges and bound146;2^31+1 counts CORE vertices only.
+
+For actual carriers with core cost<=L0 and K<=c*h, the existing sum h<=3e,r<=e
+would give D+[L0+3(L0+1)c]e. Those controlled decompositions are NOT established
+for arbitrary high-dimensional carriers. This is still the applicability gap.
+Another agent claimed formal generic bridge existence in #239 comment5657561418;
+inspect live ownership before working on it. #238 separately owns sharp support
+witness existence. #208 and retired #210 were neither changed nor triggered.
+Check GitHub for #239's final integration state rather than restarting its
+completed publication.

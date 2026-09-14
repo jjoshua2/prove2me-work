@@ -1,0 +1,5 @@
+'Hirsch.affine_envelope_switch_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private._verified.packets.simultaneous_envelope_edges.driver.0.exposed_segment_isExtreme' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]
