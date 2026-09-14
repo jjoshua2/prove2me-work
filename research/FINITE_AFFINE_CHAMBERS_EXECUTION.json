@@ -1,0 +1,11 @@
+{
+  "independent_simultaneous_tie_is_scalar_only": true,
+  "rejected": 11,
+  "rejected_cases": ["wrong_endpoint", "wrong_wall", "skipped_intermediate_winner", "endpoint_not_interior_sample", "omitted_wall", "reversed_sample_order", "floating_input", "stationary_step_counted", "empty_factor", "duplicate_intercepts", "tied_final_maximum"],
+  "scope": "Exact scalar regression, NOT Lean compilation or geometric edge verification.",
+  "source_sha256": "943d3488449d3ad3f6ec072eda2e6ecd3ef3d361731c87a58d072d5e1c312dcc",
+  "status": "PASS",
+  "test_sha256": "550676ff85ad5639373065d97831b6ab3731d57cb3e0d90fe709cdb643cdb2e3",
+  "totals": {"cases": 211, "closed_score_checks": 77922, "discarded_stationary": 1336, "raw_cells": 1866, "score_checks": 16093, "transitions": 319},
+  "fixtures": "Regenerated deterministically by scripts/test_finite_affine_chambers.py; this is a derived summary without the 11 full example inputs."
+}
