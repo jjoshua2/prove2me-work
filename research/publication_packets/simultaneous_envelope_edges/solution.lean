@@ -81,6 +81,7 @@ theorem Hirsch.affine_envelope_switch_bound
     · intro i _
       by_cases hi : pick j i = pick (j+1) i
       · simp only [rank, hi]
+        exact le_rfl
       · exact slopeRank_mono (b i) _ _ (hslope i hi).le
     · obtain ⟨i, hi⟩ := hchange j hj
       exact ⟨i, Finset.mem_univ _, slopeRank_strict (b i) _ _ (hslope i hi)⟩
