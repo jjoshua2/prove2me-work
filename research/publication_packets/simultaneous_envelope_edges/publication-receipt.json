@@ -1,0 +1,15 @@
+{
+  "head_sha": "5be362ef7a907fa0bfc4edd8f13d8fbd8233e18e",
+  "packets": [
+    {
+      "packet": "simultaneous_envelope_edges",
+      "status": "ACCEPTED",
+      "theorem_id": "98b9fed3-829a-49fe-b099-e46f0f2b08a8",
+      "submission_id": "19eef3a9-597b-492d-a108-e2c999e1676b",
+      "theorem_name": "Hirsch.affine_envelope_exposed_edge_budget",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/simultaneous_envelope_edges"
+    }
+  ]
+}
