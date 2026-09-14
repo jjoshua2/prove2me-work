@@ -1,0 +1,29 @@
+{
+  "kind": "Derived independent readback of downloaded archives; not a raw Prove2Me response",
+  "proof_sha": "7d3c7cfcbbb4a3b7d4eda9aa728330592faf1770",
+  "run_id": 34900402935,
+  "verified_artifact_id": 10370796551,
+  "verified_archive_sha256": "0f374413c76e71aac0ce8bf17b75827b10c6599e05891a1502f61595826f6a0c",
+  "publication_artifact_id": 10370886309,
+  "publication_archive_sha256": "b22c810154f2b8948eb55b42833ff69b00187cc0cdbbc733f8bf2d2d9d9e0763",
+  "all_five_frozen_file_digests_recomputed": true,
+  "solution_and_explanation_match_prepared_bytes": true,
+  "problem_json_semantics_match_prepared_metadata": true,
+  "solution_git_blob": "afe5c9bb533b15e4bbf7df910be62e809df5a671",
+  "solution_sha256": "a1bf73c13e7fd2df2d852e183086a6d20a86c60591236ce6e5bd40ea0704c7dc",
+  "original_proof_passed_first_gate_unchanged": true,
+  "printed_declarations": 5,
+  "allowed_axioms": ["propext", "Classical.choice", "Quot.sound"],
+  "software_readbacks": {
+    "scripts/image_tangent_pivot.py": {
+      "git_blob": "73ca088800415982cd12c5e910524006d9cbbf58",
+      "sha256": "4efb3d2d7ea4fe496d0caedbb8c4e88e13f43338cbbcb596db086dafcd171b0e"
+    },
+    "scripts/test_image_tangent_pivot.py": {
+      "git_blob": "ee00b789b4cb4da8323dbe58f06afb1b62277ffe",
+      "sha256": "8b9fcc0b12312e8e46bb51f10b174b28e18fa48d19436ece8d693fce67ad8246"
+    }
+  },
+  "clean_dependency_replay_same_result_fields": true,
+  "clean_replay_identical_fixture_files": 7
+}

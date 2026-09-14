@@ -1,0 +1,24 @@
+_verified/packets/normalized_tangent_image_edge/solution.lean:17:5: warning: unused variable `hx`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+_verified/packets/normalized_tangent_image_edge/solution.lean:82:0: warning: automatically included section variable(s) unused in theorem `Hirsch.NormalizedImageTangent.height_positive_modulo_image_kernel`:
+  [Fintype ι]
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+_verified/packets/normalized_tangent_image_edge/solution.lean:114:0: warning: automatically included section variable(s) unused in theorem `Hirsch.NormalizedImageTangent.normalized_slice_support_ray`:
+  [Fintype ι]
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+'Hirsch.NormalizedImageTangent.feasible_tangent_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.NormalizedImageTangent.exact_image_tangent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.NormalizedImageTangent.height_positive_modulo_image_kernel' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Hirsch.NormalizedImageTangent.normalized_slice_support_ray' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]
