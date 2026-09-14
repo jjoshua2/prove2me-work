@@ -50,6 +50,7 @@ Read the exact packet and its own authenticated receipt before composing it.
 | #239 | Additive count for finite affine-envelope exposed-edge certificates | simultaneous_envelope_edges |
 | #240 | Construct whole exposed Minkowski bridges over exposed core edges | generic_minkowski_edge_lift |
 | #242 | Construct generic endpoint-preserving objectives with no independent ties | generic_fibre_objectives |
+| #243 | Construct the actual finite crossing sequence, boundary maxima and additive count | finite_affine_chambers |
 
 #236 is the completed checked-output-to-geometric-budget adapter, not an open
 composition task. #237 concerns bounded COEFFICIENT sets, not automatically
@@ -58,7 +59,7 @@ full circuit support minimality, not merely externality and nullness. Python
 producers and JSON readers are not Lean-extracted; passing their tests does
 not individually kernel-certify arbitrary finite input data.
 
-## New accepted genericity theorem: PR #242
+## Accepted genericity theorem: PR #242
 
 `Hirsch.generic_fibre_objectives_without_independent_ties` is ACCEPTED;
 theorem `d323320e-6843-4743-a2ea-e46b770cb3c8`, submission
@@ -83,7 +84,7 @@ only propext, Classical.choice and Quot.sound. Raw logs, audit, manifest and
 publication receipt are preserved; both ZIPs and all five hashes were checked.
 No verifier, pin, workflow, allowlist or secret-separation change occurred.
 
-## New compiled crossing geometry: same PR, separate evidence
+## Compiled crossing geometry: same PR, separate evidence
 
 `Solutions.PolynomialEnvelopeCrossingEdges` passed module-only run
 `34799074798` at `ad42bf00ef2d5b79ae6211529cba4efedbc97066`.
@@ -104,17 +105,55 @@ Do not transfer #242's public packet audit or ACCEPTED status to this module.
 Its exact artifact and labeled inspection are in
 [the current verification folder](research/verification/generic-fibre-current/).
 
+## New ACCEPTED finite crossing-sequence construction: PR #243
+
+`Hirsch.finite_affine_envelope_crossing_sequence` is ACCEPTED with authenticated
+live Proved. Theorem `8b5a47c4-8e01-4823-9014-ed546f69991f`, submission
+`cf94f560-6133-4340-867d-36624f0e82db`. Frozen proof head
+`65e683ec0b19dc98932b6e62782976dc3de3385e`, run `34804405107`.
+Read [accepted evidence](research/publication_packets/finite_affine_chambers/accepted-evidence.md)
+and [the full proof/interface explanation](research/publication_packets/finite_affine_chambers/explanation.md).
+Do not resubmit or reconstruct another scalar sequence theorem.
+
+For finite affine scores with injective intercepts and prescribed unique
+endpoint winners, it CONSTRUCTS increasing interior samples, unique winning
+tuples, common wall maxima strictly between neighboring samples, preserved
+endpoint tuples, no stationary transitions, and N<=sum_i(k_i-1). The finite
+roots/order, interval winners, closed-boundary comparisons and stationary
+compression are conclusions rather than supplied certificates. The count
+reuses accepted #239. Empty factor families, singleton dictionaries and
+simultaneous scalar ties remain included.
+
+The first gate failed at five elaboration sites and submitted nothing. One
+consolidated tactic-scope/dependent-if repair left every statement unchanged.
+The corrected571-line proof passed all three compile commands and its first
+actual platform submission. All eight printed declarations have only propext,
+Classical.choice and Quot.sound. Raw compile audit, frozen manifest and public
+receipt are committed; both archives and all five frozen file hashes were
+independently checked. Exact diagnostics: research/FINITE_AFFINE_FIRST_GATE.json.
+
+The separate rational regression has211 cases,319 retained transitions,1866
+raw chambers,1336 removed stationary cells,16093 sample/wall comparisons,
+77922 closed-cell comparisons and11 rejected controls. A clean-directory
+rerun reproduces every fixture and receipt. These tests are NOT Lean-extracted
+or original-polytope edge checks. Scalar simultaneous ties alone may expose
+a higher-dimensional face; the geometric genericity hypothesis is still needed.
+
 ## Next exact formal task and mathematical applicability
 
-The next task is the FINITE CROSSING-SEQUENCE ASSEMBLY, not another genericity
-or bridge-existence theorem. Instantiate #242 on actual nonzero within-factor
-differences and endpoint comparisons. Form and sort the finite interior roots,
-choose interval samples, prove unique winners persist and neighboring winners
-are wall maxima, discard stationary repetitions, and apply the new crossing
-module. Feed the retained strictly increasing samples into #239's count and
-concatenate with #240's actual bridges. Endpoint membership and stationary
-zero-step cases must remain explicit. See
-[the detailed proof/interface note](research/GENERIC_FIBRE_CROSSING_PROGRESS.md).
+The scalar FINITE CROSSING-SEQUENCE ASSEMBLY is now completed by #243. The next
+step is the GEOMETRIC FIBRE-WALK ADAPTER, already claimed by the distinct agent
+in #243 comment5658751763 and acknowledged in comment5658779357. Inspect its
+live branch/PR before choosing work; do not duplicate it.
+
+Instantiate #242 on actual nonzero within-factor point differences and endpoint
+comparisons. For interpolation (1-t)f+t*h, use a_i(q)=f(v_i(q)) and
+b_i(q)=(h-f)(v_i(q)) in #243. Its output supplies the actual samples and wall
+comparisons to the compiled affine_crossing_exposed_edge theorem. Prove finite
+image-membership/index transport, genuine sum-set adjacency, and endpoint
+membership including N=0. Preserve shared strict comparisons when staying in
+a fixed core cone, then concatenate with #240's actual core-edge bridges.
+No new crossing schedule or edge-slice oracle should be assumed.
 
 For a given decomposition R=P+sum Q_i, the written geometric lifting bound is
 L+(L+1)K, where L is the core walk and K=sum_i(f0(Q_i)-1). For ACTUAL selected
@@ -125,12 +164,13 @@ A different method is needed where those models do not apply. Do not turn
 this applicability condition into a supposedly solved premise or publish an
 open child merely restating it.
 
-The deterministic exact scripts are now committed. Their rerun covers 85
-paths/103 edges, 82 whole-sum audits, 3465 edge/tuple checks and 17 rejected
-controls. A clean replay reproduces the receipt and fixtures exactly. The
-32D example has 24 fibre edges and budget 48 without enumerating 9.32 trillion
+The earlier deterministic geometric scripts remain committed. Their rerun
+covers85 paths/103 edges,82 whole-sum audits,3465 edge/tuple checks and17
+rejected controls. A clean replay reproduces that receipt and fixtures exactly.
+The32D example has24 fibre edges and budget48 without enumerating9.32 trillion
 raw point tuples; this is not a distinct-vertex count. Supplied finite factor
 presentations and exposed endpoints are inputs, not discovered H-decompositions.
+These earlier counts are not new #243 geometric verification.
 
 ## Live work queue and execution discipline
 
@@ -140,8 +180,10 @@ them. #208 retains its distinct additive-spill/portal-selection line; its last
 persisted submission `2a2dd9bd-9ee5-43fa-bc04-def26a5a2a98` is PENDING, not a
 freshly polled verdict in this turn. Do not resubmit it. #210 is retired/reserved
 historical ancestry; do not modify, trigger or merge it without reassignment.
-#239/#240 are accepted and merged. #242 is accepted with its companion build;
-check live integration state before changing that branch or rerunning anything.
+#239/#240/#242 are accepted and merged. #243's proof/publication is complete;
+its post-gate changes are evidence and handoff only. Check its live merge state
+rather than rerunning its accepted packet. The distinct geometric adapter is
+owned as recorded above; no competing adapter is included in this PR.
 
 Use local pinned Lean where available. This runtime lacked Lean/Lake; exact
 Python/source checks were not represented as compilation. Hosted gates are
