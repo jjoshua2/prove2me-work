@@ -1,0 +1,25 @@
+{
+  "kind": "Derived independent archive and exact-source readback; not a raw platform response",
+  "run_id": 34896633534,
+  "proof_sha": "6dbd85efa51b866151301d4255ecb268db8efcfb",
+  "theorem_id": "2e10b83d-9a75-4d41-a7e5-95a483d787aa",
+  "submission_id": "4f1c0864-fd8d-47d1-96b6-2c823601c987",
+  "verified_artifact_id": 10369011887,
+  "verified_zip_sha256": "e40df88f18acd7216501c8f36f570cbec7940122ec3e06515efe06a3662e2dcd",
+  "publication_artifact_id": 10369402650,
+  "publication_zip_sha256": "5a9163c2f35948537fbd57dc5d0a9f15c2da05662089ac33650abeaadc73e8a9",
+  "all_five_frozen_file_hashes_recomputed": true,
+  "original_solution_problem_explanation_bytes_unchanged": true,
+  "first_compiler_gate_passed": true,
+  "first_platform_submission_accepted": true,
+  "axiom_reports": 6,
+  "permitted_axioms": ["Classical.choice", "Quot.sound", "propext"],
+  "clean_dependency_replay_identical_full_fixtures": true,
+  "clean_dependency_replay_identical_result_and_source_fields_excluding_timings": true,
+  "readback_source_blobs": {
+    "solution.lean": "5c2935e1f2bd6831cfc9c9df119038e71df74666",
+    "scripts/projected_face_discovery.py": "94ea007f016203947c249eb67a90bc71071abfc7",
+    "scripts/test_projected_face_discovery.py": "3978ced6e2edd1964effbe29e71baadb689a09d5",
+    "scripts/exact_farkas_lp.py": "ea511a79164d953792942d8be3dd3537646738d6"
+  }
+}
