@@ -1,0 +1,15 @@
+{
+  "head_sha": "fb182322048816ba626cb6f1c821d4cb332224d3",
+  "packets": [
+    {
+      "packet": "covering_allocation_alternative",
+      "status": "ACCEPTED",
+      "theorem_id": "124be5aa-74ac-45b3-be3b-f02f8f9d4242",
+      "submission_id": "81b93d5c-1b53-4c6c-9074-7d5c8eb9d736",
+      "theorem_name": "Hirsch.covering_budget_allocation_alternative",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/covering_allocation_alternative"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "record_kind": "derived local hash verification, not raw platform API",
+  "status": "PASS",
+  "proof_sha": "fb182322048816ba626cb6f1c821d4cb332224d3",
+  "run_id": 34790733652,
+  "artifact_id": 10328760255,
+  "archive_sha256": "829dd5af9b4422302609e83e8eafc59831054ede9718660480dbaf2f7915e6f1",
+  "frozen_hashes": {
+    "solution.lean": "0f3b70e88d6b989ccf2d3cc16676258ae714b6c05eefb49a9ba109a8729f7b3e",
+    "driver.lean": "0f3b70e88d6b989ccf2d3cc16676258ae714b6c05eefb49a9ba109a8729f7b3e",
+    "statement.lean": "0212ef5525267fe7537a5386563c6a7bcc9ff9e17b5ac44d7c9420c7203097fa",
+    "problem.json": "cfca534055b8e2c33e8177f49b018e437a9360814cebf684eae7ec2f9033be53",
+    "explanation.md": "6f0feff837f12f3a992eb70a5956c3ebfbaef5e1c2ae02846e81dddad40f3b0c"
+  },
+  "original_solution_matches": true,
+  "local_lean_available": false,
+  "publication_status": "not inferred from compilation"
+}

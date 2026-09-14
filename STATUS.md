@@ -52,6 +52,8 @@ an extra hypothesis or a stronger conclusion.
 | #229 | Actual rational Boolean checker/output filter gives exactly all normalized REAL circuits | [checked_circuit_catalogue](research/publication_packets/checked_circuit_catalogue/) |
 | #230 | Supplied finite row identities imply a one-ray restricted kernel | [rref_restricted_kernel_certificate](research/publication_packets/rref_restricted_kernel_certificate/) |
 | #233 | The ACTUAL checked catalogue tests every real linear functional on the entire nonnegative kernel | [checked_catalogue_dual_tests](research/publication_packets/checked_catalogue_dual_tests/) |
+| #234 | Full allocation alternative for separate, overlapping and signed budgets with finite coverage | [covering_allocation_alternative](research/publication_packets/covering_allocation_alternative/) |
+| #235 | External minimal joint circuits have exact support multipliers, nonnegative deficits and a common-maximizer zero pattern | [joint_circuit_support_deficits](research/publication_packets/joint_circuit_support_deficits/) |
 
 #229 theorem: `49468d71-eb2e-4908-a15e-a89d1d23622a`;
 submission: `0dcf5eea-df74-4295-9a5e-c71edb96589d`, ACCEPTED.
@@ -65,7 +67,7 @@ submission: `de82dc98-0819-4305-968d-cff93ef9ada6`, ACCEPTED.
 Use its actual column-identity assumptions; it is not an unconditional
 correctness theorem for an imperative row-reduction implementation.
 
-## Newly accepted concrete bridge: PR #233
+## Accepted concrete catalogue bridge: PR #233
 
 Public name: `Hirsch.checked_rational_catalogue_dual_tests`.
 Theorem: `3999b5a0-22c8-44a5-9886-6838b03fd07f`.
@@ -101,36 +103,108 @@ and preserved as raw records plus explicitly derived inspection summaries.
 The prior verification-evidence.md is a historical intermediate record,
 not a reason to resume this now-ACCEPTED submission. Do not resubmit #233.
 
+## Accepted covering-budget alternative: PR #234
+
+Public name: `Hirsch.covering_budget_allocation_alternative`.
+Theorem: `124be5aa-74ac-45b3-be3b-f02f8f9d4242`.
+Submission: `81b93d5c-1b53-4c6c-9074-7d5c8eb9d736`, **ACCEPTED**;
+authenticated publisher readback: **Proved**.
+Proof head `fb182322048816ba626cb6f1c821d4cb332224d3`, run `34790733652`.
+Merged in `6a2eabd05dc79ced01c5ce74d194dece1014a368`.
+See [accepted evidence](research/publication_packets/covering_allocation_alternative/accepted-evidence.md)
+and the raw packet audit, verified manifest and publication receipt beside it.
+
+For actual constraint rows a and resource rows B, supplied rho>=0 with
+B^T*rho>=1 gives the full nonnegative allocation alternative for a*x<=b,
+B*x<=t. Right sides and individual B coefficients may be signed. All original
+budgets are retained; the extra redundant total-mass multiplier is absorbed
+into budget and nonnegativity multipliers. No Farkas, strict-feasibility,
+full-rank or already-feasible-allocation premise is assumed. Coverage remains
+an explicit finite condition.
+
+The original 427-line candidate passed its first prepared compile/axiom gate
+and first submission unchanged. All three compile exit codes are zero; all
+four audited declarations use only standard logical axioms. Source SHA-256:
+`0f3b70e88d6b989ccf2d3cc16676258ae714b6c05eefb49a9ba109a8729f7b3e`.
+The old blocked-commit/uncompiled notes are superseded for this exact packet.
+They are not evidence that another covering alternative needs to be written.
+Do not resubmit #234. This acceptance does not verify the older 1170-line
+one-block composition or the entire multi-block Minkowski adapter.
+
+## Accepted joint-circuit sign and zero-pattern theorem: PR #235
+
+Public name: `Hirsch.joint_external_circuit_support_and_zero_deficit`.
+Theorem: `215a5bbf-fda4-467b-9e99-8714e6ec007b`.
+Submission: `108c2171-0be9-48bd-a1f2-191f35f8b6fc`, **ACCEPTED**;
+authenticated publisher live readback: **Proved**.
+Frozen head `e78b966247f66bbe3906851395a1fd63bfb243b0`, run `34791096717`.
+Read [accepted evidence](research/publication_packets/joint_circuit_support_deficits/accepted-evidence.md)
+and [the handoff](research/JOINT_CIRCUIT_HANDOFF_2026-09-13.md).
+The old local-only candidate passed its FIRST prepared compile/axiom gate and
+first platform submission unchanged. All three compile exits are zero and all
+four audited declarations use only standard logical axioms. Post-gate work
+preserves raw receipts, full compile logs and the exact tested Python source;
+it does not alter the proof, problem or frozen explanation. No retry occurred.
+
+For external support-minimal nonnegative null multipliers of the actual
+independent simplex-block allocation rows, each total multiplier is the
+attained support of the combined original rows. Thus valid nonnegative
+candidate support bounds give nonnegative packing deficits Gamma. Gamma=0
+iff one listed point (including the anchor) attains every positively weighted
+row bound. This supplies exact coefficient signs and their zero pattern,
+not an original-H support optimizer or an ordinary-edge bound. Empty,
+repeated and dependent generator lists are included.
+
+Internal-only multipliers instead give automatic budgets at nonnegative scales.
+External nonminimal multipliers can have negative deficits: keep full support
+minimality from #218/#229, rather than inferring it from #219's weaker public
+nonnegative-null invariant. The named Solutions mirror in the earlier local
+bundle has no separate module-build claim; the verified source here is the
+standalone publication packet. The committed regression script checks 59
+systems and 267 circuits; this software evidence is distinct from Lean proof.
+Do not resubmit #235 or label its universal tightening routine Lean-extracted.
+
 ## Next exact proof obligation
 
-Compose #233's actual catalogue tests with the accepted bounded allocation
-alternative, not with a newly assumed Farkas or completeness statement.
-Let J = Fin m + Option(Fin k). Reindex the allocation transpose
-`(-aG, -I, ones)` through an explicit finite bijection J -> Fin(m+k+1).
-Prove the row-sum and budget transport identities for arbitrary real weights.
-For an original point x the transported budget is
+Compose #233's ACTUAL catalogue tests with the accepted allocation alternatives,
+not with a newly assumed Farkas or catalogue-completeness statement.
+For one simplex, explicitly reindex J=Fin m+Option(Fin k) and the transpose of
+`(-aG,-I,ones)` into the rational checker's coordinate type. Prove row-sum and
+RHS pairing transport for arbitrary real weights, then apply #219.
+
+For multiple candidate blocks or covering resource budgets, use #234 and
+C=(-aG,-I,B). Independent simplex blocks have automatic coverage rho=1.
+The actual point-dependent RHS is
 
 ```text
-sum_i lambda_i * (b_i - a_i(x) - h_i) + nu*t.
+d(x,t)=(b-a(x)-H*t,0,t).
 ```
 
-Then apply the already-proved `Hirsch.FiniteAllocation.allocation_alternative`
-from #219 to obtain an actual simultaneous allocation. The desired conclusion
-uses the emitted catalogue itself, not an existential unrelated multiplier
-family. Finally apply #227's exact original-H sharp support witnesses to
-replace the universal original-point tests by explicit scalar budgets.
-Retain nonnegative t, valid candidate support bounds, all original rows and
-any rational-coordinate correspondence needed to use the checker.
+After coefficient/index binding, #233 supplies every real null test from the
+actual emitted catalogue, and #234 produces one simultaneous feasible allocation.
+This yields x=(x-G*theta)+G*theta in the claimed erosion-plus-allocation image.
+Finally #227's exact original-H sharp support witnesses replace the universal
+original-point tests by explicit scalar budgets. Retain valid candidate support
+bounds, the shared scale vector, all original rows and every rational-to-real
+coefficient correspondence. Overlapping resource budgets do not automatically
+represent independent Minkowski summands; use their actual allocation image.
+For independent simplex blocks, transport true circuit minimality to #235 to
+derive nonnegative coefficients and discard automatic internal/zero rows.
 
+See [the precise next interface](research/COVERING_CHECKED_COMPOSITION_NEXT.md).
+The old local composition may provide proof ideas, but its catalogue-to-dual
+subproof is now superseded by #233. Do not copy or republish completed ingredients.
 This is one concrete adapter chain; do not publish new open children that
 merely restate it. Useful shape selection and arbitrary residual ordinary-edge
 routing remain separate mathematical problems even after this composition.
 
 ## PR lifecycle and retired ancestry
 
-#233's mathematical and publication work is complete. Its follow-up changes
-only evidence and handoff; it requires no further proof or publication run.
-Consult GitHub for its final integration state before changing the branch.
+#233 and #234 are accepted and merged with exact evidence. Neither requires
+another proof or publication run. #235 is also accepted with its receipts;
+check GitHub for its final integration state before changing its branch.
+Check live ownership before choosing the remaining adapter or a genuinely new
+geometric routing obligation.
 
 #208 remains the distinct additive-spill/portal-selection draft. Existing
 submission `2a2dd9bd-9ee5-43fa-bc04-def26a5a2a98` is PENDING in its latest
@@ -145,8 +219,8 @@ Clean integration successors are merged #225, #226, #228, #231 and #232.
 geometric cores passed clean-main run `34789669353` and merged as
 `f452b23a06f0122c9b9dda774fadad1ed99813b7`. These are module builds, not new
 Prove2Me acceptances. Historical UNCOMPILED source headers do not override
-later successful receipts. Uncommitted or tool-blocked covering-budget
-candidates mentioned in older chats are not silently included in these merges.
+later successful receipts. #234 is the separate accepted covering-budget
+packet; it was not silently included in those earlier integration merges.
 
 ## Execution discipline
 
