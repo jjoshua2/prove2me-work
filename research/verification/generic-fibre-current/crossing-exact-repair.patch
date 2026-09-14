@@ -1,0 +1,24 @@
+--- before
++++ after
+@@ -86,7 +86,10 @@
+     have hv := hr i x hx
+     rw [hxe, hqe i, map_add, map_add, map_smul, map_smul] at hv
+     simp only [smul_eq_mul] at hv
+-    exact (mul_le_mul_right hre).mp (by linarith : z * right e ≤ η i * right e)
++    by_contra hn
++    have hlt : η i < z := lt_of_not_ge hn
++    have hp := mul_lt_mul_of_pos_right hlt hre
++    linarith
+   rw [hxe, hqe i]
+   exact interval_member (p i) e (η i) z (hη i) hz hzη
+ 
+@@ -150,8 +153,7 @@
+     have h := hqe c
+     have hv := congrArg (f + s • g) h
+     have hel : (f + s • g) (q c)-(f + s • g) (p c) = (f + s • g) e := by
+-      dsimp [e]
+-      rw [map_sub]
++      exact ((f + s • g).map_sub (q c) (p c)).symm
+     simp only [map_add, map_smul, smul_eq_mul] at hv
+     have hm : (η c-1) * (f + s • g) e = 0 := by nlinarith
+     exact sub_eq_zero.mp ((mul_eq_zero.mp hm).resolve_right (ne_of_lt hl))

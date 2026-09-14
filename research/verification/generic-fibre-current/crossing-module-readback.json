@@ -1,0 +1,21 @@
+{
+  "kind": "derived_module_artifact_inspection",
+  "run_id": 34799074798,
+  "artifact_id": 10330294328,
+  "archive_sha256": "dcfeefd0b7c043a0e249cbb04fa2e3d598b876b94a4ab9fb765feff7b9d6c705",
+  "proof_head": "ad42bf00ef2d5b79ae6211529cba4efedbc97066",
+  "module": "Solutions.PolynomialEnvelopeCrossingEdges",
+  "source_blob": "3c3695a01b2e7b0474c86111184c01c2dea53649",
+  "source_sha256": "ecae31b8419bea9deb98ebd4fc4ba676c300cb6f5747dabd527095a92f455858",
+  "build_status": "built",
+  "jobs": {
+    "gate": "success",
+    "verify": "success",
+    "report-verify": "success",
+    "publish": "skipped"
+  },
+  "separate_axiom_audit_receipt": null,
+  "successful_axiom_printouts_retained": false,
+  "platform_submission": null,
+  "note": "The trusted module builder captures and discards successful build output. The artifact records successful Lake compilation, not a preserved transitive-axiom audit. The full five-declaration packet audit belongs to generic_fibre_objectives, not this module."
+}

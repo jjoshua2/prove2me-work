@@ -1,0 +1,11 @@
+'_private._verified.packets.generic_fibre_objectives.driver.0.finite_perturbation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private._verified.packets.generic_fibre_objectives.driver.0.avoiding_preserving_comparisons' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private._verified.packets.generic_fibre_objectives.driver.0.two_affine_zeros_force_determinant' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.common_strict_comparison_preserved' depends on axioms: [propext, Classical.choice, Quot.sound]
