@@ -1,0 +1,15 @@
+{
+  "head_sha": "1ae14c3b216c093294a8bd9e2847c220baacf1ef",
+  "packets": [
+    {
+      "packet": "checked_covering_support_budgets",
+      "status": "ACCEPTED",
+      "theorem_id": "44ee8d0b-dcc7-4b12-aae2-92aff22ab5da",
+      "submission_id": "52ab0db3-9f64-40fe-abff-fa1f3e2884fb",
+      "theorem_name": "Hirsch.checked_covering_minkowski_support_budgets",
+      "registration": "REUSED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/checked_covering_support_budgets"
+    }
+  ]
+}
