@@ -1,0 +1,15 @@
+{
+  "head_sha": "0e9c7ad7ea0e46623df0718564f0917ac50f027a",
+  "packets": [
+    {
+      "packet": "generic_fibre_objectives",
+      "status": "ACCEPTED",
+      "theorem_id": "d323320e-6843-4743-a2ea-e46b770cb3c8",
+      "submission_id": "4ac637cb-f9c4-47fe-9bc2-8d435e539177",
+      "theorem_name": "Hirsch.generic_fibre_objectives_without_independent_ties",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/generic_fibre_objectives"
+    }
+  ]
+}

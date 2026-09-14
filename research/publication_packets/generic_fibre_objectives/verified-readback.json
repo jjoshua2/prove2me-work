@@ -1,0 +1,23 @@
+{
+  "kind": "derived_verified_artifact_inspection",
+  "run_id": 34798475975,
+  "artifact_id": 10330207275,
+  "archive_sha256": "314b0cbc396fb58e42e7ca7616fc8c559e8d3421d329912e0629c571cf7f5bbf",
+  "all_five_frozen_hashes_match": true,
+  "proof_head": "0e9c7ad7ea0e46623df0718564f0917ac50f027a",
+  "solution_and_problem_match_final_preparation": true,
+  "proof_commands_unchanged_from_original_bundle": true,
+  "source_comment_only_correction": "admit -> have on line92",
+  "compile_exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "audited_declarations": 5,
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "not_a_platform_verdict": true
+}

@@ -1,0 +1,18 @@
+{
+  "kind": "derived_preflight_diagnosis",
+  "run_id": 34798001787,
+  "job_id": 103834798011,
+  "proof_sha": "3a82b93a5202ce0f296123725c6964a870f111d0",
+  "exit_code": 2,
+  "stage": "admission_text_preflight_before_Lean",
+  "message": "solution.lean contains a forbidden admission",
+  "match": "admit",
+  "line": 92,
+  "location": "English doc comment, not proof syntax",
+  "correction": "admit an objective segment -> have an objective segment",
+  "proof_commands_and_statement_unchanged": true,
+  "trusted_verifier_changed": false,
+  "Lean_compile_performed": false,
+  "platform_registration": null,
+  "platform_submission": null
+}

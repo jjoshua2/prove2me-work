@@ -1,0 +1,93 @@
+{
+  "status": "PASS",
+  "seed": 2026091400,
+  "counts": {
+    "small_models": 80,
+    "paths": 85,
+    "edges": 103,
+    "independent_edge_tuple_checks": 3465,
+    "whole_sum_models": 82,
+    "parallel_crossings": 8,
+    "full_face_point_checks": 3178,
+    "rejected_controls": 17
+  },
+  "small_certificate_chain_sha256": "894303edc4022010b5d7b0c9e8eeaae967ddd70c81be5d1f3ee3398cf7b4499b",
+  "root_bound_saturation": [
+    {
+      "dimension": 2,
+      "forms": 12,
+      "trials": 13,
+      "bound": 13
+    },
+    {
+      "dimension": 4,
+      "forms": 6,
+      "trials": 19,
+      "bound": 19
+    },
+    {
+      "dimension": 7,
+      "forms": 4,
+      "trials": 25,
+      "bound": 25
+    }
+  ],
+  "large": [
+    {
+      "dimension": 12,
+      "triangle_lists": 10,
+      "core_generators": 13,
+      "raw_point_tuple_count_not_enumerated": 767637,
+      "edges": 10,
+      "factor_budget": 20,
+      "direction_classes": 21,
+      "pair_obstructions": 210,
+      "first_trials": 2,
+      "first_bound": 232,
+      "last_trials": 4,
+      "last_bound": 2322,
+      "full_face_point_checks": 300
+    },
+    {
+      "dimension": 24,
+      "triangle_lists": 16,
+      "core_generators": 25,
+      "raw_point_tuple_count_not_enumerated": 1076168025,
+      "edges": 16,
+      "factor_budget": 32,
+      "direction_classes": 33,
+      "pair_obstructions": 528,
+      "first_trials": 2,
+      "first_bound": 760,
+      "last_trials": 4,
+      "last_bound": 12168,
+      "full_face_point_checks": 768
+    },
+    {
+      "dimension": 32,
+      "triangle_lists": 24,
+      "core_generators": 33,
+      "raw_point_tuple_count_not_enumerated": 9320174703873,
+      "edges": 24,
+      "factor_budget": 48,
+      "direction_classes": 49,
+      "pair_obstructions": 1176,
+      "first_trials": 2,
+      "first_bound": 1520,
+      "last_trials": 4,
+      "last_bound": 36488,
+      "full_face_point_checks": 1728
+    }
+  ],
+  "maximum_small_edges_to_factor_budget": "1",
+  "square_control": {
+    "original_simultaneous_rank": 2,
+    "constructed_edges": 2,
+    "endpoints_unchanged": true
+  },
+  "scope": "Exact finite component support certificates. Not Lean compilation/extraction, arbitrary H-decomposition discovery, or a uniform Hirsch diameter bound.",
+  "source_sha256": {
+    "deterministic_fibre_path.py": "a831765a92b69f20114df6b482aabf417d627d474d6f1fad253b80a49c9a0edb",
+    "test_deterministic_fibre_path.py": "57231194e2a5d948ce325b2b0089d2e73232fe6c65c920ce4c5af47d09409931"
+  }
+}

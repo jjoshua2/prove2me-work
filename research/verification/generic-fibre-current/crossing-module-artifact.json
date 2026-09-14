@@ -1,0 +1,14 @@
+{
+  "head_sha": "ad42bf00ef2d5b79ae6211529cba4efedbc97066",
+  "packets": [],
+  "targets": [
+    "Solutions.PolynomialEnvelopeCrossingEdges"
+  ],
+  "target_results": [
+    {
+      "name": "Solutions.PolynomialEnvelopeCrossingEdges",
+      "status": "built"
+    }
+  ],
+  "module_only": true
+}

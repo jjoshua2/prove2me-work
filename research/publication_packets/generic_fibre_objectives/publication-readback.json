@@ -1,0 +1,19 @@
+{
+  "kind": "derived_publication_artifact_inspection",
+  "run_id": 34798475975,
+  "artifact_id": 10330148883,
+  "archive_sha256": "bfae6d86ea7169cd577a932e18b0c61429014d99c22edf0161c3ef98405bc08c",
+  "archive_hash_matches": true,
+  "frozen_proof_sha": "0e9c7ad7ea0e46623df0718564f0917ac50f027a",
+  "theorem_id": "d323320e-6843-4743-a2ea-e46b770cb3c8",
+  "submission_id": "4ac637cb-f9c4-47fe-9bc2-8d435e539177",
+  "authenticated_status": "ACCEPTED",
+  "recorded_authenticated_live_status": "Proved",
+  "not_a_separate_direct_platform_poll": true,
+  "jobs": {
+    "gate": "success",
+    "verify": "success",
+    "publish": "success",
+    "report-verify": "skipped"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "kind": "derived_clean_directory_replay",
+  "exact_test_receipt_identical": true,
+  "fixtures_identical": {
+    "fibre-32d-input.json": true,
+    "fibre-32d-certificate.json": true
+  },
+  "independent_json_readback": {
+    "edges": 24,
+    "factor_budget": 48,
+    "full_face_comparisons": 1728,
+    "simultaneous_parallel_switches": 0,
+    "requested_endpoints_preserved": true
+  }
+}
