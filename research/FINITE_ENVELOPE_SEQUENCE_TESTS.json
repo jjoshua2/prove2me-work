@@ -1,0 +1,78 @@
+{
+  "status": "PASS",
+  "scope": "exact rational regression; not Lean verification",
+  "score_systems": 355,
+  "raw_intervals": 1369,
+  "retained_transitions": 285,
+  "stationary_transitions_removed": 729,
+  "comparisons": 42744,
+  "geometric_systems": 68,
+  "genuine_edges": 177,
+  "whole_sum_comparisons": 3749,
+  "strict_comparisons_preserved": 525,
+  "core_wall_comparisons": 1050,
+  "full_core_sum_comparisons": 26201,
+  "systems_with_stationary_events": 220,
+  "parallel_multi_factor_steps": 3,
+  "large": [
+    {
+      "core_points": 201,
+      "core_strict_comparisons": 4200,
+      "full_sum_comparisons": 0,
+      "factors": 16,
+      "dimension": 8,
+      "raw_tuple_product": 43046721,
+      "raw_intervals": 49,
+      "edges": 21,
+      "bound": 32,
+      "strict_comparisons_preserved": 63,
+      "whole_tuple_product_enumerated": false
+    },
+    {
+      "core_points": 201,
+      "core_strict_comparisons": 8600,
+      "full_sum_comparisons": 0,
+      "factors": 32,
+      "dimension": 12,
+      "raw_tuple_product": 1853020188851841,
+      "raw_intervals": 97,
+      "edges": 43,
+      "bound": 64,
+      "strict_comparisons_preserved": 129,
+      "whole_tuple_product_enumerated": false
+    },
+    {
+      "core_points": 201,
+      "core_strict_comparisons": 19400,
+      "full_sum_comparisons": 0,
+      "factors": 64,
+      "dimension": 16,
+      "raw_tuple_product": 3433683820292512484657849089281,
+      "raw_intervals": 193,
+      "edges": 97,
+      "bound": 128,
+      "strict_comparisons_preserved": 291,
+      "whole_tuple_product_enumerated": false
+    }
+  ],
+  "rejected": [
+    "missing_root",
+    "reordered_roots",
+    "wall_moved",
+    "sample_moved",
+    "winner_changed",
+    "missing_retained_state",
+    "false_source_transition",
+    "duplicated_retained_state",
+    "empty_factor",
+    "duplicate_initial_scores",
+    "endpoint_tie",
+    "float_input",
+    "independent_simultaneous_square_diagonal"
+  ],
+  "rejected_count": 13,
+  "seconds": 9.63,
+  "source_sha256": {
+    "scripts/test_finite_envelope_sequence.py": "bb5abfe404d3b7772063d9897b59f941e73089e672c2cbb11ca0edd98cccfcaa"
+  }
+}
