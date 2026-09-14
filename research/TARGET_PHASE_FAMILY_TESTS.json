@@ -1,0 +1,385 @@
+{
+  "capped_tests": [
+    {
+      "dimension": 2,
+      "facet_first1": 2,
+      "facet_first2": 2,
+      "facets": 5,
+      "reset_gain": 2,
+      "reset_slack": 2
+    },
+    {
+      "dimension": 3,
+      "facet_first1": 3,
+      "facet_first2": 3,
+      "facets": 7,
+      "reset_gain": 3,
+      "reset_slack": 3
+    },
+    {
+      "dimension": 4,
+      "facet_first1": 4,
+      "facet_first2": 4,
+      "facets": 9,
+      "reset_gain": 4,
+      "reset_slack": 4
+    },
+    {
+      "dimension": 5,
+      "facet_first1": 5,
+      "facet_first2": 5,
+      "facets": 11,
+      "reset_gain": 5,
+      "reset_slack": 5
+    },
+    {
+      "dimension": 6,
+      "facet_first1": 6,
+      "facet_first2": 6,
+      "facets": 13,
+      "reset_gain": 6,
+      "reset_slack": 6
+    },
+    {
+      "dimension": 7,
+      "facet_first1": 7,
+      "facet_first2": 7,
+      "facets": 15,
+      "reset_gain": 7,
+      "reset_slack": 7
+    },
+    {
+      "dimension": 8,
+      "facet_first1": 8,
+      "facet_first2": 8,
+      "facets": 17,
+      "reset_gain": 8,
+      "reset_slack": 8
+    },
+    {
+      "dimension": 9,
+      "facet_first1": 9,
+      "facet_first2": 9,
+      "facets": 19,
+      "reset_gain": 9,
+      "reset_slack": 9
+    },
+    {
+      "dimension": 10,
+      "facet_first1": 10,
+      "facet_first2": 10,
+      "facets": 21,
+      "reset_gain": 10,
+      "reset_slack": 10
+    },
+    {
+      "dimension": 11,
+      "facet_first1": 11,
+      "facet_first2": 11,
+      "facets": 23,
+      "reset_gain": 11,
+      "reset_slack": 11
+    },
+    {
+      "dimension": 12,
+      "facet_first1": 12,
+      "facet_first2": 12,
+      "facets": 25,
+      "reset_gain": 12,
+      "reset_slack": 12
+    }
+  ],
+  "finite_lookahead_barriers": [
+    {
+      "N": 4,
+      "dimension": 2,
+      "facets": 8,
+      "first_phase_edges": 4,
+      "lookahead": 1,
+      "route_edges": 5,
+      "shortest_distance": 3
+    },
+    {
+      "N": 8,
+      "dimension": 2,
+      "facets": 12,
+      "first_phase_edges": 8,
+      "lookahead": 1,
+      "route_edges": 9,
+      "shortest_distance": 3
+    },
+    {
+      "N": 16,
+      "dimension": 2,
+      "facets": 20,
+      "first_phase_edges": 16,
+      "lookahead": 1,
+      "route_edges": 17,
+      "shortest_distance": 3
+    },
+    {
+      "N": 32,
+      "dimension": 2,
+      "facets": 36,
+      "first_phase_edges": 32,
+      "lookahead": 1,
+      "route_edges": 33,
+      "shortest_distance": 3
+    },
+    {
+      "N": 64,
+      "dimension": 2,
+      "facets": 68,
+      "first_phase_edges": 64,
+      "lookahead": 1,
+      "route_edges": 65,
+      "shortest_distance": 3
+    },
+    {
+      "N": 4,
+      "dimension": 2,
+      "facets": 9,
+      "first_phase_edges": 4,
+      "lookahead": 2,
+      "route_edges": 5,
+      "shortest_distance": 4
+    },
+    {
+      "N": 8,
+      "dimension": 2,
+      "facets": 13,
+      "first_phase_edges": 8,
+      "lookahead": 2,
+      "route_edges": 9,
+      "shortest_distance": 4
+    },
+    {
+      "N": 16,
+      "dimension": 2,
+      "facets": 21,
+      "first_phase_edges": 16,
+      "lookahead": 2,
+      "route_edges": 17,
+      "shortest_distance": 4
+    },
+    {
+      "N": 32,
+      "dimension": 2,
+      "facets": 37,
+      "first_phase_edges": 32,
+      "lookahead": 2,
+      "route_edges": 33,
+      "shortest_distance": 4
+    },
+    {
+      "N": 64,
+      "dimension": 2,
+      "facets": 69,
+      "first_phase_edges": 64,
+      "lookahead": 2,
+      "route_edges": 65,
+      "shortest_distance": 4
+    }
+  ],
+  "negative_gain_escapes": [
+    {
+      "N": 2,
+      "distance": 2,
+      "facets": 5,
+      "policies": {
+        "facet_first1": {
+          "edges": 2,
+          "max_constant_face_edges": 0,
+          "phase_decreasing_edges": 1
+        },
+        "facet_first2": {
+          "edges": 2,
+          "max_constant_face_edges": 0,
+          "phase_decreasing_edges": 1
+        },
+        "reset_gain": {
+          "edges": 3,
+          "max_constant_face_edges": 1,
+          "phase_decreasing_edges": 0
+        },
+        "reset_slack": {
+          "edges": 3,
+          "max_constant_face_edges": 1,
+          "phase_decreasing_edges": 0
+        }
+      }
+    },
+    {
+      "N": 4,
+      "distance": 2,
+      "facets": 7,
+      "policies": {
+        "facet_first1": {
+          "edges": 2,
+          "max_constant_face_edges": 0,
+          "phase_decreasing_edges": 1
+        },
+        "facet_first2": {
+          "edges": 2,
+          "max_constant_face_edges": 0,
+          "phase_decreasing_edges": 1
+        },
+        "reset_gain": {
+          "edges": 5,
+          "max_constant_face_edges": 3,
+          "phase_decreasing_edges": 0
+        },
+        "reset_slack": {
+          "edges": 5,
+          "max_constant_face_edges": 3,
+          "phase_decreasing_edges": 0
+        }
+      }
+    },
+    {
+      "N": 8,
+      "distance": 2,
+      "facets": 11,
+      "policies": {
+        "facet_first1": {
+          "edges": 2,
+          "max_constant_face_edges": 0,
+          "phase_decreasing_edges": 1
+        },
+        "facet_first2": {
+          "edges": 2,
+          "max_constant_face_edges": 0,
+          "phase_decreasing_edges": 1
+        },
+        "reset_gain": {
+          "edges": 9,
+          "max_constant_face_edges": 7,
+          "phase_decreasing_edges": 0
+        },
+        "reset_slack": {
+          "edges": 9,
+          "max_constant_face_edges": 7,
+          "phase_decreasing_edges": 0
+        }
+      }
+    },
+    {
+      "N": 16,
+      "distance": 2,
+      "facets": 19,
+      "policies": {
+        "facet_first1": {
+          "edges": 2,
+          "max_constant_face_edges": 0,
+          "phase_decreasing_edges": 1
+        },
+        "facet_first2": {
+          "edges": 2,
+          "max_constant_face_edges": 0,
+          "phase_decreasing_edges": 1
+        },
+        "reset_gain": {
+          "edges": 17,
+          "max_constant_face_edges": 15,
+          "phase_decreasing_edges": 0
+        },
+        "reset_slack": {
+          "edges": 17,
+          "max_constant_face_edges": 15,
+          "phase_decreasing_edges": 0
+        }
+      }
+    },
+    {
+      "N": 32,
+      "distance": 2,
+      "facets": 35,
+      "policies": {
+        "facet_first1": {
+          "edges": 2,
+          "max_constant_face_edges": 0,
+          "phase_decreasing_edges": 1
+        },
+        "facet_first2": {
+          "edges": 2,
+          "max_constant_face_edges": 0,
+          "phase_decreasing_edges": 1
+        },
+        "reset_gain": {
+          "edges": 33,
+          "max_constant_face_edges": 31,
+          "phase_decreasing_edges": 0
+        },
+        "reset_slack": {
+          "edges": 33,
+          "max_constant_face_edges": 31,
+          "phase_decreasing_edges": 0
+        }
+      }
+    },
+    {
+      "N": 64,
+      "distance": 2,
+      "facets": 67,
+      "policies": {
+        "facet_first1": {
+          "edges": 2,
+          "max_constant_face_edges": 0,
+          "phase_decreasing_edges": 1
+        },
+        "facet_first2": {
+          "edges": 2,
+          "max_constant_face_edges": 0,
+          "phase_decreasing_edges": 1
+        },
+        "reset_gain": {
+          "edges": 65,
+          "max_constant_face_edges": 63,
+          "phase_decreasing_edges": 0
+        },
+        "reset_slack": {
+          "edges": 65,
+          "max_constant_face_edges": 63,
+          "phase_decreasing_edges": 0
+        }
+      }
+    }
+  ],
+  "product_tests": [
+    {
+      "candidate_checks": 3,
+      "dimension": 2,
+      "facets": 7,
+      "full_graph_enumerated": false,
+      "lower_bound": 2,
+      "route_edges": 2
+    },
+    {
+      "candidate_checks": 10,
+      "dimension": 4,
+      "facets": 14,
+      "full_graph_enumerated": false,
+      "lower_bound": 4,
+      "route_edges": 4
+    },
+    {
+      "candidate_checks": 36,
+      "dimension": 8,
+      "facets": 28,
+      "full_graph_enumerated": false,
+      "lower_bound": 8,
+      "route_edges": 8
+    },
+    {
+      "candidate_checks": 136,
+      "dimension": 16,
+      "facets": 56,
+      "full_graph_enumerated": false,
+      "lower_bound": 16,
+      "route_edges": 16
+    }
+  ],
+  "scope": "Exact tests plus separate written family proofs, not Lean.",
+  "seconds": 12.244298747000016,
+  "status": "PASS"
+}

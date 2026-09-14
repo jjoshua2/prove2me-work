@@ -1,0 +1,717 @@
+{
+  "additional": {
+    "nonshortest": {
+      "facet_first1": 37,
+      "facet_first2": 27,
+      "reset_gain": 39,
+      "reset_slack": 46
+    },
+    "pairs": 600,
+    "pairwise_vs_previous": {
+      "equal": 559,
+      "longer": 7,
+      "shorter": 34
+    },
+    "previous_target_slack_nonshortest": 53,
+    "previous_target_slack_total": 1564,
+    "shortest_sum": 1499,
+    "totals": {
+      "facet_first1": 1542,
+      "facet_first2": 1529,
+      "reset_gain": 1547,
+      "reset_slack": 1555
+    }
+  },
+  "affine_checks": 24,
+  "decreases_of_previous_fixed_objective": 63,
+  "excluded": [
+    {
+      "model": "holdout_cut_cube_1",
+      "reason": "reference is not simple",
+      "scope": "Unsupported nonsimple case, not a negative geometric verdict."
+    }
+  ],
+  "families": [
+    {
+      "dimension": 2,
+      "edges": 5,
+      "facets": 5,
+      "family": "moment_2_5",
+      "incident_candidates": {
+        "facet_first1": 40,
+        "facet_first2": 40,
+        "reset_gain": 40,
+        "reset_slack": 40
+      },
+      "lookahead_candidates": {
+        "facet_first1": 0,
+        "facet_first2": 0,
+        "reset_gain": 0,
+        "reset_slack": 0
+      },
+      "max_constant_face_edges": {
+        "facet_first1": 0,
+        "facet_first2": 0,
+        "reset_gain": 0,
+        "reset_slack": 0
+      },
+      "nonshortest": {
+        "facet_first1": 0,
+        "facet_first2": 0,
+        "reset_gain": 0,
+        "reset_slack": 0
+      },
+      "old_phase_decreasing_edges": {
+        "facet_first1": 0,
+        "facet_first2": 0,
+        "reset_gain": 0,
+        "reset_slack": 0
+      },
+      "pairs": 20,
+      "pairwise_vs_previous": {
+        "equal": 20,
+        "longer": 0,
+        "shorter": 0
+      },
+      "previous_target_slack_nonshortest": 0,
+      "previous_target_slack_total": 30,
+      "shortest_total": 30,
+      "suite": "original",
+      "totals": {
+        "facet_first1": 30,
+        "facet_first2": 30,
+        "reset_gain": 30,
+        "reset_slack": 30
+      },
+      "vertices": 5
+    },
+    {
+      "dimension": 2,
+      "edges": 7,
+      "facets": 7,
+      "family": "moment_2_7",
+      "incident_candidates": {
+        "facet_first1": 132,
+        "facet_first2": 98,
+        "reset_gain": 132,
+        "reset_slack": 134
+      },
+      "lookahead_candidates": {
+        "facet_first1": 0,
+        "facet_first2": 56,
+        "reset_gain": 0,
+        "reset_slack": 0
+      },
+      "max_constant_face_edges": {
+        "facet_first1": 2,
+        "facet_first2": 1,
+        "reset_gain": 2,
+        "reset_slack": 2
+      },
+      "nonshortest": {
+        "facet_first1": 3,
+        "facet_first2": 0,
+        "reset_gain": 3,
+        "reset_slack": 4
+      },
+      "old_phase_decreasing_edges": {
+        "facet_first1": 0,
+        "facet_first2": 0,
+        "reset_gain": 0,
+        "reset_slack": 0
+      },
+      "pairs": 42,
+      "pairwise_vs_previous": {
+        "equal": 37,
+        "longer": 0,
+        "shorter": 5
+      },
+      "previous_target_slack_nonshortest": 5,
+      "previous_target_slack_total": 89,
+      "shortest_total": 84,
+      "suite": "original",
+      "totals": {
+        "facet_first1": 87,
+        "facet_first2": 84,
+        "reset_gain": 87,
+        "reset_slack": 88
+      },
+      "vertices": 7
+    },
+    {
+      "dimension": 3,
+      "edges": 12,
+      "facets": 6,
+      "family": "moment_3_6",
+      "incident_candidates": {
+        "facet_first1": 132,
+        "facet_first2": 132,
+        "reset_gain": 132,
+        "reset_slack": 132
+      },
+      "lookahead_candidates": {
+        "facet_first1": 0,
+        "facet_first2": 0,
+        "reset_gain": 0,
+        "reset_slack": 0
+      },
+      "max_constant_face_edges": {
+        "facet_first1": 0,
+        "facet_first2": 0,
+        "reset_gain": 0,
+        "reset_slack": 0
+      },
+      "nonshortest": {
+        "facet_first1": 0,
+        "facet_first2": 0,
+        "reset_gain": 0,
+        "reset_slack": 0
+      },
+      "old_phase_decreasing_edges": {
+        "facet_first1": 0,
+        "facet_first2": 0,
+        "reset_gain": 0,
+        "reset_slack": 0
+      },
+      "pairs": 56,
+      "pairwise_vs_previous": {
+        "equal": 53,
+        "longer": 0,
+        "shorter": 3
+      },
+      "previous_target_slack_nonshortest": 3,
+      "previous_target_slack_total": 95,
+      "shortest_total": 92,
+      "suite": "original",
+      "totals": {
+        "facet_first1": 92,
+        "facet_first2": 92,
+        "reset_gain": 92,
+        "reset_slack": 92
+      },
+      "vertices": 8
+    },
+    {
+      "dimension": 3,
+      "edges": 18,
+      "facets": 8,
+      "family": "moment_3_8",
+      "incident_candidates": {
+        "facet_first1": 492,
+        "facet_first2": 396,
+        "reset_gain": 496,
+        "reset_slack": 502
+      },
+      "lookahead_candidates": {
+        "facet_first1": 0,
+        "facet_first2": 152,
+        "reset_gain": 0,
+        "reset_slack": 0
+      },
+      "max_constant_face_edges": {
+        "facet_first1": 2,
+        "facet_first2": 1,
+        "reset_gain": 2,
+        "reset_slack": 2
+      },
+      "nonshortest": {
+        "facet_first1": 10,
+        "facet_first2": 2,
+        "reset_gain": 10,
+        "reset_slack": 10
+      },
+      "old_phase_decreasing_edges": {
+        "facet_first1": 2,
+        "facet_first2": 6,
+        "reset_gain": 0,
+        "reset_slack": 0
+      },
+      "pairs": 132,
+      "pairwise_vs_previous": {
+        "equal": 121,
+        "longer": 2,
+        "shorter": 9
+      },
+      "previous_target_slack_nonshortest": 9,
+      "previous_target_slack_total": 299,
+      "shortest_total": 288,
+      "suite": "original",
+      "totals": {
+        "facet_first1": 300,
+        "facet_first2": 290,
+        "reset_gain": 300,
+        "reset_slack": 300
+      },
+      "vertices": 12
+    },
+    {
+      "dimension": 4,
+      "edges": 28,
+      "facets": 7,
+      "family": "moment_4_7",
+      "incident_candidates": {
+        "facet_first1": 518,
+        "facet_first2": 518,
+        "reset_gain": 540,
+        "reset_slack": 550
+      },
+      "lookahead_candidates": {
+        "facet_first1": 0,
+        "facet_first2": 0,
+        "reset_gain": 0,
+        "reset_slack": 0
+      },
+      "max_constant_face_edges": {
+        "facet_first1": 0,
+        "facet_first2": 0,
+        "reset_gain": 1,
+        "reset_slack": 1
+      },
+      "nonshortest": {
+        "facet_first1": 0,
+        "facet_first2": 0,
+        "reset_gain": 11,
+        "reset_slack": 16
+      },
+      "old_phase_decreasing_edges": {
+        "facet_first1": 2,
+        "facet_first2": 2,
+        "reset_gain": 0,
+        "reset_slack": 0
+      },
+      "pairs": 182,
+      "pairwise_vs_previous": {
+        "equal": 171,
+        "longer": 0,
+        "shorter": 11
+      },
+      "previous_target_slack_nonshortest": 11,
+      "previous_target_slack_total": 347,
+      "shortest_total": 336,
+      "suite": "original",
+      "totals": {
+        "facet_first1": 336,
+        "facet_first2": 336,
+        "reset_gain": 347,
+        "reset_slack": 352
+      },
+      "vertices": 14
+    },
+    {
+      "dimension": 3,
+      "edges": 21,
+      "facets": 9,
+      "family": "clipped_cube_3",
+      "incident_candidates": {
+        "facet_first1": 690,
+        "facet_first2": 666,
+        "reset_gain": 690,
+        "reset_slack": 690
+      },
+      "lookahead_candidates": {
+        "facet_first1": 0,
+        "facet_first2": 72,
+        "reset_gain": 0,
+        "reset_slack": 0
+      },
+      "max_constant_face_edges": {
+        "facet_first1": 1,
+        "facet_first2": 1,
+        "reset_gain": 1,
+        "reset_slack": 1
+      },
+      "nonshortest": {
+        "facet_first1": 0,
+        "facet_first2": 0,
+        "reset_gain": 0,
+        "reset_slack": 0
+      },
+      "old_phase_decreasing_edges": {
+        "facet_first1": 0,
+        "facet_first2": 0,
+        "reset_gain": 0,
+        "reset_slack": 0
+      },
+      "pairs": 182,
+      "pairwise_vs_previous": {
+        "equal": 182,
+        "longer": 0,
+        "shorter": 0
+      },
+      "previous_target_slack_nonshortest": 0,
+      "previous_target_slack_total": 398,
+      "shortest_total": 398,
+      "suite": "original",
+      "totals": {
+        "facet_first1": 398,
+        "facet_first2": 398,
+        "reset_gain": 398,
+        "reset_slack": 398
+      },
+      "vertices": 14
+    },
+    {
+      "dimension": 2,
+      "edges": 11,
+      "facets": 11,
+      "family": "holdout_moment_2_11",
+      "incident_candidates": {
+        "facet_first1": 504,
+        "facet_first2": 386,
+        "reset_gain": 504,
+        "reset_slack": 504
+      },
+      "lookahead_candidates": {
+        "facet_first1": 0,
+        "facet_first2": 492,
+        "reset_gain": 0,
+        "reset_slack": 0
+      },
+      "max_constant_face_edges": {
+        "facet_first1": 4,
+        "facet_first2": 4,
+        "reset_gain": 4,
+        "reset_slack": 4
+      },
+      "nonshortest": {
+        "facet_first1": 6,
+        "facet_first2": 6,
+        "reset_gain": 6,
+        "reset_slack": 6
+      },
+      "old_phase_decreasing_edges": {
+        "facet_first1": 0,
+        "facet_first2": 0,
+        "reset_gain": 0,
+        "reset_slack": 0
+      },
+      "pairs": 100,
+      "pairwise_vs_previous": {
+        "equal": 100,
+        "longer": 0,
+        "shorter": 0
+      },
+      "previous_target_slack_nonshortest": 6,
+      "previous_target_slack_total": 302,
+      "shortest_total": 296,
+      "suite": "additional",
+      "totals": {
+        "facet_first1": 302,
+        "facet_first2": 302,
+        "reset_gain": 302,
+        "reset_slack": 302
+      },
+      "vertices": 11
+    },
+    {
+      "dimension": 3,
+      "edges": 24,
+      "facets": 10,
+      "family": "holdout_moment_3_10",
+      "incident_candidates": {
+        "facet_first1": 502,
+        "facet_first2": 412,
+        "reset_gain": 513,
+        "reset_slack": 521
+      },
+      "lookahead_candidates": {
+        "facet_first1": 0,
+        "facet_first2": 296,
+        "reset_gain": 0,
+        "reset_slack": 0
+      },
+      "max_constant_face_edges": {
+        "facet_first1": 3,
+        "facet_first2": 3,
+        "reset_gain": 3,
+        "reset_slack": 3
+      },
+      "nonshortest": {
+        "facet_first1": 8,
+        "facet_first2": 8,
+        "reset_gain": 8,
+        "reset_slack": 10
+      },
+      "old_phase_decreasing_edges": {
+        "facet_first1": 6,
+        "facet_first2": 6,
+        "reset_gain": 0,
+        "reset_slack": 0
+      },
+      "pairs": 100,
+      "pairwise_vs_previous": {
+        "equal": 94,
+        "longer": 2,
+        "shorter": 4
+      },
+      "previous_target_slack_nonshortest": 10,
+      "previous_target_slack_total": 289,
+      "shortest_total": 274,
+      "suite": "additional",
+      "totals": {
+        "facet_first1": 285,
+        "facet_first2": 285,
+        "reset_gain": 285,
+        "reset_slack": 287
+      },
+      "vertices": 16
+    },
+    {
+      "dimension": 4,
+      "edges": 54,
+      "facets": 9,
+      "family": "holdout_moment_4_9",
+      "incident_candidates": {
+        "facet_first1": 474,
+        "facet_first2": 396,
+        "reset_gain": 482,
+        "reset_slack": 496
+      },
+      "lookahead_candidates": {
+        "facet_first1": 0,
+        "facet_first2": 128,
+        "reset_gain": 0,
+        "reset_slack": 0
+      },
+      "max_constant_face_edges": {
+        "facet_first1": 2,
+        "facet_first2": 1,
+        "reset_gain": 2,
+        "reset_slack": 2
+      },
+      "nonshortest": {
+        "facet_first1": 8,
+        "facet_first2": 3,
+        "reset_gain": 7,
+        "reset_slack": 9
+      },
+      "old_phase_decreasing_edges": {
+        "facet_first1": 4,
+        "facet_first2": 8,
+        "reset_gain": 0,
+        "reset_slack": 0
+      },
+      "pairs": 100,
+      "pairwise_vs_previous": {
+        "equal": 89,
+        "longer": 0,
+        "shorter": 11
+      },
+      "previous_target_slack_nonshortest": 13,
+      "previous_target_slack_total": 270,
+      "shortest_total": 254,
+      "suite": "additional",
+      "totals": {
+        "facet_first1": 264,
+        "facet_first2": 257,
+        "reset_gain": 264,
+        "reset_slack": 266
+      },
+      "vertices": 27
+    },
+    {
+      "dimension": 5,
+      "edges": 75,
+      "facets": 9,
+      "family": "holdout_moment_5_9",
+      "incident_candidates": {
+        "facet_first1": 437,
+        "facet_first2": 401,
+        "reset_gain": 450,
+        "reset_slack": 457
+      },
+      "lookahead_candidates": {
+        "facet_first1": 0,
+        "facet_first2": 72,
+        "reset_gain": 0,
+        "reset_slack": 0
+      },
+      "max_constant_face_edges": {
+        "facet_first1": 1,
+        "facet_first2": 1,
+        "reset_gain": 2,
+        "reset_slack": 2
+      },
+      "nonshortest": {
+        "facet_first1": 7,
+        "facet_first2": 7,
+        "reset_gain": 10,
+        "reset_slack": 11
+      },
+      "old_phase_decreasing_edges": {
+        "facet_first1": 1,
+        "facet_first2": 1,
+        "reset_gain": 0,
+        "reset_slack": 0
+      },
+      "pairs": 100,
+      "pairwise_vs_previous": {
+        "equal": 91,
+        "longer": 4,
+        "shorter": 5
+      },
+      "previous_target_slack_nonshortest": 8,
+      "previous_target_slack_total": 246,
+      "shortest_total": 236,
+      "suite": "additional",
+      "totals": {
+        "facet_first1": 243,
+        "facet_first2": 243,
+        "reset_gain": 248,
+        "reset_slack": 250
+      },
+      "vertices": 30
+    },
+    {
+      "dimension": 3,
+      "edges": 21,
+      "facets": 9,
+      "family": "holdout_cut_cube_0",
+      "incident_candidates": {
+        "facet_first1": 386,
+        "facet_first2": 335,
+        "reset_gain": 386,
+        "reset_slack": 391
+      },
+      "lookahead_candidates": {
+        "facet_first1": 0,
+        "facet_first2": 100,
+        "reset_gain": 0,
+        "reset_slack": 0
+      },
+      "max_constant_face_edges": {
+        "facet_first1": 2,
+        "facet_first2": 1,
+        "reset_gain": 2,
+        "reset_slack": 2
+      },
+      "nonshortest": {
+        "facet_first1": 4,
+        "facet_first2": 1,
+        "reset_gain": 4,
+        "reset_slack": 6
+      },
+      "old_phase_decreasing_edges": {
+        "facet_first1": 0,
+        "facet_first2": 0,
+        "reset_gain": 0,
+        "reset_slack": 0
+      },
+      "pairs": 100,
+      "pairwise_vs_previous": {
+        "equal": 90,
+        "longer": 1,
+        "shorter": 9
+      },
+      "previous_target_slack_nonshortest": 9,
+      "previous_target_slack_total": 234,
+      "shortest_total": 223,
+      "suite": "additional",
+      "totals": {
+        "facet_first1": 227,
+        "facet_first2": 224,
+        "reset_gain": 227,
+        "reset_slack": 229
+      },
+      "vertices": 14
+    },
+    {
+      "dimension": 3,
+      "edges": 21,
+      "facets": 9,
+      "family": "holdout_cut_cube_2",
+      "incident_candidates": {
+        "facet_first1": 375,
+        "facet_first2": 326,
+        "reset_gain": 375,
+        "reset_slack": 378
+      },
+      "lookahead_candidates": {
+        "facet_first1": 0,
+        "facet_first2": 101,
+        "reset_gain": 0,
+        "reset_slack": 0
+      },
+      "max_constant_face_edges": {
+        "facet_first1": 2,
+        "facet_first2": 1,
+        "reset_gain": 2,
+        "reset_slack": 2
+      },
+      "nonshortest": {
+        "facet_first1": 4,
+        "facet_first2": 2,
+        "reset_gain": 4,
+        "reset_slack": 4
+      },
+      "old_phase_decreasing_edges": {
+        "facet_first1": 0,
+        "facet_first2": 0,
+        "reset_gain": 0,
+        "reset_slack": 0
+      },
+      "pairs": 100,
+      "pairwise_vs_previous": {
+        "equal": 95,
+        "longer": 0,
+        "shorter": 5
+      },
+      "previous_target_slack_nonshortest": 7,
+      "previous_target_slack_total": 223,
+      "shortest_total": 216,
+      "suite": "additional",
+      "totals": {
+        "facet_first1": 221,
+        "facet_first2": 218,
+        "reset_gain": 221,
+        "reset_slack": 221
+      },
+      "vertices": 14
+    }
+  ],
+  "first_hit_radius_checks": 2506,
+  "negative_controls": [
+    "changed_input",
+    "missing_phase",
+    "changed_objective",
+    "boolean_depth",
+    "false_locked_face",
+    "false_inverse",
+    "floating_anchor",
+    "false_selected_block",
+    "missing_lookahead_branch",
+    "boolean_branch_index",
+    "route_cap",
+    "unsupported_depth",
+    "ignore_first_acquisition",
+    "unbounded_neighbor"
+  ],
+  "original": {
+    "nonshortest": {
+      "facet_first1": 13,
+      "facet_first2": 2,
+      "reset_gain": 24,
+      "reset_slack": 30
+    },
+    "pairs": 614,
+    "pairwise_vs_previous": {
+      "equal": 584,
+      "longer": 2,
+      "shorter": 28
+    },
+    "previous_target_slack_nonshortest": 28,
+    "previous_target_slack_total": 1258,
+    "shortest_sum": 1228,
+    "totals": {
+      "facet_first1": 1243,
+      "facet_first2": 1230,
+      "reset_gain": 1254,
+      "reset_slack": 1260
+    }
+  },
+  "positive_row_scale_checks": 24,
+  "scope": "Exact research tests, not Lean verification.",
+  "search_disabled_audits": 24,
+  "seconds": 53.37393706199987,
+  "status": "PASS"
+}
