@@ -10,6 +10,8 @@ The preceding FULL frontier is retained VERBATIM in
 Git blob `48fea71cf5c68b584aa25ffdecb65eca9481f60f`.
 It preserves all accepted interfaces/IDs through #243, older archives and
 verification limitations. This shorter index does not discard that evidence.
+The immediate pre-#246 index is also preserved by Git blob
+`2d343953d8a4c0ba68a7fb4e45000803a19553bc` in the preceding main history.
 
 ## Root status and conjecture-level obstacle
 
@@ -55,6 +57,9 @@ merely by passing exact numerical regression tests.
 - #245: NEW ACCEPTED strict endpoint compatibility for the SAME component
   endpoints returned by #240, described below. Inspect its live merge status;
   its post-gate changes are receipts/frontier documentation only.
+- #246: ACCEPTED and merged original-row image-edge certificate, allowing
+  high-dimensional or unbounded preimage faces and nonvertex/nonadjacent lifts.
+  It is an independent per-edge certificate, not the core-walk concatenation.
 
 ## NEW acceptance: uniform bridge endpoint objectives, PR #245
 
@@ -87,6 +92,51 @@ The independent replay has128 cases/383 factors,18448 component sample checks,
 routes, Lean-extracted JSON checks or additional kernel proofs. The committed
 script regenerates the complete fixtures; the execution JSON is a summary.
 
+## Accepted original-row image-edge theorem: PR #246
+
+`Hirsch.projected_face_edge_from_row_certificates` is ACCEPTED, with trusted
+publisher authenticated live Proved. Theorem
+`8c81d5ed-3389-4b7f-a509-c34b7ccbb3a7`, submission
+`f4fd4d09-ef80-458c-b298-94365846f15e`. Audited proof
+`3b6ebc129873cc4d19462e0efc2ec3e66d6cb878`, run `34862741785`.
+Merged in `65d61bc36c0990158c017ac0c408593a8dd4a356`.
+[Exact accepted evidence](research/publication_packets/projected_face_edge_certificate/accepted-evidence.md)
+and [next-use handoff](research/PROJECTED_FACE_EDGE_HANDOFF.md) are on main.
+
+For P={z:a(z)<=b} and linear G, finite original-row identities prove that an
+ENTIRE exposed slice of GP is [Gx,Gy], with Gx!=Gy and actual Mathlib IsExtreme.
+No source adjacency, source vertexhood, compactness, one-dimensional preimage,
+complete graph list or support-slice-equality oracle is assumed. The witnesses
+are a strictly positive selected-row exposing combination, a rank-one image
+identity modulo those selected rows, and sharp lower/upper endpoint inequalities.
+Column identities are extended to all real vectors in the proof. The preimage
+face may be high-dimensional or unbounded; its image must be one-dimensional.
+
+The 245-line source passed after exactly one diagnosed addition-order helper
+repair. Every statement and assumption stayed unchanged. All three compile
+commands exited zero; all three axiom reports use only propext, Classical.choice,
+Quot.sound. The failed run registered/submitted nothing. The corrected source
+passed its first actual platform submission. Source SHA-256:
+`ed1c5764e172d07a24ce815cc9c4eaaac36f9af7aefd557d23242ae006668aeb`.
+Both original artifacts and all five frozen hashes were independently checked.
+Post-gate commits add tests/evidence only; do not resubmit the accepted packet.
+
+The exact producer/auditor and tests are committed. Small independent hulls
+check110 image edges, including20 with nonadjacent source vertex lifts. Larger
+known cube-image examples check8/16/32-edge routes with unbounded fibres and
+nonvertex lifts. These are applications, not new cube-diameter theorems or a
+uniform route construction for arbitrary carriers. The finite auditor uses no
+rank or elimination search, but Python/JSON are not Lean-extracted; generic
+acceptance does not separately kernel-evaluate every fixture.
+
+This certificate relaxes the earlier requirement that the whole preimage be
+an edge. It does NOT make arbitrary projected source edges valid, and does not
+bound the number of certified image steps. Measure future route costs in the
+ORIGINAL IMAGE facet count, never an auxiliary system's smaller row count.
+The Klee--Minty shadow stress test remains a valid warning against that shortcut.
+PR241's publication comment was blocked before posting in this continuation;
+its bounded-representative proof is not verified by #246 and is not included.
+
 ## Next exact connection and ownership
 
 The CORE-WALK CONCATENATION is claimed by the distinct agent in #244's
@@ -107,6 +157,8 @@ the final indexed composition is not silently asserted by #245. Useful
 controlled decompositions or a different routing method for arbitrary
 carriers remain the conjecture-level obstacle. Do not publish a circular
 child or merely restate that applicability problem as a solved premise.
+#246 supplies a separate original-row route-step certificate when working with
+linear images; it does not supersede or duplicate the owner's core-walk task.
 
 ## Other live work and execution discipline
 
@@ -117,8 +169,9 @@ submission is not repolled here and must not be retried from this stale index.
 Earlier branches and receipts remain linked from the preserved full frontier.
 
 Use local pinned Lean where available. This runtime lacked Lean/Lake and
-could not download its toolchain; that was disclosed before one prepared gate.
-No hosted proof-edit loop occurred. Compilation, axiom audit, authenticated
-ACCEPTED and live Proved are distinct. Only the trusted main publisher sees
-repository credentials. Post-gate #245 changes do not alter its proof or
-problem metadata. Preserve the archive digests and exact source when composing.
+could not download its toolchain; that was disclosed before the prepared gates.
+Compilation, axiom audit, authenticated ACCEPTED and live Proved are distinct.
+Only the trusted main publisher sees repository credentials. Post-gate changes
+do not alter the accepted proof or problem metadata. Preserve the archive
+digests and exact source when composing. #246's one diagnosed failed gate and
+single helper repair are retained explicitly; do not erase failure history.
