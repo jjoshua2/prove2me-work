@@ -1,0 +1,25 @@
+{
+  "head_sha": "3b6ebc129873cc4d19462e0efc2ec3e66d6cb878",
+  "packets": [
+    {
+      "path": "research/publication_packets/projected_face_edge_certificate",
+      "name": "projected_face_edge_certificate",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "ed1c5764e172d07a24ce815cc9c4eaaac36f9af7aefd557d23242ae006668aeb",
+        "driver.lean": "ed1c5764e172d07a24ce815cc9c4eaaac36f9af7aefd557d23242ae006668aeb",
+        "statement.lean": "1339c094817f029eb78266836fbd23c3057e7fa0911773f7039189132d126c06",
+        "problem.json": "1d963885e49ab63d237dc8f3b91c55c2f93fac6f8ea89a4d3e3253cf9ba319a6",
+        "explanation.md": "9b41a44f8c1132c37f82dbfbb2f1a2f6ee69b5774915e6458fb0ef189c2618ad"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}

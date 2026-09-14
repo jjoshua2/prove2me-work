@@ -1,0 +1,162 @@
+{
+  "status": "PASS",
+  "scope": "exact rational arithmetic; separate from Lean compilation",
+  "models": 18,
+  "original_vertices": 223,
+  "image_vertices": 110,
+  "edge_certificates": 110,
+  "higher_dimensional_preimage_edges": 20,
+  "nonadjacent_source_lift_pairs": 20,
+  "all_original_vertex_support_tests": 1619,
+  "column_identities": 1765,
+  "rank_gap_checks": 110,
+  "large_cases": [
+    {
+      "source_dimension": 8,
+      "image_dimension": 2,
+      "original_rows": 18,
+      "image_edges_certified": 6,
+      "preimage_face_dimension": 7,
+      "unbounded_fibres": false,
+      "source_vertices_assumed": false,
+      "original_graph_enumerated": false,
+      "column_identities": 240
+    },
+    {
+      "source_dimension": 8,
+      "image_dimension": 2,
+      "original_rows": 12,
+      "image_edges_certified": 6,
+      "preimage_face_dimension": 7,
+      "unbounded_fibres": true,
+      "source_vertices_assumed": false,
+      "original_graph_enumerated": false,
+      "column_identities": 240
+    },
+    {
+      "source_dimension": 32,
+      "image_dimension": 2,
+      "original_rows": 66,
+      "image_edges_certified": 6,
+      "preimage_face_dimension": 31,
+      "unbounded_fibres": false,
+      "source_vertices_assumed": false,
+      "original_graph_enumerated": false,
+      "column_identities": 960
+    },
+    {
+      "source_dimension": 32,
+      "image_dimension": 2,
+      "original_rows": 36,
+      "image_edges_certified": 6,
+      "preimage_face_dimension": 31,
+      "unbounded_fibres": true,
+      "source_vertices_assumed": false,
+      "original_graph_enumerated": false,
+      "column_identities": 960
+    },
+    {
+      "source_dimension": 64,
+      "image_dimension": 2,
+      "original_rows": 130,
+      "image_edges_certified": 6,
+      "preimage_face_dimension": 63,
+      "unbounded_fibres": false,
+      "source_vertices_assumed": false,
+      "original_graph_enumerated": false,
+      "column_identities": 1920
+    },
+    {
+      "source_dimension": 64,
+      "image_dimension": 2,
+      "original_rows": 68,
+      "image_edges_certified": 6,
+      "preimage_face_dimension": 63,
+      "unbounded_fibres": true,
+      "source_vertices_assumed": false,
+      "original_graph_enumerated": false,
+      "column_identities": 1920
+    },
+    {
+      "source_dimension": 128,
+      "image_dimension": 2,
+      "original_rows": 258,
+      "image_edges_certified": 6,
+      "preimage_face_dimension": 127,
+      "unbounded_fibres": false,
+      "source_vertices_assumed": false,
+      "original_graph_enumerated": false,
+      "column_identities": 3840
+    },
+    {
+      "source_dimension": 128,
+      "image_dimension": 2,
+      "original_rows": 132,
+      "image_edges_certified": 6,
+      "preimage_face_dimension": 127,
+      "unbounded_fibres": true,
+      "source_vertices_assumed": false,
+      "original_graph_enumerated": false,
+      "column_identities": 3840
+    }
+  ],
+  "high_dimensional_image_routes": [
+    {
+      "source_dimension": 16,
+      "image_dimension": 8,
+      "image_facet_count": 16,
+      "original_rows": 24,
+      "verified_route_edges": 8,
+      "preimage_face_dimension": 9,
+      "unbounded_fibres": true,
+      "source_graph_enumerated": false,
+      "image_graph_enumerated": false,
+      "column_identities": 1408
+    },
+    {
+      "source_dimension": 32,
+      "image_dimension": 16,
+      "image_facet_count": 32,
+      "original_rows": 48,
+      "verified_route_edges": 16,
+      "preimage_face_dimension": 17,
+      "unbounded_fibres": true,
+      "source_graph_enumerated": false,
+      "image_graph_enumerated": false,
+      "column_identities": 9728
+    },
+    {
+      "source_dimension": 64,
+      "image_dimension": 32,
+      "image_facet_count": 64,
+      "original_rows": 96,
+      "verified_route_edges": 32,
+      "preimage_face_dimension": 33,
+      "unbounded_fibres": true,
+      "source_graph_enumerated": false,
+      "image_graph_enumerated": false,
+      "column_identities": 71680
+    }
+  ],
+  "search_free_audit": "PASS",
+  "rejected": [
+    "zero_exposure_weight",
+    "false_image_line",
+    "wrong_image_normal",
+    "wrong_coordinate",
+    "infeasible_endpoint",
+    "collapsed_image",
+    "missing_selected_row",
+    "negative_upper_multiplier",
+    "inexact_number",
+    "unexpected_field",
+    "square_diagonal_rank_two",
+    "proper_subsegment"
+  ],
+  "rejected_count": 12,
+  "seconds": 19.734,
+  "source_sha256": {
+    "projected_face_certificate.py": "bdfc632d6f14e36d953d51e0017de926ba7d0659341e522aa17a1f46d08e6bf4",
+    "test_projected_face_certificate.py": "27c8f873e85a6c08e1874c040d90b56eca4dd69c9d0509ca66a8084ab4b3f2a6"
+  }
+}
