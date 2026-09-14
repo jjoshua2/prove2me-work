@@ -1,0 +1,172 @@
+{
+  "status": "PASS",
+  "scope": "exact rational regression of a classical shadow construction; not Lean verification",
+  "reference": "Gaertner, Helbling, Ota, Takahashi, arXiv:1308.2495, Definition 11 and Lemma 12",
+  "full_vertex_support_certificates": 8188,
+  "ordinary_extension_edges_checked": 45056,
+  "independent_all_point_support_comparisons": 1360,
+  "positive_original_row_image_edge_certificates": 8188,
+  "genuine_extension_edges_rejected_as_projected_chords": 36868,
+  "fully_enumerated_examples": [
+    {
+      "dimension": 2,
+      "extension_facets": 4,
+      "extension_vertices": 4,
+      "extension_edges": 4,
+      "image_facets": 4,
+      "original_endpoint_distance": 2,
+      "image_endpoint_distance": 2,
+      "projection_injective_on_vertices": true,
+      "projected_extension_edges_that_are_not_image_edges": 0
+    },
+    {
+      "dimension": 3,
+      "extension_facets": 6,
+      "extension_vertices": 8,
+      "extension_edges": 12,
+      "image_facets": 8,
+      "original_endpoint_distance": 2,
+      "image_endpoint_distance": 4,
+      "projection_injective_on_vertices": true,
+      "projected_extension_edges_that_are_not_image_edges": 4
+    },
+    {
+      "dimension": 4,
+      "extension_facets": 8,
+      "extension_vertices": 16,
+      "extension_edges": 32,
+      "image_facets": 16,
+      "original_endpoint_distance": 2,
+      "image_endpoint_distance": 8,
+      "projection_injective_on_vertices": true,
+      "projected_extension_edges_that_are_not_image_edges": 16
+    },
+    {
+      "dimension": 5,
+      "extension_facets": 10,
+      "extension_vertices": 32,
+      "extension_edges": 80,
+      "image_facets": 32,
+      "original_endpoint_distance": 2,
+      "image_endpoint_distance": 16,
+      "projection_injective_on_vertices": true,
+      "projected_extension_edges_that_are_not_image_edges": 48
+    },
+    {
+      "dimension": 6,
+      "extension_facets": 12,
+      "extension_vertices": 64,
+      "extension_edges": 192,
+      "image_facets": 64,
+      "original_endpoint_distance": 2,
+      "image_endpoint_distance": 32,
+      "projection_injective_on_vertices": true,
+      "projected_extension_edges_that_are_not_image_edges": 128
+    },
+    {
+      "dimension": 7,
+      "extension_facets": 14,
+      "extension_vertices": 128,
+      "extension_edges": 448,
+      "image_facets": 128,
+      "original_endpoint_distance": 2,
+      "image_endpoint_distance": 64,
+      "projection_injective_on_vertices": true,
+      "projected_extension_edges_that_are_not_image_edges": 320
+    },
+    {
+      "dimension": 8,
+      "extension_facets": 16,
+      "extension_vertices": 256,
+      "extension_edges": 1024,
+      "image_facets": 256,
+      "original_endpoint_distance": 2,
+      "image_endpoint_distance": 128,
+      "projection_injective_on_vertices": true,
+      "projected_extension_edges_that_are_not_image_edges": 768
+    },
+    {
+      "dimension": 9,
+      "extension_facets": 18,
+      "extension_vertices": 512,
+      "extension_edges": 2304,
+      "image_facets": 512,
+      "original_endpoint_distance": 2,
+      "image_endpoint_distance": 256,
+      "projection_injective_on_vertices": true,
+      "projected_extension_edges_that_are_not_image_edges": 1792
+    },
+    {
+      "dimension": 10,
+      "extension_facets": 20,
+      "extension_vertices": 1024,
+      "extension_edges": 5120,
+      "image_facets": 1024,
+      "original_endpoint_distance": 2,
+      "image_endpoint_distance": 512,
+      "projection_injective_on_vertices": true,
+      "projected_extension_edges_that_are_not_image_edges": 4096
+    },
+    {
+      "dimension": 11,
+      "extension_facets": 22,
+      "extension_vertices": 2048,
+      "extension_edges": 11264,
+      "image_facets": 2048,
+      "original_endpoint_distance": 2,
+      "image_endpoint_distance": 1024,
+      "projection_injective_on_vertices": true,
+      "projected_extension_edges_that_are_not_image_edges": 9216
+    },
+    {
+      "dimension": 12,
+      "extension_facets": 24,
+      "extension_vertices": 4096,
+      "extension_edges": 24576,
+      "image_facets": 4096,
+      "original_endpoint_distance": 2,
+      "image_endpoint_distance": 2048,
+      "projection_injective_on_vertices": true,
+      "projected_extension_edges_that_are_not_image_edges": 20480
+    }
+  ],
+  "nonenumerating_certificate_examples": [
+    {
+      "dimension": 16,
+      "certificates_checked": 11,
+      "enumerated_graph": false,
+      "proved_image_facets": 65536,
+      "proved_image_endpoint_distance": 32768,
+      "extension_route_edges": 2
+    },
+    {
+      "dimension": 32,
+      "certificates_checked": 11,
+      "enumerated_graph": false,
+      "proved_image_facets": 4294967296,
+      "proved_image_endpoint_distance": 2147483648,
+      "extension_route_edges": 2
+    },
+    {
+      "dimension": 64,
+      "certificates_checked": 11,
+      "enumerated_graph": false,
+      "proved_image_facets": 18446744073709551616,
+      "proved_image_endpoint_distance": 9223372036854775808,
+      "extension_route_edges": 2
+    }
+  ],
+  "rejected_count": 8,
+  "rejected": [
+    "wrong_coordinate",
+    "zero_support_weight",
+    "wrong_objective",
+    "floating_data",
+    "two_bit_chord",
+    "degenerate_epsilon",
+    "altered_projected_endpoint",
+    "true_lift_edge_false_image_edge"
+  ],
+  "script_sha256": "a926b23b1a81972da11d3a0f8a562e89e03369995240095d8f92b0de5bed17ca",
+  "seconds": 6.613
+}

@@ -1,0 +1,8 @@
+{
+  "status": "targeted repair of three observed elaboration errors; not locally compiled",
+  "files": {
+    "solution.lean": "0b9d263b2577adefe6723724dc218d7311b195e3f7613ff0bfe52bf5030167a2",
+    "problem.json": "1dc296de83cd068d4813a3a2cbb32f5eb7e878f233516ce8982a25d056b5b988",
+    "explanation.md": "32dd22bde712ad79a6a15c8a4be7d7bbde2b2416acfa71fca1f76b8b053a8870"
+  }
+}

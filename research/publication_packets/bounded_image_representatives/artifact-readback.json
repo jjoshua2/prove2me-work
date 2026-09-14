@@ -1,0 +1,28 @@
+{
+  "record_kind": "derived local archive and frozen-source checks; not raw platform API",
+  "status": "PASS",
+  "proof_sha": "afcf0a524c124ca20c6be6b0417fe4089e9be4d3",
+  "run_id": 34897893364,
+  "verified_artifact_id": 10369780647,
+  "verified_archive_sha256": "5c5ae81a14acddd0b6201cffb11ba6f21df44c43ce76b2c56ba2cc022765bd60",
+  "publication_artifact_id": 10370075250,
+  "publication_archive_sha256": "9d14b59f7b37b89f3d0d4b748ab73e498ca11c1fd9371857c99f717d6153aab6",
+  "frozen_hashes_checked": {
+    "solution.lean": "0b9d263b2577adefe6723724dc218d7311b195e3f7613ff0bfe52bf5030167a2",
+    "driver.lean": "0b9d263b2577adefe6723724dc218d7311b195e3f7613ff0bfe52bf5030167a2",
+    "statement.lean": "937381dbf651b898c3bbdba29ae15a8490f755f8015e423e04b2578fdbf8cd90",
+    "problem.json": "1dc296de83cd068d4813a3a2cbb32f5eb7e878f233516ce8982a25d056b5b988",
+    "explanation.md": "32dd22bde712ad79a6a15c8a4be7d7bbde2b2416acfa71fca1f76b8b053a8870"
+  },
+  "original_packet_equal": [
+    "solution.lean",
+    "problem.json",
+    "explanation.md"
+  ],
+  "theorem_id": "45f5569d-e24c-4a42-9572-de74ca0629c0",
+  "submission_id": "0a3332a7-8c22-4fe4-90c1-9fd858b95a71",
+  "publication_status": "ACCEPTED",
+  "live_status": "Proved",
+  "live_status_source": "authenticated trusted publisher receipt, not separate direct query",
+  "local_lean_available": false
+}

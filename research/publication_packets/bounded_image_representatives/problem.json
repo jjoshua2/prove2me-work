@@ -1,0 +1,14 @@
+{
+  "theorem_name": "Hirsch.bounded_image_compact_representatives",
+  "theorem_title": "Bounded polyhedral images admit uniform bounded nonnegative representatives",
+  "formal_statement": "namespace Hirsch\ntheorem bounded_image_compact_representatives {k r d : ℕ}\n    (B : (Fin k → ℝ) →L[ℝ] (Fin r → ℝ))\n    (G : (Fin k → ℝ) →L[ℝ] (Fin d → ℝ)) :\n    (∃ C : ℝ, 0 < C ∧ ∀ (t : Fin r → ℝ) (x : Fin k → ℝ),\n      (∀ i, 0 ≤ x i) → (∀ q, B x q ≤ t q) →\n      ∃ y : Fin k → ℝ, (∀ i, 0 ≤ y i) ∧ (∀ q, B y q ≤ t q) ∧\n        G y = G x ∧ (∀ i, x i = 0 → y i = 0) ∧\n        (∀ q, B x q = t q → B y q = t q) ∧\n        (∑ i, y i) ≤ C * (‖t‖ + ‖G x‖)) ∧\n    (∀ (t : Fin r → ℝ) (M : ℝ), 0 ≤ M →\n      (∀ x : Fin k → ℝ, (∀ i, 0 ≤ x i) →\n        (∀ q, B x q ≤ t q) → ‖G x‖ ≤ M) →\n      ∃ R : ℝ, 0 ≤ R ∧\n        IsCompact {x : Fin k → ℝ | (∀ i, 0 ≤ x i) ∧\n          (∀ q, B x q ≤ t q) ∧ (∑ i, x i) ≤ R} ∧\n        G '' {x : Fin k → ℝ | (∀ i, 0 ≤ x i) ∧ ∀ q, B x q ≤ t q} =\n        G '' {x : Fin k → ℝ | (∀ i, 0 ≤ x i) ∧\n          (∀ q, B x q ≤ t q) ∧ (∑ i, x i) ≤ R}) := by sorry\nend Hirsch",
+  "natural_language_statement": "For every finite real resource map B and linear image map G, there is a positive constant C depending only on B and G such that every nonnegative x with Bx<=t has a nonnegative representative y with By<=t and Gy=Gx, total mass at most C*(norm(t)+norm(Gx)), and every coordinate-zero or tight resource row of x remains so at y. Consequently every uniformly bounded image of a resource polyhedron is unchanged after adding one sufficiently large total-mass bound; that capped coefficient set is compact. Neither original coefficient boundedness, injectivity of G, a coverage certificate, recession annihilation, nonemptiness, a vertex decomposition nor a right-inverse oracle is assumed. Constants are not claimed bounded by dimensions or rational bit complexity. This gives a compact representation of the same shape, not an ordinary-edge or diameter transport theorem.",
+  "preamble": "import Mathlib\nopen Set\nopen scoped BigOperators",
+  "env": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "source": "Classical finite-dimensional polyhedral geometry, proved directly by finite support descent and compact normalized coordinate sections. No Minkowski-Weyl, conic representation, uniform inverse-bound or coverage-existence oracle is assumed. The extremal-value lemma is Mathlib IsCompact.exists_isMinOn. This is the bounded-image representation gap identified after accepted #237, not a historical novelty claim or a new Hirsch diameter bound.",
+  "tags": [
+    "hirsch-conjecture",
+    "convex-geometry",
+    "linear-algebra"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "status": "COMMITTED_UNCOMPILED_PUBLICATION_COMMENT_BLOCKED",
+  "pr": 241,
+  "proof_sha": "90f7d8a7acd078558e18df0737d20014ef80b0e5",
+  "solution_sha256": "85ba15dd0d66cc88ec29a691e5ed26fcb3ef744a403d6a34b8ff4269d8c6a8d6",
+  "posted_publication_comment": false,
+  "workflow_run_id": null,
+  "theorem_id": null,
+  "submission_id": null,
+  "new_geometric_work": "Exact source-to-image edge certification and a classical projection stress test; not a new diameter theorem",
+  "compiler_available": false
+}
