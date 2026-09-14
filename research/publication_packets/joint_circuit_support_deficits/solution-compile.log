@@ -1,0 +1,11 @@
+_verified/packets/joint_circuit_support_deficits/solution.lean:98:4: warning: Try `simp at hv` instead of `simpa using hv`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+'_private._verified.packets.joint_circuit_support_deficits.solution.0.weighted_support_gap_rigidity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private._verified.packets.joint_circuit_support_deficits.solution.0.external_circuit_zero_in_each_block' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.joint_internal_budget_nonnegative' depends on axioms: [propext, Classical.choice, Quot.sound]

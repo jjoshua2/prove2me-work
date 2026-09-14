@@ -1,0 +1,15 @@
+{
+  "head_sha": "e78b966247f66bbe3906851395a1fd63bfb243b0",
+  "packets": [
+    {
+      "packet": "joint_circuit_support_deficits",
+      "status": "ACCEPTED",
+      "theorem_id": "215a5bbf-fda4-467b-9e99-8714e6ec007b",
+      "submission_id": "108c2171-0be9-48bd-a1f2-191f35f8b6fc",
+      "theorem_name": "Hirsch.joint_external_circuit_support_and_zero_deficit",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/joint_circuit_support_deficits"
+    }
+  ]
+}

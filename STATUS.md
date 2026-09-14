@@ -53,6 +53,7 @@ an extra hypothesis or a stronger conclusion.
 | #230 | Supplied finite row identities imply a one-ray restricted kernel | [rref_restricted_kernel_certificate](research/publication_packets/rref_restricted_kernel_certificate/) |
 | #233 | The ACTUAL checked catalogue tests every real linear functional on the entire nonnegative kernel | [checked_catalogue_dual_tests](research/publication_packets/checked_catalogue_dual_tests/) |
 | #234 | Full allocation alternative for separate, overlapping and signed budgets with finite coverage | [covering_allocation_alternative](research/publication_packets/covering_allocation_alternative/) |
+| #235 | External minimal joint circuits have exact support multipliers, nonnegative deficits and a common-maximizer zero pattern | [joint_circuit_support_deficits](research/publication_packets/joint_circuit_support_deficits/) |
 
 #229 theorem: `49468d71-eb2e-4908-a15e-a89d1d23622a`;
 submission: `0dcf5eea-df74-4295-9a5e-c71edb96589d`, ACCEPTED.
@@ -130,6 +131,39 @@ They are not evidence that another covering alternative needs to be written.
 Do not resubmit #234. This acceptance does not verify the older 1170-line
 one-block composition or the entire multi-block Minkowski adapter.
 
+## Accepted joint-circuit sign and zero-pattern theorem: PR #235
+
+Public name: `Hirsch.joint_external_circuit_support_and_zero_deficit`.
+Theorem: `215a5bbf-fda4-467b-9e99-8714e6ec007b`.
+Submission: `108c2171-0be9-48bd-a1f2-191f35f8b6fc`, **ACCEPTED**;
+authenticated publisher live readback: **Proved**.
+Frozen head `e78b966247f66bbe3906851395a1fd63bfb243b0`, run `34791096717`.
+Read [accepted evidence](research/publication_packets/joint_circuit_support_deficits/accepted-evidence.md)
+and [the handoff](research/JOINT_CIRCUIT_HANDOFF_2026-09-13.md).
+The old local-only candidate passed its FIRST prepared compile/axiom gate and
+first platform submission unchanged. All three compile exits are zero and all
+four audited declarations use only standard logical axioms. Post-gate work
+preserves raw receipts, full compile logs and the exact tested Python source;
+it does not alter the proof, problem or frozen explanation. No retry occurred.
+
+For external support-minimal nonnegative null multipliers of the actual
+independent simplex-block allocation rows, each total multiplier is the
+attained support of the combined original rows. Thus valid nonnegative
+candidate support bounds give nonnegative packing deficits Gamma. Gamma=0
+iff one listed point (including the anchor) attains every positively weighted
+row bound. This supplies exact coefficient signs and their zero pattern,
+not an original-H support optimizer or an ordinary-edge bound. Empty,
+repeated and dependent generator lists are included.
+
+Internal-only multipliers instead give automatic budgets at nonnegative scales.
+External nonminimal multipliers can have negative deficits: keep full support
+minimality from #218/#229, rather than inferring it from #219's weaker public
+nonnegative-null invariant. The named Solutions mirror in the earlier local
+bundle has no separate module-build claim; the verified source here is the
+standalone publication packet. The committed regression script checks 59
+systems and 267 circuits; this software evidence is distinct from Lean proof.
+Do not resubmit #235 or label its universal tightening routine Lean-extracted.
+
 ## Next exact proof obligation
 
 Compose #233's ACTUAL catalogue tests with the accepted allocation alternatives,
@@ -154,6 +188,8 @@ original-point tests by explicit scalar budgets. Retain valid candidate support
 bounds, the shared scale vector, all original rows and every rational-to-real
 coefficient correspondence. Overlapping resource budgets do not automatically
 represent independent Minkowski summands; use their actual allocation image.
+For independent simplex blocks, transport true circuit minimality to #235 to
+derive nonnegative coefficients and discard automatic internal/zero rows.
 
 See [the precise next interface](research/COVERING_CHECKED_COMPOSITION_NEXT.md).
 The old local composition may provide proof ideas, but its catalogue-to-dual
@@ -165,8 +201,10 @@ routing remain separate mathematical problems even after this composition.
 ## PR lifecycle and retired ancestry
 
 #233 and #234 are accepted and merged with exact evidence. Neither requires
-another proof or publication run. Check live ownership before choosing the
-remaining adapter or a genuinely new geometric routing obligation.
+another proof or publication run. #235 is also accepted with its receipts;
+check GitHub for its final integration state before changing its branch.
+Check live ownership before choosing the remaining adapter or a genuinely new
+geometric routing obligation.
 
 #208 remains the distinct additive-spill/portal-selection draft. Existing
 submission `2a2dd9bd-9ee5-43fa-bc04-def26a5a2a98` is PENDING in its latest

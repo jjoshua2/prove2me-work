@@ -1,0 +1,14 @@
+{
+  "kind": "derived_local_artifact_inspection",
+  "run_id": 34791096717,
+  "artifact_id": 10328377172,
+  "archive_sha256": "d8f7c8f2953b3514c1803930fa65dc0123a82bf387139f17c86b9aec67a7ca7a",
+  "frozen_proof_sha": "e78b966247f66bbe3906851395a1fd63bfb243b0",
+  "all_five_file_hashes_match": true,
+  "solution_and_problem_match_original_bundle": true,
+  "compile_exit_codes": {"driver.lean": 0, "solution.lean": 0, "statement.lean": 0},
+  "audited_declarations": 4,
+  "axioms": ["Classical.choice", "Quot.sound", "propext"],
+  "not_a_new_platform_api_poll": true,
+  "note": "Raw packet-audit.json, manifest.json and compile logs are copied unchanged from the downloaded verified artifact. The deliberate target placeholder in statement.lean is not a proof admission in solution.lean. The unchanged 197-line solution passed the first prepared gate."
+}

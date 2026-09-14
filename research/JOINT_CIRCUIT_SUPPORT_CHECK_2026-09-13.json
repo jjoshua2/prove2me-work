@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "seed": 20260913,
+  "counts": {
+    "systems": 59,
+    "enumerated_supports": 3509,
+    "circuits": 267,
+    "external_circuits": 183,
+    "internal_circuits": 84,
+    "rank_certificates": 267,
+    "block_support_checks": 278,
+    "zero_deficit_checks": 556,
+    "downward_inequality_checks": 549,
+    "tightening_cases": 354,
+    "rejected_controls": 11
+  },
+  "independent_determinant_checks": 60,
+  "example_with_positive_deficit": [
+    {
+      "system": 7,
+      "multiplier": ["1/2", "1/2", "0", "0"],
+      "rank_witness": {
+        "support": [0, 1],
+        "minor_rows": [0],
+        "minor_columns": [0],
+        "determinant": "-1"
+      },
+      "gamma": ["1/2"],
+      "common_maximizers": [[]]
+    }
+  ],
+  "counterexample_without_minimality": {
+    "a": [1],
+    "ordering": ["lambda", "nu", "mu"],
+    "external_minimal": [1, 1, 0],
+    "internal": [0, 1, 1],
+    "nonminimal_sum": [1, 2, 1],
+    "support_bound": 1,
+    "deficit": -1
+  },
+  "nonminimal_row_not_downward": {
+    "a": [[[1], [1]], [[-1], [-1]]],
+    "multiplier": [1, 1, 2, 2, 0, 0],
+    "gamma": [-1, 1],
+    "rhs": 0,
+    "admissible_for_this_row": [1, 1],
+    "smaller_but_inadmissible_for_this_row": [0, 1],
+    "scope": "Single nonminimal inequality only; the complete tight system rejects [1,1]."
+  },
+  "scope": "Exact finite regressions; no Lean compilation, platform acceptance, universal Python correctness, or Hirsch diameter claim.",
+  "script_sha256": "0ab192816af732c9f3fa36a944f6f722b17803e3c1bfa13223eb1c3ee04ea5e7"
+}
