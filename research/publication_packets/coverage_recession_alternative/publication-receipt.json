@@ -1,0 +1,15 @@
+{
+  "head_sha": "3f771d9c0cd2dd3d749fa4b525cc332bd4a4d80c",
+  "packets": [
+    {
+      "packet": "coverage_recession_alternative",
+      "status": "ACCEPTED",
+      "theorem_id": "cf116009-df29-405e-9304-46035751b50e",
+      "submission_id": "da18a16c-4603-4ec5-9913-1d4e6effb865",
+      "theorem_name": "Hirsch.coverage_certificate_iff_no_recession",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/coverage_recession_alternative"
+    }
+  ]
+}
