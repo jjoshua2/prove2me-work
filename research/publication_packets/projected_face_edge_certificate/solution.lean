@@ -82,7 +82,7 @@ lemma row_bound {m r : ℕ}
     intro j _
     rw [hJ j]
   rw [h₂]
-  exact add_le_add_right h₁ _
+  exact add_le_add h₁ le_rfl
 
 /-- The ENTIRE exposed image slice is a nondegenerate segment. The full
 preimage face may have arbitrary dimension or unbounded fibres. The source

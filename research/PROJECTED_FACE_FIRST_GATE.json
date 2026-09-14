@@ -1,0 +1,17 @@
+{
+  "record_kind": "derived exact compiler-diagnostic excerpt; not full raw log",
+  "run_id": 34861824296,
+  "job_id": 104035818328,
+  "proof_sha": "07965c315fd7d71d67afb26103f4510eeb07c2a2",
+  "status": "COMPILE_FAILED",
+  "publication": "SKIPPED; no registration or submission",
+  "source_line": 85,
+  "compiler_error": "add_le_add_right h₁ _ gives the common summand on the left, but the goal has it on the right.",
+  "old_line": "  exact add_le_add_right h₁ _",
+  "new_line": "  exact add_le_add h₁ le_rfl",
+  "statement_changed": false,
+  "assumptions_changed": false,
+  "original_solution_sha256": "3937a4eaef8f0471309110c100a5d9f7b3dc558402034bb38d2144f005155712",
+  "corrected_solution_sha256": "ed1c5764e172d07a24ce815cc9c4eaaac36f9af7aefd557d23242ae006668aeb",
+  "local_compiler_available": false
+}
