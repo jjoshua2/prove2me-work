@@ -1,0 +1,25 @@
+{
+  "head_sha": "7d3c7cfcbbb4a3b7d4eda9aa728330592faf1770",
+  "packets": [
+    {
+      "path": "research/publication_packets/normalized_tangent_image_edge",
+      "name": "normalized_tangent_image_edge",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "a1bf73c13e7fd2df2d852e183086a6d20a86c60591236ce6e5bd40ea0704c7dc",
+        "driver.lean": "a1bf73c13e7fd2df2d852e183086a6d20a86c60591236ce6e5bd40ea0704c7dc",
+        "statement.lean": "e8a4d9bd2d3facdc5e85c18cd721f4be21f16009815de3be5d9e451337f03177",
+        "problem.json": "662e9ab6754ca663f7d4d69ce622634ec3757bd6429bd85d4a99501c11962f0e",
+        "explanation.md": "9f64dbe95a998ea137527cccf3ee1ebc50537357f35e6daad647cd716d952ac9"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}

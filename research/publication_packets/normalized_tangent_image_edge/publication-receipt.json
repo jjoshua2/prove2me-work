@@ -1,0 +1,15 @@
+{
+  "head_sha": "7d3c7cfcbbb4a3b7d4eda9aa728330592faf1770",
+  "packets": [
+    {
+      "packet": "normalized_tangent_image_edge",
+      "status": "ACCEPTED",
+      "theorem_id": "b531d260-eff2-475a-b25b-e7c941a21ec6",
+      "submission_id": "cdeaac97-9b6c-4b7b-aba8-2ec80f32efef",
+      "theorem_name": "Hirsch.normalized_tangent_slice_lifts_to_image_edge",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/normalized_tangent_image_edge"
+    }
+  ]
+}
