@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "seed": 240913,
+  "small": {
+    "cases": 92,
+    "component_points": 917,
+    "active_points": 467,
+    "exhaustive_sum_tuples": 6598,
+    "nonparallel_comparisons": 1109,
+    "grid_trials": 179,
+    "rejected_controls": 12
+  },
+  "root_grid_stress": {
+    "selected_integer": 8,
+    "rejected_integers": [0, 1, 2, 3, 4, 5, 6, 7],
+    "component_points": 19,
+    "active_points": 10,
+    "exhaustive_sum_tuples": 768
+  },
+  "large": [
+    {"dimension": 16, "factors": 8, "component_points": 41, "grid_trials": 3, "proven_trial_bound": 1554, "nonparallel_comparisons": 159, "product_tuples_not_enumerated": 111537, "full_sum_enumerated": false, "edge_length": "1"},
+    {"dimension": 32, "factors": 24, "component_points": 105, "grid_trials": 3, "proven_trial_bound": 12535, "nonparallel_comparisons": 599, "product_tuples_not_enumerated": 9320174703873, "full_sum_enumerated": false, "edge_length": "1"},
+    {"dimension": 48, "factors": 40, "component_points": 169, "grid_trials": 3, "proven_trial_bound": 41171, "nonparallel_comparisons": 1295, "product_tuples_not_enumerated": 595725607493789511249, "full_sum_enumerated": false, "edge_length": "1"}
+  ],
+  "scope": "Exact rational finite-instance checks; not local Lean compilation, Lean-extracted code, an original-H decomposition recognizer, or a uniform Hirsch bound.",
+  "script_sha256": "33d8412978c880ff00a1427e3267660ad6551e9670e2fda10c3140d5df29347b"
+}

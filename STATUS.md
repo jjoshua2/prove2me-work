@@ -232,3 +232,43 @@ inspect live ownership before working on it. #238 separately owns sharp support
 witness existence. #208 and retired #210 were neither changed nor triggered.
 Check GitHub for #239's final integration state rather than restarting its
 completed publication.
+
+## Accepted exposed core-edge bridge: PR #240
+
+The generic core-edge claim above is now completed as
+`Hirsch.exposed_core_edge_has_minkowski_bridge`, theorem
+`9265e218-624c-4c18-86a6-7406004fc14a`, submission
+`c2872155-4d73-4bdd-b9bd-153dab8c619e`: ACCEPTED, authenticated publisher
+live Proved. Frozen proof `80f533255175a6dc24c3132feaa01b10ec275180`,
+run `34795161919`. The original443-line source passed its FIRST compile/axiom
+gate and first submission unchanged; all three compile exits are0 and all
+four axiom reports contain only standard logical axioms. No retry occurred.
+[Accepted evidence](research/publication_packets/generic_minkowski_edge_lift/accepted-evidence.md),
+[raw receipt](research/publication_packets/generic_minkowski_edge_lift/publication-receipt.json),
+[proof and constructor](research/GENERIC_MINKOWSKI_EDGE_LIFT.md), and
+[handoff](research/GENERIC_EDGE_LIFT_HANDOFF.md) preserve the exact scope.
+
+From an explicitly exposed core edge in one nonempty finite hull, the theorem
+CONSTRUCTS a new objective and every factor's full parallel support segment.
+Their Minkowski sum is a nondegenerate exposed edge with the required core
+components. Quotient finite separation and a small perturbation derive the
+genericity; no sum-edge certificate, normal-fan genericity or edge-surjectivity
+oracle is assumed. Point, parallel, lower-dimensional and redundant-point
+factors are included. This formalizes a forward exposed-edge specialization
+of classical Deza--Pournin Lemma3.8, not a historical novelty claim.
+
+The exact producer uses a finite rational root-avoidance grid and checks all
+component points;96 instances,7366 exhaustive small/stress point-sum tuples
+and12 negative controls pass. Large dimensions16/32/48 do not enumerate the
+product of point choices. Software/JSON checks are not Lean extraction.
+Both artifact archives and all five frozen hashes were independently checked;
+raw logs, audit, manifest and authenticated receipt are committed. The source
+and target are unchanged by receipt/documentation integration.
+
+The next concrete geometry is generic FIBRE-PATH existence preserving a fixed
+core vertex and both sum endpoints while deriving the full segment slices
+required by accepted #239. Then instantiate the route assembler using the
+actual bridges above. Controlled decompositions of arbitrary high-dimensional
+carriers remain unproved; no uniform polynomial Hirsch diameter bound is
+claimed. Do not resubmit #240 or the accepted #239/#236 ingredients. #238,
+pending #208 and retired #210 are unchanged. Check live PR integration state.

@@ -1,0 +1,15 @@
+{
+  "kind": "derived_local_verified_artifact_readback",
+  "run_id": 34795161919,
+  "artifact_id": 10329616413,
+  "zip_sha256": "04cf2bafa5126b2d6c7173832bf65037a6c77125ae651f1375fd52bf26591de2",
+  "frozen_proof_sha": "80f533255175a6dc24c3132feaa01b10ec275180",
+  "workflow_main_sha": "5425133d2d9554fa2172842cbe7901bc1af645b4",
+  "all_five_frozen_hashes_match": true,
+  "original_solution_problem_explanation_byte_equal": true,
+  "compile_exit_codes": {"driver.lean": 0, "solution.lean": 0, "statement.lean": 0},
+  "audited_declarations": 4,
+  "axioms": ["Classical.choice", "Quot.sound", "propext"],
+  "platform_acceptance_not_inferred": true,
+  "note": "The statement-only target intentionally has a sorry body; the solution and driver have no proof admissions. Full manifest/audit/compile logs were copied unchanged from the downloaded artifact."
+}

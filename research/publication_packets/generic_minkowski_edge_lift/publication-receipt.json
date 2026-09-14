@@ -1,0 +1,15 @@
+{
+  "head_sha": "80f533255175a6dc24c3132feaa01b10ec275180",
+  "packets": [
+    {
+      "packet": "generic_minkowski_edge_lift",
+      "status": "ACCEPTED",
+      "theorem_id": "9265e218-624c-4c18-86a6-7406004fc14a",
+      "submission_id": "c2872155-4d73-4bdd-b9bd-153dab8c619e",
+      "theorem_name": "Hirsch.exposed_core_edge_has_minkowski_bridge",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/generic_minkowski_edge_lift"
+    }
+  ]
+}
