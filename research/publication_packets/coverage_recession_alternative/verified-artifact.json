@@ -1,0 +1,25 @@
+{
+  "head_sha": "3f771d9c0cd2dd3d749fa4b525cc332bd4a4d80c",
+  "packets": [
+    {
+      "path": "research/publication_packets/coverage_recession_alternative",
+      "name": "coverage_recession_alternative",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "bebca540b9e3ce83256c8b070b3009ee793467b7917a48c8babb478d6fb03043",
+        "driver.lean": "bebca540b9e3ce83256c8b070b3009ee793467b7917a48c8babb478d6fb03043",
+        "statement.lean": "bfe4e8525aa1f1988b75bb2babd056f1047d2c6d1de647b77d7ed965d51b7c01",
+        "problem.json": "743acb1f5d1a24e64d0d0af7c253253456b298c61d8ed8c4b362f9d246619e32",
+        "explanation.md": "cb17f6a42bc88f385e7111616cdcb7581c113fc6e335ca3d94d92071f7101a38"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}
