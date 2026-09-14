@@ -3,7 +3,7 @@
   "files": {
     "solution.lean": "ddd695d237e0c4b74d4f500d9190e7cc47202616d63ad99975599498598718f6",
     "problem.json": "e383c4817ee8bb784be19142b4d61383afc1591eb5a8178caaca7eb2288d1b41",
-    "explanation.md": "62dd09050e2e0b55145e879bf91527fb4ea648f2f4cf839138b0d63837473861"
+    "explanation.md": "fc1a936d50cc0d8a678024ba1fd8f5a287f423ea83f018ee84b1881dfa57e420"
   },
   "verified_scalar_source_sha256": "c26a8737a7d2b3c697b9b5a197f0733b3129f2ad60b16071adb6f15e3a5ec8dc",
   "verified_scalar_run": 34804405107,
