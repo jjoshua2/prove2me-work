@@ -10,6 +10,8 @@ The preceding COMPLETE frontier is preserved VERBATIM at
 Git blob `a0026a189f17799d563c5c1bb11e89e7578a79d3`.
 It retains every accepted interface/ID and caveat through #246, plus the older
 archives. This index advances one distinct line and discards no prior evidence.
+The immediate pre-#241-acceptance status remains in Git history as blob
+`fab17dfe9d4a4d20ccd2cde9b8e58b8eef4e5e6f`; its #247 work is preserved below.
 
 ## Conjecture-level target
 
@@ -39,6 +41,8 @@ or kernel-evaluated merely because their exact tests pass.
 Geometric chain:
 - #239: additive affine-envelope count.
 - #240: actual exposed Minkowski bridges over core edges.
+- #241: ACCEPTED and merged compact representatives for bounded images,
+  including original coordinate/resource face preservation; see below.
 - #242: constructed endpoint-preserving objectives avoiding independent ties;
   its separate crossing module has its own compile evidence.
 - #243: constructed chronological crossing sequence with wall maxima,
@@ -58,6 +62,47 @@ Geometric chain:
   arithmetic auditor and evidence.
 - #247: NEW ACCEPTED construction of the minimal projected face from finite
   original-row fibre duals, with executable image-endpoint-only discovery.
+
+## Accepted bounded-image representatives: #241, merged
+
+`Hirsch.bounded_image_compact_representatives` is ACCEPTED with authenticated
+trusted-publisher live Proved. Theorem
+`45f5569d-e24c-4a42-9572-de74ca0629c0`, submission
+`0a3332a7-8c22-4fe4-90c1-9fd858b95a71`. Accepted proof head
+`afcf0a524c124ca20c6be6b0417fe4089e9be4d3`, run `34897893364`.
+Merged as `fc41653e134c4953211982bba1865ddd4f862597`.
+[Accepted evidence](research/publication_packets/bounded_image_representatives/accepted-evidence.md)
+contains exact source/receipt provenance; the raw audit, verified manifest and
+publication receipt are stored beside it. Do not retry publication or restart
+the old blocked/uncompiled packet. Its original statement is unchanged.
+
+The first actual compiler run found three elaboration errors, retained in
+research/BOUNDED_REPRESENTATIVES_FIRST_GATE.json. One targeted repair reduced
+two product projections and fixed addition order, with no changed theorem
+signature or assumption. The corrected401-line source, statement and driver
+compiled; all five axiom prints use only propext, Classical.choice and Quot.sound.
+The failed gate submitted nothing, and the first actual platform submission
+of the corrected proof was accepted. Source SHA-256:
+`0b9d263b2577adefe6723724dc218d7311b195e3f7613ff0bfe52bf5030167a2`.
+Both original artifact archives and all five frozen hashes were checked.
+Post-gate commits add evidence/application notes only, not proof modifications.
+
+For fixed B,G, one C>0 works for ALL t and feasible x>=0,Bx<=t. It constructs
+a feasible y with Gy=Gx, sum(y)<=C*(norm(t)+norm(Gx)), preserving every original
+zero coordinate and tight resource row. A bounded image therefore has the
+SAME entire image after adding one finite mass bound; the capped coefficient
+set is compact. Original coefficient boundedness, coverage, injectivity,
+nonemptiness and a supplied conic decomposition are not assumed. The constant
+depends on the actual maps, not just dimensions. No efficient cap search or
+polynomial graph-diameter conclusion is asserted.
+
+[Derived applications](research/BOUNDED_IMAGE_ACCEPTED_APPLICATIONS.md) explain
+that one strictly slack cap preserves ALL original equality-face images and
+that the uniform fibre bound implies closedness of finite positive-cone images.
+Those are written consequences, not separate kernel-checked declarations or
+a competing #238 support-witness proof. The projection regression's chord
+obstruction still applies: facewise image equality is NOT an edge-preserving
+map. The representation gap is closed; the original-edge cost gap is not.
 
 ## NEW acceptance: projected minimal face discovery, #247
 
@@ -132,18 +177,20 @@ explicit nonedge witnesses to reject interior projected chords; do not claim
 that source adjacency or a small extension formulation solves this selection.
 The prior Klee--Minty/shadow negative control remains relevant.
 
-#238 owns strict original-H support witness existence; #241 owns bounded-image
-compact representatives. Inspect LIVE states, not stale prepared descriptions.
-The old #208 submission is not repolled here and must not be retried from this
-index. #210 is retired ancestry, not a fresh publication target. #247's accepted
-packet needs no rerun; inspect whether its evidence/test integration is merged.
+#238 owns strict original-H support witness existence. #241's bounded-image
+compact representatives are now accepted and merged, not an active proof task.
+Inspect LIVE states, not stale prepared descriptions. The old #208 submission
+is not repolled here and must not be retried from this index. #210 is retired
+ancestry, not a fresh publication target. #247's accepted packet needs no rerun;
+inspect whether its evidence/test integration is merged.
 
 ## Execution discipline
 
 Keep local pinned Lean for iteration when available. This runtime had no local
-Lean/Lake or toolchain DNS; that was disclosed before the one prepared final
-gate. Compilation, standard-axiom audit, ACCEPTED and live Proved are distinct.
-Only the trusted main publisher sees credentials. Do not modify workflow,
-pin, permissions or secret isolation to publish a theorem. Preserve immutable
-accepted source and raw receipts separately from derived summaries. Do not
-reprove or resubmit accepted/pending results to fill apparent stale backlog.
+Lean/Lake or toolchain DNS; that was disclosed before the prepared gate and the
+one diagnosed #241 repair. Compilation, standard-axiom audit, ACCEPTED and live
+Proved are distinct. Only the trusted main publisher sees credentials. Do not
+modify workflow, pin, permissions or secret isolation to publish a theorem.
+Preserve immutable accepted source and raw receipts separately from derived
+summaries. Do not reprove or resubmit accepted/pending results to fill apparent
+stale backlog.
