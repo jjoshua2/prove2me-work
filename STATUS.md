@@ -1,195 +1,124 @@
 # Current Polynomial Hirsch frontier
 
 Repository `jjoshua2/prove2me-work`; refreshed September 14, 2026 UTC.
-Keep Lean `v4.30.0` / Mathlib `c5ea00351c28e24afc9f0f84379aa41082b1188f`.
-Read this file, AGENTS.md, CLOUD_AGENT.md, SKILL.md and CONTINUE_HIRSCH.md,
-then inspect LIVE PR heads, comments and receipts before choosing work.
+Keep Lean `v4.30.0` and Mathlib `c5ea00351c28e24afc9f0f84379aa41082b1188f`.
+Read AGENTS.md, CLOUD_AGENT.md, SKILL.md, CONTINUE_HIRSCH.md and LIVE PR
+heads/comments before choosing work. Do not resubmit accepted/pending packets.
 
-The preceding complete overview through accepted #240 is retained VERBATIM in
-[the previous frontier](research/FRONTIER_BEFORE_GENERIC_FIBRE_2026-09-14.md),
-Git blob `4ed959bb035a2a76dda1bb9e8dc6fd841afdca28`. Its publication IDs,
-source hashes, limitations, older archives and geometric estimates remain
-available. This shorter current index does not discard their evidence.
+The preceding FULL frontier is retained VERBATIM in
+[the pre-endpoint overview](research/FRONTIER_BEFORE_ENDPOINT_COMPATIBILITY_2026-09-14.md),
+Git blob `48fea71cf5c68b584aa25ffdecb65eca9481f60f`.
+It preserves all accepted interfaces/IDs through #243, older archives and
+verification limitations. This shorter index does not discard that evidence.
 
-## Objective and root status
+## Root status and conjecture-level obstacle
 
-The last preserved authenticated mission audit reports the Polynomial Hirsch
-root `58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac` Open, all six curated milestones
-Proved, and open leaf `Hirsch.common_face_diameter_of_dim_ge_six`,
-`87a8b4f4-8b58-4340-8cb9-5fd1b548d01e`. This GitHub refresh is NOT a new
-authenticated root/leaf poll. The uniform arbitrary-carrier ordinary-edge
-diameter bound is not established by the results below.
+The last preserved authenticated audit reports root
+`58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac` Open, six curated milestones Proved,
+and remaining leaf `Hirsch.common_face_diameter_of_dim_ge_six`,
+`87a8b4f4-8b58-4340-8cb9-5fd1b548d01e`. This refresh does not repoll them.
+None of the supplied-model results below proves the uniform ordinary-edge
+bound for arbitrary high-dimensional selected carriers.
 
-The clipping framework already selects actual portal pairs and controls
-certain sums of their intrinsic sizes. Fixed support deficit, small excess,
-low dimension and verified geometric models have their own bounds. Auxiliary
-circuits and normalized multiplier vertices are not original polytope edges.
-A factor-three sibling mass estimate alone does not close a polynomial
-recurrence; an exact decomposition test alone does not find useful summands.
+The actual portal-pair framework and dimension/excess mass estimates remain
+available. A factor-three sibling mass estimate alone does not close a
+polynomial recurrence. Exact decomposition tests do not find useful summands
+for every polytope. Auxiliary positive circuits are not original graph edges.
 
-## Accepted ingredients: do not reprove or resubmit
+## Completed checked allocation chain: do not reopen
 
-Read the exact packet and its own authenticated receipt before composing it.
+The preserved table records accepted #216, #218, #219, #221, #222, #224,
+#227, #229, #230, #233, #234, #235, #236 and #237. In particular #236 has
+already composed the ACTUAL rational checker output, bound allocation matrix,
+whole-set Minkowski criterion and sharp support budgets. That is not an open
+composition task. #237 controls coefficient recession, not automatically image
+boundedness. Python/JSON producers are not Lean-extracted or kernel-evaluated
+merely by passing exact numerical regression tests.
 
-| PR | Exact role | Packet under research/publication_packets/ |
-|---|---|---|
-| #216 | Compact weighted tests imply simultaneous whole-set feasibility | compact_dual_minkowski |
-| #218 | Fixed positive-circuit family tests the nonnegative kernel | finite_positive_circuit_tests |
-| #219 | Bounded-simplex alternative and finite Minkowski criterion | finite_allocation_minkowski |
-| #221 | Original-H primal/dual support interface | See the merged #221 packet |
-| #222 | Signed-kernel characterization and rank-plus-one support cutoff | positive_circuit_rank |
-| #224 | Normalized circuits equal auxiliary-section extreme points | normalized_circuit_vertices |
-| #227 | Pointwise criterion plus sharp support witnesses gives scalar budgets | finite_allocation_support_budgets |
-| #229 | Actual finite rational checker/output is the complete REAL circuit catalogue | checked_circuit_catalogue |
-| #230 | Finite column identities certify a one-ray restricted kernel | rref_restricted_kernel_certificate |
-| #233 | Actual checked output tests every real nonnegative null vector | checked_catalogue_dual_tests |
-| #234 | Covering resource budgets have a full allocation alternative | covering_allocation_alternative |
-| #235 | External minimal circuits: exact support, nonnegative deficits, zero pattern | joint_circuit_support_deficits |
-| #236 | Actual catalogue, matrix binding, allocation, geometry and sharp budgets compose | checked_covering_support_budgets |
-| #237 | Coverage iff normalized nonnegative resource recession is absent | coverage_recession_alternative |
-| #239 | Additive count for finite affine-envelope exposed-edge certificates | simultaneous_envelope_edges |
-| #240 | Construct whole exposed Minkowski bridges over exposed core edges | generic_minkowski_edge_lift |
-| #242 | Construct generic endpoint-preserving objectives with no independent ties | generic_fibre_objectives |
-| #243 | Construct the actual finite crossing sequence, boundary maxima and additive count | finite_affine_chambers |
+## Geometric chain and live publication evidence
 
-#236 is the completed checked-output-to-geometric-budget adapter, not an open
-composition task. #237 concerns bounded COEFFICIENT sets, not automatically
-bounded images: B=0,G=0 has unbounded coefficients and image {0}. #235 needs
-full circuit support minimality, not merely externality and nullness. Python
-producers and JSON readers are not Lean-extracted; passing their tests does
-not individually kernel-certify arbitrary finite input data.
+- #239: accepted additive affine-envelope transition count.
+- #240: accepted actual exposed Minkowski bridges over core edges.
+- #242: accepted endpoint-preserving generic objectives excluding independent
+  simultaneous ties. The separate PolynomialEnvelopeCrossingEdges module has
+  its own compile evidence, not an inherited platform acceptance.
+- #243: accepted CONSTRUCTION of the chronological finite crossing sequence,
+  both wall maxima, stationary compression and N<=sum_i(k_i-1).
+- #244: `Hirsch.constructed_minkowski_fibre_route` has an authenticated ACCEPTED
+  comment: theorem `2f4c0ca7-8412-47e8-8ab6-4d44b8699ee5`, submission
+  `24b8a2c2-6a38-4f35-89e7-6b85f4d0b87c`, run `34806444523`, frozen proof
+  `3911e9440cf122a1693b0844f213c5973a9eb9d4`. It constructs the actual full-sum
+  fixed-core route and additive cost from strict endpoint data. #244 was still
+  open/draft when inspected here; its evidence/integration belong to its owner.
+  Do not retry its publication. Actual verdict:
+  https://github.com/jjoshua2/prove2me-work/pull/244#issuecomment-5659082589
+- #245: NEW ACCEPTED strict endpoint compatibility for the SAME component
+  endpoints returned by #240, described below. Inspect its live merge status;
+  its post-gate changes are receipts/frontier documentation only.
 
-## Accepted genericity theorem: PR #242
+## NEW acceptance: uniform bridge endpoint objectives, PR #245
 
-`Hirsch.generic_fibre_objectives_without_independent_ties` is ACCEPTED;
-theorem `d323320e-6843-4743-a2ea-e46b770cb3c8`, submission
-`4ac637cb-f9c4-47fe-9bc2-8d435e539177`. The authenticated publisher receipt
-records live Proved. Frozen proof `0e9c7ad7ea0e46623df0718564f0917ac50f027a`,
-run `34798475975`. See [accepted evidence](research/publication_packets/generic_fibre_objectives/accepted-evidence.md)
-and [the handoff](research/GENERIC_FIBRE_HANDOFF.md). Do not resubmit.
+`Hirsch.parallel_support_bridge_uniform_endpoint_exposers` is ACCEPTED with
+trusted authenticated live Proved. Theorem
+`0918de00-86f9-4f1d-9e20-7d1dc36efa69`, submission
+`217a1321-8d13-4d62-894c-328c889c7383`. Frozen proof
+`c6d2ab0b57674e30671acd354b4b3e4517307b86`, run `34861096310`.
 
-The theorem constructs objectives f,g inside two supplied nonempty finite
-strict endpoint cones. On a finite list of nonzero differences it excludes
-independent simultaneous ties along the ENTIRE affine objective line, by
-proving the corresponding two-by-two determinants nonzero. A helper preserves
-shared strict core comparisons on the closed interval. Empty index types and
-arbitrary real vector spaces are retained; genericity is not an input oracle.
+Read [accepted evidence](research/publication_packets/uniform_bridge_endpoint_exposers/accepted-evidence.md)
+and [the exact proof/interface explanation](research/publication_packets/uniform_bridge_endpoint_exposers/explanation.md).
+The original264-line proof passed its FIRST guarded compiler/axiom gate and
+FIRST actual platform submission unchanged. The prior turn's blocked write
+created no submission. All six printed declarations use only propext,
+Classical.choice and Quot.sound. Both downloaded archives and all five frozen
+file hashes were independently checked. Raw audit/log/manifest/publication
+receipt are committed. No workflow, pin, permission or secret change occurred.
 
-The 165-line proof commands and target are unchanged from the old local
-candidate. The first workflow stopped before Lean because the raw admission
-scanner matched an English word in a comment. Changing that prose word only
-allowed the first actual compilation and first actual platform submission to
-pass. All three compile exits are zero; all five audited declarations use
-only propext, Classical.choice and Quot.sound. Raw logs, audit, manifest and
-publication receipt are preserved; both ZIPs and all five hashes were checked.
-No verifier, pin, workflow, allowlist or secret-separation change occurred.
+For finite component point sets, a supporting f and actual parallel segments
+b_i=a_i+eta_i e, eta_i>=0, e!=0, f(e)=0, the theorem CONSTRUCTS q(e)=1 and
+one delta>0. For EVERY0<s<delta, f-sq strictly exposes each a_i and f+sq each
+b_i. The whole Minkowski sum contains both summed endpoints, uniquely exposed
+by those objectives. Endpoint choices are unchanged and no new exposure oracle
+is assumed. Empty families, point factors, collapsed segments and redundant
+interior points are included. Delta can depend arbitrarily on the input;
+no uniform conditioning or graph-length bound follows from the radius alone.
 
-## Compiled crossing geometry: same PR, separate evidence
+The independent replay has128 cases/383 factors,18448 component sample checks,
+264616 small tuple comparisons and14 rejected controls. Those are not graph
+routes, Lean-extracted JSON checks or additional kernel proofs. The committed
+script regenerates the complete fixtures; the execution JSON is a summary.
 
-`Solutions.PolynomialEnvelopeCrossingEdges` passed module-only run
-`34799074798` at `ad42bf00ef2d5b79ae6211529cba4efedbc97066`.
-Source blob `3c3695a01b2e7b0474c86111184c01c2dea53649`.
-The exact two-site repair from the failed first module gate is preserved;
-no theorem statement or mathematical hypothesis changed.
+## Next exact connection and ownership
 
-`crossing_support_segments` derives every ENTIRE component supporting slice
-from actual finite left/wall/right maximizing comparisons and parallel ties.
-`affine_crossing_exposed_edge` derives the global supporting-slice equality
-and actual Hirsch.Adj, including summed endpoint nondegeneracy. It reuses the
-integrated Minkowski support assembler rather than assuming an exposed edge.
+The CORE-WALK CONCATENATION is claimed by the distinct agent in #244's
+comments. The endpoint lemma was separately claimed in comment5664866127
+and resumed in5666141960. Inspect the assembly agent's current branch before
+doing the same work; this PR has not published a competing full assembly.
 
-IMPORTANT: the module-only artifact records successful Lake compilation, but
-the trusted builder discards successful stdout. No independent printed-axiom
-list for this module is retained, and no separate platform submission exists.
-Do not transfer #242's public packet audit or ACCEPTED status to this module.
-Its exact artifact and labeled inspection are in
-[the current verification folder](research/verification/generic-fibre-current/).
+The remaining adapter should take #240's actual bridge endpoints, derive the
+finite hface premise, and apply #245 with s=delta/2. Injectively enumerate the
+factor Finsets and preserve the core coordinate. At each core vertex its
+incoming upper and outgoing lower objectives then satisfy #244's strict
+endpoint hypotheses. Attach the user's endpoint tuples, handle L=0 and
+empty-factor membership, and concatenate L bridges with L+1 fibre paths.
 
-## New ACCEPTED finite crossing-sequence construction: PR #243
+For a SUPPLIED decomposition and core route, the intended bound is
+L+(L+1)K with K=sum_i(k_i-1). The endpoint construction is now proved;
+the final indexed composition is not silently asserted by #245. Useful
+controlled decompositions or a different routing method for arbitrary
+carriers remain the conjecture-level obstacle. Do not publish a circular
+child or merely restate that applicability problem as a solved premise.
 
-`Hirsch.finite_affine_envelope_crossing_sequence` is ACCEPTED with authenticated
-live Proved. Theorem `8b5a47c4-8e01-4823-9014-ed546f69991f`, submission
-`cf94f560-6133-4340-867d-36624f0e82db`. Frozen proof head
-`65e683ec0b19dc98932b6e62782976dc3de3385e`, run `34804405107`.
-Read [accepted evidence](research/publication_packets/finite_affine_chambers/accepted-evidence.md)
-and [the full proof/interface explanation](research/publication_packets/finite_affine_chambers/explanation.md).
-Do not resubmit or reconstruct another scalar sequence theorem.
+## Other live work and execution discipline
 
-For finite affine scores with injective intercepts and prescribed unique
-endpoint winners, it CONSTRUCTS increasing interior samples, unique winning
-tuples, common wall maxima strictly between neighboring samples, preserved
-endpoint tuples, no stationary transitions, and N<=sum_i(k_i-1). The finite
-roots/order, interval winners, closed-boundary comparisons and stationary
-compression are conclusions rather than supplied certificates. The count
-reuses accepted #239. Empty factor families, singleton dictionaries and
-simultaneous scalar ties remain included.
+#238 owns strict original-H support witnesses; #241 owns bounded-image compact
+representatives. Inspect their LIVE states. The older #208 additive-spill
+submission is not repolled here and must not be retried from this stale index.
+#210 is retired ancestry, not an active publication target without assignment.
+Earlier branches and receipts remain linked from the preserved full frontier.
 
-The first gate failed at five elaboration sites and submitted nothing. One
-consolidated tactic-scope/dependent-if repair left every statement unchanged.
-The corrected571-line proof passed all three compile commands and its first
-actual platform submission. All eight printed declarations have only propext,
-Classical.choice and Quot.sound. Raw compile audit, frozen manifest and public
-receipt are committed; both archives and all five frozen file hashes were
-independently checked. Exact diagnostics: research/FINITE_AFFINE_FIRST_GATE.json.
-
-The separate rational regression has211 cases,319 retained transitions,1866
-raw chambers,1336 removed stationary cells,16093 sample/wall comparisons,
-77922 closed-cell comparisons and11 rejected controls. A clean-directory
-rerun reproduces every fixture and receipt. These tests are NOT Lean-extracted
-or original-polytope edge checks. Scalar simultaneous ties alone may expose
-a higher-dimensional face; the geometric genericity hypothesis is still needed.
-
-## Next exact formal task and mathematical applicability
-
-The scalar FINITE CROSSING-SEQUENCE ASSEMBLY is now completed by #243. The next
-step is the GEOMETRIC FIBRE-WALK ADAPTER, already claimed by the distinct agent
-in #243 comment5658751763 and acknowledged in comment5658779357. Inspect its
-live branch/PR before choosing work; do not duplicate it.
-
-Instantiate #242 on actual nonzero within-factor point differences and endpoint
-comparisons. For interpolation (1-t)f+t*h, use a_i(q)=f(v_i(q)) and
-b_i(q)=(h-f)(v_i(q)) in #243. Its output supplies the actual samples and wall
-comparisons to the compiled affine_crossing_exposed_edge theorem. Prove finite
-image-membership/index transport, genuine sum-set adjacency, and endpoint
-membership including N=0. Preserve shared strict comparisons when staying in
-a fixed core cone, then concatenate with #240's actual core-edge bridges.
-No new crossing schedule or edge-slice oracle should be assumed.
-
-For a given decomposition R=P+sum Q_i, the written geometric lifting bound is
-L+(L+1)K, where L is the core walk and K=sum_i(f0(Q_i)-1). For ACTUAL selected
-carriers with bounded core cost and K controlled by intrinsic dimension, the
-existing mass accounting gives useful polynomial costs. Such controlled
-decompositions are NOT established for arbitrary high-dimensional carriers.
-A different method is needed where those models do not apply. Do not turn
-this applicability condition into a supposedly solved premise or publish an
-open child merely restating it.
-
-The earlier deterministic geometric scripts remain committed. Their rerun
-covers85 paths/103 edges,82 whole-sum audits,3465 edge/tuple checks and17
-rejected controls. A clean replay reproduces that receipt and fixtures exactly.
-The32D example has24 fibre edges and budget48 without enumerating9.32 trillion
-raw point tuples; this is not a distinct-vertex count. Supplied finite factor
-presentations and exposed endpoints are inputs, not discovered H-decompositions.
-These earlier counts are not new #243 geometric verification.
-
-## Live work queue and execution discipline
-
-#238 owns strict original-H support-witness existence. #241 owns bounded-image
-compact representatives. Inspect their current states rather than duplicating
-them. #208 retains its distinct additive-spill/portal-selection line; its last
-persisted submission `2a2dd9bd-9ee5-43fa-bc04-def26a5a2a98` is PENDING, not a
-freshly polled verdict in this turn. Do not resubmit it. #210 is retired/reserved
-historical ancestry; do not modify, trigger or merge it without reassignment.
-#239/#240/#242 are accepted and merged. #243's proof/publication is complete;
-its post-gate changes are evidence and handoff only. Check its live merge state
-rather than rerunning its accepted packet. The distinct geometric adapter is
-owned as recorded above; no competing adapter is included in this PR.
-
-Use local pinned Lean where available. This runtime lacked Lean/Lake; exact
-Python/source checks were not represented as compilation. Hosted gates are
-prepared final checks, not speculative edit/compile loops. Post real new
-top-level comments on open same-repository PRs, read them back, and follow the
-resolved PROOF SHA through jobs, logs, artifacts and authenticated verdict.
-Preserve raw records separately from derived summaries. Compilation, axiom
-audit, ACCEPTED and live Proved are distinct claims. No accepted/pending packet
-is resubmitted and no secrets leave the trusted main publisher.
+Use local pinned Lean where available. This runtime lacked Lean/Lake and
+could not download its toolchain; that was disclosed before one prepared gate.
+No hosted proof-edit loop occurred. Compilation, axiom audit, authenticated
+ACCEPTED and live Proved are distinct. Only the trusted main publisher sees
+repository credentials. Post-gate #245 changes do not alter its proof or
+problem metadata. Preserve the archive digests and exact source when composing.

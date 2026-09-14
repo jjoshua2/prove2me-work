@@ -1,0 +1,15 @@
+{
+  "head_sha": "c6d2ab0b57674e30671acd354b4b3e4517307b86",
+  "packets": [
+    {
+      "packet": "uniform_bridge_endpoint_exposers",
+      "status": "ACCEPTED",
+      "theorem_id": "0918de00-86f9-4f1d-9e20-7d1dc36efa69",
+      "submission_id": "217a1321-8d13-4d62-894c-328c889c7383",
+      "theorem_name": "Hirsch.parallel_support_bridge_uniform_endpoint_exposers",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/uniform_bridge_endpoint_exposers"
+    }
+  ]
+}

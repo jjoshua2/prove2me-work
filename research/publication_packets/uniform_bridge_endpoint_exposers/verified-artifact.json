@@ -1,0 +1,25 @@
+{
+  "head_sha": "c6d2ab0b57674e30671acd354b4b3e4517307b86",
+  "packets": [
+    {
+      "path": "research/publication_packets/uniform_bridge_endpoint_exposers",
+      "name": "uniform_bridge_endpoint_exposers",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "ac24ae1ef62c0c29fa7b6bbd5b03320bb365e838385f7e4e8c56bf9c8e9465ea",
+        "driver.lean": "ac24ae1ef62c0c29fa7b6bbd5b03320bb365e838385f7e4e8c56bf9c8e9465ea",
+        "statement.lean": "4c1d075eb6d15fd5aa30b5034ced80d5fe0c594fd0f4ae75a056243b094cb41c",
+        "problem.json": "e8e4a1a1b4a63c0ea01ad416a0f592a0b7c2bfef90ffe7cf2398b518b7b53822",
+        "explanation.md": "eae9d38882f2bc90ee76dfd0888a98b0962b97164176cdd185843eca3142da2d"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}
