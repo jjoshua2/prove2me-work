@@ -232,10 +232,16 @@ lemma compress_sequence {α : Type*} (P : ℝ → α → Prop) (R : α → α �
   | zero =>
     refine ⟨0, x, t, le_rfl, rfl, rfl, ?_, ?_, ?_, ?_, ?_⟩
     · intro j hj; omega
-    · intro j hj; have he : j = 0 := by omega; subst j; exact hP 0 le_rfl
+    · intro j hj
+      have he : j = 0 := by omega
+      subst j
+      exact hP 0 le_rfl
     · intro j hj; omega
     · intro j hj; omega
-    · intro j hj; have he : j = 0 := by omega; subst j; exact le_rfl
+    · intro j hj
+      have he : j = 0 := by omega
+      subst j
+      exact le_rfl
   | succ n ih =>
     obtain ⟨l, y, s, hln, hy0, hyn, hs, hyP, hyR, hyne, hst⟩ :=
       ih (fun j hj => ht j (by omega))
@@ -338,7 +344,7 @@ theorem exists_itinerary
       apply Fin.ext
       rfl
     rw [he] at hleft
-    simpa [t, hj0, hj1] using hleft.trans hright
+    simpa only [t, dif_pos hj0, dif_pos hj1] using hleft.trans hright
   have hP : ∀ j, j ≤ n → P (t j) (x j) := by
     intro j hj
     have hj0 : j < n+1 := by omega
@@ -347,7 +353,7 @@ theorem exists_itinerary
     have h1 := hm.2.trans_le (hcut (⟨j, hj0⟩ : Fin (n+1)).succ).2
     have hh : P (mid ⟨j, hj0⟩) (p ⟨j, hj0⟩) :=
       ⟨h0, h1, fun i q hq => hstrict ⟨j, hj0⟩ i q hq _ hm.1 hm.2⟩
-    simpa [t, x, hj0] using hh
+    simpa only [t, x, dif_pos hj0] using hh
   have hR : ∀ j, j < n → R (x j) (x (j+1)) := by
     intro j hj
     have hj0 : j < n+1 := by omega
@@ -369,7 +375,7 @@ theorem exists_itinerary
       refine ⟨cut l.succ, (hcut _).1, (hcut _).2, hleft, ?_⟩
       intro i
       exact le_antisymm (hleft i (p r i)) (hright i (p l i))
-    simpa [R, x, hj0, hj1, l, r] using hh
+    simpa only [R, x, dif_pos hj0, dif_pos hj1, l, r] using hh
   obtain ⟨N, y, s, _, hy0, hyn, hs, hyP, hyR, hyne, _⟩ :=
     compress_sequence P R n x t ht hP hR
   have hx0 : x 0 = p0 := by simpa [x] using hpz
