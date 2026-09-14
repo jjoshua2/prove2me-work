@@ -1,0 +1,29 @@
+{
+  "kind": "Derived diagnostic summary from the actual failed Actions job log, not a raw platform response",
+  "run_id": 34803992962,
+  "verify_job_id": 103852148976,
+  "proof_sha": "b25d395947c88665d494b48ea8ca25f1e9b9c2df",
+  "solution_git_blob": "257a796859d406b98e5016d325c769a68ffe9f73",
+  "solution_sha256": "943d3488449d3ad3f6ec072eda2e6ecd3ef3d361731c87a58d072d5e1c312dcc",
+  "verify_conclusion": "failure",
+  "publish_conclusion": "skipped",
+  "registered_or_submitted": false,
+  "diagnostics": [
+    {"line": 235, "message": "No goals to be solved; unsolved goal P (t j) (x j)", "repair": "Split the inline have proof, subst and exact onto separately scoped tactic lines."},
+    {"line": 238, "message": "No goals to be solved; unsolved goal t j <= t 0", "repair": "Split the inline have proof, subst and exact onto separately scoped tactic lines."},
+    {"line": 341, "message": "Dependent if conditions normalized to j <= n / j < n before the supplied positive branches were eliminated", "repair": "Use simpa only with t, dif_pos hj0 and dif_pos hj1."},
+    {"line": 350, "message": "Dependent if branches remained in the sample-property target", "repair": "Use simpa only with t, x and dif_pos hj0."},
+    {"line": 372, "message": "Dependent if branches remained in the shared-wall target", "repair": "Use simpa only with R, x, dif_pos hj0, dif_pos hj1, l and r."}
+  ],
+  "successful_upstream_declarations_in_failed_log": ["Hirsch.FiniteAffineChambers.zero_of_sign_change", "Hirsch.FiniteAffineChambers.chamber_sign", "Hirsch.FiniteAffineChambers.exists_chambers", "Hirsch.FiniteAffineChambers.root_between"],
+  "successful_upstream_printed_axioms": ["propext", "Classical.choice", "Quot.sound"],
+  "root_proof_verified": false,
+  "error_recovery_sorryAx_is_not_accepted_evidence": true,
+  "repair_commit": "faafcfa4e1d7bec44a83c76db8757bc00b42efe9",
+  "repaired_solution_git_blob": "739565818329af52b9b939fac7f8dd6685dcf309",
+  "repaired_solution_sha256": "c26a8737a7d2b3c697b9b5a197f0733b3129f2ad60b16071adb6f15e3a5ec8dc",
+  "public_statement_and_all_helper_statements_changed": false,
+  "local_rational_regression_repeated": true,
+  "local_lean_available": false,
+  "repair_verification": "No result yet when this diagnostic record was written"
+}
