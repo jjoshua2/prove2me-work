@@ -1,0 +1,52 @@
+{
+  "new_files": {
+    "research/DEFECT_COMPRESSION_HANDOFF.md": {
+      "bytes": 5186,
+      "git_blob": "952ba63d566db69a3e6d38d140435a6a9b68cc00",
+      "sha256": "3c213e60e298be0c20067d031296fc0cdc4d6b185f5f0df350cdfb7b5e5ea9a4"
+    },
+    "research/DEFECT_COMPRESSION_REPLAY.json": {
+      "bytes": 1247,
+      "git_blob": "b80f5ca1a6d5b91d9bad1713f4d380762e3f4227",
+      "sha256": "55d95d2dc67f7496118ebb3bf5aece1a25c5fb731117e4a963de9817cded308b"
+    },
+    "research/DEFECT_COMPRESSION_SUMMARY.json": {
+      "bytes": 12547,
+      "git_blob": "c5fea43bee1643117a27e717a681492794d54a6c",
+      "sha256": "d4a08c34079bc04381a1fe1e82b154c68e8718ecb9330b612eba1f6e73a48e78"
+    },
+    "research/DEFECT_INCIDENCE_COMPRESSION.md": {
+      "bytes": 22741,
+      "git_blob": "03da6c4ce0eb51b1a79da86627d44519fb3b40c3",
+      "sha256": "9ae27dabb3a045462c9507bb811b6bf5361f0de0ac08311578f98f8170ce8b5b"
+    },
+    "scripts/defect_incidence_compression.py": {
+      "bytes": 13579,
+      "git_blob": "c9c3d07b5517ed263571500870595693a47b44fb",
+      "sha256": "9c40bd20f16c2092c3b7970511aa5d210513d4c078b36494b428933c85e0a5f2"
+    },
+    "scripts/test_defect_incidence_compression.py": {
+      "bytes": 18449,
+      "git_blob": "b4f5df2633971bee6fc9ee259044d9cbd1e69fb9",
+      "sha256": "2ed13d2cbb40d61cb84734fdf7a6e6c6c993249252ee5f7de45ddd8ec859f8cd"
+    }
+  },
+  "record_kind": "local exact file/dependency identities; no platform receipt",
+  "unchanged_dependencies": {
+    "scripts/exact_farkas_lp.py": {
+      "bytes": 7028,
+      "git_blob": "ea511a79164d953792942d8be3dd3537646738d6",
+      "sha256": "65a8731600a6750b5334307415cd37c79d201d47e179bea5cdcbd511363006d0"
+    },
+    "scripts/original_facet_segments.py": {
+      "bytes": 16550,
+      "git_blob": "a53ad5cfc43b085d50733dbe96aabea8de4b9a51",
+      "sha256": "c838c5e62bc0549e948d81ff1d509f76ff48082bbe0b441aa5f72cffd0384ace"
+    },
+    "scripts/simple_tangent_policy_audit.py": {
+      "bytes": 8284,
+      "git_blob": "73dc32b9753d7d0fe5e67ca1f4fad0534b6b1976",
+      "sha256": "28d7e66e3e2f6d6589e55a2e07e42a7a2081d56860621ba8838db9708a458440"
+    }
+  }
+}
