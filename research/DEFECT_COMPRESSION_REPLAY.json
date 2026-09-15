@@ -1,0 +1,34 @@
+{
+  "excluded_fields": [
+    "seconds"
+  ],
+  "fixtures": {
+    "fixtures/defect_compression_family.json": {
+      "bytes": 399109,
+      "sha256": "c24dd0151878f8d2e6710017bff4af7e64f1d8075761443df746634f3514ed99"
+    },
+    "fixtures/defect_compression_geometry.json": {
+      "bytes": 218692,
+      "sha256": "dfdb1deef789eb7720c2fed8faea8a1ed93dc27a846ba9b88f5fdca9f056d367"
+    }
+  },
+  "record_kind": "local clean dependency replay; no Lean/platform verdict",
+  "stages": {
+    "abstract": {
+      "clean_sha256": "77f7de1521142ff3ad18ac0bb4e03441cc55f75d0756fc5699ba0a0f9faaba41",
+      "matching_nontiming_fields": true,
+      "original_sha256": "75002356babc14d43c67ec2a0d9547c6155b32b24dc6043ec687cc72073a19cb"
+    },
+    "family": {
+      "clean_sha256": "6186a0d4a157f5cd03c426290e567d77df683e1de95908eef46917b55a8b42a7",
+      "matching_nontiming_fields": true,
+      "original_sha256": "16250c7148d157d7abcff51a40091f181205d87550c0bb077f62e5e55f303486"
+    },
+    "geometry": {
+      "clean_sha256": "660587e29e8b4b3456d37e7ef24fefb2156df16d1398789adc4344273a411aeb",
+      "matching_nontiming_fields": true,
+      "original_sha256": "2ff11cc123564363cf72e02228c678e45c1f452086111b46f0136a57a4e6daab"
+    }
+  },
+  "status": "PASS"
+}
