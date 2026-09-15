@@ -1,0 +1,57 @@
+{
+  "new_files": {
+    "fixtures/defect_reference_inputs.json": {
+      "bytes": 5606,
+      "git_blob": "6ed9a8f9156054ad426342ff36d9af8293d00bf5",
+      "sha256": "3fa6a5a4e26a897925cf4ef63b7f78cb7ea0a7c5be19a074a20a9b4fd6904c9f"
+    },
+    "research/DEFECT_CONFINEMENT.md": {
+      "bytes": 20395,
+      "git_blob": "6daa8f47ca2c0e90a9123a4246efbd6282447c6e",
+      "sha256": "eca043d49925ab9a5691188b86663eedafe386d1aa8f62c50057d60f3ac8c44a"
+    },
+    "research/DEFECT_CONFINEMENT_HANDOFF.md": {
+      "bytes": 4837,
+      "git_blob": "af7d4c95970502959fe820c8349103162c317c5e",
+      "sha256": "f10876494361b76dd73ed2326855bda3c227396bef41ad9fcb83cfb5a4067b17"
+    },
+    "research/DEFECT_CONFINEMENT_REPLAY.json": {
+      "bytes": 605,
+      "git_blob": "75d8cfe829fa3724fb0b22305629e6fb57b20d3a",
+      "sha256": "591921eee97e060af0b3cfbec708e9c2e367525031abe058aa6256e96fd214a0"
+    },
+    "research/DEFECT_CONFINEMENT_TESTS.json": {
+      "bytes": 8998,
+      "git_blob": "d6bd0fd7801fbf6135488e3d420049e7d896bcb0",
+      "sha256": "9057ef19fdb72bf5738b82ccfd5a91701f77cd355c41197a767631909e9086f8"
+    },
+    "scripts/defect_confinement.py": {
+      "bytes": 9716,
+      "git_blob": "6b423a259064b10bba16b1d42cc063c59f63b091",
+      "sha256": "70e80083c961801d7e3b03819792c80a8e437917c7937adbdadc3ea1757a55ea"
+    },
+    "scripts/test_defect_confinement.py": {
+      "bytes": 23428,
+      "git_blob": "418ac33ff0538057e0a15a62100198df10e4f806",
+      "sha256": "310a5e343b8f61d7d2faa3b8d687cf601f7015e616afaf7a1149cc8ad0ffba65"
+    }
+  },
+  "record_kind": "local source/dependency identities; no Lean or platform verdict",
+  "unchanged_dependencies": {
+    "scripts/exact_farkas_lp.py": {
+      "bytes": 7028,
+      "git_blob": "ea511a79164d953792942d8be3dd3537646738d6",
+      "sha256": "65a8731600a6750b5334307415cd37c79d201d47e179bea5cdcbd511363006d0"
+    },
+    "scripts/original_facet_segments.py": {
+      "bytes": 16550,
+      "git_blob": "a53ad5cfc43b085d50733dbe96aabea8de4b9a51",
+      "sha256": "c838c5e62bc0549e948d81ff1d509f76ff48082bbe0b441aa5f72cffd0384ace"
+    },
+    "scripts/simple_tangent_policy_audit.py": {
+      "bytes": 8284,
+      "git_blob": "73dc32b9753d7d0fe5e67ca1f4fad0534b6b1976",
+      "sha256": "28d7e66e3e2f6d6589e55a2e07e42a7a2081d56860621ba8838db9708a458440"
+    }
+  }
+}
