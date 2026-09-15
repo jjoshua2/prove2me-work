@@ -1,0 +1,309 @@
+{
+  "status": "PASS",
+  "scope": "Written mathematical results and exact finite tests; not Lean compilation, axiom audit, Prove2Me acceptance, universal strategy completion, or Polynomial Hirsch.",
+  "abstract": {
+    "complexes": 218,
+    "edge_updates": 1910,
+    "nonbranching": 1232,
+    "nontwin_nonbranching": 285,
+    "negative_energy_with_branching": 19,
+    "higher_increase_with_energy_drop": 13
+  },
+  "geometry": {
+    "counts": {
+      "source_polytopes": 6,
+      "original_route_pairs": 72,
+      "original_edges": 159,
+      "refined_steps": 168,
+      "stationary_carriers": 9,
+      "nonshortest_routes": 3,
+      "direct_H_edge_audits": 159,
+      "bfs_edges": 156
+    },
+    "cyclic_cases": [
+      {
+        "dimension": 4,
+        "genuine_facets": 7,
+        "vertices": 14,
+        "initial_higher": 7,
+        "initial_energy": 7,
+        "twin_steps": 0,
+        "twin_residual_higher": 7,
+        "nonbranch_steps": 4,
+        "nonbranch_bound": 7,
+        "two_step_steps": 4
+      },
+      {
+        "dimension": 4,
+        "genuine_facets": 8,
+        "vertices": 20,
+        "initial_higher": 16,
+        "initial_energy": 16,
+        "twin_steps": 0,
+        "twin_residual_higher": 16,
+        "nonbranch_steps": 6,
+        "nonbranch_bound": 10,
+        "two_step_steps": 6
+      },
+      {
+        "dimension": 4,
+        "genuine_facets": 9,
+        "vertices": 27,
+        "initial_higher": 30,
+        "initial_energy": 30,
+        "twin_steps": 0,
+        "twin_residual_higher": 30,
+        "nonbranch_steps": 9,
+        "nonbranch_bound": 14,
+        "two_step_steps": 9
+      },
+      {
+        "dimension": 6,
+        "genuine_facets": 9,
+        "vertices": 30,
+        "initial_higher": 9,
+        "initial_energy": 18,
+        "twin_steps": 0,
+        "twin_residual_higher": 9,
+        "nonbranch_steps": 8,
+        "nonbranch_bound": 11,
+        "two_step_steps": 8
+      },
+      {
+        "dimension": 6,
+        "genuine_facets": 10,
+        "vertices": 50,
+        "initial_higher": 25,
+        "initial_energy": 50,
+        "twin_steps": 0,
+        "twin_residual_higher": 25,
+        "nonbranch_steps": 13,
+        "nonbranch_bound": 17,
+        "two_step_steps": 13
+      },
+      {
+        "dimension": 8,
+        "genuine_facets": 11,
+        "vertices": 55,
+        "initial_higher": 11,
+        "initial_energy": 33,
+        "twin_steps": 0,
+        "twin_residual_higher": 11,
+        "nonbranch_steps": 12,
+        "nonbranch_bound": 15,
+        "two_step_steps": 12
+      }
+    ]
+  },
+  "barrier": {
+    "seed": {
+      "dimension": 6,
+      "genuine_facets": 10,
+      "vertices": 45,
+      "higher": 12,
+      "energy": 19
+    },
+    "branching_descent": {
+      "input_sha256": "f67022c417b5a4a8d9d28939401179e11ebec9c5517400aac142f5f19260c264",
+      "edge": [
+        2,
+        3
+      ],
+      "new_label": 10,
+      "higher_before": 12,
+      "higher_after": 13,
+      "energy_before": 19,
+      "energy_after": 16,
+      "containing_defects": 4,
+      "branch_energy": 1,
+      "extra_higher": [
+        [
+          4,
+          8,
+          10
+        ]
+      ],
+      "mixed_absorbers": [
+        {
+          "old_mixed": [
+            3,
+            4,
+            8
+          ],
+          "absorber": null
+        },
+        {
+          "old_mixed": [
+            1,
+            2,
+            7,
+            9
+          ],
+          "absorber": [
+            1,
+            2,
+            3,
+            9
+          ]
+        }
+      ],
+      "no_branch": false,
+      "twin": false,
+      "output_sha256": "aa0d4176cddd14d2f2c67f8bf582a996b94962a29076e429e4ce491d9430bf3e"
+    },
+    "barrier": {
+      "dimension": 6,
+      "genuine_facets": 18,
+      "vertices": 164,
+      "higher": 4,
+      "energy": 4,
+      "face_edges_checked": 115,
+      "productive_edges": 12,
+      "minimum_delta": 0,
+      "maximum_delta": 4,
+      "exact_graph_diameter": 8,
+      "residual_support": 8,
+      "residual_nonempty_faces": 135,
+      "old_residual_block_bound": 139
+    },
+    "fixed_repair_energy": [
+      4,
+      4,
+      3,
+      2,
+      0
+    ],
+    "two_step_constructor": {
+      "stellar_steps": 5,
+      "initial_energy": 4,
+      "final_energy": 0,
+      "total_destroyed_incidence": 5,
+      "total_branch_energy": 1,
+      "nonbranching_steps": 4,
+      "higher_count_increases": 0,
+      "macro_count": 4,
+      "flag": true,
+      "refined_vertices": 23,
+      "flag_bound_valid_only_if_flag": true
+    },
+    "route_tests": {
+      "pairs": 40,
+      "original_edges": 159,
+      "refined_steps": 163,
+      "stationary_carriers": 4,
+      "nonshortest": 0,
+      "direct_H_edges": 159,
+      "bfs_edges": 159
+    },
+    "forged_route_rejections": 5,
+    "infinite_family_samples": [
+      {
+        "r": 0,
+        "dimension": 6,
+        "genuine_facets_by_construction": 18,
+        "higher_defects": 4,
+        "energy": 4,
+        "productive_edges": 12,
+        "strict_decreasing_edges": 0,
+        "repair_steps": 4,
+        "flag_vertices": 22,
+        "all_pairs_bound": 16
+      },
+      {
+        "r": 1,
+        "dimension": 7,
+        "genuine_facets_by_construction": 21,
+        "higher_defects": 4,
+        "energy": 4,
+        "productive_edges": 12,
+        "strict_decreasing_edges": 0,
+        "repair_steps": 4,
+        "flag_vertices": 25,
+        "all_pairs_bound": 18
+      },
+      {
+        "r": 2,
+        "dimension": 8,
+        "genuine_facets_by_construction": 24,
+        "higher_defects": 4,
+        "energy": 4,
+        "productive_edges": 12,
+        "strict_decreasing_edges": 0,
+        "repair_steps": 4,
+        "flag_vertices": 28,
+        "all_pairs_bound": 20
+      },
+      {
+        "r": 4,
+        "dimension": 10,
+        "genuine_facets_by_construction": 30,
+        "higher_defects": 4,
+        "energy": 4,
+        "productive_edges": 12,
+        "strict_decreasing_edges": 0,
+        "repair_steps": 4,
+        "flag_vertices": 34,
+        "all_pairs_bound": 24
+      },
+      {
+        "r": 10,
+        "dimension": 16,
+        "genuine_facets_by_construction": 48,
+        "higher_defects": 4,
+        "energy": 4,
+        "productive_edges": 12,
+        "strict_decreasing_edges": 0,
+        "repair_steps": 4,
+        "flag_vertices": 52,
+        "all_pairs_bound": 36
+      },
+      {
+        "r": 26,
+        "dimension": 32,
+        "genuine_facets_by_construction": 96,
+        "higher_defects": 4,
+        "energy": 4,
+        "productive_edges": 12,
+        "strict_decreasing_edges": 0,
+        "repair_steps": 4,
+        "flag_vertices": 100,
+        "all_pairs_bound": 68
+      },
+      {
+        "r": 64,
+        "dimension": 70,
+        "genuine_facets_by_construction": 210,
+        "higher_defects": 4,
+        "energy": 4,
+        "productive_edges": 12,
+        "strict_decreasing_edges": 0,
+        "repair_steps": 4,
+        "flag_vertices": 214,
+        "all_pairs_bound": 144
+      }
+    ],
+    "explicit_H_family_lifts": [
+      {
+        "r": 1,
+        "dimension": 7,
+        "genuine_facets": 21,
+        "vertices": 394
+      },
+      {
+        "r": 2,
+        "dimension": 8,
+        "genuine_facets": 24,
+        "vertices": 920
+      }
+    ]
+  },
+  "negative": {
+    "rejected": 14,
+    "unshielded_join_energy_before": 2,
+    "unshielded_join_energy_after": 4
+  },
+  "source_sha256": {
+    "stellar_defect_energy.py": "f034b8cc09686372d1208a378325c47a8f81c58fece1b473c5d8d53044b5da7c",
+    "test_stellar_defect_energy.py": "93592771730994d64c2c4910a91ae87335db873bd3972668aed03f1d534c39bd"
+  }
+}
