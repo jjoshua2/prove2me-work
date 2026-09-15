@@ -3,197 +3,152 @@
 Repository `jjoshua2/prove2me-work`; refreshed September 15, 2026 UTC.
 Keep Lean `v4.30.0` and Mathlib `c5ea00351c28e24afc9f0f84379aa41082b1188f`.
 Read AGENTS.md, CLOUD_AGENT.md, SKILL.md, CONTINUE_HIRSCH.md and LIVE PR heads/
-comments. Check the actual main commit; concurrent agents can advance beyond
-an earlier index. Do not resubmit accepted or pending packets.
+comments before selecting work. Historical prose is not a fresh platform poll. The final cactus integration
+retains concurrent merged #266 without changing any of its source files.
 
-The immediately preceding COMPLETE status is preserved verbatim in history:
-[STATUS before graphical refinements](https://github.com/jjoshua2/prove2me-work/blob/2c517a877e8aab885ae1583d97fc2e2ae6d9b017/STATUS.md),
-blob `9f327ffa52f1a64bf3b363f6edf120dc1e66ef67`. Its accepted-result archives,
-older proofs, numerical receipts, adverse examples and ownership remain intact.
-This update concerns written research/exact code, not Lean/Prove2Me acceptance.
+The preceding COMPLETE overview through #263 is preserved VERBATIM in
+[the prior frontier](research/FRONTIER_BEFORE_CACTUS_2026-09-15.md), Git blob
+`9f327ffa52f1a64bf3b363f6edf120dc1e66ef67`. Its accepted theorem receipts,
+older bounds, examples, failures, archives and ownership are not discarded.
 
-## Objective and established work
+## Objective and unchanged accepted work
 
-The last preserved authenticated mission audit records root
-58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac Open and remaining leaf
-Hirsch.common_face_diameter_of_dim_ge_six,
-87a8b4f4-8b58-4340-8cb9-5fd1b548d01e Open. This is NOT a fresh platform poll.
-The goal is a uniform polynomial number of genuine ORIGINAL ordinary edges
-for arbitrary high-dimensional carriers. Smaller extension descriptions and
-projected chords cannot be substituted for original facet counts and edges.
+The last preserved authenticated audit reports root
+`58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac` Open and leaf
+`Hirsch.common_face_diameter_of_dim_ge_six`,
+`87a8b4f4-8b58-4340-8cb9-5fd1b548d01e`, Open. This refresh is NOT a new
+root/leaf API read. The unrestricted polynomial ORIGINAL ordinary-edge bound
+remains unproved by the supplied-model and class results below.
 
-Accepted allocation/representation results through #236/#237/#241 are not an
-uncompiled backlog. The genuine Minkowski chain #239--#245 remains valid under
-its explicit hypotheses; #244 retains core/fibre assembly. A supplied-model
-bound does not establish controlled decompositions for arbitrary carriers.
-#246/#247 give image-edge/minimal-face certificates; #248 chooses valid edges
-without a universal length bound. #250's accepted face-locking and projected-
-image integration remain separately owned. Consult exact receipts, not stale
-source headers, and do not resubmit accepted results.
+The accepted allocation/representation chain through #236/#237/#241 and the
+Minkowski fibre/edge/endpoint chain #239--#245 are not uncompiled backlog.
+#244 owns its remaining core-walk assembly. #246/#247 image-edge/minimal-face
+certificates, #248 valid-edge selection and #250 face locking remain distinct.
+Do not resubmit accepted or pending packets or mistake auxiliary edges for
+original IMAGE edges. Preserve genuine original facet counts.
 
-## Research inherited from earlier continuations
+## Existing quantitative research to reuse, not duplicate
 
-#253 full two-face retirement and #254 weighted three-face tails are distinct
-from #255 same-anchor shortening. #256 projective potentials and #257 target-
-deleted inventory have explicit barriers. Counting the whole available state
-space can genuinely be exponential. #258's original-H classical combinatorial
-segments and checked facet-reentry splices supply actual edges, but published
-examples make EVERY raw original segment long; relabeling cannot universally
-fix that route family. #259 derives a conditional visited-signature bound from
-whole-defect confinement, not a small exceptional core on arbitrary inputs.
+#252--#257 provide phase/retirement algorithms, shortening, explicit adverse
+families and exponential inventory bounds. #258's raw original combinatorial
+segments are not universally short; published bad examples constrain that
+route family. #259 confines complete high defects to exceptional labels.
+#260 refines flat blocks. #261 safely compresses identical higher incidences,
+with explicit residual limits and original-edge carrier transport.
 
-#260's flat block refinement is flag exactly when each original minimal nonface
-meets at most two blocks. #261's safe equal-incidence stellar compression gives
-residual support<=2^q-1, with real non-twin stalls. All their exact hypotheses,
-class examples, failures and test counts are preserved in the prior indexes.
+#262 ALREADY proves and implements the exact mixed balance
+W_after=W_before-consumed+created, the shielding criterion and special schedules.
+#263 ALREADY supplies a genuine polytopal strict-W stall, verified plateau macros
+and its separate examples. #264 owns its further mixed-energy/plateau research.
+None is an unconditional short-macro existence theorem for arbitrary inputs.
+Their exact evidence and limitations remain in the archived frontier and PRs.
 
-Merged #262, at932a9fad51b50f7482ad4809d897c3f5fcc2c8df, provides the full exact
-mixed-defect ledger W_after=W_before-consumed+created and necessary/sufficient
-shielding. Its controlled-birth budget can improve when shielding alone stalls,
-but no descending move was assumed to exist everywhere.
+## New research #265: complete cactus-incidence flagification
 
-Merged #263, at0cfa6f7369d25910cd30beea7739db15cc937423, imports #262 unchanged.
-It gives a genuine polytopal state at W3 where EVERY single stellar-edge move
-has nonnegative weight change, and a checked3->3->2->0 macro escape. Its SAME
-5D/10-facet original input has36 vertices and a complete six-step M16 flag
-refinement. The theorem t<=ell*(W0-Wres) is conditional on supplied bounded
-net-decreasing macros; small ell, initial W and residual cost are not universal.
-Its two-half cyclic schedule sharpens the existing quadratic class bound and
-its wedges are not a newly discovered hard high-dimensional diameter class.
-See research/MIXED_DEFECT_ABSORPTION.md and its exact summary/replay.
+This is WRITTEN mathematics and exact Python research, not Lean compilation,
+axiom auditing or Prove2Me acceptance. No Actions/publication trigger is requested.
+[Full proof](research/CACTUS_FLAG_REFINEMENT.md),
+[handoff](research/CACTUS_HANDOFF.md),
+[execution summary](research/CACTUS_RESEARCH_CHECK.json),
+[source manifest](research/CACTUS_SOURCE_MANIFEST.json), and
+[clean replay](research/CACTUS_CLEAN_REPLAY.json) preserve the actual scope.
+Check live GitHub for final integration state; there is no new platform packet.
 
-## NEW merged #266: graphical nested-set flag refinements
+For the COMPLETE higher-minimal-nonface family H, let W=sum_H(|N|-2).
+If its bipartite label/defect incidence graph is a CACTUS, let ell count cycles
+of length at least6, h the supported labels and c the nonempty components.
+The new result constructs a flag stellar-edge refinement with
 
-Research head `2012ea12a4185d5e3dfa064bd53859c0506d664b`;
-merge `d3fd0ca254e920a10733ec8277c3392d67a01378`.
-[Full argument](research/GRAPHICAL_FLAG_REFINEMENT.md),
-[execution summary](research/GRAPHICAL_FLAG_SUMMARY.json),
-[handoff](research/GRAPHICAL_FLAG_HANDOFF.md), source manifest and clean replay.
-SEVEN additions; older selectors, proofs, pins and workflows unchanged. No
-Lean declaration, compiler/axiom gate or Prove2Me submission was created.
+    t <= W+ell <= h-2c.
 
-### Exact structural criterion instead of a local energy schedule
+Cycles may share articulation LABELS or HIGH NODES, with arbitrarily many
+cycles per connected component. This extends the previous LOCAL pseudoforest
+result, which allowed at most one cycle/component. It does not require a
+successful short macro or cheap residual refinement as an input assumption.
 
-Let K be the original dual simplicial boundary and G ANY auxiliary graph on
-its m original labels. Refined vertices are ALL nonempty ORIGINAL faces S
-with connected G[S]. A family of tubes is a face only when its union is in K
-and pairs are nested or disjoint with no auxiliary edge between them. The
-original-face union condition is essential; the clique complex alone is wrong.
+After twins are removed, a peripheral cycle in the TWO-CORE supplies a move.
+A long-cycle opening either removes a high defect or replaces it by one copy;
+in both cases the long cycle becomes a tree/four-cycle. Thus W+ell decreases
+even when W does not. Four-cycle openings are blocked by the new pair, giving
+strict W descent. Cactus structure is preserved and a next move always exists.
+Rooted block counting q>=c+beta+ell supplies the linear initial bound.
 
-The note proves the two-way criterion
+For the dual boundary of a simple d-polytope with m genuine facets, the
+classical Adiprasito--Benedetti normal-flag theorem plus the unchanged exact
+carrier map gives diam<=m-d+W+ell<=2m-d-2c UNDER THIS CLASS HYPOTHESIS.
+A verified twin prelude from an arbitrary graph to a cactus gives total
+subdivisions<=initial_high_support-2*residual_components. Existence of such a
+prelude for arbitrary carriers is NOT asserted.
 
-    R(K,G) is flag iff every original minimal nonface N
-                       has at most two components in G[N].
+The production code imports #262's actual `stellar_defect_budget.py` unchanged,
+blob `b51e2c3edec2c85026344566978561eb430050ec`. The flag recursion is the
+attributed unchanged #258 reference. This is not new credit for their operations.
 
-The connected-face family is a building set of the original face poset, with
-factors given by induced components. Classical Feichtner--Kozlov Theorem3.4
-supplies a same-dimensional decreasing-inclusion stellar subdivision. This
-is a sphere and hence normal. The private-label carrier lemma shows s nested
-tubes carry at least s original labels. Adjacent refined maximal simplices
-therefore carry equal or adjacent original maximal faces; delete stationary
-steps. Compatible endpoint lifts retain every original common facet.
-The classical Adiprasito--Benedetti flag theorem yields
+### Geometric execution and adverse checks
 
-    diameter(original P) <= M-d,
-    M = number of connected ORIGINAL faces of G.
+New stacked-facet selections on a capped4r-antiprism realize r loose high-triple
+cycles sharing a label. The exact r1/2/3 polars have13/24/35 genuine facets.
+Their openings are shielded; the existing #262 method also finishes in3r moves.
+Do not claim empirical superiority. Neutral-copy demonstrations are abstract
+complexes and are NOT asserted polytopal spheres or given diameter claims.
 
-There is no arbitrary extension projection and no assumption that each move
-or bounded macro decreases W. #260 flat blocks are recovered when G is a union
-of cliques, but noncomplete connected components allow overlapping tube systems.
-Classical nested-set/flag results are credited, not republished as new lemmas.
+The32D test has64 genuine original facets, no shared endpoint facet,29 twin
+prelude steps and9 cactus steps. Its102 refined vertices give all-pairs bound70;
+the actual delivered original path has36 edges. There are270237 clique queries,
+no refined maximal-face or high-dimensional original-graph enumeration, and
+exact checks of every original edge and64 relative-interior facet anchors.
+Classical bounds for these special wedged examples may be stronger.
 
-For a path or union of paths, M<=dm-d(d-1)/2. For maximum degree two (unions of
-paths and cycles), M<=md, so diameter<=d(m-1). These are all-dimensional
-polynomial CLASS bounds under the exact graph condition. No small-degree graph
-or polynomial connected-face inventory is assumed to exist on every input.
-Complete minimal-nonface classification and graph search may be exponential;
-route bounds are not LP-pivot or bit-complexity bounds.
+Tests:114 small antichains,109 accepted;1504 literal face checks;163 pure-carrier
+checks;160 generated cacti,5877 subdivisions,468 neutral openings;5991 independent
+graph checks;24 bouquets through16 cycles;13 rejected controls. On120 sampled
+small original pairs there are606 edges and37 nonshortest routes. Four saved
+certificates replay with planners/producers disabled, checking53 original edges
+and rejecting two forgeries. All raw reports and four full fixtures replay
+byte-for-byte in a clean dependency workspace and regenerate from committed code.
+Python/JSON is not Lean-extracted; full nonface discovery can be exponential.
 
-### Static certificate on the exact #263 plateau
+## Remaining unrestricted task and ownership
 
-The same original5D/10-facet example admits G with edges01,08,23,45,56,78.
-Only singletons and these six edges are connected ORIGINAL faces, so M16 and
-the all-pairs original-edge bound is11. This matches #263's final refinement
-without depending on its greedy prefix/macro search. The six subdivisions
-commute: disjoint edges act by joins, and overlapping selected edges have an
-original-nonface three-label union. All720 orders produce the same flag complex
-up to canonical tube naming. Among4320 steps,420 are neutral and none increases
-W;314 whole orders are strictly decreasing. Do not claim neutral steps are
-unavoidable from the original input. #263's specific reachable stall is intact.
+The unhandled incidence structures are NON-CYCLE BICONNECTED BLOCKS, such as
+theta blocks with overlapping cycles. There one opening may interact with
+several cycles, defeating the peripheral-cycle argument. Neither a small such
+kernel nor a universal cactus reduction is proved. Do not insert either as a
+supposedly solved premise or label this class theorem Polynomial Hirsch.
 
-Completed degree-two graph search finds optimal M within that graph class,
-not among all possible subdivisions. Separate COMPLETE flat-partition searches
-give graphical versus best-flat M11 vs12 on cyclic4/7,16 vs20 on cyclic4/8,
-and16 vs18 on the plateau. Those flat counts enumerate all877/4140/115975
-partitions. General #262/#263 stellar schedules already achieve M14 on cyclic4/8,
-BETTER than graphical M16. This component does not dominate every hierarchy.
+#244 assembly, #238 support witnesses, #250 image integration, #255 shortening
+and #264 mixed-energy work remain separately owned. #208's historically pending
+submission needs its approved poll, not resubmission. #210 is retired/reserved:
+do not modify or trigger it without reassignment. Recheck live queues before
+resuming old directions. Keep pins, credentials and trusted publisher isolation
+unchanged. Written proof, software checks, Lean build, axiom audit, ACCEPTED and
+authenticated Proved are separate statuses. Report the last observed state;
+never promise background work after the turn.
 
-### Sparse certificate existence is not universal
 
-On boundary C(n,4), every cycle-stable triple is a minimal nonface and must
-contain a G-edge. Then complement(C_n union G) is triangle-free, so
+## Concurrent merged #266 retained unchanged
 
-    |E(C_n union G)| >= binom(n,2)-floor(n^2/4).
+During final #265 integration, main advanced to
+`8c26809ac9d4fde2115054be9014f64b2b91c635`, including #266 merge
+`d3fd0ca254e920a10733ec8277c3392d67a01378`. Its COMPLETE preceding status is
+preserved verbatim in [the concurrent frontier](research/FRONTIER_GRAPHICAL_BEFORE_CACTUS_2026-09-15.md),
+blob `489c7988ca1e23c4cd6b3d24f45fce48033bcd87`. All seven graphical-refinement
+files remain byte-identical; this is the OTHER agent's contribution, not #265.
 
-Maximum degree(G)<=2 gives at most2n edges in this union, contradicting that
-inequality for ALL n>=11. The note proves the elementary triangle-free bound;
-checks through n100 are supplemental. No degree-two graph can pass on those
-actual polytopal inputs. This is not a Hirsch counterexample or a lower bound
-on connected-face counts for all denser graphs.
+#266's written graphical nested-set construction is flag exactly when each
+original minimal nonface induces at most two components in its auxiliary graph.
+Its refined size M is the number of connected ORIGINAL faces, with the inherited
+original-edge bound M-d. This includes flat block graphs but is distinct from
+the cactus INCIDENCE graph condition above. Paths or maximum-degree-two graphs
+have polynomial inventories under the stated criterion; such graph existence
+is not universal. The cyclic-four-dimensional obstruction excludes every
+maximum-degree-two auxiliary graph for n>=11. The n9 search excludes Hamiltonian
+cycles/paths only, not all disconnected degree-two graphs. Those scopes and all
+exact tests/receipts remain in research/GRAPHICAL_FLAG_REFINEMENT.md and its
+handoff/summary/replay. They are research/software, not a new Lean acceptance.
 
-For n9, complete enumeration of20160 Hamiltonian cycles excludes a Hamiltonian
-cycle and therefore a Hamiltonian path. It does NOT exclude every disconnected
-degree-two graph at n9; the general degree-two theorem is n>=11. A denser graph
-may still have polynomially many ORIGINAL connected faces on some classes.
-
-### Exact tests, clean replay and data provenance
-
-All114 four-label complexes against64 graphs:7296 pairs,16486 literal stellar
-operations,24714 pure carrier adjacencies,45670 connected-registry entries.
-The independent literal subdivision agrees with the nested formula and the
-flag criterion gives6766 positive/530 negative cases. All114 graph-optimization
-outcomes match exhaustive enumeration of all four-label graphs.
-
-Five exact original-H graphs give52 endpoint pairs and376 square systems:
-104 new original edges,104 unchanged raw#258 edges,104 BFS edges;108 refined
-steps and4 stationary carriers. No benchmark improvement or broad random-input
-guarantee is claimed. The generic producer uses1724 LP calls and8532 internal
-pivots. No large graph population was tested. Ten malformed/capped cases fail;
-five full audits replay with geometric discovery disabled (BFS/recursion still
-replay). Global simplicity/genuine-facet assumptions are independently checked
-for these finite models, not inferred from a few visited bases.
-
-All FINAL sources rerun in a clean directory with two new scripts, FOUR frozen
-old scripts and the existing integer fixture. Every nontiming result/source
-field and the226241-byte full certificate fixture agree exactly. The seven-file
-patch applies to a fresh dependency-only checkout, reproduces all additions and
-passes Python compilation. This is not a full repository clone or Lean build.
-Repository summaries are explicitly derived local records; full reports and
-certificates regenerate and are bundled. Python/JSON is not Lean-extracted.
-
-    python3 scripts/test_graphical_flag_refinement.py --stage abstract
-    python3 scripts/test_graphical_flag_refinement.py --stage geometry
-    python3 scripts/test_graphical_flag_refinement.py --stage obstructions
-
-## Other active work and the remaining unrestricted target
-
-#264's further stellar-energy plateau work is separately owned. A late live
-check also found the other agent's #265 cactus-incidence refinement draft at
-d0d39d9fd01e1b653e2ac2c693f88920dcfa9699; its body records pending receipt/source
-preservation. This index does not independently verify its theorem or upgrade
-its state. Inspect its live head and source before taking any cactus direction.
-Neither #264 nor #265 was modified, merged or triggered by #266.
-
-The payoff from a suitable graphical registry is now derived. The unrestricted
-step is finding a graph with polynomially many connected ORIGINAL faces, or
-combining graph refinement with other controlled subdivisions, or a different
-global original-edge argument. Degree-two existence is false in general; a
-polynomial registry for a more general graph remains unproved. Do not insert
-these missing statements as assumptions and claim Polynomial Hirsch.
-
-#244 core/fibre assembly, #238 support witnesses, #250 projected-image work and
-#255 same-anchor shortening remain separate. #208 requires its existing approved
-poll rather than duplicate submission; #210 is retired ancestry. Research-only
-work needs no speculative Actions gate. Preserve toolchain pins, credentials
-and publisher isolation. Written arguments, exact tests, Lean compilation,
-axiom audit, ACCEPTED and authenticated Proved are distinct statuses.
+The simultaneous next frontier includes controlling overlapping higher-incidence
+blocks OR finding a graphical registry with polynomially many original faces,
+possibly in combination. Neither missing universal existence bound has been
+proved. Do not restart the old scalar/circuit/duality decompositions or duplicate
+#266. Source and mathematical claims of #265 are unchanged by this reconciliation.

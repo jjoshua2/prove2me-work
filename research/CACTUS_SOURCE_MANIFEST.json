@@ -1,0 +1,65 @@
+{
+  "baseline": "2c517a877e8aab885ae1583d97fc2e2ae6d9b017",
+  "files": {
+    "research/CACTUS_CLEAN_REPLAY.json": {
+      "bytes": 532,
+      "git_blob": "722e2eef46db45a81e8b9f92919d198c15e438cb",
+      "sha256": "35525968dd635308acbc412d7618f180ed0b1009b9754c99174009f29b4694c0"
+    },
+    "research/CACTUS_FLAG_REFINEMENT.md": {
+      "bytes": 19955,
+      "git_blob": "fc173558c03d41123ccd2f12452223e1a2050aec",
+      "sha256": "82bcf7c4395677a9f740b20fb62cbed908d324bb326c59a7b9d1c47ecb5bae7f"
+    },
+    "research/CACTUS_HANDOFF.md": {
+      "bytes": 6996,
+      "git_blob": "761f0dfd7e779cdbf2054c30486b89a22519854c",
+      "sha256": "37952564d0526bae3cd7373e6d6dfb268cd9eac562612bb5ec8fd2a116e43993"
+    },
+    "research/CACTUS_RESEARCH_CHECK.json": {
+      "bytes": 3869,
+      "git_blob": "3fbea20be37bd8a4a0a33b17c6226fec87c9a89b",
+      "sha256": "67f5b005330d34af2b5bd3173b010974d1f057311735fba937bfef30d0f4979f"
+    },
+    "scripts/audit_cactus_refinement.py": {
+      "bytes": 5438,
+      "git_blob": "8dec875dbf1d202bf76600f99151340e245dce86",
+      "sha256": "19a6211516abe0399f85a0a8c7b17219a4c1546128180290910bea87c940bc86"
+    },
+    "scripts/cactus_defect_refinement.py": {
+      "bytes": 13038,
+      "git_blob": "880c3ba4911cb751d77459cbe22a52739a23a7b1",
+      "sha256": "2ee6888fea12760197c68528dde9d148dcadafb65e19a2c9a6f3e0a5ba27c8dd"
+    },
+    "scripts/cactus_reference_segments.py": {
+      "bytes": 4630,
+      "git_blob": "3fced749526fbc15b27c3e11b582e56984330b91",
+      "sha256": "32e5bf925ff44acd1822e9832a514d0557d38486cc5f6d6b9409bb96c1f821ba"
+    },
+    "scripts/test_cactus_defect_refinement.py": {
+      "bytes": 19141,
+      "git_blob": "40f8e37cdb83d54c22f6b2c8caa1e5aaaf0fc550",
+      "sha256": "48cc9309dd84185f7cdea6e5eddff761db22914c7aa720bdbbfddc074fb08563"
+    }
+  },
+  "fixture_sha256": {
+    "cactus-polytope-r1.json": "9ab3864c871d14550f13d5921aed0066c1d18b54f5000729f8b1dbf93c87492f",
+    "cactus-polytope-r2.json": "ad03606d6f13a8490cea3f40b68215e2552248d032614ebee0bdadb5720a3b59",
+    "cactus-polytope-r3.json": "8b3c13962d33ee62daad3a2656beafd9d295f40e6bcfb26bc7971086b5657c16",
+    "cactus-wedge-route.json": "30d8a9b372ab2c3afe655a77075450969903c32c24773452c54960ce0673010e"
+  },
+  "kind": "derived_source_and_regeneration_manifest",
+  "note": "Full raw reports/fixtures accompany the conversation ZIP and regenerate from committed scripts. These identities are not formal verification receipts.",
+  "raw_report_sha256": {
+    "abstract.json": "7b0d2a58fea2f86d6ffee00e5629b42c0984497f25ddabd1ff666034b7236c54",
+    "geometry.json": "6ccb3c9c4c25a8fd8d2d8aeb7b0a07db6b067e291ec87b843cc6bae5d415964b",
+    "saved_audit.json": "6afe381f47cad1d4417c6e45a7752b35dfeb3e3033c1bfb620d7fb9afcb6811d",
+    "wedge.json": "3357da270174aefc0f61d313d27c6304c96e414232959850dfc35cd529b415ce"
+  },
+  "unchanged_dependency": {
+    "bytes": 13871,
+    "git_blob": "b51e2c3edec2c85026344566978561eb430050ec",
+    "path": "scripts/stellar_defect_budget.py",
+    "sha256": "3d28385cc4cd6b31605e0918042bdee2fec280be8bf84f9c9ec897749a8bfdef"
+  }
+}

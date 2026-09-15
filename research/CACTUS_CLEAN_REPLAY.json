@@ -1,0 +1,19 @@
+{
+  "fixtures_byte_identical": {
+    "cactus-polytope-r1.json": true,
+    "cactus-polytope-r2.json": true,
+    "cactus-polytope-r3.json": true,
+    "cactus-wedge-route.json": true
+  },
+  "kind": "derived_clean_directory_replay",
+  "new_scripts": 3,
+  "no_Lean_or_platform_verdict": true,
+  "reports_byte_identical": {
+    "abstract.json": true,
+    "geometry.json": true,
+    "saved_audit.json": true,
+    "wedge.json": true
+  },
+  "unchanged_reference_excerpt": 1,
+  "unchanged_repository_dependency": "stellar_defect_budget.py"
+}
