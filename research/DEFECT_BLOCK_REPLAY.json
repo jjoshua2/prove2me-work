@@ -1,0 +1,19 @@
+{
+  "all_1710_abstract_cases_repeated": true,
+  "byte_identical_model_fixtures": 7,
+  "family_fixtures_identical_after_timing_removal": 3,
+  "fixture_checks": {
+    "byte_identical_model_fixtures": 7,
+    "family_fixtures_equal_after_removing_seconds": 3,
+    "total": 10
+  },
+  "full_report_sha256": "8f528bdcfe460648aaef62e068125efec381533d539d2ae1d24450efe9a85e33",
+  "integration_base": "73900455acaa956ba82d57ac5e54821fd0f13f39",
+  "kind": "Derived clean dependency replay, not a full repository clone or Lean build",
+  "new_Lean_or_hosted_gate": false,
+  "pair_table_checks": 7,
+  "replay_full_report_sha256": "8db8083667dca4e981259f73dac40e6818be7fba60f53fb21388cc051e29eec5",
+  "same_418_graph_pairs": true,
+  "source_and_numeric_fields_identical_except_seconds": true,
+  "status": "PASS"
+}
