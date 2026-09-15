@@ -1,0 +1,63 @@
+{
+  "base_sha": "13fd398df7dc224deccef4cd2c1506069ed042a3",
+  "new_files": {
+    "fixtures/mixed_absorption_plateau.json": {
+      "bytes": 822,
+      "git_blob": "9eeb2c394ff1cbe8abad77b64a0e2c3b5b271387",
+      "sha256": "06f49e521c4634afe4e3a0efb6c4f5c631ba505b2d011720b3b8918e5ac2b878"
+    },
+    "research/MIXED_ABSORPTION_HANDOFF.md": {
+      "bytes": 5094,
+      "git_blob": "055927bd3b44b6bc77b09f52a25773e3f276da0f",
+      "sha256": "c5fd7c5fb7f699c4a4dccc10dd954118b4747ff3fee52b6bcb6366cbaf0fa81e"
+    },
+    "research/MIXED_ABSORPTION_REPLAY.json": {
+      "bytes": 1240,
+      "git_blob": "857ad9e76f9e72611cf1f6b60cc8ba1500626d46",
+      "sha256": "48034d2a86816833d0c50950978f32d78faeaecb68ae73796da96cf78e5c40cc"
+    },
+    "research/MIXED_ABSORPTION_SUMMARY.json": {
+      "bytes": 7025,
+      "git_blob": "96654aa302c1d2dd4f2b57a2b98ad33aad69a49b",
+      "sha256": "daa1d73955fdba209918b10850d76f8c34375470e9d70807984fd484d0a30201"
+    },
+    "research/MIXED_DEFECT_ABSORPTION.md": {
+      "bytes": 18412,
+      "git_blob": "7eded124595c0835c01da728e00d7951f3873c1c",
+      "sha256": "afafd034769046ef076f1cfd96c301eb9ac00904cdbbdccbda99d0c1884e8f9f"
+    },
+    "scripts/mixed_defect_absorption.py": {
+      "bytes": 13878,
+      "git_blob": "63003c16216ada7dca28ae3c28288f173dce19d0",
+      "sha256": "bd83f55e9f2fb3c74fb7f991147d6a1a905129ccbcda9ea1b94013068f6d4f73"
+    },
+    "scripts/test_mixed_defect_absorption.py": {
+      "bytes": 16314,
+      "git_blob": "3e851ad6b4221b80c15607ce6ed73cdb84ef0dfe",
+      "sha256": "cd714bd3b212efcd7fb6793e7c83efa825dbe8e17ce4a8e458d62fb84fc4d395"
+    }
+  },
+  "record_kind": "exact local file identities, not a platform receipt",
+  "unchanged_dependencies": {
+    "scripts/defect_incidence_compression.py": {
+      "bytes": 13579,
+      "git_blob": "c9c3d07b5517ed263571500870595693a47b44fb",
+      "sha256": "9c40bd20f16c2092c3b7970511aa5d210513d4c078b36494b428933c85e0a5f2"
+    },
+    "scripts/exact_farkas_lp.py": {
+      "bytes": 7028,
+      "git_blob": "ea511a79164d953792942d8be3dd3537646738d6",
+      "sha256": "65a8731600a6750b5334307415cd37c79d201d47e179bea5cdcbd511363006d0"
+    },
+    "scripts/original_facet_segments.py": {
+      "bytes": 16550,
+      "git_blob": "a53ad5cfc43b085d50733dbe96aabea8de4b9a51",
+      "sha256": "c838c5e62bc0549e948d81ff1d509f76ff48082bbe0b441aa5f72cffd0384ace"
+    },
+    "scripts/simple_tangent_policy_audit.py": {
+      "bytes": 8284,
+      "git_blob": "73dc32b9753d7d0fe5e67ca1f4fad0534b6b1976",
+      "sha256": "28d7e66e3e2f6d6589e55a2e07e42a7a2081d56860621ba8838db9708a458440"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "excluded_fields": [
+    "seconds"
+  ],
+  "fixtures": {
+    "fixtures/mixed_absorption_family.json": {
+      "bytes": 614761,
+      "sha256": "ca4a82ceee42984a9e8fd8bab5784e8141a3a79b378e76a68140863b6af0e419"
+    },
+    "fixtures/mixed_absorption_geometry.json": {
+      "bytes": 330272,
+      "sha256": "705204b68c0c3216104f1f56e2f7edc0971262a9e67d5ee9424ef215552685ca"
+    }
+  },
+  "record_kind": "local clean dependency replay, not Lean/platform verification",
+  "stages": {
+    "abstract": {
+      "all_other_fields_equal": true,
+      "clean_sha256": "69c014cae8b13f3769fdf48f9427d9fea65dc7b7b31883ea3df4f59d7039045c",
+      "original_sha256": "a09c44cacf72fe161a8765e5d52d854a6d17cea6f1c5887e6549ba0d419a8bea"
+    },
+    "family": {
+      "all_other_fields_equal": true,
+      "clean_sha256": "51ae9006c0c50449ca5d76e4af4d760f74079eaae82402f4b2323fbe10d98e30",
+      "original_sha256": "0737be8470a640eea1cf1662c1ad94efa1e83db6e94d85ad496be78de3856d06"
+    },
+    "geometry": {
+      "all_other_fields_equal": true,
+      "clean_sha256": "cfe3bbe27de8c25b4667678b117032b9c1aab313065e8c819258dfb49c3b9fe3",
+      "original_sha256": "14c8401b80dd831ece1237b3838f7dd9a7e1dedddbfc5e78fc49749d43bc22a7"
+    }
+  },
+  "status": "PASS"
+}

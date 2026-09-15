@@ -1,0 +1,455 @@
+{
+  "abstract": {
+    "absorbed_updates": 1013,
+    "complexes": 324,
+    "face_edge_updates": 3189,
+    "mixed_blockers": 891,
+    "non_twin_absorbed_updates": 546,
+    "potential_increasing_edges": 931,
+    "pure_carrier_adjacencies": 10550,
+    "same_weight_nonabsorbed_edges": 635
+  },
+  "family": {
+    "additional_full_final_reference": {
+      "all_exact_square_systems": 66,
+      "all_original_vertices": 36,
+      "reference_distance": 2
+    },
+    "columns": [
+      "base_n",
+      "multiplicity",
+      "dimension",
+      "original_facets",
+      "prior_twin_refined_vertices",
+      "refined_vertices",
+      "all_pairs_bound",
+      "structural_all_pairs_bound",
+      "original_edges",
+      "stellar_steps"
+    ],
+    "cycle_columns": [
+      "base_n",
+      "actual_base_steps",
+      "proved_step_cap"
+    ],
+    "cycle_rows": [
+      [
+        6,
+        2,
+        6
+      ],
+      [
+        7,
+        5,
+        8
+      ],
+      [
+        8,
+        8,
+        10
+      ],
+      [
+        9,
+        12,
+        13
+      ],
+      [
+        10,
+        16,
+        16
+      ],
+      [
+        11,
+        20,
+        20
+      ],
+      [
+        12,
+        24,
+        24
+      ],
+      [
+        13,
+        29,
+        29
+      ],
+      [
+        14,
+        34,
+        34
+      ],
+      [
+        15,
+        40,
+        40
+      ],
+      [
+        16,
+        46,
+        46
+      ]
+    ],
+    "generic_LP_classification_in_family_stage": false,
+    "rows": [
+      [
+        6,
+        1,
+        4,
+        6,
+        8,
+        8,
+        4,
+        8,
+        2,
+        2
+      ],
+      [
+        7,
+        1,
+        4,
+        7,
+        70,
+        12,
+        8,
+        11,
+        3,
+        5
+      ],
+      [
+        8,
+        1,
+        4,
+        8,
+        96,
+        16,
+        12,
+        14,
+        4,
+        8
+      ],
+      [
+        6,
+        2,
+        10,
+        12,
+        20,
+        20,
+        10,
+        14,
+        2,
+        8
+      ],
+      [
+        7,
+        2,
+        11,
+        14,
+        84,
+        26,
+        15,
+        18,
+        3,
+        12
+      ],
+      [
+        8,
+        2,
+        12,
+        16,
+        112,
+        32,
+        20,
+        22,
+        4,
+        16
+      ],
+      [
+        8,
+        3,
+        20,
+        24,
+        128,
+        48,
+        28,
+        30,
+        4,
+        24
+      ],
+      [
+        10,
+        2,
+        14,
+        20,
+        180,
+        46,
+        32,
+        32,
+        7,
+        26
+      ],
+      [
+        12,
+        2,
+        16,
+        24,
+        264,
+        60,
+        44,
+        44,
+        12,
+        36
+      ]
+    ],
+    "scope": "Final larger wedge graphs not enumerated. Exact base4D graphs plus proved wedge recurrence and final original-H edge certificates."
+  },
+  "full_report_sha256": {
+    "abstract": "a09c44cacf72fe161a8765e5d52d854a6d17cea6f1c5887e6549ba0d419a8bea",
+    "family": "0737be8470a640eea1cf1662c1ad94efa1e83db6e94d85ad496be78de3856d06",
+    "geometry": "14c8401b80dd831ece1237b3838f7dd9a7e1dedddbfc5e78fc49749d43bc22a7"
+  },
+  "geometry": {
+    "columns": [
+      "name",
+      "dimension",
+      "original_facets",
+      "original_vertices",
+      "pairs",
+      "prior_refined_vertices",
+      "new_refined_vertices",
+      "new_bound",
+      "new_edges",
+      "prior_edges",
+      "bfs_edges",
+      "nonshortest"
+    ],
+    "plateau": {
+      "all_candidate_neighbor_weights": [
+        {
+          "edge": [
+            2,
+            3
+          ],
+          "weight_after": 3
+        },
+        {
+          "edge": [
+            2,
+            4
+          ],
+          "weight_after": 4
+        },
+        {
+          "edge": [
+            2,
+            7
+          ],
+          "weight_after": 4
+        },
+        {
+          "edge": [
+            2,
+            8
+          ],
+          "weight_after": 3
+        },
+        {
+          "edge": [
+            3,
+            4
+          ],
+          "weight_after": 3
+        },
+        {
+          "edge": [
+            4,
+            5
+          ],
+          "weight_after": 3
+        },
+        {
+          "edge": [
+            4,
+            7
+          ],
+          "weight_after": 4
+        },
+        {
+          "edge": [
+            5,
+            7
+          ],
+          "weight_after": 3
+        },
+        {
+          "edge": [
+            7,
+            8
+          ],
+          "weight_after": 3
+        }
+      ],
+      "full_path_weight_pairs": [
+        [
+          9,
+          7
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "higher_defects": [
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          7,
+          8
+        ],
+        [
+          4,
+          5,
+          7
+        ]
+      ],
+      "weight": 3
+    },
+    "rejected_controls": [
+      "omit_mixed_descendant",
+      "wrong_blocker",
+      "boolean_blocker",
+      "false_weight",
+      "missing_original_nonface",
+      "missing_original_answers",
+      "wrong_original_inverse",
+      "wrong_carrier_path",
+      "wrong_input_hash",
+      "missing_bound",
+      "bridge_exceeds_declared_budget",
+      "unsafe_mixed_step_declared_absorbed",
+      "boolean_label"
+    ],
+    "rows": [
+      [
+        "simplex3",
+        3,
+        4,
+        4,
+        6,
+        6,
+        6,
+        3,
+        6,
+        6,
+        6,
+        0
+      ],
+      [
+        "cyclic4_6",
+        4,
+        6,
+        9,
+        8,
+        8,
+        8,
+        4,
+        14,
+        14,
+        14,
+        0
+      ],
+      [
+        "cyclic4_7",
+        4,
+        7,
+        14,
+        12,
+        70,
+        11,
+        7,
+        22,
+        22,
+        22,
+        0
+      ],
+      [
+        "cyclic4_8",
+        4,
+        8,
+        20,
+        12,
+        96,
+        14,
+        10,
+        26,
+        28,
+        26,
+        0
+      ],
+      [
+        "cyclic4_9",
+        4,
+        9,
+        27,
+        12,
+        126,
+        18,
+        14,
+        32,
+        37,
+        32,
+        0
+      ],
+      [
+        "plateau5_10",
+        5,
+        10,
+        36,
+        8,
+        266,
+        16,
+        11,
+        23,
+        22,
+        22,
+        1
+      ]
+    ],
+    "search_disabled_audits": 6,
+    "totals": {
+      "LP_maximizations": 2222,
+      "LP_pivots": 10500,
+      "bfs_edges": 122,
+      "exact_square_systems": 502,
+      "new_edges": 123,
+      "nonshortest": 1,
+      "original_reentries": 1,
+      "pairs": 58,
+      "prior_edges": 129,
+      "refined_edges": 125,
+      "stationary_steps": 2
+    }
+  },
+  "record_kind": "derived local execution summary; full reports and certificates regenerate and are bundled",
+  "scope": "Written mathematics and exact Python; no Lean or Prove2Me verdict",
+  "status": "PASS"
+}
