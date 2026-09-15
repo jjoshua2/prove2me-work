@@ -2,205 +2,124 @@
 
 Repository `jjoshua2/prove2me-work`; refreshed September 15, 2026 UTC.
 Keep Lean `v4.30.0` and Mathlib `c5ea00351c28e24afc9f0f84379aa41082b1188f`.
-Read AGENTS.md, CLOUD_AGENT.md, SKILL.md, CONTINUE_HIRSCH.md and LIVE PR heads
-and comments before choosing work. Inspect the actual main commit too: #262
-merged while this index still named #261. Do not duplicate accepted/pending work.
+Read AGENTS.md, CLOUD_AGENT.md, SKILL.md, CONTINUE_HIRSCH.md and LIVE PR heads/
+comments before selecting work. Historical prose is not a fresh platform poll.
 
-The preceding COMPLETE frontier is preserved verbatim in immutable history:
-[pre-macro STATUS](https://github.com/jjoshua2/prove2me-work/blob/0cfa6f7369d25910cd30beea7739db15cc937423/STATUS.md),
-Git blob `c97745c39f20fef0d2e8e616c74cdf5113082bf3`. All earlier accepted-result
-archives, exact receipts, class hypotheses and adverse research examples remain
-accessible there. The current additions are research/code, not Lean/Prove2Me
-acceptances. No new theorem publication was triggered.
+The preceding COMPLETE overview through #263 is preserved VERBATIM in
+[the prior frontier](research/FRONTIER_BEFORE_CACTUS_2026-09-15.md), Git blob
+`9f327ffa52f1a64bf3b363f6edf120dc1e66ef67`. Its accepted theorem receipts,
+older bounds, examples, failures, archives and ownership are not discarded.
 
-## Objective and preserved earlier frontier
+## Objective and unchanged accepted work
 
-The last preserved authenticated mission audit records the root
-58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac Open and remaining leaf
-Hirsch.common_face_diameter_of_dim_ge_six,
-87a8b4f4-8b58-4340-8cb9-5fd1b548d01e Open. This update is NOT a fresh platform
-poll. The objective remains a uniform polynomial number of genuine ORIGINAL
-ordinary edges for arbitrary high-dimensional carriers. Extension edges can
-project to chords; original image facets are the relevant size parameter.
+The last preserved authenticated audit reports root
+`58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac` Open and leaf
+`Hirsch.common_face_diameter_of_dim_ge_six`,
+`87a8b4f4-8b58-4340-8cb9-5fd1b548d01e`, Open. This refresh is NOT a new
+root/leaf API read. The unrestricted polynomial ORIGINAL ordinary-edge bound
+remains unproved by the supplied-model and class results below.
 
-Accepted allocation/representation results through #236/#237/#241 are not an
-uncompiled backlog. The genuine Minkowski chain #239--#245 remains available
-under its hypotheses; #244 retains independent core/fibre assembly. A bound
-for supplied models does not establish controlled decompositions for every
-carrier. #246/#247 give image-edge/minimal-face certificates; #248 selects valid
-edges without a universal length bound. #250's accepted face-locking result
-and general projected-image integration remain separately owned.
+The accepted allocation/representation chain through #236/#237/#241 and the
+Minkowski fibre/edge/endpoint chain #239--#245 are not uncompiled backlog.
+#244 owns its remaining core-walk assembly. #246/#247 image-edge/minimal-face
+certificates, #248 valid-edge selection and #250 face locking remain distinct.
+Do not resubmit accepted or pending packets or mistake auxiliary edges for
+original IMAGE edges. Preserve genuine original facet counts.
 
-The older research remains useful with its limitations: #253 full two-face
-retirement, #254 weighted three-face tails, #255 same-anchor shortening, #256
-projective slack barriers, #257 exponential target-deleted inventory, and #258
-classical original-facet segments with checked reentry splices. The published
-exponential limitation for every raw original combinatorial segment is not
-defeated by relabeling; different refined routes may leave that restricted family.
+## Existing quantitative research to reuse, not duplicate
 
-#259 whole-defect confinement gives a parameterized visited-state bound, not
-small exceptional sets for arbitrary inputs. #260 flat-block flagification has
-an exact at-most-two-block condition and a carrier route map. #261 hierarchical
-equal-incidence compression gives residual support<=2^q-1 and useful schedules,
-but actual distinct-incidence polytopal stalls remain. Their full proofs/tests
-and counts are preserved in the previous index. Do not repeat the old simplex
-or coupled-triangle examples as new discoveries.
+#252--#257 provide phase/retirement algorithms, shortening, explicit adverse
+families and exponential inventory bounds. #258's raw original combinatorial
+segments are not universally short; published bad examples constrain that
+route family. #259 confines complete high defects to exceptional labels.
+#260 refines flat blocks. #261 safely compresses identical higher incidences,
+with explicit residual limits and original-edge carrier transport.
 
-## Merged #262: exact mixed-defect accounting, credited to its author
+#262 ALREADY proves and implements the exact mixed balance
+W_after=W_before-consumed+created, the shielding criterion and special schedules.
+#263 ALREADY supplies a genuine polytopal strict-W stall, verified plateau macros
+and its separate examples. #264 owns its further mixed-energy/plateau research.
+None is an unconditional short-macro existence theorem for arbitrary inputs.
+Their exact evidence and limitations remain in the archived frontier and PRs.
 
-Merge `932a9fad51b50f7482ad4809d897c3f5fcc2c8df`, head
-`bdb14b951bc957d76edf8f1830076d8c69e4d032`.
-[Argument](research/STELLAR_DEFECT_BUDGET.md),
-[handoff](research/STELLAR_DEFECT_HANDOFF.md), summary/replay and
-`scripts/stellar_defect_budget.py` are on main. This is the other agent's
-research contribution, not new work authored by #263.
+## New research #265: complete cactus-incidence flagification
 
-For higher minimal nonfaces H define W=sum_H(|N|-2). For a face-edge stellar
-subdivision, exact residue minimization proves
+This is WRITTEN mathematics and exact Python research, not Lean compilation,
+axiom auditing or Prove2Me acceptance. No Actions/publication trigger is requested.
+[Full proof](research/CACTUS_FLAG_REFINEMENT.md),
+[handoff](research/CACTUS_HANDOFF.md),
+[execution summary](research/CACTUS_RESEARCH_CHECK.json),
+[source manifest](research/CACTUS_SOURCE_MANIFEST.json), and
+[clean replay](research/CACTUS_CLEAN_REPLAY.json) preserve the actual scope.
+Check live GitHub for final integration state; there is no new platform packet.
 
-    W_after = W_before - consumed_shared_defects + new_higher_weight.
+For the COMPLETE higher-minimal-nonface family H, let W=sum_H(|N|-2).
+If its bipartite label/defect incidence graph is a CACTUS, let ell count cycles
+of length at least6, h the supported labels and c the nonempty components.
+The new result constructs a flag stellar-edge refinement with
 
-Shielding (no newborn higher defects) has a necessary-and-sufficient blocker
-criterion. It includes identical incidence but permits unequal incidences.
-The broader budget policy allows births when the net change is negative.
-Accepted single-step traces satisfy t<=W0-Wterminal, but existence of a
-productive move at every polytopal state was NOT proved.
+    t <= W+ell <= h-2c.
 
-Its exact cyclic4/7 and4/8 examples resolve the old twin stalls with4/6 moves
-and refined counts11/14. A separately realized6D/14-facet example lacking any
-shielded move is resolved by29 budget moves, including controlled births.
-Its first-stage distance-two argument yields an all-n cyclic schedule with
-at most n(n-3)/2 moves. These results and tests must be reused, not duplicated.
-The original #262 abstract budget stall is not claimed polytopal.
+Cycles may share articulation LABELS or HIGH NODES, with arbitrarily many
+cycles per connected component. This extends the previous LOCAL pseudoforest
+result, which allowed at most one cycle/component. It does not require a
+successful short macro or cheap residual refinement as an input assumption.
 
-## New merged #263: a polytopal budget plateau and counted macros
+After twins are removed, a peripheral cycle in the TWO-CORE supplies a move.
+A long-cycle opening either removes a high defect or replaces it by one copy;
+in both cases the long cycle becomes a tree/four-cycle. Thus W+ell decreases
+even when W does not. Four-cycle openings are blocked by the new pair, giving
+strict W descent. Cactus structure is preserved and a next move always exists.
+Rooted block counting q>=c+beta+ell supplies the linear initial bound.
 
-Final reconciled head `598b568f52c34637bf53d6f62dfef150ce08fbe8`;
-merge `0cfa6f7369d25910cd30beea7739db15cc937423`.
-[Full argument](research/MIXED_DEFECT_ABSORPTION.md),
-[exact summary](research/MIXED_ABSORPTION_SUMMARY.json),
-[handoff](research/MIXED_ABSORPTION_HANDOFF.md), source identities and clean
-replay are committed. Exactly EIGHT additions, no older source modification.
+For the dual boundary of a simple d-polytope with m genuine facets, the
+classical Adiprasito--Benedetti normal-flag theorem plus the unchanged exact
+carrier map gives diam<=m-d+W+ell<=2m-d-2c UNDER THIS CLASS HYPOTHESIS.
+A verified twin prelude from an arbitrary graph to a cactus gives total
+subdivisions<=initial_high_support-2*residual_components. Existence of such a
+prelude for arbitrary carriers is NOT asserted.
 
-### Pre-merge reconciliation is complete
+The production code imports #262's actual `stellar_defect_budget.py` unchanged,
+blob `b51e2c3edec2c85026344566978561eb430050ec`. The flag recursion is the
+attributed unchanged #258 reference. This is not new credit for their operations.
 
-The independent preparation overlapped with #262's shielding rule and cyclic
-first stage. That overlap was found before merge. Final #263 imports the EXACT
-unchanged #262 source, blob b51e2c3edec2c85026344566978561eb430050ec; it does not
-retain duplicate production accounting. Both shared results are credited to
-#262. All stages reran after this replacement using FIVE frozen dependencies.
-The older independent version remains historical in the PR, not final behavior.
+### Geometric execution and adverse checks
 
-### Actual local obstruction beyond the broader budget rule
+New stacked-facet selections on a capped4r-antiprism realize r loose high-triple
+cycles sharing a label. The exact r1/2/3 polars have13/24/35 genuine facets.
+Their openings are shielded; the existing #262 method also finishes in3r moves.
+Do not claim empirical superiority. Neutral-copy demonstrations are abstract
+complexes and are NOT asserted polytopal spheres or given diameter claims.
 
-A rational5D polytope with10 genuine facets and36 vertices is reconstructed
-from all252 exact square active systems. Three valid dual edge subdivisions
-give W9->7->5->3. At that state the high defects are234,278,457. Every productive
-edge has next W3 or4; an edge in no high defect cannot remove an old one.
-Thus NO SINGLE stellar edge move lowers W at this actual polytopal state.
+The32D test has64 genuine original facets, no shared endpoint facet,29 twin
+prelude steps and9 cactus steps. Its102 refined vertices give all-pairs bound70;
+the actual delivered original path has36 edges. There are270237 clique queries,
+no refined maximal-face or high-dimensional original-graph enumeration, and
+exact checks of every original edge and64 relative-interior facet anchors.
+Classical bounds for these special wedged examples may be stronger.
 
-The exact unchanged #262 budget implementation run on the ORIGINAL input
-chooses01,56,08 and returns stalled at W3,n13. A fresh invocation on that
-terminal complex is stalled with zero moves. This is not merely failure of
-twins or shielding, and not a weakened reproduction of the budget rule. It
-also does not assert every alternative descending prefix hits that plateau.
+Tests:114 small antichains,109 accepted;1504 literal face checks;163 pure-carrier
+checks;160 generated cacti,5877 subdivisions,468 neutral openings;5991 independent
+graph checks;24 bouquets through16 cycles;13 rejected controls. On120 sampled
+small original pairs there are606 edges and37 nonshortest routes. Four saved
+certificates replay with planners/producers disabled, checking53 original edges
+and rejecting two forgeries. All raw reports and four full fixtures replay
+byte-for-byte in a clean dependency workspace and regenerate from committed code.
+Python/JSON is not Lean-extracted; full nonface discovery can be exponential.
 
-A neutral edge34, followed by two shielded moves, gives3->3->2->0. The full
-six-move refinement has M16 and a classical flag/carrier all-pairs bound11,
-versus M266 for old#261's twin/residual-block completion. #262's budget result
-itself is called stalled, not that fallback. One sampled endpoint route is
-still nonshortest and one original-facet reentry remains.
+## Remaining unrestricted task and ownership
 
-### Checkpoint accounting and its missing universal premise
+The unhandled incidence structures are NON-CYCLE BICONNECTED BLOCKS, such as
+theta blocks with overlapping cycles. There one opening may interact with
+several cycles, defeating the peripheral-cycle argument. Neither a small such
+kernel nor a universal cactus reduction is proved. Do not insert either as a
+supposedly solved premise or label this class theorem Polynomial Hirsch.
 
-Accept a macro with at most ell subdivisions ONLY when its final W is smaller.
-Audit all intermediate complexes and weights. Integer descent proves
-
-    total subdivisions <= ell*(W_initial-W_residual).
-
-If flag is reached, original diameter<=m-d+t. If not, the old explicit residual
-block cost remains. No universal ell3 success, polynomial initial W, cheap
-trial search or cheap completion is asserted. The supplied planner tries only
-one arbitrary bridge followed by shielded moves; it is not exhaustive among
-all possible macros. The theorem concerns any supplied verified bounded macros.
-
-Every intermediate carrier sends adjacent refined facets to equal/adjacent old
-facets; stationary carriers are deleted. The final original coordinates receive
-inverse/maximal-ratio edge checks. Common original facets are preserved. This
-is not auxiliary projection, and raw-original-segment lower bounds do not apply
-automatically to the different refined-route family.
-
-### Sharper cyclic finish and a scoped higher-dimensional extension
-
-#262 supplies the distance-two first stage. #263 then processes only pairs
-inside two contiguous cyclic halves. Every surviving triple has a same-half
-pair; all these productive pairs are shielded. With a=floor(n/2), b=ceil(n/2),
-
-    T_n <= binom(a,2)+binom(b,2)-n+6, n>=6,
-
-rather than n(n-3)/2. The proof is all-size, not finite extrapolation. The
-explicit schedule's n7/n8 counts5/8 differ from greedy4/6 and are not mixed.
-Geometric multiwedges and old safe clone compression give original bound
-m-4+T_n in dimension4+m-n. This is a cheap flag-refinement class, not a newly
-discovered polynomial-diameter class: ordinary wedge graphs already increase
-diameter by at most one over their fixed4D base. Nonproduct is asserted only
-for n>=7 and is not a Minkowski-indecomposability claim.
-
-### Verification actually performed
-
-Post-reconciliation abstract tests:324 complexes,3189 exact stellar updates,
-1013 shielded updates (546 unequal incidence),891 blockers,10550 pure-carrier
-adjacencies,931 increasing arbitrary moves retained. Abstract inputs are not
-all polytopal; only the relevant local claims are tested on them.
-
-Six independently reconstructed original-H models give58 endpoint pairs:
-123 delivered edges versus129 old#261 and122 shortest. One nonshortest case
-and one original reentry remain. There are125 refined steps,two stationary
-carriers,502 exact reference square systems,2222 LP calls and10500 pivots.
-The exact #262 budget baseline completes five inputs and stalls on the plateau;
-full baseline packets and independent next-weight scans are saved.
-
-Eleven cyclic schedules and9 wedge models reach dimension20. Large final graphs
-are not enumerated. Exact base4D graphs choose endpoints; proved wedge histories
-and final original-edge checks support the larger models. Only one10D/12-facet
-wedge additionally gets a complete final-H graph/nonface check. Selected routes
-and all-pairs structural bounds are kept separate.
-
-Six full audits disable geometric LP/inverse/basis/intersection production AND
-planner selection. Finite classification, BFS and recursion still replay.
-Thirteen malformed/capped control types fail. Generic complete defect discovery
-can be exponential and may enumerate all original vertices. Python/JSON is not
-Lean-extracted or formally verified. No research result is a platform verdict.
-
-All three stages reproduce in a clean workspace with two new scripts, the
-integer fixture and FIVE byte-identical dependencies. Every nontiming result
-and source hash, and both complete generated certificate files, match exactly.
-The final eight-addition patch applies in a fresh frozen-dependency checkout,
-reproduces every file and passes Python compilation. Full reports/certificates
-regenerate and are bundled; committed compact summaries are labeled derived.
-
-    python3 scripts/test_mixed_defect_absorption.py --stage abstract
-    python3 scripts/test_mixed_defect_absorption.py --stage geometry
-    python3 scripts/test_mixed_defect_absorption.py --stage family
-
-## Remaining general research and execution discipline
-
-Single-step W descent is not universally available at polytopal states. Bounded
-checkpoints cross this particular plateau, but no general small-horizon theorem
-or original-size bound on the successful schedule is proved. A future argument
-must control initial complexity, bridge lengths and residual size, or choose a
-different genuine-edge construction. Do not insert those missing bounds as
-assumptions while claiming Polynomial Hirsch.
-
-Literature guard: arXiv1303.5885 is withdrawn for a mistake in the main proof,
-despite its strong surviving abstract. Its missing-face-size diameter bound
-must NOT be imported. The normal-flag theorem actually used is the classical
-Adiprasito--Benedetti result arXiv1303.3598.
-
-#244 core/fibre assembly, #238 support witnesses, #250 projected-image work and
-#255 same-anchor research remain separate; no active submission was triggered
-or altered. #208 needs its existing approved poll, not duplicate submission;
-#210 is retired ancestry. Recheck live ownership. Written arguments, exact
-Python, Lean compilation, axiom audit, ACCEPTED and authenticated Proved are
-different statuses. Keep toolchain pins, credentials and trusted publisher
-isolation unchanged; research-only code needs no speculative hosted gate.
+#244 assembly, #238 support witnesses, #250 image integration, #255 shortening
+and #264 mixed-energy work remain separately owned. #208's historically pending
+submission needs its approved poll, not resubmission. #210 is retired/reserved:
+do not modify or trigger it without reassignment. Recheck live queues before
+resuming old directions. Keep pins, credentials and trusted publisher isolation
+unchanged. Written proof, software checks, Lean build, axiom audit, ACCEPTED and
+authenticated Proved are separate statuses. Report the last observed state;
+never promise background work after the turn.
