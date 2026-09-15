@@ -2,192 +2,199 @@
 
 Repository `jjoshua2/prove2me-work`; refreshed September 15, 2026 UTC.
 Keep Lean `v4.30.0` and Mathlib `c5ea00351c28e24afc9f0f84379aa41082b1188f`.
-Read AGENTS.md, CLOUD_AGENT.md, SKILL.md, CONTINUE_HIRSCH.md and LIVE PR heads/
-comments before choosing work. Do not duplicate accepted or pending packets.
+Read AGENTS.md, CLOUD_AGENT.md, SKILL.md, CONTINUE_HIRSCH.md and the LIVE PR
+heads/comments before choosing work. Do not resubmit accepted/pending packets.
 
-The immediately preceding COMPLETE frontier remains verbatim in immutable history:
-[STATUS before original-facet segments](https://github.com/jjoshua2/prove2me-work/blob/330dfba86b0a7c0c63a4c5bb47504a9a36c5a749/STATUS.md),
-Git blob `0ee516ef600df39c2895092efb845937e0a1fc05`. It preserves every #257
-formula, exact test count, earlier result/receipt archive and ownership note.
-This update records new research/software, NOT a Lean or Prove2Me acceptance.
+The immediately preceding COMPLETE frontier is retained verbatim in Git history:
+[pre-confinement STATUS](https://github.com/jjoshua2/prove2me-work/blob/66049587d5902fd7fa4816325ca94a975b914727/STATUS.md),
+blob `32dd42acc614c7b3a75da79681f38116bb978025`. It preserves every older
+accepted-result archive, #257/#258 formula and limitation, test count and ownership.
+This update adds research/software; it upgrades no written proof to a Lean or
+Prove2Me acceptance.
 
-## Conjecture-level objective and established interfaces
+## Conjecture-level objective and unchanged accepted work
 
-The last preserved authenticated audit records root
+The last preserved authenticated mission audit records root
 `58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac` Open and remaining leaf
 `Hirsch.common_face_diameter_of_dim_ge_six`,
 `87a8b4f4-8b58-4340-8cb9-5fd1b548d01e`, Open. This is NOT a fresh platform poll.
-The target remains a uniform polynomial ordinary-edge diameter bound for
-arbitrary actual high-dimensional carriers. Short extension paths can project
-to chords; count ORIGINAL IMAGE facets and actual original edges.
+The target is a uniform polynomial number of actual original ordinary edges
+for arbitrary high-dimensional carriers. Use ORIGINAL IMAGE facet counts:
+short auxiliary paths can project to chords.
 
-The allocation/representation chain through #236/#237/#241 is accepted and
-complete, not a backlog of uncompiled targets. The genuine Minkowski chain
-#239--#245 remains in the prior archives; #244 retains independent core-walk
-assembly. Its supplied-model L+(L+1)K does not establish controlled useful
-decompositions for all carriers. #246/#247 give image-edge certificates and
-minimal-face discovery; #248 selects valid normalized-tangent edges but does
-not bound route length. #250 has a preserved accepted face-locking verdict;
-its owner retains general projected-image integration. Inspect exact receipts
-and current states rather than retrying already accepted/pending work.
+The checked-allocation/representation chain through #236/#237/#241 is accepted,
+not an uncompiled backlog. The genuine Minkowski chain #239--#245 remains in
+the archives; #244 retains independent core-walk assembly. Its supplied-model
+L+(L+1)K does not produce a controlled useful decomposition for every carrier.
+#246/#247 provide original-row image-edge/minimal-face certificates. #248 selects
+valid normalized-tangent edges without a route-length bound. #250's preserved
+face-locking acceptance and general projected-image integration remain its
+owner's work. Read their exact current receipts before using or modifying them.
 
-## Completed quantitative research to reuse
+## Research frontier inherited from #252--#258
 
-#252 permits target acquisition with intermediate objective decreases; fixed
-lookahead alone has explicit long-phase controls. #253 explores COMPLETE incident
-original two-faces and maximizes over all inspected polygons in a fallback.
-Its exact selector blob is aa562f02dd492ecc47479381d637c6292757ebd3. The same
-retirement proof does not apply to a weaker one-pivot replacement.
-#254 weights selected polygons by their actual sizes and obtains a linear
-intrinsic-three-face tail. Its rational stacked-polar corridor requires Theta(m)
-whole fallback macros even with every polygon at most six-sided.
-#255's separately authored same-anchor shortening and hidden-target family are
-not duplicated. #256's projective slack shares have explicit fixed-type radial
-and angular contraction barriers; a projectively invariant local potential is
-not automatically a global polynomial progress measure.
+#252 allows target acquisitions with objective decreases; bounded lookahead has
+explicit long-phase controls. #253 traces COMPLETE incident polygons and takes
+fallbacks to their common best maximum; its retirement theorem does not apply
+to a weaker one-pivot fallback. #254 weights selected polygon costs and proves
+a linear intrinsic-three-face tail, with a matching-order stacked-polar corridor.
+#255's same-anchor shortening/hidden-target family and #256's projective slack
+barriers remain distinct work.
 
-#257 is merged research, not a new platform theorem. It preserves every pre-
-acquisition original vertex after deleting unlocked target inequalities, then
-uses an ANALYSIS-ONLY mass cap and classical McMullen UBT to count those vertices.
-For e=m-d, retained dimension r and a=floor((e+2)/2), its loop-erased route bound is
+#257 counts pre-acquisition vertices after target deletion using an analysis-only
+cap and classical UBT. Its refined Fibonacci bound remains exponential; its
+hidden-target example has an actually exponential relaxed inventory. The original
+algorithm does not route in the relaxed polyhedron. A universal polynomial bound
+on that entire inventory would be false.
 
-    L <= a + sum_(h=3..r) U(e+1,h), r>=2,
-    L <= F_(e+4)-e-6+floor((e+2)/2), e>=2.
-
-It gives quadratic r4/r5 tails but STILL EXPONENTIAL unrestricted growth. It
-is not a best general diameter estimate; classical quasipolynomial existence
-bounds are asymptotically stronger. The attributed hidden-target example has
-an exact target-deleted d-cube with 2^d vertices and exponentially many target-
-free squares, while useful selected routes remain short. A polynomial bound
-on the entire inventory would therefore be false. See
-[the complete count](research/TARGET_DELETED_PHASE_COUNT.md) and prior STATUS.
-
-## NEW merged research #258: original-H combinatorial segments and reentry repair
-
-Research head `67033d75867135632ce59618b9353d56d9423c6c`;
-merge `98841fd3b9397d20f59c3b77dab0710bf5595a95`.
-[Mathematical note](research/ORIGINAL_FACET_SEGMENTS.md),
-[execution summary](research/ORIGINAL_FACET_SEGMENTS_EXECUTION.json),
-[handoff](research/ORIGINAL_FACET_SEGMENT_HANDOFF.md), exact source manifest and
-clean-replay record are on main. EIGHT additions; no earlier selector or proof
-changed. This is written mathematics/exact code, not a new accepted theorem.
-
-### Positive scope and exact discovery boundary
-
-The new component implements CLASSICAL Adiprasito--Benedetti combinatorial
-segments (arXiv1303.3598, Section3), not a new proof of their flag Hirsch theorem.
-Input only A,b,start,target for a simple bounded full-dimensional ORIGINAL-H
-polytope; no vertex graph, facet graph, shape chart, incidence list or neighbors.
-All link singleton/pair intersections are found through exact original-row
-feasible witnesses or strictly separating nonnegative dual bounds. The route
-vertices and every maximal original edge are independently checked.
-
-The consumer recomputes BFS and replays the combinatorial recursion on the
-CERTIFIED derived link graphs. It performs no geometric discovery, LP or
-inversion; do not call it free of all graph computation. Simplicity and genuine
-facet presentation remain the input class, not conclusions from sampled local
-bases. The finite tests independently establish those global properties.
-
-The exact length ledger is
+#258 implements classical Adiprasito--Benedetti segments directly from original
+rational H queries. Its source remains unchanged. Original feasible or strict
+nonnegative-dual certificates establish every link intersection; original inverse
+identities/maximal ratios establish each edge. The consumer replays BFS/recursion
+but performs no geometric discovery/LP/inversion. Its exact raw ledger is
 
     L = distinct_original_facets_seen - d + facet_reentries.
 
-The classical normal-FLAG theorem makes the last term zero, yielding m-d.
-Flag means every pairwise-intersecting facet family has common intersection,
-not merely that top-level triangles pass. No global flagness is inferred from
-one nonrevisiting route. The written output-sensitive call bound is
-(4d+4)(L+1); each link needs at most m+binom(m,2) intersection queries. Thus on
-flag inputs the LP-ORACLE query count is O(d*m^3). This is not a polynomial
-Bland-pivot, bit-complexity, flag-recognition or arbitrary-input runtime theorem.
-The geometric route is label-based and invariant under invertible affine maps
-and positive row rescalings with fixed labels; arbitrary relabeling is not
-claimed invariant.
+The classical flag guarantee sets the last term to zero, but arbitrary inputs
+are not assumed flag. Labbe--Manneville--Santos arXiv1510.07678 proves examples
+where EVERY raw combinatorial segment is exponentially long, even though short
+routes exist. Tie changes within that family are not a universal fix. #258's
+strictly shorter in-facet splices may leave that restricted route family; their
+universal success or polynomial cost is not proved. The old full test counts,
+mixed performance and local missing-triangle witnesses are in the prior index.
+Do not repeat the flag theorem or claim the new component dominates #253.
 
-### Critical published barrier: every raw segment may be long
+## NEW merged research #259: confined exceptional facets
 
-Labbe--Manneville--Santos, arXiv1510.07678, Theorem E/4.5, constructs Hirsch
-polytopes with N+Theta(d^2) vertices where EVERY combinatorial segment between
-certain facets has length at least 2^(d-3)N. This is a verified primary-source
-literature result, not our finite test or a new counterexample. It rules out a
-universal polynomial bound obtained merely by changing label ties INSIDE the
-raw segment family. Their exponential examples were NOT implemented or tested
-in #258. Do not start a formalization of the false universal segment bound.
-Other route families and hybrids are not ruled out by that result.
+Research head `14b6d5f41b1d20f38368d4fd245e432321afdd34`;
+merge `69d1865846f09a7f85426b8534cadde7785f3d2a`.
+[Full argument](research/DEFECT_CONFINEMENT.md),
+[exact test report](research/DEFECT_CONFINEMENT_TESTS.json),
+[handoff](research/DEFECT_CONFINEMENT_HANDOFF.md), source manifest and clean replay
+are on main. EIGHT additions; no older selector, proof, pin or workflow changed.
+No Lean declaration, compiler/axiom gate or Prove2Me submission was created.
 
-### Local defects and a splice that may leave the restricted family
+### Actual structural hypothesis, not a short-route premise
 
-The written localization of the AB induction says a reentered facet w requires
-a missing triangle containing w in a visited recursive link. The exact witness
-is: S+w+p, S+w+q and S+p+q are nonempty original intersections, but S+w+p+q is
-empty. All four facts have checked original-row data. The code diagnoses only
-the first reentered facet with explicit search caps. Incomplete diagnosis is
-not global flagness; one defect is not assigned an unproved bounded charge.
+For a simple bounded full-dimensional original d-polytope with m genuine facets,
+choose B containing k exceptional facet labels, g=m-k protected labels, e=m-d.
+A global sufficient condition is that EVERY inclusion-minimal empty facet
+intersection of cardinality>=3 is WHOLLY CONTAINED in B. Alternatively certify
+that every missing triangle in every recursive link actually visited by the
+specified #258 segment has ALL THREE labels in B. Intersections include the
+locked original rows of each link.
 
-The separate facet_reentry_repair.py replaces an actual excursion outside a
-facet by a STRICTLY SHORTER independently checked #253 route between its same
-endpoints, entirely inside that facet. The replacement need not remain a
-combinatorial segment. Integer edge length decreases, not necessarily reentry
-debt in the general argument. Failed/capped trials preserve the old valid route.
-There is no theorem that all excursions shorten, that local repair gives a
-shortest route, or that the number/cost of initial edges and repair calls is
-polynomial in original facets and dimension.
+Merely hitting each missing face with one label is NOT enough. Deleting B to
+leave a flag induced subcomplex is not the stated condition. Bounding sizes of
+individual missing faces does not bound their union. These distinctions have
+explicit negative tests, not just prose warnings.
 
-### Actual tests, losses and clean replay
+The protected-label specialization of the AB induction implies each facet
+outside B is nonrevisiting. The only relevant flagness use fills triangles
+containing that protected label and consecutive necklace anchors, recursively
+in actually used links. The global condition implies local confinement because
+any minimal nonface inside a missing link triangle plus locked rows must include
+all three triangle labels. The proof and scope are written explicitly in the note.
 
-Eight independent small graphs have142 vertices and267 edges. Tests execute
-1424 ordered pairs:756 on independently verified flag inputs,668 nonflag.
-Two models use deterministic80/100-pair samples; other models use all pairs.
+### New finite-state count, including actual exceptional reentries
 
-    total edges: raw3404, repaired3391, unchanged#2533389, BFS3360;
-    nonshortest: raw44, repaired31, unchanged#25329.
+Erase complete-vertex loops. For a fixed active exceptional subset S, every
+later distinct vertex with that same S must introduce a new protected label.
+Otherwise protected-label interval membership forces the same complete active
+set. Thus at most g-d+|S|+1 vertices have that signature, giving
 
-All13 observed raw reentries have exact first-row missing-triangle witnesses;
-13 accepted splices remove those observed reentries. This is not a general
-repair guarantee and the hybrid does NOT dominate #253 on the aggregate suite.
-Two raw4D/8-facet routes exceed m-d; a saved5-edge example shortens to4. Flag
-models give1898 edges,zero reentries andfour nonshortest paths. Nonrevisiting
-itself is not shortestness.
+    L <= sum_{s=max(0,d-g)}^{min(k,d)} binom(k,s)*(g-d+s+1)-1
+      <= (e+1)*2^k-1.
 
-Cubes d6/8/12/16 take6/8/12/16 original edges without enumerating their full
-vertex graphs. At d16:12862 intersection answers,279 LP maximizations,586
-internal pivots. The65536 vertex count is from the explicit cube input, not
-queried vertices. Existing #254 corridors m8/12/16/24 take4/7/9/15 shortest
-edges versus #253's4/7/11/17; their checked stacking reference is attributed.
-Six dense-affine and12 positive-row-scale comparisons preserve full labels.
-Twenty-six stored route replays pass with LP/inverse/basis generation disabled;
-repair replay also disables replacement-route production. Seventeen DISTINCT
-malformed/capped controls fail; repeated stage runs are not extra control types.
+For k<=min(d,e), k>=1, the sum is2^(k-1)*(2e-k+2)-1; for k0 it is e. This is
+LINEAR in facet excess for fixed k, polynomial if k=O(log m). No theorem says
+that regime holds for arbitrary carriers. This is a bound on the delivered
+loop-erased route, not on the work of producing/erasing a longer raw segment,
+LP pivots, or recognizing a small global core.
 
-All three stages reproduce in a fresh directory with only three new scripts
-and five BYTE-IDENTICAL old dependencies. Every report/source field except
-seconds matches, and all THREE full fixture files are byte-identical. The
-separate eight-file add-only patch applies and reproduces every file exactly,
-with Python syntax checks. This is not a Lean build or full repository clone.
-The committed summaries explicitly label themselves derived and hash-bind full
-reports/fixtures, which regenerate and are included in the conversation bundle.
-Python/JSON code has not been extracted from or verified by Lean.
+A certified empty ORIGINAL subset inside B excludes its active signatures and
+sharpens the sum. The checker uses only original separated_rows dual identities;
+an empty link S+T is never misreported as globally empty T. Enumeration of the
+optional signature refinement is capped at16 labels. An arbitrary later repair
+must recheck protected intervals rather than assume they survive.
 
-    python3 scripts/test_original_facet_segments.py --stage flag
-    python3 scripts/test_original_facet_segments.py --stage nonflag
-    python3 scripts/test_original_facet_segments.py --stage large
+### All-dimensional nonproduct class with a linear bound
 
-## Next quantitative task and ownership
+For d>=3, let S=x0+x1+x2 and define
 
-The whole relaxed inventory can be exponential (#257), and even all choices
-inside the raw combinatorial-segment family can be long (published #258 source).
-The useful remaining question is whether a hybrid can bound the remaining
-reentry/repair work or whether another original-edge route admits a global
-polynomial account. Original-row missing-triangle witnesses and checked facet
-splices now support that investigation. Do not silently assume every reentry
-has a cheap internal replacement or that a bounded defect count is proved.
+    0<=x_i<=1,
+    S<=5/2,
+    S-x_j<=5/2-2^(-(j+1)) for j>=3.
+
+There are3d-2 genuine facets and one high minimal nonface, the first-three upper
+coordinate facets. Successive shallow protected-ridge truncations preserve
+this triple by the proved stellar-subdivision lemma; every other minimal
+nonface is a pair. The minimal-nonface hypergraph is connected, excluding a
+nontrivial COMBINATORIAL Cartesian product. Minkowski indecomposability is not
+claimed. The construction proves simplicity/irredundancy in all dimensions.
+
+Excluding the impossible active triple improves the class bound to
+
+    L <= 7e-6 = 14d-20    for EVERY endpoint pair.
+
+Its vertex count is(3d+11)*2^(d-4) for d>=4, and10 for d3. At d12 it has34
+original facets and12032 vertices but the all-pairs bound148. The sampled path
+has12 edges; do not confuse that with a universal shortestness claim. This is
+not a new best general diameter bound or an unrestricted solution. The small
+exceptional parameter differs from the classical banner threshold: critical
+nonface cliques of size d+1 remain in this family despite k3.
+
+### What was executed and what was not
+
+The full suite checks83 geometric routes and28568 used-link triangles. Family
+d3/d4/d5 has63 endpoint pairs,162 original edges and1532 independent square
+systems, with complete clipping/minimal-nonface/reference agreement and strict
+facet anchors. Fourteen named historical INPUTS are regenerated afresh rather
+than replayed as old verdicts. Three further holdouts have REAL exceptional-
+facet reentries: two products in dimensions4/6 and one nonproduct4D cross-cut
+with the same six-label core. The new count permits these reentries; it does
+not falsely report them removed. Larger local exceptional sets are retained.
+
+Family d6/d8/d12 runs give6/8/12 selected edges and structural bounds64/92/148,
+without enumerating full large vertex graphs. d6/d8 use generic exact LP. d12
+uses an untrusted family-specific scalar/dual witness producer for the SAME
+unchanged recursive selector; every answer gets the original-row audit. It is
+NOT a completed generic LP replay. Generic/special full paths match in d3/4/5.
+
+Standalone finite-state tests cover1638 random interval paths and9466 exhaustive
+small paths. Seven malformed/unsupported controls fail;23 full certificate
+replays pass with LP/inverse/basis/intersection production disabled. BFS and
+recursion are still replayed. Python and JSON parsing are not Lean-extracted.
+
+The full run repeats in a clean directory with only TWO new scripts, the small
+input fixture and THREE unchanged dependencies. Every report field except
+nested seconds and the17,809,933-byte full certificate fixture match exactly.
+The eight-addition patch separately applies in a fresh dependency-only Git
+checkout, matches all new bytes and passes Python compilation. The repository
+stores report/replay hashes and a reproducer; the downloadable bundle includes
+full detailed certificates. No numerical check is labeled Lean verification.
+
+    python3 scripts/test_defect_confinement.py --large
+    python3 scripts/defect_confinement.py input.json segment.json --output confined.json
+
+## Remaining conjecture-facing task and ownership
+
+The payoff for controlled exceptional states is now derived, not an assumed
+short-phase lemma. The missing unrestricted step is to control the actual local
+exceptional signature supply or reduce it with bounded original-edge cost.
+Do not insert k=O(log m), polynomially many signatures or cheap repairs as
+unproved hypotheses while claiming Polynomial Hirsch. Large k itself is not a
+diameter obstruction: a simplex's unique high minimal nonface contains every
+facet label although its graph diameter is1. Structural special classes are
+useful but do not discharge arbitrary high-dimensional carriers.
 
 #244 retains core/fibre assembly; #238 support-witness existence; #250 general
-projected-image integration. #255/#256/#257 were not modified or retriggered.
-#208's recorded pending proof needs its own approved poll, not a duplicate
-submission; #210 is retired ancestry. Inspect live PRs before taking old tasks.
+projected-image work; #255 same-anchor research is separate. None was modified
+or retriggered. #208's recorded pending submission needs its own approved poll,
+not a duplicate; #210 remains retired ancestry. Recheck live queues before
+choosing a newly overlapping task.
 
-Formal iteration should use local pinned Lean where available. Written proofs,
-exact Python, Lean compilation, axiom audit, ACCEPTED and live Proved are distinct.
-Research-only changes need no speculative hosted gate. Do not change workflows,
-pins, credentials, permissions or the trusted-publisher secret split. Preserve
-raw evidence independently from derived summaries and report scope honestly.
+Written proofs, exact software tests, Lean compilation, axiom audit, ACCEPTED
+and authenticated Proved are distinct states. Research-only work needs no
+speculative hosted gate. Preserve pins and the trusted-publisher secret split;
+keep raw platform evidence separate from derived local summaries.
