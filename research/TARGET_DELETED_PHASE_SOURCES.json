@@ -1,0 +1,43 @@
+{
+  "record_kind": "local source manifest; no platform or compiler receipt",
+  "additions": {
+    "scripts/target_deleted_phase_accounting.py": {
+      "sha256": "6ba355e53ba182c6e0ce63306a6df61d173373edf913398d714a6c4e673f134a",
+      "git_blob": "231350145306b1aea372c208ce019b21401e18ec"
+    },
+    "scripts/test_target_deleted_phase.py": {
+      "sha256": "c13db799ff134c1724014a12667ca26f188e36c3a8fbba948cd9b8777754522f",
+      "git_blob": "1de6e2ba094282a19f853aa3338ba32911365e6e"
+    },
+    "research/TARGET_DELETED_PHASE_COUNT.md": {
+      "sha256": "6a71ed38ad492e1be983a60dc85ade5d610e1e54dacd514ec8930765ce658e10",
+      "git_blob": "8f17afedf79073756ba9b3b8d3ef911767440dcb"
+    },
+    "research/TARGET_DELETED_PHASE_HANDOFF.md": {
+      "sha256": "2167633231e65fe63b3676d38d351ceef4bdba59eb339d9e82bd963ca477f9b3",
+      "git_blob": "dd151937900d7dd8dd643d52b0779a12bf6703f3"
+    },
+    "research/TARGET_DELETED_PHASE_EXECUTION.json": {
+      "sha256": "8db001cbca458d427a92980387265c70760ccb00142170fe14098ae8106bf599",
+      "git_blob": "4823a9ce09200f84b98459a9c358ed8504dce7c6"
+    }
+  },
+  "unchanged_dependencies": {
+    "two_face_acquisition.py": {
+      "sha256": "ea395cf665fbbc45f15d4ea9fa35d10bb00efc55795732ff6bfb0fc125d430d7",
+      "git_blob": "aa562f02dd492ecc47479381d637c6292757ebd3"
+    },
+    "simple_tangent_policy_audit.py": {
+      "sha256": "28d7e66e3e2f6d6589e55a2e07e42a7a2081d56860621ba8838db9708a458440",
+      "git_blob": "73dc32b9753d7d0fe5e67ca1f4fad0534b6b1976"
+    },
+    "test_weighted_face_retirement.py": {
+      "sha256": "651dbedee09c916a4000a68ac40954110212730654787868be65f6a65d886471",
+      "git_blob": "a1dda56de63cec6686d1d4e842ae0bfd739b2397"
+    },
+    "three_dimensional_face_accounting.py": {
+      "sha256": "4ad5fbdd8ed479f7a8f443f062eed6e897bee545b2808055106aa04fad6ba64f",
+      "git_blob": "b50d38e8607f7825a699c6964332913c95ad078b"
+    }
+  }
+}
