@@ -1,0 +1,145 @@
+{
+  "record_kind": "derived local research execution summary; no Lean/platform verdict",
+  "status": "PASS",
+  "totals": {
+    "routes": 644,
+    "original_edges": 1826,
+    "loop_erased_edges": 1826,
+    "erased_edges": 0,
+    "phase_cells": 1574,
+    "restricted_inverse_identities": 9875,
+    "cap_vertex_enumerations": 32,
+    "cap_active_subsets": 1519,
+    "cap_vertices": 296,
+    "nonsimple_capped_models": 4,
+    "cap_vertices_outside_original_target_cuts": 96,
+    "fallback_macros": 58,
+    "search_disabled_audits": 26
+  },
+  "maximum_retained_dimension": 6,
+  "independent_graph_pairs": 634,
+  "retained_nonshortest_pairs": 9,
+  "negative_controls": [
+    "omitted_non_target_row",
+    "non_strict_cap",
+    "altered_chart",
+    "altered_original_vertex",
+    "missing_phase",
+    "forged_original_hash",
+    "changed_cap_inequality",
+    "wrong_target_deletion",
+    "repeated_prefix_vertex"
+  ],
+  "bound_comparisons_to_old_subset": [
+    {
+      "e": 12,
+      "r": 4,
+      "new": 94,
+      "old": 392
+    },
+    {
+      "e": 12,
+      "r": 5,
+      "new": 184,
+      "old": 1114
+    },
+    {
+      "e": 12,
+      "r": 12,
+      "new": 976,
+      "old": 8248
+    },
+    {
+      "e": 20,
+      "r": 20,
+      "new": 46353,
+      "old": 2097328
+    },
+    {
+      "e": 29,
+      "r": 3,
+      "new": 71,
+      "old": 480
+    },
+    {
+      "e": 29,
+      "r": 4,
+      "new": 476,
+      "old": 4555
+    },
+    {
+      "e": 29,
+      "r": 5,
+      "new": 1178,
+      "old": 31975
+    }
+  ],
+  "exponential_inventory_control": [
+    {
+      "dimension": 3,
+      "original_facets": 9,
+      "relaxed_facets": 6,
+      "relaxed_cube_vertices": 8,
+      "target_free_squares": 3,
+      "all_square_q_minus_one": 9
+    },
+    {
+      "dimension": 4,
+      "original_facets": 12,
+      "relaxed_facets": 8,
+      "relaxed_cube_vertices": 16,
+      "target_free_squares": 18,
+      "all_square_q_minus_one": 54
+    },
+    {
+      "dimension": 5,
+      "original_facets": 15,
+      "relaxed_facets": 10,
+      "relaxed_cube_vertices": 32,
+      "target_free_squares": 70,
+      "all_square_q_minus_one": 210
+    },
+    {
+      "dimension": 6,
+      "original_facets": 18,
+      "relaxed_facets": 12,
+      "relaxed_cube_vertices": 64,
+      "target_free_squares": 225,
+      "all_square_q_minus_one": 675
+    },
+    {
+      "dimension": 7,
+      "original_facets": 21,
+      "relaxed_facets": 14,
+      "relaxed_cube_vertices": 128,
+      "target_free_squares": 651,
+      "all_square_q_minus_one": 1953
+    },
+    {
+      "dimension": 8,
+      "original_facets": 24,
+      "relaxed_facets": 16,
+      "relaxed_cube_vertices": 256,
+      "target_free_squares": 1764,
+      "all_square_q_minus_one": 5292
+    }
+  ],
+  "stage_receipts": {
+    "LOW": {
+      "seconds": 32.013,
+      "sha256": "5295b9726ce15a693304946f5af6df1a34a91dde39603d269e276f11328b8e51"
+    },
+    "HIGH": {
+      "seconds": 19.397,
+      "sha256": "9260584dda33dcdf23c46cd9fc7dfdaab39616a951e2c578fef2c75dd58c9ab1"
+    }
+  },
+  "source_sha256": {
+    "simple_tangent_policy_audit.py": "28d7e66e3e2f6d6589e55a2e07e42a7a2081d56860621ba8838db9708a458440",
+    "target_deleted_phase_accounting.py": "6ba355e53ba182c6e0ce63306a6df61d173373edf913398d714a6c4e673f134a",
+    "test_target_deleted_phase.py": "c13db799ff134c1724014a12667ca26f188e36c3a8fbba948cd9b8777754522f",
+    "test_weighted_face_retirement.py": "651dbedee09c916a4000a68ac40954110212730654787868be65f6a65d886471",
+    "three_dimensional_face_accounting.py": "4ad5fbdd8ed479f7a8f443f062eed6e897bee545b2808055106aa04fad6ba64f",
+    "two_face_acquisition.py": "ea395cf665fbbc45f15d4ea9fa35d10bb00efc55795732ff6bfb0fc125d430d7"
+  }
+}
