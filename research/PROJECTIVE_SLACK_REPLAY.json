@@ -1,0 +1,29 @@
+{
+  "all_comparisons_byte_for_byte": true,
+  "all_source_and_numeric_fields_identical_excluding_elapsed_seconds": true,
+  "angular_roof_followup": {
+    "full_check_sha256": "c7d75f3be119af2844ddcb6def1fb580501feb7fde1e5da27417d9ce67b5a5fc",
+    "matched_additional_fixtures": 2,
+    "numeric_and_full_parameter_certificates_identical_excluding_time": true,
+    "source_sha256": "79786a0a4bc7a28d2000cd2f608ee91047195653adb591d33af17deb5e7276f5"
+  },
+  "graph_and_aux_stages_run": true,
+  "hosted_workflow_or_platform_submission": false,
+  "independent_small_graphs_rerun": 11,
+  "kind": "Derived clean dependency replay, not a full repository clone or a Lean build",
+  "matched_fixtures": 12,
+  "matched_pair_tables": 11,
+  "new_code_and_dependencies_sha256": {
+    "scripts/projective_slack_acquisition.py": "ac68d89c7cc330c615bbdf447288486a4b29983045bcf2f5596a665e0b4aefa4",
+    "scripts/simple_tangent_policy_audit.py": "28d7e66e3e2f6d6589e55a2e07e42a7a2081d56860621ba8838db9708a458440",
+    "scripts/target_phase_pivot.py": "47205558384b121b7635a063485ef7abe3e46f53831c8f41ac71d8df8d364948",
+    "scripts/target_roof_phase_barrier.py": "79f287b1a23b44da80314dbdde4cc7de338d195f4438036f9bc88bf3115111f8",
+    "scripts/test_projective_slack_acquisition.py": "a090d1e7f2d70c9d4938d26384601f1b1d3c0368a0095623d735aa504b282bfc",
+    "scripts/test_two_face_acquisition.py": "29137bcf5e5eac39a691e7fce762b063fbc655f99c717898dc9116813c53c031",
+    "scripts/two_face_acquisition.py": "ea395cf665fbbc45f15d4ea9fa35d10bb00efc55795732ff6bfb0fc125d430d7"
+  },
+  "reference_full_check_sha256": "213c61a2e3961fabd9a5133f8b9d568035fc0ab5128ec26fa148e447f544b268",
+  "replayed_full_check_sha256": "a4e6330403d65d6c55e492b567d5660f30a08524e23752d54243e4a0c23b1785",
+  "same_endpoint_pairs": 1016,
+  "status": "PASS"
+}

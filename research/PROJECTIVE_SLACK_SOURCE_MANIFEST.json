@@ -1,0 +1,73 @@
+{
+  "dependency_GitHub_blob_readbacks_match": true,
+  "development_base": "9456445941adbbfd6464d8bd1d559599d6f3ea18",
+  "new_files": {
+    "research/ANGULAR_ROOF_STALL.md": {
+      "bytes": 8680,
+      "git_blob_sha": "fedf93f4f9a35cdc7177a57e90131ba56764f98d",
+      "sha256": "cf6247a22c47fc3d3d2963dbe96ee59dce93b10ff947edcd132421e8dc9d7f5d"
+    },
+    "research/ANGULAR_ROOF_SUMMARY.json": {
+      "bytes": 5167,
+      "git_blob_sha": "0f3d51457c8e9c966c3c27ec267eb73bd423a89b",
+      "sha256": "c6002a868064064084361885b87475953396e23ac96315476a35167fd798f545"
+    },
+    "research/PROJECTIVE_SLACK_ACQUISITION.md": {
+      "bytes": 16547,
+      "git_blob_sha": "f9353607bc5c986c46dd87f8d1bafa1e83475067",
+      "sha256": "aaa3ee4fea683dc3e0621cf0d795eae8f989092cd5a7a87af3cf75b93bb0da6c"
+    },
+    "research/PROJECTIVE_SLACK_HANDOFF.md": {
+      "bytes": 5705,
+      "git_blob_sha": "8a6515fe59242cfbef917175868867da7fe58779",
+      "sha256": "9f05921e97ef5c31bf7cfe27f40f4afa84a9e9190612bb32520bfaf8e7a3919e"
+    },
+    "research/PROJECTIVE_SLACK_SUMMARY.json": {
+      "bytes": 5799,
+      "git_blob_sha": "1debac0e8bdb0d8b34d5354ceb74404253c53dd6",
+      "sha256": "84a049bb2d91f6c4a357bf2eb66741931a4defa286447d655bdc3013cb0da691"
+    },
+    "scripts/projective_slack_acquisition.py": {
+      "bytes": 12674,
+      "git_blob_sha": "2b581be36ac7e98a6795135e77223de088588c35",
+      "sha256": "ac68d89c7cc330c615bbdf447288486a4b29983045bcf2f5596a665e0b4aefa4"
+    },
+    "scripts/test_angular_roof_barrier.py": {
+      "bytes": 8695,
+      "git_blob_sha": "71dfb68a067f603087c2c98c6b4252cff160c5d5",
+      "sha256": "79786a0a4bc7a28d2000cd2f608ee91047195653adb591d33af17deb5e7276f5"
+    },
+    "scripts/test_projective_slack_acquisition.py": {
+      "bytes": 18880,
+      "git_blob_sha": "fd21cea2eb7881fa2d2f4347fcc7630b063144da",
+      "sha256": "a090d1e7f2d70c9d4938d26384601f1b1d3c0368a0095623d735aa504b282bfc"
+    }
+  },
+  "unchanged_dependencies": {
+    "scripts/simple_tangent_policy_audit.py": {
+      "bytes": 8284,
+      "git_blob_sha": "73dc32b9753d7d0fe5e67ca1f4fad0534b6b1976",
+      "sha256": "28d7e66e3e2f6d6589e55a2e07e42a7a2081d56860621ba8838db9708a458440"
+    },
+    "scripts/target_phase_pivot.py": {
+      "bytes": 13941,
+      "git_blob_sha": "4b6be3e8f7fc304c87474205898d85f71e39a15d",
+      "sha256": "47205558384b121b7635a063485ef7abe3e46f53831c8f41ac71d8df8d364948"
+    },
+    "scripts/target_roof_phase_barrier.py": {
+      "bytes": 15338,
+      "git_blob_sha": "87c82480b19b3c699d2c9bcf1919d3bb8ea16058",
+      "sha256": "79f287b1a23b44da80314dbdde4cc7de338d195f4438036f9bc88bf3115111f8"
+    },
+    "scripts/test_two_face_acquisition.py": {
+      "bytes": 22282,
+      "git_blob_sha": "4932a6f656257265b791c320fe1323a46616ab07",
+      "sha256": "29137bcf5e5eac39a691e7fce762b063fbc655f99c717898dc9116813c53c031"
+    },
+    "scripts/two_face_acquisition.py": {
+      "bytes": 18449,
+      "git_blob_sha": "aa562f02dd492ecc47479381d637c6292757ebd3",
+      "sha256": "ea395cf665fbbc45f15d4ea9fa35d10bb00efc55795732ff6bfb0fc125d430d7"
+    }
+  }
+}
