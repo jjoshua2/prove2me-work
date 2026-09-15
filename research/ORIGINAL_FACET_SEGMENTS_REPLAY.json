@@ -1,0 +1,29 @@
+{
+  "excluded_report_fields": [
+    "seconds"
+  ],
+  "fixture_sha256": {
+    "fixtures/original_facet_segments_flag.json": "b94b246baf8b523f94396d039c13755506224a42017d199bad1cb4031691c440",
+    "fixtures/original_facet_segments_large.json": "eef0d9240511e93e342786d9ca9a7c9dacc4d0e8864fcdb95a07e431d771e905",
+    "fixtures/original_facet_segments_nonflag.json": "812a7fa983fa90579256319330d61adad1dc2b3513ada919767df87786ae1ba9"
+  },
+  "record_kind": "local clean dependency replay, not Lean or platform verdict",
+  "stages": {
+    "flag": {
+      "all_numeric_and_source_fields_match": true,
+      "clean_report_sha256": "c522e640fb33ca01af25b17e9f92095d9aee039730b0ec01c86f1c1da47c8999",
+      "original_report_sha256": "5eb1e79e795902a3a0ff0b235531d724a3e6db3efc84b459d9f636cb40343cb6"
+    },
+    "large": {
+      "all_numeric_and_source_fields_match": true,
+      "clean_report_sha256": "33980b43baeba7bdd182e80f2959f3c558c820185f4ec7b41e91eb606014b0c5",
+      "original_report_sha256": "bea3bcc572c505af2439725a07615d67fa1942f249300f29d58ef5480a13322c"
+    },
+    "nonflag": {
+      "all_numeric_and_source_fields_match": true,
+      "clean_report_sha256": "cf5927e3e71864e7c412c881d0ea04f672c33c5add7060bd2c411c5450361551",
+      "original_report_sha256": "92559a0a18deb93414405d01f5664bb4a5371b3c04cc1cd6d0e46007a9c57c08"
+    }
+  },
+  "status": "PASS"
+}
