@@ -1,0 +1,44 @@
+{
+  "kind": "derived_local_source_manifest",
+  "baseline_main": "13fd398df7dc224deccef4cd2c1506069ed042a3",
+  "branch": "research/stellar-defect-energy",
+  "files": {
+    "scripts/stellar_defect_energy.py": {
+      "sha256": "f034b8cc09686372d1208a378325c47a8f81c58fece1b473c5d8d53044b5da7c",
+      "git_blob": "ec7343d6339b7ce434388e91646153c6d7efd7d5",
+      "bytes": 17521
+    },
+    "scripts/test_stellar_defect_energy.py": {
+      "sha256": "93592771730994d64c2c4910a91ae87335db873bd3972668aed03f1d534c39bd",
+      "git_blob": "a4c722b4eea35b3665c9da345b0ba88d3017dc5f",
+      "bytes": 23728
+    },
+    "research/STELLAR_DEFECT_ENERGY.md": {
+      "sha256": "e8a5dd3337d62c6146c0b3099e7b41eb823105e788fc9cdd0889a89f6a052926",
+      "git_blob": "6c9dd5545ef013e9d7a8389cf5711f21d1a9a3a9",
+      "bytes": 19895
+    },
+    "research/STELLAR_DEFECT_ENERGY_HANDOFF.md": {
+      "sha256": "92ba0286668c3ba771d6f22356891c404b4b6905cfbfa721d13b6cce944bb91b",
+      "git_blob": "e569e754caa0a630af484d510cb45b2b809b4e5a",
+      "bytes": 6997
+    },
+    "research/STELLAR_DEFECT_ENERGY_CHECK.json": {
+      "sha256": "f651592c34daa104bcbf124309f47a284ebd2401304b1a7e4797ca6ba9537354",
+      "git_blob": "58d5acafc2bb07995de0880dd09cd1106b80a4c8",
+      "bytes": 7568
+    },
+    "research/STELLAR_DEFECT_ENERGY_REPLAY.json": {
+      "sha256": "c4d26d4f3a22420b3067b647c78410036f1d1822b6a808e2ba34a4013f36a85d",
+      "git_blob": "778ad3e6730f676e52b595448cba5c029d0f12d1",
+      "bytes": 1091
+    }
+  },
+  "verification_scope": "Written mathematics and exact Python, not Lean or Prove2Me",
+  "unchanged_arguments_reused": [
+    "PR261 exact stellar membership formula and carrier transport",
+    "Adiprasito--Benedetti normal-flag path theorem"
+  ],
+  "new_Actions_run": null,
+  "new_platform_submission": null
+}

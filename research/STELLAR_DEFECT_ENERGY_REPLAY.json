@@ -1,0 +1,28 @@
+{
+  "kind": "derived_clean_workspace_replay",
+  "all_test_fields_identical": true,
+  "all_fixture_bytes_identical": {
+    "stellar-energy-seed-points.json": true,
+    "stellar-energy-barrier.json": true
+  },
+  "raw_check_sha256": "f651592c34daa104bcbf124309f47a284ebd2401304b1a7e4797ca6ba9537354",
+  "fixture_sha256": {
+    "stellar-energy-seed-points.json": "6a99972270f497eae408c04820e6cd0f47b09bdae2f4044833216eaabe639ab7",
+    "stellar-energy-barrier.json": "dad5f2a5b05865fc893e9706ad9c38322e18fee772839384f5d4ac0a64ddafad"
+  },
+  "saved_geometry_and_route_verifier": {
+    "status": "PASS",
+    "exact_original_vertices": 164,
+    "original_facets": 18,
+    "saved_routes": 40,
+    "original_edge_audits": 159,
+    "all_face_edges_checked": 115,
+    "routing_search_rerun": false,
+    "graph_diameter_recomputed": false,
+    "scope": "Exact seed and cut reconstruction, saved stellar/carrier replay and original-row checks; not Lean."
+  },
+  "independent_discovery_packages_required": false,
+  "Lean_compilation": false,
+  "Actions_run_created": false,
+  "platform_submission": null
+}
