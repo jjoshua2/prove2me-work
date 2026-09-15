@@ -1,0 +1,383 @@
+{
+  "finite_count_tests": {
+    "exhaustive_small_paths": 9466,
+    "random_interval_paths": 1638
+  },
+  "large_models": [
+    {
+      "bound": 75,
+      "certified_signature_bound": 64,
+      "dimension": 6,
+      "edges": 6,
+      "enumerated_vertex_graph": false,
+      "extra_lp_calls": 31,
+      "facets": 16,
+      "known_vertices": 116,
+      "missing_triangles": 1,
+      "seconds": 0.6425,
+      "segment_lp_calls": 91,
+      "structural_signature_bound": 64,
+      "triangles": 659,
+      "witness_producer": "generic exact LP"
+    },
+    {
+      "bound": 107,
+      "certified_signature_bound": 92,
+      "dimension": 8,
+      "edges": 8,
+      "enumerated_vertex_graph": false,
+      "extra_lp_calls": 81,
+      "facets": 22,
+      "known_vertices": 560,
+      "missing_triangles": 1,
+      "seconds": 3.155,
+      "segment_lp_calls": 177,
+      "structural_signature_bound": 92,
+      "triangles": 2959,
+      "witness_producer": "generic exact LP"
+    },
+    {
+      "bound": 171,
+      "certified_signature_bound": 148,
+      "dimension": 12,
+      "edges": 12,
+      "enumerated_vertex_graph": false,
+      "extra_lp_calls": 0,
+      "facets": 34,
+      "known_vertices": 12032,
+      "missing_triangles": 1,
+      "seconds": 21.2104,
+      "segment_lp_calls": 0,
+      "structural_signature_bound": 148,
+      "triangles": 22475,
+      "witness_producer": "family scalar/dual witnesses; same segment recursion"
+    }
+  ],
+  "models": [
+    {
+      "all_graph_vertices_supplied_to_producer": false,
+      "clipping_transcript": [
+        {
+          "crossing_edges": 3,
+          "new_vertices": 3,
+          "removed_vertices": 1,
+          "rows": 7,
+          "total_vertices": 10
+        }
+      ],
+      "dimension": 3,
+      "facets": 7,
+      "global_defect_core": [
+        1,
+        3,
+        5
+      ],
+      "independent_square_systems": 35,
+      "local_k_max": 3,
+      "local_k_min": 0,
+      "minimal_nonfaces": 7,
+      "missing_triangles": 8,
+      "nonface_hypergraph_connected": true,
+      "nonshortest": 0,
+      "pairs_tested": 21,
+      "raw_edges": 43,
+      "reentries_in_core": 0,
+      "specialized_generic_full_path_match": true,
+      "structural_signature_bound": 22,
+      "triangles_checked": 88,
+      "uniform_core_bound": 27,
+      "vertices": 10
+    },
+    {
+      "all_graph_vertices_supplied_to_producer": false,
+      "clipping_transcript": [
+        {
+          "crossing_edges": 6,
+          "new_vertices": 6,
+          "removed_vertices": 2,
+          "rows": 9,
+          "total_vertices": 20
+        },
+        {
+          "crossing_edges": 6,
+          "new_vertices": 6,
+          "removed_vertices": 3,
+          "rows": 10,
+          "total_vertices": 23
+        }
+      ],
+      "dimension": 4,
+      "facets": 10,
+      "global_defect_core": [
+        1,
+        3,
+        5
+      ],
+      "independent_square_systems": 210,
+      "local_k_max": 3,
+      "local_k_min": 0,
+      "minimal_nonfaces": 13,
+      "missing_triangles": 7,
+      "nonface_hypergraph_connected": true,
+      "nonshortest": 0,
+      "pairs_tested": 21,
+      "raw_edges": 54,
+      "reentries_in_core": 0,
+      "specialized_generic_full_path_match": true,
+      "structural_signature_bound": 36,
+      "triangles_checked": 281,
+      "uniform_core_bound": 43,
+      "vertices": 23
+    },
+    {
+      "all_graph_vertices_supplied_to_producer": false,
+      "clipping_transcript": [
+        {
+          "crossing_edges": 12,
+          "new_vertices": 12,
+          "removed_vertices": 4,
+          "rows": 11,
+          "total_vertices": 40
+        },
+        {
+          "crossing_edges": 12,
+          "new_vertices": 12,
+          "removed_vertices": 6,
+          "rows": 12,
+          "total_vertices": 46
+        },
+        {
+          "crossing_edges": 12,
+          "new_vertices": 12,
+          "removed_vertices": 6,
+          "rows": 13,
+          "total_vertices": 52
+        }
+      ],
+      "dimension": 5,
+      "facets": 13,
+      "global_defect_core": [
+        1,
+        3,
+        5
+      ],
+      "independent_square_systems": 1287,
+      "local_k_max": 3,
+      "local_k_min": 0,
+      "minimal_nonfaces": 20,
+      "missing_triangles": 13,
+      "nonface_hypergraph_connected": true,
+      "nonshortest": 0,
+      "pairs_tested": 21,
+      "raw_edges": 65,
+      "reentries_in_core": 0,
+      "specialized_generic_full_path_match": true,
+      "structural_signature_bound": 50,
+      "triangles_checked": 1035,
+      "uniform_core_bound": 59,
+      "vertices": 52
+    }
+  ],
+  "negative_controls": [
+    "triangle_hitting_set_not_confinement",
+    "declare_nonflag_execution_flag",
+    "missing_triangle_certificate_table",
+    "empty_triangle_declared_present",
+    "wrong_segment_binding",
+    "zero_diagnostic_cap",
+    "protected_reentry"
+  ],
+  "nonflag_reentry_controls": [
+    {
+      "bound": 212,
+      "core": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        7
+      ],
+      "dimension": 4,
+      "edges": 5,
+      "facets": 10,
+      "name": "nonflag_product_4",
+      "nonproduct_certified": false,
+      "reentry_debt": 1,
+      "triangles": 82
+    },
+    {
+      "bound": 383,
+      "core": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        7
+      ],
+      "dimension": 6,
+      "edges": 7,
+      "facets": 14,
+      "name": "nonflag_product_6",
+      "nonproduct_certified": false,
+      "reentry_debt": 1,
+      "triangles": 668
+    },
+    {
+      "bound": 269,
+      "core": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        7
+      ],
+      "dimension": 4,
+      "edges": 5,
+      "facets": 11,
+      "name": "nonflag_crosscut4",
+      "nonproduct_certified": true,
+      "reentry_debt": 1,
+      "triangles": 90
+    }
+  ],
+  "replayed_previous_inputs": [
+    {
+      "bound": 3,
+      "certified_signature_bound": 3,
+      "local_k": 0,
+      "missing": 0,
+      "model": "cube3",
+      "raw_edges": 1,
+      "triangles": 0
+    },
+    {
+      "bound": 7,
+      "certified_signature_bound": 7,
+      "local_k": 0,
+      "missing": 0,
+      "model": "overlapping_edge_truncations3",
+      "raw_edges": 1,
+      "triangles": 0
+    },
+    {
+      "bound": 7,
+      "certified_signature_bound": 7,
+      "local_k": 0,
+      "missing": 0,
+      "model": "overlapping_edge_truncations3",
+      "raw_edges": 5,
+      "triangles": 16
+    },
+    {
+      "bound": 9,
+      "certified_signature_bound": 9,
+      "local_k": 0,
+      "missing": 0,
+      "model": "rational_dodecahedron",
+      "raw_edges": 1,
+      "triangles": 0
+    },
+    {
+      "bound": 7,
+      "certified_signature_bound": 7,
+      "local_k": 0,
+      "missing": 0,
+      "model": "overlapping_ridge_truncations4",
+      "raw_edges": 4,
+      "triangles": 76
+    },
+    {
+      "bound": 3,
+      "certified_signature_bound": 3,
+      "local_k": 0,
+      "missing": 0,
+      "model": "moment_polar_3_6",
+      "raw_edges": 1,
+      "triangles": 0
+    },
+    {
+      "bound": 5,
+      "certified_signature_bound": 5,
+      "local_k": 0,
+      "missing": 0,
+      "model": "moment_polar_3_8",
+      "raw_edges": 1,
+      "triangles": 0
+    },
+    {
+      "bound": 95,
+      "certified_signature_bound": 47,
+      "local_k": 6,
+      "missing": 4,
+      "model": "moment_polar_3_8",
+      "raw_edges": 4,
+      "triangles": 16
+    },
+    {
+      "bound": 4,
+      "certified_signature_bound": 4,
+      "local_k": 0,
+      "missing": 0,
+      "model": "moment_polar_4_8",
+      "raw_edges": 1,
+      "triangles": 0
+    },
+    {
+      "bound": 74,
+      "certified_signature_bound": 74,
+      "local_k": 5,
+      "missing": 3,
+      "model": "moment_polar_4_8",
+      "raw_edges": 4,
+      "triangles": 13
+    },
+    {
+      "bound": 74,
+      "certified_signature_bound": 74,
+      "local_k": 5,
+      "missing": 4,
+      "model": "moment_polar_4_8",
+      "raw_edges": 4,
+      "triangles": 14
+    },
+    {
+      "bound": 69,
+      "certified_signature_bound": 19,
+      "local_k": 8,
+      "missing": 22,
+      "model": "moment_polar_4_8",
+      "raw_edges": 5,
+      "triangles": 82
+    },
+    {
+      "bound": 4,
+      "certified_signature_bound": 4,
+      "local_k": 0,
+      "missing": 0,
+      "model": "moment_polar_5_9",
+      "raw_edges": 1,
+      "triangles": 0
+    },
+    {
+      "bound": 79,
+      "certified_signature_bound": 79,
+      "local_k": 5,
+      "missing": 4,
+      "model": "moment_polar_5_9",
+      "raw_edges": 4,
+      "triangles": 14
+    }
+  ],
+  "scope": "Written partial-flag route theorem and exact arithmetic certificates; no Lean/platform verdict",
+  "search_disabled_audits": 23,
+  "seconds": 38.557,
+  "source_sha256": {
+    "fixtures/defect_reference_inputs.json": "3fa6a5a4e26a897925cf4ef63b7f78cb7ea0a7c5be19a074a20a9b4fd6904c9f",
+    "scripts/defect_confinement.py": "70e80083c961801d7e3b03819792c80a8e437917c7937adbdadc3ea1757a55ea",
+    "scripts/test_defect_confinement.py": "310a5e343b8f61d7d2faa3b8d687cf601f7015e616afaf7a1149cc8ad0ffba65"
+  },
+  "status": "PASS"
+}

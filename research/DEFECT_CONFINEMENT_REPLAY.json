@@ -1,0 +1,14 @@
+{
+  "all_other_report_fields_match": true,
+  "clean_report_sha256": "a5fd280d408f4f02cbb3ae450be136dd495ba3b9576840b6575c804f36386f76",
+  "excluded_report_fields": [
+    "seconds at all nesting depths"
+  ],
+  "full_fixture_bytes": 17809933,
+  "full_fixture_sha256": "1f2c05eea33232c07e622fb151ac110e13f7eb479ea6d343b59f2eb457d93167",
+  "new_python_files": 2,
+  "record_kind": "exact local clean dependency replay; not Lean or platform verification",
+  "required_unchanged_dependencies": 3,
+  "source_report_sha256": "9057ef19fdb72bf5738b82ccfd5a91701f77cd355c41197a767631909e9086f8",
+  "status": "PASS"
+}
