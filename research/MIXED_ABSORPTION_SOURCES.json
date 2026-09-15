@@ -1,0 +1,69 @@
+{
+  "new_files": {
+    "fixtures/mixed_absorption_plateau.json": {
+      "bytes": 822,
+      "git_blob": "9eeb2c394ff1cbe8abad77b64a0e2c3b5b271387",
+      "sha256": "06f49e521c4634afe4e3a0efb6c4f5c631ba505b2d011720b3b8918e5ac2b878"
+    },
+    "research/MIXED_ABSORPTION_HANDOFF.md": {
+      "bytes": 4789,
+      "git_blob": "a19deed9043dab176763683c41e8f9a6ef93b8a9",
+      "sha256": "30e27279af853b03c33de2c90111676829958c4282682740b4a4153391d7b829"
+    },
+    "research/MIXED_ABSORPTION_REPLAY.json": {
+      "bytes": 1316,
+      "git_blob": "775f988b63a9cad9286532920307e8f690a5232d",
+      "sha256": "c949ad9bb886b8f44b7e2c2c1d5b0a6ede39185ccddfb0a875fbd3d15ef4686e"
+    },
+    "research/MIXED_ABSORPTION_SUMMARY.json": {
+      "bytes": 8265,
+      "git_blob": "ea4f4926bb60ca1e86f53c45205131ede7463a41",
+      "sha256": "76123a9ea1e6f4428935a964f2072d234fc53fc9705d8b47af454d52af273a75"
+    },
+    "research/MIXED_DEFECT_ABSORPTION.md": {
+      "bytes": 17428,
+      "git_blob": "b2f81394e4f2ce03bbd15bd9d2db07797f5a42ca",
+      "sha256": "bbb6c10dd09760bad3f130168bcc64d150806de1b252bf039f0d9f7ca980b625"
+    },
+    "scripts/mixed_defect_absorption.py": {
+      "bytes": 14096,
+      "git_blob": "3f60331260cce93285808e77896038f2538b37f7",
+      "sha256": "505bc72ef327420486751d1752135fbe4cbea2f19888d4af9a282b9d175d5c02"
+    },
+    "scripts/test_mixed_defect_absorption.py": {
+      "bytes": 17101,
+      "git_blob": "a2bbc273f559a085b8813250f28fa1cbd7de37d0",
+      "sha256": "6e17a4557ad7850023064b91b6e340c9cda64026d9d711d9b69102269e4d91ed"
+    }
+  },
+  "original_base_sha": "13fd398df7dc224deccef4cd2c1506069ed042a3",
+  "reconciled_main_sha": "932a9fad51b50f7482ad4809d897c3f5fcc2c8df",
+  "record_kind": "exact local file identities after pre-merge reconciliation, not a platform receipt",
+  "unchanged_dependencies": {
+    "scripts/defect_incidence_compression.py": {
+      "bytes": 13579,
+      "git_blob": "c9c3d07b5517ed263571500870595693a47b44fb",
+      "sha256": "9c40bd20f16c2092c3b7970511aa5d210513d4c078b36494b428933c85e0a5f2"
+    },
+    "scripts/exact_farkas_lp.py": {
+      "bytes": 7028,
+      "git_blob": "ea511a79164d953792942d8be3dd3537646738d6",
+      "sha256": "65a8731600a6750b5334307415cd37c79d201d47e179bea5cdcbd511363006d0"
+    },
+    "scripts/original_facet_segments.py": {
+      "bytes": 16550,
+      "git_blob": "a53ad5cfc43b085d50733dbe96aabea8de4b9a51",
+      "sha256": "c838c5e62bc0549e948d81ff1d509f76ff48082bbe0b441aa5f72cffd0384ace"
+    },
+    "scripts/simple_tangent_policy_audit.py": {
+      "bytes": 8284,
+      "git_blob": "73dc32b9753d7d0fe5e67ca1f4fad0534b6b1976",
+      "sha256": "28d7e66e3e2f6d6589e55a2e07e42a7a2081d56860621ba8838db9708a458440"
+    },
+    "scripts/stellar_defect_budget.py": {
+      "bytes": 13871,
+      "git_blob": "b51e2c3edec2c85026344566978561eb430050ec",
+      "sha256": "3d28385cc4cd6b31605e0918042bdee2fec280be8bf84f9c9ec897749a8bfdef"
+    }
+  }
+}

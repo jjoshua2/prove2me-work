@@ -1,0 +1,36 @@
+{
+  "excluded_fields": [
+    "seconds"
+  ],
+  "fixtures": {
+    "fixtures/mixed_absorption_family.json": {
+      "bytes": 614761,
+      "sha256": "ca4a82ceee42984a9e8fd8bab5784e8141a3a79b378e76a68140863b6af0e419"
+    },
+    "fixtures/mixed_absorption_geometry.json": {
+      "bytes": 369466,
+      "sha256": "394af5ddbf2b4a74134cbc23f1e9dec6b66ed39a76713ccc88e7ceb68c48f49e"
+    }
+  },
+  "new_python_files": 2,
+  "record_kind": "local clean dependency replay after importing #262; no Lean/platform verification",
+  "stages": {
+    "abstract": {
+      "all_other_fields_equal": true,
+      "clean_sha256": "7c5081a64297c9e00c0230a3c5b1f1ec8e726b752bd3be59780eb9d5585ee74c",
+      "original_sha256": "bcdaaab3ab20193fe59878a40aa13afe0da5ba903f0e556df1a74d680ffc6586"
+    },
+    "family": {
+      "all_other_fields_equal": true,
+      "clean_sha256": "4e8cff1c649f50d4802dbd95ab2ceb4dca444bf504782028d7ae570b76703418",
+      "original_sha256": "758b37106353a420c6f985d0b20bad902d5ff7be0a3d3d20b8c8d050d4b0b64f"
+    },
+    "geometry": {
+      "all_other_fields_equal": true,
+      "clean_sha256": "79c064e05e365f70885dd9a65847fa53f4457f321450369640c4e2d28b75e604",
+      "original_sha256": "b5f917c44f8fa6d13bd7031162b5afbc41defb2d60511061659adc15d4723474"
+    }
+  },
+  "status": "PASS",
+  "unchanged_dependencies": 5
+}
