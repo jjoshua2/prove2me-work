@@ -3,197 +3,191 @@
 Repository `jjoshua2/prove2me-work`; refreshed September 15, 2026 UTC.
 Keep Lean `v4.30.0` and Mathlib `c5ea00351c28e24afc9f0f84379aa41082b1188f`.
 Read AGENTS.md, CLOUD_AGENT.md, SKILL.md, CONTINUE_HIRSCH.md and LIVE PR heads/
-comments before choosing work. Do not duplicate accepted/pending packets.
+comments before choosing work. Do not duplicate accepted or pending packets.
 
-The immediately preceding COMPLETE frontier is preserved verbatim in Git history:
-[STATUS before target-deleted counting](https://github.com/jjoshua2/prove2me-work/blob/27166321e530e7268afaea6e52bffc951818ade5/STATUS.md),
-Git blob `2325f7b8c563c47fe21c176b173606280217218d`. It retains #252/#253/#254,
-all older accepted interfaces, root/leaf IDs, ownership and archived receipts.
-This index advances one quantitative research line. No written or numerical
-argument here is silently upgraded to Lean verification or a platform verdict.
+The immediately preceding COMPLETE frontier remains verbatim in immutable history:
+[STATUS before original-facet segments](https://github.com/jjoshua2/prove2me-work/blob/330dfba86b0a7c0c63a4c5bb47504a9a36c5a749/STATUS.md),
+Git blob `0ee516ef600df39c2895092efb845937e0a1fc05`. It preserves every #257
+formula, exact test count, earlier result/receipt archive and ownership note.
+This update records new research/software, NOT a Lean or Prove2Me acceptance.
 
-## Root objective and completed interfaces
+## Conjecture-level objective and established interfaces
 
-The last preserved authenticated mission audit reports root
-`58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac` Open and remaining high-dimensional leaf
+The last preserved authenticated audit records root
+`58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac` Open and remaining leaf
 `Hirsch.common_face_diameter_of_dim_ge_six`,
-`87a8b4f4-8b58-4340-8cb9-5fd1b548d01e`, Open. This is NOT a fresh root/leaf poll.
-The target is still a uniform polynomial number of genuine ORIGINAL ordinary
-edges for arbitrary high-dimensional carriers. A smaller extended-formulation
-row count is not the original image facet count. Auxiliary paths may project
-to interior chords. The accepted edge-recognition statements preserve that
-boundary; they do not already give a polynomial number of selected edges.
+`87a8b4f4-8b58-4340-8cb9-5fd1b548d01e`, Open. This is NOT a fresh platform poll.
+The target remains a uniform polynomial ordinary-edge diameter bound for
+arbitrary actual high-dimensional carriers. Short extension paths can project
+to chords; count ORIGINAL IMAGE facets and actual original edges.
 
-The accepted allocation/representation chain through #236/#237/#241 is complete.
-Do not restart its old blocked or uncompiled drafts. The genuine Minkowski
-edge/fibre chain #239--#245 is preserved in the previous archives; #244 retains
-its independently owned core-walk assembly. The supplied-model L+(L+1)K bound
-does not prove controlled decomposition existence for arbitrary carriers.
-#246/#247 provide original-row image-edge certificates and minimal-face discovery;
-#248 provides valid normalized-tangent edge selection, not a polynomial route
-count. #250's face-locking theorem has a preserved ACCEPTED verdict and its
-owner retains projected-image integration. Read each exact receipt and live
-state instead of inferring a new authenticated poll from this index.
+The allocation/representation chain through #236/#237/#241 is accepted and
+complete, not a backlog of uncompiled targets. The genuine Minkowski chain
+#239--#245 remains in the prior archives; #244 retains independent core-walk
+assembly. Its supplied-model L+(L+1)K does not establish controlled useful
+decompositions for all carriers. #246/#247 give image-edge certificates and
+minimal-face discovery; #248 selects valid normalized-tangent edges but does
+not bound route length. #250 has a preserved accepted face-locking verdict;
+its owner retains general projected-image integration. Inspect exact receipts
+and current states rather than retrying already accepted/pending work.
 
-## Existing routing research to reuse, not reimplement
+## Completed quantitative research to reuse
 
-- #252: target-facet acquisition may permit objective decreases; fixed-radius
-  lookahead has explicit long-phase controls. Research/code, not a new platform theorem.
-- #253: COMPLETE original two-face search, shortest first-acquisition arcs,
-  and fallback endpoints dominating all inspected polygon maxima. Permanent
-  face charges give (h-1)B_h<=binom(e,h-2), e=m-d. Its exact selector blob is
-  aa562f02dd492ecc47479381d637c6292757ebd3. Do not substitute a weaker one-pivot
-  fallback and claim the same retirement proof.
-- #254: weight selected fallback polygons by their OWN q-1 cost. Planar
-  non-target dual incidence gives a linear intrinsic-three-face tail. The
-  rational stacked-polar corridor forces Theta(m) whole fallback macros even
-  with all polygon sizes<=6. It is not a superpolynomial diameter obstruction.
-- #255: separately authored same-anchor shortest-arc work and hidden-target
-  family. It was already in the live queue before this contribution. Inspect
-  its latest status before copying/modifying its implementation. The family
-  is explicitly attributed below, not reintroduced as new work.
-- The base of #257 also includes independently merged projective slack-share
-  research at ccaf6fbe9336300dd4a6998a27f912497c6288b2. It was preserved unchanged;
-  inspect its own handoff and parameter-wide limitations before selecting it.
+#252 permits target acquisition with intermediate objective decreases; fixed
+lookahead alone has explicit long-phase controls. #253 explores COMPLETE incident
+original two-faces and maximizes over all inspected polygons in a fallback.
+Its exact selector blob is aa562f02dd492ecc47479381d637c6292757ebd3. The same
+retirement proof does not apply to a weaker one-pivot replacement.
+#254 weights selected polygons by their actual sizes and obtains a linear
+intrinsic-three-face tail. Its rational stacked-polar corridor requires Theta(m)
+whole fallback macros even with every polygon at most six-sided.
+#255's separately authored same-anchor shortening and hidden-target family are
+not duplicated. #256's projective slack shares have explicit fixed-type radial
+and angular contraction barriers; a projectively invariant local potential is
+not automatically a global polynomial progress measure.
 
-The exact counts, theorem status and implementation caveats for older work
-remain in the preceding full frontier and individual notes. A new bound is
-not a new selector or an assertion that previous numerical paths changed.
+#257 is merged research, not a new platform theorem. It preserves every pre-
+acquisition original vertex after deleting unlocked target inequalities, then
+uses an ANALYSIS-ONLY mass cap and classical McMullen UBT to count those vertices.
+For e=m-d, retained dimension r and a=floor((e+2)/2), its loop-erased route bound is
 
-## NEW merged research #257: target-deleted phase vertex count
+    L <= a + sum_(h=3..r) U(e+1,h), r>=2,
+    L <= F_(e+4)-e-6+floor((e+2)/2), e>=2.
 
-Research head `ee35e101b0d416fb5abb7172608301d18440a70c`;
-merge `27166321e530e7268afaea6e52bffc951818ade5`.
-[Complete mathematical argument](research/TARGET_DELETED_PHASE_COUNT.md),
-[execution summary](research/TARGET_DELETED_PHASE_EXECUTION.json),
-[handoff](research/TARGET_DELETED_PHASE_HANDOFF.md), and
-[source/dependency manifest](research/TARGET_DELETED_PHASE_SOURCES.json).
-SIX additions, no existing selector/proof changes and no hosted compiler or
-publication request. This is a written proof invoking the CLASSICAL Upper
-Bound Theorem plus exact Python checks, not Lean or Prove2Me acceptance.
+It gives quadratic r4/r5 tails but STILL EXPONENTIAL unrestricted growth. It
+is not a best general diameter estimate; classical quasipolynomial existence
+bounds are asymptotically stronger. The attributed hidden-target example has
+an exact target-deleted d-cube with 2^d vertices and exponentially many target-
+free squares, while useful selected routes remain short. A polynomial bound
+on the entire inventory would therefore be false. See
+[the complete count](research/TARGET_DELETED_PHASE_COUNT.md) and prior STATUS.
 
-### Exact reduction, without assuming a short phase
+## NEW merged research #258: original-H combinatorial segments and reentry repair
 
-For simple bounded original P with m facets and dimension d, fix target vertex
-v and its d active facet rows T. Let e=m-d. A phase locks J subset T and has
-intrinsic dimension h=d-|J|. DELETE all unlocked target inequalities, keep J
-as equations and all e non-target inequalities. Every original pre-acquisition
-vertex remains a vertex: its h independent active non-target rows survive.
-This is the opposite deletion from historical #165/#169, which retained target
-rows to preserve v and could lose other old vertices.
+Research head `67033d75867135632ce59618b9353d56d9423c6c`;
+merge `98841fd3b9397d20f59c3b77dab0710bf5595a95`.
+[Mathematical note](research/ORIGINAL_FACET_SEGMENTS.md),
+[execution summary](research/ORIGINAL_FACET_SEGMENTS_EXECUTION.json),
+[handoff](research/ORIGINAL_FACET_SEGMENT_HANDOFF.md), exact source manifest and
+clean-replay record are on main. EIGHT additions; no earlier selector or proof
+changed. This is written mathematics/exact code, not a new accepted theorem.
 
-The phase-anchor inverse gives original non-target slack coordinates z>=0.
-Add one analysis-only row sum(z)<=R, strictly beyond the finite prefix being
-counted. The capped polytope is full-dimensional, compact, and has at most e+1
-facets. It may have degenerate/extra vertices outside P; no simplicity of this
-cap is assumed. It is used ONLY to count preserved original vertices. No short
-auxiliary path is projected or substituted for original graph edges.
+### Positive scope and exact discovery boundary
 
-McMullen's UBT and polarity give the cyclic vertex count
+The new component implements CLASSICAL Adiprasito--Benedetti combinatorial
+segments (arXiv1303.3598, Section3), not a new proof of their flag Hirsch theorem.
+Input only A,b,start,target for a simple bounded full-dimensional ORIGINAL-H
+polytope; no vertex graph, facet graph, shape chart, incidence list or neighbors.
+All link singleton/pair intersections are found through exact original-row
+feasible witnesses or strictly separating nonnegative dual bounds. The route
+vertices and every maximal original edge are independently checked.
 
-    U(M,2k)=binom(M-k,k)+binom(M-k-1,k-1),
-    U(M,2k+1)=2 binom(M-k-1,k).
+The consumer recomputes BFS and replays the combinatorial recursion on the
+CERTIFIED derived link graphs. It performs no geometric discovery, LP or
+inversion; do not call it free of all graph computation. Simplicity and genuine
+facet presentation remain the input class, not conclusions from sampled local
+bases. The finite tests independently establish those global properties.
 
-A loop-erased phase with L edges has L distinct pre-acquisition vertices;
-its terminal acquisition endpoint is deliberately excluded. Hence
+The exact length ledger is
 
-    L_phase <= U(e+1,h), NOT U(e+1,h)-1.
+    L = distinct_original_facets_seen - d + facet_reentries.
 
-This phase lemma applies to any finite original target-locking route in the
-stated input class. For #253 the final retained polygon route is shortest,
-including its last edge. With a=floor((e+2)/2) and r initially missing facets:
+The classical normal-FLAG theorem makes the last term zero, yielding m-d.
+Flag means every pairwise-intersecting facet family has common intersection,
+not merely that top-level triangles pass. No global flagness is inferred from
+one nonrevisiting route. The written output-sensitive call bound is
+(4d+4)(L+1); each link needs at most m+binom(m,2) intersection queries. Thus on
+flag inputs the LP-ORACLE query count is O(d*m^3). This is not a polynomial
+Bland-pivot, bit-complexity, flag-recognition or arbitrary-input runtime theorem.
+The geometric route is label-based and invariant under invertible affine maps
+and positive row rescalings with fixed labels; arbitrary relabeling is not
+claimed invariant.
 
-    L <= a + sum_(h=3..r) U(e+1,h), r>=2;  L<=r for r<=1.
+### Critical published barrier: every raw segment may be long
 
-The bound concerns the delivered LOOP-ERASED original route. Objective decreases
-in acquisition arcs cannot be ignored when reasoning about raw traces. Different
-phases cannot repeat earlier pre-acquisition points after new facets are locked;
-the auditor explicitly checks phase/global loop-erasure agreement.
+Labbe--Manneville--Santos, arXiv1510.07678, Theorem E/4.5, constructs Hirsch
+polytopes with N+Theta(d^2) vertices where EVERY combinatorial segment between
+certain facets has length at least 2^(d-3)N. This is a verified primary-source
+literature result, not our finite test or a new counterexample. It rules out a
+universal polynomial bound obtained merely by changing label ties INSIDE the
+raw segment family. Their exponential examples were NOT implemented or tested
+in #258. Do not start a formalization of the false universal segment bound.
+Other route families and hybrids are not ruled out by that result.
 
-### Quadratic tails and honest all-dimensional growth
+### Local defects and a splice that may leave the restricted family
 
-The first terms give
+The written localization of the AB induction says a reentered facet w requires
+a missing triangle containing w in a visited recursive link. The exact witness
+is: S+w+p, S+w+q and S+p+q are nonempty original intersections, but S+w+p+q is
+empty. All four facts have checked original-row data. The code diagnoses only
+the first reentered facet with explicit search caps. Incomplete diagnosis is
+not global flagness; one defect is not assigned an unproved bounded charge.
 
-    r=3: L<=2e-2+a;
-    r=4: L<=(e+1)(e-2)/2+2e-2+a;
-    r=5: L<=(e-2)(e-3)+(e+1)(e-2)/2+2e-2+a.
+The separate facet_reentry_repair.py replaces an actual excursion outside a
+facet by a STRICTLY SHORTER independently checked #253 route between its same
+endpoints, entirely inside that facet. The replacement need not remain a
+combinatorial segment. Integer edge length decreases, not necessarily reentry
+debt in the general argument. Failed/capped trials preserve the old valid route.
+There is no theorem that all excursions shorten, that local repair gives a
+shortest route, or that the number/cost of initial edges and repair calls is
+polynomial in original facets and dimension.
 
-These apply to retained faces, not only low ambient dimension. Against the
-latest #254 account, (e,r)=(12,4) improves367 to94; (12,5)1089 to184;
-(12,12)8223 to976; (20,20)2097215 to46353. The32-facet corridor still follows
-its SAME23-edge route versus20 shortest, while its certified bound192 becomes71.
-These are upper-bound improvements, not claimed changes to actual trajectories.
+### Actual tests, losses and clean replay
 
-The written identity, valid for ALL e, is
+Eight independent small graphs have142 vertices and267 edges. Tests execute
+1424 ordered pairs:756 on independently verified flag inputs,668 nonflag.
+Two models use deterministic80/100-pair samples; other models use all pairs.
 
-    sum_(h=1..e) U(e+1,h)=F_(e+4)-3, with F0=0,F1=1.
+    total edges: raw3404, repaired3391, unchanged#2533389, BFS3360;
+    nonshortest: raw44, repaired31, unchanged#25329.
 
-Since r<=e, this yields
+All13 observed raw reentries have exact first-row missing-triangle witnesses;
+13 accepted splices remove those observed reentries. This is not a general
+repair guarantee and the hybrid does NOT dominate #253 on the aggregate suite.
+Two raw4D/8-facet routes exceed m-d; a saved5-edge example shortens to4. Flag
+models give1898 edges,zero reentries andfour nonshortest paths. Nonrevisiting
+itself is not shortestness.
 
-    L<=F_(e+4)-e-6+floor((e+2)/2), e>=2.
+Cubes d6/8/12/16 take6/8/12/16 original edges without enumerating their full
+vertex graphs. At d16:12862 intersection answers,279 LP maximizations,586
+internal pivots. The65536 vertex count is from the explicit cube input, not
+queried vertices. Existing #254 corridors m8/12/16/24 take4/7/9/15 shortest
+edges versus #253's4/7/11/17; their checked stacking reference is attributed.
+Six dense-affine and12 positive-row-scale comparisons preserve full labels.
+Twenty-six stored route replays pass with LP/inverse/basis generation disabled;
+repair replay also disables replacement-route production. Seventeen DISTINCT
+malformed/capped controls fail; repeated stage runs are not extra control types.
 
-Thus the full binomial account is replaced by Fibonacci O(phi^e) growth.
-It is STILL EXPONENTIAL and is asymptotically weaker than classical general
-quasipolynomial diameter existence estimates. Do not announce a new best
-general diameter bound or a proof of Polynomial Hirsch. The result is a
-sharper count for this particular certified routing strategy.
+All three stages reproduce in a fresh directory with only three new scripts
+and five BYTE-IDENTICAL old dependencies. Every report/source field except
+seconds matches, and all THREE full fixture files are byte-identical. The
+separate eight-file add-only patch applies and reproduces every file exactly,
+with Python syntax checks. This is not a Lean build or full repository clone.
+The committed summaries explicitly label themselves derived and hash-bind full
+reports/fixtures, which regenerate and are included in the conversation bundle.
+Python/JSON code has not been extracted from or verified by Lean.
 
-### Explicit obstruction to merely counting the entire inventory
+    python3 scripts/test_original_facet_segments.py --stage flag
+    python3 scripts/test_original_facet_segments.py --stage nonflag
+    python3 scripts/test_original_facet_segments.py --stage large
 
-Reuse #255's attributed family 0<=x_i<=1, sum(x)+x_i<=d+a_i, with
-0<a_i<1 and target tight on the new d rows. Deleting the target cuts leaves
-the EXACT d-cube: e=2d retained inequalities and2^d vertices. The original
-polytope also retains binom(d,2)*(2^(d-2)-1) target-free squares, each of weight3.
-Thus the inventory of all available relaxed vertices or target-free face weights
-really can be exponential. It is not merely a loose cyclic formula. This is
-NOT a lower bound on the SELECTED vertices/faces: the same family has short
-routes already provided by #255.
+## Next quantitative task and ownership
 
-The next quantitative proof must control the visited subset or exploit another
-structure. Proving a polynomial bound on the whole relaxed inventory would be
-false. No conditioned numerical contraction, arbitrary extension-edge transfer,
-or newly assumed short phase can fill that remaining combinatorial gap.
+The whole relaxed inventory can be exponential (#257), and even all choices
+inside the raw combinatorial-segment family can be long (published #258 source).
+The useful remaining question is whether a hybrid can bound the remaining
+reentry/repair work or whether another original-edge route admits a global
+polynomial account. Original-row missing-triangle witnesses and checked facet
+splices now support that investigation. Do not silently assume every reentry
+has a cheap internal replacement or that a bounded defect count is proved.
 
-### Exact execution, clean replay and limits
+#244 retains core/fibre assembly; #238 support-witness existence; #250 general
+projected-image integration. #255/#256/#257 were not modified or retriggered.
+#208's recorded pending proof needs its own approved poll, not a duplicate
+submission; #210 is retired ancestry. Inspect live PRs before taking old tasks.
 
-Two stages execute644 unchanged #253 routes and1826 original edges,1574 cap
-cells and9875 restricted inverse identities. Independent small original graphs
-check634 endpoint pairs; nine nonshortest pairs remain. Tests include retained
-dimensions4/5/6 and intrinsic-three-face embeddings without full ambient graph
-enumeration. All644 sampled paths have zero loop removals, but this does not
-upgrade the generic LOOP-ERASED statement to a raw-route bound.
-
-Thirty-two caps are independently enumerated through1519 active subsets:
-296 vertices,96 outside the original target cuts,FOUR degenerate caps. Every
-counted original vertex survives. Twenty-six audits pass with inverse/basis/
-polygon search disabled. Nine distinct malformed accounts fail. The Fibonacci
-identity and comparisons are additionally checked through e100; the complete
-argument, not that finite test, establishes the all-e identity. Square inventory
-counts are fully tested only through d8, not extrapolated as executed large graphs.
-
-Both low/high stages reproduce in a fresh directory containing just the six
-new files and four BYTE-IDENTICAL old dependencies. Every result/source field
-except elapsed time and both generated fixture files match exactly. All six
-Git blob readbacks match local bytes; the patch independently applies cleanly.
-Full stage records/fixtures regenerate and are in the conversation bundle;
-the committed execution JSON is a derived local summary, not a platform receipt.
-Python/JSON and UBT are not Lean-extracted or individually kernel-evaluated.
-
-    python3 scripts/test_target_deleted_phase.py --stage low
-    python3 scripts/test_target_deleted_phase.py --stage high
-
-## Ownership and execution discipline
-
-#244 retains core/fibre assembly, #238 support-witness existence and #250 general
-projected-image locking. #255's shortening and the projective slack-share line
-are not duplicated by this accounting work. Read live PRs before acting on any
-older ownership or merge state. #208's old pending proof is not freshly polled
-here and must not be resubmitted; #210 is retired ancestry. No other agent's
-active/accepted publication was retriggered by #257.
-
-Use local pinned Lean for formal iteration when available. Written mathematics,
-exact Python, compilation, axiom audit, ACCEPTED and authenticated Proved are
-separate statuses. Research-only contributions do not need speculative Actions
-proof gates. Keep credentials in trusted main publishing code; no workflow,
-permission, pin or secret-separation changes to address a tool failure. Preserve
-raw receipts independently from derived summaries and retain explicit scope.
+Formal iteration should use local pinned Lean where available. Written proofs,
+exact Python, Lean compilation, axiom audit, ACCEPTED and live Proved are distinct.
+Research-only changes need no speculative hosted gate. Do not change workflows,
+pins, credentials, permissions or the trusted-publisher secret split. Preserve
+raw evidence independently from derived summaries and report scope honestly.
