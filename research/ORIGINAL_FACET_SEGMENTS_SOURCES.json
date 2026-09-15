@@ -1,0 +1,67 @@
+{
+  "new_files": {
+    "research/ORIGINAL_FACET_SEGMENTS.md": {
+      "bytes": 17615,
+      "git_blob": "6527f646a0de528b08340eaa9dbc5465dc4b0bab",
+      "sha256": "7237326a248f50d4b4a1603e1bb178ad12acbe627a4ca399a3af4c87d2c8238b"
+    },
+    "research/ORIGINAL_FACET_SEGMENTS_EXECUTION.json": {
+      "bytes": 9490,
+      "git_blob": "3bfb5c265cbb376d28f16574770de08b3255d8f3",
+      "sha256": "6581805b482e3051b2c15429aa33c83c58e33e1426bda7a9cacf9fecee248c8f"
+    },
+    "research/ORIGINAL_FACET_SEGMENTS_REPLAY.json": {
+      "bytes": 1362,
+      "git_blob": "edf4190643720ce82a147c4771c1417b26cd882f",
+      "sha256": "a3317461a3902affdc566251ffae1a5880b30077b3bc8115723f65093a7beaf4"
+    },
+    "research/ORIGINAL_FACET_SEGMENT_HANDOFF.md": {
+      "bytes": 4473,
+      "git_blob": "947247760840668165cc44874642020d946c6cee",
+      "sha256": "9fcc8b13c7d49dffb988fe6da75c9210db2dc99c55027034e3a58e9279189292"
+    },
+    "scripts/facet_reentry_repair.py": {
+      "bytes": 4861,
+      "git_blob": "46c280d82872ca2e246eb4ffa46a04b48c853cee",
+      "sha256": "fee817fe89a589622cf8d7ec507b814ad3a930d14a4a95476fc2632d7ea908ea"
+    },
+    "scripts/original_facet_segments.py": {
+      "bytes": 16550,
+      "git_blob": "a53ad5cfc43b085d50733dbe96aabea8de4b9a51",
+      "sha256": "c838c5e62bc0549e948d81ff1d509f76ff48082bbe0b441aa5f72cffd0384ace"
+    },
+    "scripts/test_original_facet_segments.py": {
+      "bytes": 16837,
+      "git_blob": "79a784344d14c67d796a5ed6228aa75cf94c03d9",
+      "sha256": "55bff281483b92cbfee6ff9df54796315e48251fc2771b13c6196eb67023c9bb"
+    }
+  },
+  "record_kind": "local exact source/dependency identities, not a platform verdict",
+  "unchanged_dependencies": {
+    "scripts/exact_farkas_lp.py": {
+      "bytes": 7028,
+      "git_blob": "ea511a79164d953792942d8be3dd3537646738d6",
+      "sha256": "65a8731600a6750b5334307415cd37c79d201d47e179bea5cdcbd511363006d0"
+    },
+    "scripts/simple_tangent_policy_audit.py": {
+      "bytes": 8284,
+      "git_blob": "73dc32b9753d7d0fe5e67ca1f4fad0534b6b1976",
+      "sha256": "28d7e66e3e2f6d6589e55a2e07e42a7a2081d56860621ba8838db9708a458440"
+    },
+    "scripts/test_weighted_face_retirement.py": {
+      "bytes": 13770,
+      "git_blob": "a1dda56de63cec6686d1d4e842ae0bfd739b2397",
+      "sha256": "651dbedee09c916a4000a68ac40954110212730654787868be65f6a65d886471"
+    },
+    "scripts/three_dimensional_face_accounting.py": {
+      "bytes": 5300,
+      "git_blob": "b50d38e8607f7825a699c6964332913c95ad078b",
+      "sha256": "4ad5fbdd8ed479f7a8f443f062eed6e897bee545b2808055106aa04fad6ba64f"
+    },
+    "scripts/two_face_acquisition.py": {
+      "bytes": 18449,
+      "git_blob": "aa562f02dd492ecc47479381d637c6292757ebd3",
+      "sha256": "ea395cf665fbbc45f15d4ea9fa35d10bb00efc55795732ff6bfb0fc125d430d7"
+    }
+  }
+}
