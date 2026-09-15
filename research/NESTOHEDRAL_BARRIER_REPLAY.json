@@ -1,0 +1,64 @@
+{
+  "byte_identical_fixtures": [
+    "fano_nestohedron_energy_barrier.json",
+    "fano_nestohedron_input.json"
+  ],
+  "development_base": "2c517a877e8aab885ae1583d97fc2e2ae6d9b017",
+  "every_nontiming_report_field_and_source_hash_matches": true,
+  "kind": "Derived clean dependency replay and source manifest, not a full repository clone or Lean/platform verdict.",
+  "new_Lean_Actions_or_Prove2Me_run": false,
+  "new_files": {
+    "fixtures/fano_nestohedron_input.json": {
+      "bytes": 5997,
+      "git_blob_sha": "7a0f85363dd53e617ba46ccf1d0e80daf61dac3d",
+      "sha256": "c68fa7f7e7415164c0eb7c7fd76f264a01bb2f7e94301cec40933ee0cb1b54cc"
+    },
+    "research/NESTOHEDRAL_BARRIER_HANDOFF.md": {
+      "bytes": 4716,
+      "git_blob_sha": "a9d731a2b209c4fe39783f7c58aa9dc7e0d6ce5a",
+      "sha256": "de101362dde1875e1b4757e7a243c64cd49bc6becfaf94fbbc2015d2d5142643"
+    },
+    "research/NESTOHEDRAL_BARRIER_SUMMARY.json": {
+      "bytes": 5794,
+      "git_blob_sha": "bb75b11425888b208b213cee85ec61507e22dff2",
+      "sha256": "1e32db14472ae72cb3cfda9eaadcbf16f572dffa931b32cbee5e433ccd1d2444"
+    },
+    "research/NESTOHEDRAL_ENERGY_BARRIER.md": {
+      "bytes": 20755,
+      "git_blob_sha": "1b4d0c8c6624661f91e090a9e8d14d028e1e798d",
+      "sha256": "ede9374ece671fb2bb0d03ca79a9f94f3aa011f4bfc1071557d2ec063aeb6e5b"
+    },
+    "scripts/nestohedral_defect_barrier.py": {
+      "bytes": 13827,
+      "git_blob_sha": "8d8b4bddf004b0d0e9390277da60ef15bfa5124b",
+      "sha256": "07ea9a1b119f6842462f0a724c2abdf3813b18cc1079cb6bdbb52a9dfc5212e9"
+    },
+    "scripts/test_nestohedral_defect_barrier.py": {
+      "bytes": 19960,
+      "git_blob_sha": "9e0fab55eb3483c2dc2c6fcac284874ae81d2a5b",
+      "sha256": "c3cca385d6abe6a3b1f9f3188a2d9032f940e8ab851042f3b7ee20eda792dc80"
+    }
+  },
+  "reference_report_sha256": "7895bd89b144948ac776d5bb338f0f117cf9c79f1d0f0de45428557eee0109b1",
+  "replayed_report_sha256": "4931172984988a18dd3554dbba3045ec34109eeef1cb4a4dbbf1c8aee8af7184",
+  "replayed_stages": [
+    "algebra",
+    "family",
+    "geometry",
+    "negative",
+    "assemble"
+  ],
+  "status": "PASS",
+  "unchanged_dependencies": {
+    "scripts/simple_tangent_policy_audit.py": {
+      "bytes": 8284,
+      "git_blob_sha": "73dc32b9753d7d0fe5e67ca1f4fad0534b6b1976",
+      "sha256": "28d7e66e3e2f6d6589e55a2e07e42a7a2081d56860621ba8838db9708a458440"
+    },
+    "scripts/stellar_defect_budget.py": {
+      "bytes": 13871,
+      "git_blob_sha": "b51e2c3edec2c85026344566978561eb430050ec",
+      "sha256": "3d28385cc4cd6b31605e0918042bdee2fec280be8bf84f9c9ec897749a8bfdef"
+    }
+  }
+}
