@@ -1,0 +1,30 @@
+{
+  "excluded_fields": [
+    "seconds at any nesting depth"
+  ],
+  "fixture": {
+    "byte_identical": true,
+    "bytes": 226241,
+    "path": "fixtures/graphical_flag_geometry.json",
+    "sha256": "59f2fa552ea98c80eb3a1d4ffc52c92f2cee9d39fb4fc209337f9b75245d68f4"
+  },
+  "record_kind": "clean dependency replay of final uploaded source; not Lean/platform verification",
+  "stages": {
+    "abstract": {
+      "all_nontiming_fields_match": true,
+      "clean_sha256": "943b12f464eef5d901b86780779cb2176bc717d4ad7779a03a03bba7ce424c09",
+      "original_sha256": "4dc9b5f24f8fdec9e028788a9fb959aefb352ae09aac39943723e679a088a4f7"
+    },
+    "geometry": {
+      "all_nontiming_fields_match": true,
+      "clean_sha256": "71b9158bc95d23facf039c98cde9076ebf7ad57ad1242029a50f448509fd6f9b",
+      "original_sha256": "cdeef00952e03ef51297e1f9f5ebc85dc4e4d420f26e1e3c152591386a598f7d"
+    },
+    "obstructions": {
+      "all_nontiming_fields_match": true,
+      "clean_sha256": "fa930856a99d17c2b4ddbc8e28e342a47d8336d3d9d937af2b36f5a1dcf1d4a2",
+      "original_sha256": "90db19df6fac0503575a5ec9bde0e81d9a1105660064b31b34c5025e43fdcf9d"
+    }
+  },
+  "status": "PASS"
+}
