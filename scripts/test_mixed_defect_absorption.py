@@ -139,12 +139,15 @@ def graph_stage():
         base_stages,base_steps,_=D.compress(K);residual=base_stages[-1]
         old_ref=D.ResidualRefinement(residual,len(A[0]))
         once,once_report=M.plan(K,1);macro,macro_report=M.plan(K,3)
+        budget_input=M.budget_view(K)
+        budget_packet=M.budget.refine(budget_input,'budget')
+        budget_report=M.budget.verify(budget_input,budget_packet)
         one_stages,_,_=M.audit_schedule(K,once,1)
         pairs=list(combinations(V,2));random.Random(260+len(A)).shuffle(pairs);pairs=pairs[:cap]
         row={'name':name,'dimension':len(A[0]),'original_facets':len(A),'original_vertices':len(V),
              'exact_square_systems':systems,'initial_weight':M.weight(K),'higher_defects':len(K.high()),
              'prior_refined_vertices':len(old_ref.vertices),'prior_bound':len(old_ref.vertices)-len(A[0]),
-             'one_step_only':once_report,'macro_planner':macro_report,'pairs':0,'new_edges':0,'bfs_edges':0,
+             'one_step_only':once_report,'macro_planner':macro_report,'unchanged_262_budget':budget_report,'pairs':0,'new_edges':0,'bfs_edges':0,
              'prior_edges':0,'nonshortest':0,'refined_edges':0,'stationary_steps':0,
              'LP_maximizations':0,'LP_pivots':0,'original_reentries':0}
         for j,(u,v) in enumerate(pairs):
@@ -160,11 +163,16 @@ def graph_stage():
             for k in('LP_maximizations','LP_pivots'):row[k]+=out['discovery'][k]
             row['new_refined_vertices']=rep['refined_vertices'];row['new_bound']=rep['all_pairs_bound']
             if j==0:
-                fixtures.append({'model':name,'input':serial(data),'output':out,'shortest_distance':dist[u][v]})
+                fixtures.append({'model':name,'input':serial(data),'output':out,'shortest_distance':dist[u][v],
+                                 'unchanged_262_budget_packet':budget_packet})
                 saved.append((data,out))
         if name=='plateau5_10':
             M.require(one_stages[-1].high() and not macro_report['residual_higher_defects'],'plateau control disappeared')
             stage=one_stages[-1];failed=[]
+            M.require(budget_report['completion']=='stalled' and budget_report['remaining_weight']==3, 'unchanged #262 budget no longer stalls')
+            M.require(budget_packet['terminal']['minimal_nonfaces']==[sorted(N) for N in stage.missing], 'not the same #262 terminal plateau')
+            blocked=M.budget.refine(M.budget_view(stage),'budget')
+            M.require(blocked['status']=='stalled' and not blocked['steps'], 'unchanged #262 has a decreasing plateau move')
             for E in M.candidates(stage):
                 if M.absorption(stage,E) is None:failed.append(list(E))
             neighbor_weights=[{'edge':list(E),'weight_after':M.weight(D.stellar(stage,E))} for E in M.candidates(stage)]
@@ -268,7 +276,7 @@ def main():
     r,fixture,_={'abstract':abstract,'geometry':graph_stage,'family':family_stage}[arg.stage]()
     r['scope']='Written absorption/potential/carrier argument and exact rational tests, not Lean/platform verification'
     files=['mixed_defect_absorption.py','test_mixed_defect_absorption.py','defect_incidence_compression.py',
-           'original_facet_segments.py','simple_tangent_policy_audit.py','exact_farkas_lp.py']
+           'original_facet_segments.py','simple_tangent_policy_audit.py','exact_farkas_lp.py','stellar_defect_budget.py']
     r['source_sha256']={name:hashlib.sha256((ROOT/'scripts'/name).read_bytes()).hexdigest()for name in files}
     (ROOT/f'research/MIXED_ABSORPTION_{arg.stage.upper()}_TESTS.json').write_text(json.dumps(r,sort_keys=True,indent=2)+'\n')
     if fixture is not None:(ROOT/f'fixtures/mixed_absorption_{arg.stage}.json').write_text(json.dumps(serial(fixture),sort_keys=True,indent=2)+'\n')

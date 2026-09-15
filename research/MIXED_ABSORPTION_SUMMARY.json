@@ -203,9 +203,9 @@
     "scope": "Final larger wedge graphs not enumerated. Exact base4D graphs plus proved wedge recurrence and final original-H edge certificates."
   },
   "full_report_sha256": {
-    "abstract": "a09c44cacf72fe161a8765e5d52d854a6d17cea6f1c5887e6549ba0d419a8bea",
-    "family": "0737be8470a640eea1cf1662c1ad94efa1e83db6e94d85ad496be78de3856d06",
-    "geometry": "14c8401b80dd831ece1237b3838f7dd9a7e1dedddbfc5e78fc49749d43bc22a7"
+    "abstract": "bcdaaab3ab20193fe59878a40aa13afe0da5ba903f0e556df1a74d680ffc6586",
+    "family": "758b37106353a420c6f985d0b20bad902d5ff7be0a3d3d20b8c8d050d4b0b64f",
+    "geometry": "b5f917c44f8fa6d13bd7031162b5afbc41defb2d60511061659adc15d4723474"
   },
   "geometry": {
     "columns": [
@@ -288,6 +288,7 @@
           "weight_after": 3
         }
       ],
+      "baseline_262_initial_and_terminal_stalled": true,
       "full_path_weight_pairs": [
         [
           9,
@@ -449,7 +450,74 @@
       "stationary_steps": 2
     }
   },
+  "reconciliation": {
+    "distinct": [
+      "polytopal stall for the full strict-decrease budget policy",
+      "bounded net-decreasing macro crossing",
+      "two-half cyclic schedule count",
+      "wedge schedule and exact original-H adapter"
+    ],
+    "merge_sha": "932a9fad51b50f7482ad4809d897c3f5fcc2c8df",
+    "overlap_pr": 262,
+    "reused": [
+      "shielding/absorption criterion",
+      "exact one-step birth/death weight ledger",
+      "cyclic distance-two stage"
+    ],
+    "unchanged_accounting_blob": "b51e2c3edec2c85026344566978561eb430050ec"
+  },
   "record_kind": "derived local execution summary; full reports and certificates regenerate and are bundled",
   "scope": "Written mathematics and exact Python; no Lean or Prove2Me verdict",
-  "status": "PASS"
+  "status": "PASS",
+  "unchanged_262_budget_columns": [
+    "model",
+    "completion",
+    "stellar_steps",
+    "remaining_weight",
+    "refined_vertices"
+  ],
+  "unchanged_262_budget_rows": [
+    [
+      "simplex3",
+      "flag",
+      2,
+      0,
+      6
+    ],
+    [
+      "cyclic4_6",
+      "flag",
+      2,
+      0,
+      8
+    ],
+    [
+      "cyclic4_7",
+      "flag",
+      4,
+      0,
+      11
+    ],
+    [
+      "cyclic4_8",
+      "flag",
+      6,
+      0,
+      14
+    ],
+    [
+      "cyclic4_9",
+      "flag",
+      9,
+      0,
+      18
+    ],
+    [
+      "plateau5_10",
+      "stalled",
+      3,
+      3,
+      13
+    ]
+  ]
 }

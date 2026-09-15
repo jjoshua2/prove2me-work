@@ -1,5 +1,4 @@
 {
-  "base_sha": "13fd398df7dc224deccef4cd2c1506069ed042a3",
   "new_files": {
     "fixtures/mixed_absorption_plateau.json": {
       "bytes": 822,
@@ -7,37 +6,39 @@
       "sha256": "06f49e521c4634afe4e3a0efb6c4f5c631ba505b2d011720b3b8918e5ac2b878"
     },
     "research/MIXED_ABSORPTION_HANDOFF.md": {
-      "bytes": 5094,
-      "git_blob": "055927bd3b44b6bc77b09f52a25773e3f276da0f",
-      "sha256": "c5fd7c5fb7f699c4a4dccc10dd954118b4747ff3fee52b6bcb6366cbaf0fa81e"
+      "bytes": 4789,
+      "git_blob": "a19deed9043dab176763683c41e8f9a6ef93b8a9",
+      "sha256": "30e27279af853b03c33de2c90111676829958c4282682740b4a4153391d7b829"
     },
     "research/MIXED_ABSORPTION_REPLAY.json": {
-      "bytes": 1240,
-      "git_blob": "857ad9e76f9e72611cf1f6b60cc8ba1500626d46",
-      "sha256": "48034d2a86816833d0c50950978f32d78faeaecb68ae73796da96cf78e5c40cc"
+      "bytes": 1316,
+      "git_blob": "775f988b63a9cad9286532920307e8f690a5232d",
+      "sha256": "c949ad9bb886b8f44b7e2c2c1d5b0a6ede39185ccddfb0a875fbd3d15ef4686e"
     },
     "research/MIXED_ABSORPTION_SUMMARY.json": {
-      "bytes": 7025,
-      "git_blob": "96654aa302c1d2dd4f2b57a2b98ad33aad69a49b",
-      "sha256": "daa1d73955fdba209918b10850d76f8c34375470e9d70807984fd484d0a30201"
+      "bytes": 8265,
+      "git_blob": "ea4f4926bb60ca1e86f53c45205131ede7463a41",
+      "sha256": "76123a9ea1e6f4428935a964f2072d234fc53fc9705d8b47af454d52af273a75"
     },
     "research/MIXED_DEFECT_ABSORPTION.md": {
-      "bytes": 18412,
-      "git_blob": "7eded124595c0835c01da728e00d7951f3873c1c",
-      "sha256": "afafd034769046ef076f1cfd96c301eb9ac00904cdbbdccbda99d0c1884e8f9f"
+      "bytes": 17428,
+      "git_blob": "b2f81394e4f2ce03bbd15bd9d2db07797f5a42ca",
+      "sha256": "bbb6c10dd09760bad3f130168bcc64d150806de1b252bf039f0d9f7ca980b625"
     },
     "scripts/mixed_defect_absorption.py": {
-      "bytes": 13878,
-      "git_blob": "63003c16216ada7dca28ae3c28288f173dce19d0",
-      "sha256": "bd83f55e9f2fb3c74fb7f991147d6a1a905129ccbcda9ea1b94013068f6d4f73"
+      "bytes": 14096,
+      "git_blob": "3f60331260cce93285808e77896038f2538b37f7",
+      "sha256": "505bc72ef327420486751d1752135fbe4cbea2f19888d4af9a282b9d175d5c02"
     },
     "scripts/test_mixed_defect_absorption.py": {
-      "bytes": 16314,
-      "git_blob": "3e851ad6b4221b80c15607ce6ed73cdb84ef0dfe",
-      "sha256": "cd714bd3b212efcd7fb6793e7c83efa825dbe8e17ce4a8e458d62fb84fc4d395"
+      "bytes": 17101,
+      "git_blob": "a2bbc273f559a085b8813250f28fa1cbd7de37d0",
+      "sha256": "6e17a4557ad7850023064b91b6e340c9cda64026d9d711d9b69102269e4d91ed"
     }
   },
-  "record_kind": "exact local file identities, not a platform receipt",
+  "original_base_sha": "13fd398df7dc224deccef4cd2c1506069ed042a3",
+  "reconciled_main_sha": "932a9fad51b50f7482ad4809d897c3f5fcc2c8df",
+  "record_kind": "exact local file identities after pre-merge reconciliation, not a platform receipt",
   "unchanged_dependencies": {
     "scripts/defect_incidence_compression.py": {
       "bytes": 13579,
@@ -58,6 +59,11 @@
       "bytes": 8284,
       "git_blob": "73dc32b9753d7d0fe5e67ca1f4fad0534b6b1976",
       "sha256": "28d7e66e3e2f6d6589e55a2e07e42a7a2081d56860621ba8838db9708a458440"
+    },
+    "scripts/stellar_defect_budget.py": {
+      "bytes": 13871,
+      "git_blob": "b51e2c3edec2c85026344566978561eb430050ec",
+      "sha256": "3d28385cc4cd6b31605e0918042bdee2fec280be8bf84f9c9ec897749a8bfdef"
     }
   }
 }

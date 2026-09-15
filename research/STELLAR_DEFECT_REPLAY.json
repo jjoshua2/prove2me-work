@@ -1,0 +1,49 @@
+{
+  "clean_replay": {
+    "all_four_stages_pass": true,
+    "all_nontiming_fixture_fields_equal": true,
+    "all_nontiming_report_fields_equal": true,
+    "fixture_names": [
+      "C10_6_four_stellar.json",
+      "C7_4.json"
+    ],
+    "raw_fixture_bytes_identical_claimed": false,
+    "reason": "Each fixture embeds its measured runtime; certificate and geometry fields are identical after excluding seconds.",
+    "workspace": "Fresh directory with the two new scripts and one frozen dependency; not a full clone or Lean build."
+  },
+  "development_base": "13fd398df7dc224deccef4cd2c1506069ed042a3",
+  "kind": "Derived local source and clean-replay manifest, not a platform receipt.",
+  "new_files": {
+    "research/STELLAR_DEFECT_BUDGET.md": {
+      "bytes": 18906,
+      "git_blob_sha": "5a214272b72b958359eabfa43d3423bf8b36e86e",
+      "sha256": "ba3753820489a31c379dd3452088bb206cca3dcd37ca6ff250950812a483c66e"
+    },
+    "research/STELLAR_DEFECT_HANDOFF.md": {
+      "bytes": 4720,
+      "git_blob_sha": "42dd2f5e179c30a7e51fbaeec6fbe44c5c0a4472",
+      "sha256": "a14db4da061765640b7f43c0c33bd6b99d9b92a9157a18a78f963953c3bcaeab"
+    },
+    "research/STELLAR_DEFECT_SUMMARY.json": {
+      "bytes": 5982,
+      "git_blob_sha": "72c85c2532a40e1736fc02418f3619b0ab5d1752",
+      "sha256": "4cbaefe12c05f886839d94a6bc5290cfddda9767c4fb473096c94b922c484324"
+    },
+    "scripts/stellar_defect_budget.py": {
+      "bytes": 13871,
+      "git_blob_sha": "b51e2c3edec2c85026344566978561eb430050ec",
+      "sha256": "3d28385cc4cd6b31605e0918042bdee2fec280be8bf84f9c9ec897749a8bfdef"
+    },
+    "scripts/test_stellar_defect_budget.py": {
+      "bytes": 17996,
+      "git_blob_sha": "fd243b3641eb429885ed2eac5dbc9f3955978f8f",
+      "sha256": "0dd66374cd8dc7e2098d90fb0cbde146a74db15bf992851d4e1316adbb55a2f4"
+    }
+  },
+  "unchanged_dependency": {
+    "bytes": 8284,
+    "git_blob_sha": "73dc32b9753d7d0fe5e67ca1f4fad0534b6b1976",
+    "path": "scripts/simple_tangent_policy_audit.py",
+    "sha256": "28d7e66e3e2f6d6589e55a2e07e42a7a2081d56860621ba8838db9708a458440"
+  }
+}

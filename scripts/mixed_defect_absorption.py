@@ -4,13 +4,14 @@
 Research implementation: finite original-H classification can be exponential.
 A completed flag refinement gives a classical flag-normal route bound; neither
 universal cheap refinement nor Lean verification is asserted. Existing #261
-stellar updates/carriers and #258 original edge checks are reused unchanged.
+stellar carriers, #262 mixed accounting and #258 edge checks are reused unchanged.
 """
 from __future__ import annotations
 from itertools import combinations
 from pathlib import Path
 import argparse, json
 import defect_incidence_compression as prior
+import stellar_defect_budget as budget
 
 require, serial = prior.require, prior.serial
 
@@ -29,21 +30,21 @@ def candidates(K):
     return sorted({E for N in K.high() for E in combinations(sorted(N),2)})
 
 
+def budget_view(K):
+    """Exact adapter to the unchanged concurrently merged #262 accounting."""
+    return budget.Complex.create(K.n, [sorted(N) for N in K.missing])
+
+
 def absorption(K, edge):
-    """Return explicit blockers for ALL mixed descendants, or None.
-    No supposition that unequal incidences are inherently unsafe is made.
-    """
+    """Reuse #262 shielding, retaining the existing compact witness interface."""
     E=label_pair(edge,K.n)
     shared=[N for N in K.high() if E<=N]
     if not shared:return None
-    atoms=[N for N in K.missing if E<=N or (len(N)==2 and N&E)]
-    records=[]
-    for N in K.high():
-        if len(N&E)!=1:continue
-        blockers=[B for B in atoms if B-E <= N-E]
-        if not blockers:return None
-        records.append({'mixed':sorted(N),'blocker':sorted(min(blockers,key=lambda S:(len(S),tuple(sorted(S)))))})
-    return {'edge':list(edge),'shared':[sorted(N) for N in shared],'mixed_blockers':records}
+    _, info=budget.account(budget_view(K),list(edge))
+    if not info['shielded']:return None
+    return {'edge':list(edge),'shared':[sorted(N) for N in shared],
+            'mixed_blockers':[{'mixed':r['nonface'],'blocker':r['blocker']}
+                              for r in info['shield_witnesses']]}
 
 
 def audit_absorption(K,packet):
@@ -62,7 +63,9 @@ def audit_absorption(K,packet):
         require(sorted(B)==r['blocker'] and B in K.missing,'blocker not an original minimal nonface')
         require(E<=B or (len(B)==2 and B&E),'blocker is neither shared nor a pair')
         require(B-E <= N-E,'blocker does not absorb this descendant')
-    J=prior.stellar(K,E)
+    actual, receipt=budget.account(budget_view(K),sorted(E))
+    require(receipt['shielded'] and receipt['created_higher_weight']==0, 'not shielded in #262 accounting')
+    J=prior.Complex(actual.n,list(actual.missing))
     expected=prior.ordered([N for N in K.high() if not E<=N]+
                           [(N-E)|{K.n} for N in shared if len(N)>=4])
     require(J.high()==expected,'exact absorbed update failed')

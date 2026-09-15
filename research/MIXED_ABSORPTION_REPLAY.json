@@ -8,27 +8,29 @@
       "sha256": "ca4a82ceee42984a9e8fd8bab5784e8141a3a79b378e76a68140863b6af0e419"
     },
     "fixtures/mixed_absorption_geometry.json": {
-      "bytes": 330272,
-      "sha256": "705204b68c0c3216104f1f56e2f7edc0971262a9e67d5ee9424ef215552685ca"
+      "bytes": 369466,
+      "sha256": "394af5ddbf2b4a74134cbc23f1e9dec6b66ed39a76713ccc88e7ceb68c48f49e"
     }
   },
-  "record_kind": "local clean dependency replay, not Lean/platform verification",
+  "new_python_files": 2,
+  "record_kind": "local clean dependency replay after importing #262; no Lean/platform verification",
   "stages": {
     "abstract": {
       "all_other_fields_equal": true,
-      "clean_sha256": "69c014cae8b13f3769fdf48f9427d9fea65dc7b7b31883ea3df4f59d7039045c",
-      "original_sha256": "a09c44cacf72fe161a8765e5d52d854a6d17cea6f1c5887e6549ba0d419a8bea"
+      "clean_sha256": "7c5081a64297c9e00c0230a3c5b1f1ec8e726b752bd3be59780eb9d5585ee74c",
+      "original_sha256": "bcdaaab3ab20193fe59878a40aa13afe0da5ba903f0e556df1a74d680ffc6586"
     },
     "family": {
       "all_other_fields_equal": true,
-      "clean_sha256": "51ae9006c0c50449ca5d76e4af4d760f74079eaae82402f4b2323fbe10d98e30",
-      "original_sha256": "0737be8470a640eea1cf1662c1ad94efa1e83db6e94d85ad496be78de3856d06"
+      "clean_sha256": "4e8cff1c649f50d4802dbd95ab2ceb4dca444bf504782028d7ae570b76703418",
+      "original_sha256": "758b37106353a420c6f985d0b20bad902d5ff7be0a3d3d20b8c8d050d4b0b64f"
     },
     "geometry": {
       "all_other_fields_equal": true,
-      "clean_sha256": "cfe3bbe27de8c25b4667678b117032b9c1aab313065e8c819258dfb49c3b9fe3",
-      "original_sha256": "14c8401b80dd831ece1237b3838f7dd9a7e1dedddbfc5e78fc49749d43bc22a7"
+      "clean_sha256": "79c064e05e365f70885dd9a65847fa53f4457f321450369640c4e2d28b75e604",
+      "original_sha256": "b5f917c44f8fa6d13bd7031162b5afbc41defb2d60511061659adc15d4723474"
     }
   },
-  "status": "PASS"
+  "status": "PASS",
+  "unchanged_dependencies": 5
 }

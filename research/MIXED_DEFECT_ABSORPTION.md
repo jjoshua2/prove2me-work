@@ -1,334 +1,305 @@
-# Mixed-defect absorption and bounded refinement macros
+# Counted macros beyond single-step defect descent
 
-## Status and relation to the live frontier
+## Status and pre-merge reconciliation
 
 This is written mathematical research and exact Python, NOT a Lean compilation,
-axiom audit, or Prove2Me acceptance. It does not solve Polynomial Hirsch. It
-extends the exact stellar update and original-edge carrier machinery of merged
-#261; none of those older sources is modified. Original input polytopes are
-simple, bounded, full-dimensional, with genuine original facet rows. A small
-number of defects, a successful bounded macro, or a cheap residual refinement
-is not silently assumed for arbitrary polytopes.
+axiom audit or Prove2Me acceptance. It does not solve Polynomial Hirsch.
+Input polytopes are simple, bounded and full-dimensional, with genuine ORIGINAL
+facet inequalities. All route bounds count genuine original edges.
 
-The new step is to allow UNEQUAL higher-defect incidences when all would-be
-extra descendants have explicit smaller blockers. It gives an exact descending
-integer potential. A separate, tightly audited macro rule may cross a neutral
-or increasing step only when its whole bounded sequence decreases the potential.
-A rational five-dimensional plateau demonstrates why that distinction matters.
+The other agent's #262 merged at932a9fad51b50f7482ad4809d897c3f5fcc2c8df just
+before #263 opened. The two preparations overlapped on the shielding/absorption
+criterion and cyclic distance-two stage. That overlap was reconciled BEFORE
+merge: the final source IMPORTS scripts/stellar_defect_budget.py unchanged,
+Git blob b51e2c3edec2c85026344566978561eb430050ec. The shared criterion, full
+birth/death accounting and first cyclic stage are credited to #262, not claimed
+as another new repository theorem. #261's carriers and #258's segment/edge
+auditors are also unchanged. All tests were rerun with these FIVE dependencies.
 
-## 1. Exact absorption criterion
+The distinct contributions are a POLYTOPAL stall for the broader #262 budget
+rule, a verified bounded-macro crossing of that stall, a sharper two-half finish
+to the cyclic schedule, and an original-H-to-macro-to-original-edge adapter.
+The earlier independently prepared version is retained in Git history, not
+silently described as the final reconciled implementation.
 
-Let N(K) be the minimal nonfaces of a simplicial complex K, and H(K) those with
-at least three labels. In the dual of the original polytope, these are minimal
-empty intersections of original facets. Define
+## 1. Reused exact accounting and the new macro theorem
 
-    W(K) = sum_{N in H(K)} (|N|-2).
+For a finite complex K let H(K) be its minimal nonfaces of size at least three,
+and put W(K)=sum_{N in H(K)}(|N|-2). In the dual of a polytope these are minimal
+incompatible original facet families. W=0 is exactly the flag condition.
 
-The #261 membership proof gives the complete minimal-nonface update when a FACE
-edge E={u,v} is stellar-subdivided with a new label z: take the inclusion-minimal
-members of
+For a FACE edge E={u,v}, a stellar subdivision inserts z. Its minimal nonfaces
+are the inclusion-minimal members of
 
-    {E},
-    {N in N(K): E is not contained in N},
-    {{z} union (N minus E): N in N(K), N intersects E}.             (1)
+    {E}, old N not containing E, and {z} union(N minus E) for old N meeting E.
 
-An arbitrary such move can increase W. In particular, the mixed edge of a join
-of two triangle boundaries creates two additional higher nonfaces. We never
-use an unconditional potential-monotonicity assertion.
+This is #261's exact membership formula. #262 refines it by minimizing the
+residues N-E. If c higher nonfaces contain E and the genuinely new higher
+descendants have total weight D, its exact identity is
 
-Call a high defect SHARED if it contains E and MIXED if it contains exactly one
-endpoint of E. Require at least one shared high defect. For EVERY mixed high
-N, supply a minimal nonface B satisfying
+    W_after = W_before-c+D.
 
-    B contains E, OR B is a missing pair meeting E;
-    B minus E is contained in N minus E.                            (2)
+Shielding means D=0. An explicit equivalent certificate is: every mixed high
+N with |N intersect E|=1 has an old minimal-nonface blocker B such that
+(i) E is contained in B or B is a missing pair meeting E, and (ii) B-E is
+contained in N-E. A shared high descendant or pair then makes that mixed
+child nonminimal. Equal higher incidence from #261 is only a special case.
+The final program delegates the exact update to #262 and independently checks
+the supplied blocker table. It does not retain a duplicate accounting engine.
 
-Then the would-be mixed descendant z+(N-E) contains the smaller generated
-nonface z+(B-E), so it is not a new minimal high defect. This is a finite,
-individually checkable absorption witness, not an assertion about matching
-incidence signatures.
+An arbitrary edge subdivision can have D>=c. The new planner therefore uses
+CHECKPOINTS. Prefer a shielded decreasing step; if none exists, try one arbitrary
+productive edge followed by shielded steps. Accept the resulting macro only
+if it has at most ell subdivisions and W at its endpoint is strictly smaller.
+Every intermediate complex and exact weight is verified; individual moves may
+be neutral or increasing. A macro's claimed endpoint improvement is not trusted.
 
-### Exact theorem
+If accepted macros have total t subdivisions, integer descent gives
 
-Under (2), the full new higher-defect family is exactly
+    t <= ell*(W_initial-W_residual).                           (1)
 
-    {N in H(K): E not contained in N}
-      union {z+(N-E): N in H(K), E contained in N, |N|>=4}.          (3)
+Indeed each macro costs at most ell, decreases the nonnegative integer W by
+at least one, and the decreases telescope. This elementary accounting also
+holds for other explicitly checked bounded macros; the supplied producer
+searches only the narrower one-bridge-then-shielded class.
 
-Shared triples become missing pairs. All other high defects persist. If c_E is
-the number of shared high defects, then
+If the final complex is flag, it has M=m+t vertices and the original sphere
+dimension. The classical Adiprasito--Benedetti normal-flag theorem supplies a
+path of at most M-d refined edges. By the existing carriers,
 
-    W(K') = W(K)-c_E,                 c_E>=1.                      (4)
+    diameter(original P) <= m-d+t <= m-d+ell*W_initial.          (2)
 
-To verify the exactness, first every mixed descendant is excluded by its
-witness (2); descendants of old missing pairs have size two. An old high N not
-containing E cannot lose minimality: an old smaller nonface would contradict
-its original minimality, E is not inside it, and a new z-containing nonface
-cannot lie inside an old vertex set. A shared descendant z+(N-E) cannot be
-swallowed by an old nonface inside N-E, nor by another descendant z+(B-E): either
-would imply a proper old nonface B inside N. It cannot contain the new pair E,
-whose endpoints it lacks. Shared descendants are distinct, so counting their
-size reductions proves (4).
+This is CONDITIONAL ON COMPLETION. If higher defects remain, use the established
+residual-block refinement with M=m+t-|B|+f_B and claim only the actual M-d. The
+macro prefix does not make that residual cost small. Initial W can itself be
+exponential in original input size. A trial cap is incomplete search, not proof
+of no better macro; ell=3 is not asserted universally sufficient. Neither (1)
+nor (2) is an unrestricted Polynomial Hirsch proof or a polynomial runtime.
 
-Equal nonempty higher incidence, #261's safe case, is a special case with no
-mixed defects at all. The new rule is strictly stronger. For example high
-nonfaces 0123 and 0234 admit E=01. The shared descendant z23 absorbs mixed
-z234, while the old mixed nonface 0234 stays. W drops from four to three.
-This example needs a SHARED HIGH blocker, not just a pre-existing missing pair.
+## 2. A genuine polytopal plateau, including #262's actual default replay
 
-## 2. Count bounded net-decreasing macros, not every isolated move
+The fixture gives ten integer points in dimension five. Subtract their mean
+and polarize with inequalities (point_i-mean).x<=1. The original polytope has
+36 simple vertices and ten genuine facets. The reference reconstructs all
+252 square active systems using exact rational arithmetic and checks original
+facet relative-interior witnesses. The exploratory floating hull that helped
+FIND the fixture is not used as final verification data.
 
-The planner first searches for an absorbed move, prioritizing the largest
-verified drop in W. If none exists, it tries one arbitrary edge subdivision,
-followed by absorbed moves, up to an explicit length limit ell. A macro is
-accepted only after its complete verified endpoint has strictly smaller W.
-Each intermediate stellar update is exact even when its W is unchanged or
-larger. The consumer independently checks all original defect lists, blocker
-witnesses, intermediate weights and macro checkpoints; it does not trust the
-planner's selection or a declared delta.
+Three valid stellar subdivisions produce W9->7->5->3. The remaining higher
+nonfaces are precisely
 
-For s accepted macros of total t subdivisions,
+    {2,3,4}, {2,7,8}, {4,5,7}.
 
-    t <= ell * (W(initial)-W(residual)).                           (5)
+All other minimal nonfaces are pairs, preserved in the detailed fixture. At
+this state every productive edge gives the following next weights:
 
-If no higher defect remains, the refined complex is flag, has M=m+t vertices
-and the same sphere dimension. The classical normal-flag theorem, followed by
-#261's same-dimensional carrier maps, gives
+    23:3, 24:4, 27:4, 28:3, 34:3,
+    45:3, 47:4, 57:3, 78:3.
 
-    diameter(original P) <= m-d+t <= m-d+ell*W(initial).            (6)
+An edge contained in no higher minimal nonface cannot remove any old higher
+nonface, so it cannot decrease W either. Hence NO single stellar edge move
+lowers this actual potential. This is not merely the failure of one tie-break.
+The state is polytopal: it is obtained from an exactly realized dual polytopal
+boundary by valid edge subdivisions, realizable by shallow primal ridge cuts.
 
-If the planner stalls, it explicitly keeps the residual high support B and
-uses the old residual-block refinement. Its actual vertex count is
+The final regression executes #262's unchanged 'budget' policy on the ORIGINAL
+input. It chooses edges01,56,08 and returns status stalled, W3, n13 after three
+moves. Its terminal complex exactly matches the one above. Running that same
+policy again on the terminal complex returns stalled with zero moves. This
+policy already permits new defects when D<c, so the example goes beyond a
+failure of shielding alone. Both the original baseline packet and the complete
+independent neighbor-weight scan are saved. The assertion concerns this actual
+greedy run and its reachable state; it does not assert every strictly descending
+choice from the original input must reach the same plateau.
 
-    M=m+t-|B|+f_B,
+The macro chooses edge34 with W3->3, then two shielded moves give3->2->0.
+The complete path of weights is
 
-where f_B is the number of nonempty induced residual faces. Only M-d is claimed.
-Equation (5) controls the successful prefix, not that potentially expensive
-completion. A trial cap is not a proof that no better macro exists. W(initial)
-itself may be exponential in the original number of labels. Neither (5) nor
-(6) is a universal polynomial diameter theorem.
+    9 -> 7 -> 5 -> 3 -> 3 -> 2 -> 0.
 
-### An actual polytope where no single step lowers W
+Six subdivisions give a flag refinement on16 vertices, so the original5D
+polytope has the certified all-pairs bound11 from this construction. The old
+#261 twin-plus-block completion used266 refined vertices. #262's budget run
+itself returns a truthful partial/stalled result, not that block completion.
+One of our sampled endpoint routes is still nonshortest. We do not equate a
+small refinement certificate with optimal route selection.
 
-The input fixture contains ten integer points in dimension five. Translate
-them by their mean and polarize with inequalities (point_i-mean).x<=1. The test
-reconstructs all 252 square active systems in exact rational arithmetic, obtains
-36 simple vertices, and verifies every original row is a genuine facet. The
-floating hull used only to FIND this example is not used by the final proof
-consumer or exact reconstruction.
+## 3. Original-edge transport is not an arbitrary projection
 
-The greedy absorbed sequence has W: 9 -> 7 -> 5 -> 3. At the last state its
-only higher defects are 234, 278 and 457. The entire minimal-nonface list is
-saved in the report. Every edge contained in one of those triples gives W>=3;
-the test evaluates all nine possibilities using (1). An edge contained in no
-higher nonface cannot remove any old higher nonface, so it cannot lower W either.
-This is a plateau of the ACTUAL potential, not merely failure of a chosen tie.
+A maximal simplex containing the fresh stellar vertex z contains exactly one
+of u,v. Replacing z by {u,v} therefore gives an old maximal simplex of the same
+size d. Adjacent new maximal simplices share a ridge; its old carrier has at
+least d-1 labels. Their carriers are equal or adjacent old maximal simplices.
+This holds whether a move increases, preserves or decreases W.
 
-Subdividing 34 leaves W=3, then two absorbed moves yield 3 -> 2 -> 0. Thus a
-three-step macro crosses the plateau. The complete six-subdivision refinement
-has M=16, compared with M=266 for #261's twin-only/residual-block construction;
-its all-pairs bound is eleven original edges. This is not a proof that every
-plateau can be crossed in three steps. One tested endpoint pair still receives
-a nonshortest path, and its original route may reenter a facet.
+Compose this map through every intermediate subdivision, then the already
+proved residual-block carrier if needed. Remove stationary consecutive
+carriers. Every remaining step is an original adjacency and length cannot
+increase. Compatible endpoint lifts preserve original common facets. The
+program checks the carrier relation at EVERY stage and independently checks
+the final coordinate edges using original inverse identities and the maximal
+feasible ratio. No extension edge is projected and assumed to remain an edge.
 
-## 3. A uniform quadratic-size schedule on cyclic four-polytope boundaries
+The path comes from the flag subdivision, not necessarily from the restricted
+original combinatorial-segment family. It may reenter an original facet; the
+regression deliberately preserves such a case. The existing exponential lower
+bound for raw original combinatorial segments is not contradicted.
 
-This is a counted flag-refinement class, not a new best four-dimensional
-diameter theorem. Let C(n,4), n>=6, be the cyclic polytope with moment-curve
-vertices (t,t^2,t^3,t^4), in increasing t order. Label them on the cyclic order
-0,...,n-1. The higher minimal nonfaces of its boundary are exactly the stable
-triples of this cycle: triples containing no cycle-adjacent pair. Their number is
+## 4. A sharper finish to the shared cyclic schedule
 
-    q = n(n-4)(n-5)/6.
+For C(n,4), n>=6, label moment-curve vertices cyclically0,...,n-1. Higher minimal
+nonfaces are exactly stable triples of this cycle, numbering n(n-4)(n-5)/6.
+The supporting quartic through four moment parameters has a constant sign on
+all other parameters precisely for the usual two-adjacent-pair facets,
+including a wrap pair. A four-set without a stable triple is a four-path or
+two disjoint cycle edges, hence such a facet. Every larger set contains a
+stable triple when n>=6. Thus this is the COMPLETE higher-nonface family,
+not an incomplete sample of triples.
 
-For completeness, the facet description follows directly from the sign of a
-quartic through four chosen moment parameters. A supporting quartic has its
-negative intervals empty of all other parameters, giving two disjoint adjacent
-pairs, or has no parameters outside its first and last roots, giving the wrap
-pair plus a middle adjacent pair. Hence facets are unions of two disjoint cycle
-edges. A four-element set with no stable triple is either a length-four path
-or two disjoint edges, and is such a facet. Any larger set contains a stable
-triple (the n>=6 restriction avoids the five-cycle exception). Every pair is
-a face and a stable triple is not; this proves the complete minimal-nonface
-classification rather than importing an incomplete triple inventory.
+### Common first stage, credited to #262
 
-During absorbed subdivisions of pairs of ORIGINAL cycle labels, the higher
-family remains a subset of these original stable triples. Its survivors are
-exactly those not containing an already subdivided original pair. No new label
-belongs to a higher defect; the new labels participate only in missing pairs.
+Process cyclic distance-two pairs E={i-1,i+1}, omitting any with no surviving
+higher triple. A mixed stable triple {u,a,b}, u in E, cannot have both a,b
+adjacent to the other endpoint v: one of v's neighbors is adjacent to u.
+Choose w in {a,b} nonadjacent to v. If vw was previously subdivided, its missing
+pair blocks the mixed child. Otherwise {u,v,w} is a surviving shared high
+triple and blocks it. Its other pairs survive because the mixed triple and
+current E survive. This is a valid shielding certificate. At the end no high
+triple contains a distance-two pair; only original triples have survived.
 
-### Stage A: process all original cyclic distance-two chords
+### New two-half completion
 
-For E={i-1,i+1}, subdivide it only if a high triple still contains it. Consider
-a mixed surviving triple {u,a,b}, u in E, v the other endpoint. At most one of
-a,b can be adjacent to v: of v's two neighbors, one is adjacent to u and thus
-cannot appear in this stable triple. Choose w in {a,b} nonadjacent to v. If
-{v,w} was subdivided earlier, it is a missing-pair blocker. Otherwise {u,v,w}
-is a surviving shared high triple: its u,w pair is allowed because the mixed
-triple survives, v,w has not been cut, and E is currently a face. This shared
-triple supplies (2). The symmetric mixed case is identical. Every prescribed
-Stage-A move is therefore absorbed.
+After that first stage, EVERY productive pair of original labels is shielded.
+The only possible failure of the preceding argument would have a,b as the two
+neighbors of v, a distance-two pair which no surviving triple can contain.
 
-After this stage, no surviving triple contains a cyclic distance-two pair.
-Such a pair was either removed or was already in no survivor when considered;
-the survivor family only decreases.
+Divide the cyclic order into two contiguous parts of sizes a=floor(n/2) and
+b=ceil(n/2). Process only pairs internal to these parts when still productive.
+Every triple has a same-part pair, so this finishes. Each original pair is
+used at most once. The first stage has at most n distance-two pairs. Within
+parts there are binom(a,2)+binom(b,2)-(n-2) noncycle pairs, of which n-4 are
+already distance-two pairs. Therefore
 
-### Stage B: process within two contiguous halves
+    T_n <= binom(a,2)+binom(b,2)-n+6.                           (3)
 
-Now EVERY remaining original pair contained in a high triple is an absorbed
-choice. Indeed, in the preceding argument both a,b could be adjacent to v only
-if they formed its two-neighbor, distance-two pair, which no surviving triple
-contains. The same pair-or-shared-triple blocker proof therefore applies.
+This improves the previous #262 bound n(n-3)/2, roughly halving its leading
+coefficient. The new contribution is this stronger finish/count, not another
+claim to discover quadratic cyclic flagification. The all-size proof covers
+all n>=6; numerical schedule instances n6..16 are additional checks.
+Greedy shielding at n7/n8 uses4/6 moves, whereas this explicit uniform schedule
+uses5/8. The report keeps those procedures separate.
 
-Partition the cycle into contiguous parts of sizes a=floor(n/2), b=ceil(n/2),
-and process each within-part pair whenever it belongs to a surviving high
-triple. Every triple has two labels in one part, so no higher defect survives.
-Each original pair is subdivided at most once.
+## 5. Geometric multiwedges and exact scope of the class extension
 
-There are n distance-two chords. Within the two parts there are
-binom(a,2)+binom(b,2)-(n-2) non-cycle pairs, of which n-4 were distance-two
-chords already counted. Thus the total number of subdivisions is at most
+A wedge along a facet a.x<=b replaces that row by a.x+s<=b and a.x-s<=b,
+retaining the other rows. It adds one dimension and one genuine facet. Its
+vertices over an old off-facet vertex are the two slack endpoints; an old
+on-facet vertex has just the one lift. Convex combinations of old vertices
+and their available slack intervals prove these exhaust the wedge. Simplicity
+and boundedness persist.
 
-    T_n = binom(a,2)+binom(b,2)-n+6.                             (7)
+A minimal nonface containing the old row replaces it by BOTH new row labels;
+others are unchanged. A set with only one copy can meet its equality by choosing
+the sign of the extra coordinate, so it gives no new minimal obstruction.
+Repeated wedges replace original cyclic label i by a group of a_i labels.
+With m=sum a_i the new dimension is d=4+m-n, and its high nonfaces are exactly
+the unions of clone groups belonging to stable triples.
 
-The resulting flag refinement has at most n+T_n vertices and its carrier route
-bound is n-4+T_n. The schedule is valid for every n>=6, not just the tested
-n=6,...,16. The concrete greedy planner can be smaller: n7/n8 uses four/six
-moves and M11/M14, whereas this uniform schedule uses five/eight and M12/M16.
-The report keeps these algorithms and counts distinct.
+Compress each clone group to one representative in a_i-1 of the old safe
+moves, then apply the common cyclic first stage and our two-half completion.
+The exact count is
 
-## 4. Higher-dimensional examples: repeated geometric wedges
+    t <= m-n+T_n,    M<=2m-n+T_n,
+    diameter(original)<=M-d<=m-4+T_n=O(m^2).                    (4)
 
-One may replace an original facet label i by a group C_i of a_i>=1 labels using
-ordinary wedge operations on the primal. Explicitly replace a_i.x<=b_i by
+For n>=7 the higher-nonface incidence is connected, excluding a nontrivial
+combinatorial Cartesian product. Distance-two connections connect each parity
+class and a stable triple joins them when necessary. Replacing a label by a
+group preserves that connectivity. n6 is deliberately excluded from the
+nonproduct claim; its two stable triples are disjoint. No Minkowski
+indecomposability claim is made.
 
-    a_i.x+s<=b_i,      a_i.x-s<=b_i,
+This is a cheap FLAG REFINEMENT class, not a newly discovered polynomial-
+diameter class. The ordinary wedge graph consists of two copies of the base
+graph identified along its facet, with vertical edges elsewhere. Diameter
+rises by at most one per wedge; a fixed-four-dimensional base already has
+polynomial bounds. That easier fact is retained rather than inflating (4).
+The value is an explicit counted refinement compatible with the general
+carrier framework, where the preceding residual refinement was much larger.
 
-and retain the other rows independent of s. The result is bounded whenever
-the base is bounded, because |s| is bounded by the old slack, and has one more
-dimension and one more genuine facet. It is simple: old vertices on that facet
-produce one vertex with both new rows tight; other vertices produce the two
-slack endpoints. Equivalently, a convex decomposition at the base vertices
-lifts every wedge point using their slack endpoints, showing these exhaust
-its vertices.
+## 6. Actual tests, independent references and limitations
 
-The exact face-intersection rule proves that a minimal nonface containing the
-old label replaces it by BOTH new labels; minimal nonfaces not containing it
-are unchanged. A set containing only one copy can always realize that copy's
-equality by choosing the sign of s, so it introduces no new minimal nonface.
-Iterating produces a simple original polytope with
+After reconciliation all sources use the exact unchanged #262 account. The
+abstract stage checks114 labelled four-vertex complexes plus210 seeded random
+antichains on5--7 labels. It compares the full update against literal maximal-
+simplex subdivision and independent nonface reconstruction:3189 updates,
+1013 shielded updates (546 unequal-incidence),891 blocker records and10550
+pure-carrier adjacencies. It retains931 W-increasing arbitrary moves. Abstract
+inputs are not all polytopal; no normal-flag diameter theorem is applied to them.
 
-    m=sum_i a_i,       d=4+m-n,       e=n-4,
+Six independently reconstructed original-H models give58 endpoint pairs:
+123 delivered edges versus129 for #261 and122 BFS. One route is nonshortest
+and one reenters an original facet. There are125 refined steps,two stationary
+carriers,2222 LP calls and10500 internal pivots. The reference evaluates502
+exact square systems and genuine-facet witnesses. The models are a targeted
+stress suite, not a statistical universal-superiority claim.
 
-whose higher nonfaces are the unions of the clone groups of each stable triple.
-Each group has equal higher incidence. Compress it in a_i-1 old safe moves,
-then run the new quadratic schedule on the n representative labels. Old labels
-outside the current high support create only additional good vertices and do
-not disturb the representative stable-triple list. This gives
+#262's budget baseline is executed separately for all six inputs. It completes
+five (with the same cyclic4/7 and4/8 refined counts11 and14), but stalls on the
+five-dimensional plateau. The new macro completes that one. Earlier twin-only
+refinements had M70/96/126 on cyclic7/8/9, now11/14/18 using the shared shielded
+rule. Those cyclic improvements belong to the shared/#262 result; the plateau
+crossing to M16 is the distinct macro example.
 
-    t <= m-n+T_n,
-    M <= 2m-n+T_n,
-    diameter(original) <= M-d <= m-4+T_n = O(m^2).                (8)
+The family stage checks11 cycle sizes and9 original wedge instances. For n8
+and three clones per label: dimension20,24 original facets,M48 versus previous
+M128,bound28,selected route4. For n12 and two clones: dimension16,24 facets,
+M60 versus264,bound44,selected route12. These are selected routes, not tests of
+all endpoint pairs. Base4D graphs only choose test endpoints and confirm their
+moment-curve structure. One10D/12-facet wedge additionally gets full exact
+final-H graph/nonface reconstruction (66 square systems,36 vertices,distance2).
+Other larger instances use the proved wedge history plus actual original-edge
+audits, not full final graph enumeration or generic LP classification.
 
-For n>=7 these examples have connected higher-minimal-nonface hypergraph, so
-they are not combinatorially nontrivial Cartesian products. Distance-two
-connections and one stable triple connecting the parity classes establish
-connectivity; replacing each label by a group preserves it. n6 is deliberately
-excluded from this nonproduct assertion because its two high triples are
-separate. No Minkowski indecomposability claim is made.
+Thirteen malformed/capped types are rejected. Six complete stored audits run
+with LP,inverse,basis/intersection production and planner selection disabled.
+Finite classification, BFS and recursion ARE still replayed. Complete original
+minimal-nonface discovery and trial exploration can be exponential. Caps are
+explicit; no efficient recognition or universal macro completion is claimed.
+Global simplicity/genuine-facet assumptions are independently established for
+the test models, not inferred from a few visited bases. Python/JSON is not
+Lean-extracted or otherwise formally verified.
 
-This is a small flag-REFINEMENT certificate in unbounded dimension and excess,
-not a newly discovered polynomial-diameter class. Ordinary wedges also have
-a direct graph description: two copies of the base graph are identified on
-the wedge facet, with vertical edges at the other vertices. Therefore each
-wedge raises diameter by at most one, and fixed-four-dimensional base bounds
-already give polynomial diameter for this family. That independent easier
-fact is not hidden to inflate the significance of (8). The value here is an
-explicit inexpensive refinement schedule where #261's residual completion was
-large, plus exact carriers usable by the same general framework.
-
-## 5. Actual tests, adverse outcomes and verification boundary
-
-The abstract stage checks all 114 labelled four-vertex complexes plus 210
-seeded random antichains on five through seven vertices. For every face edge,
-it compares (1) with independently subdividing maximal simplices and then
-reconstructing all minimal nonfaces. Totals: 3,189 stellar updates, 1,013 absorbed
-updates (546 with genuinely unequal incidences), 891 mixed-blocker checks and
-10,550 adjacent-carrier checks on pure inputs. There are 931 actually increasing
-potential steps in the tested set. Abstract inputs are not all spheres; only
-the update and carrier claims, not flag-Hirsch bounds, are tested on them.
-
-Six independently reconstructed original-H models give 58 endpoint pairs and
-123 delivered edges, versus 129 for unchanged #261 and 122 shortest. One route
-is nonshortest. There are 125 refined steps, two stationary carriers, one
-original-facet reentry, 2,222 LP maximizations and 10,500 internal pivots. All
-502 square-system references and facet relative-interior witnesses are exact.
-The selection of models is a targeted stress suite, not a statistical claim
-of universal benchmark superiority.
-
-| original example | previous refined M | new refined M | new all-pairs bound |
-|---|---:|---:|---:|
-| cyclic polar, 4D / 7 facets | 70 | 11 | 7 |
-| cyclic polar, 4D / 8 facets | 96 | 14 | 10 |
-| cyclic polar, 4D / 9 facets | 126 | 18 | 14 |
-| plateau example, 5D / 10 facets | 266 | 16 | 11 |
-
-The family stage verifies all-size schedule instances n6..16 and nine original
-wedge models. Two examples: n8 with three copies per label has dimension20,
-24 original facets, M48 versus previous M128, bound28, and a four-edge selected
-route. n12 with two copies has dimension16,24 facets,M60 versus264,bound44,
-and a twelve-edge selected route. The uniform inequality (8) may be slightly
-weaker than the actual count. The base four-dimensional graph is enumerated
-only to choose test endpoints and check its moment-curve combinatorics. For
-one ten-dimensional/twelve-facet wedge, all final square systems additionally
-reconstruct the complete final graph and nonface list. Other larger models
-use the proved wedge history and exact original-edge audits, NOT a generic
-complete LP classification or full final graph enumeration.
-
-Thirteen malformed/capped control types are rejected, including omitted mixed
-defects, invalid blockers, Boolean labels, false weights, altered original
-intersections/edges, and a three-step bridge offered under a one-step budget.
-Six full generic-route certificates replay with geometric LP, inversion,
-basis/intersection production and the planner itself disabled. BFS and finite
-classification/recursion replay still occur. The raw input class is not inferred
-from a handful of local bases: exact references or the class construction prove
-it for our examples. Python and JSON parsing are not Lean-extracted.
+All three stages reproduce in a clean workspace with two new scripts, one
+integer fixture and FIVE byte-identical existing dependencies. All nontiming
+report/source fields and both full generated fixture files match exactly.
+Detailed reports/certificates regenerate and are bundled. Repository summaries
+are explicitly derived local records, not platform receipts. No Actions or
+Prove2Me workflow is triggered for this research-only contribution.
 
     python3 scripts/test_mixed_defect_absorption.py --stage abstract
     python3 scripts/test_mixed_defect_absorption.py --stage geometry
     python3 scripts/test_mixed_defect_absorption.py --stage family
 
-A clean replay uses only the two new scripts, the integer input fixture, and
-four byte-identical old dependencies. Full reports and route certificates are
-bundled and regenerate. Compact committed summaries identify themselves as
-derived and hash-bind the detailed files. No hosted Lean or Prove2Me gate is
-requested for research-only code.
+## 7. Literature guard and the remaining general obstacle
 
-## 6. Literature discipline and remaining unrestricted problem
+The classical short refined path is Adiprasito--Benedetti arXiv1303.3598.
+Stellar theory is classical; this contribution claims no historical priority
+for all equivalent formulations. #262 supplies the reused local accounting,
+not a claim that every edge reduces defects.
 
-The short path in the completed flag sphere uses the classical theorem of
-Adiprasito--Benedetti, arXiv1303.3598. Stellar theory is classical; our absorption
-and potential claims are proved from the exact recurrence rather than relying
-on an overly broad assertion that arbitrary edge subdivisions reduce defects.
-No historical priority or new best general diameter bound is claimed.
+A relevant search trap is arXiv1303.5885, whose abstract advertises a strong
+missing-face-size bound but whose record explicitly says WITHDRAWN and that
+the main proof has a mistake. That bound is NOT an input. A surviving abstract
+must not be used to convert these scoped results into a general theorem.
+Primary records: https://arxiv.org/abs/1303.3598 and
+https://arxiv.org/abs/1303.5885 (withdrawn, not a valid imported bound).
 
-A material literature trap was checked: arXiv1303.5885, *Bounds on the diameters
-of r-stacked and k-neighborly polytopes*, still has an abstract advertising a
-strong missing-face-size diameter bound, but the current arXiv record explicitly
-marks it WITHDRAWN and says the main proof has a mistake. That purported bound
-is NOT an input to this work. Its abstract must not be used to convert the
-current special-class result into a general theorem.
-
-Primary reference records inspected:
-- https://arxiv.org/abs/1303.3598
-- https://arxiv.org/abs/1302.5197 (general stellar background only)
-- https://arxiv.org/abs/1303.5885 (withdrawn; NOT a valid imported bound)
-
-The unresolved task is to prove an original-size bound for a successful schedule
-on arbitrary dual boundaries, or give a different original-edge argument. The
-new criterion resolves unequal-incidence cases and a finite plateau crossing,
-but not every stall. No fixed macro horizon is asserted sufficient. Neither
-a small initial W, a successful short bridge at every state, nor a cheap residual
-block is silently assumed. The current contribution supplies exact positive
-operations, explicit failures, counted class schedules and reproducible tests
-for attacking that remaining quantitative obstacle.
+The remaining problem is an original-size bound for a successful refinement
+schedule on arbitrary dual polytopal spheres, or a different genuine-edge
+argument. The new example shows that single-step strict descent is insufficient,
+and that bounded checkpoints can sometimes repair it. It does not prove a
+fixed macro horizon sufficient everywhere. Neither polynomial initial W,
+cheap universal bridges nor a cheap residual block is inserted as an assumed
+lemma. The conjecture remains open; the result is the exact plateau certificate,
+a successful crossing, and stronger counted schedules on stated classes.
