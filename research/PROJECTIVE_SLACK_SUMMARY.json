@@ -1,0 +1,165 @@
+{
+  "all_benchmarks_reported": true,
+  "distortion": {
+    "fixed_combinatorial_type": true,
+    "genuine_no_acquisition_source": true,
+    "original_dimension": 3,
+    "original_facets": 14,
+    "records": [
+      {
+        "denominator_global_lower_bound": "1/256",
+        "entire_new_route_is_transformed_original": true,
+        "epsilon_power": 8,
+        "new_after_first_macro": "4/25",
+        "new_first_macro_edges": 2,
+        "new_first_share": "1/3",
+        "new_total_edges": 6,
+        "old_initial_gap_fraction": "7/18",
+        "transformed_old_gap_fraction": "7/2823"
+      },
+      {
+        "denominator_global_lower_bound": "1/1099511627776",
+        "entire_new_route_is_transformed_original": true,
+        "epsilon_power": 40,
+        "new_after_first_macro": "4/25",
+        "new_first_macro_edges": 2,
+        "new_first_share": "1/3",
+        "new_total_edges": 6,
+        "old_initial_gap_fraction": "7/18",
+        "transformed_old_gap_fraction": "7/12094627905543"
+      },
+      {
+        "denominator_global_lower_bound": "1/1329227995784915872903807060280344576",
+        "entire_new_route_is_transformed_original": true,
+        "epsilon_power": 120,
+        "new_after_first_macro": "4/25",
+        "new_first_macro_edges": 2,
+        "new_first_share": "1/3",
+        "new_total_edges": 6,
+        "old_initial_gap_fraction": "7/18",
+        "transformed_old_gap_fraction": "7/14621507953634074601941877663083790343"
+      },
+      {
+        "denominator_global_lower_bound": "1/1766847064778384329583297500742918515827483896875618958121606201292619776",
+        "entire_new_route_is_transformed_original": true,
+        "epsilon_power": 240,
+        "new_after_first_macro": "4/25",
+        "new_first_macro_edges": 2,
+        "new_first_share": "1/3",
+        "new_total_edges": 6,
+        "old_initial_gap_fraction": "7/18",
+        "transformed_old_gap_fraction": "7/19435317712562227625416272508172103674102322865631808539337668214218817543"
+      }
+    ],
+    "universal_positive_gap_fraction_refuted": true
+  },
+  "full_check_sha256": "213c61a2e3961fabd9a5133f8b9d568035fc0ab5128ec26fa148e447f544b268",
+  "graph_totals": {
+    "decisions": 2084,
+    "face_checks": 354,
+    "faces": 354,
+    "fallbacks": 7,
+    "improved": 6,
+    "intermediate_rho_increases": 0,
+    "loops_removed": 0,
+    "new_edges": 2517,
+    "new_nonshortest": 23,
+    "old_edges": 2506,
+    "old_fallbacks": 7,
+    "old_nonshortest": 16,
+    "old_phase_decreases": 124,
+    "pairs": 1016,
+    "retired_faces": 21,
+    "shortest_edges": 2490,
+    "ties": 997,
+    "worsened": 13
+  },
+  "independent_graphs": {
+    "count": 11,
+    "edges": 312,
+    "vertices": 182
+  },
+  "invariance": {
+    "dense_affine_positive_row_compositions": 12,
+    "independently_recovered_projective_graphs": 4,
+    "original_slack_identity_checks": 3204,
+    "projective_full_route_checks": 12,
+    "small_vertex_images_checked": 240
+  },
+  "kind": "Derived compact execution summary; full CHECK, stages, fixtures and pair tables regenerate from the unchanged test script.",
+  "negative": {
+    "equal_endpoint_edges": 0,
+    "names": [
+      "format",
+      "problem_sha256",
+      "omitted_face",
+      "omitted_polygon_corner",
+      "not_global_minimum",
+      "nonshortest_repeated_arc",
+      "changed_phase_anchor",
+      "spurious_locked_row",
+      "incomplete_route",
+      "false_basis_inverse",
+      "float_selection",
+      "changed_original_endpoint",
+      "cap_without_completion",
+      "float_original_row",
+      "invalid_projective_chart"
+    ],
+    "one_dimensional_face_edges": 1,
+    "rational_JSON_audit": true,
+    "rejected": 15,
+    "search_disabled_audit": true
+  },
+  "new_Lean_or_Prove2Me_verdict": false,
+  "new_policy_dominates_old": false,
+  "products": [
+    {
+      "dimension": 4,
+      "independent_product_distance": 12,
+      "new_faces": 7,
+      "new_route_edges": 12,
+      "new_traced_face_edges": 61,
+      "old_route_edges": 12,
+      "original_facets": 30,
+      "projectively_transformed_route_edges": 12,
+      "proved_product_vertices": 225,
+      "whole_graph_enumerated": false
+    },
+    {
+      "dimension": 8,
+      "independent_product_distance": 24,
+      "new_faces": 50,
+      "new_route_edges": 24,
+      "new_traced_face_edges": 310,
+      "old_route_edges": 24,
+      "original_facets": 60,
+      "projectively_transformed_route_edges": 24,
+      "proved_product_vertices": 50625,
+      "whole_graph_enumerated": false
+    },
+    {
+      "dimension": 12,
+      "independent_product_distance": 36,
+      "new_faces": 161,
+      "new_route_edges": 36,
+      "new_traced_face_edges": 875,
+      "old_route_edges": 36,
+      "original_facets": 90,
+      "projectively_transformed_route_edges": 36,
+      "proved_product_vertices": 11390625,
+      "whole_graph_enumerated": false
+    }
+  ],
+  "scope": "Exact simple original-H policy comparison; written projective/retirement proof, no Lean or platform verdict.",
+  "source_sha256": {
+    "scripts/projective_slack_acquisition.py": "ac68d89c7cc330c615bbdf447288486a4b29983045bcf2f5596a665e0b4aefa4",
+    "scripts/simple_tangent_policy_audit.py": "28d7e66e3e2f6d6589e55a2e07e42a7a2081d56860621ba8838db9708a458440",
+    "scripts/target_phase_pivot.py": "47205558384b121b7635a063485ef7abe3e46f53831c8f41ac71d8df8d364948",
+    "scripts/target_roof_phase_barrier.py": "79f287b1a23b44da80314dbdde4cc7de338d195f4438036f9bc88bf3115111f8",
+    "scripts/test_projective_slack_acquisition.py": "a090d1e7f2d70c9d4938d26384601f1b1d3c0368a0095623d735aa504b282bfc",
+    "scripts/test_two_face_acquisition.py": "29137bcf5e5eac39a691e7fce762b063fbc655f99c717898dc9116813c53c031",
+    "scripts/two_face_acquisition.py": "ea395cf665fbbc45f15d4ea9fa35d10bb00efc55795732ff6bfb0fc125d430d7"
+  },
+  "status": "PASS"
+}
