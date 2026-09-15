@@ -3,7 +3,8 @@
 Repository `jjoshua2/prove2me-work`; refreshed September 15, 2026 UTC.
 Keep Lean `v4.30.0` and Mathlib `c5ea00351c28e24afc9f0f84379aa41082b1188f`.
 Read AGENTS.md, CLOUD_AGENT.md, SKILL.md, CONTINUE_HIRSCH.md and LIVE PR heads/
-comments before selecting work. Historical prose is not a fresh platform poll.
+comments before selecting work. Historical prose is not a fresh platform poll. The final cactus integration
+retains concurrent merged #266 without changing any of its source files.
 
 The preceding COMPLETE overview through #263 is preserved VERBATIM in
 [the prior frontier](research/FRONTIER_BEFORE_CACTUS_2026-09-15.md), Git blob
@@ -123,3 +124,31 @@ resuming old directions. Keep pins, credentials and trusted publisher isolation
 unchanged. Written proof, software checks, Lean build, axiom audit, ACCEPTED and
 authenticated Proved are separate statuses. Report the last observed state;
 never promise background work after the turn.
+
+
+## Concurrent merged #266 retained unchanged
+
+During final #265 integration, main advanced to
+`8c26809ac9d4fde2115054be9014f64b2b91c635`, including #266 merge
+`d3fd0ca254e920a10733ec8277c3392d67a01378`. Its COMPLETE preceding status is
+preserved verbatim in [the concurrent frontier](research/FRONTIER_GRAPHICAL_BEFORE_CACTUS_2026-09-15.md),
+blob `489c7988ca1e23c4cd6b3d24f45fce48033bcd87`. All seven graphical-refinement
+files remain byte-identical; this is the OTHER agent's contribution, not #265.
+
+#266's written graphical nested-set construction is flag exactly when each
+original minimal nonface induces at most two components in its auxiliary graph.
+Its refined size M is the number of connected ORIGINAL faces, with the inherited
+original-edge bound M-d. This includes flat block graphs but is distinct from
+the cactus INCIDENCE graph condition above. Paths or maximum-degree-two graphs
+have polynomial inventories under the stated criterion; such graph existence
+is not universal. The cyclic-four-dimensional obstruction excludes every
+maximum-degree-two auxiliary graph for n>=11. The n9 search excludes Hamiltonian
+cycles/paths only, not all disconnected degree-two graphs. Those scopes and all
+exact tests/receipts remain in research/GRAPHICAL_FLAG_REFINEMENT.md and its
+handoff/summary/replay. They are research/software, not a new Lean acceptance.
+
+The simultaneous next frontier includes controlling overlapping higher-incidence
+blocks OR finding a graphical registry with polynomially many original faces,
+possibly in combination. Neither missing universal existence bound has been
+proved. Do not restart the old scalar/circuit/duality decompositions or duplicate
+#266. Source and mathematical claims of #265 are unchanged by this reconciliation.

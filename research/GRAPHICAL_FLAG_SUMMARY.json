@@ -1,0 +1,186 @@
+{
+  "abstract": {
+    "complex_graph_pairs": 7296,
+    "complexes": 114,
+    "flag_cases": 6766,
+    "literal_stellar_steps": 16486,
+    "nonflag_cases": 530,
+    "pure_carrier_edges": 24714,
+    "registry_face_tests": 45670,
+    "search_optimum_crosschecks": 114
+  },
+  "full_report_sha256": {
+    "abstract": "4dc9b5f24f8fdec9e028788a9fb959aefb352ae09aac39943723e679a088a4f7",
+    "geometry": "cdeef00952e03ef51297e1f9f5ebc85dc4e4d420f26e1e3c152591386a598f7d",
+    "obstructions": "90db19df6fac0503575a5ec9bde0e81d9a1105660064b31b34c5025e43fdcf9d"
+  },
+  "geometry": {
+    "models": [
+      {
+        "all_pairs_bound": 3,
+        "all_partitions_examined": 15,
+        "auxiliary_edges": [[0,1],[2,3]],
+        "best_flat_vertices": 6,
+        "dimension": 3,
+        "graph_search_complete": true,
+        "graph_search_states": 22,
+        "model": "simplex3",
+        "new_route_edges": 6,
+        "nonshortest": 0,
+        "original_facets": 4,
+        "original_vertices": 4,
+        "pairs": 6,
+        "raw_258_edges": 6,
+        "refined_vertices": 6,
+        "shortest_edges": 6,
+        "stationary_steps": 0
+      },
+      {
+        "all_pairs_bound": 4,
+        "all_partitions_examined": 203,
+        "auxiliary_edges": [[0,2],[1,3]],
+        "best_flat_vertices": 8,
+        "dimension": 4,
+        "graph_search_complete": true,
+        "graph_search_states": 13,
+        "model": "cyclic4_6",
+        "new_route_edges": 16,
+        "nonshortest": 0,
+        "original_facets": 6,
+        "original_vertices": 9,
+        "pairs": 10,
+        "raw_258_edges": 16,
+        "refined_vertices": 8,
+        "shortest_edges": 16,
+        "stationary_steps": 0
+      },
+      {
+        "all_pairs_bound": 7,
+        "all_partitions_examined": 877,
+        "auxiliary_edges": [[0,2],[0,5],[1,3],[4,6]],
+        "best_flat_vertices": 12,
+        "dimension": 4,
+        "graph_search_complete": true,
+        "graph_search_states": 67,
+        "model": "cyclic4_7",
+        "new_route_edges": 25,
+        "nonshortest": 0,
+        "original_facets": 7,
+        "original_vertices": 14,
+        "pairs": 12,
+        "raw_258_edges": 25,
+        "refined_vertices": 11,
+        "shortest_edges": 25,
+        "stationary_steps": 1
+      },
+      {
+        "all_pairs_bound": 12,
+        "all_partitions_examined": 4140,
+        "auxiliary_edges": [[0,2],[0,6],[1,3],[1,7],[2,4],[3,5],[4,6],[5,7]],
+        "best_flat_vertices": 20,
+        "dimension": 4,
+        "graph_search_complete": true,
+        "graph_search_states": 154,
+        "model": "cyclic4_8",
+        "new_route_edges": 24,
+        "nonshortest": 0,
+        "original_facets": 8,
+        "original_vertices": 20,
+        "pairs": 12,
+        "raw_258_edges": 24,
+        "refined_vertices": 16,
+        "shortest_edges": 24,
+        "stationary_steps": 3
+      },
+      {
+        "all_pairs_bound": 11,
+        "all_partitions_examined": 115975,
+        "auxiliary_edges": [[0,1],[0,8],[2,3],[4,5],[5,6],[7,8]],
+        "best_flat_vertices": 18,
+        "dimension": 5,
+        "graph_search_complete": true,
+        "graph_search_states": 162,
+        "model": "plateau5_10_from_263",
+        "new_route_edges": 33,
+        "nonshortest": 0,
+        "original_facets": 10,
+        "original_vertices": 36,
+        "pairs": 12,
+        "raw_258_edges": 33,
+        "refined_vertices": 16,
+        "shortest_edges": 33,
+        "stationary_steps": 0
+      }
+    ],
+    "negative_controls": [
+      "wrong_graph",
+      "missing_tube",
+      "wrong_refined_path",
+      "missing_original_vertices",
+      "wrong_input_binding",
+      "incomplete_nonfaces",
+      "missing_intersection_answers",
+      "invalid_degree_label",
+      "nonflag_sparse_graph",
+      "registry_cap"
+    ],
+    "search_disabled_audits": 5,
+    "totals": {
+      "LP_maximizations": 1724,
+      "LP_pivots": 8532,
+      "independent_square_systems": 376,
+      "new_route_edges": 104,
+      "pairs": 52,
+      "raw_258_edges": 104,
+      "refined_edges": 108,
+      "shortest_edges": 104,
+      "stationary_steps": 4
+    }
+  },
+  "obstructions": {
+    "commuting_plateau": {
+      "all_edge_orders_checked": 720,
+      "all_pairs_original_edge_bound": 11,
+      "distinct_weight_trajectories": 87,
+      "edges": [[0,1],[0,8],[2,3],[4,5],[5,6],[7,8]],
+      "graph_search": {
+        "best_refined_vertices": 16,
+        "connected_registries_evaluated": 162,
+        "degree_limit": 2,
+        "nonexistence_in_degree_class": false,
+        "optimal_within_degree_limit": true,
+        "states_examined": 162,
+        "status": "complete"
+      },
+      "increasing_steps_across_orders": 0,
+      "initial_weight": 9,
+      "maximum_weight_along_orders": 9,
+      "model": "original_263_plateau",
+      "neutral_step_occurrences": 420,
+      "original_facet_count": 10,
+      "refined_vertices": 16,
+      "strictly_decreasing_full_orders": 314
+    },
+    "cycle_order_exhaustions": [
+      {
+        "auxiliary_type": "Hamiltonian cycle",
+        "cyclic_four_vertices": 9,
+        "orders_tested": 20160,
+        "status": "exhausted"
+      }
+    ],
+    "density_identity_checks": {
+      "claim_source": "written all-size inequality, not extrapolation",
+      "first_case": {
+        "maximum_cycle_plus_degree_two_edges": 22,
+        "n": 11,
+        "required_union_edges": 25
+      },
+      "from_n": 11,
+      "through_n": 100
+    }
+  },
+  "record_kind": "derived local execution summary; complete reports and certificates regenerate and are bundled",
+  "scope": "Written graphical criterion/exact tests; no Lean or Prove2Me verdict",
+  "status": "PASS"
+}
