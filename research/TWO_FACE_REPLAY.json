@@ -1,0 +1,11 @@
+{
+  "kind": "Derived clean dependency replay, NOT Lean/Actions/platform evidence",
+  "base_sha": "6d9dac0a5f0192759a35448de6919b2de5925a73",
+  "all_numerical_fields_equal_excluding_seconds": true,
+  "all_source_hashes_equal": true,
+  "byte_identical_fixture_files": 10,
+  "byte_identical_pair_tables": 11,
+  "workspace": "fresh five-file dependency workspace, not a full repository clone",
+  "previous_depth2_dimension12_product_completed": false,
+  "stale_development_fixture_excluded": "two_face_product8d.json; final source saves the dimension12 product fixture instead"
+}

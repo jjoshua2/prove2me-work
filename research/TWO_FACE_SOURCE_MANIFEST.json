@@ -1,0 +1,38 @@
+{
+  "development_base": "6d9dac0a5f0192759a35448de6919b2de5925a73",
+  "files": {
+    "research/TWO_FACE_ACQUISITION.md": {
+      "bytes": 22103,
+      "git_blob_sha": "d5c4fb7df12b4a454b88c48d412eb72539db8f9b",
+      "sha256": "1d1c42a8a7300088e9e527eb5da41390195f58f0784c0f3f018bcc199917ce23"
+    },
+    "research/TWO_FACE_ACQUISITION_SUMMARY.json": {
+      "bytes": 11235,
+      "git_blob_sha": "6b34a67a3f3c960f88a36a47845c09565dc8c158",
+      "sha256": "9464a805b107ef0f7fb2e11164ac7da8961a35f356f26d47b5a25999c4c2183f"
+    },
+    "research/TWO_FACE_HANDOFF.md": {
+      "bytes": 5300,
+      "git_blob_sha": "51b06d094f5cde88229318b4d9af3a1ea13c72b6",
+      "sha256": "2770ee95effa6676d0cc0bd789a46ca0c99eac3a050fbd1c970c19f14ba84f24"
+    },
+    "research/TWO_FACE_REPLAY.json": {
+      "bytes": 576,
+      "git_blob_sha": "446a683b638384710d5d36d146954ff2131fba1e",
+      "sha256": "e2d460d0da17c42421afac0cc3faff4f00b8535d5f6a38d0a83b34abe12121cd"
+    },
+    "scripts/test_two_face_acquisition.py": {
+      "bytes": 22282,
+      "git_blob_sha": "4932a6f656257265b791c320fe1323a46616ab07",
+      "sha256": "29137bcf5e5eac39a691e7fce762b063fbc655f99c717898dc9116813c53c031"
+    },
+    "scripts/two_face_acquisition.py": {
+      "bytes": 18449,
+      "git_blob_sha": "aa562f02dd492ecc47479381d637c6292757ebd3",
+      "sha256": "ea395cf665fbbc45f15d4ea9fa35d10bb00efc55795732ff6bfb0fc125d430d7"
+    }
+  },
+  "first_five_blob_hashes_match_GitHub": true,
+  "first_five_read_back_head": "ffe39a2ae37e3a13d02fbb093eeb4fb2502ef5a2",
+  "kind": "Derived file manifest; not Lean or platform evidence"
+}
