@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "scripts/simple_tangent_policy_audit.py": {
+      "git_blob": "73dc32b9753d7d0fe5e67ca1f4fad0534b6b1976",
+      "sha256": "28d7e66e3e2f6d6589e55a2e07e42a7a2081d56860621ba8838db9708a458440"
+    },
+    "scripts/two_face_acquisition.py": {
+      "git_blob": "aa562f02dd492ecc47479381d637c6292757ebd3",
+      "sha256": "ea395cf665fbbc45f15d4ea9fa35d10bb00efc55795732ff6bfb0fc125d430d7"
+    }
+  },
+  "record_kind": "local exact source and dependency identities; no platform verdict",
+  "source_sha256": {
+    "research/WEIGHTED_FACE_RETIREMENT.md": "4ff67f0467eb95e72de10abd7f8d4399572d5697cf9add6bd73e01acd8e36ad1",
+    "research/WEIGHTED_FACE_RETIREMENT_HANDOFF.md": "7f87326b80288d43f19bda9df77c687e4ada1ee25b35cdee323755dcf9f405eb",
+    "research/WEIGHTED_FACE_RETIREMENT_TESTS.json": "33f150561819980464661ed280b8479d69c78efdb6b3bc891216de27bf773994",
+    "scripts/test_weighted_face_retirement.py": "651dbedee09c916a4000a68ac40954110212730654787868be65f6a65d886471",
+    "scripts/three_dimensional_face_accounting.py": "4ad5fbdd8ed479f7a8f443f062eed6e897bee545b2808055106aa04fad6ba64f"
+  }
+}
