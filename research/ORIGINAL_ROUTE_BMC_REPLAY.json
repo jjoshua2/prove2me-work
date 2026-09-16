@@ -1,0 +1,23 @@
+{
+  "excluded_keys": [
+    "seconds",
+    "solve_and_refinement_seconds",
+    "solver_seconds"
+  ],
+  "record_kind": "actual clean two-script replay, not Lean or platform verification",
+  "results": {
+    "fixtures/original_route_bmc_examples.json": {
+      "all_nontiming_fields_match": true,
+      "canonical_without_timings_sha256": "0e751f95b90fbfe7009f3a2392fdce65395d7b4f242b4d7c8a4abbc5d146f9ad",
+      "clean_sha256": "fa5520e87d00e0de97f9837008a586803e805009691f0549d5b84b04f63b9859",
+      "original_sha256": "864395ade366d332004733599d7a7a5fb7f0acb1d1dd1ccfcbd6c98f1b737a6c"
+    },
+    "research/ORIGINAL_ROUTE_BMC_TESTS.json": {
+      "all_nontiming_fields_match": true,
+      "canonical_without_timings_sha256": "663ad2ccadc2883b8fd3bcea03f689313317b9bc5efe77c1890365f996d24dcc",
+      "clean_sha256": "0f6f1f7a5b3dd424a2cf2ef7c76738d603eb46cc67d79c2b8a1bb16dd6036963",
+      "original_sha256": "b7cdfdd84d2270571cfe1cb733f9f65ccc8609b6b9a2f5888ac33b8969825051"
+    }
+  },
+  "status": "PASS"
+}

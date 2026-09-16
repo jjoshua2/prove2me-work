@@ -1,0 +1,258 @@
+{
+  "actual_timeout_queries": 2,
+  "affine_comparisons": [
+    {
+      "edges": 2,
+      "method": "inverse",
+      "positive_row_scaling": false
+    },
+    {
+      "edges": 2,
+      "method": "lazy",
+      "positive_row_scaling": false
+    },
+    {
+      "edges": 2,
+      "method": "inverse",
+      "positive_row_scaling": true
+    },
+    {
+      "edges": 2,
+      "method": "lazy",
+      "positive_row_scaling": true
+    }
+  ],
+  "birkhoff_rank_trap": {
+    "common_rank": 7,
+    "common_tight_rows": [
+      2,
+      5,
+      6,
+      7,
+      9,
+      10,
+      12,
+      13
+    ],
+    "dimension": 9,
+    "genuine_facets": 16,
+    "independent_shortest": 2,
+    "methods": {
+      "inverse": {
+        "budget_one": "UNSAT_SOLVER",
+        "budget_two": "SAT_CERTIFIED",
+        "edges": 2,
+        "rank_exclusions": 0
+      },
+      "lazy": {
+        "budget_one": "UNSAT_SOLVER",
+        "budget_two": "SAT_CERTIFIED",
+        "edges": 2,
+        "rank_exclusions": 1
+      }
+    },
+    "reference_permutation_vertices": 24,
+    "uncorrected_count_only_budget_one": "SAT"
+  },
+  "edge_cases": [
+    "stationary",
+    "interval",
+    "embedded_segment"
+  ],
+  "full_execution_report_sha256": "b7cdfdd84d2270571cfe1cb733f9f65ccc8609b6b9a2f5888ac33b8969825051",
+  "full_fixture_sha256": "864395ade366d332004733599d7a7a5fb7f0acb1d1dd1ccfcbd6c98f1b737a6c",
+  "klee_walkup": [
+    {
+      "basis_systems": 70,
+      "bounded": false,
+      "dimension": 4,
+      "edges": 24,
+      "facets": 8,
+      "independent_shortest": 5,
+      "methods": {
+        "inverse": {
+          "budget4": "UNSAT_SOLVER",
+          "budget5": "SAT_CERTIFIED",
+          "reentries": 1
+        },
+        "lazy": {
+          "budget4": "UNSAT_SOLVER",
+          "budget5": "SAT_CERTIFIED",
+          "reentries": 1
+        }
+      },
+      "name": "unbounded_Klee_Walkup",
+      "vertices": 15
+    },
+    {
+      "basis_systems": 126,
+      "bounded": true,
+      "dimension": 4,
+      "edges": 54,
+      "facets": 9,
+      "independent_shortest": 5,
+      "methods": {
+        "inverse": {
+          "budget4": "UNSAT_SOLVER",
+          "budget5": "SAT_CERTIFIED",
+          "reentries": 0
+        },
+        "lazy": {
+          "budget4": "UNSAT_SOLVER",
+          "budget5": "SAT_CERTIFIED",
+          "reentries": 0
+        }
+      },
+      "name": "capped_Klee_Walkup",
+      "vertices": 27
+    }
+  ],
+  "negative_controls": [
+    "wrong_vertex",
+    "bad_vertex_inverse",
+    "bad_edge_inverse",
+    "repeated_edge_label",
+    "wrong_input_binding",
+    "insufficient_budget",
+    "bool_row_index",
+    "float_coordinate",
+    "forged_dependency_cut",
+    "nonvertex_endpoint",
+    "boolean_budget"
+  ],
+  "negative_solver_queries": 94,
+  "positive_certificates": 110,
+  "record_kind": "derived local summary; full solver reports and certificates regenerate and are bundled",
+  "scope": "Exact fixed-budget formulation and independently audited positive routes; solver UNSAT is not a verified proof.",
+  "small_reference": {
+    "edges": 133,
+    "independent_square_systems": 358,
+    "methods": {
+      "inverse": {
+        "edges": 68,
+        "overdetermined_vertex_visits": 60,
+        "rank_exclusions": 0,
+        "sat_routes": 44,
+        "solver_unsat_below_BFS": 44,
+        "unknown": 0
+      },
+      "lazy": {
+        "edges": 68,
+        "overdetermined_vertex_visits": 60,
+        "rank_exclusions": 3,
+        "sat_routes": 44,
+        "solver_unsat_below_BFS": 44,
+        "unknown": 0
+      }
+    },
+    "models": 7,
+    "pairs": 44,
+    "vertices": 65
+  },
+  "solver_disabled_audits": 110,
+  "solver_version": "4.13.3.0",
+  "status": "PASS",
+  "stress": [
+    {
+      "budget": 5,
+      "dimension": 5,
+      "known_vertices": 32,
+      "method": "inverse",
+      "name": "cube5",
+      "rank_exclusions": 0,
+      "reference_graph_enumerated": false,
+      "rows": 10,
+      "status": "SAT_CERTIFIED"
+    },
+    {
+      "budget": 8,
+      "dimension": 8,
+      "known_vertices": 256,
+      "method": "inverse",
+      "name": "cube8",
+      "rank_exclusions": 0,
+      "reference_graph_enumerated": false,
+      "rows": 16,
+      "status": "SAT_CERTIFIED"
+    },
+    {
+      "budget": 12,
+      "dimension": 12,
+      "known_vertices": 4096,
+      "method": "lazy",
+      "name": "cube12",
+      "rank_exclusions": 0,
+      "reference_graph_enumerated": false,
+      "rows": 24,
+      "status": "SAT_CERTIFIED"
+    },
+    {
+      "budget": 16,
+      "dimension": 16,
+      "known_vertices": 65536,
+      "method": "lazy",
+      "name": "cube16",
+      "rank_exclusions": 0,
+      "reference_graph_enumerated": false,
+      "rows": 32,
+      "status": "SAT_CERTIFIED"
+    },
+    {
+      "budget": 2,
+      "common_tight_rank": 14,
+      "dimension": 16,
+      "encoding_bytes": 1924728,
+      "method": "inverse",
+      "name": "birkhoff5",
+      "reference_graph_enumerated": false,
+      "rows": 25,
+      "status": "SAT_CERTIFIED"
+    },
+    {
+      "budget": 6,
+      "completed_rounds": 1,
+      "dimension": 6,
+      "known_short_route_from_prior_construction": 6,
+      "method": "lazy",
+      "name": "cyclic_polar_6_13",
+      "reason": null,
+      "reference_graph_enumerated": false,
+      "rows": 13,
+      "status": "SAT_CERTIFIED",
+      "timeout_ms_per_round": 2000
+    },
+    {
+      "budget": 8,
+      "completed_rounds": 1,
+      "dimension": 8,
+      "known_short_route_from_prior_construction": 8,
+      "method": "lazy",
+      "name": "cyclic_polar_8_17",
+      "reason": "timeout",
+      "reference_graph_enumerated": false,
+      "rows": 17,
+      "status": "UNKNOWN",
+      "timeout_ms_per_round": 2000
+    },
+    {
+      "budget": 16,
+      "completed_rounds": 1,
+      "dimension": 16,
+      "known_short_route_from_prior_construction": 16,
+      "method": "lazy",
+      "name": "cyclic_polar_16_33",
+      "reason": "timeout",
+      "reference_graph_enumerated": false,
+      "rows": 33,
+      "status": "UNKNOWN",
+      "timeout_ms_per_round": 2000
+    }
+  ],
+  "sympy_test_version": "1.14.0",
+  "unknown_controls": [
+    "solver_unknown_inverse",
+    "solver_unknown_lazy",
+    "encoding_cap",
+    "rank_round_cap"
+  ]
+}
