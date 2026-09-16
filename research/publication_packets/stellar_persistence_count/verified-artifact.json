@@ -1,0 +1,25 @@
+{
+  "head_sha": "97d58b7d247c4661e437058e2ca2be34c15e63d5",
+  "packets": [
+    {
+      "path": "research/publication_packets/stellar_persistence_count",
+      "name": "stellar_persistence_count",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "2b579f45c887c6ccc44b1caaf2a0686c90c9634fd080cb4010af36da18f83959",
+        "driver.lean": "2b579f45c887c6ccc44b1caaf2a0686c90c9634fd080cb4010af36da18f83959",
+        "statement.lean": "1d10de7d55a1e8d8023d578f565b31c315f1f9e6ac9ccb8aa832044028bff0e4",
+        "problem.json": "e0a6507ec553e331f3e88b020b2064d84d0baa06d0eea2110e8e59aaa0b2bb57",
+        "explanation.md": "370151f8c97db21f4fcb7ad9d869b3d32c88e1a2b5eed1fcfc5308c2d6f1da8f"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}
