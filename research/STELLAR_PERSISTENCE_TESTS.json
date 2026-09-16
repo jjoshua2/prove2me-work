@@ -1,0 +1,296 @@
+{
+  "abstract": {
+    "completed_flag_sequences": 106,
+    "complexes": 114,
+    "graphical_pairs": 7296,
+    "literal_stellar_checks": 515,
+    "minimal_descendants_checked": 1204,
+    "nonedge_face_checks": 77,
+    "passing_graphical_pairs": 6766,
+    "random_sequences": 160,
+    "random_subdivision_steps": 948
+  },
+  "controls": {
+    "ancestry_replays": 8,
+    "negative_controls": [
+      "false_descendant",
+      "duplicate_subdivision_label",
+      "subdivide_nonface",
+      "vertex_relabel_as_new_birth",
+      "boolean_label",
+      "false_affine_circuit",
+      "noninterleaved_nonface",
+      "false_original_support_point",
+      "projected_chord_or_jump",
+      "wrong_route_count",
+      "forged_block_move",
+      "false_initial_progress",
+      "boolean_dimension",
+      "false_completion_size"
+    ],
+    "negative_count": 14,
+    "route_search_disabled_replays": 5
+  },
+  "integer_bound_cases_checked": 79,
+  "moment": {
+    "full_small": [
+      {
+        "all_original_rows_exposed": 9,
+        "dimension": 4,
+        "k": 2,
+        "minimal_nonface_witnesses": 4,
+        "original_H_relations_checked": true,
+        "original_facets": 9,
+        "proper_face_witnesses": 6
+      },
+      {
+        "all_original_rows_exposed": 13,
+        "dimension": 6,
+        "k": 3,
+        "minimal_nonface_witnesses": 15,
+        "original_H_relations_checked": true,
+        "original_facets": 13,
+        "proper_face_witnesses": 20
+      },
+      {
+        "all_original_rows_exposed": 17,
+        "dimension": 8,
+        "k": 4,
+        "minimal_nonface_witnesses": 56,
+        "original_H_relations_checked": true,
+        "original_facets": 17,
+        "proper_face_witnesses": 70
+      },
+      {
+        "all_original_rows_exposed": 21,
+        "dimension": 10,
+        "k": 5,
+        "minimal_nonface_witnesses": 210,
+        "original_H_relations_checked": true,
+        "original_facets": 21,
+        "proper_face_witnesses": 252
+      }
+    ],
+    "large_sampled": [
+      {
+        "certified_minimal_nonface_subfamily": 11440,
+        "diameter_source": "Maksimenko 2009, DOI 10.4213/dm1054; not proved by this lower-bound code",
+        "full_high_dimensional_graph_enumerated": false,
+        "k": 8,
+        "minimum_global_M_minus_d_certificate": 137,
+        "nonfaces_individually_checked": 3,
+        "original_dimension": 16,
+        "original_facets": 33,
+        "proper_supports_individually_checked": 3,
+        "published_exact_original_diameter": 16,
+        "required_final_flag_vertices": 153,
+        "required_forward_subdivisions": 120,
+        "whole_exponential_catalogue_enumerated": false
+      },
+      {
+        "certified_minimal_nonface_subfamily": 565722720,
+        "diameter_source": "Maksimenko 2009, DOI 10.4213/dm1054; not proved by this lower-bound code",
+        "full_high_dimensional_graph_enumerated": false,
+        "k": 16,
+        "minimum_global_M_minus_d_certificate": 33607,
+        "nonfaces_individually_checked": 3,
+        "original_dimension": 32,
+        "original_facets": 65,
+        "proper_supports_individually_checked": 3,
+        "published_exact_original_diameter": 32,
+        "required_final_flag_vertices": 33639,
+        "required_forward_subdivisions": 33574,
+        "whole_exponential_catalogue_enumerated": false
+      },
+      {
+        "certified_minimal_nonface_subfamily": 1777090076065542336,
+        "diameter_source": "Maksimenko 2009, DOI 10.4213/dm1054; not proved by this lower-bound code",
+        "full_high_dimensional_graph_enumerated": false,
+        "k": 32,
+        "minimum_global_M_minus_d_certificate": 1885253277,
+        "nonfaces_individually_checked": 3,
+        "original_dimension": 64,
+        "original_facets": 129,
+        "proper_supports_individually_checked": 3,
+        "published_exact_original_diameter": 64,
+        "required_final_flag_vertices": 1885253341,
+        "required_forward_subdivisions": 1885253212,
+        "whole_exponential_catalogue_enumerated": false
+      }
+    ],
+    "numeric_lower_bounds": [
+      {
+        "certified_minimal_nonface_subfamily": 4,
+        "diameter_source": "Maksimenko 2009, DOI 10.4213/dm1054; not proved by this lower-bound code",
+        "full_high_dimensional_graph_enumerated": false,
+        "k": 2,
+        "minimum_global_M_minus_d_certificate": 5,
+        "original_dimension": 4,
+        "original_facets": 9,
+        "published_exact_original_diameter": 4,
+        "required_final_flag_vertices": 9,
+        "required_forward_subdivisions": 0
+      },
+      {
+        "certified_minimal_nonface_subfamily": 56,
+        "diameter_source": "Maksimenko 2009, DOI 10.4213/dm1054; not proved by this lower-bound code",
+        "full_high_dimensional_graph_enumerated": false,
+        "k": 4,
+        "minimum_global_M_minus_d_certificate": 9,
+        "original_dimension": 8,
+        "original_facets": 17,
+        "published_exact_original_diameter": 8,
+        "required_final_flag_vertices": 17,
+        "required_forward_subdivisions": 0
+      },
+      {
+        "certified_minimal_nonface_subfamily": 11440,
+        "diameter_source": "Maksimenko 2009, DOI 10.4213/dm1054; not proved by this lower-bound code",
+        "full_high_dimensional_graph_enumerated": false,
+        "k": 8,
+        "minimum_global_M_minus_d_certificate": 137,
+        "original_dimension": 16,
+        "original_facets": 33,
+        "published_exact_original_diameter": 16,
+        "required_final_flag_vertices": 153,
+        "required_forward_subdivisions": 120
+      },
+      {
+        "certified_minimal_nonface_subfamily": 565722720,
+        "diameter_source": "Maksimenko 2009, DOI 10.4213/dm1054; not proved by this lower-bound code",
+        "full_high_dimensional_graph_enumerated": false,
+        "k": 16,
+        "minimum_global_M_minus_d_certificate": 33607,
+        "original_dimension": 32,
+        "original_facets": 65,
+        "published_exact_original_diameter": 32,
+        "required_final_flag_vertices": 33639,
+        "required_forward_subdivisions": 33574
+      },
+      {
+        "certified_minimal_nonface_subfamily": 1777090076065542336,
+        "diameter_source": "Maksimenko 2009, DOI 10.4213/dm1054; not proved by this lower-bound code",
+        "full_high_dimensional_graph_enumerated": false,
+        "k": 32,
+        "minimum_global_M_minus_d_certificate": 1885253277,
+        "original_dimension": 64,
+        "original_facets": 129,
+        "published_exact_original_diameter": 64,
+        "required_final_flag_vertices": 1885253341,
+        "required_forward_subdivisions": 1885253212
+      },
+      {
+        "certified_minimal_nonface_subfamily": 23582666872052266206656578733667004800,
+        "diameter_source": "Maksimenko 2009, DOI 10.4213/dm1054; not proved by this lower-bound code",
+        "full_high_dimensional_graph_enumerated": false,
+        "k": 64,
+        "minimum_global_M_minus_d_certificate": 6867702217197869353,
+        "original_dimension": 128,
+        "original_facets": 257,
+        "published_exact_original_diameter": 128,
+        "required_final_flag_vertices": 6867702217197869481,
+        "required_forward_subdivisions": 6867702217197869224
+      }
+    ],
+    "small_nonfaces": 285,
+    "small_proper_faces": 348
+  },
+  "routes": {
+    "large_direct_routes": [
+      {
+        "all_source_target_facets_disjoint": true,
+        "certified_minimal_nonface_subfamily": 11440,
+        "diameter_source": "Maksimenko 2009, DOI 10.4213/dm1054; not proved by this lower-bound code",
+        "edges": 16,
+        "full_high_dimensional_graph_enumerated": false,
+        "k": 8,
+        "minimum_global_M_minus_d_certificate": 137,
+        "original_dimension": 16,
+        "original_facets": 33,
+        "original_vertices_checked": 17,
+        "published_exact_original_diameter": 16,
+        "required_final_flag_vertices": 153,
+        "required_forward_subdivisions": 120,
+        "scope": "exact original facet polynomials, supplied block progress and adjacency, not full graph enumeration",
+        "shortest_by_disjoint_facet_drop": true,
+        "status": "PASS"
+      },
+      {
+        "all_source_target_facets_disjoint": true,
+        "certified_minimal_nonface_subfamily": 565722720,
+        "diameter_source": "Maksimenko 2009, DOI 10.4213/dm1054; not proved by this lower-bound code",
+        "edges": 32,
+        "full_high_dimensional_graph_enumerated": false,
+        "k": 16,
+        "minimum_global_M_minus_d_certificate": 33607,
+        "original_dimension": 32,
+        "original_facets": 65,
+        "original_vertices_checked": 33,
+        "published_exact_original_diameter": 32,
+        "required_final_flag_vertices": 33639,
+        "required_forward_subdivisions": 33574,
+        "scope": "exact original facet polynomials, supplied block progress and adjacency, not full graph enumeration",
+        "shortest_by_disjoint_facet_drop": true,
+        "status": "PASS"
+      },
+      {
+        "all_source_target_facets_disjoint": true,
+        "certified_minimal_nonface_subfamily": 1777090076065542336,
+        "diameter_source": "Maksimenko 2009, DOI 10.4213/dm1054; not proved by this lower-bound code",
+        "edges": 64,
+        "full_high_dimensional_graph_enumerated": false,
+        "k": 32,
+        "minimum_global_M_minus_d_certificate": 1885253277,
+        "original_dimension": 64,
+        "original_facets": 129,
+        "original_vertices_checked": 65,
+        "published_exact_original_diameter": 64,
+        "required_final_flag_vertices": 1885253341,
+        "required_forward_subdivisions": 1885253212,
+        "scope": "exact original facet polynomials, supplied block progress and adjacency, not full graph enumeration",
+        "shortest_by_disjoint_facet_drop": true,
+        "status": "PASS"
+      }
+    ],
+    "small_graphs": [
+      {
+        "all_active_sets_examined": 126,
+        "all_unordered_pairs": 351,
+        "delivered_edges": 1000,
+        "edges_in_graph": 54,
+        "exact_graph_diameter": 4,
+        "k": 2,
+        "nonshortest_paths": 64,
+        "original_facets": 9,
+        "pairs_tested": 351,
+        "shortest_total": 909,
+        "vertices": 27
+      },
+      {
+        "all_active_sets_examined": 1716,
+        "all_unordered_pairs": 12090,
+        "delivered_edges": 576,
+        "edges_in_graph": 468,
+        "exact_graph_diameter": 6,
+        "k": 3,
+        "nonshortest_paths": 46,
+        "original_facets": 13,
+        "pairs_tested": 120,
+        "shortest_total": 460,
+        "vertices": 156
+      }
+    ]
+  },
+  "scope": "Written original-nonface persistence and exact checks, not Lean or Prove2Me",
+  "seconds": 1.8409,
+  "source_sha256": {
+    "defect_incidence_compression.py": "9c40bd20f16c2092c3b7970511aa5d210513d4c078b36494b428933c85e0a5f2",
+    "exact_farkas_lp.py": "65a8731600a6750b5334307415cd37c79d201d47e179bea5cdcbd511363006d0",
+    "graphical_flag_refinement.py": "a8e079b025313c8ccdd19f343052bfa996398a446fda5cd3d46708a5bcc6d3cc",
+    "original_facet_segments.py": "c838c5e62bc0549e948d81ff1d509f76ff48082bbe0b441aa5f72cffd0384ace",
+    "simple_tangent_policy_audit.py": "28d7e66e3e2f6d6589e55a2e07e42a7a2081d56860621ba8838db9708a458440",
+    "stellar_nonface_persistence.py": "87b23046dd4b8150fd4525b0c66e10f790d2077d0d35cc599eb5c1f0b9556d81",
+    "test_stellar_nonface_persistence.py": "a528230096b4e2932802b7f87624a5e5214151d819459bb741177fdd8b7f4f72"
+  },
+  "status": "PASS"
+}

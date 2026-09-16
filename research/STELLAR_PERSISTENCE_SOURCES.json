@@ -1,0 +1,63 @@
+{
+  "base_sha": "8f7ae8d325e38b5fce9753a8b7efb995b8a9af5b",
+  "new_files": {
+    "research/STELLAR_NONFACE_PERSISTENCE.md": {
+      "bytes": 19271,
+      "git_blob": "6939dfca02fc14904b05bd834c206a1a960b6d10",
+      "sha256": "2ba898121e6585dd5cb65a663e523be1aa7e998c0f8d71f0051a61ef9874a73d"
+    },
+    "research/STELLAR_PERSISTENCE_HANDOFF.md": {
+      "bytes": 6073,
+      "git_blob": "027c23b0e488f79cae44c80951ca5ae6eaad54f9",
+      "sha256": "bf7d2ce57e2713993136718d1bcf2a16e491579b347dac22e29f3f8fb36978b8"
+    },
+    "research/STELLAR_PERSISTENCE_REPLAY.json": {
+      "bytes": 656,
+      "git_blob": "4ddbc6932d66dae01b8b86a8b8852218265f877f",
+      "sha256": "584dbe7a41b322ebf090ac269dc1903d51d18ae620c44b05de2922c44a1e1fec"
+    },
+    "research/STELLAR_PERSISTENCE_TESTS.json": {
+      "bytes": 11419,
+      "git_blob": "52197f4b6ff8fad6c96526f9cb6c224c0cf17618",
+      "sha256": "81d5b8f5b727a392bf36aff4fe46d10e464c526e37226d165aed70cc4830d29c"
+    },
+    "scripts/stellar_nonface_persistence.py": {
+      "bytes": 15524,
+      "git_blob": "ec9876aea978af1f8cd3a4accb953ad42b049b03",
+      "sha256": "87b23046dd4b8150fd4525b0c66e10f790d2077d0d35cc599eb5c1f0b9556d81"
+    },
+    "scripts/test_stellar_nonface_persistence.py": {
+      "bytes": 13704,
+      "git_blob": "8a2ff119a061d87c0bdb8fd32090eba84b7a2eae",
+      "sha256": "a528230096b4e2932802b7f87624a5e5214151d819459bb741177fdd8b7f4f72"
+    }
+  },
+  "record_kind": "actual local source identities; no Lean or platform verdict",
+  "unchanged_dependencies": {
+    "scripts/defect_incidence_compression.py": {
+      "bytes": 13579,
+      "git_blob": "c9c3d07b5517ed263571500870595693a47b44fb",
+      "sha256": "9c40bd20f16c2092c3b7970511aa5d210513d4c078b36494b428933c85e0a5f2"
+    },
+    "scripts/exact_farkas_lp.py": {
+      "bytes": 7028,
+      "git_blob": "ea511a79164d953792942d8be3dd3537646738d6",
+      "sha256": "65a8731600a6750b5334307415cd37c79d201d47e179bea5cdcbd511363006d0"
+    },
+    "scripts/graphical_flag_refinement.py": {
+      "bytes": 13164,
+      "git_blob": "d97c72034c9ac8ee69af9d365b54e86d5e163150",
+      "sha256": "a8e079b025313c8ccdd19f343052bfa996398a446fda5cd3d46708a5bcc6d3cc"
+    },
+    "scripts/original_facet_segments.py": {
+      "bytes": 16550,
+      "git_blob": "a53ad5cfc43b085d50733dbe96aabea8de4b9a51",
+      "sha256": "c838c5e62bc0549e948d81ff1d509f76ff48082bbe0b441aa5f72cffd0384ace"
+    },
+    "scripts/simple_tangent_policy_audit.py": {
+      "bytes": 8284,
+      "git_blob": "73dc32b9753d7d0fe5e67ca1f4fad0534b6b1976",
+      "sha256": "28d7e66e3e2f6d6589e55a2e07e42a7a2081d56860621ba8838db9708a458440"
+    }
+  }
+}
