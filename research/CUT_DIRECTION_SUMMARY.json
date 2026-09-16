@@ -1,0 +1,272 @@
+{
+  "affine": [
+    {
+      "edges": 4,
+      "name": "box3_one_cut",
+      "same_affine_mapped_route": true
+    },
+    {
+      "edges": 2,
+      "name": "box3_two_cuts_nonsimple",
+      "same_affine_mapped_route": true
+    },
+    {
+      "edges": 4,
+      "name": "interval4_cut",
+      "same_affine_mapped_route": true
+    },
+    {
+      "edges": 6,
+      "name": "permuta4_two_cuts",
+      "same_affine_mapped_route": true
+    }
+  ],
+  "arbitrary_hidden_base_recognition_claimed": false,
+  "candidate_directions_all_realized_claimed": false,
+  "full_report_sha256": "0f18babd4ff57208049daa70eab20e6befce242917c25d000f5c64199e448dad",
+  "general_Polynomial_Hirsch_bound_claimed": false,
+  "kind": "Derived compact summary; the full five-stage report and exact fixtures regenerate from the unchanged test script.",
+  "large": [
+    {
+      "LP_calls": 13,
+      "LP_pivots": 73,
+      "added_halfspace_rows": 1,
+      "base_lines": 8,
+      "catalogue_lines": 36,
+      "dimension": 8,
+      "direction_bound": 36,
+      "distinct_cut_normal_lines": 1,
+      "full_direction_chambers": 15,
+      "original_edges": 4,
+      "sample_queries": 9
+    },
+    {
+      "LP_calls": 29,
+      "LP_pivots": 292,
+      "added_halfspace_rows": 1,
+      "base_lines": 16,
+      "catalogue_lines": 136,
+      "dimension": 16,
+      "direction_bound": 136,
+      "distinct_cut_normal_lines": 1,
+      "full_direction_chambers": 53,
+      "original_edges": 7,
+      "sample_queries": 22
+    },
+    {
+      "LP_calls": 69,
+      "LP_pivots": 1267,
+      "added_halfspace_rows": 1,
+      "base_lines": 32,
+      "catalogue_lines": 528,
+      "dimension": 32,
+      "direction_bound": 528,
+      "distinct_cut_normal_lines": 1,
+      "full_direction_chambers": 186,
+      "original_edges": 14,
+      "sample_queries": 55
+    },
+    {
+      "LP_calls": 79,
+      "LP_pivots": 219,
+      "added_halfspace_rows": 2,
+      "base_lines": 12,
+      "catalogue_lines": 306,
+      "dimension": 12,
+      "direction_bound": 364,
+      "distinct_cut_normal_lines": 2,
+      "full_direction_chambers": 261,
+      "original_edges": 10,
+      "sample_queries": 69
+    },
+    {
+      "LP_calls": 220,
+      "LP_pivots": 634,
+      "added_halfspace_rows": 2,
+      "base_lines": 24,
+      "catalogue_lines": 2470,
+      "dimension": 24,
+      "direction_bound": 2600,
+      "distinct_cut_normal_lines": 2,
+      "full_direction_chambers": 2039,
+      "original_edges": 20,
+      "sample_queries": 200
+    }
+  ],
+  "large_original_graphs_enumerated": false,
+  "negative": {
+    "LP_disabled_serialized_audit": true,
+    "names": [
+      "omit_direction",
+      "false_direction_witness",
+      "omit_edge",
+      "false_inverse",
+      "wrong_edge_rows",
+      "false_wall",
+      "negative_dual",
+      "wrong_cut_direction_index",
+      "dropped_common_face",
+      "wrong_exposure_parameter",
+      "changed_original_H",
+      "unproved_base_cover",
+      "catalogue_cap",
+      "infeasible_endpoint",
+      "float_cut",
+      "nonvertex_endpoint",
+      "diagonal_not_edge",
+      "omitted_cut_overlap_exclusion",
+      "false_overlap_separation",
+      "intersecting_cut_faces_not_disjoint"
+    ],
+    "parallel_cut_normal_lines": 1,
+    "parallel_cut_rows": 3,
+    "rejected": 20
+  },
+  "old_Bland_polynomial_pivot_bound_claimed": false,
+  "overlap": {
+    "comparison_shortest_claimed": false,
+    "cutoff_sharpness": [
+      {
+        "cuts": 2,
+        "dimension": 3,
+        "full_support_direction": [
+          1,
+          -1,
+          1
+        ],
+        "route_edges": 1
+      },
+      {
+        "cuts": 3,
+        "dimension": 4,
+        "full_support_direction": [
+          1,
+          -1,
+          1,
+          -1
+        ],
+        "route_edges": 1
+      },
+      {
+        "cuts": 5,
+        "dimension": 6,
+        "full_support_direction": [
+          1,
+          -1,
+          1,
+          -1,
+          1,
+          -1
+        ],
+        "route_edges": 1
+      }
+    ],
+    "independent_d4_distance": 4,
+    "independent_d4_reference": {
+      "graph_edges": 68,
+      "intrinsic_dimension": 4,
+      "nonsimple_vertices": 0,
+      "reference_genuine_facets": 14,
+      "square_systems": 1001,
+      "vertices": 34
+    },
+    "many_disjoint_cuts": [
+      {
+        "LP_calls": 36,
+        "LP_pivots": 75,
+        "added_halfspace_rows": 6,
+        "base_lines": 4,
+        "catalogue_lines": 38,
+        "dimension": 4,
+        "direction_bound": 40,
+        "distinct_cut_normal_lines": 6,
+        "explicit_comparison_edges": 7,
+        "full_direction_chambers": 36,
+        "genuine_facets_by_truncation_proof": 14,
+        "original_edges": 9,
+        "overlap_LP_calls": 0,
+        "overlap_LP_pivots": 0,
+        "sample_queries": 27,
+        "separated_cut_pairs": 15,
+        "unrestricted_vandermonde_bound": 120,
+        "vertices_by_truncation_proof": 34
+      },
+      {
+        "LP_calls": 131,
+        "LP_pivots": 338,
+        "added_halfspace_rows": 14,
+        "base_lines": 8,
+        "catalogue_lines": 358,
+        "dimension": 8,
+        "direction_bound": 400,
+        "distinct_cut_normal_lines": 14,
+        "explicit_comparison_edges": 15,
+        "full_direction_chambers": 355,
+        "genuine_facets_by_truncation_proof": 30,
+        "original_edges": 21,
+        "overlap_LP_calls": 0,
+        "overlap_LP_pivots": 0,
+        "sample_queries": 110,
+        "separated_cut_pairs": 91,
+        "unrestricted_vandermonde_bound": 170544,
+        "vertices_by_truncation_proof": 354
+      },
+      {
+        "LP_calls": 406,
+        "LP_pivots": 1648,
+        "added_halfspace_rows": 30,
+        "base_lines": 16,
+        "catalogue_lines": 2660,
+        "dimension": 16,
+        "direction_bound": 3616,
+        "distinct_cut_normal_lines": 30,
+        "explicit_comparison_edges": 31,
+        "full_direction_chambers": 2661,
+        "genuine_facets_by_truncation_proof": 62,
+        "original_edges": 45,
+        "overlap_LP_calls": 0,
+        "overlap_LP_pivots": 0,
+        "sample_queries": 361,
+        "separated_cut_pairs": 435,
+        "unrestricted_vandermonde_bound": 511738760544,
+        "vertices_by_truncation_proof": 65986
+      }
+    ],
+    "tiny_slack_epsilon_powers": [
+      20,
+      80,
+      160
+    ]
+  },
+  "scope": "Written cut-closure and overlap proof plus exact original-edge software checks; no Lean or Prove2Me verdict.",
+  "small": {
+    "all_pairs_only_for_models_with_at_most_36_pairs": true,
+    "complete_all_H_bases_enumerated": true,
+    "models": 8,
+    "otherwise_36_seeded_pairs_plus_stationary": true,
+    "totals": {
+      "LP_calls": 1519,
+      "LP_pivots": 3041,
+      "all_edge_direction_checks": 137,
+      "common_rows_checks": 534,
+      "full_direction_chambers": 1255,
+      "graph_edges": 137,
+      "new_direction_edges": 56,
+      "nonshortest": 38,
+      "original_edges": 420,
+      "routes": 173,
+      "sample_queries": 1099,
+      "shortest_edges": 372,
+      "square_systems": 1076,
+      "vertices": 86
+    }
+  },
+  "source_sha256": {
+    "cut_direction_routes.py": "ac451294c8dc82839417e36318026939dd06c21101d919faa03c06a28219d672",
+    "endpoint_transfer_routes.py": "20116065bcca4f3bf87d96368beb45ad69170e698760b7818bca86d7246ac10f",
+    "exact_farkas_lp.py": "65a8731600a6750b5334307415cd37c79d201d47e179bea5cdcbd511363006d0",
+    "simple_tangent_policy_audit.py": "28d7e66e3e2f6d6589e55a2e07e42a7a2081d56860621ba8838db9708a458440",
+    "test_cut_direction_routes.py": "c439d7fdadf71923a1a018c5f68b25c81a688136a1fe944331ed3b13dae5893e"
+  },
+  "status": "PASS"
+}
