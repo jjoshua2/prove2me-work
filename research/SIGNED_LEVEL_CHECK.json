@@ -1,0 +1,155 @@
+{
+  "actual_direction_family": [
+    {
+      "all_pairs_level_bound": 12,
+      "dimension": 4,
+      "distinct_edge_lines_lower_bound": 4,
+      "explicit_sample_edges_checked": 4,
+      "genuine_facets": 10,
+      "scope": "The exponential count is a proved family formula, not enumerated. Classical stable-set bounds are stronger."
+    },
+    {
+      "all_pairs_level_bound": 24,
+      "dimension": 8,
+      "distinct_edge_lines_lower_bound": 120,
+      "explicit_sample_edges_checked": 6,
+      "genuine_facets": 36,
+      "scope": "The exponential count is a proved family formula, not enumerated. Classical stable-set bounds are stronger."
+    },
+    {
+      "all_pairs_level_bound": 48,
+      "dimension": 16,
+      "distinct_edge_lines_lower_bound": 32752,
+      "explicit_sample_edges_checked": 6,
+      "genuine_facets": 136,
+      "scope": "The exponential count is a proved family formula, not enumerated. Classical stable-set bounds are stronger."
+    },
+    {
+      "all_pairs_level_bound": 96,
+      "dimension": 32,
+      "distinct_edge_lines_lower_bound": 2147483616,
+      "explicit_sample_edges_checked": 6,
+      "genuine_facets": 528,
+      "scope": "The exponential count is a proved family formula, not enumerated. Classical stable-set bounds are stronger."
+    }
+  ],
+  "angle_checks": {
+    "positive_distance_checks": 8079,
+    "total_projection_checks": 11716,
+    "zero_distances": 3637
+  },
+  "baseline": "e455a8da7080786f7d622a44c80cc970f1e2922e",
+  "classical_scope_correction": "Global signed-root delta>=1/sqrt(2d), so Dadush-Haehnle already supplies polynomial diameter without a small RHS alphabet. Implemented level route remains fixed-q and is not that shadow algorithm.",
+  "initial_combined_large_command": "45-second harness timeout after five models; final source split into independently successful stages; not a negative mathematical result",
+  "kind": "derived_compact_research_summary",
+  "large_routes": [
+    {
+      "all_pairs_bound": 768,
+      "coordinate_levels": 49,
+      "dimension": 16,
+      "distinct_RHS_magnitudes": 1,
+      "endpoint_phase_bound": 33,
+      "genuine_original_facets": 47,
+      "name": "chain16_tiny",
+      "original_edges": 16,
+      "original_row_reentries": 0,
+      "original_rows": 47,
+      "shortest_by_simple_target_facet_bound": 16,
+      "simultaneously_active_cut_rows_at_target": 15
+    },
+    {
+      "all_pairs_bound": 3072,
+      "coordinate_levels": 97,
+      "dimension": 32,
+      "distinct_RHS_magnitudes": 1,
+      "endpoint_phase_bound": 65,
+      "genuine_original_facets": 95,
+      "name": "chain32_tiny",
+      "original_edges": 32,
+      "original_row_reentries": 0,
+      "original_rows": 95,
+      "shortest_by_simple_target_facet_bound": 32,
+      "simultaneously_active_cut_rows_at_target": 31
+    },
+    {
+      "all_pairs_bound": 48,
+      "coordinate_levels": 4,
+      "dimension": 16,
+      "distinct_RHS_magnitudes": 1,
+      "endpoint_phase_bound": 18,
+      "genuine_original_facets": 46,
+      "name": "wheel16",
+      "original_edges": 10,
+      "original_row_reentries": 10,
+      "original_rows": 62,
+      "redundant_box_upper_rows": 16,
+      "separate_shortest_comparison": 2,
+      "simultaneously_active_cut_rows_at_target": 30
+    },
+    {
+      "all_pairs_bound": 96,
+      "coordinate_levels": 4,
+      "dimension": 32,
+      "distinct_RHS_magnitudes": 1,
+      "endpoint_phase_bound": 34,
+      "genuine_original_facets": 94,
+      "name": "wheel32",
+      "original_edges": 18,
+      "original_row_reentries": 18,
+      "original_rows": 126,
+      "redundant_box_upper_rows": 32,
+      "separate_shortest_comparison": 2,
+      "simultaneously_active_cut_rows_at_target": 62
+    },
+    {
+      "all_pairs_bound": 3216,
+      "coordinate_levels": 202,
+      "dimension": 16,
+      "distinct_RHS_magnitudes": 2,
+      "endpoint_phase_bound": 876,
+      "name": "mixed16",
+      "original_edges": 16,
+      "original_row_reentries": 9,
+      "original_rows": 55,
+      "simultaneously_active_cut_rows_at_target": 23
+    },
+    {
+      "all_pairs_bound": 7616,
+      "coordinate_levels": 239,
+      "dimension": 32,
+      "distinct_RHS_magnitudes": 2,
+      "endpoint_phase_bound": 1825,
+      "name": "mixed32",
+      "original_edges": 32,
+      "original_row_reentries": 17,
+      "original_rows": 111,
+      "simultaneously_active_cut_rows_at_target": 47
+    }
+  ],
+  "large_totals": {
+    "LP_calls": 700,
+    "LP_pivots": 15622,
+    "edges": 124,
+    "routes": 6
+  },
+  "negative_controls": 19,
+  "saved_audit": {
+    "LP_inverse_elimination_and_route_producers_disabled": true,
+    "comparison_routes": 2,
+    "saved_routes": 13,
+    "status": "PASS"
+  },
+  "scope": "Written proof, exact routes and class specialization of classical results; no novelty/shortestness/unrestricted Hirsch/Lean claim.",
+  "small": {
+    "BFS_edges": 314,
+    "active_bases": 2253,
+    "edges": 333,
+    "graph_edges": 168,
+    "models": 14,
+    "nonshortest": 17,
+    "routes": 201,
+    "row_reentries": 6,
+    "vertices": 103
+  },
+  "status": "PASS"
+}
