@@ -1,0 +1,65 @@
+{
+  "all_reports_and_fixtures_byte_identical": true,
+  "files": [
+    {
+      "bytes": 293656,
+      "path": "research/fixtures/affine-conditioning/balanced_simplex_routes.json",
+      "sha256": "a5a90ddb4c51ac9f369686ea4ae8e3ff2e23451f42ff069a85918da4398cf50a"
+    },
+    {
+      "bytes": 26155,
+      "path": "research/fixtures/affine-conditioning/dense_affine_routes.json",
+      "sha256": "8c68ab0569da3981c3734dba3efdeb7597d2aa3fc198e20f57bb6e9a5dae46f5"
+    },
+    {
+      "bytes": 5608,
+      "path": "research/fixtures/affine-conditioning/gain_certificates.json",
+      "sha256": "55cc4ad825cb93d1c684e7184ac0ce16e93e5c1dd674eacdaa77be6803a5d747"
+    },
+    {
+      "bytes": 3604,
+      "path": "research/fixtures/affine-conditioning/metric_examples.json",
+      "sha256": "9761061a5762a439530da4c36c06b783d1d061b51a68d729fc7273e30467e3d3"
+    },
+    {
+      "bytes": 1806424,
+      "path": "research/fixtures/affine-conditioning/product_routes.json",
+      "sha256": "ca9ea3dee6b752c0d252a014e1a86cf142cfb21f8378b436465b7818ca9cba84"
+    },
+    {
+      "bytes": 1782158,
+      "path": "research/fixtures/affine-conditioning/truncated_routes.json",
+      "sha256": "cfadb80ab5952beca96d6ccbf829135eafd8484feb7929c321d441593f614064"
+    },
+    {
+      "bytes": 838,
+      "path": "research/verification/affine-conditioning/audit.json",
+      "sha256": "a5c0f88085faf08ab072c39104cc9d37028dd7ce633b5b3aa412b0f148c71567"
+    },
+    {
+      "bytes": 881,
+      "path": "research/verification/affine-conditioning/gain.json",
+      "sha256": "af6bbf13eedd8aec72114c63e9d19ba703b53821c2e6fde06d981a3bd3a98daa"
+    },
+    {
+      "bytes": 3659,
+      "path": "research/verification/affine-conditioning/geometry.json",
+      "sha256": "f5c60c1d2b1e1db1fb5a59641cdcbdb3c6ee3e25cfd1fc4e2d0287591d8af71f"
+    },
+    {
+      "bytes": 562,
+      "path": "research/verification/affine-conditioning/metric.json",
+      "sha256": "560f383cb709bbd78502616464c91e1ddc887048a93f817e1d2e080ee17a9329"
+    },
+    {
+      "bytes": 802,
+      "path": "research/verification/affine-conditioning/negative.json",
+      "sha256": "140772b9aaafe891c9c0e823026ea2fdadf373a927911e39cbb990654b19cce5"
+    }
+  ],
+  "fixture_files": 6,
+  "kind": "derived_clean_three_source_replay",
+  "not_a_Lean_or_platform_verdict": true,
+  "report_files": 5,
+  "status": "PASS"
+}

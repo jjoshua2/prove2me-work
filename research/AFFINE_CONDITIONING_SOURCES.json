@@ -1,0 +1,26 @@
+{
+  "baseline": "338d1f9e1cc20df86998efa5f0dc6e92916329e8",
+  "both_new_remote_blob_ids_match": true,
+  "kind": "derived_source_manifest",
+  "sources": {
+    "scripts/affine_conditioning_certificates.py": {
+      "bytes": 15826,
+      "git_blob": "cb1dd140e8a220afa9d351c96ccec125df8829b7",
+      "new": true,
+      "sha256": "c082446197a75ee5d7b035ebed70dcea1daff5044452d9b1a92c9cea27aad9b6"
+    },
+    "scripts/original_route_exclusion.py": {
+      "bytes": 17290,
+      "git_blob": "a764196e54970825823cad4575b947b507f95951",
+      "new": false,
+      "sha256": "b0e5eff7a96ca336f62d69a1ad24ddf2919d8ea43077b6150e76ecf6f7c869fe"
+    },
+    "scripts/test_affine_conditioning_certificates.py": {
+      "bytes": 14570,
+      "git_blob": "9da333041f9414e1cd03de111fdf8d9551247c80",
+      "new": true,
+      "sha256": "650d63edb432b9239f422a4142a8798c2b3e4f82f2ffd0c502883de9ccdd5360"
+    }
+  },
+  "tested_new_source_readback_head": "aa51344110767183405d8a38da9f7338cdcbbc1f"
+}
