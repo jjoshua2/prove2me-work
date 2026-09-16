@@ -1,0 +1,199 @@
+{
+  "Klee_Minty_cases": 8,
+  "Klee_Minty_details": [
+    {
+      "coordinate_levels": [
+        2
+      ],
+      "dimension": 1,
+      "parallel_pairs": 1,
+      "point_count": 2
+    },
+    {
+      "coordinate_levels": [
+        4,
+        4
+      ],
+      "dimension": 2,
+      "parallel_pairs": 2,
+      "point_count": 4
+    },
+    {
+      "coordinate_levels": [
+        8,
+        8,
+        8
+      ],
+      "dimension": 3,
+      "parallel_pairs": 4,
+      "point_count": 8
+    },
+    {
+      "coordinate_levels": [
+        15,
+        15,
+        16,
+        16
+      ],
+      "dimension": 4,
+      "parallel_pairs": 8,
+      "point_count": 16
+    },
+    {
+      "coordinate_levels": [
+        32,
+        32,
+        32,
+        32,
+        32
+      ],
+      "dimension": 5,
+      "parallel_pairs": 16,
+      "point_count": 32
+    },
+    {
+      "coordinate_levels": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64
+      ],
+      "dimension": 6,
+      "parallel_pairs": 32,
+      "point_count": 64
+    },
+    {
+      "coordinate_levels": [
+        127,
+        127,
+        127,
+        127,
+        127,
+        128,
+        128
+      ],
+      "dimension": 7,
+      "parallel_pairs": 64,
+      "point_count": 128
+    },
+    {
+      "coordinate_levels": [
+        252,
+        251,
+        253,
+        255,
+        255,
+        256,
+        255,
+        256
+      ],
+      "dimension": 8,
+      "parallel_pairs": 128,
+      "point_count": 256
+    }
+  ],
+  "all_embedding_cases": 88,
+  "countermodels": [
+    {
+      "T": 1,
+      "V": [
+        0,
+        1
+      ],
+      "g": 1,
+      "lambda": [
+        1,
+        -1
+      ],
+      "omitted": "positivity",
+      "p": [
+        0,
+        1
+      ],
+      "q": [
+        1,
+        0
+      ]
+    },
+    {
+      "T": 1,
+      "V": [
+        0,
+        1
+      ],
+      "g": 1,
+      "lambda": [
+        1,
+        1
+      ],
+      "omitted": "distinctness",
+      "p": [
+        0,
+        0
+      ],
+      "q": [
+        1,
+        1
+      ]
+    },
+    {
+      "T": 1,
+      "V": [
+        0
+      ],
+      "g": 0,
+      "lambda": [
+        1
+      ],
+      "omitted": "nonzero_g",
+      "p": [
+        0
+      ],
+      "q": [
+        0
+      ]
+    },
+    {
+      "T": 0,
+      "V": [
+        0,
+        1
+      ],
+      "g": 1,
+      "lambda": [
+        1
+      ],
+      "omitted": "injectivity",
+      "p": [
+        0
+      ],
+      "q": [
+        1
+      ]
+    },
+    {
+      "T": 1,
+      "V": [
+        0
+      ],
+      "g": 1,
+      "lambda": [
+        1
+      ],
+      "omitted": "membership",
+      "p": [
+        0
+      ],
+      "q": [
+        1
+      ]
+    }
+  ],
+  "detecting_coordinate_checks": 196,
+  "scope": "Exact finite tests and assumption countermodels; separate from Lean compilation and authenticated Prove2Me verdict.",
+  "sharp_embedding_cases": 80,
+  "source_sha256": "fff94ffa04e19bff3eb5175c34531610f0d5cadebcc79d24b1a46b4927ff47f7",
+  "status": "PASS"
+}

@@ -1,0 +1,15 @@
+{
+  "head_sha": "cf8a028018bf90f66f8f9ef8bce743207fa6f79b",
+  "packets": [
+    {
+      "packet": "parallel_affine_levels",
+      "status": "ACCEPTED",
+      "theorem_id": "7ccd31e6-1b96-4c43-b1c4-f8c180eec7b8",
+      "submission_id": "0801e679-3429-4cee-9e83-57652530224b",
+      "theorem_name": "Hirsch.parallel_displacements_force_affine_coordinate_levels",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/parallel_affine_levels"
+    }
+  ]
+}

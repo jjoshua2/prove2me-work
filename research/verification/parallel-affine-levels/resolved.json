@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/parallel_affine_levels"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "cf8a028018bf90f66f8f9ef8bce743207fa6f79b",
+  "pr": "279"
+}
