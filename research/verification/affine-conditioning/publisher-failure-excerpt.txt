@@ -1,0 +1,5 @@
+Exact excerpt from fetched publish-job log 104655680728, run35052375246. Not the full raw runner log.
+
+2026-09-16T03:37:25.1084775Z Platform skill version changed; refresh the skill before publishing.
+2026-09-16T03:37:25.1215046Z ##[error]Process completed with exit code 1.
+2026-09-16T03:37:25.3058927Z ##[warning]No files were found with the provided path: _receipts/. No artifacts will be uploaded.

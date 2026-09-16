@@ -1,0 +1,70 @@
+{
+  "all_affine_upper_bound_coupled": "2^-160",
+  "attaining_metrics": 5,
+  "balanced": 161,
+  "balanced_diagonal_scale_exponents": [
+    140,
+    620
+  ],
+  "baseline": "338d1f9e1cc20df86998efa5f0dc6e92916329e8",
+  "coupled_3D_reference_vertices": 18,
+  "dense_affine_path_checks": 3,
+  "gain_nullspace_comparisons": 256,
+  "inconsistent_gain_cycles": 95,
+  "independent_projection_checks": 1200,
+  "kind": "derived_compact_research_summary",
+  "large_products": [
+    {
+      "best_affine_local_delta": "2^-160",
+      "dimension": 16,
+      "genuine_facets": 36,
+      "shortest_path": 18
+    },
+    {
+      "best_affine_local_delta": "2^-160",
+      "dimension": 32,
+      "genuine_facets": 68,
+      "shortest_path": 34
+    }
+  ],
+  "metric_cases": 600,
+  "negative_controls": 18,
+  "nonproduct_coupled": [
+    {
+      "all_pairs_upper_bound": 6,
+      "dimension": 3,
+      "genuine_facets": 11,
+      "shortest_selected_path": 5
+    },
+    {
+      "all_pairs_upper_bound": 19,
+      "dimension": 16,
+      "genuine_facets": 37,
+      "shortest_selected_path": 18
+    },
+    {
+      "all_pairs_upper_bound": 35,
+      "dimension": 32,
+      "genuine_facets": 69,
+      "shortest_selected_path": 34
+    }
+  ],
+  "saved_audit": {
+    "constructors_and_inverse_discovery_disabled": true,
+    "dense_affine_records": 3,
+    "gain_records": 8,
+    "original_edges": 150,
+    "product_records": 7,
+    "transport_records": 2,
+    "truncated_records": 3
+  },
+  "small_original_geometry": {
+    "all_distinct_endpoint_pairs": 700,
+    "complete_active_systems": 699,
+    "delivered_edge_occurrences": 2048,
+    "edges": 112,
+    "vertices": 72
+  },
+  "status": "PASS",
+  "verification": "Scalar Lean compiled and standard-axiom audit passed. Geometry and gain algorithms are written proofs/exact software, not further Lean claims. Publication failed at platform skill-version guard."
+}

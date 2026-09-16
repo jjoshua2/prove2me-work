@@ -1,0 +1,21 @@
+{
+  "kind": "derived_failed_retry_run_and_artifact_inspection",
+  "run_id": 35135897207,
+  "proof_sha": "b02f89076b8f32a21cc79c2285544a9b1fa8fd55",
+  "trusted_main_sha": "9e6a21f3f865cb02d26ce7ab4be54b2f1a1dc4e9",
+  "trigger_comment_id": 5702692752,
+  "ack_comment_id": 5702695270,
+  "no_receipt_comment_id": 5702712529,
+  "verified_artifact_id": 10462064365,
+  "archive_sha256": "1e331e3059a8eeb2a89e3e5c46aa0afa5d59877e2b99973eae75b67401db641e",
+  "all_five_frozen_hashes_match": true,
+  "compile_exit_codes": {"driver.lean": 0, "solution.lean": 0, "statement.lean": 0},
+  "axioms": ["Classical.choice", "Quot.sound", "propext"],
+  "jobs": {"gate": "success", "verify": "success", "publish": "failure", "report-verify": "skipped"},
+  "publication_error": "Platform skill version changed; refresh the skill before publishing.",
+  "publication_receipt_present": false,
+  "theorem_id": null,
+  "submission_id": null,
+  "superseded_by_accepted_run": 35137303939,
+  "note": "No proof edits. Official 0.10.4 protocol review/refresh in #278 resolved the runtime compatibility mismatch; no guard was weakened."
+}

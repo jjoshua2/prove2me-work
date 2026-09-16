@@ -1,0 +1,33 @@
+{
+  "all_five_frozen_hashes_match": true,
+  "archive_sha256": "ae81fe723057ae61b2d140c3fbaced0e624db60b955e5fdf844cfb1f085248ae",
+  "artifact_id": 10429507451,
+  "attempts": 1,
+  "audited_declarations": 3,
+  "authenticated_verdict": null,
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "compile_exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "jobs": {
+    "gate": "success",
+    "publish": "failure",
+    "report-verify": "skipped",
+    "verify": "success"
+  },
+  "kind": "derived_run_and_artifact_readback",
+  "no_guard_or_workflow_changes": true,
+  "proof_sha": "ff9b0743f31b0db6adbcd078a2447180f0a8f7d4",
+  "publication_error": "Platform skill version changed; refresh the skill before publishing.",
+  "publication_receipt_present": false,
+  "run_id": 35052375246,
+  "submission_id": null,
+  "theorem_id": null,
+  "workflow_main_sha": "338d1f9e1cc20df86998efa5f0dc6e92916329e8"
+}

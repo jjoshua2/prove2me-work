@@ -1,0 +1,18 @@
+{
+  "kind": "independent_offline_review_of_other_agents_protocol_refresh",
+  "upstream_commit": "ed0951e954b66514a6bf29ff716021b3407123d9",
+  "refresh_pr": 278,
+  "refresh_head": "0b739bdcbfbeb9b3024e08bac22235623c4d37db",
+  "merged_main": "ad88d6336b1d514cfd7ccd2a0a8e7949be0c2363",
+  "skill_blob": "39798b14c10fbc6843fffa5f968cf48e68e73593",
+  "communicate_blob": "a5128681757cb431927b69ab2e879c4840867a8f",
+  "old_runtime_blob": "c574e0dc5aeaa2164dc3c7498b7707a44677dd3e",
+  "new_runtime_blob": "91aaddfbe4c65c043ab3646412217a04521417c2",
+  "runtime_change": "Only expected version 0.10.3 to 0.10.4; exact fail-closed mismatch remains",
+  "test_blob": "02fccd18ebceeb627c3b5795c3924bcd14edc8eb",
+  "actual_tests_replayed": 9,
+  "tests_passed": 9,
+  "real_network_requests": 0,
+  "scope": "Exact refresh class AST with fake opener/inert parent, not end-to-end authentication or Lean verification",
+  "duplicate_refresh_branch_created": false
+}

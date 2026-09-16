@@ -1,0 +1,15 @@
+{
+  "head_sha": "b02f89076b8f32a21cc79c2285544a9b1fa8fd55",
+  "packets": [
+    {
+      "packet": "affine_pair_conditioning",
+      "status": "ACCEPTED",
+      "theorem_id": "b2a9ab62-97c7-44d0-a44f-ef4d0d82d87c",
+      "submission_id": "ffb93c00-4922-4f9a-9bc0-2ccde6c5f01b",
+      "theorem_name": "Hirsch.affine_pair_conditioning_optimum",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/affine_pair_conditioning"
+    }
+  ]
+}
