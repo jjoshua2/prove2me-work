@@ -1,0 +1,58 @@
+{
+  "kind": "derived_accepted_run_artifact_readback",
+  "run_id": 35137303939,
+  "proof_sha": "b02f89076b8f32a21cc79c2285544a9b1fa8fd55",
+  "trusted_main_sha": "ad88d6336b1d514cfd7ccd2a0a8e7949be0c2363",
+  "trigger_comment_id": 5702875465,
+  "ack_comment_id": 5702878138,
+  "verdict_comment_id": 5702923627,
+  "theorem_id": "b2a9ab62-97c7-44d0-a44f-ef4d0d82d87c",
+  "submission_id": "ffb93c00-4922-4f9a-9bc0-2ccde6c5f01b",
+  "status": "ACCEPTED",
+  "recorded_live_status": "Proved",
+  "registration": "PUBLISHED",
+  "all_five_source_hashes_match": true,
+  "proof_unchanged": true,
+  "compile_exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "audited_declarations": 3,
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "jobs": {
+    "gate": "success",
+    "verify": "success",
+    "publish": "success",
+    "report-verify": "skipped"
+  },
+  "artifacts": {
+    "request": {
+      "id": 10464090934,
+      "sha256": "2e17edacdd1d6bfd92c72385a3a335dafda48bed63da1cd4eec0f889efc003e1"
+    },
+    "verified": {
+      "id": 10463532454,
+      "sha256": "4ef44ca540377d93f201cdc97d859939beb8036bcf82d61c48cc7b6091e9c47a"
+    },
+    "publication": {
+      "id": 10463941288,
+      "sha256": "25164e4986697c9aaa85f3729f77f3b5b11accbc69ca36e77a7231a719f0cf51"
+    }
+  },
+  "concurrent_extra_trigger": {
+    "comment_id": 5702877332,
+    "run_id": 35137321661,
+    "status": "completed",
+    "conclusion": "cancelled",
+    "jobs": 0,
+    "new_submission": false,
+    "cancelled_by_this_continuation": false
+  },
+  "not_a_separate_direct_platform_poll": true,
+  "raw_target_and_source_API_responses_exported": false
+}
