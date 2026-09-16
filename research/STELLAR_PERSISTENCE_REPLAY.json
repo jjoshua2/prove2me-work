@@ -1,0 +1,18 @@
+{
+  "all_other_report_fields_match": true,
+  "clean_report_sha256": "300e37773d535395aef486b69c259e819a5cf5ea158af83b32706306eb126bb0",
+  "excluded_report_fields": [
+    "seconds"
+  ],
+  "fixture": {
+    "byte_identical": true,
+    "bytes": 244669,
+    "path": "fixtures/stellar_persistence_examples.json",
+    "sha256": "8c38a378b130b50d335036122f11b3366ab5e48cd956285bd200e97ce155269a"
+  },
+  "new_python_files": 2,
+  "record_kind": "actual local clean dependency replay; not Lean or platform verification",
+  "source_report_sha256": "81d5b8f5b727a392bf36aff4fe46d10e464c526e37226d165aed70cc4830d29c",
+  "status": "PASS",
+  "unchanged_dependencies": 5
+}
