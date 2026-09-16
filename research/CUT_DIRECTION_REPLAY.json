@@ -1,0 +1,71 @@
+{
+  "all_five_stages_pass": true,
+  "all_nontiming_fields_equal": true,
+  "base_sha": "dbfd755ef4b6b2eb272c0cb70f888bf78741b5ec",
+  "byte_identical_fixtures": [
+    "cut_direction_box1_interval.json",
+    "cut_direction_box3_one_cut.json",
+    "cut_direction_box3_point.json",
+    "cut_direction_box3_slice.json",
+    "cut_direction_box3_two_cuts_nonsimple.json",
+    "cut_direction_box4_two_cuts.json",
+    "cut_direction_interval4_cut.json",
+    "cut_direction_large_24_2.json",
+    "cut_direction_large_32_1.json",
+    "cut_direction_overlap_16.json",
+    "cut_direction_overlap_4.json",
+    "cut_direction_overlap_8.json",
+    "cut_direction_permuta4_two_cuts.json"
+  ],
+  "clean_workspace": "Fresh Git repository with THREE frozen dependencies; five additions applied by git apply before the complete five-stage rerun",
+  "fixture_count": 13,
+  "kind": "Derived clean applied-patch replay record; not a Lean or platform receipt",
+  "new_files": {
+    "research/CUT_DIRECTION_HANDOFF.md": {
+      "bytes": 4230,
+      "git_blob_sha": "8a0ce69e2f0f40cd974dc7d99a5118d736834738",
+      "sha256": "f64dc3723c60b687d0d2f4ff7c22780b9b298ec87b9d24c7b9b757e1ec246d78"
+    },
+    "research/CUT_DIRECTION_SUMMARY.json": {
+      "bytes": 7554,
+      "git_blob_sha": "4b795aed6eca35fce0ae3cee73b6e127ea50c7bf",
+      "sha256": "f2f37af286f0c13a48442f1162970f44d655703cb99a11adf158abbbb3b24122"
+    },
+    "research/CUT_STABLE_DIRECTION_ROUTES.md": {
+      "bytes": 20055,
+      "git_blob_sha": "7d3c84d14e9d9a65bc151643330422d938d8b25c",
+      "sha256": "a5e88a520c4bd0d99dfa6467290c3f6080924efdf769f4544dbbd1dddabe0cec"
+    },
+    "scripts/cut_direction_routes.py": {
+      "bytes": 17606,
+      "git_blob_sha": "ada7f8bc448917e4efeba5e76ce701534fc225fb",
+      "sha256": "ac451294c8dc82839417e36318026939dd06c21101d919faa03c06a28219d672"
+    },
+    "scripts/test_cut_direction_routes.py": {
+      "bytes": 19052,
+      "git_blob_sha": "6ba3d4d78784494a1d472339bb11ac7c534b5e14",
+      "sha256": "c439d7fdadf71923a1a018c5f68b25c81a688136a1fe944331ed3b13dae5893e"
+    }
+  },
+  "no_new_Lean_Actions_Prove2Me_verdict": true,
+  "original_full_report_sha256": "0f18babd4ff57208049daa70eab20e6befce242917c25d000f5c64199e448dad",
+  "post_replay_documentation_change": "Compact summary formatting only; all report fields are selected from the unchanged full executed report, and both tested source files are unchanged.",
+  "replayed_full_report_sha256": "4755dd4371f3e234bdc4a8567e5b72a15af017ee98cbebde896192625d980ab1",
+  "unchanged_dependencies": {
+    "endpoint_transfer_routes.py": {
+      "bytes": 11948,
+      "git_blob_sha": "27ec8b5b5b24b862bc38d7f3494960a4c75081d9",
+      "sha256": "20116065bcca4f3bf87d96368beb45ad69170e698760b7818bca86d7246ac10f"
+    },
+    "exact_farkas_lp.py": {
+      "bytes": 7028,
+      "git_blob_sha": "ea511a79164d953792942d8be3dd3537646738d6",
+      "sha256": "65a8731600a6750b5334307415cd37c79d201d47e179bea5cdcbd511363006d0"
+    },
+    "simple_tangent_policy_audit.py": {
+      "bytes": 8284,
+      "git_blob_sha": "73dc32b9753d7d0fe5e67ca1f4fad0534b6b1976",
+      "sha256": "28d7e66e3e2f6d6589e55a2e07e42a7a2081d56860621ba8838db9708a458440"
+    }
+  }
+}
