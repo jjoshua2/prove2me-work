@@ -1,0 +1,15 @@
+{
+  "record_kind": "independent local readback of actual trusted publisher artifact; not a new direct platform poll",
+  "run_id": 35163537520,
+  "proof_sha": "bf3db81677d9ec5e0e668bb39d558c789ec5e704",
+  "artifact_id": 10473823512,
+  "archive_sha256": "0983485dd6afc3c8f5145235a8f6aba0a10bc881128f14b8956c23dce988a4f9",
+  "theorem_id": "37330e52-f970-45f1-9d48-d53617ec7c9a",
+  "submission_id": "e7971398-7465-4b52-b8bc-8bd07fd31f4a",
+  "status": "ACCEPTED",
+  "live_status": "Proved",
+  "registration": "PUBLISHED",
+  "trigger_comment_id": 5706196719,
+  "verdict_comment_id": 5706237170,
+  "verdict_time_utc": "2026-09-16T23:48:43Z"
+}

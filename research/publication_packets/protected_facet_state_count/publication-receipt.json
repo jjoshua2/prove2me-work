@@ -1,0 +1,15 @@
+{
+  "head_sha": "bf3db81677d9ec5e0e668bb39d558c789ec5e704",
+  "packets": [
+    {
+      "packet": "protected_facet_state_count",
+      "status": "ACCEPTED",
+      "theorem_id": "37330e52-f970-45f1-9d48-d53617ec7c9a",
+      "submission_id": "e7971398-7465-4b52-b8bc-8bd07fd31f4a",
+      "theorem_name": "Hirsch.protected_facet_state_count",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/protected_facet_state_count"
+    }
+  ]
+}
