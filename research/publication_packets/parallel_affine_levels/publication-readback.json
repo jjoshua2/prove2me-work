@@ -1,0 +1,59 @@
+{
+  "kind": "derived_publication_and_artifact_inspection",
+  "proof_sha": "cf8a028018bf90f66f8f9ef8bce743207fa6f79b",
+  "workflow_main_sha": "efb602a0a478528403fe6aeca75723df52bff07a",
+  "run_id": 35141854142,
+  "trigger_comment_id": 5703449938,
+  "acknowledgement_comment_id": 5703451925,
+  "verdict_comment_id": 5703493150,
+  "attempts": 1,
+  "proof_changes_after_gate": false,
+  "jobs": {
+    "gate": "success",
+    "verify": "success",
+    "publish": "success",
+    "report-verify": "skipped"
+  },
+  "run_state": "completed_success",
+  "compile_exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "audited_declarations": 2,
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "artifacts": [
+    {
+      "name": "prove2me-publish-request",
+      "id": 10465770619,
+      "sha256": "083866b276b5056b8bc8a9783c76903044c2b03404c816c86b576211d52e9bb1"
+    },
+    {
+      "name": "prove2me-verified-packets",
+      "id": 10465277299,
+      "sha256": "7e7bc144f1dd5a37e3348427d02bf9989431564679455cef196931e060063f17"
+    },
+    {
+      "name": "prove2me-publication-receipts",
+      "id": 10465442121,
+      "sha256": "6f976f9436d773fbab2a9fb5671eda0fb86c514c71880832c1519f5013c740e8"
+    }
+  ],
+  "all_three_archive_hashes_recomputed": true,
+  "all_five_frozen_file_hashes_recomputed": true,
+  "status": "ACCEPTED",
+  "theorem_id": "7ccd31e6-1b96-4c43-b1c4-f8c180eec7b8",
+  "submission_id": "0801e679-3429-4cee-9e83-57652530224b",
+  "publisher_authenticated_live_status": "Proved",
+  "separate_direct_platform_poll": false,
+  "raw_target_source_api_responses_exported": false,
+  "regression_replay_byte_identical": true,
+  "regression_sha256": "1037e9ee0d55eb794b5e77a9bc73bcadf6b601f30230ed11c03411d4446948d8",
+  "test_source_git_blob": "fcb2eb1fb717ee8d359f8d367605719f5ce6cfe4",
+  "test_source_sha256": "fff94ffa04e19bff3eb5175c34531610f0d5cadebcc79d24b1a46b4927ff47f7",
+  "scope": "The accepted result is the finite-point affine-coordinate counting theorem, not the Klee-Minty family realization or Polynomial Hirsch."
+}
