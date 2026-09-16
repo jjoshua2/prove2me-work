@@ -1,0 +1,213 @@
+{
+  "baseline": "dbfd755ef4b6b2eb272c0cb70f888bf78741b5ec",
+  "counts": {
+    "excluded": 42,
+    "negative_controls": 17,
+    "positive": 43,
+    "producer_disabled": 85,
+    "star_neighbor_checks": 13
+  },
+  "full_reports_and_fixture_hashes": [
+    {
+      "bytes": 12712,
+      "path": "research/verification/route-exclusion/tests.json",
+      "sha256": "adcc1f0ea59336ce34e343e30af275a620a7f14dfb6f4cae18fc4c70aa0ed767"
+    },
+    {
+      "bytes": 5279,
+      "path": "research/verification/route-exclusion/affine.json",
+      "sha256": "963f1504a972d0fd3833ac26829b9142d9f530d5e8c7f5ed8fb737acef22329b"
+    },
+    {
+      "bytes": 3499556,
+      "path": "research/fixtures/exclusions_and_paths.json",
+      "sha256": "80c25849877cafd6debd97689233b403eb24cc86c6718b1aa7de0cc8ebc8d044"
+    },
+    {
+      "bytes": 1021,
+      "path": "research/fixtures/affine/family.json",
+      "sha256": "63d05cac6dc34332eefe657ecf7ffa183c3fa3e6cd856d6927f3ced3028bedc6"
+    },
+    {
+      "bytes": 107979,
+      "path": "research/fixtures/affine/exclude_four.json",
+      "sha256": "1403db155b4804469a8ed57f07f175c0a1dda2fe3d9425a150c62eef7127693b"
+    },
+    {
+      "bytes": 7852,
+      "path": "research/fixtures/affine/nonrevisiting_five.json",
+      "sha256": "dcefb0b3d243d9c8b9252025509ce7b38892ba3827e70dee43f156272eaa20f5"
+    }
+  ],
+  "kind": "derived_compact_execution_summary",
+  "rank_trap": {
+    "closure_transitions": 20,
+    "complete_stars": 1,
+    "conclusion": "no route satisfying the stated bounds",
+    "covered_states": 21,
+    "forbidden_reentry_transitions": 0,
+    "length_budget": 1,
+    "max_original_row_reentries": null,
+    "scope": "Rational finite certificate check; not Lean verification. Row reentries are facet reentries only for genuine-facet presentations.",
+    "slice_subsets": 495,
+    "status": "PASS",
+    "unbounded_edge_rays": 0,
+    "vertices_in_certificate": 21
+  },
+  "reference_models": [
+    {
+      "complete_square_systems": 6,
+      "dimension": 2,
+      "matched_stars": 1,
+      "name": "cube2",
+      "pairs": 4,
+      "reference_edges": 4,
+      "reference_vertex_source": "all active bases",
+      "rows": 4,
+      "vertices": 4
+    },
+    {
+      "complete_square_systems": 20,
+      "dimension": 3,
+      "matched_stars": 6,
+      "name": "cube3",
+      "pairs": 4,
+      "reference_edges": 12,
+      "reference_vertex_source": "all active bases",
+      "rows": 6,
+      "vertices": 8
+    },
+    {
+      "complete_square_systems": 10,
+      "dimension": 3,
+      "matched_stars": 1,
+      "name": "pyramid",
+      "pairs": 4,
+      "reference_edges": 8,
+      "reference_vertex_source": "all active bases",
+      "rows": 5,
+      "vertices": 5
+    },
+    {
+      "complete_square_systems": 56,
+      "dimension": 3,
+      "matched_stars": 2,
+      "name": "octahedron",
+      "pairs": 4,
+      "reference_edges": 12,
+      "reference_vertex_source": "all active bases",
+      "rows": 8,
+      "vertices": 6
+    },
+    {
+      "complete_square_systems": 20,
+      "dimension": 3,
+      "matched_stars": 1,
+      "name": "embedded_square",
+      "pairs": 4,
+      "reference_edges": 4,
+      "reference_vertex_source": "all active bases",
+      "rows": 6,
+      "vertices": 4
+    },
+    {
+      "complete_square_systems": 15,
+      "dimension": 2,
+      "matched_stars": 1,
+      "name": "duplicate_zero_rows",
+      "pairs": 4,
+      "reference_edges": 4,
+      "reference_vertex_source": "all active bases",
+      "rows": 6,
+      "vertices": 4
+    },
+    {
+      "complete_square_systems": 0,
+      "dimension": 4,
+      "matched_stars": 0,
+      "name": "birkhoff3",
+      "pairs": 4,
+      "reference_edges": 15,
+      "reference_vertex_source": "classical permutations",
+      "rows": 9,
+      "vertices": 6
+    },
+    {
+      "complete_square_systems": 0,
+      "dimension": 9,
+      "matched_stars": 1,
+      "name": "birkhoff4",
+      "pairs": 4,
+      "reference_edges": 240,
+      "reference_vertex_source": "classical permutations",
+      "rows": 16,
+      "vertices": 24
+    }
+  ],
+  "resource_caps": [
+    "state_cap",
+    "star_subset_cap",
+    "vertex_cap"
+  ],
+  "scope": "Written proof and exact certificate checks only; no Lean, Actions, Prove2Me or universal polynomial route bound.",
+  "status": "PASS",
+  "unbounded_zero_reentry": {
+    "closure_transitions": 16,
+    "complete_stars": 14,
+    "conclusion": "no route satisfying the stated bounds",
+    "covered_states": 17,
+    "forbidden_reentry_transitions": 42,
+    "length_budget": null,
+    "max_original_row_reentries": 0,
+    "scope": "Rational finite certificate check; not Lean verification. Row reentries are facet reentries only for genuine-facet presentations.",
+    "slice_subsets": 56,
+    "status": "PASS",
+    "unbounded_edge_rays": 10,
+    "vertices_in_certificate": 15
+  },
+  "uniform_cap": {
+    "certificates": {
+      "exclude_four": {
+        "affine_sign_identity_checks": 1035,
+        "parameter_domain": "EVERY real t>0",
+        "scope": "Universal affine identities/signs plus constant rank and coverage, not sampled extrapolation or Lean.",
+        "status": "PASS",
+        "template_verdict": {
+          "closure_transitions": 88,
+          "complete_stars": 22,
+          "conclusion": "no route satisfying the stated bounds",
+          "covered_states": 26,
+          "forbidden_reentry_transitions": 0,
+          "length_budget": 4,
+          "max_original_row_reentries": null,
+          "scope": "Rational finite certificate check; not Lean verification. Row reentries are facet reentries only for genuine-facet presentations.",
+          "slice_subsets": 88,
+          "status": "PASS",
+          "unbounded_edge_rays": 0,
+          "vertices_in_certificate": 26
+        }
+      },
+      "nonrevisiting_five": {
+        "affine_sign_identity_checks": 54,
+        "parameter_domain": "EVERY real t>0",
+        "scope": "Universal affine identities/signs plus constant rank and coverage, not sampled extrapolation or Lean.",
+        "status": "PASS",
+        "template_verdict": {
+          "original_edges": 5,
+          "original_row_reentries": 0,
+          "status": "PASS"
+        }
+      }
+    },
+    "domain": "all real t>0",
+    "genuine_facets": 9,
+    "negative_controls": 6,
+    "old_finite_vertex_check": {
+      "complete_bases": 70,
+      "infeasible": 51,
+      "maximum_sum": 18,
+      "singular": 4,
+      "vertices": 15
+    }
+  }
+}
