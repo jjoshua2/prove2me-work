@@ -1,0 +1,10 @@
+{
+  "status": "prepared; local compiler unavailable; actual final gate not yet run",
+  "lean_toolchain": "leanprover/lean4:v4.30.0",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "files": {
+    "solution.lean": "6ea99bbb05ef86b965cbc558cfc744c05503a16effb7e704832c04f8de965739",
+    "problem.json": "16c5a3bb1ea396bfe0e630791dd2290a76cf71589107980d81b078b4c26083e9",
+    "explanation.md": "58cd5cc5515a7e3f7a6b6304e53224ac914e93aff051b74c91e0d83c06b2fb5e"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "record_kind": "actual clean finite-semantics replay, not Lean/platform verification",
+  "status": "PASS",
+  "files": {
+    "research/PROTECTED_FACET_PACKET_TESTS.json": {
+      "sha256": "6e88668fadf8027fa42c0ce503c7f3135dc818838aca6dc164447eb796e7947b",
+      "bytes": 1120,
+      "byte_identical": true
+    },
+    "research/PROTECTED_FACET_PACKET_EXAMPLES.json": {
+      "sha256": "e6b07a018b433b1e346b692ad7f9fa9a3cb9ebbf42c11fcd9b26bf6162983691",
+      "bytes": 11121,
+      "byte_identical": true
+    }
+  }
+}
