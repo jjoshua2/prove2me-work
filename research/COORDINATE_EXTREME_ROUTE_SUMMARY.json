@@ -1,0 +1,26 @@
+{
+  "assumption_countermodels": [
+    "no_local_improvement",
+    "noninjective_coordinates",
+    "asymmetric_edges",
+    "missing_extreme_face"
+  ],
+  "full_report_sha256": "232957a0626afa53eaaa538427db3be14aeea32a196d1daaecbf820a02b914b1",
+  "kind": "Derived summary; complete deterministic report regenerates from the committed test script.",
+  "public_type_exactly_matches_solution": true,
+  "scope": "Finite semantic/signature regression, NOT Lean compilation or verification.",
+  "source_sha256": "35b893cad7520244bbcc60707983a6b9a004dd537235a6c0d4efa2bcffe94b7e",
+  "status": "PASS",
+  "test_sha256": "93d17736bd81288ce1ab31a493cb5e0d9aeb637b2bf77fd0af3206f09361fc71",
+  "totals": {
+    "admissible_faces": 257,
+    "charged_ranks": 7451,
+    "edges": 6733,
+    "local_moves_checked": 1623,
+    "models": 32,
+    "nonshortest_routes": 812,
+    "phases": 6731,
+    "routes": 2451,
+    "shortest_edges": 4697
+  }
+}

@@ -1,0 +1,14 @@
+_verified/packets/coordinate_extreme_routes/driver.lean:116:39: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+_verified/packets/coordinate_extreme_routes/driver.lean:103:0: warning: automatically included section variable(s) unused in theorem `Hirsch.CoordinateRoute.descend`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+'Hirsch.CoordinateRoute.descend' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.CoordinateRoute.ascend' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.CoordinateRoute.rank_routes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.CoordinateRoute.levelRank_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]
