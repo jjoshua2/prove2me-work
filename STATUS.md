@@ -5,137 +5,152 @@ Repository `jjoshua2/prove2me-work`. Keep Lean `v4.30.0` and Mathlib
 SKILL.md, CONTINUE_HIRSCH.md, the actual main commit and LIVE PR heads/comments
 before choosing work. Do not resubmit accepted or pending packets.
 
-This refresh records a NEW FORMAL ACCEPTANCE, #281, rather than upgrading an
-entire research direction to a proved conjecture. The immediately preceding
+This refresh records NEW FORMAL ACCEPTANCE #284. The immediately preceding
 COMPLETE frontier is preserved verbatim in immutable Git history:
-[pre-#281 STATUS](https://github.com/jjoshua2/prove2me-work/blob/66d6956e27daa877cd7e513a41af5c74eaba9e15/STATUS.md),
-blob `154ad703f47011d72eff2e04c1363f91eb88e83c`.
-It retains the full #268/#269/#271/#272 descriptions, cut-direction formulas,
-older accepted-result archives, quantitative limitations, tests and ownership.
-No older research result or receipt is discarded by this shorter index.
+[pre-#284 STATUS](https://github.com/jjoshua2/prove2me-work/blob/04477f1a11c6956000526b319c12f9d015107c03/STATUS.md),
+blob `0cab7905b2f64303f8880683670cef06d61063e1`. Its links retain #281's exact
+acceptance history, the complete older research directions, receipts, adverse
+examples and ownership. Check actual newer main commits as well as this index;
+other accepted results can merge before a frontier summary is refreshed.
 
 ## Root and scope
 
 The last preserved authenticated mission audit records root
-`58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac` and remaining high-dimensional common-face
-leaf `87a8b4f4-8b58-4340-8cb9-5fd1b548d01e` Open. This is NOT a new platform poll.
-The objective is still a uniform polynomial ORIGINAL ordinary-edge bound for
-arbitrary carriers, with genuine original image facets as the size parameter.
-An auxiliary edge may project to a chord; an accepted counting lemma does not
-establish the missing universal route bound.
+`58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac` and high-dimensional common-face leaf
+`87a8b4f4-8b58-4340-8cb9-5fd1b548d01e` Open. This is NOT a fresh platform poll.
+The objective remains a uniform polynomial ORIGINAL ordinary-edge bound for
+arbitrary carriers. Count genuine original image facets; projected extension
+edges can be chords. A conditional counting theorem is not that global result.
 
-## NEW #281: finite stellar persistence count is ACCEPTED and merged
+## NEW #284: positive protected-facet count is ACCEPTED and merged
 
-Public theorem: `Hirsch.stellar_persistence_count`.
-Theorem ID: `5d525d51-5d42-4dac-a3dd-91ea83902e77`.
-Submission ID: `2807f578-7ed5-4be8-aa4a-4bc036ac3101`.
-Trusted publisher verdict: **ACCEPTED**, authenticated readback **Proved**.
-Accepted proof SHA: `97d58b7d247c4661e437058e2ca2be34c15e63d5`.
-Final evidence head: `b9422a22e250956b274edc30205bfd8140a15088`.
-Merge: `66d6956e27daa877cd7e513a41af5c74eaba9e15`.
-Successful run: `35154778307`.
-Verdict time: `2026-09-16T21:56:19Z`.
+Public theorem: `Hirsch.protected_facet_state_count`.
+Theorem ID: `37330e52-f970-45f1-9d48-d53617ec7c9a`.
+Submission ID: `e7971398-7465-4b52-b8bc-8bd07fd31f4a`.
+Trusted publisher: **ACCEPTED**, authenticated readback **Proved**.
+Accepted proof SHA: `bf3db81677d9ec5e0e668bb39d558c789ec5e704`.
+Final evidence-only head: `3ae934917d600c4a283c7a007afb9038ed231ff2`.
+Merge: `04477f1a11c6956000526b319c12f9d015107c03`.
+Run: `35163537520`; verdict time: `2026-09-16T23:48:43Z`.
 
-[Accepted packet and provenance](research/publication_packets/stellar_persistence_count/accepted-evidence.md),
-[raw publication receipt](research/publication_packets/stellar_persistence_count/publication-receipt.json),
-[raw compile/axiom audit](research/publication_packets/stellar_persistence_count/packet-audit.json).
-The proof, target, explanation, frozen manifest, driver axiom output, failure
-history and independently checked artifact hashes are preserved alongside them.
+[Accepted proof and scope](research/publication_packets/protected_facet_state_count/accepted-evidence.md),
+[raw publisher receipt](research/publication_packets/protected_facet_state_count/publication-receipt.json),
+[raw compile/axiom audit](research/publication_packets/protected_facet_state_count/packet-audit.json),
+[algebraic applications](research/PROTECTED_FACET_APPLICATIONS.md).
+The original proof, target, explanation, frozen manifest, artifact hash readbacks
+and independent semantic reproducer are preserved. Earlier prepared/compile-only
+metadata is historical and superseded by the acceptance record. Do not resubmit.
 
-### Exact formal conclusion
+### Exact formal content
 
-For a finite sequence of t actual forward stellar subdivisions on finite
-supported downward-closed face families, subdividing genuine faces of size at
-least two and adding fresh labels, any certified finite initial subfamily A of
-inclusion-minimal nonfaces satisfies
+For an injective sequence P of n distinct d-element subsets of finite V, suppose
+every label outside exceptions B has interval membership. The accepted theorem
+proves
 
-    |A| + t <= choose(|V(0)| + t, 2)
+    n <= (|V|-d+1)*2^|B|.
 
-if every terminal minimal nonface has cardinality two. The public statement
-includes the ACTUAL stellar face-membership rule. It does not assume persistence,
-injectivity, cardinality growth or completeness of A. The proof derives canonical
-minimal descendants, their injectivity, one additional born nonface each step,
-an exact tracked family of size |A|+i, and the terminal pair count. Empty A and
-t=0 are included. The public preamble is only `import Mathlib`.
+For ANY finite C covering all actual exceptional signatures P(i) intersect B,
+the SAME theorem additionally proves
 
-This formalizes the finite combinatorial COUNTING CORE of research #267. It does
-NOT formally verify the cyclic-polytope exponential family, geometric carrier
-transport, original-edge constructions, or Polynomial Hirsch. Those boundaries
-must remain explicit. Inverse moves and arbitrary non-stellar subdivisions are
-outside this statement. Do not republish another copy of the accepted core.
+    n <= (|V|-d+1)*|C|,
+    n <= sum_{S in C} (|V minus B| - (d-|S|) + 1).
 
-### Actual verification and publication history
+Subtractions are natural truncated subtraction. Empty sequences, d=0, empty
+exceptions and irrelevant exception labels outside V are included. No adjacency
+or geometric realization is required by this FINITE lemma. The proof constructs
+an injective encoding by the current exceptional signature and the number of
+previously seen protected labels no longer active. That counter is bounded by
+|V|-d, or by its sharper signature-dependent capacity. Per-signature visit
+bounds, a global vertex inventory, and the desired inequality are NOT premises.
 
-The initial295-line candidate reached pinned Lean in run35154274683 and failed
-on ONE redundant successor rewrite at line255. Three substantive helpers compiled;
-the final theorem did not. Publish was skipped and no platform registration or
-submission was created. The error record is preserved, not hidden.
+For a supplied nonempty loop-free SIMPLE-polytope route, n=L+1 gives the intended
+edge bound. The packet does NOT establish original adjacency, geometric interval
+membership, loop erasure, a small B or a polynomial allowed-signature family for
+arbitrary carriers. It formalizes the positive counting core of research #259,
+not the whole geometric confinement theorem or Polynomial Hirsch. In particular,
+nonsimple active sets must not be treated as uniformly d-element without another
+proved interface. A large B can still admit a small useful C, but existence of
+that registry and a compatible route remains a separate obligation.
 
-The correction removed only Nat.succ_eq_add_one from the rewrite list, since
-the goal already used i+1. All theorem types, hypotheses, problem.json and the
-explanation remained unchanged. The corrected295-line proof, driver and statement
-all compiled with exit0. All FIVE audited declarations use only propext,
-Classical.choice and Quot.sound. Its first actual platform submission was accepted.
-The original candidate is not claimed to have passed unchanged on its first gate.
+### Actual first-attempt verification and publication
 
-The user-requested NEW top-level PR comments launched the normal existing gate:
+The original220-line proof passed its FIRST compiler gate and FIRST actual
+platform submission unchanged. Driver, solution and statement exit0; all FIVE
+audited declarations use only propext, Classical.choice and Quot.sound. A
+harmless unused-simp-argument warning remains, not suppressed or edited away.
+The accepted solution has no proof admission. Local Lean/Lake was unavailable;
+this is the pinned hosted gate, not source/Python checks relabeled compilation.
 
-    /prove2me publish research/publication_packets/stellar_persistence_count
+Exactly ONE NEW top-level PR comment launched publication:
 
-No dispatch, new workflow, token, permissions, toolchain or secret-split change.
-The initial local runtime had no Lean executable; this is actual pinned hosted
-compilation, not Python/source checks described as verification. Proved comes
-from the authenticated trusted-publisher receipt, not a separate direct platform
-poll by the chat. The raw publication ZIP contains an aggregate receipt and bot
-comment, not individual raw platform API responses; none were fabricated.
+    /prove2me publish research/publication_packets/protected_facet_state_count
 
-Both original verification/publication ZIP digests and all five frozen file
-hashes were independently recomputed. Source hash:
-`2b579f45c887c6ccc44b1caaf2a0686c90c9634fd080cb4010af36da18f83959`.
-The two post-verification commits add EIGHT evidence files and do not change
-accepted proof bytes. All15 PR files are additions. The finite semantic/signature
-regression also reproduces byte-for-byte in a clean directory; it is supporting
-software, not a formally verified Python implementation.
+No workflow_dispatch, token, workflow, toolchain, permission or secret-split
+change was made. Accepted proof SHA and five frozen file hashes match the
+prepared bytes. Request, verified and publication archives were independently
+downloaded and hashed. The raw publication receipt is the trusted publisher's
+authenticated observation, not an additional direct platform query by this chat.
+The ZIP contains an aggregate receipt and comment, not individual raw platform
+response objects; none are fabricated.
 
-## Preserved strategy limitations and next work
+Source SHA256:
+`6ea99bbb05ef86b965cbc558cfc744c05503a16effb7e704832c04f8de965739`.
+The two post-verification commits add NINE evidence/application files and change
+ZERO proof or target bytes. All15 PR files are additions; no earlier selector
+or accepted theorem is changed. Finite tests cover9502 exhaustive valid cases,
+400 random exchange paths,5 boundary cases and5 malformed-assumption controls.
+Clean and separate empty-checkout patch replays reproduce reports/examples
+byte-for-byte. Python and its abstract examples are not Lean-verified geometry.
 
-#267's written geometric example rules out a universal polynomial TOTAL SIZE
-for full forward-stellar flagification. #281 now verifies its finite counting
-core; it does not by itself formally instantiate the exponential moment-curve
-family. The written obstruction does not refute short original routes, inverse
-moves, other subdivisions or paths inside huge implicit refinements. Existing
-class-specific positive refinements remain valid under their stated conditions.
+    python3 scripts/test_protected_facet_packet.py
 
-Direct original-H budget search #268 and independently checked tangent-star
-exclusions #271 remain available. A polynomial-size formula for an input budget
-is not a proof that a polynomial budget always succeeds. Solver UNSAT and a
-checked finite exclusion certificate are different evidence. The complete prior
-index retains the known forced-reentry unbounded controls and bounded-cap caveat.
+## Preserved accepted results and research boundaries
 
-#269 supplies direct routes for supplied coordinate-simplex sums; #272 supplies
-cut-stable direction-cover routes with exact overlap certificates. Their input
-structure, direction counts and overlap hypotheses are not established for
-arbitrary carriers. A bounding box does not silently produce bounded overlap,
-and using the original polytope as its own base can require exponentially many
-directions. Read their current proof packets and newer live commits; this index
-is not a new audit of other agents' ongoing formalizations.
+#281's separate `Hirsch.stellar_persistence_count` is ACCEPTED and remains
+unchanged. Its theorem ID is5d525d51-5d42-4dac-a3dd-91ea83902e77; submission
+2807f578-7ed5-4be8-aa4a-4bc036ac3101. It proves the finite q+t<=choose(m+t,2)
+count for actual forward stellar sequences. It does not formally establish the
+separate moment-curve exponential family or Polynomial Hirsch. Its complete
+first-failure/correction/acceptance history stays in its own packet and prior
+STATUS. Do not restart or duplicate that accepted count.
 
-A next formal extension of #281 would supply the separate large minimal-nonface
-family and connect its parameters to this accepted count. A conjecture solution
-still needs a polynomial original-edge upper bound or another valid global
-construction. Neither the accepted auxiliary theorem nor another experimental
-suite supplies that missing unrestricted step.
+#267's written geometric family obstructs uniformly small COMPLETE forward
+flagification, not short original routes or paths inside large refinements.
+The positive class refinements and accepted allocation/Minkowski interfaces
+remain valid under their exact hypotheses. #284 moves back to counting the
+states actually visited, without claiming those hypotheses hold universally.
 
-## Ownership and execution discipline
+Direct original-H budget search #268 and checked tangent-star exclusions #271
+remain available. A small formula for a supplied budget is not proof that a
+polynomial budget always succeeds. Solver UNSAT and an independently verified
+negative certificate are distinct evidence. The known unbounded forced-reentry
+controls must not be presented as bounded Hirsch counterexamples.
 
-#270 private-marker work is deliberately draft with only engine/handoff pushed;
-its blocked companion integration must not be bypassed or merged as complete.
-#264 energy, #255 shortening, #250 projected-image integration, #244 fibre
-assembly and #238 support witnesses remain separately owned. #208 needs its
-existing approved poll, not a duplicate submission; #210 is retired/reserved.
-No other branch or accepted/pending submission was modified by #281.
+#269's coordinate-simplex sum routes and #272's cut-stable direction-cover routes
+retain their input structure, direction-count and overlap premises. Those are
+not automatic on arbitrary carriers. Read the actual newer formalization commits
+and receipts before choosing adjacent work; this index does not re-audit or
+resubmit another agent's results.
 
-Distinguish written arguments, exact Python, Lean compilation, axiom auditing,
+## Next substantive interface and ownership
+
+Reuse #284's accepted count instead of redoing its finite-set algebra. A useful
+next theorem must supply protected intervals and a controlled allowed-signature
+family for actual original-edge routes, or establish a different global route
+construction. Do not insert k=O(log m), polynomially many signatures, or a cheap
+repair as an unproved premise while claiming the unrestricted conjecture. The
+geometric implication from #259's missing-link-triangle condition is still a
+separate formalization; even proving it would not establish a small parameter
+for every polytope. The applications note is a written deduction, not a second
+new platform theorem.
+
+#270 remains a deliberately partial draft; do not bypass its blocked companion
+integration. #264 energy, #255 shortening, #250 projected-image integration,
+#244 fibre assembly and #238 support witnesses remain separately owned. #208
+needs its existing approved poll, not duplicate submission; #210 is retired/
+reserved. No other branch or accepted/pending proof was modified by #284.
+
+Distinguish written mathematics, exact tests, Lean compilation, axiom audit,
 ACCEPTED and authenticated Proved. Preserve pins and trusted-publisher isolation.
-Use local compilation when available; a final hosted gate is not a speculative
-proof-editing loop. Read live heads and receipts before resuming old obligations.
+Use local compilation when available; final hosted publication is not a repeated
+speculative proof-editing loop. Read live heads and receipts before resuming.
