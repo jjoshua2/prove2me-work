@@ -1,0 +1,45 @@
+{
+  "kind": "derived_compiler_failure_record",
+  "run_id": 35154253380,
+  "job_id": 104989826256,
+  "proof_head": "21c672bcb24b981ea635e956e63e2ea9d55fc5f4",
+  "trusted_main": "129c7d4947113733fca17b9b600e93ac65470b12",
+  "first_trigger_comment": 5705040777,
+  "acknowledgement_comment": 5705042562,
+  "stage": "driver.lean compilation",
+  "exit_code": 1,
+  "jobs": {
+    "gate": "success",
+    "verify": "failure",
+    "publish": "skipped",
+    "report-verify": "skipped"
+  },
+  "diagnosed_sites": [
+    {
+      "line": 192,
+      "issue": "simp normalized equality to level_a=level_b OR e=0; linarith does not split that disjunction",
+      "repair": "Supply existing e!=0 to simp and use congrArg multiplication"
+    },
+    {
+      "line": 254,
+      "issue": "rcases ... with rfl substituted away lo/hi, leaving unknown identifiers below",
+      "repair": "Keep named equality and rewrite heq/goal instead of substitution"
+    }
+  ],
+  "all_theorem_statements_unchanged": true,
+  "reused_accepted_proof_unchanged": true,
+  "first_run_new_axiom_reports": "sorryAx from failed proof elaboration: NOT a passing audit",
+  "verified_artifact": null,
+  "publication_receipt": null,
+  "theorem_id": null,
+  "submission_id": null,
+  "request_artifact": {
+    "id": 10470656370,
+    "sha256": "9bffdb3fae44da5f82dca66886025cd1bdc98c4047c5c96b33732c0b8f095c8f",
+    "downloaded_hash_matches": true
+  },
+  "repaired_source_head": "189b32df9e1c50c1c0b771bf6f43033094e06fea",
+  "repaired_source_blob": "f28f3e409914e88aad0d9a1698caad79897612c7",
+  "repaired_source_sha256": "4d83822ff911107a5183c2426c910af651d1d0ca67cf5cdeabfc5efb4ac9bcee",
+  "note": "One consolidated diagnostic repair; no target/assumption changes or guard/infrastructure changes. Separate later validation, if any, must not erase this failed run."
+}

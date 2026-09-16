@@ -1,0 +1,34 @@
+--- first-gate/solution.lean
++++ diagnosed-repair/solution.lean
+@@ -189,7 +189,8 @@
+       change branch e (a 0) (level e n (tail a)) =
+         branch e (b 0) (level e n (tail b)) at hab
+       rw [hhead] at hab
+-      cases h0 : b 0 <;> simp [branch, h0] at hab <;> linarith
++      cases h0 : b 0 <;> simp [branch, h0, ne_of_gt he] at hab <;>
++        exact congrArg (fun t : ℝ => e*t) hab
+     have ht : tail a = tail b := ih (mul_left_cancel₀ (ne_of_gt he) hprod)
+     funext i
+     exact Fin.cases hhead (fun j => congrFun ht j) i
+@@ -251,8 +252,9 @@
+     (ha : 0 < a) (hb : 0 < b) (hab : a+b=1)
+     (hx : lo ≤ x ∧ x ≤ hi) (hy : lo ≤ y ∧ y ≤ hi)
+     (hz : z=lo ∨ z=hi) (heq : a*x+b*y=z) : x=z ∧ y=z := by
+-  rcases hz with rfl | rfl
+-  · have h1 := mul_nonneg ha.le (sub_nonneg.mpr hx.1)
++  rcases hz with h | h
++  · rw [h] at heq ⊢
++    have h1 := mul_nonneg ha.le (sub_nonneg.mpr hx.1)
+     have h2 := mul_nonneg hb.le (sub_nonneg.mpr hy.1)
+     have hs : a*(x-lo)+b*(y-lo)=0 := by
+       calc
+@@ -262,7 +264,8 @@
+     have hby : b*(y-lo)=0 := by linarith
+     exact ⟨sub_eq_zero.mp ((mul_eq_zero.mp hax).resolve_left (ne_of_gt ha)),
+       sub_eq_zero.mp ((mul_eq_zero.mp hby).resolve_left (ne_of_gt hb))⟩
+-  · have h1 := mul_nonneg ha.le (sub_nonneg.mpr hx.2)
++  · rw [h] at heq ⊢
++    have h1 := mul_nonneg ha.le (sub_nonneg.mpr hx.2)
+     have h2 := mul_nonneg hb.le (sub_nonneg.mpr hy.2)
+     have hs : a*(hi-x)+b*(hi-y)=0 := by
+       calc

@@ -1,0 +1,66 @@
+{
+  "kind": "derived_run_and_artifact_inspection",
+  "pr": 280,
+  "proof_head": "189b32df9e1c50c1c0b771bf6f43033094e06fea",
+  "trusted_workflow_main": "129c7d4947113733fca17b9b600e93ac65470b12",
+  "run_id": 35154649613,
+  "trigger_comment": 5705092558,
+  "resolved_comment": 5705095084,
+  "verdict_comment": 5705145249,
+  "jobs": {
+    "gate": "success",
+    "verify": "success",
+    "publish": "success",
+    "report-verify": "skipped"
+  },
+  "compile_exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "audited_declarations": 5,
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "authenticated_status": "ACCEPTED",
+  "publisher_live_status": "Proved",
+  "theorem_id": "75f43150-aee7-4659-a310-709b352b68a7",
+  "submission_id": "fd4ebea0-49c5-4ffb-9555-bbc7509ea2fe",
+  "all_five_frozen_hashes_match": true,
+  "all_downloaded_archive_hashes_match": true,
+  "first_gate_run": 35154253380,
+  "first_gate_failed_before_publication": true,
+  "two_diagnosed_sites_repaired": true,
+  "all_theorem_statements_unchanged": true,
+  "solution_problem_explanation_unchanged_after_accepted_head": true,
+  "separate_direct_platform_poll": false,
+  "raw_target_source_API_bodies_exported": false,
+  "artifacts": [
+    {
+      "artifact_id": 10469893489,
+      "file": "pr280-final-request.zip",
+      "sha256": "b721ff4113bb11520fa6f7199f4629934f7328ca8e286cbe1a15eb9b8c62a2a7",
+      "bytes": 312
+    },
+    {
+      "artifact_id": 10469939202,
+      "file": "pr280-publication-receipts.zip",
+      "sha256": "940d07baef5dc58e9334012b581ffbe0e2bcc94627cb80f98b5a3feb1a863204",
+      "bytes": 936
+    },
+    {
+      "artifact_id": 10470656370,
+      "file": "pr280-publish-request.zip",
+      "sha256": "9bffdb3fae44da5f82dca66886025cd1bdc98c4047c5c96b33732c0b8f095c8f",
+      "bytes": 311
+    },
+    {
+      "artifact_id": 10470033883,
+      "file": "pr280-verified-packets.zip",
+      "sha256": "f7215fdc8ac298da966394fd8474d236cdf87fd693d16b63d507a9142d4dedb5",
+      "bytes": 16845
+    }
+  ]
+}

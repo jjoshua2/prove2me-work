@@ -1,0 +1,35 @@
+Selected exact lines from the decoded log of job104989826256, run35154253380.
+This is an excerpt, NOT the full raw runner log. Omitted intervening lines are marked.
+
+2026-09-16T21:48:22.1265825Z triangular_affine_levels/driver.lean failed to compile:
+2026-09-16T21:48:22.1267103Z '_private._verified.packets.triangular_affine_levels.driver.0.distinct_displacements_count' depends on axioms: [propext,
+2026-09-16T21:48:22.1268114Z  Classical.choice,
+2026-09-16T21:48:22.1268498Z  Quot.sound]
+2026-09-16T21:48:22.1269212Z 'accepted_parallel_displacements' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-16T21:48:22.1270503Z _verified/packets/triangular_affine_levels/driver.lean:192:54: error: linarith failed to find a contradiction
+[... intervening context ...]
+2026-09-16T21:48:22.1276524Z hhead : a 0 = b 0
+2026-09-16T21:48:22.1276721Z h0 : b 0 = false
+2026-09-16T21:48:22.1277016Z hab : level e n (tail a) = level e n (tail b) ∨ e = 0
+2026-09-16T21:48:22.1277469Z a✝ : e * level e n (tail a) < e * level e n (tail b)
+2026-09-16T21:48:22.1277791Z ⊢ False
+2026-09-16T21:48:22.1277970Z failed
+[... corresponding true-branch context ...]
+2026-09-16T21:48:22.1284838Z _verified/packets/triangular_affine_levels/driver.lean:257:19: error(lean.unknownIdentifier): Unknown identifier `lo`
+2026-09-16T21:48:22.1286324Z _verified/packets/triangular_affine_levels/driver.lean:257:28: error(lean.unknownIdentifier): Unknown identifier `lo`
+2026-09-16T21:48:22.1287827Z _verified/packets/triangular_affine_levels/driver.lean:259:13: error(lean.unknownIdentifier): Unknown identifier `lo`
+[... cascading goals from the removed endpoint names ...]
+2026-09-16T21:48:22.1305080Z _verified/packets/triangular_affine_levels/driver.lean:267:17: error(lean.unknownIdentifier): Unknown identifier `hi`
+2026-09-16T21:48:22.1305911Z _verified/packets/triangular_affine_levels/driver.lean:267:26: error(lean.unknownIdentifier): Unknown identifier `hi`
+[... cascading goals and the unused-simp warning ...]
+2026-09-16T21:48:22.1322175Z '_private._verified.packets.triangular_affine_levels.driver.0.TriangularFamily.level_injective' depends on axioms: [propext,
+2026-09-16T21:48:22.1340137Z  sorryAx,
+2026-09-16T21:48:22.1340344Z  Classical.choice,
+2026-09-16T21:48:22.1340560Z  Quot.sound]
+2026-09-16T21:48:22.1341096Z '_private._verified.packets.triangular_affine_levels.driver.0.TriangularFamily.point_extreme' depends on axioms: [propext,
+2026-09-16T21:48:22.1341676Z  sorryAx,
+2026-09-16T21:48:22.1341867Z  Classical.choice,
+2026-09-16T21:48:22.1342086Z  Quot.sound]
+2026-09-16T21:48:22.1342645Z 'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-16T21:48:22.1343005Z 
+2026-09-16T21:48:22.1429911Z ##[error]Process completed with exit code 1.

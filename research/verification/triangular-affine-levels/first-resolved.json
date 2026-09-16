@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/triangular_affine_levels"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "21c672bcb24b981ea635e956e63e2ea9d55fc5f4",
+  "pr": "280"
+}
