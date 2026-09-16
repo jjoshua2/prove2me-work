@@ -1,0 +1,80 @@
+{
+  "clean_replay": {
+    "all_nontiming_report_fields_equal": true,
+    "all_seven_final_stages_pass": true,
+    "byte_identical_fixtures": [
+      "cut_levels_clique16.json",
+      "cut_levels_clique24.json",
+      "cut_levels_clique4_cut.json",
+      "cut_levels_clique8.json",
+      "cut_levels_cube_one.json",
+      "cut_levels_cube_point.json",
+      "cut_levels_cube_slice.json",
+      "cut_levels_cube_two.json",
+      "cut_levels_cycle_two.json",
+      "cut_levels_many_rank_two.json",
+      "cut_levels_many_rank_two_large.json",
+      "cut_levels_tiny_two.json",
+      "cut_levels_triangle_cut.json"
+    ],
+    "original_full_check_sha256": "c30dd393eb3a5cb3c205b47b5da369067e2a27dea4fc332b7b0b8d2288b449e9",
+    "replay_combined_call_timeout": "A batched call stopped before many_rank_two finished. Its separate final call passed; only completed model records were assembled.",
+    "replayed_full_check_sha256": "8c61dd42790fc6a6474375902d3edab46877136faca09a63d2a0434c387cbe2f",
+    "workspace": "Fresh Git workspace containing four unchanged dependencies, with five additions installed using git apply; not a full clone or Lean build."
+  },
+  "concurrent_main_read": "af9d1ea0e2d8d07c2b1021083e2e6cfe81b20e32",
+  "dependency_live_GitHub_blob_readback_matches": true,
+  "development_base": "338d1f9e1cc20df86998efa5f0dc6e92916329e8",
+  "files": {
+    "research/CUT_VERTEX_LEVEL_CLOSURE.md": {
+      "bytes": 21613,
+      "git_blob_sha": "d638f4244bebd4c8e11200a8156dd1d43e0125bf",
+      "sha256": "4593dd3064f815b32557870c934237ead4af90afd949d6d0a68af40999b25a56"
+    },
+    "research/CUT_VERTEX_LEVEL_HANDOFF.md": {
+      "bytes": 5433,
+      "git_blob_sha": "dff51ce85f23e3e2579e7780797d24b52a71da0d",
+      "sha256": "692bde0f10246f1d19d0aa6e16b19c223bf2bc0cade1271b0b1a6bc18416c713"
+    },
+    "research/CUT_VERTEX_LEVEL_SUMMARY.json": {
+      "bytes": 11999,
+      "git_blob_sha": "297275cec1238ffb74556054f81d328d60bbb755",
+      "sha256": "5b4424b12ba937898076113b21a2a75306c8e7576985057953e0d649926112cd"
+    },
+    "scripts/cut_vertex_levels.py": {
+      "bytes": 14884,
+      "git_blob_sha": "5765fea016261a4e24f96e0b2e9234585fc6927d",
+      "sha256": "a27095fca2effff4f2a78fe8bd08c82f27d4fd989f8d58e865bb9eb0e108579c"
+    },
+    "scripts/test_cut_vertex_levels.py": {
+      "bytes": 18372,
+      "git_blob_sha": "3732a7744c05f4e8c7e3a08162abaa761fb1a3ce",
+      "sha256": "836439aba7ea0f084236cc5b8d90d7b16b00ae80e97ef3eb785eef32f3ab84b3"
+    }
+  },
+  "kind": "Derived applied-patch clean replay and source manifest, not a Lean/platform record.",
+  "new_Lean_Actions_Prove2Me_verdict": false,
+  "post_replay_changes": "Proof and handoff prose only, reconciling concurrent all-affine level obstruction; tested executables unchanged.",
+  "unchanged_dependencies": {
+    "scripts/cut_direction_routes.py": {
+      "bytes": 17606,
+      "git_blob_sha": "ada7f8bc448917e4efeba5e76ce701534fc225fb",
+      "sha256": "ac451294c8dc82839417e36318026939dd06c21101d919faa03c06a28219d672"
+    },
+    "scripts/endpoint_transfer_routes.py": {
+      "bytes": 11948,
+      "git_blob_sha": "27ec8b5b5b24b862bc38d7f3494960a4c75081d9",
+      "sha256": "20116065bcca4f3bf87d96368beb45ad69170e698760b7818bca86d7246ac10f"
+    },
+    "scripts/exact_farkas_lp.py": {
+      "bytes": 7028,
+      "git_blob_sha": "ea511a79164d953792942d8be3dd3537646738d6",
+      "sha256": "65a8731600a6750b5334307415cd37c79d201d47e179bea5cdcbd511363006d0"
+    },
+    "scripts/simple_tangent_policy_audit.py": {
+      "bytes": 8284,
+      "git_blob_sha": "73dc32b9753d7d0fe5e67ca1f4fad0534b6b1976",
+      "sha256": "28d7e66e3e2f6d6589e55a2e07e42a7a2081d56860621ba8838db9708a458440"
+    }
+  }
+}
