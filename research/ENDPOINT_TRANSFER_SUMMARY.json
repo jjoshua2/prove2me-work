@@ -1,0 +1,203 @@
+{
+  "barrier": {
+    "all_original_pair_tests": 21,
+    "auxiliary_prefix_first_pair_tests": 126,
+    "binary_Steiner_controls": [
+      {
+        "compulsory_energy_increase": 3,
+        "full_nestohedron_enumerated": true,
+        "ground_size": 7,
+        "required_peak_at_least": 10,
+        "triple_roots": 7
+      },
+      {
+        "compulsory_energy_increase": 11,
+        "full_nestohedron_enumerated": false,
+        "ground_size": 15,
+        "required_peak_at_least": 46,
+        "triple_roots": 35
+      },
+      {
+        "compulsory_energy_increase": 27,
+        "full_nestohedron_enumerated": false,
+        "ground_size": 31,
+        "required_peak_at_least": 182,
+        "triple_roots": 155
+      },
+      {
+        "compulsory_energy_increase": 59,
+        "full_nestohedron_enumerated": false,
+        "ground_size": 63,
+        "required_peak_at_least": 710,
+        "triple_roots": 651
+      }
+    ],
+    "diameter_lower_bound_claimed": false,
+    "dimension": 6,
+    "edge_stellar_only": true,
+    "genuine_nestohedron_facets": 70,
+    "ground_size": 7,
+    "higher_nonfaces": 7,
+    "minimal_nonfaces_including_pairs": 1813,
+    "nested_definition_checks": 828
+  },
+  "fano_completion": {
+    "edge_subdivisions": 11,
+    "minimum_possible_move_count_claimed": false,
+    "minimum_possible_peak_weight": 10,
+    "peak_weight": 10,
+    "refined_vertices": 81,
+    "weights": [
+      7,
+      10,
+      8,
+      6,
+      7,
+      5,
+      4,
+      5,
+      3,
+      2,
+      1,
+      0
+    ]
+  },
+  "full_report_sha256": "ea9f1c489507d1975d226a8b721d327ddc7bf1525ef855de95a048d08ace0b62",
+  "geometry": {
+    "cases": [
+      {
+        "all_original_vertex_inverses_checked": true,
+        "all_pairs_reference_diameter": null,
+        "dimension": 3,
+        "edges": 21,
+        "enumerated_coordinate_orders": 24,
+        "facets": 9,
+        "genuine_facet_witnesses": 9,
+        "independent_square_H_systems": 84,
+        "name": "interval4",
+        "nonshortest_routes": 17,
+        "route_edges": 220,
+        "routes": 91,
+        "selected_edges": 6,
+        "selected_shortest": 3,
+        "shortest_sum": 199,
+        "vertices": 14
+      },
+      {
+        "all_original_vertex_inverses_checked": true,
+        "all_pairs_reference_diameter": null,
+        "dimension": 3,
+        "edges": 36,
+        "enumerated_coordinate_orders": 24,
+        "facets": 14,
+        "genuine_facet_witnesses": 14,
+        "independent_square_H_systems": 364,
+        "name": "permuta4",
+        "nonshortest_routes": 0,
+        "route_edges": 864,
+        "routes": 276,
+        "selected_edges": 6,
+        "selected_shortest": 6,
+        "shortest_sum": 864,
+        "vertices": 24
+      },
+      {
+        "all_original_vertex_inverses_checked": true,
+        "all_pairs_reference_diameter": 12,
+        "dimension": 6,
+        "edges": 3150,
+        "enumerated_coordinate_orders": 5040,
+        "facets": 70,
+        "genuine_facet_witnesses": 70,
+        "independent_square_H_systems": 0,
+        "name": "Fano",
+        "nonshortest_routes": 22,
+        "route_edges": 607,
+        "routes": 81,
+        "selected_edges": 9,
+        "selected_shortest": 9,
+        "shortest_sum": 585,
+        "vertices": 1050
+      }
+    ],
+    "totals": {
+      "common_facet_checks": 328,
+      "nonshortest": 39,
+      "original_edges": 1691,
+      "routes": 448,
+      "shortest_edges": 1648
+    }
+  },
+  "kind": "Derived compact summary; full report and fixtures regenerate from the test script",
+  "large": {
+    "cases": [
+      {
+        "comparison_source_facet_lower_bound": 7,
+        "dimension": 7,
+        "endpoint_transfer_edges": 28,
+        "full_graph_enumerated": false,
+        "genuine_original_facets": 35,
+        "ground_size": 8,
+        "independent_explicit_shortest_edges": 7
+      },
+      {
+        "comparison_source_facet_lower_bound": 11,
+        "dimension": 11,
+        "endpoint_transfer_edges": 66,
+        "full_graph_enumerated": false,
+        "genuine_original_facets": 77,
+        "ground_size": 12,
+        "independent_explicit_shortest_edges": 11
+      },
+      {
+        "comparison_source_facet_lower_bound": 15,
+        "dimension": 15,
+        "endpoint_transfer_edges": 120,
+        "full_graph_enumerated": false,
+        "genuine_original_facets": 135,
+        "ground_size": 16,
+        "independent_explicit_shortest_edges": 15
+      }
+    ],
+    "known_asymptotic_shortening_not_claimed_as_new": true
+  },
+  "negative": {
+    "exact_serialized_packet_replayed": true,
+    "names": [
+      "missing_edge",
+      "fake_mass",
+      "false_wall",
+      "omitted_summand",
+      "float_wall_position",
+      "false_stationary",
+      "wrong_endpoint_order",
+      "false_original_inverse",
+      "omitted_original_basis",
+      "diagonal_path",
+      "changed_H",
+      "negative_weight",
+      "float_weight",
+      "invalid_building_set",
+      "upward_enumeration_cap",
+      "not_first_original_pair"
+    ],
+    "original_inverse_and_basis_production_disabled": true,
+    "rejected": 16
+  },
+  "scope": "Direct whole-sum/original-H routes and an edge-stellar energy barrier; not a solution of Polynomial Hirsch, hidden-model discovery, or Lean/platform verification",
+  "source_sha256": {
+    "scripts/endpoint_transfer_routes.py": "20116065bcca4f3bf87d96368beb45ad69170e698760b7818bca86d7246ac10f",
+    "scripts/simple_tangent_policy_audit.py": "28d7e66e3e2f6d6589e55a2e07e42a7a2081d56860621ba8838db9708a458440",
+    "scripts/steiner_nestohedron_barrier.py": "ec633af71a6e8bee890769315fb9157ce5caa577934067b425d49cbd863aaed3",
+    "scripts/stellar_defect_budget.py": "3d28385cc4cd6b31605e0918042bdee2fec280be8bf84f9c9ec897749a8bfdef",
+    "scripts/test_endpoint_transfer_routes.py": "2f8a19862b1b990489c22dbc80242538551d463a6ce53ef0392786c2d84de223"
+  },
+  "status": "PASS",
+  "support": {
+    "exposed_edges": 219,
+    "random_positive_presentations": 90,
+    "raw_support_tuple_checks": 66,
+    "stationary_swaps": 257,
+    "zero_endpoint_case": true
+  }
+}
