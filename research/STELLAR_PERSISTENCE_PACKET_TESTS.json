@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "scope": "independent finite semantics and exact signature checks, NOT Lean verification",
+  "complexes": 114,
+  "single_steps": 515,
+  "larger_face_steps": 77,
+  "old_descendants": 1204,
+  "subfamily_chains": 80,
+  "chain_steps": 320,
+  "flag_terminals": 61,
+  "exact_public_signature_match": true,
+  "proof_lines": 295,
+  "source_sha256": {
+    "solution.lean": "aa1fa0686df552a94c4abfef28f6b480b7009b2b98a37cd4df4ae34c1c19ed36",
+    "problem.json": "e0a6507ec553e331f3e88b020b2064d84d0baa06d0eea2110e8e59aaa0b2bb57",
+    "test_stellar_persistence_packet.py": "be1dc02e699e4a5fd99da5b077a972174bd039708fad87e8f48f8433cce51924"
+  }
+}
