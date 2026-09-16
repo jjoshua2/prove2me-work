@@ -1,0 +1,36 @@
+{
+  "all_three_new_remote_blobs_match": true,
+  "baseline": "e455a8da7080786f7d622a44c80cc970f1e2922e",
+  "kind": "derived_source_manifest",
+  "new_Actions": false,
+  "new_Lean": false,
+  "new_platform_submission": false,
+  "remote_readback_head": "048c37b03090f94161c6eea9eba96dc4132c6077",
+  "sources": {
+    "scripts/check_signed_root_angles.py": {
+      "bytes": 3910,
+      "git_blob": "ea7089bac94998a1e6dbc2bc15e1e4b7897c75de",
+      "sha256": "40c2f330471560dcda228f08dc3facd57a5053aa02178c74231af7d324d0ca5c"
+    },
+    "scripts/exact_farkas_lp.py": {
+      "bytes": 7028,
+      "git_blob": "ea511a79164d953792942d8be3dd3537646738d6",
+      "sha256": "65a8731600a6750b5334307415cd37c79d201d47e179bea5cdcbd511363006d0"
+    },
+    "scripts/original_route_exclusion.py": {
+      "bytes": 17290,
+      "git_blob": "a764196e54970825823cad4575b947b507f95951",
+      "sha256": "b0e5eff7a96ca336f62d69a1ad24ddf2919d8ea43077b6150e76ecf6f7c869fe"
+    },
+    "scripts/signed_level_routes.py": {
+      "bytes": 11397,
+      "git_blob": "02ed5aad782913b8b93b1da9d596d69b84e89301",
+      "sha256": "f318f491345163511702c015db0b5dfe506a22325a63e7f836ddd62b9d1c2f48"
+    },
+    "scripts/test_signed_level_routes.py": {
+      "bytes": 14238,
+      "git_blob": "999d0c4b4fcfc5fc77b489012ad666375d181fcb",
+      "sha256": "0da4c5ffabb1b613559f5731aff5c683c3901c34127dd0c606478c5e842e1c1a"
+    }
+  }
+}
