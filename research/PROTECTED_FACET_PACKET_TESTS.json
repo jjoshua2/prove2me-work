@@ -1,0 +1,35 @@
+{
+  "counter_bound_values": {
+    "omit_injectivity": {
+      "false_bound": 1,
+      "states": 2
+    },
+    "omit_interval": {
+      "false_bound": 2,
+      "states": 3
+    }
+  },
+  "edge_case_tests": 5,
+  "exhaustive_candidates": 33790,
+  "exhaustive_valid_cases": 9502,
+  "largest_random_state_count": 61,
+  "negative_controls": [
+    "protected_facet_reentry",
+    "repeated_complete_state",
+    "nonuniform_states",
+    "state_outside_original_ground",
+    "missing_allowed_signature"
+  ],
+  "public_signature_matches": true,
+  "random_valid_exchange_paths": 400,
+  "scope": "independent finite semantics and statement binding, NOT Lean verification",
+  "solution_lines": 220,
+  "source_sha256": {
+    "problem.json": "16c5a3bb1ea396bfe0e630791dd2290a76cf71589107980d81b078b4c26083e9",
+    "solution.lean": "6ea99bbb05ef86b965cbc558cfc744c05503a16effb7e704832c04f8de965739",
+    "test_protected_facet_packet.py": "9f291a8d77340bc74a38f9d40fa145a79885a112014964f98fb4968212d51433"
+  },
+  "status": "PASS",
+  "valid_cases_with_exceptional_reentries": 6480,
+  "valid_cases_without_ordinary_exchange_adjacency": 2808
+}
