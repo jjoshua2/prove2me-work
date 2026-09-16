@@ -1,0 +1,9 @@
+{
+  "kind": "derived_clean_script_replay",
+  "status": "PASS",
+  "full_report_byte_identical": true,
+  "source_sha256": "ffcf8462a62169af76fcc4a3705fb59802efde39a2b6c86d5bf75309ff0e556d",
+  "source_git_blob": "1c3d777396802a689b3cb4eb94091ac78c17e4ab",
+  "report_sha256": "15ac1f4457b3b211a9f38f6d227dc7702153150520ab58af29b5456be034bf47",
+  "scope": "One independent script-only workspace. Exact finite checks, not Lean compilation or an additional platform verdict."
+}

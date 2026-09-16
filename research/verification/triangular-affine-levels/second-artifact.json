@@ -1,0 +1,25 @@
+{
+  "head_sha": "189b32df9e1c50c1c0b771bf6f43033094e06fea",
+  "packets": [
+    {
+      "path": "research/publication_packets/triangular_affine_levels",
+      "name": "triangular_affine_levels",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "4d83822ff911107a5183c2426c910af651d1d0ca67cf5cdeabfc5efb4ac9bcee",
+        "driver.lean": "4d83822ff911107a5183c2426c910af651d1d0ca67cf5cdeabfc5efb4ac9bcee",
+        "statement.lean": "4438277baeed50cd5d5470dfaf48d2ec3532c6830c96b396343c446996ce2cb0",
+        "problem.json": "fd477d225ff9ab100ac21b0454bf6dd67c5d5074947d6a492759477c6d7a5871",
+        "explanation.md": "0bbaf37e6a89df81e84fc2d4c11ffde6131f8cd08a9bfd59b3a81b2cb0ba62c3"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}
