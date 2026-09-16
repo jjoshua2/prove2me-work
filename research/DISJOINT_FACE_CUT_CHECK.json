@@ -1,0 +1,198 @@
+{
+  "adverse_conditional_choice": {
+    "best_order": [
+      3,
+      0,
+      1,
+      4,
+      2
+    ],
+    "checked_orders": 120,
+    "chosen_edges": 6,
+    "cuts": 17,
+    "dimension": 5,
+    "shortest_edges": 5,
+    "shortest_lower_bound": "five target facets absent at simple source"
+  },
+  "baseline": "f2957916eee3d28e407253d0ff8fec6271747f26",
+  "kind": "derived_compact_research_summary",
+  "negative_controls": 21,
+  "noncorner_cases": [
+    {
+      "common_original_facets": 0,
+      "conditional_branches": 36,
+      "cut_faces": 7,
+      "cut_incidence_tests": 308,
+      "different_base_coordinates": 8,
+      "dimension": 8,
+      "expected_length": "489/56",
+      "genuine_original_facets": 23,
+      "global_class_bound": 15,
+      "integer_bound": 8,
+      "noncorner_cuts": 1,
+      "original_edges": 8,
+      "original_row_reentries": 0,
+      "removed_vertices_of_large_face": 64,
+      "scope": "Exact recognized disjoint-face class, not arbitrary cuts or shortest-route optimality; no Lean verification.",
+      "status": "PASS",
+      "vertex_count_formula_not_enumerated": 362
+    },
+    {
+      "common_original_facets": 0,
+      "conditional_branches": 528,
+      "cut_faces": 25,
+      "cut_incidence_tests": 14000,
+      "different_base_coordinates": 32,
+      "dimension": 32,
+      "expected_length": "8897022897629/273491577450",
+      "genuine_original_facets": 89,
+      "global_class_bound": 57,
+      "integer_bound": 32,
+      "noncorner_cuts": 1,
+      "original_edges": 32,
+      "original_row_reentries": 0,
+      "removed_vertices_of_large_face": 1073741824,
+      "scope": "Exact recognized disjoint-face class, not arbitrary cuts or shortest-route optimality; no Lean verification.",
+      "status": "PASS",
+      "vertex_count_formula_not_enumerated": 5368709864
+    }
+  ],
+  "positive_row_scaling_same_path": true,
+  "same_272_inputs": [
+    {
+      "common_original_facets": 0,
+      "conditional_branches": 10,
+      "cut_faces": 6,
+      "cut_incidence_tests": 84,
+      "different_base_coordinates": 4,
+      "dimension": 4,
+      "expected_length": "16/3",
+      "genuine_original_facets": 14,
+      "global_class_bound": 8,
+      "integer_bound": 5,
+      "noncorner_cuts": 0,
+      "old_reverse_order_edges_reaudited": 7,
+      "original_edges": 4,
+      "original_row_reentries": 0,
+      "proved_vertex_formula_not_enumerated": 34,
+      "same_generator_as_272": true,
+      "scope": "Exact recognized disjoint-face class, not arbitrary cuts or shortest-route optimality; no Lean verification.",
+      "status": "PASS"
+    },
+    {
+      "common_original_facets": 0,
+      "conditional_branches": 36,
+      "cut_faces": 14,
+      "cut_incidence_tests": 616,
+      "different_base_coordinates": 8,
+      "dimension": 8,
+      "expected_length": "2389/280",
+      "genuine_original_facets": 30,
+      "global_class_bound": 16,
+      "integer_bound": 8,
+      "noncorner_cuts": 0,
+      "old_reverse_order_edges_reaudited": 15,
+      "original_edges": 8,
+      "original_row_reentries": 0,
+      "proved_vertex_formula_not_enumerated": 354,
+      "same_generator_as_272": true,
+      "scope": "Exact recognized disjoint-face class, not arbitrary cuts or shortest-route optimality; no Lean verification.",
+      "status": "PASS"
+    },
+    {
+      "common_original_facets": 0,
+      "conditional_branches": 136,
+      "cut_faces": 30,
+      "cut_incidence_tests": 4560,
+      "different_base_coordinates": 16,
+      "dimension": 16,
+      "expected_length": "11640331/720720",
+      "genuine_original_facets": 62,
+      "global_class_bound": 32,
+      "integer_bound": 16,
+      "noncorner_cuts": 0,
+      "old_reverse_order_edges_reaudited": 31,
+      "original_edges": 16,
+      "original_row_reentries": 0,
+      "proved_vertex_formula_not_enumerated": 65986,
+      "same_generator_as_272": true,
+      "scope": "Exact recognized disjoint-face class, not arbitrary cuts or shortest-route optimality; no Lean verification.",
+      "status": "PASS"
+    },
+    {
+      "common_original_facets": 0,
+      "conditional_branches": 528,
+      "cut_faces": 62,
+      "cut_incidence_tests": 34720,
+      "different_base_coordinates": 32,
+      "dimension": 32,
+      "expected_length": "1199323839961/37400557600",
+      "genuine_original_facets": 126,
+      "global_class_bound": 64,
+      "integer_bound": 32,
+      "noncorner_cuts": 0,
+      "old_reverse_order_edges_reaudited": 63,
+      "original_edges": 32,
+      "original_row_reentries": 0,
+      "proved_vertex_formula_not_enumerated": 4294969218,
+      "same_generator_as_272": true,
+      "scope": "Exact recognized disjoint-face class, not arbitrary cuts or shortest-route optimality; no Lean verification.",
+      "status": "PASS"
+    }
+  ],
+  "saved_audit": {
+    "comparison_edges_reaudited": 121,
+    "comparison_paths_reaudited": 5,
+    "order_search_inverse_and_geometry_producers_disabled": true,
+    "records": 24,
+    "status": "PASS"
+  },
+  "scope": "Written class proof and exact software, not Lean/Actions/Prove2Me. No unrestricted diameter or general shortest-path guarantee.",
+  "sharp_2d": [
+    {
+      "dimension": 2,
+      "edges": 4
+    },
+    {
+      "dimension": 3,
+      "edges": 6
+    },
+    {
+      "dimension": 5,
+      "edges": 10
+    }
+  ],
+  "sharp_first_layer": [
+    {
+      "dimension": 3,
+      "edges": 4
+    },
+    {
+      "dimension": 6,
+      "edges": 7
+    },
+    {
+      "dimension": 12,
+      "edges": 13
+    }
+  ],
+  "small_counts": {
+    "BFS_edges": 1497,
+    "active_systems": 2079,
+    "graph_edges": 256,
+    "models": 10,
+    "nonrevisiting": 615,
+    "nonshortest": 0,
+    "original_edges": 1497,
+    "original_vertices": 156,
+    "permutations_checked": 1572,
+    "routes": 615,
+    "worse_than_best_order": 0
+  },
+  "status": "PASS",
+  "tiny_cut_powers": [
+    20,
+    80,
+    160
+  ]
+}

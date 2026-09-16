@@ -1,0 +1,115 @@
+{
+  "all_reports_and_fixtures_byte_identical": true,
+  "files": [
+    {
+      "bytes": 515,
+      "path": "research/verification/corner-routes/audit.json",
+      "sha256": "dee71fcb13368b2d53b35825f21c21563603d26538ee8965eb7e99a6f942694c"
+    },
+    {
+      "bytes": 9915,
+      "path": "research/verification/corner-routes/large.json",
+      "sha256": "454f273249469a60c2496db1db50c1ba38d92e18bdd3ff73064b64d27fe956b3"
+    },
+    {
+      "bytes": 995,
+      "path": "research/verification/corner-routes/negative.json",
+      "sha256": "44760017e36ffcf9a2866341000b5b76b5b218da7e392c952cfb80ae427e8463"
+    },
+    {
+      "bytes": 2861,
+      "path": "research/verification/corner-routes/small.json",
+      "sha256": "90b0efbaff90bb1346245a793598b32dd55d603ae313b23c5801805b0e947a2e"
+    },
+    {
+      "bytes": 30186,
+      "path": "research/fixtures/corner-routes/adverse-greedy.json",
+      "sha256": "d0793e71a3cd6500020f0a3cba45d883758a71adcc7d680f1cedaf2bc5d3022d"
+    },
+    {
+      "bytes": 5834,
+      "path": "research/fixtures/corner-routes/full-truncation-2.json",
+      "sha256": "30e3e40a256a65a384d44d8815c59132fce0777ba4622bcd7a559b3094cf6e4b"
+    },
+    {
+      "bytes": 10779,
+      "path": "research/fixtures/corner-routes/full-truncation-3.json",
+      "sha256": "498c77d06198689c3352a33c23bd9839d92215d1aeeb69a81ba64a3cd7f7b185"
+    },
+    {
+      "bytes": 34824,
+      "path": "research/fixtures/corner-routes/full-truncation-5.json",
+      "sha256": "0db30cc2f4e6d1a1e21d298ad0286de1c3f1a5ca0340c659607ce57e6a6cb338"
+    },
+    {
+      "bytes": 1465185,
+      "path": "research/fixtures/corner-routes/noncorner-32.json",
+      "sha256": "7c2872460426e787b32364792b0458252610e7aba86578934c1330175e2bd286"
+    },
+    {
+      "bytes": 39064,
+      "path": "research/fixtures/corner-routes/noncorner-8.json",
+      "sha256": "e0f2da42369e6984f00e10a5bae5138439f87a34037907b5e93daeb093e67494"
+    },
+    {
+      "bytes": 576147,
+      "path": "research/fixtures/corner-routes/same272-16.json",
+      "sha256": "6e07ee96fecc8c3988cf34584f58c73ffd9c640013262e11a07d870788446a51"
+    },
+    {
+      "bytes": 4000213,
+      "path": "research/fixtures/corner-routes/same272-32.json",
+      "sha256": "aaf2924c2feb8915a44dc0544a4ecee997a41f8fd05616472aeca27b04b461fe"
+    },
+    {
+      "bytes": 20581,
+      "path": "research/fixtures/corner-routes/same272-4.json",
+      "sha256": "ab8409ee348294756e78bf88f2d3f5f26e6fad2d7a83b7da3d313efbdd4a66d4"
+    },
+    {
+      "bytes": 95652,
+      "path": "research/fixtures/corner-routes/same272-8.json",
+      "sha256": "414f5872ab28d85fb14e0bd4e6077d2d073baad00446eb3d7f07ee206f32e448"
+    },
+    {
+      "bytes": 112469,
+      "path": "research/fixtures/corner-routes/sharp-12.json",
+      "sha256": "41f56d5c15119bd973949f72f0a998e7b4fd36adfb80f1c33fadaf24eed74b08"
+    },
+    {
+      "bytes": 7444,
+      "path": "research/fixtures/corner-routes/sharp-3.json",
+      "sha256": "5a32d0a59750b31e6e1b72fba88928737c79c1f2e98d5dd67931060fa7be0705"
+    },
+    {
+      "bytes": 23643,
+      "path": "research/fixtures/corner-routes/sharp-6.json",
+      "sha256": "11720171279c1215cc62bbf7b6491c6f134c3704c7390b874a22f94c3009af6b"
+    },
+    {
+      "bytes": 26431,
+      "path": "research/fixtures/corner-routes/small.json",
+      "sha256": "2a145f194e458f230988f1f04c0a302218b18b57d84bbdadc5e088213885f5ad"
+    },
+    {
+      "bytes": 36410,
+      "path": "research/fixtures/corner-routes/tiny-160.json",
+      "sha256": "21ead701dfff10a8531159c22449940d90c7cd0f36eab6e5b1f57e7e76d7ba38"
+    },
+    {
+      "bytes": 25600,
+      "path": "research/fixtures/corner-routes/tiny-20.json",
+      "sha256": "6cd4bb77b6fe6c4c0d2e2bebac60e6ec93488efa798fc03f303f524d0ed99c1a"
+    },
+    {
+      "bytes": 30227,
+      "path": "research/fixtures/corner-routes/tiny-80.json",
+      "sha256": "167f606488c335184d7e7405978299baaf27c453e08e4e0c5375a8c1995b510b"
+    }
+  ],
+  "fixture_files": 17,
+  "kind": "derived_clean_directory_replay",
+  "reports": 4,
+  "status": "PASS",
+  "workspace": "two new scripts and unchanged #271 dependency; not a repository clone or Lean build"
+}
