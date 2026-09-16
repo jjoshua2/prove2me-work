@@ -1,0 +1,29 @@
+{
+  "baseline": "f2957916eee3d28e407253d0ff8fec6271747f26",
+  "both_new_source_blobs_and_dependency_match": true,
+  "kind": "derived_source_manifest",
+  "new_Actions": false,
+  "new_Lean": false,
+  "new_platform_submission": false,
+  "readback_source_head": "343f4e6ba9294a0548500cee60cfbe8db50538d1",
+  "sources": {
+    "scripts/disjoint_face_cut_routes.py": {
+      "bytes": 14961,
+      "git_blob": "9afe4739a6a9878fb67e4a667fccb5bfa7f994fa",
+      "new": true,
+      "sha256": "8d9d39a080e3dddf2597b1cde9d6f5cec8d460406b477b474791f176416ce4ce"
+    },
+    "scripts/original_route_exclusion.py": {
+      "bytes": 17290,
+      "git_blob": "a764196e54970825823cad4575b947b507f95951",
+      "new": false,
+      "sha256": "b0e5eff7a96ca336f62d69a1ad24ddf2919d8ea43077b6150e76ecf6f7c869fe"
+    },
+    "scripts/test_disjoint_face_cut_routes.py": {
+      "bytes": 16116,
+      "git_blob": "a95e8877241025b7e69975bfde9cff845ed6dc46",
+      "new": true,
+      "sha256": "c0158dae222003bea0561bc8d7842df3e55de0555ca2e4233eff19bb8dd5aa07"
+    }
+  }
+}
