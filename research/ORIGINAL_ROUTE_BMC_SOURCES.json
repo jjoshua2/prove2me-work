@@ -1,0 +1,36 @@
+{
+  "base_sha": "5e811793529ebacce9731c39cfe3d1b9d082e7c2",
+  "new_files": {
+    "research/ORIGINAL_ROUTE_BMC.md": {
+      "bytes": 17276,
+      "git_blob": "c65784ce5ef0cc731be3037b07ff2a2b9dff4f2c",
+      "sha256": "29047678a6c8565102d8975eb02823a4055d55075c2c96b5f98df62b92f64a2f"
+    },
+    "research/ORIGINAL_ROUTE_BMC_HANDOFF.md": {
+      "bytes": 5240,
+      "git_blob": "cfa8cd08d8d637781730cd984bc3685dbd21c9c8",
+      "sha256": "b4b519afac3679a25fcf1e3e79ba6ec5d76838d68fe6e8e734edfdfe27562b66"
+    },
+    "research/ORIGINAL_ROUTE_BMC_REPLAY.json": {
+      "bytes": 1007,
+      "git_blob": "a7252e15bb77b032c91f639f2d6a131010971bc2",
+      "sha256": "8a25a15062c5851ea0edb5ab204499b32a7b19b638e7d8a1bb2750dbfe42c1d7"
+    },
+    "research/ORIGINAL_ROUTE_BMC_SUMMARY.json": {
+      "bytes": 6158,
+      "git_blob": "06d815bf3c5cdf200c46722a2f310edb9ac23716",
+      "sha256": "a257e7e6c7fdbbe4d556047fd509da435286eb4cad229a26ee6fbcfa93340d4a"
+    },
+    "scripts/original_route_bmc.py": {
+      "bytes": 22391,
+      "git_blob": "df0ddb083ec7643f9c03fb93c147b9676b823d05",
+      "sha256": "5c1eec133a6b2f6d5ba0964dd5f89eb3d5e4fb3e7a8e0b048ec3d7e8ade75c7c"
+    },
+    "scripts/test_original_route_bmc.py": {
+      "bytes": 19878,
+      "git_blob": "858dab99374f0ea86635de6a4cc6457e6a2bf9b7",
+      "sha256": "afaee56252db0225f46256fa557d3d3bfd7bc8d492e3f2211a0bd767c8e94d2e"
+    }
+  },
+  "record_kind": "local exact source identities, not platform or Lean verdict"
+}
