@@ -1,0 +1,120 @@
+{
+  "all_22_byte_identical": true,
+  "files": [
+    {
+      "bytes": 471,
+      "path": "research/verification/audit.json",
+      "sha256": "1ac17bdeacab21041d4d0de9f28a7d48083493ef317707857c144a0e716b91c2"
+    },
+    {
+      "bytes": 7706,
+      "path": "research/verification/charts.json",
+      "sha256": "981c12e70836c148b7b1b3764ccff3d6e78871f3e84926317be777f1f851ac04"
+    },
+    {
+      "bytes": 2294,
+      "path": "research/verification/large16.json",
+      "sha256": "b5541c1b566a35255bcbee259dee1cc8044b6b8f1e4449d0fb6b6e11dabf3611"
+    },
+    {
+      "bytes": 2301,
+      "path": "research/verification/large32.json",
+      "sha256": "31acafc1a6e5b9f255f141b9e57100c548648d599263b444320468695c76b87b"
+    },
+    {
+      "bytes": 2316,
+      "path": "research/verification/large64.json",
+      "sha256": "bf6ef6b7b0a5ee997c57ba41e016565e5aca84e5a3c42b941f98ef0e46a2c196"
+    },
+    {
+      "bytes": 1029,
+      "path": "research/verification/negative.json",
+      "sha256": "00dcc90322327a7ade30d4b6fb6a6f72900daf4a4a7ad9e1f837b98bf9cd3a55"
+    },
+    {
+      "bytes": 2681,
+      "path": "research/verification/parallel.json",
+      "sha256": "27788800a56b9393215f39f4a5418b00a9d212836de361afd8f77c5e2404cb76"
+    },
+    {
+      "bytes": 1823,
+      "path": "research/verification/small.json",
+      "sha256": "4c7ef1cac15bbbf433ea12de5b874d2a8ecdf72eaf69ffc4f7eddadda30b39fb"
+    },
+    {
+      "bytes": 7256,
+      "path": "research/fixtures/chart_dense_3.json",
+      "sha256": "9f2430aeb498aa29c0dffcd4afd77e56f5451dc0978834e71ab949ef8ee9195d"
+    },
+    {
+      "bytes": 52159,
+      "path": "research/fixtures/chart_dense_8.json",
+      "sha256": "2b03cf01fa53d649dfb5432298923fe80528c9a8016643f12be7b637fd8c1b68"
+    },
+    {
+      "bytes": 7010,
+      "path": "research/fixtures/chart_half_collapse_3.json",
+      "sha256": "481c093cc3186a2420f3feb12796b75aa365c2a4957e36c4b3a7ef2e32f23cce"
+    },
+    {
+      "bytes": 45322,
+      "path": "research/fixtures/chart_half_collapse_8.json",
+      "sha256": "a2dedf0e33e677f80eee9e21b6fe5adfb8751ac1bad376de83bac02c0448db00"
+    },
+    {
+      "bytes": 2492,
+      "path": "research/fixtures/family_1_4.json",
+      "sha256": "6ddadb4887f1a7f0ebbac35a9979eca94753410116fba3069abf886e8e922b6c"
+    },
+    {
+      "bytes": 3969,
+      "path": "research/fixtures/family_2_3.json",
+      "sha256": "f9e3c0821b75950ac77ef74559f3c22e67373134f02f882b2fdd6b2bd92fe4bd"
+    },
+    {
+      "bytes": 3969,
+      "path": "research/fixtures/family_2_4.json",
+      "sha256": "5c21a2e87209ff4fb515df90599d6dee139c386fe143ff6267677c0590785f62"
+    },
+    {
+      "bytes": 6345,
+      "path": "research/fixtures/family_3_3.json",
+      "sha256": "42cbade495474e96e834b4d6f32fe92050630a485999a5cf75c564a44f47e072"
+    },
+    {
+      "bytes": 6360,
+      "path": "research/fixtures/family_3_4.json",
+      "sha256": "b154a790af814c76651815f735531d5b51ff4caf55c37b03cf6595463e34a1ef"
+    },
+    {
+      "bytes": 10265,
+      "path": "research/fixtures/family_4_256.json",
+      "sha256": "02731364d73885c0db832b52944abfb3c48cb97e6707a28182adad387e8ceb10"
+    },
+    {
+      "bytes": 9960,
+      "path": "research/fixtures/family_4_4.json",
+      "sha256": "d90c7cab7a2f83c883911d450054274ab1f2a27f85cab1583e27bee6b6e78970"
+    },
+    {
+      "bytes": 257339,
+      "path": "research/fixtures/large_16.json",
+      "sha256": "b9cc33c3448e580251bb1a583ca860629b4855cfed9787f704924cbb346f0edf"
+    },
+    {
+      "bytes": 1897630,
+      "path": "research/fixtures/large_32.json",
+      "sha256": "5c63ac4f9aa6ad8544721be3dbb0e87271b92a79b5f73236da64b39b737b7090"
+    },
+    {
+      "bytes": 15937759,
+      "path": "research/fixtures/large_64.json",
+      "sha256": "617504cbc21ad53f8b1c1a9c10df5a7c74461b8e4acc74cb07cd59578a3966e4"
+    }
+  ],
+  "fixtures": 14,
+  "kind": "derived_clean_workspace_replay",
+  "reports": 8,
+  "status": "PASS",
+  "workspace": "two new scripts and one unchanged dependency; no repository clone"
+}
