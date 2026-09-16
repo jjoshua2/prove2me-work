@@ -1,0 +1,91 @@
+{
+  "baseline": "338d1f9e1cc20df86998efa5f0dc6e92916329e8",
+  "explicit_parallel_edges": 4351,
+  "formula_only_dimensions": [
+    128,
+    256
+  ],
+  "kind": "derived_compact_research_summary",
+  "large_routes": [
+    {
+      "common_original_facets_preserved": 0,
+      "dimension": 16,
+      "every_injective_affine_embedding_obstructed": true,
+      "genuine_original_facets": 32,
+      "level_lower_bound_in_every_affine_chart": 257,
+      "levels_per_next_coordinate_on_prefix_face": 2,
+      "original_edges": 16,
+      "original_graph_diameter_by_cube_classification": 16,
+      "parallel_edge_lengths_distinct_by_family_proof": 32768,
+      "row_reentries": 0,
+      "scope": "Family proof plus exact rational identities; not chart sampling, Lean, projective/extension obstruction, or a Hirsch counterexample.",
+      "shortest_endpoint_distance": 16,
+      "status": "PASS",
+      "target_prefix_faces_certified": 16
+    },
+    {
+      "common_original_facets_preserved": 0,
+      "dimension": 32,
+      "every_injective_affine_embedding_obstructed": true,
+      "genuine_original_facets": 64,
+      "level_lower_bound_in_every_affine_chart": 65537,
+      "levels_per_next_coordinate_on_prefix_face": 2,
+      "original_edges": 32,
+      "original_graph_diameter_by_cube_classification": 32,
+      "parallel_edge_lengths_distinct_by_family_proof": 2147483648,
+      "row_reentries": 0,
+      "scope": "Family proof plus exact rational identities; not chart sampling, Lean, projective/extension obstruction, or a Hirsch counterexample.",
+      "shortest_endpoint_distance": 32,
+      "status": "PASS",
+      "target_prefix_faces_certified": 32
+    },
+    {
+      "common_original_facets_preserved": 0,
+      "dimension": 64,
+      "every_injective_affine_embedding_obstructed": true,
+      "genuine_original_facets": 128,
+      "level_lower_bound_in_every_affine_chart": 4294967297,
+      "levels_per_next_coordinate_on_prefix_face": 2,
+      "original_edges": 64,
+      "original_graph_diameter_by_cube_classification": 64,
+      "parallel_edge_lengths_distinct_by_family_proof": 9223372036854775808,
+      "row_reentries": 0,
+      "scope": "Family proof plus exact rational identities; not chart sampling, Lean, projective/extension obstruction, or a Hirsch counterexample.",
+      "shortest_endpoint_distance": 64,
+      "status": "PASS",
+      "target_prefix_faces_certified": 64
+    }
+  ],
+  "negative_controls": 24,
+  "rectangular_embedding": {
+    "coordinate_levels": [
+      2,
+      4,
+      8,
+      16,
+      32,
+      32,
+      1
+    ],
+    "dimension": 5,
+    "output_dimension": 7
+  },
+  "saved_audit": {
+    "original_edges_checked": 153,
+    "saved_records": 14,
+    "status": "PASS",
+    "vertex_path_inverse_and_anchor_producers_disabled": true
+  },
+  "scope": "The all-affine/all-real statement is the written proof, not inferred from sampled charts. Large edge/level counts are proved formulas. No diameter lower bound beyond known cube distance, Lean or platform verdict.",
+  "small": {
+    "active_bases": 194,
+    "old_auditor_replays": 324,
+    "original_edges": 97,
+    "reference_distances": 324,
+    "route_edges": 552,
+    "route_pairs": 324,
+    "vertices": 58
+  },
+  "square_charts": 28,
+  "status": "PASS"
+}

@@ -1,0 +1,27 @@
+{
+  "baseline": "338d1f9e1cc20df86998efa5f0dc6e92916329e8",
+  "both_new_source_blobs_match": true,
+  "dependency_unchanged": true,
+  "kind": "derived_source_manifest",
+  "new_Actions": false,
+  "new_Lean": false,
+  "new_platform_submission": false,
+  "remote_source_readback_head": "51c0b1bf475643a00ff9cfa6b637524521b3cb2d",
+  "sources": {
+    "scripts/affine_level_barrier.py": {
+      "bytes": 11858,
+      "git_blob": "b98625e40acebcf99488c8973f489ed72292b34a",
+      "sha256": "7e2fb2df835130b438c8158a04cc69128cd95dc468bc74007d6a884faf5ab54b"
+    },
+    "scripts/original_route_exclusion.py": {
+      "bytes": 17290,
+      "git_blob": "a764196e54970825823cad4575b947b507f95951",
+      "sha256": "b0e5eff7a96ca336f62d69a1ad24ddf2919d8ea43077b6150e76ecf6f7c869fe"
+    },
+    "scripts/test_affine_level_barrier.py": {
+      "bytes": 12305,
+      "git_blob": "ee07201e2288c4133804722da672e31111518142",
+      "sha256": "fb676a6c94c97f910dfbb337751fd3f81296e426bf0a6df5def0f5c81aa07389"
+    }
+  }
+}
