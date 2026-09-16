@@ -1,0 +1,54 @@
+{
+  "base_sha": "5e811793529ebacce9731c39cfe3d1b9d082e7c2",
+  "clean_replay": {
+    "all_nontiming_fields_equal": true,
+    "byte_identical_fixtures": [
+      "endpoint_transfer_Fano.json",
+      "endpoint_transfer_interval4.json",
+      "fano_positive_barrier.json",
+      "endpoint_transfer_permuta4.json",
+      "endpoint_transfer_interval16.json"
+    ],
+    "workspace": "Two new production/research modules, test script and two unchanged dependencies; not a full clone or Lean build"
+  },
+  "files": {
+    "research/ENDPOINT_TRANSFER_AND_STEINER_BARRIER.md": {
+      "bytes": 20384,
+      "git_blob_sha": "4634e6cb7b6dda19ed9713bd99885b938c8c1e37",
+      "sha256": "13fed96afa5493c7c61744cca142db28e835581c06977321cd39e115021d69cc"
+    },
+    "research/ENDPOINT_TRANSFER_HANDOFF.md": {
+      "bytes": 4251,
+      "git_blob_sha": "29cbdb4bfacd890d32451ba9202f98599a695fc0",
+      "sha256": "6a8d012370810aaaa6e4421bd16662e3815e8286c8218135f4fed7a1dfc72120"
+    },
+    "scripts/endpoint_transfer_routes.py": {
+      "bytes": 11948,
+      "git_blob_sha": "27ec8b5b5b24b862bc38d7f3494960a4c75081d9",
+      "sha256": "20116065bcca4f3bf87d96368beb45ad69170e698760b7818bca86d7246ac10f"
+    },
+    "scripts/steiner_nestohedron_barrier.py": {
+      "bytes": 4936,
+      "git_blob_sha": "7c18f79d86aa4c60c73d43d0aa8d89e9709ea0d8",
+      "sha256": "ec633af71a6e8bee890769315fb9157ce5caa577934067b425d49cbd863aaed3"
+    },
+    "scripts/test_endpoint_transfer_routes.py": {
+      "bytes": 16671,
+      "git_blob_sha": "2e848d0910504214dcc8820b0958b8cac4b6f3ca",
+      "sha256": "2f8a19862b1b990489c22dbc80242538551d463a6ce53ef0392786c2d84de223"
+    }
+  },
+  "no_new_Lean_or_Prove2Me_verdict": true,
+  "unchanged_dependencies": {
+    "scripts/simple_tangent_policy_audit.py": {
+      "bytes": 8284,
+      "git_blob_sha": "73dc32b9753d7d0fe5e67ca1f4fad0534b6b1976",
+      "sha256": "28d7e66e3e2f6d6589e55a2e07e42a7a2081d56860621ba8838db9708a458440"
+    },
+    "scripts/stellar_defect_budget.py": {
+      "bytes": 13871,
+      "git_blob_sha": "b51e2c3edec2c85026344566978561eb430050ec",
+      "sha256": "3d28385cc4cd6b31605e0918042bdee2fec280be8bf84f9c9ec897749a8bfdef"
+    }
+  }
+}
