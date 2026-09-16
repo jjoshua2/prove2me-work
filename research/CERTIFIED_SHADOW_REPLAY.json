@@ -1,0 +1,17 @@
+{
+  "Lean_Actions_or_Prove2Me_run": false,
+  "byte_identical_fixtures": 6,
+  "kind": "Derived clean dependency replay, not a full repository clone or Lean build",
+  "matching_full_report_non_timing_fields": true,
+  "new_scripts": 4,
+  "python_compilation_passed": true,
+  "source_sha256": {
+    "scripts/certified_rational_shadow.py": "2eb9b0f95292b44cc00e331eab11cf4900bdb36ae43c647cbb2319423db93e0c",
+    "scripts/certified_shadow_union.py": "6533a7bbb58ba9445ac499b15de855fe8cc4cf1e715050b5a456ca79a9e708ff",
+    "scripts/exact_farkas_lp.py": "65a8731600a6750b5334307415cd37c79d201d47e179bea5cdcbd511363006d0",
+    "scripts/test_certified_rational_shadow.py": "cb18a17203cf91bc52f5aae97743321b28cbf1b1586c30b84e68ae3f729591fa",
+    "scripts/test_certified_shadow_union.py": "85a4ccc9b533d0fca6a8d4bb19570cf50e35f5ade4fecdfe724716022524d531"
+  },
+  "status": "PASS",
+  "unchanged_dependencies": 1
+}

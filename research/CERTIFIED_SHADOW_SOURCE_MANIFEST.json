@@ -1,0 +1,56 @@
+{
+  "dependency_blob_read_back_on_integration_base": true,
+  "development_base": "5e811793529ebacce9731c39cfe3d1b9d082e7c2",
+  "files": {
+    "research/CERTIFIED_SHADOW_HANDOFF.md": {
+      "bytes": 4887,
+      "git_blob_sha": "1b93d322417b309aa3af75d21859459c5e2ee389",
+      "sha256": "794140c31317d47e82db3bdd428418918de633d7aeccc69a1885ce9c1b3fbd48"
+    },
+    "research/CERTIFIED_SHADOW_REPLAY.json": {
+      "bytes": 901,
+      "git_blob_sha": "004d8dd55814397e27101199a92167d650f9db4b",
+      "sha256": "109853cf9d40679c617920ffb74545e482c5847f919dbf78edfe0c63350e6e20"
+    },
+    "research/CERTIFIED_SHADOW_SUMMARY.json": {
+      "bytes": 5304,
+      "git_blob_sha": "c0a5296211fd487cc1859e981d8ac1182b910150",
+      "sha256": "48be8369cc9bffc3ae1942e2fa22a14508f4240370fa84580efb9e8716140276"
+    },
+    "research/CERTIFIED_SHADOW_UNIONS.md": {
+      "bytes": 19645,
+      "git_blob_sha": "533bf457840cd9c5246f2bd1709f0f0c016b9e95",
+      "sha256": "35d8672d286ff8cea9d35649cc96a63e86d3d62538ca2f0b112055ec5c43e321"
+    },
+    "scripts/certified_rational_shadow.py": {
+      "bytes": 16230,
+      "git_blob_sha": "b08ab6540e6427ff12f62c94a6d28ef1c8558da6",
+      "sha256": "2eb9b0f95292b44cc00e331eab11cf4900bdb36ae43c647cbb2319423db93e0c"
+    },
+    "scripts/certified_shadow_union.py": {
+      "bytes": 5394,
+      "git_blob_sha": "6fde50974fb8695c29e72a29ba35e3f2a6bca402",
+      "sha256": "6533a7bbb58ba9445ac499b15de855fe8cc4cf1e715050b5a456ca79a9e708ff"
+    },
+    "scripts/test_certified_rational_shadow.py": {
+      "bytes": 12567,
+      "git_blob_sha": "df2410d87c6f29a581e1b26f57b257eaab7bfbde",
+      "sha256": "cb18a17203cf91bc52f5aae97743321b28cbf1b1586c30b84e68ae3f729591fa"
+    },
+    "scripts/test_certified_shadow_union.py": {
+      "bytes": 7568,
+      "git_blob_sha": "336dada68696dbf9497e2796a4010e546cad8262",
+      "sha256": "85a4ccc9b533d0fca6a8d4bb19570cf50e35f5ade4fecdfe724716022524d531"
+    }
+  },
+  "four_code_blob_creation_hashes_match_local": true,
+  "integration_base": "dbfd755ef4b6b2eb272c0cb70f888bf78741b5ec",
+  "kind": "Derived source manifest; generated report hashes are not Lean/platform receipts",
+  "unchanged_dependency": {
+    "scripts/exact_farkas_lp.py": {
+      "bytes": 7028,
+      "git_blob_sha": "ea511a79164d953792942d8be3dd3537646738d6",
+      "sha256": "65a8731600a6750b5334307415cd37c79d201d47e179bea5cdcbd511363006d0"
+    }
+  }
+}

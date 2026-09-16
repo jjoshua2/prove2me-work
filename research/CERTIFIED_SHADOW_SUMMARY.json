@@ -1,0 +1,186 @@
+{
+  "box_cases": [
+    {
+      "ambient_dimension": 6,
+      "endpoint_objective_max_bits": 630,
+      "independent_hamming_lower_bound": 6,
+      "known_vertices": 64,
+      "original_edges": 6,
+      "original_rows": 12,
+      "primary_support_queries": 11
+    },
+    {
+      "ambient_dimension": 8,
+      "endpoint_objective_max_bits": 1826,
+      "independent_hamming_lower_bound": 8,
+      "known_vertices": 256,
+      "original_edges": 8,
+      "original_rows": 16,
+      "primary_support_queries": 15
+    },
+    {
+      "ambient_dimension": 10,
+      "endpoint_objective_max_bits": 4103,
+      "independent_hamming_lower_bound": 10,
+      "known_vertices": 1024,
+      "original_edges": 10,
+      "original_rows": 20,
+      "primary_support_queries": 19
+    },
+    {
+      "ambient_dimension": 12,
+      "endpoint_objective_max_bits": 7877,
+      "independent_hamming_lower_bound": 12,
+      "known_vertices": 4096,
+      "original_edges": 12,
+      "original_rows": 24,
+      "primary_support_queries": 23
+    }
+  ],
+  "cyclic_union_cases": [
+    {
+      "ambient_dimension": 4,
+      "default_shadow_edges": 6,
+      "global_shortest_certified": true,
+      "independent_full_graph": {
+        "edges": 54,
+        "square_systems": 126,
+        "vertices": 27
+      },
+      "independent_original_shortest_distance": 4,
+      "individual_shadow_edges": [
+        5,
+        5
+      ],
+      "max_endpoint_objective_bits": 1411,
+      "original_rows": 9,
+      "primary_support_queries": 18,
+      "selected_original_edges": 4,
+      "union_edges": 8,
+      "union_vertices": 7
+    },
+    {
+      "ambient_dimension": 6,
+      "default_shadow_edges": 12,
+      "global_shortest_certified": true,
+      "independent_full_graph": null,
+      "independent_original_shortest_distance": 6,
+      "individual_shadow_edges": [
+        8,
+        8
+      ],
+      "max_endpoint_objective_bits": 8293,
+      "original_rows": 13,
+      "primary_support_queries": 30,
+      "selected_original_edges": 6,
+      "union_edges": 14,
+      "union_vertices": 13
+    },
+    {
+      "ambient_dimension": 8,
+      "default_shadow_edges": 20,
+      "global_shortest_certified": false,
+      "independent_full_graph": null,
+      "independent_original_shortest_distance": 8,
+      "individual_shadow_edges": [
+        13,
+        13
+      ],
+      "max_endpoint_objective_bits": 30337,
+      "original_rows": 17,
+      "primary_support_queries": 50,
+      "selected_original_edges": 10,
+      "union_edges": 23,
+      "union_vertices": 21
+    }
+  ],
+  "full_report_sha256": {
+    "CERTIFIED_SHADOW_CHECK.json": "3d876dde5b512f14f23b0f6963dd98ef93f2b6cdcf67e282ba2910fae2156162",
+    "SHADOW_UNION_CHECK.json": "0f5e6f6457f640899ed16cdb5603a36e4e738f5c5bc1283b9413cb446cd58e28"
+  },
+  "kind": "Derived compact execution summary; full source-bound reports and fixtures regenerate from the two test scripts.",
+  "new_Lean_or_Prove2Me_verdict": false,
+  "primary_auxiliary": {
+    "LP_inverse_rank_search_disabled_audit": true,
+    "cofactor_direction_pair_determinants": 42,
+    "cofactor_vectors": 54,
+    "integer_polynomial_checks": 9664,
+    "lifted_LP_nonvertex_control": {
+      "primary_point": [
+        "0",
+        "1"
+      ],
+      "secondary_pivots": 2,
+      "true_vertex_after_secondary": [
+        "1",
+        "1"
+      ]
+    },
+    "rejected": 18,
+    "rejections": [
+      "hash",
+      "generic_base",
+      "missing_bound",
+      "nonpositive_dual",
+      "omitted_query",
+      "wrong_time",
+      "wrong_order",
+      "nonmaximal_support",
+      "wrong_midpoint",
+      "false_rank",
+      "false_edge_rank",
+      "missing_vertex",
+      "changed_lock",
+      "diagonal_rank",
+      "query_cap",
+      "nonvertex_source",
+      "float_data",
+      "unbounded_input"
+    ]
+  },
+  "primary_small": {
+    "bfs_edges": 285,
+    "extra_tight_vertex_occurrences": 199,
+    "genericity_determinants": 13700,
+    "models": 11,
+    "nonshortest": 11,
+    "primary_queries": 408,
+    "reference_edges": 132,
+    "reference_vertices": 70,
+    "route_edges": 298,
+    "routes": 249,
+    "square_systems": 2169,
+    "support_comparisons": 3514,
+    "tie_queries": 1
+  },
+  "small_union": {
+    "BFS_edges": 18,
+    "original_edges": 18,
+    "pairs": 8
+  },
+  "source_sha256": {
+    "scripts/certified_rational_shadow.py": "2eb9b0f95292b44cc00e331eab11cf4900bdb36ae43c647cbb2319423db93e0c",
+    "scripts/certified_shadow_union.py": "6533a7bbb58ba9445ac499b15de855fe8cc4cf1e715050b5a456ca79a9e708ff",
+    "scripts/exact_farkas_lp.py": "65a8731600a6750b5334307415cd37c79d201d47e179bea5cdcbd511363006d0",
+    "scripts/test_certified_rational_shadow.py": "cb18a17203cf91bc52f5aae97743321b28cbf1b1586c30b84e68ae3f729591fa",
+    "scripts/test_certified_shadow_union.py": "85a4ccc9b533d0fca6a8d4bb19570cf50e35f5ade4fecdfe724716022524d531"
+  },
+  "status": "PASS",
+  "uniform_polynomial_route_or_runtime_bound": false,
+  "union_negative": {
+    "LP_rank_inverse_BFS_disabled": true,
+    "names": [
+      "changed_hash",
+      "empty_shadows",
+      "unseen_diagonal",
+      "omitted_potential_vertex",
+      "nonzero_start_distance",
+      "false_target_distance",
+      "false_edge_potential",
+      "floating_distance",
+      "corrupted_component"
+    ],
+    "rejected": 9,
+    "zero_step_union_checked": true
+  }
+}
