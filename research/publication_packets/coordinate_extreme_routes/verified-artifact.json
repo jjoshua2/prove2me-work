@@ -1,0 +1,25 @@
+{
+  "head_sha": "74dbb5e144bc9ab4c822daff63dabe4f387d9d76",
+  "packets": [
+    {
+      "path": "research/publication_packets/coordinate_extreme_routes",
+      "name": "coordinate_extreme_routes",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "35b893cad7520244bbcc60707983a6b9a004dd537235a6c0d4efa2bcffe94b7e",
+        "driver.lean": "35b893cad7520244bbcc60707983a6b9a004dd537235a6c0d4efa2bcffe94b7e",
+        "statement.lean": "15cbc07862ef12f5561b6055ce70f4988b6f35df6fdeb774fd25a0ff592b6904",
+        "problem.json": "4aa8f73410a20b1b84444ab24e07059bb7f9b4f87e6fe650c884931b4d6f3628",
+        "explanation.md": "5dd0f5deda790c1735cab7d98bef7b281ca772ac4e1c36825a8f3e5546807fea"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}

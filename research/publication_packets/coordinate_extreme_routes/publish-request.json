@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/coordinate_extreme_routes"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "74dbb5e144bc9ab4c822daff63dabe4f387d9d76",
+  "pr": "283"
+}
