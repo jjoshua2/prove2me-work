@@ -1,10 +1,12 @@
 {
-  "status": "prepared; local compiler unavailable; final gate pending",
+  "status": "corrected one diagnosed rewrite; second final gate pending",
   "lean_toolchain": "leanprover/lean4:v4.30.0",
   "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
   "files": {
-    "solution.lean": "aa1fa0686df552a94c4abfef28f6b480b7009b2b98a37cd4df4ae34c1c19ed36",
+    "solution.lean": "2b579f45c887c6ccc44b1caaf2a0686c90c9634fd080cb4010af36da18f83959",
     "problem.json": "e0a6507ec553e331f3e88b020b2064d84d0baa06d0eea2110e8e59aaa0b2bb57",
     "explanation.md": "370151f8c97db21f4fcb7ad9d869b3d32c88e1a2b5eed1fcfc5308c2d6f1da8f"
-  }
+  },
+  "first_failed_proof_sha": "720e34812a045f54cf4adabfd36335a56ca1815a",
+  "first_failed_run": 35154274683
 }
