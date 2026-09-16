@@ -252,7 +252,7 @@ theorem finite_sequence_bound
       intro hi
       have hit : i < t := by omega
       have old := ih (by omega)
-      rw [Nat.succ_eq_add_one, hV i hit]
+      rw [hV i hit]
       simpa [hz i hit, Nat.add_assoc] using congrArg (fun n : ℕ => n+1) old
   obtain ⟨B, hBcard, hB⟩ := grow t (Nat.le_refl t)
   have hsub : B ⊆ Finset.powersetCard 2 (V t) := by
