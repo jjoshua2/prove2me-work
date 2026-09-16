@@ -1,178 +1,180 @@
 # Current Polynomial Hirsch frontier
 
-Repository `jjoshua2/prove2me-work`; updated after merged research PR #268.
-Keep Lean `v4.30.0` and Mathlib `c5ea00351c28e24afc9f0f84379aa41082b1188f`.
-Read AGENTS.md, CLOUD_AGENT.md, SKILL.md, CONTINUE_HIRSCH.md and LIVE PR heads/
-comments before choosing work. Do not duplicate accepted or pending submissions.
+Repository jjoshua2/prove2me-work. Keep Lean v4.30.0 and Mathlib
+c5ea00351c28e24afc9f0f84379aa41082b1188f. Read AGENTS.md, CLOUD_AGENT.md,
+SKILL.md, CONTINUE_HIRSCH.md, and LIVE PR heads/comments before choosing work.
+This update records research/code, not new Lean or Prove2Me verdicts.
 
-The preceding COMPLETE frontier, including every #267 proof and older archive,
-is preserved verbatim in [pre-direct-route STATUS](https://github.com/jjoshua2/prove2me-work/blob/5e811793529ebacce9731c39cfe3d1b9d082e7c2/STATUS.md),
-Git blob `6821eb73a17019283a8f25f01b20eea735924b06`. This update records research
-software and a written fixed-budget equivalence, NOT a Lean/Prove2Me verdict.
+The preceding COMPLETE frontier is preserved VERBATIM in
+[the pre-cut-route index](research/FRONTIER_BEFORE_CUT_DIRECTION_ROUTES.md),
+Git blob 5f3211dcc25631a38ad3e728a7ac6c1119754ca7. Its links preserve all earlier
+accepted receipts, adverse examples, ownership and proof hypotheses. No older
+result is silently removed by this shorter current index.
 
-## Objective and the refinement limitation that remains in force
+## Root and preserved general limitations
 
-The last preserved authenticated mission audit records root
-`58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac` and remaining leaf
-`Hirsch.common_face_diameter_of_dim_ge_six`,
-`87a8b4f4-8b58-4340-8cb9-5fd1b548d01e`, Open. This is NOT a fresh platform poll.
-The target remains a uniform polynomial number of genuine ORIGINAL ordinary
-edges for arbitrary high-dimensional carriers. Count original image facets,
-not a smaller extension's rows, and do not label projected chords as edges.
+The last preserved authenticated mission audit records the root
+58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac and high-dimensional common-face leaf
+87a8b4f4-8b58-4340-8cb9-5fd1b548d01e Open. This is NOT a fresh platform poll.
+The objective remains a uniform polynomial number of genuine ORIGINAL ordinary
+edges, measured against original image facets, for arbitrary carriers.
 
-Merged #267 proves in its note that every original minimal nonface has a distinct
-minimal descendant under any forward stellar subdivision, with one new root
-per step. At full flag completion, q+t<=binom(m+t,2). Its rational cyclic-polar
-family has exponentially many certified minimal nonfaces and therefore requires
-exponential TOTAL full-refinement size, even though selected original routes
-are shortest with16/32/64 edges. The universal small complete forward-flagification
-premise must not be reopened as merely an optimistic unproved lemma. This does
-not refute Polynomial Hirsch, arbitrary non-stellar subdivisions, inverse moves,
-or short paths inside a huge implicit refinement. Class-specific earlier flag
-refinements remain correct. See research/STELLAR_NONFACE_PERSISTENCE.md.
+Accepted allocation/representation interfaces through #236/#237/#241, the
+Minkowski edge/fibre chain #239--#245, and original image-face/edge tools
+#246--#250 retain their exact hypotheses and receipts. They are not an
+uncompiled backlog and must not be resubmitted. A short supplied-model route
+does not establish a controlled model for every polytope.
 
-## NEW merged #268: direct fixed-budget original-edge search
+#267's forward-stellar persistence obstruction remains in force: universal
+polynomial TOTAL-size complete forward-stellar flagification is refuted for
+its rational cyclic-polar family. This is not a diameter obstruction and does
+not exclude short paths inside a huge implicit refinement, inverse moves,
+or other subdivisions. Earlier class-specific refinements remain valid.
+#253--#266 retain their positive class bounds, exponential inventory limits,
+plateau examples and numerical-contraction counterexamples in the archive.
 
-Research head `8f646809e265422691e848a2c53103d73bba9043`;
-merge `c2c2e0156a26a683f8a14c451be76cc94a616d61`.
-[Written equivalence](research/ORIGINAL_ROUTE_BMC.md),
-[executed summary](research/ORIGINAL_ROUTE_BMC_SUMMARY.json),
-[handoff](research/ORIGINAL_ROUTE_BMC_HANDOFF.md), source identities and clean
-replay are on main. SEVEN additions. No older proof/selector is changed; no
-Lean, axiom or Prove2Me gate was requested. The code is an experiment/certificate
-engine, not a newly proved polynomial diameter theorem.
+## Direct unrestricted fixed-budget search: merged #268
 
-### Exact formula, not a restricted pivot rule
+See research/ORIGINAL_ROUTE_BMC.md and its handoff. The original-H SMT formula
+is equivalent to existence of a route of a GIVEN budget L, with nonsimple,
+redundant and lower-dimensional inputs supported. Positive right-inverse
+certificates get solver-free geometric checks. Formula size polynomial in
+explicit L is not a universal polynomial sufficient L or solver-runtime bound.
+UNSAT has no independently verified proof trace; UNKNOWN/timeouts are not
+absence proofs. Its exact Birkhoff, Klee--Walkup and bounded-cap tests and all
+110 positive certificates remain research/code, not platform verdicts.
 
-Input is only rational A,b,start,target and budget L. No graph, facet complex,
-nonface catalogue, refinement, monotone objective, nonrevisiting premise or
-suggested route is supplied. Nonsimple vertices, redundant inequalities and
-lower-dimensional H presentations are supported. The positive certificate also
-works for unbounded polyhedra with genuine vertex endpoints; do not conflate
-that scope with the bounded conjecture or infer boundedness from a local basis.
+## Newly indexed direct endpoint-transfer class: merged #269
 
-At each layer choose d tight rows I with A_I R=I_d. For each step choose d-1
-rows J tight at BOTH endpoints with A_J S=I_(d-1). Rational right inverses certify
-full rank. Feasible full-rank points are vertices; distinct vertices in a common
-rank(d-1) equality face are joined by an ordinary edge. Stationary padding is
-allowed and removed before output. The proof gives an IFF for existence of a
-route with at most the SPECIFIED L edges, not a theorem that a small L suffices.
+Merge dbfd755ef4b6b2eb272c0cb70f888bf78741b5ec, source
+5b38f20d8cec644b1a31fa6d6b08cbcff9c1d10d.
+Read research/ENDPOINT_TRANSFER_AND_STEINER_BARRIER.md and its handoff.
 
-Finite row selectors guard FIXED-COEFFICIENT inverse equalities. Thus the exact
-default formula is linear arithmetic, not nonlinear products of unknowns:
-O((L+1)md^2) scalar constraints, O((L+1)md^3) dense coefficient occurrences and
-O((L+1)d^2) real variables. Polynomial size in EXPLICIT L is not polynomial in
-log L and is not a polynomial solver-runtime statement. Endpoint bases can be
-fixed soundly. Encoding-size caps return UNKNOWN before building huge formulas.
+For a SUPPLIED positive coordinate-simplex sum, descending-target insertion
+switches each factor directly from its source winner to its target winner
+at most once. Equal endpoint-transfer pairs use one whole exposed original
+edge. Length is the number of distinct nonzero transfers, at most binom(n,2),
+with every common exposed face retained. The building-set wrapper checks the
+canonical original H rows and actual endpoint bases. The classical braid-fan
+quadratic bound is credited, not claimed new. No arbitrary hidden presentation
+is discovered and endpoint-only shortestness is not unrestricted shortestness.
 
-Optional lazy mode initially omits inverse variables, tests ranks and learns
-exact original-row dependence exclusions globally across layers. Its uncapped
-termination is finite, but the number of possible cuts may be exponential.
-The exact inverse mode needs no such iterative rank oracle.
+Its Fano nestohedron has dimension6,70 genuine facets,1050 vertices and3150
+edges. Every EDGE-stellar flagification must raise W7 to at least10, regardless
+of auxiliary preparation; an11-move word attains peak10. Binary Steiner systems
+force additive overshoot n-4. This concerns edge subdivisions, not arbitrary
+larger faces or inverse moves. Full building sets can be exponential.
+A direct nine-edge selected route is shortest; full reference diameter12,
+structural all-pairs bound21 and the exhibited refined-size bound75 are kept
+separate. The adverse interval family gives120 endpoint-only edges versus15
+shortest in dimension15. All39 nonshortest cases in448 tested routes remain.
 
-### Independent positive proof boundary
+## NEW: cut-stable directions and verified local-overlap routes
 
-Every positive output carries only rational vertices, selected tight rows,
-right inverses and a binding to the original input. Its consumer uses standard-
-library fractions, NO solver, rank elimination, matrix inversion or graph search.
-It checks the original geometry rather than trusting a SAT status. The exported
-SMT-LIB text including check-sat is separately hash-bound.
+Research source commit e1db05774e77845a525c171bbbb72efcb27c9184 on
+research/cut-stable-direction-routes; inspect its live PR/merge before reuse.
+[Proof](research/CUT_STABLE_DIRECTION_ROUTES.md),
+[summary](research/CUT_DIRECTION_SUMMARY.json),
+[handoff](research/CUT_DIRECTION_HANDOFF.md), and
+[applied-patch replay](research/CUT_DIRECTION_REPLAY.json) are committed.
+No previous solver, proof, pin, workflow, credential or pending packet changed.
 
-UNSAT is currently ONLY a backend result, without a separately verified proof
-trace. In the finite tests, independent original graphs establish shortestness;
-do not generalize that to unseen negative solver outputs. UNKNOWN, actual timeouts,
-encoding caps and refinement-round caps are not absence certificates. Neither
-the Python code nor JSON parsing is Lean-extracted or formally verified.
+### Complete direction cover after arbitrary cuts
 
-### Actual new controls and observed limits
+If a compact base has a genuine N-line edge-direction cover and the added
+cuts have k distinct nonzero normal lines, an edge of the intersection lies
+in an original base face of dimension r<=k+1. Its direction is an r-dimensional
+span of base edge directions intersected with r-1 cut kernels. The finite
+cover therefore has at most
 
-The genuine nonsimple4x4 Birkhoff polytope has dimension9,16 facets. A chosen
-pair has8 common tight rows but rank7: their segment is a diagonal, not an edge.
-The count-only one-step relaxation ACTUALLY returns SAT. Exact inverse mode
-returns UNSAT at1; lazy mode learns one dependency and also returns UNSAT. Both
-return certified2-edge routes, checked against the24-permutation reference graph.
-A dimension16/25-row Birkhoff5 input also has a certified shortest2-edge route;
-exact common rank14<15 rules out adjacency without enumerating its full graph.
+    sum_r binom(N,r)*binom(k,r-1) <= binom(N+k,k+1)
 
-The CLASSICAL UNBOUNDED Klee--Walkup4D/8-facet example has15 finite vertices,
-24 finite edges and selected endpoint distance5. Independent enumeration of all70
-bases and BFS confirm this. Both methods produce5-edge paths with one facet
-reentry; every five-edge path there must reenter. The input comes from the cited
-primary paper, not a new counterexample to bounded or Polynomial Hirsch. Its
-nonzero recession direction is checked. A separate explicit cap sum(x)<=19 gives
-a bounded9-facet control with27 vertices/54 edges and distance5; all126 bases
-are checked. Both H presentations have exact facet-relative-interior witnesses.
+candidates. This is a complete OVERCOVER, not an exact list of realized edge
+directions. It handles nonsimple and nongeneric cuts and lower-dimensional
+intersections. The r<=k+1 allowance is sharp by the alternating-vector cube
+example; sequential quadratic closure need not incur exponent2^k.
 
-Seven small reference models yield44 endpoint pairs and65 vertices/133 edges.
-Each method finds44 shortest routes totalling68 edges and reports44 one-shorter
-UNSATs. Those shortestness claims use independent reference graphs. Some rows
-are deliberately redundant; overdetermined active sets are not all called
-nonsimple geometry. Four affine/positive-row-scaling comparisons preserve the
-minimum tested length, not necessarily the same solver-chosen path.
+If every q+1 added boundary rows have empty intersection in the FINAL polytope,
+truncate at r<=q+1. Then the bound is
 
-Cube5/8 inverse and cube12/16 lazy runs have5/8/12/16 edges without complete
-graphs, shortest by source-facet drop. Stationary/interval/embedded-segment cases
-pass in both modes. The #267 cyclic control succeeds in dimension6 but REALLY
-times out at two seconds in dimensions8 and16 despite known short routes. These
-adverse results are retained. No dimension64 direct-SMT or broad-distribution
-performance claim is made.
+    B_q(N,k)=sum_(r<=min(d,N,k+1,q+1)) binom(N,r)*binom(k,r-1).
 
-110 positive certificates,94 negative solver queries andTWO actual timeouts
-are saved. All110 positives replay with solver/elimination/inverse/search disabled.
-Eleven malformed controls fail; four resource-bound controls remain UNKNOWN.
-Backend Z3 4.13.3.0 is called through its installed C library, with SymPy1.14.0
-only for test references. No package/native library is bundled or downloaded.
-The positive verifier needs neither Z3 nor SymPy; no network/credentials are used.
+The implementation verifies EVERY required overlap exclusion by a strict
+nonnegative combination of actual final original rows. No small q is trusted
+as an annotation. For q1 the bound is N+k*binom(N,2), even with many cuts.
+The abstract result applies to any true base cover. Executable bases are boxes
+and #269's positive connected-building-set sums, with optional explicit affine
+charts; arbitrary asserted covers and hidden-chart claims are refused.
 
-### Reproduction and exact delivery
+For full-dimensional final inputs, after mathematically removing redundant
+added cuts, fixed q gives polynomial bounds in the genuine final facet count
+for those bases. The executable reports supplied H ROWS, not automatically
+genuine facets, and does not perform general redundant-row pruning. In lower
+dimension it makes only the ambient-presentation count claim.
 
-The full suite repeats in a clean TWO-script workspace and independently after
-applying the seven-addition patch to an empty Git checkout. All source files
-match byte-for-byte. Every solver/fixture/result field except the explicitly
-excluded timing fields matches. Raw fixtures contain different timings, so raw
-byte identity is NOT claimed. Canonical nontiming hashes, original/clean hashes
-and source identities are recorded. The raw report/formulas/certificates are
-bundled and regenerate; the committed summary labels itself derived.
+### Actual path and honest computation boundaries
 
-    python3 scripts/test_original_route_bmc.py
-    python3 scripts/original_route_bmc.py input.json --budget 8 --output result.json
-    python3 scripts/original_route_bmc.py input.json --budget 8 --method lazy --output result.json
+A generic line between constructed endpoint-exposing objectives crosses each
+cover hyperplane at most once. Whole-support duals and original tight-row
+right inverses certify every nonstationary step as an ORIGINAL edge. The
+actual minimal common face is retained without adding a direction charge.
+The construction uses at most2M+1 path LP queries for a cover of size M;
+overlap certification is separate. Capped Bland simplex is NOT proved to take
+polynomial pivots. The generic-integer try cap may also fail explicitly.
+The final auditor runs NO LP, but DOES recompute catalogue elimination,
+endpoint independence and optional affine chart inversion. No claim that all
+Gaussian elimination or Python/JSON verification is formally certified.
 
-For --verify, pass only the result's nested certificate object. The solver can
-still take exponential time and a small formula can be difficult. Historical
-SAT/diameter work and the classical test models are credited in the note; this
-is not a claim to have invented SMT or proved a new known-class diameter formula.
+At dimension32 with one cut, the executed route has14 edges and528 cover lines.
+At dimension24 with two cuts:20 edges,2470 lines against2600 candidates. No
+large original graph or final vertex count is enumerated or inferred from the
+uncut cube count. These routes are not asserted shortest.
 
-## Preserved accepted interfaces and earlier research
+For d16 with30 pairwise-disjoint weighted corner cuts:62 genuine facets,
+65986 vertices by the truncation formula,435 exact pair exclusions, candidate
+bound3616 versus511738760544 without overlap, and2660 deduplicated lines.
+The actual45-edge route is WORSE than the explicit31-edge comparison, so the
+inventory reduction is not a shortestness or performance-dominance claim.
+The d4 reference even has distance4 versus returned9 and comparison7.
 
-Accepted allocation/representation work through #236/#237/#241, Minkowski
-edge/fibre #239--#245, original edge/face certificates #246/#247, valid-edge
-selection #248 and face-locking #250 remain available under their exact hypotheses.
-They are not an uncompiled backlog and are not resubmitted. #244 retains assembly.
+Eight complete small original-H graphs:1076 exact square systems,86 vertices,
+137 graph edges;56 edge directions leave the old base cover.173 routes give
+420 edges versus372 BFS, with38 nonshortest cases retained. Three many-cut
+models add75 delivered and53 comparison edges,541 exact overlap exclusions;
+only the d4 case additionally gets a complete1001-basis/34-vertex/68-edge graph.
+Four affine maps preserve the exact mapped route; tiny-cut and dimension-cutoff
+controls pass. Twenty forged/unsupported/capped cases are rejected.
 
-#253--#259 supply tested original selectors, weighted tails, parameterized
-exceptional-label bounds and reentry diagnostics. #260--#266 supply counted
-block, hierarchical, budget, cactus and graphical class refinements. Their
-positive class results and adverse examples are preserved in the previous
-frontier. #267's full-size obstruction limits an unrestricted sufficient
-strategy without invalidating those class results. #264's independently owned
-energy work remains untouched; no cleanup/merge of its separate branch was attempted.
+All five stages repeat in a fresh three-dependency Git workspace AFTER the
+add-only source patch is applied. Every nontiming field and13 full fixture
+files match byte-for-byte where applicable. Only the compact summary formatting
+changed afterward; executed source hashes are unchanged. The separate final
+six-file research patch is checked for exact applicability/bytes. Raw reports
+and fixtures regenerate and are bundled; summaries are labeled derived.
 
-## Next conjecture-facing task
+    python3 scripts/test_cut_direction_routes.py
+    python3 scripts/cut_direction_routes.py input.json --output result.json
 
-The new tool can test path-local hypotheses on unrestricted ORIGINAL routes,
-including nonsimple and forced-reentry cases. The highest-value next step is a
-concrete geometric invariant or construction that yields a uniform sufficient
-polynomial L, or a checked counterexample to a proposed restriction. Merely
-increasing the solver benchmark suite or naming bounded-budget satisfiability
-as a new open child is not that proof. A polynomial-size formula for a supplied
-budget does not establish a universal short path or polynomial solving time.
-Independent negative-proof verification would strengthen experimental lower
-bounds, but solver UNSAT alone must not be turned into a platform theorem.
+No new Lean source, compiler/axiom audit, Actions run or Prove2Me submission
+was made. Classical direction-count diameter theory is attributed to the
+Blanchard--De Loera--Louveaux theorem and its Gritzmann--Sturmfels input.
 
-#244 assembly, #238 support witnesses, #250 projected integration, #255 shortening
-and #264 energy are separate. #208 needs its approved existing poll, not duplicate
-submission; #210 is retired/reserved. Recheck live ownership before further work.
-Written mathematics, exact software, Lean compilation, axiom audit, ACCEPTED
-and authenticated Proved are distinct. Preserve pins, credentials and publisher
-isolation. Research-only work requires no speculative hosted proof workflow.
+## Unrestricted next obligation and live ownership
+
+This extends controlled routes beyond an unchanged coordinate-root polytope:
+cut-created directions and many cuts of small CERTIFIED overlap are covered.
+It does not prove that arbitrary carriers admit a small base cover or small q.
+Putting an arbitrary d-polytope inside a strictly larger box gives q>=d at
+its vertices. Taking the original polytope as its own base may give exponentially
+many directions. Neither is a universal polynomial shortcut.
+The next useful goal is route-local direction control without a globally small
+cover, or a proved low-overlap structural model for actual remaining carriers.
+Do not publish an open child merely assuming these missing quantitative bounds.
+
+At the last live queue read, #270's private-marker work is deliberately draft:
+only its engine/handoff are pushed, companion integration was blocked. Do not
+merge it as complete or work around that earlier safety block. #264 energy,
+#255 shortening, #250 projected-image integration, #244 fibre assembly and
+#238 support witnesses remain independently owned. #208 needs its existing
+approved poll, not a resubmission; #210 is retired. Recheck live comments before
+taking any owned direction. Their source or submissions were not modified here.
