@@ -1,0 +1,13 @@
+{
+  "theorem_name": "Hirsch.stellar_persistence_count",
+  "theorem_title": "Certified minimal nonfaces persist through stellar sequences and bound flag completion size",
+  "formal_statement": "namespace Hirsch\ntheorem stellar_persistence_count\n    (t : ℕ) (V : ℕ → Finset ℕ) (K : ℕ → Set (Finset ℕ))\n    (E : ℕ → Finset ℕ) (z : ℕ → ℕ) (A : Finset (Finset ℕ))\n    (hdown : ∀ i, i ≤ t → ∀ F ∈ K i, ∀ T : Finset ℕ, T ⊆ F → T ∈ K i)\n    (hsupport : ∀ i, i ≤ t → ∀ F ∈ K i, F ⊆ V i)\n    (hE : ∀ i, i < t → E i ∈ K i)\n    (hsize : ∀ i, i < t → 2 ≤ (E i).card)\n    (hz : ∀ i, i < t → z i ∉ V i)\n    (hV : ∀ i, i < t → V (i+1) = insert (z i) (V i))\n    (hstep : ∀ i, i < t → K (i+1) =\n      {T | if z i ∈ T then\n        (T.erase (z i) ∪ E i) ∈ K i ∧ ¬ E i ⊆ T.erase (z i)\n        else T ∈ K i ∧ ¬ E i ⊆ T})\n    (hA : ∀ N ∈ A, N ⊆ V 0 ∧\n      N ∉ K 0 ∧ ∀ T : Finset ℕ, T ⊂ N → T ∈ K 0)\n    (hflag : ∀ N : Finset ℕ, N ⊆ V t →\n      (N ∉ K t ∧ ∀ T : Finset ℕ, T ⊂ N → T ∈ K t) → N.card = 2) :\n    A.card + t ≤ ((V 0).card + t).choose 2 := by sorry\nend Hirsch",
+  "natural_language_statement": "For any finite sequence of t forward stellar subdivisions of downward-closed finite set systems supported on vertex sets V(i), each at an actual face of size at least two with a fresh vertex, any finite certified subfamily A of the initial inclusion-minimal nonfaces satisfies |A|+t <= binom(|V(0)|+t,2) if every final inclusion-minimal nonface has size two. The actual stellar membership rule is an explicit hypothesis, not an abstract monotonicity oracle. The proof derives canonical distinct descendants, a new nonface at every step, their support and exact cardinality, and then the final pair count. Completeness of A is not assumed. This is the finite combinatorial counting core of the project's forward-stellar flagification obstruction, not a claim of a polytope diameter lower bound or a solution to Polynomial Hirsch.",
+  "preamble": "import Mathlib",
+  "env": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "source": "Formalizes the finite persistence/counting core of jjoshua2/prove2me-work PR #267, research/STELLAR_NONFACE_PERSISTENCE.md. The proof is direct finite set reasoning and imports only Mathlib. Stellar subdivision background: Lutz and Nevo, Stellar theory for flag complexes, arXiv:1302.5197. No claim of historical priority. The cyclic-polytope exponential family, graph diameter consequences, arbitrary non-stellar subdivisions, and inverse operations are not part of this formal statement.",
+  "tags": [
+    "hirsch-conjecture",
+    "combinatorics"
+  ]
+}
