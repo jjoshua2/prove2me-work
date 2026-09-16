@@ -1,0 +1,15 @@
+{
+  "head_sha": "97d58b7d247c4661e437058e2ca2be34c15e63d5",
+  "packets": [
+    {
+      "packet": "stellar_persistence_count",
+      "status": "ACCEPTED",
+      "theorem_id": "5d525d51-5d42-4dac-a3dd-91ea83902e77",
+      "submission_id": "2807f578-7ed5-4be8-aa4a-4bc036ac3101",
+      "theorem_name": "Hirsch.stellar_persistence_count",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/stellar_persistence_count"
+    }
+  ]
+}

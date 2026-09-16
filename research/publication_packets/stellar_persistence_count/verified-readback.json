@@ -1,0 +1,22 @@
+{
+  "record_kind": "independent local artifact hash readback; not a separate platform API response",
+  "status": "PASS",
+  "run_id": 35154778307,
+  "proof_sha": "97d58b7d247c4661e437058e2ca2be34c15e63d5",
+  "artifact_id": 10470098719,
+  "archive_sha256": "71e0569fdb94d0f174e1bc5c37be5dc24902042e406272a9892891367629d4af",
+  "frozen_files_checked": {
+    "solution.lean": "2b579f45c887c6ccc44b1caaf2a0686c90c9634fd080cb4010af36da18f83959",
+    "driver.lean": "2b579f45c887c6ccc44b1caaf2a0686c90c9634fd080cb4010af36da18f83959",
+    "statement.lean": "1d10de7d55a1e8d8023d578f565b31c315f1f9e6ac9ccb8aa832044028bff0e4",
+    "problem.json": "e0a6507ec553e331f3e88b020b2064d84d0baa06d0eea2110e8e59aaa0b2bb57",
+    "explanation.md": "370151f8c97db21f4fcb7ad9d869b3d32c88e1a2b5eed1fcfc5308c2d6f1da8f"
+  },
+  "source_byte_identical": [
+    "solution.lean",
+    "problem.json",
+    "explanation.md"
+  ],
+  "local_lean_available": false,
+  "publication_status": "separate; not inferred from this compile"
+}

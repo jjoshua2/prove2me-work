@@ -1,0 +1,5 @@
+'Hirsch.StellarPersistence.minimal_descendant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.StellarPersistence.born_minimal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.StellarPersistence.step_growth' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.StellarPersistence.finite_sequence_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,14 @@
+{
+  "record_kind": "independent local readback of actual trusted publisher artifact; not a direct fresh Prove2Me query",
+  "run_id": 35154778307,
+  "artifact_id": 10470583174,
+  "archive_sha256": "14b979e88ed7a331804c79fa295b9bcd172730969654dfd3b412379baa8cc6e8",
+  "proof_sha": "97d58b7d247c4661e437058e2ca2be34c15e63d5",
+  "theorem_id": "5d525d51-5d42-4dac-a3dd-91ea83902e77",
+  "submission_id": "2807f578-7ed5-4be8-aa4a-4bc036ac3101",
+  "status": "ACCEPTED",
+  "live_status": "Proved",
+  "registration": "PUBLISHED",
+  "verdict_comment_id": 5705143018,
+  "verdict_time_utc": "2026-09-16T21:56:19Z"
+}
