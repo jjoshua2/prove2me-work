@@ -1,0 +1,32 @@
+{
+  "all_four_remote_blob_ids_match": true,
+  "baseline": "dbfd755ef4b6b2eb272c0cb70f888bf78741b5ec",
+  "kind": "derived_source_manifest",
+  "new_Actions_run": false,
+  "new_Lean": false,
+  "new_platform_submission": false,
+  "remote_source_readback_head": "35a7cb6287e813301bda29f9baf7d368a029eeb9",
+  "sources": {
+    "scripts/affine_route_exclusion.py": {
+      "bytes": 6082,
+      "git_blob": "4bc5e039bf291ff8a4c435852432d353845d22d0",
+      "sha256": "087b0c0bcc4be713bf7fb83115159f1573b356ea9caea8f87ebd9a426c97d203"
+    },
+    "scripts/original_route_exclusion.py": {
+      "bytes": 17290,
+      "git_blob": "a764196e54970825823cad4575b947b507f95951",
+      "sha256": "b0e5eff7a96ca336f62d69a1ad24ddf2919d8ea43077b6150e76ecf6f7c869fe"
+    },
+    "scripts/test_affine_route_exclusion.py": {
+      "bytes": 5386,
+      "git_blob": "322e5927d06c5774ddce1aba72f5bfc4e2be3a40",
+      "sha256": "80d73f03c238ea9b41c5774586e7c1c6249ca5ec1f67fc63e0ef6b85b28f2714"
+    },
+    "scripts/test_original_route_exclusion.py": {
+      "bytes": 9966,
+      "git_blob": "61a6b5d85927505713bdc3fb23a99e00ef9501ca",
+      "sha256": "3b7983db57c7a6248818790df92e3f1d58b529a26f705dacb90e1c9522b3212b"
+    }
+  },
+  "transcription_note": "CLI help description omitted in initial engine upload; final local source now matches that harmless CLI-only difference and was rerun. Proof-checking logic unchanged."
+}

@@ -1,0 +1,39 @@
+{
+  "all_reports_and_fixtures_byte_identical": true,
+  "files": [
+    {
+      "bytes": 12712,
+      "path": "research/verification/route-exclusion/tests.json",
+      "sha256": "adcc1f0ea59336ce34e343e30af275a620a7f14dfb6f4cae18fc4c70aa0ed767"
+    },
+    {
+      "bytes": 5279,
+      "path": "research/verification/route-exclusion/affine.json",
+      "sha256": "963f1504a972d0fd3833ac26829b9142d9f530d5e8c7f5ed8fb737acef22329b"
+    },
+    {
+      "bytes": 3499556,
+      "path": "research/fixtures/exclusions_and_paths.json",
+      "sha256": "80c25849877cafd6debd97689233b403eb24cc86c6718b1aa7de0cc8ebc8d044"
+    },
+    {
+      "bytes": 1021,
+      "path": "research/fixtures/affine/family.json",
+      "sha256": "63d05cac6dc34332eefe657ecf7ffa183c3fa3e6cd856d6927f3ced3028bedc6"
+    },
+    {
+      "bytes": 107979,
+      "path": "research/fixtures/affine/exclude_four.json",
+      "sha256": "1403db155b4804469a8ed57f07f175c0a1dda2fe3d9425a150c62eef7127693b"
+    },
+    {
+      "bytes": 7852,
+      "path": "research/fixtures/affine/nonrevisiting_five.json",
+      "sha256": "dcefb0b3d243d9c8b9252025509ce7b38892ba3827e70dee43f156272eaa20f5"
+    }
+  ],
+  "kind": "derived_clean_directory_replay",
+  "no_Lean_or_platform_verification": true,
+  "status": "PASS",
+  "workspace": "four standalone source files; no repository clone"
+}
