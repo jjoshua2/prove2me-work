@@ -1,0 +1,25 @@
+{
+  "head_sha": "bf3db81677d9ec5e0e668bb39d558c789ec5e704",
+  "packets": [
+    {
+      "path": "research/publication_packets/protected_facet_state_count",
+      "name": "protected_facet_state_count",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "6ea99bbb05ef86b965cbc558cfc744c05503a16effb7e704832c04f8de965739",
+        "driver.lean": "6ea99bbb05ef86b965cbc558cfc744c05503a16effb7e704832c04f8de965739",
+        "statement.lean": "2e60144a4c9a0803b561ca7a2ff6f995d09d94572be56cfe812065213e799268",
+        "problem.json": "16c5a3bb1ea396bfe0e630791dd2290a76cf71589107980d81b078b4c26083e9",
+        "explanation.md": "58cd5cc5515a7e3f7a6b6304e53224ac914e93aff051b74c91e0d83c06b2fb5e"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}
