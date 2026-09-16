@@ -1,0 +1,31 @@
+{
+  "all_five_frozen_hashes_recomputed": true,
+  "archives": {
+    "publication": {
+      "artifact_id": 10474067279,
+      "sha256": "9c7e1ed49288847a96bbd155fa6fe9d5f9d3ac4db8d7db4f838e8379bb7e9a57"
+    },
+    "request": {
+      "artifact_id": 10474180200,
+      "sha256": "cf28d85f2ae1d64b1e6ed75c722579b9353c383a67fc3f608ae2411eef365031"
+    },
+    "verified": {
+      "artifact_id": 10474245131,
+      "sha256": "8015cb7afdb357c4003281776af4eef3e1584be605c5a8d2d8064ecab0d1a2b7"
+    }
+  },
+  "first_compile_gate": true,
+  "first_platform_submission": true,
+  "kind": "Derived independent artifact inspection, not a raw platform API response",
+  "live_readback_source": "Trusted publisher aggregate receipt, not a second direct platform poll",
+  "post_gate_proof_edits": false,
+  "proof_sha": "74dbb5e144bc9ab4c822daff63dabe4f387d9d76",
+  "publisher_live_status": "Proved",
+  "raw_individual_API_responses_exported": false,
+  "run_id": 35163571909,
+  "semantic_report_replay_identical": true,
+  "semantic_report_sha256": "232957a0626afa53eaaa538427db3be14aeea32a196d1daaecbf820a02b914b1",
+  "solution_problem_explanation_byte_identical": true,
+  "trigger_comment": 5706200622,
+  "verdict_comment": 5706229397
+}
