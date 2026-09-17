@@ -543,9 +543,9 @@ lemma convex_feasible {d m : ℕ} (a : Fin m → ℝ) :
   intro x hx y hy r s hr hs hrs i
   rw [row_combination]
   calc
-    r * row a x i + s * row a y i ≤ r * 1 + s * row a y i :=
-      add_le_add_right (mul_le_mul_of_nonneg_left (hx i) hr) _
-    _ ≤ r * 1 + s * 1 := add_le_add_left (mul_le_mul_of_nonneg_left (hy i) hs) _
+    r * row a x i + s * row a y i ≤ r * 1 + s * 1 :=
+      add_le_add (mul_le_mul_of_nonneg_left (hx i) hr)
+        (mul_le_mul_of_nonneg_left (hy i) hs)
     _ = 1 := by linarith
 
 /-- Each original row is uniquely tight somewhere in positive even dimension. -/
