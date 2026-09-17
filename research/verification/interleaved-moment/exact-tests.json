@@ -1,0 +1,69 @@
+{
+  "counts": {
+    "cases": 150,
+    "moment_checks": 970,
+    "original_row_checks": 72414,
+    "proper_subsets": 4782,
+    "sign_slack_checks": 9564,
+    "weights": 1120
+  },
+  "large_cases": [
+    {
+      "dimension": 16,
+      "labels": 33,
+      "moment_checks": 17,
+      "original_row_checks": 165,
+      "proper_subsets": 5,
+      "sign_slack_checks": 10,
+      "weights": 18
+    },
+    {
+      "dimension": 32,
+      "labels": 65,
+      "moment_checks": 33,
+      "original_row_checks": 325,
+      "proper_subsets": 5,
+      "sign_slack_checks": 10,
+      "weights": 34
+    }
+  ],
+  "no_interleaving_counterexample": {
+    "a": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "point": [
+      "1/2",
+      "-1/2"
+    ],
+    "tight_labels": [
+      0,
+      1
+    ]
+  },
+  "odd_family_checks": [
+    {
+      "k": 1,
+      "odd_minimal_sets_tested": 1
+    },
+    {
+      "k": 2,
+      "odd_minimal_sets_tested": 4
+    },
+    {
+      "k": 3,
+      "odd_minimal_sets_tested": 15
+    },
+    {
+      "k": 4,
+      "odd_minimal_sets_tested": 56
+    }
+  ],
+  "rejected_hypothesis_controls": 3,
+  "scope": "Exact supporting finite checks; not Lean compilation, all-real proof by samples, full minimal-nonface catalogue or a diameter bound.",
+  "seed": 287,
+  "source_sha256": "302497b606f5733e450cd2bc21903bb4b763b96e42df60ee49717e8cbf836c58",
+  "status": "PASS"
+}

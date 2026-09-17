@@ -1,0 +1,65 @@
+{
+  "kind": "derived_run_and_artifact_readback",
+  "pr": 287,
+  "proof_head": "47b68e63edbe28c933d6678b9f0d311f60038177",
+  "trusted_workflow_main": "9a1b6768d27d38b719bf4c0c795f8f7257415626",
+  "run_id": 35177182253,
+  "trigger_comment": 5707881466,
+  "acknowledgement_comment": 5707882643,
+  "verdict_comment": 5707905763,
+  "jobs": {
+    "gate": "success",
+    "verify": "success",
+    "publish": "success",
+    "report-verify": "skipped"
+  },
+  "compile_exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "audited_declarations": 5,
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "authenticated_status": "ACCEPTED",
+  "publisher_live_status": "Proved",
+  "theorem_id": "380347be-2134-4160-89fc-6bf7c899f93e",
+  "submission_id": "3ba6a352-2bf8-4865-b809-79f945073a7c",
+  "all_five_frozen_hashes_match": true,
+  "all_four_archive_hashes_match": true,
+  "first_failed_run": 35176840734,
+  "consolidated_exact_diagnostic_repair": true,
+  "all_statement_and_assumption_bytes_unchanged": true,
+  "accepted_helper_bodies_unchanged": true,
+  "separate_direct_platform_poll": false,
+  "raw_platform_API_bodies_exported": false,
+  "artifacts": [
+    {
+      "artifact_id": 10478561542,
+      "file": "pr287-first-request.zip",
+      "sha256": "a3702233658c7df2c6edea065ae1354e94ca93f2ec10e4aab70bdf6d8330252e",
+      "bytes": 319
+    },
+    {
+      "artifact_id": 10479366304,
+      "file": "pr287-final-request.zip",
+      "sha256": "371d8ff9e48bffe25ece1d197c9573537f3f4ce472966e777af9fa724526e57a",
+      "bytes": 320
+    },
+    {
+      "artifact_id": 10478489762,
+      "file": "pr287-verified-packets.zip",
+      "sha256": "ee7a9ec8cfac2fd230634bf770eb72ef01cb675bd629b022a0e8412cbce044f2",
+      "bytes": 21382
+    },
+    {
+      "artifact_id": 10479351802,
+      "file": "pr287-publication-receipts.zip",
+      "sha256": "0ae7ed7cf5474a2f2bf9102f1cad43185ca29acd78665c9c600fbbd34af8e9df",
+      "bytes": 907
+    }
+  ]
+}

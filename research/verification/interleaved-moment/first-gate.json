@@ -1,0 +1,50 @@
+{
+  "kind": "derived_first_compiler_failure",
+  "pr": 287,
+  "run_id": 35176840734,
+  "job_id": 105060352359,
+  "proof_head": "797d9db9abd773c8e6be5c5e19055f0f7076ffce",
+  "trusted_main": "9a1b6768d27d38b719bf4c0c795f8f7257415626",
+  "trigger_comment": 5707839976,
+  "acknowledgement_comment": 5707842028,
+  "compile_exit_code": 1,
+  "jobs": {
+    "gate": "success",
+    "verify": "failure",
+    "publish": "skipped",
+    "report-verify": "skipped"
+  },
+  "diagnosed_sites": [
+    {
+      "line": 424,
+      "issue": "prod_product rewrite expects ×ˢ notation, not unfolded Finset.product",
+      "repair": "insert product_eq_sprod normalization"
+    },
+    {
+      "line": 484,
+      "issue": "inv_neg is an algebra equality rather than a sign iff",
+      "repair": "derive inverse negativity from inv_pos on the negative denominator and inv_neg identity"
+    },
+    {
+      "lines": [599,600],
+      "issue": "omega treats expanded image cards and local L/R.card as different atoms",
+      "repair": "explicitly compose the known cardinal equality into S.card<k+1"
+    },
+    {
+      "line": 610,
+      "issue": "conjunction elaboration checks unsimplified Fintype.card against m too early",
+      "repair": "simplify the existing conjunction (hx i).2 instead of constructing a new pair"
+    }
+  ],
+  "repaired_proof": "47b68e63edbe28c933d6678b9f0d311f60038177",
+  "all_statement_and_assumption_bytes_unchanged": true,
+  "accepted_namespace_bodies_unchanged": true,
+  "generated_sorryAx_is_failure_not_verification": true,
+  "first_run_theorem_id": null,
+  "first_run_submission_id": null,
+  "first_run_verified_artifact": null,
+  "first_run_publication_receipt": null,
+  "request_artifact_id": 10478561542,
+  "request_zip_sha256": "a3702233658c7df2c6edea065ae1354e94ca93f2ec10e4aab70bdf6d8330252e",
+  "scope": "Observed failed compiler gate. A later success does not overwrite this history."
+}

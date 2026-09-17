@@ -1,0 +1,9 @@
+{
+  "kind": "derived_clean_script_replay",
+  "status": "PASS",
+  "report_byte_identical": true,
+  "source_sha256": "302497b606f5733e450cd2bc21903bb4b763b96e42df60ee49717e8cbf836c58",
+  "source_git_blob": "e68de222a1c873463301a252d0df93af1c00324c",
+  "report_sha256": "83c1e84d699d056afc1cb5504256e597b857357f9afc8b5d2ca157ab932e205f",
+  "scope": "One standalone script workspace, no Lean or platform verdict; exact tests do not prove all-real statements."
+}

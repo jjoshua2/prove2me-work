@@ -1,0 +1,39 @@
+Selected exact lines from decoded job105060352359, run35176840734.
+This is an EXCERPT, not the full raw runner log. Bracketed omissions are explicit.
+
+2026-09-17T03:06:45.4686331Z interleaved_moment_minimal_nonfaces/driver.lean failed to compile:
+[... warnings in unchanged accepted helper bodies ...]
+2026-09-17T03:06:45.4709759Z _verified/packets/interleaved_moment_minimal_nonfaces/driver.lean:424:55: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+2026-09-17T03:06:45.4710609Z   ∏ x ∈ ?s ×ˢ ?t, ?f x
+2026-09-17T03:06:45.4710842Z in the target expression
+2026-09-17T03:06:45.4711253Z   (∏ x ∈ (Finset.univ.erase i).product Finset.univ, f x) * f (i, !b) =
+2026-09-17T03:06:45.4712519Z     (∏ j ∈ Finset.univ.erase i, f (j, true) * f (j, false)) * f (i, !b)
+[... local context ...]
+2026-09-17T03:06:45.4719673Z _verified/packets/interleaved_moment_minimal_nonfaces/driver.lean:484:10: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+2026-09-17T03:06:45.4720357Z   DivisionMonoid (Sort ?u.27163.1136)
+[... application context ...]
+2026-09-17T03:06:45.4722334Z _verified/packets/interleaved_moment_minimal_nonfaces/driver.lean:484:4: error: Tactic `apply` failed: could not unify the conclusion of `⋯.mpr`
+2026-09-17T03:06:45.4723059Z   (-?m.110)⁻¹
+2026-09-17T03:06:45.4723264Z with the goal
+2026-09-17T03:06:45.4723664Z   (∏ j ∈ Finset.univ.erase (i, false), (node l r (i, false) - node l r j))⁻¹ < 0
+[...]
+2026-09-17T03:06:45.4728127Z _verified/packets/interleaved_moment_minimal_nonfaces/driver.lean:599:42: error: omega could not prove the goal:
+[...]
+2026-09-17T03:06:45.4730244Z  b := ↑R.card
+2026-09-17T03:06:45.4730500Z  c := ↑(Finset.image l Finset.univ).card
+2026-09-17T03:06:45.4730791Z  d := ↑S.card
+2026-09-17T03:06:45.4731267Z _verified/packets/interleaved_moment_minimal_nonfaces/driver.lean:600:42: error: omega could not prove the goal:
+[...]
+2026-09-17T03:06:45.4734888Z _verified/packets/interleaved_moment_minimal_nonfaces/driver.lean:610:41: error: Application type mismatch: The argument
+2026-09-17T03:06:45.4735585Z   (hx i).right.left
+2026-09-17T03:06:45.4735808Z has type
+2026-09-17T03:06:45.4736169Z   ∑ j, (a i ^ (↑j + 1) - (∑ l, a l ^ (↑j + 1)) / ↑(Fintype.card (Fin m))) * x j ≤ 1
+2026-09-17T03:06:45.4736548Z but is expected to have type
+2026-09-17T03:06:45.4736900Z   ∑ j, (a i ^ (↑j + 1) - (∑ z, a z ^ (↑j + 1)) / ↑m) * x j ≤ 1
+[...]
+2026-09-17T03:06:45.4738098Z 'Hirsch.InterleavedMoment.weight_signs' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-17T03:06:45.4738905Z 'Hirsch.InterleavedMoment.polynomial_positive_both' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-17T03:06:45.4739713Z 'Hirsch.MomentSmallFaces.exact_small_face_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-17T03:06:45.4740460Z 'Hirsch.MomentBarycentric.both_signs_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-17T03:06:45.4741097Z 'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-17T03:06:45.4825563Z ##[error]Process completed with exit code 1.
