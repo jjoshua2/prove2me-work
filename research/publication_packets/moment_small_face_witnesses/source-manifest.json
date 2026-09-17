@@ -1,0 +1,14 @@
+{
+  "status": "PREPARED_FOR_FIRST_PINNED_GATE",
+  "local_lean_available": false,
+  "base_sha": "fcc7f68febc372ccce3c8a8c4649638758c25374",
+  "lean_toolchain": "leanprover/lean4:v4.30.0",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "files": {
+    "solution.lean": "7f721731a92f63e9299fd5b63ebcb991e8a992f6089c0d3a40298543c8ac2bee",
+    "problem.json": "20cd7998bbd61a98d3b501bc6203a27b5cfb1350060633a72d960a0f33b0d139",
+    "explanation.md": "3f7ad3cae100d76a0f0c355e107f415dd4605548b485119499c6e27495b41d98"
+  },
+  "previous_local_solution_unchanged": true,
+  "coordination_comment_id": 5706511924
+}
