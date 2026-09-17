@@ -29,8 +29,9 @@ lemma finite_margin {ι : Type*} (S : Finset ι) (a t : ι → ℝ)
         exact div_mul_cancel₀ _ (ne_of_gt hd)
       refine ⟨min e f, lt_min he hf, ?_⟩
       intro j hj
-      rcases Finset.mem_insert.mp hj with rfl | hj
-      · have hb := mul_le_mul_of_nonneg_right (min_le_right e f) (abs_nonneg (t i))
+      rcases Finset.mem_insert.mp hj with hji | hj
+      · subst j
+        have hb := mul_le_mul_of_nonneg_right (min_le_right e f) (abs_nonneg (t i))
         nlinarith
       · exact lt_of_le_of_lt
           (mul_le_mul_of_nonneg_right (min_le_left e f) (abs_nonneg (t j))) (hS j hj)
@@ -116,6 +117,28 @@ theorem active_kernel_trivial
   have hprod : e * z j = 0 := by linarith
   exact (mul_eq_zero.mp hprod).resolve_left (ne_of_gt he)
 
+/-- Explicit sum/projection identities; the pinned simplifier does not push
+product projections through finite sums automatically. -/
+lemma sum_fst {ι E F : Type*} [AddCommMonoid E] [AddCommMonoid F]
+    (S : Finset ι) (f : ι → E × F) :
+    (∑ i ∈ S, f i).1 = ∑ i ∈ S, (f i).1 := by
+  classical
+  induction S using Finset.induction_on with
+  | empty => rfl
+  | @insert i S hi ih =>
+      simp only [Finset.sum_insert hi]
+      exact congrArg (fun z => (f i).1 + z) ih
+
+lemma sum_snd {ι E F : Type*} [AddCommMonoid E] [AddCommMonoid F]
+    (S : Finset ι) (f : ι → E × F) :
+    (∑ i ∈ S, f i).2 = ∑ i ∈ S, (f i).2 := by
+  classical
+  induction S using Finset.induction_on with
+  | empty => rfl
+  | @insert i S hi ih =>
+      simp only [Finset.sum_insert hi]
+      exact congrArg (fun z => (f i).2 + z) ih
+
 /-- The active cut images of an affinely independent positive support are
 again affinely independent, and hence its cardinality is at most active cuts+1.
 Affine independence is expressed by the standard homogenized vectors (1,v). -/
@@ -138,16 +161,16 @@ theorem active_image_independent
     intro t ht
     have hmass : (∑ i, t i) = 0 := by
       have hh := congrArg Prod.fst ht
-      simpa [image] using hh
+      simpa [image, sum_fst] using hh
     have hcuts : ∀ j, C j (∑ i, w i • v i) = b j → C j (∑ i, t i • v i) = 0 := by
       intro j hj
       have hh := congrArg (fun p : ℝ × (A → ℝ) => p.2 ⟨j, hj⟩) ht
-      simpa [image, map_sum, map_smul, smul_eq_mul] using hh
+      simpa [image, sum_snd, Finset.sum_apply, map_sum, map_smul, smul_eq_mul] using hh
     have hz := active_kernel_trivial n m d P hP v hv w hw hw1 C b hx t hmass hcuts
     have haug : (∑ i, t i • ((1 : ℝ), v i)) = 0 := by
       apply Prod.ext
-      · simpa using hmass
-      · simpa using hz
+      · simpa [sum_fst] using hmass
+      · simpa [sum_snd] using hz
     exact Fintype.linearIndependent_iff.mp hvind t haug
   refine ⟨hind, ?_⟩
   have hcard := hind.fintype_card_le_finrank

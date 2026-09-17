@@ -1,0 +1,60 @@
+{
+  "corrected_explanation": {
+    "bytes": 6758,
+    "git_blob_sha": "052bff6fa52efd500788d47de799059fbc28884f",
+    "sha256": "8fc018bb48491d78ee0fd8c912b381eed219edece8d3f6c9cd3859d2bf0fd14f"
+  },
+  "corrected_source": {
+    "bytes": 9552,
+    "git_blob_sha": "56e38bebb4d5b3501ee47c05df59631d5c5c0543",
+    "sha256": "3dd3f72bd43461fc68baadd0e12b0dad7526c0cedeece628ca9cdf256b1dd499"
+  },
+  "diagnostics": [
+    {
+      "line": 33,
+      "message": "Unknown identifier i after rcases ... with rfl chose to remove that variable",
+      "repair": "Use the named equality hji and subst j."
+    },
+    {
+      "line": 141,
+      "message": "Product first projection did not distribute through finite sum",
+      "repair": "Use explicitly proved sum_fst."
+    },
+    {
+      "line": 145,
+      "message": "Product second projection/evaluation did not distribute through finite sum",
+      "repair": "Use explicitly proved sum_snd and Finset.sum_apply."
+    },
+    {
+      "line": 149,
+      "message": "Homogenized support first projection remained outside finite sum",
+      "repair": "Use sum_fst."
+    },
+    {
+      "line": 150,
+      "message": "Homogenized support second projection remained outside finite sum",
+      "repair": "Use sum_snd."
+    }
+  ],
+  "error_recovery_admissions_are_not_accepted_evidence": true,
+  "existing_public_and_helper_statements_byte_identical": true,
+  "failed_head": "0fc4ee426fd66ea1cc67fce60b1cfe557ce872bf",
+  "first_source_sha256": "b55d64d4dbe72f4684f15cf7a343ea96aede90d6a021df77594fe44ca9934126",
+  "kind": "Derived exact first-gate diagnostic and repair record, not a raw platform response",
+  "local_Lean_compilation": false,
+  "mathematical_hypotheses_changed": false,
+  "new_helpers": [
+    "sum_fst",
+    "sum_snd"
+  ],
+  "platform_registration_or_submission": false,
+  "publish_conclusion": "skipped",
+  "rerun_test_report": {
+    "bytes": 1297,
+    "git_blob_sha": "994b5a1bb6897ce67ecc2249c87a36ee4eae667f",
+    "sha256": "bd1f0c7667cf1fac332a2c4d5d5e8a109565a82dfb739689204c159d6db70a12"
+  },
+  "run_id": 35178901194,
+  "verify_conclusion": "failure",
+  "verify_job_id": 105066637991
+}

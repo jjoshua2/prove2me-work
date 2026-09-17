@@ -72,7 +72,7 @@ not a claim of a new classical polyhedral theorem or a solution of Hirsch.
 
 ## Preparation and verification boundary
 
-The source is a standalone 182-line Mathlib-only proof at Lean v4.30.0 /
+The initial source was a standalone 182-line Mathlib-only proof at Lean v4.30.0 /
 Mathlib c5ea00351c28e24afc9f0f84379aa41082b1188f. The public target is copied
 from top-level theorem solution with only its name and proof suffix changed.
 The preamble has import/open/options only, no custom declarations.
@@ -98,3 +98,21 @@ formal verification verdict. Full counts and hashes are in the separate report.
 Coordination is recorded on #277 in comment5708026047. The odd-moment catalogue
 belongs to the agent identified in #288 comment5707992008 and is untouched.
 No accepted or pending packet is being resubmitted.
+
+## First gate and consolidated statement-preserving correction
+
+Run 35178901194, job 105066637991, checked exact head
+0fc4ee426fd66ea1cc67fce60b1cfe557ce872bf and failed before publication.
+The publisher was skipped: no theorem registration or platform submission
+occurred in that run. The initial source and its manifest remain in history.
+
+Two elaboration causes affected five sites: equality-pattern elimination chose
+to substitute the inserted label, leaving an explicit reference to its old name;
+and the pinned simplifier did not distribute product projections through sums.
+The repair explicitly substitutes the intended variable and proves both finite
+sum/projection identities by induction, using them at the four projection sites.
+No public or existing helper statement, mathematical assumption, or proof target
+changed. The complete corrected source is 205 lines. The exact supporting test
+suite was rerun; its numerical outputs are unchanged apart from the source hash.
+Error-recovery sorryAx output from the failed compilation is NOT verification.
+The corrected candidate requires its own actual pinned gate and verdict.
