@@ -628,7 +628,9 @@ theorem release_direction {d m : ℕ} (a : Fin m → ℝ)
     have hle := Finset.single_le_sum (s := Finset.univ)
       (f := fun i : Fin m => -row a w i)
       (fun i _ => neg_nonneg.mpr (hn i)) (Finset.mem_univ p)
-    rw [Finset.sum_neg_distrib, sum_row_zero a w hm0, neg_zero, hpw] at hle
+    rw [Finset.sum_neg_distrib, sum_row_zero a w hm0, neg_zero] at hle
+    change -row a w p ≤ 0 at hle
+    rw [hpw] at hle
     norm_num at hle
   exact ⟨w,hpw,hzero,hnon,hex⟩
 
