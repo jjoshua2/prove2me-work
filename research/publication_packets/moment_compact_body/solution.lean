@@ -405,15 +405,16 @@ lemma coeff_slack {d m : ℕ} (a : Fin m → ℝ) (x : Fin d → ℝ) (j : Fin d
     by_cases h : l = j
     · subst l
       simp
-    · have hv : j.val + 1 ≠ l.val + 1 := by
+    · have hv : j.val ≠ l.val := by
         intro he
-        apply h
-        apply Fin.ext
-        omega
+        exact h (Fin.ext he.symm)
       simp [h, hv]
   unfold slack
   rw [Polynomial.coeff_sub, Polynomial.finsetSum_coeff]
-  have h1 : (1 : Polynomial ℝ).coeff (j.val + 1) = 0 := by simp
+  have h1 : (1 : Polynomial ℝ).coeff (j.val + 1) = 0 := by
+    apply Polynomial.coeff_eq_zero_of_natDegree_lt
+    simp only [Polynomial.natDegree_one]
+    omega
   rw [h1]
   simp_rw [hterm]
   simp
@@ -542,9 +543,9 @@ lemma convex_feasible {d m : ℕ} (a : Fin m → ℝ) :
   intro x hx y hy r s hr hs hrs i
   rw [row_combination]
   calc
-    r * row a x i + s * row a y i ≤ r * 1 + s * 1 :=
-      add_le_add (mul_le_mul_of_nonneg_left (hx i) hr)
-        (mul_le_mul_of_nonneg_left (hy i) hs)
+    r * row a x i + s * row a y i ≤ r * 1 + s * row a y i :=
+      add_le_add_right (mul_le_mul_of_nonneg_left (hx i) hr) _
+    _ ≤ r * 1 + s * 1 := add_le_add_left (mul_le_mul_of_nonneg_left (hy i) hs) _
     _ = 1 := by linarith
 
 /-- Each original row is uniquely tight somewhere in positive even dimension. -/

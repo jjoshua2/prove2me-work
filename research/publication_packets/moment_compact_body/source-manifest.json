@@ -1,9 +1,9 @@
 {
-  "status": "PREPARED_UNCOMPILED",
+  "status": "CORRECTED_DIAGNOSED_COEFFICIENT_SIMPLIFICATION; final gate pending",
   "lean_toolchain": "leanprover/lean4:v4.30.0",
   "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
   "files": {
-    "solution.lean": "c5f8eae4765aa2112629aff2e13113ac408dc4bd2880e507d14086f37edd1848",
+    "solution.lean": "0391b4850867227cb6ba3f09be7ea0f510f5162bdbe22099de21b5c4b64f73e1",
     "problem.json": "e34c325b4b5d31e3c36c3a54c0ecec4039ba4ff65dd656286f87f55a8d687a0d",
     "explanation.md": "023bf5d1adc508eec292bece65f3b1a19dd267c19280ce963d2e0bae13c75605"
   },
@@ -13,5 +13,8 @@
     "Hirsch.MomentSmallFaces": "ffdfd8617a82d68313517f819c9c211b36f9dc54ec3462aeae7ca84b0f7a9704",
     "Hirsch.MomentBarycentric": "5591ae588d0582813fa5842f97822209dfc2b393b7b5d70da5863a73c350aaff"
   },
-  "dependency_change": "One unused membership binder in MomentBarycentric.original_nonfaces is named hi rather than underscore; other dependency bytes unchanged."
+  "dependency_change": "One unused membership binder in MomentBarycentric.original_nonfaces is named hi rather than underscore; other dependency bytes unchanged.",
+  "first_failed_run": 35208275882,
+  "first_failed_proof_sha": "566103676a5d5a855c6c3f8395fe0662d4857d8e",
+  "additional_proof_spelling_change": "Convexity estimate expanded into its two component inequalities; no type or hypothesis changed."
 }
