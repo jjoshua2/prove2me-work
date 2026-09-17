@@ -1,0 +1,42 @@
+_verified/packets/moment_ordered_minimal_nonfaces/driver.lean:133:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+_verified/packets/moment_ordered_minimal_nonfaces/driver.lean:169:8: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+_verified/packets/moment_ordered_minimal_nonfaces/driver.lean:241:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+_verified/packets/moment_ordered_minimal_nonfaces/driver.lean:246:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+_verified/packets/moment_ordered_minimal_nonfaces/driver.lean:264:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+_verified/packets/moment_ordered_minimal_nonfaces/driver.lean:343:8: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+_verified/packets/moment_ordered_minimal_nonfaces/driver.lean:343:8: warning: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'Hirsch.OrderedMoment.negative_weight_iff_odd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.OrderedMoment.card_oddLabels' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.OrderedMoment.odd_row_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.OrderedMoment.ordered_minimal_nonface' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]

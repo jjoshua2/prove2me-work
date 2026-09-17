@@ -1,0 +1,25 @@
+{
+  "head_sha": "56f1b0b4e83300b55a055a798a7f0be1d0f47400",
+  "packets": [
+    {
+      "path": "research/publication_packets/moment_ordered_minimal_nonfaces",
+      "name": "moment_ordered_minimal_nonfaces",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "0cb180af7915af3e9da23aee512e4f5930b389a876b4bb6e014c3e69ea467ae6",
+        "driver.lean": "0cb180af7915af3e9da23aee512e4f5930b389a876b4bb6e014c3e69ea467ae6",
+        "statement.lean": "e274348cf84c73593ccf56694eb63005b2bb91aebaeac88f6e59e977fa853f3b",
+        "problem.json": "b94b2bfe6658d6a2250ee0ce05e5a936a836522a40b0fc7563c2488b30c194bc",
+        "explanation.md": "65e7322c0fe7edc8142e3e32c92abef5dbca64fc72925738e511273c840672b8"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}
