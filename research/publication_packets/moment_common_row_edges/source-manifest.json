@@ -1,0 +1,16 @@
+{
+  "status": "CORRECTED_FINAL_WRAPPER_MATCHING; second gate pending",
+  "lean_toolchain": "leanprover/lean4:v4.30.0",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "files": {
+    "solution.lean": "a0e6bb32eca92681ed7e526f68c66d75348421f9863a11aa0ccbc11016bfcc34",
+    "problem.json": "1bf9251798c852c034bac818c188fd689c8e2bd149f1b486efd44d0644aec24b",
+    "explanation.md": "00ee89d6b65fdc8b318731ef74b587978737483291ff2ab5b53ad76a9f863652"
+  },
+  "accepted_pr293_prefix_byte_identical": true,
+  "dependency_proof_sha": "67cba0868eb70b992baf3579e90ac800e4e3a55a",
+  "dependency_archive_sha256": "62a9d7ab3b5e9fe9719fa0ae84af4d39ef2b10b88ae015841716a875fd2fc42c",
+  "local_compiler_available": false,
+  "first_failed_proof_sha": "84821b392da2c393b895f1539a4d92e1aeb0f079",
+  "first_failed_run": 35249570081
+}

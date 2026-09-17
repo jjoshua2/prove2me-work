@@ -1,0 +1,30 @@
+{
+  "record_kind": "independent local hash readback of original Actions artifacts; not a separate direct platform poll",
+  "status": "PASS",
+  "run_id": 35250192632,
+  "proof_sha": "2e5a27346baa0c00f5329bcb6e8c44a67278281a",
+  "trigger_comment": 5718229252,
+  "verdict_comment": 5718278278,
+  "verdict_time_utc": "2026-09-17T17:05:18Z",
+  "artifact_ids": {
+    "first_request": 10509146684,
+    "corrected_request": 10509232403,
+    "verified": 10508443498,
+    "publication": 10509637153
+  },
+  "archive_sha256": {
+    "first_request": "9af9c7b10a289ea059ff8009417027d9a42945e394ea0571f3b1d01bd20af657",
+    "corrected_request": "4e609317eb3ff9137eeb6a652688e1605b4c9177afd58a4a60454247ce07d999",
+    "verified": "0b4bd54a643462ce571dd34de07c616354daf5e8b3ad77a66d0e55eee7f903fd",
+    "publication": "3b80adca200dccc078ad5c35d41901013b533f0867f67baa23346c7da292750c"
+  },
+  "all_five_frozen_hashes_checked": {
+    "solution.lean": "a0e6bb32eca92681ed7e526f68c66d75348421f9863a11aa0ccbc11016bfcc34",
+    "driver.lean": "a0e6bb32eca92681ed7e526f68c66d75348421f9863a11aa0ccbc11016bfcc34",
+    "statement.lean": "5fb48476a26f2fe0e566509b1a31c5c9d6895e50d9f95543e24414dc6dcbdb0d",
+    "problem.json": "1bf9251798c852c034bac818c188fd689c8e2bd149f1b486efd44d0644aec24b",
+    "explanation.md": "00ee89d6b65fdc8b318731ef74b587978737483291ff2ab5b53ad76a9f863652"
+  },
+  "source_problem_explanation_byte_identical": true,
+  "local_compiler_available": false
+}
