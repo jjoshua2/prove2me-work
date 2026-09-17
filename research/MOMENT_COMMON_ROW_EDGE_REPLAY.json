@@ -1,0 +1,16 @@
+{
+  "record_kind": "actual clean standalone rational replay; not Lean verification",
+  "status": "PASS",
+  "files": {
+    "research/MOMENT_COMMON_ROW_EDGE_TESTS.json": {
+      "bytes": 5104,
+      "sha256": "3055e2c013f6c97e55c120d4b2121e5b98407dc3fa68ff34ece842b1210ca9e9",
+      "byte_identical": true
+    },
+    "fixtures/moment_common_row_edges.json": {
+      "bytes": 54653,
+      "sha256": "5e1e64d311585bf54b30312a2efad5887a82853fe5ee74c22e15492aa77185fe",
+      "byte_identical": true
+    }
+  }
+}
