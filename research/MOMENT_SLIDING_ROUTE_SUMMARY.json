@@ -1,0 +1,192 @@
+{
+  "record_kind": "derived summary of executed exact tests; raw report and fixture regenerate and are bundled",
+  "status": "PASS",
+  "scope": "Exact rational interpretation/source checks, not Lean or Prove2Me verification",
+  "small_models": [
+    {
+      "dimension": 2,
+      "original_rows": 3,
+      "reference_vertices": 3,
+      "reference_edges": 3,
+      "reference_square_systems": 3,
+      "original_edges": 1,
+      "whole_corridor_BFS_distance": 1,
+      "nonshortest_corridor_subpaths": 0
+    },
+    {
+      "dimension": 2,
+      "original_rows": 5,
+      "reference_vertices": 5,
+      "reference_edges": 5,
+      "reference_square_systems": 10,
+      "original_edges": 3,
+      "whole_corridor_BFS_distance": 2,
+      "nonshortest_corridor_subpaths": 1
+    },
+    {
+      "dimension": 2,
+      "original_rows": 8,
+      "reference_vertices": 8,
+      "reference_edges": 8,
+      "reference_square_systems": 28,
+      "original_edges": 6,
+      "whole_corridor_BFS_distance": 2,
+      "nonshortest_corridor_subpaths": 3
+    },
+    {
+      "dimension": 4,
+      "original_rows": 5,
+      "reference_vertices": 5,
+      "reference_edges": 10,
+      "reference_square_systems": 5,
+      "original_edges": 1,
+      "whole_corridor_BFS_distance": 1,
+      "nonshortest_corridor_subpaths": 0
+    },
+    {
+      "dimension": 4,
+      "original_rows": 7,
+      "reference_vertices": 14,
+      "reference_edges": 28,
+      "reference_square_systems": 35,
+      "original_edges": 3,
+      "whole_corridor_BFS_distance": 3,
+      "nonshortest_corridor_subpaths": 0
+    },
+    {
+      "dimension": 4,
+      "original_rows": 9,
+      "reference_vertices": 27,
+      "reference_edges": 54,
+      "reference_square_systems": 126,
+      "original_edges": 5,
+      "whole_corridor_BFS_distance": 4,
+      "nonshortest_corridor_subpaths": 1
+    },
+    {
+      "dimension": 6,
+      "original_rows": 7,
+      "reference_vertices": 7,
+      "reference_edges": 21,
+      "reference_square_systems": 7,
+      "original_edges": 1,
+      "whole_corridor_BFS_distance": 1,
+      "nonshortest_corridor_subpaths": 0
+    },
+    {
+      "dimension": 6,
+      "original_rows": 9,
+      "reference_vertices": 30,
+      "reference_edges": 90,
+      "reference_square_systems": 84,
+      "original_edges": 3,
+      "whole_corridor_BFS_distance": 3,
+      "nonshortest_corridor_subpaths": 0
+    },
+    {
+      "dimension": 6,
+      "original_rows": 13,
+      "reference_vertices": 156,
+      "reference_edges": 468,
+      "reference_square_systems": 1716,
+      "original_edges": 7,
+      "whole_corridor_BFS_distance": 6,
+      "nonshortest_corridor_subpaths": 1
+    }
+  ],
+  "small_totals": {
+    "corridor_edges": 30,
+    "corridor_endpoint_pairs": 85,
+    "infeasible_full_tight": 1759,
+    "interior_points": 90,
+    "nonshortest_corridor_subpaths": 6,
+    "objective_checks": 1437,
+    "original_inequalities": 328,
+    "reference_edges": 687,
+    "reference_square_systems": 2014,
+    "reference_vertices": 255,
+    "row_identity_checks": 328
+  },
+  "subcorridor_cases": 16,
+  "large": [
+    {
+      "dimension": 8,
+      "disjoint_endpoint_active_sets": true,
+      "full_graph_enumerated": false,
+      "original_edges": 8,
+      "original_inequalities": 153,
+      "original_reentries": 0,
+      "original_rows": 17,
+      "row_identity_checks": 153,
+      "start": 1,
+      "status": "PASS",
+      "strict_interior_points": 24,
+      "vertices_checked": 9
+    },
+    {
+      "dimension": 16,
+      "disjoint_endpoint_active_sets": true,
+      "full_graph_enumerated": false,
+      "original_edges": 16,
+      "original_inequalities": 561,
+      "original_reentries": 0,
+      "original_rows": 33,
+      "row_identity_checks": 561,
+      "start": 1,
+      "status": "PASS",
+      "strict_interior_points": 48,
+      "vertices_checked": 17
+    },
+    {
+      "dimension": 32,
+      "disjoint_endpoint_active_sets": true,
+      "full_graph_enumerated": false,
+      "original_edges": 32,
+      "original_inequalities": 2145,
+      "original_reentries": 0,
+      "original_rows": 65,
+      "row_identity_checks": 2145,
+      "start": 1,
+      "status": "PASS",
+      "strict_interior_points": 96,
+      "vertices_checked": 33
+    },
+    {
+      "dimension": 64,
+      "disjoint_endpoint_active_sets": true,
+      "full_graph_enumerated": false,
+      "original_edges": 64,
+      "original_inequalities": 8385,
+      "original_reentries": 0,
+      "original_rows": 129,
+      "row_identity_checks": 8385,
+      "start": 1,
+      "status": "PASS",
+      "strict_interior_points": 192,
+      "vertices_checked": 65
+    }
+  ],
+  "producer_disabled_audits": 21,
+  "negative_controls": [
+    "wrong_point",
+    "wrong_mean",
+    "wrong_root_coefficients",
+    "missing_vertex",
+    "nonconsecutive_jump",
+    "duplicate_node",
+    "unordered_nodes",
+    "outside_label_window",
+    "zero_half_dimension",
+    "boolean_length",
+    "float_node"
+  ],
+  "odd_degree_sign_counterexample": true,
+  "exact_target_signature_match": true,
+  "source_lines": 889,
+  "source_sha256": {
+    "problem.json": "c1afaecf3b032fed9c16f40dadbc9f1b2ab22bc868c6e105e78fff69aa9b0e1d",
+    "solution.lean": "5be516fabb700f4f19f881536558c58ab959dec90e6193a8b957e275e40104be",
+    "test_moment_sliding_block_routes.py": "a9c1bc5e5418be9636070265f6ab50afc1513611e35c8e723fb6d5e615198eca"
+  },
+  "raw_report_sha256": "6345cd3312b8194e3dcddf228dc7e8430b6aba0e5f62588b02986682bcfc9e05"
+}

@@ -1,0 +1,16 @@
+{
+  "record_kind": "actual clean standalone rational replay; not Lean verification",
+  "status": "PASS",
+  "files": {
+    "research/MOMENT_SLIDING_ROUTE_TESTS.json": {
+      "byte_identical": true,
+      "bytes": 13996,
+      "sha256": "6345cd3312b8194e3dcddf228dc7e8430b6aba0e5f62588b02986682bcfc9e05"
+    },
+    "fixtures/moment_sliding_route_examples.json": {
+      "byte_identical": true,
+      "bytes": 1240291,
+      "sha256": "dc79fd836dea1d135829bd96c40dd7c9b3cc6fcc965c7396b8d4ee7a97479354"
+    }
+  }
+}

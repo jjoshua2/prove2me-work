@@ -1,0 +1,16 @@
+{
+  "record_kind": "independent local readback of original Actions ZIP; not a direct platform API query",
+  "status": "PASS",
+  "run_id": 35268954077,
+  "proof_sha": "3ff470b30ff3270461c1ea54298fb8ebe68f13f5",
+  "artifact_id": 10517962008,
+  "archive_sha256": "cf44866ffce620e9c7d0e32ea2175b5cc54840dfa10e2df41b150ad5b9d13cf0",
+  "all_five_frozen_hashes": {
+    "solution.lean": "5be516fabb700f4f19f881536558c58ab959dec90e6193a8b957e275e40104be",
+    "driver.lean": "5be516fabb700f4f19f881536558c58ab959dec90e6193a8b957e275e40104be",
+    "statement.lean": "2acde7387099ced6fac89f5b893f0c545709c5ae8e3ef6228c8e02823e93004f",
+    "problem.json": "c1afaecf3b032fed9c16f40dadbc9f1b2ab22bc868c6e105e78fff69aa9b0e1d",
+    "explanation.md": "f9ca66a7eea533c9b367de164889c460dee1a43b8fbd3350db23652e65f9380e"
+  },
+  "prepared_source_problem_explanation_byte_identical": true
+}

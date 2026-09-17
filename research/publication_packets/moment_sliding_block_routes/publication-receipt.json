@@ -1,0 +1,15 @@
+{
+  "head_sha": "3ff470b30ff3270461c1ea54298fb8ebe68f13f5",
+  "packets": [
+    {
+      "packet": "moment_sliding_block_routes",
+      "status": "ACCEPTED",
+      "theorem_id": "e7f0c684-2c01-4076-b964-68ec03d676ad",
+      "submission_id": "7ccdf32a-8620-48dd-880b-595615703cfb",
+      "theorem_name": "Hirsch.moment_sliding_block_original_routes",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/moment_sliding_block_routes"
+    }
+  ]
+}
