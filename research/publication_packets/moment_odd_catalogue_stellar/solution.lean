@@ -809,6 +809,7 @@ lemma oddLabel_injective : Function.Injective oddLabel := by
 
 lemma image_odd_injective : Function.Injective (fun S : Finset ℕ => S.image oddLabel) := by
   intro S T h
+  change S.image oddLabel = T.image oddLabel at h
   apply Finset.Subset.antisymm
   · intro a ha
     have hi : oddLabel a ∈ T.image oddLabel := by
