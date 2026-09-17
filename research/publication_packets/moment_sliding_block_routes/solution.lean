@@ -757,10 +757,28 @@ lemma overlap_card (k m s : ℕ) (hk : 0 < k) (hs : s+1+2*k ≤ m) :
     constructor <;> omega
   have heq : (block (2*k) m s) ∩ block (2*k) m (s+1) =
       (block (2*k) m s).erase r := by
-    ext i
-    simp only [Finset.mem_inter, mem_block, Finset.mem_erase, Fin.ext_iff]
-    dsimp only [r]
-    omega
+    apply Finset.ext
+    intro i
+    constructor
+    · intro hi
+      obtain ⟨hleft, hright⟩ := Finset.mem_inter.mp hi
+      have hnext := (mem_block (2*k) m (s+1) i).mp hright
+      apply Finset.mem_erase.mpr
+      refine ⟨?_, hleft⟩
+      intro hir
+      have hval : i.val = s := congrArg Fin.val hir
+      omega
+    · intro hi
+      obtain ⟨hine, hleft⟩ := Finset.mem_erase.mp hi
+      have hwin := (mem_block (2*k) m s i).mp hleft
+      have hvalne : i.val ≠ s := by
+        intro hval
+        apply hine
+        apply Fin.ext
+        exact hval
+      apply Finset.mem_inter.mpr
+      refine ⟨hleft, (mem_block (2*k) m (s+1) i).mpr ?_⟩
+      constructor <;> omega
   rw [heq]
   have hc := Finset.card_erase_add_one hr
   rw [card_block (2*k) m s (by omega)] at hc
