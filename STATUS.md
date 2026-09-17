@@ -3,161 +3,165 @@
 Repository `jjoshua2/prove2me-work`. Keep Lean `v4.30.0` and Mathlib
 `c5ea00351c28e24afc9f0f84379aa41082b1188f`. Read AGENTS.md, CLOUD_AGENT.md,
 SKILL.md, CONTINUE_HIRSCH.md, actual main and LIVE PR heads/comments before work.
-Do not resubmit accepted or pending packets. The queue can be ahead of this index.
+Do not duplicate accepted or pending submissions. The live queue can precede this index.
 
-This update records NEW FORMAL ACCEPTANCE #295. The immediately preceding
-COMPLETE frontier remains verbatim in immutable Git history:
-[pre-edge STATUS](https://github.com/jjoshua2/prove2me-work/blob/868ca0b7c2721c754efd84af4204cdbd62634981/STATUS.md),
-blob `dc72e6495a40809ff6f34f1a9926921357b00fe8`. It retains the full #288/#285/#286
-records, #284/#281, older receipts, research limitations and ownership. Its old
-catalogue/geometry todo is not an authoritative current queue: #289/#291/#292/#293
-had already advanced by this session and must be inspected rather than duplicated.
+This update records NEW FORMAL ACCEPTANCE #296. The preceding COMPLETE frontier
+is preserved verbatim in immutable history:
+[pre-corridor STATUS](https://github.com/jjoshua2/prove2me-work/blob/a0dd273739fae740a0a887e45272cddadfc676f0/STATUS.md),
+blob `48c9c301491255a42e9a4e2cff86f2dc7a046f72`.
+That archive retains #295's exact edge proof, #293 dependency, earlier #288/#289
+catalogue history, #291/#292 geometry, all older receipts and ownership.
+This update does not downgrade or resubmit any accepted result.
 
 ## Root and scope
 
 The last preserved authenticated mission audit records root
 `58eae2c9-6fd5-4d5d-8aa7-6d552ad80bac` and high-dimensional common-face leaf
 `87a8b4f4-8b58-4340-8cb9-5fd1b548d01e` Open. This is NOT a fresh platform poll.
-The goal is still a uniform polynomial ORIGINAL ordinary-edge upper bound for
-arbitrary carriers. Original image facets, not smaller extension rows, are the
-relevant size. A valid exposed-edge criterion is not itself a short-route theorem.
+The goal remains a uniform polynomial ORIGINAL ordinary-edge upper bound for
+arbitrary carriers. A constructed route for a restricted endpoint class is not
+an all-pairs or all-polytope diameter theorem.
 
-## NEW #295: common moment rows expose genuine original edges
+## NEW #296: constructed sliding-block original routes ACCEPTED and merged
 
-Theorem: `Hirsch.moment_common_rows_expose_edges`.
-Theorem ID: `d727e34d-b52e-4bfa-8291-947010b1f130`.
-Submission ID: `27db3c8f-ba4b-4b18-8740-dc9f979266dc`.
-Trusted publisher verdict: **ACCEPTED**, authenticated readback **Proved**.
-Accepted proof: `2e5a27346baa0c00f5329bcb6e8c44a67278281a`.
-Evidence-only head: `15d3bcd718c2c165625fc75dd7a4a6daa7bb10ee`.
-Merge: `868ca0b7c2721c754efd84af4204cdbd62634981`.
-Run: `35250192632`; verdict time: `2026-09-17T17:05:18Z`
-(13:05:18 America/New_York).
+Theorem: `Hirsch.moment_sliding_block_original_routes`.
+Theorem ID: `e7f0c684-2c01-4076-b964-68ec03d676ad`.
+Submission ID: `7ccdf32a-8620-48dd-880b-595615703cfb`.
+Trusted publisher: **ACCEPTED**, authenticated readback **Proved**.
+Accepted proof: `3ff470b30ff3270461c1ea54298fb8ebe68f13f5`.
+Evidence-only head: `52c2b8c532e3aee295caafcb1dc76cbcd84e48c1`.
+Merge: `a0dd273739fae740a0a887e45272cddadfc676f0`.
+Run: `35268954077`; verdict `2026-09-17T20:12:32Z`
+(16:12:32 America/New_York).
 
-[Accepted theorem, evidence and next interface](research/publication_packets/moment_common_row_edges/accepted-evidence.md),
-[raw publisher receipt](research/publication_packets/moment_common_row_edges/publication-receipt.json),
-[raw compile/axiom audit](research/publication_packets/moment_common_row_edges/packet-audit.json).
-The exact proof, target, explanation, verified manifest, full driver log, first-
-gate diagnostic, artifact readback and rational tests are on main. Do not resubmit
-this theorem. Historical prepared metadata is superseded by its acceptance.
+[Exact theorem, evidence and limitations](research/publication_packets/moment_sliding_block_routes/accepted-evidence.md),
+[raw publisher receipt](research/publication_packets/moment_sliding_block_routes/publication-receipt.json),
+[raw compile/axiom audit](research/publication_packets/moment_sliding_block_routes/packet-audit.json).
+The full proof, target, explanation, raw driver log, verified manifest, first-gate
+diagnostic, artifact readbacks, standalone test and clean replay are on main.
+Historical PREPARED/corrected metadata is superseded by the acceptance receipt.
 
-### Exact formal conclusion, with no rank or adjacency oracle
+### Actual constructed route, not a supplied short sequence
 
-For d<m and injective real parameters a on m original labels, use the original
-mean-centered moment rows A_i(x)<=1. For feasible u,v let I,J be their EXACT
-tight-row sets. Assuming |I|=|J|=d and |I intersection J|+1=d, the theorem derives
+For a strictly increasing real sequence a on NATURAL numbers, positive k and
+m original labels with2k<m, use the ORIGINAL dimension-2k mean-centered moment
+inequalities on the first m nodes. Given s,L with s+L+2k<=m, the theorem proves
+L<=m-2k and constructs an INJECTIVE p on Fin(L+1) such that:
 
-    u and v are distinct actual Mathlib extreme points;
-    the entire common feasible equality slice is exactly [u,v];
-    sum_(i in I intersection J) A_i(z) <= |I intersection J| on P,
-      with equality exactly on [u,v];
-    IsExposed R P [u,v] and IsExtreme R P [u,v];
-    every strict interior convex combination has exactly I intersection J tight.
+    every p(t) is an actual Mathlib extreme point and is feasible;
+    its EXACT tight labels are s+t,...,s+t+2k-1;
+    every successive segment is an actual IsExposed subset of the original P;
+    every original row's tight times form an interval.
 
-Vertex status and independence follow from the ACCEPTED moment-vertex proof,
-not a supplied inverse, rank, graph, supporting-functional or edge certificate.
-The private source row recovers t=(1-A_r(z))/(1-A_r(v)) for any common-slice
-point; active-map injectivity gives z=u+t(v-u), and a private target row forces
-t<=1. This proves the WHOLE slice, not just equal endpoint objective values.
-No auxiliary projection or chord is mislabeled an original edge.
+Injectivity makes the segments nondegenerate. No vertex list, feasible exchange
+sequence, rank, adjacency, supporting functional or short-path oracle is assumed.
+The index-fit premise supplies no geometric feasibility. The bound L<=m-2k is
+an arithmetic consequence of that fit; the substantive conclusion is existence
+of the specified original vertices and all their genuine connecting edges.
 
-This is a sufficient criterion, not a converse or existence/length bound for
-an exchange sequence. d=0 is excluded by the cardinal premise; in d=1 the zero
-objective over an empty common set correctly exposes the whole original interval.
-The theorem is on original rows; not all m rows are claimed irredundant facets
-in every boundary case.
+Construct q_r(T) as the product of k consecutive pairs of linear roots. It is
+monic of degree2k, nonnegative at every indexed original node, and vanishes
+exactly on the block r,...,r+2k-1. Its average h_r over ALL m original nodes is
+positive. Taking negative positive-degree coefficients divided by h_r gives
 
-### Accepted dependency and actual compiler history
+    A_i(p_r)=1-q_r(a_i)/h_r.
 
-The complete namespace prefix from ACCEPTED #293 is reused BYTE-FOR-BYTE,
-excluding only its old public solution/print suffix. Dependency proof
-`67cba0868eb70b992baf3579e90ac800e4e3a55a`, theorem
-`01977493-8c4e-45c5-957d-236e1d3fd475`, submission
-`64b7b648-b7e7-4bca-a4d6-b4e95138df7a`, run `35209444916`.
-Its actual acceptance and verified artifact were read, all frozen hashes checked.
-#293's original integration remains its owner's task; it was not edited, merged
-or retriggered by #295. No old public theorem was submitted again.
+This proves original feasibility and exact active rows. Accepted moment-vertex
+geometry gives extremality. Adjacent windows have2k-1 common rows, so accepted
+#295 supplies whole-supporting-slice equality and exposed ORIGINAL edges.
+The path p(t)=p_(s+t) is injective; the explicit interval formula proves no row
+reentry. No complete refinement or original graph is constructed or supplied.
 
-The first gate35249570081 compiled all four substantive new edge helpers but
-failed at one rewrite match in the public wrapper, line582. Publish was skipped;
-no theorem registration/submission existed. One targeted correction adds `change`
-for the existing row/active names and supplies the explicit common-row set to
-the rewrite. Every helper, public type, hypothesis, conclusion, problem.json and
-explanation.md is unchanged. The first failure is preserved, not called a
-first-attempt success or a mathematical counterexample.
+This is a CLASS theorem through consecutive-block vertices. It does NOT connect
+arbitrary moment vertices with separated root pairs, prove a best/shortest route,
+or solve Polynomial Hirsch. L0 is included; k0 is explicitly excluded. The
+hypothesis is a globally ordered natural-number sequence; an unordered finite
+extension theorem is not silently assumed. The formal size parameter is original
+inequalities, not an independently formalized irredundant-facet count. Classical
+paired-root/cyclic-polytope constructions and #267 experiments are credited.
 
-The corrected596-line source, driver and target all compile with exit0. All FIVE
-transitive audited declarations use only propext, Classical.choice and Quot.sound.
-The corrected proof's first ACTUAL platform submission was accepted. Warnings
-remain in the raw driver log; no proof cleanup changed the verified source.
+### Verification and actual publication
 
-The requested NEW top-level PR comments use the existing normal workflow:
+The accepted #295 namespace prefix is reused BYTE-FOR-BYTE:544 lines/22583 bytes,
+excluding its old public solution/prints. Its frozen archive and five hashes
+were checked. No accepted target was resubmitted.
 
-    /prove2me publish research/publication_packets/moment_common_row_edges
+First run35267809797 had ONE displayed error at line763 in a finite-set overlap
+membership proof. The polynomial construction and vertex theorem compiled, but
+dependent edge/route declarations did not. Publish was skipped and no platform
+registration/submission existed. A targeted correction replaces that automatic
+Fin-coercion step with explicit membership reasoning. No public type, hypothesis,
+conclusion, other helper, problem.json or explanation changed.
 
-Corrected trigger5718229252, resolved-head comment5718232828, verdict5718278278.
-No dispatch, workflow, pin, permissions, protocol, credentials or publisher-secret
-split changed. Local Lean/Lake was unavailable; this is actual hosted pinned
-compilation, not Python checks relabeled as formal verification.
+Corrected889-line proof, driver and target all compile with exit0. All FIVE
+transitive audits use only propext, Classical.choice and Quot.sound. Its FIRST
+actual platform submission was accepted. Do not call the initial compile a
+first-attempt success. Harmless linter warnings and the initial failure remain.
 
-### Exact evidence and supporting tests
+The user-requested NEW top-level comments invoked the unchanged existing gate:
 
-Both request ZIPs, the verified packet ZIP and publication ZIP were downloaded
-and independently hashed. All five frozen file hashes match. Accepted source:
-`a0e6bb32eca92681ed7e526f68c66d75348421f9863a11aa0ccbc11016bfcc34`.
-Raw audit/manifest/log/aggregate publication receipt are committed unchanged.
-Derived local readbacks are labeled. Proved is the trusted publisher's authenticated
-observation, not a separate direct chat API poll. No missing individual raw API
-responses are invented. The two post-verification commits add nine supporting/
-evidence files and change none of the five files at the accepted proof head.
-All14 PR files are additions; no earlier source was modified.
+    /prove2me publish research/publication_packets/moment_sliding_block_routes
 
-The rational regression reconstructs nine small original-H models from411 exact
-square systems:125 vertices,265 adjacent pairs,928 diagonals,28816 objective
-checks,1060 interior and1060 outside-segment tests. Every adjacent pair has
-exactly two maximizing reference vertices; diagonals retain more. Repeated
-parameters give a real counterexample to treating row counts as rank. The286
-infeasible full-tight solutions are not admitted as vertices.
+Corrected trigger5720540710, resolved-head comment5720544025, verdict5720601557.
+No dispatch, workflow, toolchain, permission, credential, protocol or publisher
+secret split changed. Local Lean was unavailable; compiler evidence is the
+pinned hosted gate, not rational tests. Proved is the trusted publisher's
+authenticated readback, not another direct platform poll by the chat.
 
-Four larger cases through dimension64 evaluate all original rows without full
-graph enumeration. Thirteen stored consumers pass with production disabled;
-eleven malformed controls fail. The clean standalone run reproduces the5104-byte
-report and54653-byte fixture exactly. These are supporting tests; Python/JSON
-are not Lean-extracted. Original artifact archives, initial/corrected source and
-the correction diff are bundled. The fixture regenerates from the repository.
+All four original request/verification/publication ZIP digests and five frozen
+file hashes were recomputed. Source SHA256:
+`5be516fabb700f4f19f881536558c58ab959dec90e6193a8b957e275e40104be`.
+The raw aggregate receipt, audit, manifest and full driver log are preserved;
+local readbacks are labeled. No absent individual API responses are invented.
+The post-verification commits add TEN support/evidence files and change NONE
+of the five files at the accepted proof head. All15 PR files are additions.
 
-    python3 scripts/test_moment_common_row_edges.py
+### Executed supporting tests, including nonshortest routes
 
-## Next actual mathematical work
+Nine independent small original-H references solve2014 square systems, giving
+255 vertices/687 edges and excluding1759 infeasible full-tight solutions.30
+constructed corridor edges each maximize the common-row objective at exactly
+their two endpoints among all reference vertices (1437 checks).85 corridor
+endpoint pairs include SIX nonshortest subpaths. The2D/eight-row full corridor
+has6 edges while its endpoints have distance2. No optimum-path claim is made.
 
-A future finite sequence of feasible moment vertices exchanging one active row
-per step can now be interpreted as genuine exposed original edges using #295.
-The missing work is to construct the sequence and prove a useful uniform length
-bound, or to connect another valid original-edge construction. Do not assume
-adjacency, a short walk, or a small defect/refinement parameter as an unproved
-premise and call that Polynomial Hirsch.
+Sixteen further subcorridors include zero lengths, nonzero starts and nonuniform
+nodes. Large d8/16/32/64 examples construct8/16/32/64 original edges, checking
+every original row without full graph enumeration.21 saved consumers replay
+with point/polynomial production disabled;11 malformed controls fail. An odd-
+degree sign countercontrol preserves the even-dimension hypothesis.
 
-The accepted ordered-minimality #288 and the catalogue/count work in #289 have
-separate scopes from this positive edge interface. #291's cut-vertex support,
-#292's compactness and #293's vertex criterion have their own live proof receipts
-and integration ownership. Inspect those before taking an older todo from the
-archived status. This update does not claim fresh compilation of those branches.
+The raw13996-byte report and1240291-byte fixture repeat byte-for-byte in a clean
+standalone workspace. A15-addition patch independently applies to an empty Git
+checkout, reproduces all sources, passes Python compilation and reruns the
+whole suite with identical outputs. The committed summary is explicitly derived;
+raw report/fixture are bundled and regenerate. Python/JSON are not Lean-extracted.
 
-#281's finite stellar persistence and #284's protected-facet counts remain
-accepted. #267's full-refinement-size obstruction is not an original-diameter
-lower bound or an upper bound. Existing class-specific refinements, direct #268
-budget search and #271 checked exclusions keep their scope and evidence boundaries.
-The universal polynomial route question is not settled by these auxiliary results.
+    python3 scripts/test_moment_sliding_block_routes.py
 
-## Ownership and execution discipline
+## Next mathematical work and preserved ownership
 
-#282 triangular work, #270's deliberately partial draft, #264 energy, #255
-shortening, #250 projected-image integration, #244 assembly and #238 support
-witnesses remain separately owned. Do not bypass blocked companion integration.
-#208 needs its existing approved poll rather than another submission; #210 is
-retired/reserved. No other branch or pending/accepted packet was modified by #295.
+#295 now has a concrete constructive route application rather than only an
+assumed feasible exchange sequence. A broader moment route theorem would need
+separated adjacent root pairs, enough LEGAL moves and an actual count. Supplying
+a short combinatorial path as a hypothesis does not close that gap. An arbitrary
+polytope result needs still more general original-edge geometry; do not call
+this special class a universal polynomial route construction.
 
-Distinguish written arguments, exact software, Lean compilation, axiom audit,
-ACCEPTED and authenticated Proved. Preserve pins and trusted publisher isolation.
-Use local compilation where available; the final hosted gate is not a speculative
-proof-editing loop. Preserve raw evidence separately from summaries.
+#267's complete forward-flagification-size obstruction, #281's persistence,
+#284's protected-facet counts, #288/#289 moment nonfaces/catalogue and the later
+geometry results retain separate exact statements and receipts. Inspect live
+#291/#292/#293 integration before taking archived work. #268 search and #271
+checked exclusions retain distinct solver-negative and certified-negative statuses.
+
+At this session's live inspection #294 was a failed draft owned by another
+agent; it was not edited or retriggered. Recheck its current state rather than
+presuming it resolved. #282, #270 blocked integration, #264 energy, #255
+shortening, #250 projected integration, #244 assembly and #238 support remain
+separate; #208 needs its existing approved poll, not duplicate submission, and
+#210 is retired/reserved. No other branch or accepted/pending packet was touched.
+
+Distinguish written arguments, exact tests, Lean compilation, axiom audit,
+ACCEPTED and authenticated Proved. Preserve raw evidence and the pinned trusted
+publisher. Use local compilation where available; final hosted gates are not
+a speculative trial-and-error compiler loop.
