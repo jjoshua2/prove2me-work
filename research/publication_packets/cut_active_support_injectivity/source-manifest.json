@@ -1,37 +1,38 @@
 {
   "files": {
-    "research/CUT_ACTIVE_SUPPORT_TEST.json": {
-      "bytes": 1297,
-      "git_blob_sha": "78675349fb39803b0a3181cbd2bbe030bcd0eef7",
-      "sha256": "4f508d7a61c2d67c43c9173e343af924a8c66a6c6f39b9e520dd15d3dd146e91"
+    "explanation.md": {
+      "bytes": 6758,
+      "git_blob_sha": "052bff6fa52efd500788d47de799059fbc28884f",
+      "sha256": "8fc018bb48491d78ee0fd8c912b381eed219edece8d3f6c9cd3859d2bf0fd14f"
     },
-    "research/publication_packets/cut_active_support_injectivity/explanation.md": {
-      "bytes": 5614,
-      "git_blob_sha": "d60de19731af54c15a0d9a8777bfb4ce82208e13",
-      "sha256": "5d37a3177ac6818a3ab719237c46605f7b569b8b314721f7ff5e8a57b6eeb501"
-    },
-    "research/publication_packets/cut_active_support_injectivity/problem.json": {
+    "problem.json": {
       "bytes": 3301,
       "git_blob_sha": "63434f3150d07f069b740e2949e95eaa3b6c8469",
       "sha256": "38bdcbd324f5a2771ea3d468961e85c1e3885a156bdaf46622dc8359535ce714"
     },
-    "research/publication_packets/cut_active_support_injectivity/solution.lean": {
-      "bytes": 8648,
-      "git_blob_sha": "4b096a305542aa6b6bffb58c0f81e58c4e2bb967",
-      "sha256": "b55d64d4dbe72f4684f15cf7a343ea96aede90d6a021df77594fe44ca9934126"
-    },
-    "scripts/test_cut_active_support.py": {
-      "bytes": 6551,
-      "git_blob_sha": "de8caebf8b2eef2587bdc34c2a9f6009e25043ae",
-      "sha256": "8e6d9e92f81119584fe9d8879dff9d07f95e8309f48bd902b2e14ce2b30afe31"
+    "solution.lean": {
+      "bytes": 9552,
+      "git_blob_sha": "56e38bebb4d5b3501ee47c05df59631d5c5c0543",
+      "sha256": "3dd3f72bd43461fc68baadd0e12b0dad7526c0cedeece628ca9cdf256b1dd499"
     }
   },
-  "kind": "Prepared source and exact supporting-test identity, not a compiler/platform receipt",
-  "local_lake_available": false,
-  "local_lean_available": false,
-  "status": "PREPARED_UNCOMPILED",
-  "target": "Hirsch.cut_vertex_active_support_injectivity",
-  "target_signature_copied_exactly": true,
-  "test_status": "PASS; not Lean verification",
-  "toolchain_DNS": "Temporary failure in name resolution"
+  "first_failed_gate": "first-gate-repair.json",
+  "initial_candidate_manifest": "initial-source-manifest.json",
+  "kind": "Derived accepted-source index; raw gate and publisher evidence are retained separately",
+  "live_status": "Proved",
+  "local_Lean_compilation_claimed": false,
+  "post_gate_code_or_target_changes": false,
+  "proof_head": "533bfb63678730eed6559e512e560ee71713f341",
+  "raw_evidence": [
+    "packet-audit.json",
+    "verified-artifact.json",
+    "verification-manifest.json",
+    "solution-compile.log",
+    "publication-receipt.json"
+  ],
+  "run_id": 35179232678,
+  "status": "ACCEPTED",
+  "submission_id": "68ad9f06-cdc9-4a25-85fc-b62c5e9b711d",
+  "theorem_id": "c3781e27-7eb2-4ffc-bb5b-e85ffe60c480",
+  "theorem_name": "Hirsch.cut_vertex_active_support_injectivity"
 }

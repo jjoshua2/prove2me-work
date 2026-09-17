@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/cut_active_support_injectivity"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "0fc4ee426fd66ea1cc67fce60b1cfe557ce872bf",
+  "pr": "290"
+}
