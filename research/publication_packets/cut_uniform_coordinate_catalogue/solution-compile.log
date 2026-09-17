@@ -1,0 +1,6 @@
+'Hirsch.CutActiveSupport.active_image_independent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.ConstructedCutSupport.positive_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.ConstructedCutSupport.weights_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'accepted_positive_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.UniformCutCatalogue.recover_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,26 @@
+{
+  "dependency": "Accepted #291 proof; only root/print name changed",
+  "first_compiler_attempt_passed_unchanged": true,
+  "first_platform_submission_accepted": true,
+  "kind": "Derived accepted-source index; original gate/publisher JSON retained separately",
+  "live_status": "Proved",
+  "local_Lean_compilation_claimed": false,
+  "post_gate_proof_metadata_explanation_changes": false,
+  "proof_head": "91c5c7386a106c5cd73bea203cbb23f324036d8f",
+  "raw_evidence": [
+    "packet-audit.json",
+    "verified-artifact.json",
+    "verification-manifest.json",
+    "solution-compile.log",
+    "resolved-request.json",
+    "publication-receipt.json"
+  ],
+  "run_id": 35268179894,
+  "solution_git_blob": "166eecc5909561c0db132e2741780b5c1099fb93",
+  "solution_lines": 419,
+  "solution_sha256": "5e2a8efb6f5f8d4767d4aa6a248f30d1bfc07576f0688c7a6d84138bbd640bd0",
+  "status": "ACCEPTED",
+  "submission_id": "9009a1fe-2e0b-4a91-956b-8a4ee322ba25",
+  "theorem_id": "f7bdc6f6-ecfb-4525-816e-7e66d0ae6ad3",
+  "theorem_name": "Hirsch.cut_vertex_uniform_coordinate_catalogue"
+}

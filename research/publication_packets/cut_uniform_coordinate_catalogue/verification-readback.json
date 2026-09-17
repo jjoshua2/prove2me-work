@@ -1,0 +1,23 @@
+{
+  "all_five_frozen_hashes_recomputed": {
+    "driver.lean": "5e2a8efb6f5f8d4767d4aa6a248f30d1bfc07576f0688c7a6d84138bbd640bd0",
+    "explanation.md": "b6765453775ace27e3cb3ea1d0e7394834b6dc693cda5a7dbfbea6d0785a55b6",
+    "problem.json": "5b8591e68944a887b1ae1370f2bfdc3a4a7012a04b799cae2b417ac8b84c34c3",
+    "solution.lean": "5e2a8efb6f5f8d4767d4aa6a248f30d1bfc07576f0688c7a6d84138bbd640bd0",
+    "statement.lean": "9ce072c624a4323db2fd83a268c1104a708f1566cd816745b0ea68ca1404cbcc"
+  },
+  "all_prepared_packet_bytes_match": true,
+  "first_compiler_attempt_passed": true,
+  "kind": "Derived independent verification readback; not a raw platform response",
+  "local_Lean_compilation_claimed": false,
+  "platform_verdict": "Not asserted by this verification-only record",
+  "proof_head": "91c5c7386a106c5cd73bea203cbb23f324036d8f",
+  "public_signature_exact": true,
+  "request_archive_sha256": "6e7cadcb7ed63bf442f1dafa073a1aaf4bc9119ed84698706d9a670c13f2d4a4",
+  "request_artifact": 10518265078,
+  "run_id": 35268179894,
+  "six_transitive_reports_standard_axioms_only": true,
+  "source_dependency_unchanged_except_root_and_print_name": true,
+  "verified_archive_sha256": "35ea46be0cdf6bf0408354c347608c7398b1dbd569ce5463e08a1483874ff2de",
+  "verified_artifact": 10517830775
+}

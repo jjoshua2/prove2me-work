@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/cut_uniform_coordinate_catalogue"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "91c5c7386a106c5cd73bea203cbb23f324036d8f",
+  "pr": "297"
+}
