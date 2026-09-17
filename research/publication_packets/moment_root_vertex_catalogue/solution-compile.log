@@ -1,0 +1,28 @@
+_verified/packets/moment_root_vertex_catalogue/solution.lean:122:8: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+_verified/packets/moment_root_vertex_catalogue/solution.lean:122:8: warning: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+_verified/packets/moment_root_vertex_catalogue/solution.lean:343:36: warning: This simp argument is unused:
+  Module.finrank_self
+
+Hint: Omit it from the simp argument list.
+  simp only [Module.finrank_pi, M̵o̵d̵u̵l̵e̵.̵f̵i̵n̵r̵a̵n̵k̵_̵s̵e̵l̵f̵,̵ ̵Fintype.card_fin, Fintype.card_coe, hcard]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+_verified/packets/moment_root_vertex_catalogue/solution.lean:417:6: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+_verified/packets/moment_root_vertex_catalogue/solution.lean:498:44: warning: This simp argument is unused:
+  and_assoc
+
+Hint: Omit it from the simp argument list.
+  simp [catalogue, Finset.mem_powersetCard,̵ ̵a̵n̵d̵_̵a̵s̵s̵o̵c̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'Hirsch.MomentRootCatalogue.row_candidate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.MomentRootCatalogue.extreme_mean_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.MomentRootCatalogue.reconstruct_extreme' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.MomentRootCatalogue.complete_catalogue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]

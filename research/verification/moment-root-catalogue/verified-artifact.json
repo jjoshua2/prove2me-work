@@ -1,0 +1,25 @@
+{
+  "head_sha": "f5f8093b1be2815dba7329b08cbd04493ff09140",
+  "packets": [
+    {
+      "path": "research/publication_packets/moment_root_vertex_catalogue",
+      "name": "moment_root_vertex_catalogue",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "d85770ad23c903d7c436519ebf0c902316d035d9c419250d9c165085cf364655",
+        "driver.lean": "d85770ad23c903d7c436519ebf0c902316d035d9c419250d9c165085cf364655",
+        "statement.lean": "a8683861c6e761f587de00e7b36f342032c1862d1c7598fd5790ac1dcc1f5a63",
+        "problem.json": "840cf893e7e3b65558b144c8cbd4d98fb63dddd3c636876f6770c904f5c3e1e9",
+        "explanation.md": "48f3614b5d9a775c2c4c05744f0b6b11b74d84a9d989797b0c9b1e235308b533"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}

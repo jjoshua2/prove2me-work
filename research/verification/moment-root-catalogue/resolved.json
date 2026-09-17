@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/moment_root_vertex_catalogue"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "f5f8093b1be2815dba7329b08cbd04493ff09140",
+  "pr": "299"
+}
