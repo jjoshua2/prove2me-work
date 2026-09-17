@@ -1,0 +1,15 @@
+{
+  "head_sha": "64b73e31cdf368e36e6bd76f1710f4fc97760ebb",
+  "packets": [
+    {
+      "packet": "cut_vertex_positive_support",
+      "status": "ACCEPTED",
+      "theorem_id": "1043e661-f761-4ee3-9d75-2822a58c77f9",
+      "submission_id": "ac775547-35a3-498c-ab38-ad117c2a4d11",
+      "theorem_name": "Hirsch.cut_vertex_positive_support_certificate",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/cut_vertex_positive_support"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/cut_vertex_positive_support"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "64b73e31cdf368e36e6bd76f1710f4fc97760ebb",
+  "pr": "291"
+}

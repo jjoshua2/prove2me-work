@@ -1,0 +1,15 @@
+{
+  "accepted_dependency_prefix_bytes": 8163,
+  "complete_fixture_byte_identical": true,
+  "fixture_bytes": 49980,
+  "fixture_sha256": "f2ebff8d0cc7b05e18c065218c90432394a1415bfa05b837ebd9a377687a2844",
+  "kind": "Derived independent clean supporting-test replay and source checks, not a Lean or platform verdict",
+  "local_Lean_compilation_claimed": false,
+  "new_source_lines": 322,
+  "prefix_byte_identical": true,
+  "proof_head": "64b73e31cdf368e36e6bd76f1710f4fc97760ebb",
+  "solution_sha256": "7dc54444294016077ebd86c7132a1a26e5250af584a7311e49067f364891c2cb",
+  "standalone_clean_test_report_byte_identical": true,
+  "target_signature_exactly_matches": true,
+  "test_is_not_Lean_extracted": true
+}
