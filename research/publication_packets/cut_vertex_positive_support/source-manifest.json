@@ -1,0 +1,21 @@
+{
+  "kind": "Derived accepted-source index; raw verification and publication records are separate",
+  "status": "ACCEPTED",
+  "live_status": "Proved",
+  "theorem_name": "Hirsch.cut_vertex_positive_support_certificate",
+  "theorem_id": "1043e661-f761-4ee3-9d75-2822a58c77f9",
+  "submission_id": "ac775547-35a3-498c-ab38-ad117c2a4d11",
+  "proof_head": "64b73e31cdf368e36e6bd76f1710f4fc97760ebb",
+  "run_id": 35208220079,
+  "solution_git_blob": "ab4d4fa5c0c4e976c62c1b856ace11bec3bf0afd",
+  "solution_sha256": "7dc54444294016077ebd86c7132a1a26e5250af584a7311e49067f364891c2cb",
+  "solution_lines": 322,
+  "accepted_dependency_prefix_bytes": 8163,
+  "accepted_prefix_byte_identical": true,
+  "first_compiler_attempt_passed_unchanged": true,
+  "first_platform_submission_accepted": true,
+  "post_gate_proof_metadata_explanation_changes": false,
+  "local_Lean_compilation_claimed": false,
+  "initial_manifest": "initial-source-manifest.json",
+  "raw_records": ["resolved-request.json", "packet-audit.json", "verified-artifact.json", "verification-manifest.json", "solution-compile.log", "publication-receipt.json"]
+}

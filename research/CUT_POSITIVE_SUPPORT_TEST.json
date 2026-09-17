@@ -1,0 +1,68 @@
+{
+  "counts": {
+    "active_unique_recoveries": 68,
+    "cut_vertices": 34,
+    "models": 6,
+    "original_square_systems": 178,
+    "redundant_generators_cases": 34,
+    "selected_points_outside_cut": 43,
+    "supports_selected": 68
+  },
+  "negative_controls": [
+    "without_extremality",
+    "zero_weight_unused_point",
+    "dependent_support",
+    "wrong_barycentre",
+    "wrong_weight_sum",
+    "point_not_from_generators",
+    "infeasible_cut"
+  ],
+  "scope": "Exact finite supporting tests, not Lean or a formally verified selector.",
+  "sharp_cases": [
+    {
+      "active_cuts": 0,
+      "dimension": 0,
+      "support": 1,
+      "support_points_outside_cut_set": 0
+    },
+    {
+      "active_cuts": 1,
+      "dimension": 1,
+      "support": 2,
+      "support_points_outside_cut_set": 1
+    },
+    {
+      "active_cuts": 2,
+      "dimension": 2,
+      "support": 3,
+      "support_points_outside_cut_set": 2
+    },
+    {
+      "active_cuts": 3,
+      "dimension": 3,
+      "support": 4,
+      "support_points_outside_cut_set": 3
+    },
+    {
+      "active_cuts": 8,
+      "dimension": 8,
+      "support": 9,
+      "support_points_outside_cut_set": 8
+    },
+    {
+      "active_cuts": 16,
+      "dimension": 16,
+      "support": 17,
+      "support_points_outside_cut_set": 16
+    }
+  ],
+  "solution_sha256": "7dc54444294016077ebd86c7132a1a26e5250af584a7311e49067f364891c2cb",
+  "status": "PASS",
+  "test_sha256": "63d10623068a642b95e80c38d6a1d203b02e664161f136474c5dfae630c4b6df",
+  "tiny_inactive_slack_powers": [
+    8,
+    40,
+    120,
+    240
+  ]
+}

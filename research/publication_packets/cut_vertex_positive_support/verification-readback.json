@@ -1,0 +1,20 @@
+{
+  "all_five_frozen_hashes_recomputed": {
+    "driver.lean": "7dc54444294016077ebd86c7132a1a26e5250af584a7311e49067f364891c2cb",
+    "explanation.md": "5f6d9ed23f2481a77dbaf21a33e95b42b6c7ce17225cb9f38616106a87c052ce",
+    "problem.json": "adb2ae8308456e81db29fcc546b7aedba7734e4eab953f8def54b991e2648e69",
+    "solution.lean": "7dc54444294016077ebd86c7132a1a26e5250af584a7311e49067f364891c2cb",
+    "statement.lean": "90d1468524669d9f274ae6ec005fb8d0dfca570a595d9f66e0d6c64e405a18ba"
+  },
+  "first_attempt_unchanged_compilation": true,
+  "four_axiom_reports_standard_only": true,
+  "kind": "Derived independent archive/readback; not a raw Prove2Me response",
+  "local_Lean_compilation_claimed": false,
+  "proof_head": "64b73e31cdf368e36e6bd76f1710f4fc97760ebb",
+  "request_archive_sha256": "1173e15f217d52d6a9be2bfe96144339dcec74cb76c6ebcf9c17e01f0b7aec19",
+  "request_artifact": 10491300549,
+  "run_id": 35208220079,
+  "source_metadata_explanation_byte_identical_to_prepared": true,
+  "verification_archive_sha256": "7595b41fcca904270cb8c192d7c6d960fbcf3a74c9a10787bb8fbe6904cd1d00",
+  "verification_artifact": 10491146791
+}
