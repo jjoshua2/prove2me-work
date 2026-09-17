@@ -1,0 +1,15 @@
+{
+  "record_kind": "independent local readback of trusted publisher artifact; not a separate direct platform API query",
+  "status": "ACCEPTED",
+  "live_status": "Proved",
+  "registration": "PUBLISHED",
+  "theorem_name": "Hirsch.moment_curve_barycentric_nonfaces",
+  "theorem_id": "e37928aa-132f-4b32-ba91-47b4a1f75fa4",
+  "submission_id": "7fe04fd6-07d9-4ffc-83d0-bc44f67374a6",
+  "proof_sha": "5b44ad2795b85acb693e6e9f44039e9d9c425e85",
+  "run_id": 35173820765,
+  "artifact_id": 10477164872,
+  "archive_sha256": "208981ffe1e52ec2d751dd60a91d51ad6e8f0e73de5fd508d15894b6d65eca13",
+  "verdict_comment_id": 5707465522,
+  "verdict_time_utc": "2026-09-17T02:20:20Z"
+}

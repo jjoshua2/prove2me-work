@@ -1,0 +1,25 @@
+{
+  "head_sha": "5b44ad2795b85acb693e6e9f44039e9d9c425e85",
+  "packets": [
+    {
+      "path": "research/publication_packets/moment_barycentric_nonfaces",
+      "name": "moment_barycentric_nonfaces",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "5f5799763c8754777e3b227865a4eb7faf1c4670cfc697288c37dec09f5b3ace",
+        "driver.lean": "5f5799763c8754777e3b227865a4eb7faf1c4670cfc697288c37dec09f5b3ace",
+        "statement.lean": "dfff7337032c76f039f8a80049f7548134a1156b793c1476854d8b82c6b47459",
+        "problem.json": "442011a698aa3f2f930f847cb14248045b5efdd7acea33649d9945597b0c8634",
+        "explanation.md": "b75b9864e09ef8a5d199507a19673ec94238a44ac0781078b5208536733732f6"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}
