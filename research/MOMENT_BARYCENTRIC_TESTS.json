@@ -1,0 +1,94 @@
+{
+  "status": "PASS",
+  "scope": "Exact rational semantics and signature checks, NOT Lean compilation or Prove2Me acceptance",
+  "cases": 1125,
+  "moment_equations": 6577,
+  "original_row_checks": 11261,
+  "selected_weight_checks": 8647,
+  "odd_nonface_applications": 76,
+  "proper_face_checks": 354,
+  "small_odd_families": [
+    {
+      "k": 1,
+      "dimension": 2,
+      "original_rows": 5,
+      "all_odd_sets_checked": 1
+    },
+    {
+      "k": 2,
+      "dimension": 4,
+      "original_rows": 9,
+      "all_odd_sets_checked": 4
+    },
+    {
+      "k": 3,
+      "dimension": 6,
+      "original_rows": 13,
+      "all_odd_sets_checked": 15
+    },
+    {
+      "k": 4,
+      "dimension": 8,
+      "original_rows": 17,
+      "all_odd_sets_checked": 56
+    }
+  ],
+  "large_selected_examples": [
+    {
+      "dimension": 16,
+      "original_rows": 33,
+      "selected_rows": 19,
+      "negative_rows": 9,
+      "positive_rows": 10,
+      "omitted_label": 19,
+      "negative_strict_rows": [
+        19
+      ],
+      "all_odd_sets_enumerated": false
+    },
+    {
+      "dimension": 32,
+      "original_rows": 65,
+      "selected_rows": 35,
+      "negative_rows": 17,
+      "positive_rows": 18,
+      "omitted_label": 31,
+      "negative_strict_rows": [
+        31
+      ],
+      "all_odd_sets_enumerated": false
+    },
+    {
+      "dimension": 64,
+      "original_rows": 129,
+      "selected_rows": 67,
+      "negative_rows": 33,
+      "positive_rows": 34,
+      "omitted_label": 71,
+      "negative_strict_rows": [
+        71
+      ],
+      "all_odd_sets_enumerated": false
+    }
+  ],
+  "rejected_controls": [
+    "false_weight",
+    "reversed_sign",
+    "omitted_weight",
+    "insufficient_nodes",
+    "duplicate_parameter",
+    "bool_dimension",
+    "wrong_point_dimension",
+    "float_parameter",
+    "infeasible_point"
+  ],
+  "degree_boundary_control": true,
+  "producer_disabled_replays": 15,
+  "exact_public_signature_match": true,
+  "proof_lines": 224,
+  "source_sha256": {
+    "solution.lean": "3ff079a40a2ca53d9ba6c7f47f0c18d5c7f085a5d638cf64340e7200439b99e3",
+    "problem.json": "442011a698aa3f2f930f847cb14248045b5efdd7acea33649d9945597b0c8634",
+    "test_moment_barycentric_packet.py": "181b3d2dd4e86db7d3e74f5d5730c86e33874b338b3dd05c2fc17bd2398a3a23"
+  }
+}
