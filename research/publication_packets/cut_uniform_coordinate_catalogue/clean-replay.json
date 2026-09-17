@@ -1,0 +1,19 @@
+{
+  "kind": "Derived clean arithmetic/source replay; not Lean or a platform verdict",
+  "local_lean_compilation": false,
+  "report_and_fixture_byte_identical": [
+    {
+      "bytes": 3678,
+      "path": "research/UNIFORM_CUT_CATALOGUE_TEST.json",
+      "sha256": "78a758539250870f1b48e3430e7b2fb88d163e24c49cd9aa4f54cbfa92eb0252"
+    },
+    {
+      "bytes": 8210,
+      "path": "fixtures/uniform_cut_catalogue.json",
+      "sha256": "2d9072792e64daf46f20dc6443e49a374405743c62f682f8d6e804eef49f152a"
+    }
+  ],
+  "source_sha256": "5e2a8efb6f5f8d4767d4aa6a248f30d1bfc07576f0688c7a6d84138bbd640bd0",
+  "status": "PASS",
+  "workspace": "Fresh standalone script and prepared proof file; no full repository clone"
+}

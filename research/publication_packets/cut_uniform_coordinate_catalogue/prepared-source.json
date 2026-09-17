@@ -1,0 +1,32 @@
+{
+  "status": "PREPARED_UNCOMPILED",
+  "files": {
+    "research/publication_packets/cut_uniform_coordinate_catalogue/solution.lean": {
+      "sha256": "5e2a8efb6f5f8d4767d4aa6a248f30d1bfc07576f0688c7a6d84138bbd640bd0",
+      "git_blob_sha": "166eecc5909561c0db132e2741780b5c1099fb93",
+      "bytes": 19062
+    },
+    "research/publication_packets/cut_uniform_coordinate_catalogue/problem.json": {
+      "sha256": "5b8591e68944a887b1ae1370f2bfdc3a4a7012a04b799cae2b417ac8b84c34c3",
+      "git_blob_sha": "e6449b7014a643a45d88477a514365547b6b7c91",
+      "bytes": 3031
+    },
+    "research/publication_packets/cut_uniform_coordinate_catalogue/explanation.md": {
+      "sha256": "b6765453775ace27e3cb3ea1d0e7394834b6dc693cda5a7dbfbea6d0785a55b6",
+      "git_blob_sha": "2b70d35b3151d86cb19c5d6e569a7e2881f42dd0",
+      "bytes": 6472
+    },
+    "scripts/test_uniform_cut_catalogue.py": {
+      "sha256": "50b73d6ce7a8cc5e9a370556a4ba0e43b68644b7e3f66d1acaf536c7e0c32c2a",
+      "git_blob_sha": "747339807c7b7c0dfacc8e8ee4f35f33372405a7",
+      "bytes": 6251
+    },
+    "research/UNIFORM_CUT_CATALOGUE_TEST.json": {
+      "sha256": "78a758539250870f1b48e3430e7b2fb88d163e24c49cd9aa4f54cbfa92eb0252",
+      "git_blob_sha": "aef146af539463f981f9e6c007f30113849bbf49",
+      "bytes": 3678
+    }
+  },
+  "local_Lean_available": false,
+  "dependency_changed_only_declaration_and_print_name": true
+}

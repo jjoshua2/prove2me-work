@@ -1,0 +1,15 @@
+{
+  "head_sha": "91c5c7386a106c5cd73bea203cbb23f324036d8f",
+  "packets": [
+    {
+      "packet": "cut_uniform_coordinate_catalogue",
+      "status": "ACCEPTED",
+      "theorem_id": "f7bdc6f6-ecfb-4525-816e-7e66d0ae6ad3",
+      "submission_id": "9009a1fe-2e0b-4a91-956b-8a4ee322ba25",
+      "theorem_name": "Hirsch.cut_vertex_uniform_coordinate_catalogue",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/cut_uniform_coordinate_catalogue"
+    }
+  ]
+}
