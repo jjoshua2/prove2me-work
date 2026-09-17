@@ -1,0 +1,13 @@
+# Select the mass row and exactly n-1 actual active evaluations
+
+The accepted #291 theorem already constructs a positive affinely independent support of a cut vertex and proves independence of its homogenized active-cut images. This packet reuses that exact proof and resolves its remaining row-selection obligation; the earlier public target is not resubmitted.
+
+For a support of n points, regard the mass row (1,...,1) and all active evaluation rows as vectors in R^n. Positivity and total mass one imply n>0, so the mass row is nonzero. Start independent-set extension with THAT row, retaining its distinguished original index, and extend inside the given family of active rows. Let J be the chosen active labels. Their independence gives |J|+1<=n.
+
+Conversely, any coefficient vector annihilated by mass and J annihilates their span, hence all active rows. Independence of the accepted homogenized support images forces this vector to vanish. The selected evaluation map is therefore injective, giving n<=|J|+1. Equality makes its domain and codomain have the same finite dimension; injectivity yields surjectivity. Thus arbitrary signed mass/value data have a unique solution. The actual barycentric weights satisfy the selected right sides, so that solution is exactly the constructed w.
+
+The public type contains only Mathlib symbols. Selected labels are a Finset of the actual active-row subtype C_j(x)=b_j. This prevents silently selecting arbitrary linear combinations or inactive cuts. The total-mass row is kept explicitly. The n=1 case gives J empty and still has the unique one-variable mass solution. The source requires no determinant, inverse matrix or selected independent row set as a caller premise.
+
+Classical basis extension provides existence, not a verified executable selector. The standalone rational tests separately check greedy row selection, arbitrary signed-value recovery and actual simplex-cut vertices, including redundant active cuts and support points outside the cut body. Those tests do not establish Lean or parser correctness. No uniform bound on the complete support/catalogue inventory or original-edge diameter follows here.
+
+The entire accepted #291 proof body is retained with only its old root and print name changed. Six transitive axiom printouts cover the reused proof and new result. The committed Lean4.30.0/Mathlib pin and imports/open-only public preamble are preserved. Local Lean/Lake is unavailable; this complete prepared packet requests the user-specified actual NEW PR-comment compile/axiom/publication gate. Preserve its observed outcome and do not use speculative Actions proof-edit loops or weaken assumptions.

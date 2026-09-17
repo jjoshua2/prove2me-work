@@ -1,0 +1,15 @@
+{
+  "theorem_name": "Hirsch.cut_vertex_selected_active_square_system",
+  "theorem_title": "Construct a mass-preserving square active-row system at every cut vertex",
+  "formal_statement": "theorem Hirsch.cut_vertex_selected_active_square_system\n    (m d : ℕ) (S : Set (Fin d → ℝ))\n    (C : Fin m → (Fin d → ℝ) →ₗ[ℝ] ℝ) (b : Fin m → ℝ)\n    (x : Fin d → ℝ)\n    (hx : x ∈ (convexHull ℝ S ∩ {y | ∀ j, C j y ≤ b j}).extremePoints ℝ) :\n    ∃ (n : ℕ) (v : Fin n → Fin d → ℝ) (w : Fin n → ℝ)\n      (J : Finset {j : Fin m // C j x = b j}),\n      (∀ i, v i ∈ S) ∧ (∀ i, 0 < w i) ∧ (∑ i, w i) = 1 ∧\n      (∑ i, w i • v i) = x ∧\n      LinearIndependent ℝ (fun i => ((1 : ℝ), v i)) ∧\n      n ≤ d + 1 ∧ J.card + 1 = n ∧\n      (∀ (mass : ℝ) (values : J → ℝ), ∃! u : Fin n → ℝ,\n        (∑ i, u i) = mass ∧\n          ∀ j : J, (∑ i, u i * C j.val.val (v i)) = values j) ∧\n      (∀ u : Fin n → ℝ, (∑ i, u i) = 1 →\n        (∀ j : J, (∑ i, u i * C j.val.val (v i)) = b j.val.val) → u = w) := by sorry\n",
+  "preamble": "import Mathlib\nopen scoped BigOperators\nset_option autoImplicit false",
+  "env": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "natural_language_statement": "For any actual extreme point x of convexHull(S) intersected with m original linear halfspaces in real dimension d, construct a finite positive independent support v_i in S, with n<=d+1 and positive barycentric weights w_i representing x. Select a finite set J of original cuts active at x with exactly n-1 members. The total-mass equation and these selected active-value equations form a square bijective linear system: for EVERY real prescribed mass and EVERY real vector of selected values there exists exactly one real weight vector realizing them. In particular mass one and the original selected right sides uniquely recover w, even among signed alternatives. Neither the support, its weights, selected rows, an inverse, a determinant or a rank oracle is assumed. S need not be finite, closed or compact; support points may individually violate the cuts. The singleton-support case selects no active rows. Existence and exact recovery are proved, not a particular executable row-selection algorithm or a polynomial global catalogue size. This is a finite geometric-algebraic interface, not Polynomial Hirsch.",
+  "source": "Reuses accepted #291 cut_vertex_positive_support proof at64b73e31cdf368e36e6bd76f1710f4fc97760ebb (theorem1043e661-f761-4ee3-9d75-2822a58c77f9); the complete source is unchanged except its top-level theorem/print name. New mass-preserving row extraction uses Mathlib exists_linearIndepOn_extension and finite-dimensional rank arguments. This closes the explicit next row-selection obligation in #291 accepted-evidence.md atc869bba4af34e6912d043293bff128edc4717801. Classical basis extension and barycentric geometry are credited; no historical-priority claim.",
+  "tags": [
+    "hirsch-conjecture",
+    "linear-algebra",
+    "convex-geometry",
+    "polytope-diameter"
+  ]
+}

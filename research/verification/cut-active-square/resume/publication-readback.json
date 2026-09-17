@@ -1,0 +1,68 @@
+{
+  "kind": "derived_run_and_artifact_inspection",
+  "pr": 294,
+  "proof_head": "053cc6ac62a489b6d104968f72a2c1e8e1b9c4b4",
+  "trusted_workflow_main": "baa437ee2241fedb32028f9ac140c7770036ec0c",
+  "run_id": 35266694176,
+  "trigger_comment": 5720225598,
+  "resolved_comment": 5720227881,
+  "verdict_comment": 5720271472,
+  "run_status": "completed",
+  "run_conclusion": "success",
+  "jobs": {
+    "gate": "success",
+    "verify": "success",
+    "publish": "success",
+    "report-verify": "skipped"
+  },
+  "compile_exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "audited_declarations": 6,
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "authenticated_status": "ACCEPTED",
+  "publisher_live_status": "Proved",
+  "theorem_id": "d01a7a03-fda5-4dd3-a058-7f38127c3228",
+  "submission_id": "6f3c3e48-8375-4dbd-a965-c296859574e8",
+  "all_five_frozen_hashes_match": true,
+  "all_three_new_archive_hashes_match": true,
+  "prior_failed_compiler_runs": [
+    35249408324,
+    35249850308
+  ],
+  "new_trigger_count_this_continuation": 1,
+  "first_actual_platform_submission": true,
+  "only_saved_mass_row_patch_applied": true,
+  "all_theorem_types_and_assumptions_unchanged": true,
+  "accepted_dependency_unchanged": true,
+  "local_Lean_compilation": false,
+  "separate_direct_platform_poll": false,
+  "raw_platform_API_bodies_exported": false,
+  "concurrent_catalogue_owner_comment": 5720255040,
+  "artifacts": [
+    {
+      "artifact_id": 10516074744,
+      "file": "pr294-resumed-request.zip",
+      "sha256": "8872ecbe29672931a2fc989b52c7ce502d72d3a36ee1f174df5ea5abb9fadde4",
+      "bytes": 310
+    },
+    {
+      "artifact_id": 10516119901,
+      "file": "pr294-resumed-verified.zip",
+      "sha256": "7a5b8f2e0e32c26e5dd885aa2c30c9398af4441be36372d4c0400794e3045b9f",
+      "bytes": 19111
+    },
+    {
+      "artifact_id": 10517385226,
+      "file": "pr294-resumed-publication.zip",
+      "sha256": "0db50cc79c57a0daa8443c2ed9f1183129f004c2677bc3d73f64dadbfcea7762",
+      "bytes": 914
+    }
+  ]
+}

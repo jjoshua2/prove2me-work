@@ -1,0 +1,21 @@
+{
+  "kind": "derived_first_gate_failure",
+  "pr": 294,
+  "run_id": 35249408324,
+  "job_id": 105297780538,
+  "proof_head": "4305d3e6837a7879b92a74a73d355a824adedc25",
+  "trigger_comment": 5718126699,
+  "acknowledgement_comment": 5718128869,
+  "stage": "driver.lean compilation",
+  "exit_code": 1,
+  "diagnosed_site": 404,
+  "issue": "ring did not normalize (RingHom.id ℝ) c in auxiliary evaluation map_smul proof",
+  "repair": "Add RingHom.id_apply to the existing simp list; no other proof changes",
+  "all_signatures_assumptions_bounds_unchanged": true,
+  "dependency_body_unchanged": true,
+  "verified_artifact": null,
+  "platform_submission": null,
+  "generated_sorryAx_is_failed_elaboration": true,
+  "request_artifact_id": 10509011859,
+  "request_archive_sha256": "813f4a746f22f8ac99d79fab5941c0cb9474fc08e7240d8479c7729f9d310e85"
+}

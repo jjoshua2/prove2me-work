@@ -1,0 +1,18 @@
+Selected exact lines from decoded verify-job log105299281458, run35249850308.
+This is an EXCERPT, not the complete raw runner log.
+
+2026-09-17T16:59:30.8033837Z cut_vertex_active_square/driver.lean failed to compile:
+2026-09-17T16:59:30.8035019Z 'Hirsch.CutActiveSupport.active_image_independent' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-17T16:59:30.8036008Z 'Hirsch.ConstructedCutSupport.positive_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-17T16:59:30.8036958Z 'Hirsch.ConstructedCutSupport.weights_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-17T16:59:30.8037787Z 'accepted_positive_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-17T16:59:30.8038612Z _verified/packets/cut_vertex_active_square/driver.lean:415:16: error: Type mismatch: After simplification, term
+2026-09-17T16:59:30.8039572Z   hmass
+2026-09-17T16:59:30.8039802Z  has type
+2026-09-17T16:59:30.8040245Z   ∑ i, u i = 0
+2026-09-17T16:59:30.8040506Z but is expected to have type
+2026-09-17T16:59:30.8041021Z   ({ toFun := fun z => ∑ i, u i * z i, map_add' := ⋯, map_smul' := ⋯ } fun x => 1) = 0
+2026-09-17T16:59:30.8041827Z 'Hirsch.SelectedActiveRows.mass_preserving_square' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-17T16:59:30.8042622Z 'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-17T16:59:30.8042990Z 
+2026-09-17T16:59:30.8122072Z ##[error]Process completed with exit code 1.

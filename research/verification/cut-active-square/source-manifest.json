@@ -1,0 +1,30 @@
+{
+  "kind": "derived_source_manifest",
+  "baseline": "c869bba4af34e6912d043293bff128edc4717801",
+  "last_compiled_head": "590764458d8d21659d66363d302f270fd662dcd9",
+  "compilation_result": "failure",
+  "sources": {
+    "research/publication_packets/cut_vertex_active_square/solution.lean": {
+      "bytes": 22207,
+      "git_blob": "bb49b04ab2b71b0973b3f288d61d70b8646f71d0",
+      "sha256": "213b0ce24bc95656287a042e8e6fd1f76cb498555a23110c7beded6a0f20b613"
+    },
+    "research/publication_packets/cut_vertex_active_square/problem.json": {
+      "bytes": 3103,
+      "git_blob": "1d7d8686f3bc9b8f7fbbd046c802c8e31d08f302",
+      "sha256": "c7bf1adaeba09f67e48bef8c4605a905aca5bddfa85c17c0734185cbded84c22"
+    },
+    "research/publication_packets/cut_vertex_active_square/explanation.md": {
+      "bytes": 2673,
+      "git_blob": "d785b3c8a404959af4b94499f30e0067d6ce3bc9",
+      "sha256": "6d46d345e639c2ce6672bbc3ce951999dcb245d8b731770aa4fa051606df65e4"
+    },
+    "scripts/test_cut_active_square.py": {
+      "bytes": 6418,
+      "git_blob": "b8de11ea698e43de24ab31aec47c90cd7c32d66b",
+      "sha256": "63af7f3832d5a183c151eaac41320e5469d9fe25fa43beece1c5d4c946b4496f"
+    }
+  },
+  "proposal_patch_sha256": "c717d03198f5514b56be871715cd4d239717ee17c52545cc216624b02ae71dc3",
+  "proposal_not_applied_or_compiled": true
+}

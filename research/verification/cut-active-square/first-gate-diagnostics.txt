@@ -1,0 +1,15 @@
+Selected exact compiler excerpt from job105297780538, run35249408324.
+This is NOT the complete runner log. Intervening context is omitted explicitly.
+
+2026-09-17T16:55:11.1380925Z cut_vertex_active_square/driver.lean failed to compile:
+2026-09-17T16:55:11.1381790Z 'Hirsch.CutActiveSupport.active_image_independent' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-17T16:55:11.1382826Z 'Hirsch.ConstructedCutSupport.positive_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-17T16:55:11.1383628Z 'Hirsch.ConstructedCutSupport.weights_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-17T16:55:11.1384276Z 'accepted_positive_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+[... intervening context ...]
+2026-09-17T16:55:11.1389010Z _verified/packets/cut_vertex_active_square/driver.lean:404:21: error: unsolved goals
+[... local context ...]
+2026-09-17T16:55:11.1492149Z ⊢ u i * c * z i = u i * z i * (RingHom.id ℝ) c
+2026-09-17T16:55:11.1492743Z 'Hirsch.SelectedActiveRows.mass_preserving_square' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-17T16:55:11.1493396Z 'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-17T16:55:11.1503660Z ##[error]Process completed with exit code 1.

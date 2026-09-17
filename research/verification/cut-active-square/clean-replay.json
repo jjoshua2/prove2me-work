@@ -1,0 +1,8 @@
+{
+  "kind": "derived_clean_standalone_replay",
+  "status": "PASS",
+  "full_report_byte_identical": true,
+  "source_sha256": "63af7f3832d5a183c151eaac41320e5469d9fe25fa43beece1c5d4c946b4496f",
+  "report_sha256": "eac78aaed169461a35d3544dcaf063e2b65363c2aa145830247602171acd453c",
+  "scope": "Supporting rational tests, not Lean or a platform verdict."
+}

@@ -1,0 +1,12 @@
+{
+  "kind": "source identity and signature checks, NOT Lean verification",
+  "base_head": "27df38b482cd54841e1ef94642e081da8a2e2df1",
+  "reused_prefix_unchanged": true,
+  "exact_target_signature_unchanged": true,
+  "only_saved_patch_applied": true,
+  "source_sha256": "4071a0a4b03f17e7704078b1e9c3fda81f936fa6a6e504cfa24734a906a2a15f",
+  "source_blob": "04ac0dda22a4ff0776d11f90885391aaacd5dfc7",
+  "source_bytes": 22257,
+  "source_lines": 506,
+  "local_lean_available": false
+}

@@ -1,0 +1,184 @@
+{
+  "counts": {
+    "abstract_cases": 96,
+    "negative_controls": 5,
+    "original_active_rows": 74,
+    "original_cut_vertices": 7,
+    "proper_row_subsets_enumerated": 1332,
+    "signed_recoveries": 288,
+    "square_identities": 2448
+  },
+  "examples": [
+    {
+      "active_rows": 3,
+      "n": 1,
+      "selected": []
+    },
+    {
+      "active_rows": 5,
+      "n": 2,
+      "selected": [
+        1
+      ]
+    },
+    {
+      "active_rows": 7,
+      "n": 3,
+      "selected": [
+        0,
+        1
+      ]
+    },
+    {
+      "active_rows": 9,
+      "n": 4,
+      "selected": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "active_rows": 11,
+      "n": 5,
+      "selected": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "active_rows": 13,
+      "n": 6,
+      "selected": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "active_rows": 15,
+      "n": 7,
+      "selected": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "active_rows": 17,
+      "n": 8,
+      "selected": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  ],
+  "geometric_cases": [
+    {
+      "active_rows": 0,
+      "basis_points_outside_cut": 0,
+      "dimension": 0,
+      "selected": [],
+      "support": 1
+    },
+    {
+      "active_rows": 3,
+      "basis_points_outside_cut": 1,
+      "dimension": 1,
+      "selected": [
+        0
+      ],
+      "support": 2
+    },
+    {
+      "active_rows": 5,
+      "basis_points_outside_cut": 2,
+      "dimension": 2,
+      "selected": [
+        0,
+        1
+      ],
+      "support": 3
+    },
+    {
+      "active_rows": 7,
+      "basis_points_outside_cut": 3,
+      "dimension": 3,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "support": 4
+    },
+    {
+      "active_rows": 9,
+      "basis_points_outside_cut": 4,
+      "dimension": 4,
+      "selected": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "support": 5
+    },
+    {
+      "active_rows": 17,
+      "basis_points_outside_cut": 8,
+      "dimension": 8,
+      "selected": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "support": 9
+    },
+    {
+      "active_rows": 33,
+      "basis_points_outside_cut": 16,
+      "dimension": 16,
+      "selected": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "support": 17
+    }
+  ],
+  "producer_disabled_saved_audits": 4,
+  "scope": "Exact supporting arithmetic and explicit simplex-cut models; not Lean verification or a polynomial total catalogue bound.",
+  "seed": 294,
+  "source_sha256": "63af7f3832d5a183c151eaac41320e5469d9fe25fa43beece1c5d4c946b4496f",
+  "status": "PASS"
+}

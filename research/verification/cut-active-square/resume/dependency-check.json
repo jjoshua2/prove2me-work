@@ -1,0 +1,7 @@
+{
+  "kind": "fresh accepted-dependency archive readback, not new publication",
+  "archive_sha256": "7595b41fcca904270cb8c192d7c6d960fbcf3a74c9a10787bb8fbe6904cd1d00",
+  "all_five_frozen_hashes_match": true,
+  "complete_dependency_reused_except_root_name": true,
+  "signature_and_hypotheses_unchanged": true
+}

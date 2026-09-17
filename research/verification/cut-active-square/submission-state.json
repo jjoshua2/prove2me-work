@@ -1,0 +1,32 @@
+{
+  "kind": "derived_final_submission_state",
+  "pr": 294,
+  "branch": "proof/cut-vertex-active-square",
+  "state": "OPEN_DRAFT_COMPILE_BLOCKED",
+  "merged": false,
+  "new_top_level_publication_comments": [
+    5718126699,
+    5718184958
+  ],
+  "resolved_runs": [
+    35249408324,
+    35249850308
+  ],
+  "last_tested_proof": "590764458d8d21659d66363d302f270fd662dcd9",
+  "last_tested_source_blob": "bb49b04ab2b71b0973b3f288d61d70b8646f71d0",
+  "last_tested_source_sha256": "213b0ce24bc95656287a042e8e6fd1f76cb498555a23110c7beded6a0f20b613",
+  "last_observed_run_status": "completed",
+  "last_observed_run_conclusion": "failure",
+  "compilation": "failed",
+  "new_root_axiom_audit": "not passed",
+  "publication": "skipped",
+  "theorem_id": null,
+  "submission_id": null,
+  "ACCEPTED": false,
+  "live_Proved": false,
+  "third_trigger": false,
+  "proposed_local_patch_only": true,
+  "frozen_problem_and_explanation_unchanged": true,
+  "accepted_dependency_not_resubmitted": true,
+  "not_a_platform_verdict": true
+}
