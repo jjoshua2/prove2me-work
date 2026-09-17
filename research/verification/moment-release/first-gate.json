@@ -1,0 +1,30 @@
+{
+  "kind": "derived_first_gate_failure",
+  "run_id": 35270103589,
+  "job_id": 105367069316,
+  "proof_head": "876b6977bb2a7d11fefc8b29b5063b04e8f01eb4",
+  "workflow_main": "a0dd273739fae740a0a887e45272cddadfc676f0",
+  "trigger_comment": 5720681327,
+  "acknowledgement_comment": 5720685168,
+  "driver_exit_code": 1,
+  "diagnosed_line": 631,
+  "diagnostic": "rewrite row a w p did not match inside (fun i => -row a w i) p <= 0",
+  "repair": "Explicit change to -row a w p <= 0 before rewriting hpw; exact beta reduction only",
+  "repaired_proof": "a9fab43328ccef743d8a2ac7b1ec18a6f987e001",
+  "statement_assumptions_metadata_unchanged": true,
+  "accepted_prefix_unchanged": true,
+  "jobs": {
+    "gate": "success",
+    "verify": "failure",
+    "publish": "skipped",
+    "report-verify": "skipped"
+  },
+  "new_passing_root_audit": false,
+  "generated_sorryAx_is_failure": true,
+  "first_theorem_id": null,
+  "first_submission_id": null,
+  "verified_packet": null,
+  "publication_receipt": null,
+  "request_artifact_id": 10518283396,
+  "request_zip_sha256": "158edbd488c5d16916a895d7fcba33ccb3599a256ef0014c1f43e4e30b21cb83"
+}

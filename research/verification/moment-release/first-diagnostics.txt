@@ -1,0 +1,23 @@
+Selected exact compiler lines from job105367069316, run35270103589.
+This is an EXCERPT, not the full runner log. Bracketed omissions are explicit.
+
+2026-09-17T20:21:00.0100900Z moment_vertex_release_pivot/driver.lean failed to compile:
+[... inherited linter warnings ...]
+2026-09-17T20:21:00.0123163Z _verified/packets/moment_vertex_release_pivot/driver.lean:631:64: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+2026-09-17T20:21:00.0124227Z   row a w p
+2026-09-17T20:21:00.0124575Z in the target expression
+2026-09-17T20:21:00.0125092Z   (fun i => -row a w i) p ≤ 0
+[... local context ...]
+2026-09-17T20:21:00.0130887Z hpw : row a w p = -1
+2026-09-17T20:21:00.0131406Z hzero : ∀ i ∈ (active a u).erase p, row a w i = 0
+2026-09-17T20:21:00.0132048Z hnon : ∀ (i : Fin m), row a u i = 1 → row a w i ≤ 0
+2026-09-17T20:21:00.0132591Z hm0 : ↑m ≠ 0
+2026-09-17T20:21:00.0132996Z hn : ∀ (q : Fin m), row a w q ≤ 0
+2026-09-17T20:21:00.0133498Z hle : (fun i => -row a w i) p ≤ 0
+2026-09-17T20:21:00.0134175Z ⊢ False
+2026-09-17T20:21:00.0134943Z 'Hirsch.MomentVertices.activeEval_surjective' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-17T20:21:00.0136421Z 'Hirsch.MomentRelease.first_blocker' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-17T20:21:00.0137667Z 'Hirsch.MomentRelease.release_direction' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-17T20:21:00.0138997Z 'Hirsch.MomentRelease.release_edge' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-17T20:21:00.0140111Z 'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-17T20:21:00.0266189Z ##[error]Process completed with exit code 1.
