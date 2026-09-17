@@ -1,0 +1,28 @@
+{
+  "record_kind": "independent local hash readback of original verified archive; not a platform verdict",
+  "status": "PASS",
+  "run_id": 35167030696,
+  "artifact_id": 10475098869,
+  "proof_sha": "c8589a1fee999c8497ebd2d1e6e9601ce739ec8b",
+  "archive_sha256": "97f9d8dc9fb002379a5173bf837cf65f40ea582f83dd79670ad315fb951b95cf",
+  "frozen_file_sha256": {
+    "solution.lean": "95341bb2cfb6aff23e8ba0f5017b6b894818330aca4c1c97b16946535b4c50a0",
+    "driver.lean": "95341bb2cfb6aff23e8ba0f5017b6b894818330aca4c1c97b16946535b4c50a0",
+    "statement.lean": "697d0d5557b23157859e81ad8560fc2dd6408d9ce6036745a3a929c33c2638cf",
+    "problem.json": "20cd7998bbd61a98d3b501bc6203a27b5cfb1350060633a72d960a0f33b0d139",
+    "explanation.md": "3f7ad3cae100d76a0f0c355e107f415dd4605548b485119499c6e27495b41d98"
+  },
+  "source_byte_identical": [
+    "solution.lean",
+    "problem.json",
+    "explanation.md"
+  ],
+  "all_compiler_exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "all_five_printed_declarations_standard_axioms_only": true,
+  "local_lean_available": false,
+  "platform_status": "separate; not inferred from compilation"
+}
