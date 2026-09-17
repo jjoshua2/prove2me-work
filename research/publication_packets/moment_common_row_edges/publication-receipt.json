@@ -1,0 +1,15 @@
+{
+  "head_sha": "2e5a27346baa0c00f5329bcb6e8c44a67278281a",
+  "packets": [
+    {
+      "packet": "moment_common_row_edges",
+      "status": "ACCEPTED",
+      "theorem_id": "d727e34d-b52e-4bfa-8291-947010b1f130",
+      "submission_id": "27db3c8f-ba4b-4b18-8740-dc9f979266dc",
+      "theorem_name": "Hirsch.moment_common_rows_expose_edges",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/moment_common_row_edges"
+    }
+  ]
+}

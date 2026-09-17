@@ -1,0 +1,25 @@
+{
+  "head_sha": "2e5a27346baa0c00f5329bcb6e8c44a67278281a",
+  "packets": [
+    {
+      "path": "research/publication_packets/moment_common_row_edges",
+      "name": "moment_common_row_edges",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "a0e6bb32eca92681ed7e526f68c66d75348421f9863a11aa0ccbc11016bfcc34",
+        "driver.lean": "a0e6bb32eca92681ed7e526f68c66d75348421f9863a11aa0ccbc11016bfcc34",
+        "statement.lean": "5fb48476a26f2fe0e566509b1a31c5c9d6895e50d9f95543e24414dc6dcbdb0d",
+        "problem.json": "1bf9251798c852c034bac818c188fd689c8e2bd149f1b486efd44d0644aec24b",
+        "explanation.md": "00ee89d6b65fdc8b318731ef74b587978737483291ff2ab5b53ad76a9f863652"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}
