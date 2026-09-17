@@ -1,0 +1,10 @@
+{
+  "status": "prepared; local Lean/Lake unavailable; no gate has yet been run",
+  "lean_toolchain": "leanprover/lean4:v4.30.0",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "files": {
+    "solution.lean": "3ff079a40a2ca53d9ba6c7f47f0c18d5c7f085a5d638cf64340e7200439b99e3",
+    "problem.json": "442011a698aa3f2f930f847cb14248045b5efdd7acea33649d9945597b0c8634",
+    "explanation.md": "b75b9864e09ef8a5d199507a19673ec94238a44ac0781078b5208536733732f6"
+  }
+}
