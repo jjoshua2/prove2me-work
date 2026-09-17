@@ -1,0 +1,15 @@
+{
+  "head_sha": "47b68e63edbe28c933d6678b9f0d311f60038177",
+  "packets": [
+    {
+      "packet": "interleaved_moment_minimal_nonfaces",
+      "status": "ACCEPTED",
+      "theorem_id": "380347be-2134-4160-89fc-6bf7c899f93e",
+      "submission_id": "3ba6a352-2bf8-4865-b809-79f945073a7c",
+      "theorem_name": "Hirsch.interleaved_moment_minimal_nonfaces",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/interleaved_moment_minimal_nonfaces"
+    }
+  ]
+}

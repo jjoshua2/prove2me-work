@@ -1,0 +1,24 @@
+{
+  "kind": "derived_dependency_artifact_readback",
+  "dependencies": [
+    {
+      "archive": "accepted-moment-small-faces.zip",
+      "archive_sha256": "97f9d8dc9fb002379a5173bf837cf65f40ea582f83dd79670ad315fb951b95cf",
+      "all_five_frozen_hashes_match": true,
+      "reused_namespace": "Hirsch.MomentSmallFaces",
+      "body_byte_identical": true,
+      "source_commit": "c8589a1fee999c8497ebd2d1e6e9601ce739ec8b",
+      "solution_sha256": "95341bb2cfb6aff23e8ba0f5017b6b894818330aca4c1c97b16946535b4c50a0"
+    },
+    {
+      "archive": "accepted-moment-barycentric.zip",
+      "archive_sha256": "b94ddaddb0cf4d06cf5ce5a467d4625c3c7f5ec7617a4b37d79ae9f01688fcad",
+      "all_five_frozen_hashes_match": true,
+      "reused_namespace": "Hirsch.MomentBarycentric",
+      "body_byte_identical": true,
+      "source_commit": "5b44ad2795b85acb693e6e9f44039e9d9c425e85",
+      "solution_sha256": "5f5799763c8754777e3b227865a4eb7faf1c4670cfc697288c37dec09f5b3ace"
+    }
+  ],
+  "scope": "Prior accepted source provenance, no duplicate submission or fresh authentication."
+}

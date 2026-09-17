@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/interleaved_moment_minimal_nonfaces"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "47b68e63edbe28c933d6678b9f0d311f60038177",
+  "pr": "287"
+}
