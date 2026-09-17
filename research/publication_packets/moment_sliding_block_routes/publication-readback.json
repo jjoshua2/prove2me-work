@@ -1,0 +1,16 @@
+{
+  "record_kind": "independent local readback of original trusted-publisher artifact; not a direct platform API response",
+  "status": "PASS",
+  "run_id": 35268954077,
+  "artifact_id": 10518322080,
+  "archive_sha256": "14a98be3fa96d4fbdaf94a53bfd1f1688f85cb1d710ebe1c00a68af466e66f1c",
+  "accepted_proof_sha": "3ff470b30ff3270461c1ea54298fb8ebe68f13f5",
+  "theorem_id": "e7f0c684-2c01-4076-b964-68ec03d676ad",
+  "submission_id": "7ccdf32a-8620-48dd-880b-595615703cfb",
+  "publisher_status": "ACCEPTED",
+  "live_status": "Proved",
+  "registration": "PUBLISHED",
+  "trigger_comment": 5720540710,
+  "verdict_comment": 5720601557,
+  "verdict_time_utc": "2026-09-17T20:12:32Z"
+}
