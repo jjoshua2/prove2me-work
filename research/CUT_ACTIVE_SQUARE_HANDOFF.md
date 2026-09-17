@@ -1,131 +1,110 @@
-# PR #294: active-square candidate, compilation blocked
+# PR #294: selected active square system — ACCEPTED
 
-## Live boundary: attempted, not accepted
+## Current state and exact proof
 
-This continuation starts at main c869bba4af34e6912d043293bff128edc4717801.
-Branch: proof/cut-vertex-active-square. PR #294 must remain OPEN and DRAFT.
-Read current STATUS, AGENTS, CLOUD_AGENT, SKILL, CONTINUE_HIRSCH and live PR
-heads/comments before more work. Coordination comment5717971751 on #291 was
-posted and read back. The chosen obligation is that accepted result's exact
-active-row extraction step, not the already accepted catalogue/compactness/
-moment-vertex work in #289/#292/#293.
+Hirsch.cut_vertex_selected_active_square_system is ACCEPTED. The trusted
+publisher receipt records live Proved. Do not resubmit this packet.
 
-The user-requested NEW top-level publication comments were actually posted:
-5718126699 and5718184958, each starting with
+Theorem: d01a7a03-fda5-4dd3-a058-7f38127c3228.
+Submission: 6f3c3e48-8375-4dbd-a965-c296859574e8.
+Accepted proof: 053cc6ac62a489b6d104968f72a2c1e8e1b9c4b4.
+Run: 35266694176; trigger5720225598; resolved5720227881; verdict5720271472.
+Trusted workflow main: baa437ee2241fedb32028f9ac140c7770036ec0c.
 
-    /prove2me publish research/publication_packets/cut_vertex_active_square
+Read the packet's accepted-evidence.md, raw publication-receipt.json and
+packet-audit.json. All three compilation modes exited zero. All six transitive
+axiom reports contain only propext, Classical.choice and Quot.sound. Final
+jobs gate/verify/publish succeeded; report-verify was skipped. Live Proved is
+the trusted publisher's authenticated readback, not a separate direct chat poll.
 
-Their bot acknowledgements5718128869 and5718187455 resolved runs35249408324
-and35249850308 respectively. BOTH driver compilations failed. Publication was
-skipped in both; each run has only its resolved-request artifact. There is NO
-new verified packet, passing target axiom audit, theorem/submission ID,
-authenticated ACCEPTED verdict or live Proved readback. The dependency's old
-acceptance is not transferred to this target. No third trigger was posted.
+## What is now proved
 
-## Mathematical candidate and exact assumptions
+For any actual extreme point x of convexHull(S) intersected with finitely many
+original linear halfspaces, construct a strictly positive affinely independent
+support of n points in S, n<=d+1, and a finite set J of cuts actually active at x.
+The construction retains the mass equation and has |J|+1=n. For EVERY real
+mass and EVERY real vector of selected values, the square system has exactly
+one real weight vector. Mass one and the selected original right sides recover
+the actual positive weights, even among signed alternatives.
 
-Target: Hirsch.cut_vertex_selected_active_square_system.
-Take an actual extreme point x of convexHull(S) intersected with finitely many
-original linear halfspaces. Reuse accepted #291 to construct a positive,
-affinely independent n-point support in S, n<=d+1. The new intended conclusion
-selects exactly n-1 cuts actually active at x, retaining the mass equation.
-The selected square system has a unique real solution for EVERY signed mass
-and vector of selected values, and the actual selected right sides recover the
-original weights. No support, row basis, inverse, determinant or rank oracle
-is an input. S need not be finite or compact. The base support points may
-individually violate cuts. A singleton support selects no cuts.
+Neither the support, weights, row set, inverse, determinant nor rank certificate
+is a caller premise. Selected rows are ORIGINAL active indices, not arbitrary
+linear combinations. S may be infinite or noncompact; selected support points
+may individually violate the added cuts. A singleton support selects no cuts.
+Arbitrary prescribed values are not claimed to give positive weights or a
+feasible barycentre. The support or selected row set need not be unique.
 
-The written argument starts independent row extension with the nonzero mass
-row. Independence bounds selected rows+mass by n. Annihilation of the selected
-span implies annihilation of every active row; the accepted column independence
-makes its kernel zero. Finite-dimensional rank gives the reverse inequality,
-then surjectivity and unique signed-data recovery. Classical basis extension
-is credited without a historical novelty claim. It proves existence, not a
-kernel-verified executable greedy selector or uniqueness of the chosen support.
+The complete accepted #291 source is reused, with only its public root/print
+name changed to accepted_positive_support. The new helper is
+Hirsch.SelectedActiveRows.mass_preserving_square. It starts basis extension
+with the nonzero mass row. The selected rows are independent; any vector
+annihilating them annihilates their span and every active row. The accepted
+active-image independence makes the coefficient kernel zero. Opposite dimension
+inequalities force |J|+1=n, and equal dimensions give surjectivity and uniqueness.
+This is classical existence, not a Lean-extracted executable greedy selector.
 
-Read CUT_ACTIVE_SQUARE_PROOF.md for the written proof. The formal candidate
-has not yet passed Lean; no statement here should be reported as an accepted
-new theorem. The remaining unrestricted issue is still the quantitative size
-of a complete image/support catalogue or a different original-edge routing
-argument, not merely local square-system recovery.
+## Actual attempt history — do not erase the two failures
 
-## The two observed failures and proposed next local check
+Previous runs35249408324 and35249850308 failed driver compilation before any
+registration/submission. Their exact source snapshots, requests and diagnostic
+excerpts remain in verification/cut-active-square/. The first applied repair
+normalized RingHom.id; the remaining failure was the bundled linear-map
+application to the constant-one mass row.
 
-First proof4305d3e6837a7879b92a74a73d355a824adedc25, run35249408324,
-verify job105297780538: at line404 the auxiliary linear functional's map_smul
-proof left (RingHom.id ℝ) c unreduced, so ring failed. The single submitted
-repair added RingHom.id_apply to the existing simp list. All helper/public
-signatures, hypotheses, bounds and problem/explanation bytes stayed unchanged.
+This continuation applied ONLY the already preserved proposed-local-repair.patch:
+explicitly change that application to sum_i u_i*1=0, then simplify mul_one.
+Every theorem type, hypothesis, bound, problem.json, explanation.md and accepted
+dependency remained unchanged. The 506-line repaired source passed the third
+lifetime compiler gate and FIRST actual platform submission. Exactly ONE new
+publish command was used in this continuation, with no subsequent proof edits
+or trigger loop. No local Lean/Lake was available; this is pinned hosted evidence.
 
-Second proof590764458d8d21659d66363d302f270fd662dcd9, run35249850308,
-verify job105299281458: the earlier scalar diagnostic disappeared, but line415
-now failed because simp only left the bundled linear map applied to the mass
-row unreduced. The displayed goal is the dot functional applied to (fun _=>1),
-while the hypothesis is sum_i u_i=0. The generated sorryAx in the new helper
-and root is FAILED elaboration output, not a passing audit. Further downstream
-success has not been established merely because this is the reported location.
+The former blocked handoff is preserved verbatim as resume/pre-resume-handoff.md
+and at commit27df38b482cd54841e1ef94642e081da8a2e2df1. Old submission-state.json
+and source-manifest.json in the parent verification directory are HISTORICAL
+failed-attempt records, superseded for current status by resume/publication-readback.json.
+The old proposed patch is retained as history; it is now applied and verified.
+No successful receipt has been substituted into the earlier failed runs.
 
-The separately stored proposed-local-repair.patch replaces that none branch
-with an explicit change to sum_i u_i*1=0 and simplification of mul_one. It is
-NOT applied to submitted solution.lean and is NOT Lean-tested. No further
-hosted run was used as an edit/compile loop. The next step is a pinned LOCAL
-compile/audit of this proposal and the full source, then a prepared new comment
-only after checking live ownership and newer run/submission state. Keep the
-previous two failures and do not claim that the proposal is already sufficient.
+## Immutable evidence and supporting checks
 
-Latest submitted source blob bb49b04ab2b71b0973b3f288d61d70b8646f71d0,
-SHA256 213b0ce24bc95656287a042e8e6fd1f76cb498555a23110c7beded6a0f20b613.
-First failed source blob1cffe837e66e46c5491b671d11cb9cb76d7ca63f is preserved.
-The first applied one-line diff, both exact source snapshots, selected diagnostic
-excerpts and raw resolved requests are separate files under
-research/verification/cut-active-square/. Excerpts are labelled as excerpts,
-not full runner logs. No successful packet-audit.json or publication receipt
-has been fabricated.
+Accepted source blob04ac0dda22a4ff0776d11f90885391aaacd5dfc7,
+SHA2564071a0a4b03f17e7704078b1e9c3fda81f936fa6a6e504cfa24734a906a2a15f.
+All five frozen file hashes and all three new original ZIP digests were checked.
+Raw manifest/audit, driver/solution/statement, complete compile logs, request,
+verified-artifact summary, publication receipt and exact publisher comment are
+preserved. Derived inspection records are separately labeled. The target stub's
+by sorry is not part of the admission-free solution. Raw individual platform
+API response bodies are not exported by the publisher and are not fabricated.
 
-## Artifact and dependency provenance
-
-First request10509011859, SHA256
-813f4a746f22f8ac99d79fab5941c0cb9474fc08e7240d8479c7729f9d310e85.
-Second request10509167266, SHA256
-83bc686544c51656d371bd73ba84c6850d1e00b699f58f0ae7927c8633a6656b.
-Both original ZIPs were downloaded and hashed; their complete resolved.json
-files are retained. The second run's last observed state is completed/failure:
-gate success, verify failure, publish skipped, report-verify skipped.
-
-Accepted #291 source at64b73e31cdf368e36e6bd76f1710f4fc97760ebb was reused
-in full with only its old root/print name changed. Its archive10491146791
-SHA2567595b41fcca904270cb8c192d7c6d960fbcf3a74c9a10787bb8fbe6904cd1d00
-and all five frozen file hashes were checked. Its public target was not
-resubmitted. The new submission's source manifest is a derived local identity
-record, NOT an artifact of a successful Lean gate.
-
-## Executed exact tests, separate from Lean
-
-The standalone Fraction script tests96 augmented row systems,288 arbitrary
-signed recoveries,2448 inverse-product identities and1332 small candidate row
-subsets. Seven actual simplex-cut vertices through dimension16 include74
-original active rows and redundant cuts. Positive support points outside the
-cut body are deliberately retained; dimension0 gives singleton support with
-an empty selected-cut set.
-
-Five adverse controls include a rank-deficient support, explicit loss of the
-mass equation, and three forged row/inverse certificates. The mass omission
-is a mathematical rank example, not a claim that five JSON inputs were parsed
-and rejected. Four stored in-memory inverse records replay with selection,
-rank elimination and inverse discovery disabled; these are not serialized
-large-instance fixtures or a verified runtime selector.
-
-A separate one-script workspace reproduces the full report byte-for-byte.
-Source SHA25663af7f3832d5a183c151eaac41320e5469d9fe25fa43beece1c5d4c946b4496f;
-Git blobb8de11ea698e43de24ab31aec47c90cd7c32d66b.
-Report SHA256eac78aaed169461a35d3544dcaf063e2b65363c2aa145830247602171acd453c.
+The unchanged Fraction test was rerun:96 row systems,288 signed recoveries,
+2448 inverse identities and1332 small candidate row subsets. Seven simplex-cut
+vertices through dimension16 include74 original active rows and redundant cuts.
+Five adverse controls include a mathematical missing-mass rank example, not five
+claimed parser rejections. Four stored in-memory inverse records audit with
+selection/elimination/inverse discovery disabled. The full rerun report is
+byte-identical to the prior clean replay. These checks are not Lean-extracted.
 
     python3 scripts/test_cut_active_square.py --out /tmp/cut-active-square-tests.json
 
-Root STATUS and all other existing files are left unchanged. This handoff and
-PR comments record the current failed attempt without overwriting another
-agent's index. No local Lean/Lake exists in this runtime; Python is not a Lean
-substitute. No fresh authenticated root/leaf mission poll is claimed. Reserved
-#210, #270's blocked companion, other owned branches, Lean4.30.0/Mathlib pin,
-protocol0.10.4, allowlist, duplicate safeguards and trusted credential isolation
-are unchanged. Do not merge this PR as a verified or accepted result.
+## Next work and ownership
+
+The support-selection and active-row extraction interfaces are now formally
+closed. Do not open another child assuming or reproving the same row basis.
+A separate agent has claimed finite catalogue composition in #294 comment
+5720255040. Its proposed first version uses all active masks and a 2^m factor.
+This accepted J interface may support a sharper later recipe count, but that
+quantitative composition is NOT already proved by the square-system theorem.
+Respect that agent's ownership; no competing catalogue was started here.
+
+The unrestricted Polynomial Hirsch goal still requires a polynomial ORIGINAL
+ordinary-edge bound for arbitrary carriers. Local recoverability alone does not
+bound the total support/image catalogue or establish a short route. Keep the
+few-level/aggregate structural assumptions from #277 wherever they are needed.
+No fresh authenticated root/leaf mission poll or general diameter claim is made.
+
+Read live STATUS, all five project instructions and current PR heads/comments
+before resuming. #210, #270's blocked companion and other owned branches remain
+untouched. Root STATUS was not overwritten. Lean4.30.0/Mathlib
+c5ea00351c28e24afc9f0f84379aa41082b1188f, protocol0.10.4, workflows, allowlist,
+duplicate safeguards and trusted verify/publish credential isolation are unchanged.

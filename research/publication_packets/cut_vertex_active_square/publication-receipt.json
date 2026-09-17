@@ -1,0 +1,15 @@
+{
+  "head_sha": "053cc6ac62a489b6d104968f72a2c1e8e1b9c4b4",
+  "packets": [
+    {
+      "packet": "cut_vertex_active_square",
+      "status": "ACCEPTED",
+      "theorem_id": "d01a7a03-fda5-4dd3-a058-7f38127c3228",
+      "submission_id": "6f3c3e48-8375-4dbd-a965-c296859574e8",
+      "theorem_name": "Hirsch.cut_vertex_selected_active_square_system",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/cut_vertex_active_square"
+    }
+  ]
+}

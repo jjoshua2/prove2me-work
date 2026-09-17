@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/cut_vertex_active_square"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "053cc6ac62a489b6d104968f72a2c1e8e1b9c4b4",
+  "pr": "294"
+}
