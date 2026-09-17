@@ -1,0 +1,16 @@
+{
+  "record_kind": "actual clean dependency-free rational replay; not Lean verification",
+  "status": "PASS",
+  "files": {
+    "research/ORDERED_MOMENT_PACKET_TESTS.json": {
+      "byte_identical": true,
+      "sha256": "f6ebe51e8aaf18bd95c44ede59d5c27b2dae3a2eb34690c7e48b56e82e5410c0",
+      "bytes": 2407
+    },
+    "fixtures/ordered_moment_examples.json": {
+      "byte_identical": true,
+      "sha256": "cb0c8c9817dd5ffca0e2b9b832e96caeb1e7bd891b73ec5d3a6fb60e25dfc86c",
+      "bytes": 557163
+    }
+  }
+}

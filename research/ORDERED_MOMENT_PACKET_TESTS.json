@@ -1,0 +1,96 @@
+{
+  "status": "PASS",
+  "scope": "Exact rational interpretation/signature checks; NOT Lean verification",
+  "small": {
+    "cases": 120,
+    "sign_checks": 840,
+    "moment_equations": 720,
+    "proper_subsets_checked": 1368,
+    "original_inequalities": 17256,
+    "strict_rows": 14520,
+    "feasible_point_checks": 360,
+    "strict_negative_side_checks": 360
+  },
+  "large": [
+    {
+      "status": "PASS",
+      "k": 8,
+      "dimension": 16,
+      "original_rows": 33,
+      "selected_chain": 19,
+      "minimal_set_size": 9,
+      "sign_checks": 19,
+      "moment_equations": 18,
+      "proper_subsets_checked": 10,
+      "original_inequalities": 330,
+      "strict_rows": 258
+    },
+    {
+      "status": "PASS",
+      "k": 16,
+      "dimension": 32,
+      "original_rows": 65,
+      "selected_chain": 35,
+      "minimal_set_size": 17,
+      "sign_checks": 35,
+      "moment_equations": 34,
+      "proper_subsets_checked": 18,
+      "original_inequalities": 1170,
+      "strict_rows": 898
+    },
+    {
+      "status": "PASS",
+      "k": 32,
+      "dimension": 64,
+      "original_rows": 129,
+      "selected_chain": 67,
+      "minimal_set_size": 33,
+      "sign_checks": 67,
+      "moment_equations": 66,
+      "proper_subsets_checked": 34,
+      "original_inequalities": 4386,
+      "strict_rows": 3330
+    }
+  ],
+  "odd_catalogue_instantiations": [
+    {
+      "k": 1,
+      "minimal_sets_checked": 1,
+      "proper_face_checks": 3
+    },
+    {
+      "k": 2,
+      "minimal_sets_checked": 4,
+      "proper_face_checks": 28
+    },
+    {
+      "k": 3,
+      "minimal_sets_checked": 15,
+      "proper_face_checks": 225
+    },
+    {
+      "k": 4,
+      "minimal_sets_checked": 56,
+      "proper_face_checks": 1736
+    }
+  ],
+  "producer_disabled_audits": 18,
+  "negative_controls": [
+    "unordered_chain",
+    "duplicate_parameter",
+    "wrong_weight",
+    "even_side_as_minimal_set",
+    "missing_maximal_proper_face",
+    "false_support_point",
+    "wrong_half_dimension",
+    "boolean_chain_label",
+    "float_parameter"
+  ],
+  "exact_target_signature_match": true,
+  "solution_lines": 606,
+  "source_sha256": {
+    "solution.lean": "0cb180af7915af3e9da23aee512e4f5930b389a876b4bb6e014c3e69ea467ae6",
+    "problem.json": "b94b2bfe6658d6a2250ee0ce05e5a936a836522a40b0fc7563c2488b30c194bc",
+    "test_ordered_moment_packet.py": "c92b39dc3201f5a96c70788f8ddda676b40679b2f9d425b630548ae05e61b9ab"
+  }
+}

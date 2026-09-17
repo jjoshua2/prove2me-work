@@ -1,0 +1,15 @@
+{
+  "head_sha": "56f1b0b4e83300b55a055a798a7f0be1d0f47400",
+  "packets": [
+    {
+      "packet": "moment_ordered_minimal_nonfaces",
+      "status": "ACCEPTED",
+      "theorem_id": "07cdedd0-db22-48e8-897e-d9d3ab04bcf1",
+      "submission_id": "83b6f1bb-cd20-431f-92ff-6f1eb201a917",
+      "theorem_name": "Hirsch.moment_curve_ordered_minimal_nonfaces",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/moment_ordered_minimal_nonfaces"
+    }
+  ]
+}

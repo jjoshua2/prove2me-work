@@ -1,0 +1,15 @@
+{
+  "status": "PREPARED_UNCOMPILED",
+  "lean_toolchain": "leanprover/lean4:v4.30.0",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "files": {
+    "solution.lean": "0cb180af7915af3e9da23aee512e4f5930b389a876b4bb6e014c3e69ea467ae6",
+    "problem.json": "b94b2bfe6658d6a2250ee0ce05e5a936a836522a40b0fc7563c2488b30c194bc",
+    "explanation.md": "65e7322c0fe7edc8142e3e32c92abef5dbca64fc72925738e511273c840672b8"
+  },
+  "accepted_namespace_bodies_byte_identical": true,
+  "dependency_blobs": [
+    "3506c3b28278e52412e7867b08f81c096b836334",
+    "6050e16e234b64011ea8bb8b643cc9461c327ce3"
+  ]
+}

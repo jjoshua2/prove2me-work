@@ -1,0 +1,28 @@
+{
+  "record_kind": "independent local hash/readback of original Actions artifacts; not a separate direct platform API query",
+  "status": "PASS",
+  "run_id": 35176922050,
+  "proof_sha": "56f1b0b4e83300b55a055a798a7f0be1d0f47400",
+  "trigger_comment": 5707849370,
+  "verdict_comment": 5707873841,
+  "verdict_time_utc": "2026-09-17T03:09:39Z",
+  "archive_sha256": {
+    "request": "00a4a7919cced4782cfd1a1e6a5ac826650a2fb11ac43d0b63c63a3c44addc3e",
+    "verified": "f6f5a8f7828942b6c8abd7a0937820b2f842f8f9c0228344bcfc9374933658e8",
+    "publication": "b921728da6b88f282d9bbf41be2691ff10466e809e47ea5fa16d44c40a3b1d26"
+  },
+  "artifact_ids": {
+    "request": 10479475440,
+    "verified": 10478439816,
+    "publication": 10479191789
+  },
+  "all_five_frozen_hashes_checked": {
+    "solution.lean": "0cb180af7915af3e9da23aee512e4f5930b389a876b4bb6e014c3e69ea467ae6",
+    "driver.lean": "0cb180af7915af3e9da23aee512e4f5930b389a876b4bb6e014c3e69ea467ae6",
+    "statement.lean": "e274348cf84c73593ccf56694eb63005b2bb91aebaeac88f6e59e977fa853f3b",
+    "problem.json": "b94b2bfe6658d6a2250ee0ce05e5a936a836522a40b0fc7563c2488b30c194bc",
+    "explanation.md": "65e7322c0fe7edc8142e3e32c92abef5dbca64fc72925738e511273c840672b8"
+  },
+  "source_problem_explanation_byte_identical": true,
+  "local_compiler_available": false
+}
