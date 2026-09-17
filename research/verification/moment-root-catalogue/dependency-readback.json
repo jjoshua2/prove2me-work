@@ -1,0 +1,9 @@
+{
+  "kind": "derived_dependency_readback",
+  "archive_sha256": "62a9d7ab3b5e9fe9719fa0ae84af4d39ef2b10b88ae015841716a875fd2fc42c",
+  "source_commit": "67cba0868eb70b992baf3579e90ac800e4e3a55a",
+  "solution_sha256": "dcc127dffdbd49ba937bfd41e4cb4f52ac092c19c0f28d6b87c648b72aaa54af",
+  "prefix_sha256": "f813c4050639935de96222ebe434191200daafd7626b0c435514958b3c7b088d",
+  "prefix_lines": 349,
+  "all_five_frozen_hashes_match": true
+}

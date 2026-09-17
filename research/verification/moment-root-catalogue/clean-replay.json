@@ -1,0 +1,18 @@
+{
+  "kind": "derived_clean_standalone_replay",
+  "status": "PASS",
+  "all_report_and_fixture_bytes_identical": true,
+  "files": [
+    {
+      "path": "exact-tests.json",
+      "bytes": 7319,
+      "sha256": "5a676525151c755894cfcfa3c355712fd9fe6d7eba7c86597f385ce0601ee460"
+    },
+    {
+      "path": "fixtures.json",
+      "bytes": 78114,
+      "sha256": "1d9c39127405ffb46115c7a8356c2d21464b0c445d65c6252d512c77d1aca9cc"
+    }
+  ],
+  "scope": "One test script; no local Lean compile or extracted verifier claim."
+}

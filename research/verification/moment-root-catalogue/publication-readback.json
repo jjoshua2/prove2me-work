@@ -1,0 +1,51 @@
+{
+  "kind": "derived_run_and_artifact_readback",
+  "pr": 299,
+  "proof_sha": "f5f8093b1be2815dba7329b08cbd04493ff09140",
+  "trusted_workflow_main": "d17513f45e297c1c3aa08d266d65c9a109c67673",
+  "run_id": 35270250702,
+  "trigger_comment": 5720698587,
+  "resolved_comment": 5720700975,
+  "verdict_comment": 5720740558,
+  "theorem_id": "42f4500a-b696-4451-9d49-a13c7a2f98e5",
+  "submission_id": "40c8e1bb-8669-473c-8262-9c6523b8f24e",
+  "authenticated_status": "ACCEPTED",
+  "publisher_live_status": "Proved",
+  "compile_exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "audited_declarations": 5,
+  "first_gate_unchanged": true,
+  "first_platform_submission": true,
+  "all_five_frozen_hashes_match": true,
+  "all_three_archive_hashes_match": true,
+  "separate_direct_platform_poll": false,
+  "raw_individual_platform_bodies_exported": false,
+  "artifacts": [
+    {
+      "artifact_id": 10518258785,
+      "file": "pr299-request.zip",
+      "sha256": "6156cd67eb8616c8279f3763f65ca7717c6789b36e35f22c32125df8d1792064",
+      "bytes": 317
+    },
+    {
+      "artifact_id": 10517614225,
+      "file": "pr299-verified-packet.zip",
+      "sha256": "1c3118721c034157cd0adca57008f9690b8164a50db1c32c24f05673d7cf75dd",
+      "bytes": 21230
+    },
+    {
+      "artifact_id": 10518439053,
+      "file": "pr299-publication.zip",
+      "sha256": "e745fe1420fc3e2ee85db9ba956ebe5a85396fb975f08d18e333f466852d4d2b",
+      "bytes": 919
+    }
+  ]
+}

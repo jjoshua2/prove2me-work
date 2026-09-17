@@ -1,0 +1,15 @@
+{
+  "head_sha": "f5f8093b1be2815dba7329b08cbd04493ff09140",
+  "packets": [
+    {
+      "packet": "moment_root_vertex_catalogue",
+      "status": "ACCEPTED",
+      "theorem_id": "42f4500a-b696-4451-9d49-a13c7a2f98e5",
+      "submission_id": "40c8e1bb-8669-473c-8262-9c6523b8f24e",
+      "theorem_name": "Hirsch.moment_root_polynomial_vertex_catalogue",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/moment_root_vertex_catalogue"
+    }
+  ]
+}
