@@ -657,7 +657,7 @@ noncomputable def mean {k : ℕ} (a : ℕ → ℝ) (m : ℕ) (b : Fin k → ℕ)
   (∑ z : Fin m, (roots a b).eval (a z.val))/(m : ℝ)
 
 lemma mean_pos {k m : ℕ} (a : ℕ → ℝ) (ha : StrictMono a)
-    (hm : 2*k<m) (b : Fin k → ℕ) (hb : Valid m b) : 0 < mean a m b := by
+    (hm : 2*k < m) (b : Fin k → ℕ) (hb : Valid m b) : 0 < mean a m b := by
   classical
   have hc := card_support b hb
   obtain ⟨z,hz⟩ : ∃ z : Fin m, z ∉ support m b := by
@@ -676,19 +676,19 @@ lemma mean_pos {k m : ℕ} (a : ℕ → ℝ) (ha : StrictMono a)
   have hs : 0 < ∑ z : Fin m, (roots a b).eval (a z.val) :=
     hp.trans_le (Finset.single_le_sum (fun i _ => roots_nonneg a ha b i.val)
       (Finset.mem_univ z))
-  exact div_pos hs (by exact_mod_cast (show 0<m by omega))
+  exact div_pos hs (by exact_mod_cast (show 0 < m by omega))
 
 noncomputable def point {k : ℕ} (a : ℕ → ℝ) (m : ℕ) (b : Fin k → ℕ) : Fin (2*k) → ℝ :=
   fun j => -(mean a m b)⁻¹*(roots a b).coeff (j.val+1)
 
 lemma point_identity {k m : ℕ} (a : ℕ → ℝ) (ha : StrictMono a)
-    (hm : 2*k<m) (b : Fin k → ℕ) (hb : Valid m b) (i : Fin m) :
+    (hm : 2*k < m) (b : Fin k → ℕ) (hb : Valid m b) (i : Fin m) :
     row (fun z : Fin m => a z.val) (point a m b) i =
       1-(roots a b).eval (a i.val)/mean a m b := by
   have hh := ne_of_gt (mean_pos a ha hm b hb)
   have hm0 : (Fintype.card (Fin m) : ℝ) ≠ 0 := by
     simp only [Fintype.card_fin]
-    exact ne_of_gt (by exact_mod_cast (show 0<m by omega))
+    exact ne_of_gt (by exact_mod_cast (show 0 < m by omega))
   calc
     row (fun z : Fin m => a z.val) (point a m b) i =
       -(mean a m b)⁻¹ * ∑ j : Fin (2*k),
@@ -709,7 +709,7 @@ lemma point_identity {k m : ℕ} (a : ℕ → ℝ) (ha : StrictMono a)
       <;> ring
 
 lemma point_feasible {k m : ℕ} (a : ℕ → ℝ) (ha : StrictMono a)
-    (hm : 2*k<m) (b : Fin k → ℕ) (hb : Valid m b) :
+    (hm : 2*k < m) (b : Fin k → ℕ) (hb : Valid m b) :
     ∀ i : Fin m, row (fun z : Fin m => a z.val) (point a m b) i ≤ 1 := by
   intro i
   rw [point_identity a ha hm b hb i]
@@ -717,7 +717,7 @@ lemma point_feasible {k m : ℕ} (a : ℕ → ℝ) (ha : StrictMono a)
   linarith
 
 lemma point_active {k m : ℕ} (a : ℕ → ℝ) (ha : StrictMono a)
-    (hm : 2*k<m) (b : Fin k → ℕ) (hb : Valid m b) :
+    (hm : 2*k < m) (b : Fin k → ℕ) (hb : Valid m b) :
     active (fun z : Fin m => a z.val) (point a m b)=support m b := by
   classical
   ext i
@@ -733,7 +733,7 @@ lemma point_active {k m : ℕ} (a : ℕ → ℝ) (ha : StrictMono a)
     rw [(roots_zero_iff a ha b i).mpr hi,zero_div,sub_zero]
 
 lemma point_extreme {k m : ℕ} (a : ℕ → ℝ) (ha : StrictMono a)
-    (hm : 2*k<m) (b : Fin k → ℕ) (hb : Valid m b) :
+    (hm : 2*k < m) (b : Fin k → ℕ) (hb : Valid m b) :
     point a m b ∈ ({x : Fin (2*k) → ℝ | ∀ i : Fin m,
       row (fun z : Fin m => a z.val) x i ≤ 1}).extremePoints ℝ := by
   have ha' : Function.Injective (fun z : Fin m => a z.val) :=
@@ -748,7 +748,7 @@ def Exchange {k : ℕ} (m : ℕ) (b c : Fin k → ℕ) : Prop :=
     support m c=insert r ((support m b).erase s)
 
 lemma exchange_edge {k m : ℕ} (a : ℕ → ℝ) (ha : StrictMono a)
-    (hm : 2*k<m) (b c : Fin k → ℕ) (hb : Valid m b) (hc : Valid m c)
+    (hm : 2*k < m) (b c : Fin k → ℕ) (hb : Valid m b) (hc : Valid m c)
     (hbc : Exchange m b c) :
     point a m b ≠ point a m c ∧
       IsExposed ℝ {x : Fin (2*k) → ℝ | ∀ i : Fin m,
@@ -816,13 +816,13 @@ theorem compress_step {k m : ℕ} (b : Fin k → ℕ) (hb : Valid m b)
     intro j hji
     by_contra hj
     have hle := hmin j (Finset.mem_filter.mpr ⟨Finset.mem_univ _,hj⟩)
-    have hlt : j.val<i.val := hji
+    have hlt : j.val < i.val := hji
     omega
   have hbig : 2*i.val < b i := by
     by_cases hi0 : i.val=0
     · omega
     · let j : Fin k := ⟨i.val-1,by have ht := i.isLt; omega⟩
-      have hji : j<i := by change i.val-1<i.val; omega
+      have hji : j < i := by change i.val-1 < i.val; omega
       have hp := hprev j hji
       have hh := hb.2 j i hji
       change b j=2*(i.val-1) at hp
@@ -848,7 +848,7 @@ theorem compress_step {k m : ℕ} (b : Fin k → ℕ) (hb : Valid m b)
       · by_cases hli : l=i
         · subst l
           rw [hcj j hji,hci,hprev j hjl]
-          have hj : j.val<i.val := hjl
+          have hj : j.val < i.val := hjl
           omega
         · rw [hcj j hji,hcj l hli]
           exact hb.2 j l hjl
@@ -872,7 +872,7 @@ theorem compress_step {k m : ℕ} (b : Fin k → ℕ) (hb : Valid m b)
     · subst j; omega
     · rcases lt_or_gt_of_ne hji with hj | hj
       · rw [hprev j hj] at hhi
-        have hh : j.val<i.val := hj
+        have hh : j.val < i.val := hj
         omega
       · have hh := hb.2 i j hj
         omega
@@ -916,13 +916,13 @@ theorem packing_path {k m : ℕ} (b : Fin k → ℕ) (hb : Valid m b) :
     ∃ N : ℕ, N ≤ potential b ∧ ∃ f : ℕ → (Fin k → ℕ),
       f 0=b ∧ f N=packed k ∧
       (∀ i, i ≤ N → Valid m (f i)) ∧
-      (∀ i, i<N → Exchange m (f i) (f (i+1))) := by
+      (∀ i, i < N → Exchange m (f i) (f (i+1))) := by
   classical
   have aux : ∀ n : ℕ, ∀ b : Fin k → ℕ, potential b=n → Valid m b →
       ∃ N : ℕ, N ≤ n ∧ ∃ f : ℕ → (Fin k → ℕ),
         f 0=b ∧ f N=packed k ∧
         (∀ i, i ≤ N → Valid m (f i)) ∧
-        (∀ i, i<N → Exchange m (f i) (f (i+1))) := by
+        (∀ i, i < N → Exchange m (f i) (f (i+1))) := by
     intro n
     induction n using Nat.strong_induction_on with
     | h n ih =>
@@ -949,35 +949,35 @@ theorem packing_path {k m : ℕ} (b : Fin k → ℕ) (hb : Valid m b) :
 lemma join_at_anchor {E : Type*} (R : E → E → Prop) (hsym : Symmetric R)
     (good : E → Prop) (u v o : E) (A B : ℕ) (f g : ℕ → E)
     (hf0 : f 0=u) (hg0 : g 0=v) (hfA : f A=o) (hgB : g B=o)
-    (hfg : ∀ i, i≤A → good (f i)) (hgg : ∀ i, i≤B → good (g i))
-    (hfe : ∀ i, i<A → R (f i) (f (i+1)))
-    (hge : ∀ i, i<B → R (g i) (g (i+1))) :
+    (hfg : ∀ i, i ≤ A → good (f i)) (hgg : ∀ i, i ≤ B → good (g i))
+    (hfe : ∀ i, i < A → R (f i) (f (i+1)))
+    (hge : ∀ i, i < B → R (g i) (g (i+1))) :
     ∃ p : ℕ → E, p 0=u ∧ p (A+B)=v ∧
-      (∀ i, i≤A+B → good (p i)) ∧ (∀ i, i<A+B → R (p i) (p (i+1))) := by
-  let p : ℕ → E := fun i => if i≤A then f i else g (A+B-i)
-  have hleft : ∀ i, i≤A → p i=f i := by intro i hi; simp only [p,if_pos hi]
-  have hright : ∀ i, A≤i → i≤A+B → p i=g (A+B-i) := by
+      (∀ i, i ≤ A+B → good (p i)) ∧ (∀ i, i < A+B → R (p i) (p (i+1))) := by
+  let p : ℕ → E := fun i => if i ≤ A then f i else g (A+B-i)
+  have hleft : ∀ i, i ≤ A → p i=f i := by intro i hi; simp only [p,if_pos hi]
+  have hright : ∀ i, A ≤ i → i ≤ A+B → p i=g (A+B-i) := by
     intro i hi hiB
     by_cases he : i=A
     · subst i
       rw [hleft A le_rfl,hfA]
       have ht : A+B-A=B := by omega
       rw [ht,hgB]
-    · have ht : ¬i≤A := by omega
+    · have ht : ¬i ≤ A := by omega
       simp only [p,if_neg ht]
   refine ⟨p,?_,?_,?_,?_⟩
   · rw [hleft 0 (by omega),hf0]
   · rw [hright (A+B) (by omega) le_rfl,Nat.sub_self,hg0]
   · intro i hi
-    by_cases he : i≤A
+    by_cases he : i ≤ A
     · rw [hleft i he]; exact hfg i he
     · rw [hright i (by omega) hi]; exact hgg _ (by omega)
   · intro i hi
-    by_cases he : i<A
+    by_cases he : i < A
     · rw [hleft i (by omega),hleft (i+1) (by omega)]
       exact hfe i he
     · rw [hright i (by omega) (by omega),hright (i+1) (by omega) (by omega)]
-      have hj : A+B-(i+1)<B := by omega
+      have hj : A+B-(i+1) < B := by omega
       have heq : A+B-i=(A+B-(i+1))+1 := by omega
       rw [heq]
       exact hsym (hge _ hj)
@@ -985,12 +985,12 @@ lemma join_at_anchor {E : Type*} (R : E → E → Prop) (hsym : Symmetric R)
 /-- Separated adjacent-pair vertices, not just sliding blocks, have a
 constructed polynomial original-edge route through the packed anchor. -/
 theorem paired_routes (a : ℕ → ℝ) (ha : StrictMono a) (k m : ℕ)
-    (hm : 2*k<m) (b c : Fin k → ℕ) (hb : Valid m b) (hc : Valid m c) :
+    (hm : 2*k < m) (b c : Fin k → ℕ) (hb : Valid m b) (hc : Valid m c) :
     ∃ N : ℕ, N ≤ 2*k*m ∧ ∃ p : ℕ → (Fin (2*k) → ℝ),
       p 0=point a m b ∧ p N=point a m c ∧
-      (∀ i, i≤N → p i ∈ ({x : Fin (2*k) → ℝ | ∀ z : Fin m,
+      (∀ i, i ≤ N → p i ∈ ({x : Fin (2*k) → ℝ | ∀ z : Fin m,
         row (fun z : Fin m => a z.val) x z ≤ 1}).extremePoints ℝ) ∧
-      (∀ i, i<N → p i ≠ p (i+1) ∧
+      (∀ i, i < N → p i ≠ p (i+1) ∧
         IsExposed ℝ {x : Fin (2*k) → ℝ | ∀ z : Fin m,
           row (fun z : Fin m => a z.val) x z ≤ 1} (segment ℝ (p i) (p (i+1)))) := by
   obtain ⟨A,hA,f,hf0,hfA,hfg,hfe⟩ := packing_path b hb
@@ -1023,17 +1023,17 @@ end Hirsch.PairedRoutes
 /-- Actual polynomial-length original-edge walks between arbitrary separated
 adjacent-pair configurations. No legal move sequence is supplied. -/
 theorem solution (a : ℕ → ℝ) (ha : StrictMono a) (k m : ℕ)
-    (hm : 2*k<m) (b c : Fin k → ℕ)
-    (hb : (∀ i, b i+1<m) ∧ ∀ i j, i<j → b i+1<b j)
-    (hc : (∀ i, c i+1<m) ∧ ∀ i j, i<j → c i+1<c j) :
+    (hm : 2*k < m) (b c : Fin k → ℕ)
+    (hb : (∀ i, b i+1 < m) ∧ ∀ i j, i < j → b i+1 < b j)
+    (hc : (∀ i, c i+1 < m) ∧ ∀ i j, i < j → c i+1 < c j) :
     let row : (Fin (2*k) → ℝ) → Fin m → ℝ := fun x i =>
       ∑ j : Fin (2*k), (a i.val^(j.val+1)-(∑ z : Fin m, a z.val^(j.val+1))/(m : ℝ))*x j
-    let P : Set (Fin (2*k) → ℝ) := {x | ∀ i, row x i≤1}
+    let P : Set (Fin (2*k) → ℝ) := {x | ∀ i, row x i ≤ 1}
     ∃ N : ℕ, N ≤ 2*k*m ∧ ∃ p : ℕ → (Fin (2*k) → ℝ),
-      (∀ z : Fin m, row (p 0) z=1 ↔ ∃ i, b i≤z.val ∧ z.val≤b i+1) ∧
-      (∀ z : Fin m, row (p N) z=1 ↔ ∃ i, c i≤z.val ∧ z.val≤c i+1) ∧
-      (∀ i, i≤N → p i ∈ P.extremePoints ℝ) ∧
-      (∀ i, i<N → p i ≠ p (i+1) ∧ IsExposed ℝ P (segment ℝ (p i) (p (i+1)))) := by
+      (∀ z : Fin m, row (p 0) z=1 ↔ ∃ i, b i ≤ z.val ∧ z.val ≤ b i+1) ∧
+      (∀ z : Fin m, row (p N) z=1 ↔ ∃ i, c i ≤ z.val ∧ z.val ≤ c i+1) ∧
+      (∀ i, i ≤ N → p i ∈ P.extremePoints ℝ) ∧
+      (∀ i, i < N → p i ≠ p (i+1) ∧ IsExposed ℝ P (segment ℝ (p i) (p (i+1)))) := by
   classical
   dsimp only
   obtain ⟨N,hN,p,hp0,hpN,hpv,hpe⟩ := Hirsch.PairedRoutes.paired_routes a ha k m hm b c hb hc
