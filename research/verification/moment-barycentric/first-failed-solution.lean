@@ -30,7 +30,6 @@ lemma weighted_eval_zero {ι : Type*} [DecidableEq ι]
     lt_of_le_of_lt p.degree_le_natDegree (by exact_mod_cast hlt)
   have heq := Lagrange.eq_interpolate (s := s) (v := a) (f := p) ha.injOn hdeg
   have hc := congrArg (fun q : Polynomial ℝ => q.coeff (s.card - 1)) heq
-  dsimp only at hc
   rw [Lagrange.interpolate_apply, Polynomial.finsetSum_coeff] at hc
   simp only [Polynomial.coeff_C_mul] at hc
   have hb : ∀ i ∈ s,

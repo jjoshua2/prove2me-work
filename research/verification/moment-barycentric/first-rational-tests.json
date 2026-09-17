@@ -85,9 +85,9 @@
   "degree_boundary_control": true,
   "producer_disabled_replays": 15,
   "exact_public_signature_match": true,
-  "proof_lines": 225,
+  "proof_lines": 224,
   "source_sha256": {
-    "solution.lean": "5f5799763c8754777e3b227865a4eb7faf1c4670cfc697288c37dec09f5b3ace",
+    "solution.lean": "3ff079a40a2ca53d9ba6c7f47f0c18d5c7f085a5d638cf64340e7200439b99e3",
     "problem.json": "442011a698aa3f2f930f847cb14248045b5efdd7acea33649d9945597b0c8634",
     "test_moment_barycentric_packet.py": "181b3d2dd4e86db7d3e74f5d5730c86e33874b338b3dd05c2fc17bd2398a3a23"
   }
