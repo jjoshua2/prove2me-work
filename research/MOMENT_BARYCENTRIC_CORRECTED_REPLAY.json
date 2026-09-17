@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "record_kind": "actual corrected-source independent clean Python replay, not Lean/platform verification",
+  "files": {
+    "research/MOMENT_BARYCENTRIC_TESTS.json": {
+      "bytes": 2271,
+      "sha256": "15cf27bbe89f7ec7db14c1889c5d66060b05fe935897fe6d9587db100ebd7517",
+      "byte_identical": true
+    },
+    "fixtures/moment_barycentric_examples.json": {
+      "bytes": 35838,
+      "sha256": "aefe5bfb6031739ab743ab32cd9dbcacc388d607d5ab981941fdeb32c73719d3",
+      "byte_identical": true
+    }
+  }
+}

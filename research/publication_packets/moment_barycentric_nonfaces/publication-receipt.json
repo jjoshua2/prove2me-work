@@ -1,0 +1,15 @@
+{
+  "head_sha": "5b44ad2795b85acb693e6e9f44039e9d9c425e85",
+  "packets": [
+    {
+      "packet": "moment_barycentric_nonfaces",
+      "status": "ACCEPTED",
+      "theorem_id": "e37928aa-132f-4b32-ba91-47b4a1f75fa4",
+      "submission_id": "7fe04fd6-07d9-4ffc-83d0-bc44f67374a6",
+      "theorem_name": "Hirsch.moment_curve_barycentric_nonfaces",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/moment_barycentric_nonfaces"
+    }
+  ]
+}

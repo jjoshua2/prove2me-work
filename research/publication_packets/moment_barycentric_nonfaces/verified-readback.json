@@ -1,0 +1,26 @@
+{
+  "record_kind": "independent local verification-artifact readback, not a separate platform query",
+  "status": "PASS",
+  "run_id": 35173820765,
+  "artifact_id": 10478225583,
+  "proof_sha": "5b44ad2795b85acb693e6e9f44039e9d9c425e85",
+  "archive_sha256": "b94ddaddb0cf4d06cf5ce5a467d4625c3c7f5ec7617a4b37d79ae9f01688fcad",
+  "frozen_hashes_recomputed": {
+    "solution.lean": "5f5799763c8754777e3b227865a4eb7faf1c4670cfc697288c37dec09f5b3ace",
+    "driver.lean": "5f5799763c8754777e3b227865a4eb7faf1c4670cfc697288c37dec09f5b3ace",
+    "statement.lean": "dfff7337032c76f039f8a80049f7548134a1156b793c1476854d8b82c6b47459",
+    "problem.json": "442011a698aa3f2f930f847cb14248045b5efdd7acea33649d9945597b0c8634",
+    "explanation.md": "b75b9864e09ef8a5d199507a19673ec94238a44ac0781078b5208536733732f6"
+  },
+  "local_source_byte_identical": [
+    "solution.lean",
+    "problem.json",
+    "explanation.md"
+  ],
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "local_lean_available": false
+}
