@@ -1,0 +1,25 @@
+{
+  "all_five_frozen_hashes_recomputed": {
+    "driver.lean": "3dd3f72bd43461fc68baadd0e12b0dad7526c0cedeece628ca9cdf256b1dd499",
+    "explanation.md": "8fc018bb48491d78ee0fd8c912b381eed219edece8d3f6c9cd3859d2bf0fd14f",
+    "problem.json": "38bdcbd324f5a2771ea3d468961e85c1e3885a156bdaf46622dc8359535ce714",
+    "solution.lean": "3dd3f72bd43461fc68baadd0e12b0dad7526c0cedeece628ca9cdf256b1dd499",
+    "statement.lean": "0598840d087ecd751c83b19323b650a03e4a5dd8975805b1f9b683ced5df3f53"
+  },
+  "archive_sha256": "645fb78c6c05df0d3e89dc05aa44417c1674e722bcd3abd3dc84139da33c8424",
+  "artifact_id": 10479811009,
+  "driver_solution_statement_exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "four_transitive_reports_standard_axioms_only": true,
+  "frozen_solution_equals_prepared_repair": true,
+  "kind": "Derived independent archive/source readback, not a raw platform verdict",
+  "local_Lean_compilation_claimed": false,
+  "proof_head": "533bfb63678730eed6559e512e560ee71713f341",
+  "public_statement_and_existing_helper_statements_unchanged_by_repair": true,
+  "publication_verdict": "Not asserted in this verification-only record",
+  "run_id": 35179232678,
+  "target_statement_compile_warning": "The separate target stub uses by sorry intentionally; the submitted solution and its audited root do not."
+}

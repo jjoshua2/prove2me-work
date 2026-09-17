@@ -1,0 +1,4 @@
+'Hirsch.CutActiveSupport.finite_margin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.CutActiveSupport.active_kernel_trivial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.CutActiveSupport.active_image_independent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]

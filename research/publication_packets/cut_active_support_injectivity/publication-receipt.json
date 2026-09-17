@@ -1,0 +1,15 @@
+{
+  "head_sha": "533bfb63678730eed6559e512e560ee71713f341",
+  "packets": [
+    {
+      "packet": "cut_active_support_injectivity",
+      "status": "ACCEPTED",
+      "theorem_id": "c3781e27-7eb2-4ffc-bb5b-e85ffe60c480",
+      "submission_id": "68ad9f06-cdc9-4a25-85fc-b62c5e9b711d",
+      "theorem_name": "Hirsch.cut_vertex_active_support_injectivity",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/cut_active_support_injectivity"
+    }
+  ]
+}

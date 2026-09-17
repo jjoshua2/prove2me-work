@@ -1,0 +1,61 @@
+{
+  "counts": {
+    "active_kernel_basis_vectors": 35,
+    "cut_row_checks": 47,
+    "cut_vertices": 34,
+    "dependent_supports": 35,
+    "models": 6,
+    "original_square_systems": 178,
+    "positive_independent_supports": 35,
+    "sharp_examples": 6
+  },
+  "rejected": [
+    "without_extremality",
+    "zero_weight_cannot_control_unused_point",
+    "negative_weight",
+    "wrong_sum",
+    "infeasible_cut"
+  ],
+  "scope": "Exact supporting algebra/H-vertex tests, NOT Lean or Prove2Me verification",
+  "sharp_examples": [
+    {
+      "active_cuts": 1,
+      "dimension": 1,
+      "support_size": 2
+    },
+    {
+      "active_cuts": 2,
+      "dimension": 2,
+      "support_size": 3
+    },
+    {
+      "active_cuts": 3,
+      "dimension": 3,
+      "support_size": 4
+    },
+    {
+      "active_cuts": 4,
+      "dimension": 4,
+      "support_size": 5
+    },
+    {
+      "active_cuts": 8,
+      "dimension": 8,
+      "support_size": 9
+    },
+    {
+      "active_cuts": 16,
+      "dimension": 16,
+      "support_size": 17
+    }
+  ],
+  "solution_sha256": "3dd3f72bd43461fc68baadd0e12b0dad7526c0cedeece628ca9cdf256b1dd499",
+  "status": "PASS",
+  "test_sha256": "8e6d9e92f81119584fe9d8879dff9d07f95e8309f48bd902b2e14ce2b30afe31",
+  "tiny_inactive_margin_powers": [
+    8,
+    40,
+    120,
+    240
+  ]
+}
