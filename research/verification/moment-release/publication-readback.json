@@ -1,0 +1,64 @@
+{
+  "kind": "derived_run_and_artifact_readback",
+  "pr": 298,
+  "proof_head": "a9fab43328ccef743d8a2ac7b1ec18a6f987e001",
+  "workflow_main": "d17513f45e297c1c3aa08d266d65c9a109c67673",
+  "run_id": 35270640502,
+  "trigger_comment": 5720744076,
+  "acknowledgement_comment": 5720745968,
+  "verdict_comment": 5720794068,
+  "jobs": {
+    "gate": "success",
+    "verify": "success",
+    "publish": "success",
+    "report-verify": "skipped"
+  },
+  "compile_exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "audited_declarations": 5,
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "authenticated_status": "ACCEPTED",
+  "publisher_live_status": "Proved",
+  "theorem_id": "d86d447e-5259-4d8c-b963-6b8102e1e5be",
+  "submission_id": "8dd2f7b2-d9fa-436a-8378-e691d3e3dba4",
+  "all_five_frozen_hashes_match": true,
+  "all_four_archive_hashes_match": true,
+  "first_failed_run": 35270103589,
+  "one_exact_diagnostic_repair": true,
+  "public_type_assumptions_metadata_and_accepted_prefix_unchanged": true,
+  "separate_direct_platform_poll": false,
+  "raw_individual_API_bodies_exported": false,
+  "artifacts": [
+    {
+      "artifact_id": 10518283396,
+      "file": "pr298-first-request.zip",
+      "bytes": 314,
+      "sha256": "158edbd488c5d16916a895d7fcba33ccb3599a256ef0014c1f43e4e30b21cb83"
+    },
+    {
+      "artifact_id": 10518389489,
+      "file": "pr298-final-request.zip",
+      "bytes": 312,
+      "sha256": "3099172967b8f570a09b3d94c10d03af1dcb4e3811ec1ba93a90ca0f91ac7f54"
+    },
+    {
+      "artifact_id": 10518149667,
+      "file": "pr298-verified-packets.zip",
+      "bytes": 24924,
+      "sha256": "daee2aef1dbc8825fac89cfcce4ecd4afe55d6fb39d00ae29ba3a398bb96adb0"
+    },
+    {
+      "artifact_id": 10518645532,
+      "file": "pr298-publication-receipts.zip",
+      "bytes": 894,
+      "sha256": "86d2e0ff87d8536c2b69792a14633009392b247403c74d26253025db65b69cf1"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "kind": "derived_prepared_source_and_replay",
+  "local_lean_compilation": false,
+  "proof_head": "876b6977bb2a7d11fefc8b29b5063b04e8f01eb4",
+  "solution_sha256": "c961ce16f475f84eb702efd35055f3ea68294d7609f2d68c4fac1a32f872cf34",
+  "dependency_source_sha256": "a0e6bb32eca92681ed7e526f68c66d75348421f9863a11aa0ccbc11016bfcc34",
+  "accepted_prefix_bytes_identical": true,
+  "accepted_prefix_lines": 544,
+  "dependency_artifact_id": 10508443498,
+  "dependency_archive_sha256": "0b4bd54a643462ce571dd34de07c616354daf5e8b3ad77a66d0e55eee7f903fd",
+  "all_five_dependency_frozen_hashes_match": true,
+  "test_source_sha256": "97d9c98924b9c31d6f6101b226bf15ac3b1485a56b72786cd21ec604a8ab2bd0",
+  "test_source_blob": "838a57f82e518a921b34012508846a9a383e62a1",
+  "report_and_fixture_byte_identical": true,
+  "report_sha256": "9e1b440c5b296c9c42f1ab66bc95670fff7f4b8199204de6afdd945cb44c8166",
+  "fixture_sha256": "84a53cffb5be786fb812dd6a66d78bfe8049bdfe18353105101f3ea83c4929e1",
+  "fixture_bytes": 263614,
+  "scope": "Source binding and exact rational tests, not local Lean or platform verdict. The test overshoot expression is t*2; the final remote script is rerun byte-for-byte in a clean workspace."
+}

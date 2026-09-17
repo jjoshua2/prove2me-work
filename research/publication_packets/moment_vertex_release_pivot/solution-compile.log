@@ -1,0 +1,32 @@
+_verified/packets/moment_vertex_release_pivot/solution.lean:122:8: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+_verified/packets/moment_vertex_release_pivot/solution.lean:122:8: warning: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+_verified/packets/moment_vertex_release_pivot/solution.lean:343:36: warning: This simp argument is unused:
+  Module.finrank_self
+
+Hint: Omit it from the simp argument list.
+  simp only [Module.finrank_pi, M̵o̵d̵u̵l̵e̵.̵f̵i̵n̵r̵a̵n̵k̵_̵s̵e̵l̵f̵,̵ ̵Fintype.card_fin, Fintype.card_coe, hcard]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+_verified/packets/moment_vertex_release_pivot/solution.lean:361:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+_verified/packets/moment_vertex_release_pivot/solution.lean:627:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+'Hirsch.MomentVertices.activeEval_surjective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.MomentRelease.first_blocker' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.MomentRelease.release_direction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.MomentRelease.release_edge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]

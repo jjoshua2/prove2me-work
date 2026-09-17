@@ -1,0 +1,15 @@
+{
+  "head_sha": "a9fab43328ccef743d8a2ac7b1ec18a6f987e001",
+  "packets": [
+    {
+      "packet": "moment_vertex_release_pivot",
+      "status": "ACCEPTED",
+      "theorem_id": "d86d447e-5259-4d8c-b963-6b8102e1e5be",
+      "submission_id": "8dd2f7b2-d9fa-436a-8378-e691d3e3dba4",
+      "theorem_name": "Hirsch.moment_vertex_release_pivot",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/moment_vertex_release_pivot"
+    }
+  ]
+}

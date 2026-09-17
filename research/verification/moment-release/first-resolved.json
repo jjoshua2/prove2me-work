@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/moment_vertex_release_pivot"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "876b6977bb2a7d11fefc8b29b5063b04e8f01eb4",
+  "pr": "298"
+}

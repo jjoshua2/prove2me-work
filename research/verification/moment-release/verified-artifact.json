@@ -1,0 +1,25 @@
+{
+  "head_sha": "a9fab43328ccef743d8a2ac7b1ec18a6f987e001",
+  "packets": [
+    {
+      "path": "research/publication_packets/moment_vertex_release_pivot",
+      "name": "moment_vertex_release_pivot",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "91cf7f0934480fed652e6f6a17bbb0d5677be0718bae4589befaf5026ebeea4d",
+        "driver.lean": "91cf7f0934480fed652e6f6a17bbb0d5677be0718bae4589befaf5026ebeea4d",
+        "statement.lean": "9926d1e970c470d2d0822b8fb3e7e7fe41fb846c8fe94ae748ca174d22bdac66",
+        "problem.json": "d7fb741f3e7331d93ae9ade616bf41b2e2b0809184575d9db5ef014c1e2ffe16",
+        "explanation.md": "9e66f14e0792420b3a34ed12e3e805e7a0b8cf5fad5df44374e18fb260db7764"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}
