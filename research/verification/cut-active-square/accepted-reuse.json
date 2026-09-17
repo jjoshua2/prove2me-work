@@ -1,0 +1,10 @@
+{
+  "kind": "derived_accepted_source_reuse",
+  "prior_theorem": "1043e661-f761-4ee3-9d75-2822a58c77f9",
+  "prior_source_sha": "64b73e31cdf368e36e6bd76f1710f4fc97760ebb",
+  "prior_solution_blob": "ab4d4fa5c0c4e976c62c1b856ace11bec3bf0afd",
+  "archive_sha256": "7595b41fcca904270cb8c192d7c6d960fbcf3a74c9a10787bb8fbe6904cd1d00",
+  "all_five_hashes_match": true,
+  "only_root_and_print_name_changed": true,
+  "prior_statement_not_resubmitted": true
+}

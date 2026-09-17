@@ -1,0 +1,11 @@
+--- first-gate/solution.lean
++++ corrected/solution.lean
+@@ -403,7 +403,7 @@
+           simp only [Pi.add_apply, mul_add, Finset.sum_add_distrib]
+         map_smul' := by
+           intro c z
+-          simp only [Pi.smul_apply, smul_eq_mul, Finset.mul_sum]
++          simp only [Pi.smul_apply, smul_eq_mul, Finset.mul_sum, RingHom.id_apply]
+           apply Finset.sum_congr rfl
+           intro i _
+           ring }
