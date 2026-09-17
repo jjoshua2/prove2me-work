@@ -412,7 +412,9 @@ theorem mass_preserving_square {n : ℕ} (hn : 0 < n)
       rintro z ⟨j, hj, rfl⟩
       change D (f j) = 0
       cases j with
-      | none => simpa only [D, f, mul_one] using hmass
+      | none =>
+          change (∑ i, u i * (1 : ℝ)) = 0
+          simpa only [mul_one] using hmass
       | some j =>
         let q : J := ⟨j, (hJ j).mpr hj⟩
         have h := congrArg (fun z : ℝ × (J → ℝ) => z.2 q) hu
