@@ -71,7 +71,7 @@
   },
   "sources": {
     "research/publication_packets/moment_small_face_witnesses/problem.json": "20cd7998bbd61a98d3b501bc6203a27b5cfb1350060633a72d960a0f33b0d139",
-    "research/publication_packets/moment_small_face_witnesses/solution.lean": "7f721731a92f63e9299fd5b63ebcb991e8a992f6089c0d3a40298543c8ac2bee",
+    "research/publication_packets/moment_small_face_witnesses/solution.lean": "95341bb2cfb6aff23e8ba0f5017b6b894818330aca4c1c97b16946535b4c50a0",
     "scripts/test_moment_small_faces.py": "592e31d15feb3c07dcfc3d5f81cb031ab9134a349973e01cfcdf5489769b44c5"
   },
   "status": "PASS"

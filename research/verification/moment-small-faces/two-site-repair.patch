@@ -1,0 +1,30 @@
+--- first-failed-solution.lean
++++ solution.lean
+@@ -10,7 +10,7 @@
+ lemma eval_squareRoots {ι : Type*} (a : ι → ℝ) (S : Finset ι) (t : ℝ) :
+     (squareRoots a S).eval t = ∏ s ∈ S, (t - a s) ^ 2 := by
+   classical
+-  simp [squareRoots]
++  simp [squareRoots, Polynomial.eval_prod]
+ 
+ lemma squareRoots_nonneg {ι : Type*} (a : ι → ℝ) (S : Finset ι) (t : ℝ) :
+     0 ≤ (squareRoots a S).eval t := by
+@@ -34,12 +34,12 @@
+ lemma squareRoots_degree {ι : Type*} (a : ι → ℝ) (S : Finset ι) :
+     (squareRoots a S).natDegree = 2 * S.card := by
+   classical
+-  calc
+-    (squareRoots a S).natDegree =
+-        ∑ s ∈ S, ((Polynomial.X - Polynomial.C (a s)) ^ 2).natDegree :=
+-      Polynomial.natDegree_prod_of_monic S _
+-        (fun s _ => (Polynomial.monic_X_sub_C (a s)).pow 2)
+-    _ = 2 * S.card := by simp [Polynomial.natDegree_pow, Nat.mul_comm]
++  change (∏ s ∈ S, ((Polynomial.X : Polynomial ℝ) - Polynomial.C (a s)) ^ 2).natDegree =
++    2 * S.card
++  rw [Polynomial.natDegree_prod_of_monic S
++    (fun s : ι => ((Polynomial.X : Polynomial ℝ) - Polynomial.C (a s)) ^ 2)
++    (fun s _ => (Polynomial.monic_X_sub_C (a s)).pow 2)]
++  simp [Polynomial.natDegree_pow, Nat.mul_comm]
+ 
+ /-- The constant coefficient is separated before centering the moment rows. -/
+ lemma eval_split (p : Polynomial ℝ) (n : ℕ) (hp : p.natDegree ≤ n) (t : ℝ) :

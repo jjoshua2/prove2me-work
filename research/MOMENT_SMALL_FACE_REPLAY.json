@@ -1,9 +1,9 @@
 {
   "status": "PASS",
-  "record_kind": "actual fresh isolated arithmetic/signature replay; not Lean verification",
+  "record_kind": "actual corrected-source isolated arithmetic/signature replay; not Lean verification",
   "results": {
     "research/MOMENT_SMALL_FACE_TESTS.json": {
-      "sha256": "8e62e559fefead929487c8d2a69fc526eded8bb139c57e3ee6de045e48e34321",
+      "sha256": "a840be687f7f3c0a95b433e40fcd5989a07be56a90f59cd516d69a3fb8f9c529",
       "bytes": 2410,
       "byte_identical": true
     },
@@ -13,5 +13,8 @@
       "byte_identical": true
     }
   },
-  "source_unchanged_from_prior_local_bundle": true
+  "source_unchanged_from_prior_local_bundle": false,
+  "repair": "two diagnosed proof sites; public statement unchanged",
+  "first_failed_head": "612c7278ef785e649b3b9eb137b15e2c3e861e2d",
+  "first_failed_run": 35166526941
 }
