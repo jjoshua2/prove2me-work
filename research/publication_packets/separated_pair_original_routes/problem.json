@@ -1,0 +1,15 @@
+{
+  "theorem_name": "Hirsch.separated_pair_original_routes",
+  "theorem_title": "Construct polynomial original-edge routes between separated adjacent-pair moment vertices",
+  "formal_statement": "theorem Hirsch.separated_pair_original_routes (a : ℕ → ℝ) (ha : StrictMono a) (k m : ℕ)\n    (hm : 2*k<m) (b c : Fin k → ℕ)\n    (hb : (∀ i, b i+1<m) ∧ ∀ i j, i<j → b i+1<b j)\n    (hc : (∀ i, c i+1<m) ∧ ∀ i j, i<j → c i+1<c j) :\n    let row : (Fin (2*k) → ℝ) → Fin m → ℝ := fun x i =>\n      ∑ j : Fin (2*k), (a i.val^(j.val+1)-(∑ z : Fin m, a z.val^(j.val+1))/(m : ℝ))*x j\n    let P : Set (Fin (2*k) → ℝ) := {x | ∀ i, row x i≤1}\n    ∃ N : ℕ, N ≤ 2*k*m ∧ ∃ p : ℕ → (Fin (2*k) → ℝ),\n      (∀ z : Fin m, row (p 0) z=1 ↔ ∃ i, b i≤z.val ∧ z.val≤b i+1) ∧\n      (∀ z : Fin m, row (p N) z=1 ↔ ∃ i, c i≤z.val ∧ z.val≤c i+1) ∧\n      (∀ i, i≤N → p i ∈ P.extremePoints ℝ) ∧\n      (∀ i, i<N → p i ≠ p (i+1) ∧ IsExposed ℝ P (segment ℝ (p i) (p (i+1)))) := by sorry\n",
+  "preamble": "import Mathlib\nopen scoped BigOperators\nset_option autoImplicit false",
+  "env": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "natural_language_statement": "For a strictly increasing real sequence on natural labels, dimension 2k<m, and any two ordered configurations of k disjoint adjacent label pairs within the first m labels, construct both associated actual extreme points and an original-edge walk connecting them with length at most 2*k*m. The two endpoint tight sets are exactly the supplied pair configurations. Every visited point is an actual extreme point of the same original mean-centered moment inequality system; every step has distinct endpoints and the whole segment is exposed in that original set. A feasible exchange sequence, intermediate vertex list, adjacency oracle or polynomial path premise is not supplied. The proof derives a legal leftward pair shift and a strictly decreasing natural potential, then constructs the complete packing paths and concatenates them. All original inequalities and the full-label average remain. This is an endpoint-class theorem, not yet an all-vertex moment-polytope diameter theorem: wrapping negative-mean root sets are not covered. No shortestness, nonrevisiting, globally injective walk, improved classical diameter bound or unrestricted Polynomial Hirsch result is claimed. The case k=0 gives a zero-dimensional route.",
+  "source": "Builds on accepted #295 common-row exposed edges and #296 paired-root polynomial construction in jjoshua2/prove2me-work. Reuses the 544-line accepted namespace prefix through Hirsch.MomentEdges unchanged. The new separated-pair potential/packing recursion is not a duplicate of #296 consecutive windows. Classical cyclic-polytope diameter results are stronger; see A. M. Maksimenko, The diameter of the ridge-graph of a cyclic polytope (2009), DOI10.1515/DMA.2009.003. No historical-priority claim.",
+  "tags": [
+    "hirsch-conjecture",
+    "polytope-diameter",
+    "convex-geometry",
+    "paths"
+  ]
+}
