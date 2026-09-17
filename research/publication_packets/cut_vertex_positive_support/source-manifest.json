@@ -1,0 +1,38 @@
+{
+  "accepted_namespace_prefix_bytes": 8163,
+  "accepted_prefix_byte_identical": true,
+  "base_commit": "390bcd6c2a824c79a9ce4832ac7d53e987b888da",
+  "files": {
+    "research/CUT_POSITIVE_SUPPORT_TEST.json": {
+      "bytes": 1561,
+      "git_blob_sha": "324f06c8a660d73e682d6d1de6d0997c5ba6fa92",
+      "sha256": "e04d586704f066854a39fb9d7429dc2fcfbb9895b7033900c8cad529efb192bd"
+    },
+    "research/publication_packets/cut_vertex_positive_support/explanation.md": {
+      "bytes": 6420,
+      "git_blob_sha": "98cce0e61e082e57a44d40787491eda9d1880932",
+      "sha256": "5f6d9ed23f2481a77dbaf21a33e95b42b6c7ce17225cb9f38616106a87c052ce"
+    },
+    "research/publication_packets/cut_vertex_positive_support/problem.json": {
+      "bytes": 3450,
+      "git_blob_sha": "abb61fe33bb35f342736bc46e876fe696a8ba254",
+      "sha256": "adb2ae8308456e81db29fcc546b7aedba7734e4eab953f8def54b991e2648e69"
+    },
+    "research/publication_packets/cut_vertex_positive_support/solution.lean": {
+      "bytes": 14450,
+      "git_blob_sha": "ab4d4fa5c0c4e976c62c1b856ace11bec3bf0afd",
+      "sha256": "7dc54444294016077ebd86c7132a1a26e5250af584a7311e49067f364891c2cb"
+    },
+    "scripts/test_cut_positive_support.py": {
+      "bytes": 7260,
+      "git_blob_sha": "c042477e4317b523d9fa9635347167ae969b6052",
+      "sha256": "63d10623068a642b95e80c38d6a1d203b02e664161f136474c5dfae630c4b6df"
+    }
+  },
+  "kind": "Prepared source identity, not a Lean/platform receipt",
+  "local_Lake_available": false,
+  "local_Lean_available": false,
+  "status": "PREPARED_UNCOMPILED",
+  "target_signature_exactly_extracted": true,
+  "toolchain_DNS": "Temporary failure in name resolution"
+}
