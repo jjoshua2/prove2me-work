@@ -579,7 +579,12 @@ theorem solution (d m : ℕ) (hm : d < m) (a : Fin m → ℝ)
     omega
   · intro z hz
     refine ⟨Hirsch.MomentEdges.sum_rows_le a _ z hz, ?_⟩
-    rw [Hirsch.MomentEdges.sum_rows_eq_iff a _ z hz, ← heq]
+    change (∑ i ∈ Hirsch.MomentVertices.active a u ∩ Hirsch.MomentVertices.active a v,
+      Hirsch.MomentBarycentric.row a z i) =
+        ((Hirsch.MomentVertices.active a u ∩ Hirsch.MomentVertices.active a v).card : ℝ) ↔
+      z ∈ segment ℝ u v
+    rw [Hirsch.MomentEdges.sum_rows_eq_iff a
+      (Hirsch.MomentVertices.active a u ∩ Hirsch.MomentVertices.active a v) z hz, ← heq]
     exact ⟨fun h => ⟨hz,h⟩, fun h => h.2⟩
   · intro t ht ht1
     exact Hirsch.MomentEdges.interior_tight_rows a u v hu hv t ht ht1
