@@ -1,0 +1,41 @@
+{
+  "kind": "offline_test_and_source_binding",
+  "status": "PASS",
+  "unit_tests": 8,
+  "python_compilation_exit_code": 0,
+  "upstream_commit": "a0677c0c4738f16e386545640ceafef4a731cf87",
+  "exact_version_guard": "0.10.5",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "bytes": 19844,
+      "git_blob": "3b64e0d72acd92c8e052b65624c059978ca66748",
+      "sha256": "1bc3c84646030f6c3caf1260c513ff69a72efd3ea7aba22620c3a685be97b27c"
+    },
+    {
+      "path": "scripts/publish_projective_small_blocks.py",
+      "bytes": 5346,
+      "git_blob": "e03550a5dd351b67cc4921d66fe13171d474681b",
+      "sha256": "02403c7ace7c662b689857ba6e53b2677f9a131d018de76771a62068598c488b"
+    },
+    {
+      "path": "scripts/test_prove2me_version_0105.py",
+      "bytes": 5703,
+      "git_blob": "aa6f43b2f4e0e60fbe9dd7eaf840db705991cb71",
+      "sha256": "8908d19049f9bb9b070a6b3794597ea4d8d0f7e2a3fa3b85aabc2013d87c28ab"
+    },
+    {
+      "path": "references/PROTOCOL_0_10_5_REVIEW.md",
+      "bytes": 3840,
+      "git_blob": "521ce28251383500adcac9426dc06cbd13a3d1e3",
+      "sha256": "eb5cfb057bd9199b8b6a1065192dac66fa3b25a3668e6db2e2010cc29c86bb31"
+    },
+    {
+      "path": "research/verification/protocol-0.10.5/unit-tests.log",
+      "bytes": 1192,
+      "git_blob": "8273ee90ab712901dedd5a5883abd831d02071c8",
+      "sha256": "29f8ddfa397d1c2d7b6b319ff3df1a0e6382bf8675ea7fbb16d78ec7bb4c3351"
+    }
+  ],
+  "scope": "Executed offline refresh-method tests and Python syntax checks; not live service authentication, Lean verification or a platform verdict."
+}
