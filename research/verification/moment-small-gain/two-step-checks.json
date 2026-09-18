@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "symbolic_rational_identities": 9,
+  "complete_graphs": 41,
+  "radius_two_endpoint_checks": 164,
+  "target_distance_in_each_reference": 3,
+  "bound": "Every non-source radius-two endpoint has relative gain < 5*e.",
+  "scope": "Symbolic identities and exact finite checks supporting the separate written proof; not an additional Lean theorem or Prove2Me verdict.",
+  "source_sha256": "2422bad2b040f4024412e087645d95cc916b9fc31f0c57eef9f9a48f55c7e762"
+}
