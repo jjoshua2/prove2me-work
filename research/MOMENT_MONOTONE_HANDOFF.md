@@ -1,0 +1,13 @@
+# PR #301: ACCEPTED all-endpoint target-monotone moment routes
+
+The newer successful run supersedes the old failure status. Read the live queue and current project instructions before continuing. Do not resubmit this accepted packet.
+
+Theorem Hirsch.moment_all_endpoint_monotone_routes, b6015256-7810-4aca-b2a0-136e13ee5e9c; submission550fd8a6-18bc-4b1d-80ed-9e2f3fc1170e. Raw publication-receipt.json records ACCEPTED and authenticated publisher live Proved. Exact proofdaa1e4819bdee490620f6ed4df932fb98946cc1c, run35368293175, new trigger5732935324, acknowledgement5732937598, verdict5732990367. Gate/verify/publish completed successfully; all three compiler exits are0 and all five transitive reports contain only standard logical axioms. This was the second compiler gate and first actual platform submission. The only source repair is the explicit domain type of the target-score linear map at line1134; statements, hypotheses, bound, dependencies and metadata are unchanged.
+
+The original failed run35363756565, its source and diagnostics remain historical evidence, not a current failure. The previous handoff is archived unchanged at verification/moment-monotone/pre-acceptance-handoff.md. Prior accidental upload/rollback history remains preserved. No proof was changed during acceptance integration, no workflow was triggered again, and no credentials or permissions were changed.
+
+The accepted theorem derives actual improving release pivots and a unique target-score maximizer, then constructs a complete route via finite ascent and the accepted exact vertex catalogue. All endpoints are allowed, including negative-mean and nonconsecutive vertices. Every edge is nondegenerate and exposed in the original H set; acquired target rows remain tight. The bound L<choose(m,d) may be exponential. This is neither shortestness, full nonrevisiting nor unrestricted Polynomial Hirsch.
+
+Raw audit, manifest, full driver log, exact statement and authenticated receipt are now durable repository files. The exported original archives and all five frozen hashes were checked. Local Lean is absent; hosted compilation is the actual evidence. No new rational tests or direct platform/root poll is claimed by this evidence-only integration.
+
+The current continuation is taking a distinct quantitative-neighbor transport lemma: express target displacement in terms of actual edge displacements and derive an improvement fraction from the constructed total weight. That mass is NOT assumed polynomially bounded. #300's separated-pair route and #302's even-gap catalogue are separately owned and untouched. Reserved #210 remains untouched. Root STATUS is not overwritten; use this handoff and live receipts over its older snapshot.

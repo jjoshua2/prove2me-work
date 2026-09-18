@@ -1,0 +1,15 @@
+{
+  "head_sha": "daa1e4819bdee490620f6ed4df932fb98946cc1c",
+  "packets": [
+    {
+      "packet": "moment_monotone_allpairs",
+      "status": "ACCEPTED",
+      "theorem_id": "b6015256-7810-4aca-b2a0-136e13ee5e9c",
+      "submission_id": "550fd8a6-18bc-4b1d-80ed-9e2f3fc1170e",
+      "theorem_name": "Hirsch.moment_all_endpoint_monotone_routes",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/moment_monotone_allpairs"
+    }
+  ]
+}
