@@ -1,0 +1,17 @@
+{
+  "kind": "derived_repair_source_check",
+  "local_lean_compile": false,
+  "original_blob": "f1496d3605dc61caf85d5465176544dc00f5e125",
+  "corrected_blob": "36d626c9e9dc495a8866cb4eec6528bcec6b7668",
+  "corrected_sha256": "f92e3db7370b14aad8c27fe6648891742b4ed47f7c3def06ac9bb232878f472f",
+  "corrected_bytes": 16004,
+  "corrected_lines": 382,
+  "saved_proposal_byte_identical": true,
+  "public_statement_and_assembly_unchanged": true,
+  "exact_target_signature_match": true,
+  "patch_apply_and_reverse_check": true,
+  "metadata_hashes": {
+    "problem.json": "39fe2923d25dbf899e1e40a44e8da64f994be5d89a292d277db91f56cbda0693",
+    "explanation.md": "c17c07c910eea39ce42649f18294d62f5a9ac202b9b931f15b42a2b91a0d7787"
+  }
+}

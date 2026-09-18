@@ -1,0 +1,15 @@
+{
+  "head_sha": "ba1b6db2200e659bfd2970ca635da800a3dd0d51",
+  "packets": [
+    {
+      "packet": "alternating_complement_routes",
+      "status": "ACCEPTED",
+      "theorem_id": "640da3d5-6767-4a08-bdbc-70be357466af",
+      "submission_id": "1bc5e00d-3233-4c03-a914-8c8ec6168272",
+      "theorem_name": "Hirsch.alternating_complement_exchange_routes",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/alternating_complement_routes"
+    }
+  ]
+}

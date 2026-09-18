@@ -1,0 +1,25 @@
+{
+  "head_sha": "ba1b6db2200e659bfd2970ca635da800a3dd0d51",
+  "packets": [
+    {
+      "path": "research/publication_packets/alternating_complement_routes",
+      "name": "alternating_complement_routes",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "f92e3db7370b14aad8c27fe6648891742b4ed47f7c3def06ac9bb232878f472f",
+        "driver.lean": "f92e3db7370b14aad8c27fe6648891742b4ed47f7c3def06ac9bb232878f472f",
+        "statement.lean": "f8bb6f2b02b984d403ac9f4df0bea9fe3f06f5ffb704feb2349beff34a3eeef1",
+        "problem.json": "39fe2923d25dbf899e1e40a44e8da64f994be5d89a292d277db91f56cbda0693",
+        "explanation.md": "c17c07c910eea39ce42649f18294d62f5a9ac202b9b931f15b42a2b91a0d7787"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}
