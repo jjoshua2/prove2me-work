@@ -582,7 +582,9 @@ private lemma parameter_bounds (e : ℝ) (he : 0 < e) (he4 : e < 1/4) :
 private lemma nodes_injective (e : ℝ) (he : 0 < e) (he4 : e < 1/4) :
     Function.Injective (nodes e) := by
   intro i j hij
-  fin_cases i <;> fin_cases j <;> norm_num [nodes] at hij ⊢ <;> linarith
+  fin_cases i <;> fin_cases j <;> first
+  | rfl
+  | (norm_num [nodes] at hij <;> linarith)
 
 private lemma row_formula (e : ℝ) (x : Fin 2 → ℝ) (i : Fin 6) :
     row (nodes e) x i = (nodes e i-e)*x 0 +
@@ -594,9 +596,10 @@ private lemma slack_table (e : ℝ) (he : 0 < e) (he4 : e < 1/4)
     (p : Fin 5) (i : Fin 6) :
     1-row (nodes e) (pt e p) i = sl e p i := by
   obtain ⟨he2,h1,h2,h3,hD,hE,hF,hG⟩ := parameter_bounds e he he4
+  have hF' : (2 - e^2*7 : ℝ) ≠ 0 := by nlinarith
   rw [row_formula]
   fin_cases p <;> fin_cases i <;> norm_num [pt, sl, nodes] <;>
-    field_simp [ne_of_gt hD, ne_of_gt hE, ne_of_gt hF, ne_of_gt hG] <;> ring
+    field_simp [ne_of_gt hD, ne_of_gt hE, ne_of_gt hF, hF', ne_of_gt hG] <;> ring
 
 private lemma slack_spec (e : ℝ) (he : 0 < e) (he4 : e < 1/4)
     (p : Fin 5) (i : Fin 6) :
@@ -604,10 +607,11 @@ private lemma slack_spec (e : ℝ) (he : 0 < e) (he4 : e < 1/4)
   obtain ⟨he2,h1,h2,h3,hD,hE,hF,hG⟩ := parameter_bounds e he he4
   by_cases hi : i ∈ roots p
   · have hz : sl e p i = 0 := by
-      fin_cases p <;> fin_cases i <;> norm_num [roots, sl] at hi ⊢
+      fin_cases p <;> fin_cases i <;> norm_num [roots, sl] at hi <;> norm_num [roots, sl]
     exact ⟨by simpa only [hz] using (le_refl (0 : ℝ)), iff_of_true hz hi⟩
   · have hs : 0 < sl e p i := by
-      fin_cases p <;> fin_cases i <;> norm_num [roots, sl] at hi ⊢ <;> positivity
+      fin_cases p <;> fin_cases i <;> norm_num [roots, sl] at hi <;>
+        norm_num [roots, sl] <;> positivity
     exact ⟨hs.le, iff_of_false (ne_of_gt hs) hi⟩
 
 private lemma point_geometry (e : ℝ) (he : 0 < e) (he4 : e < 1/4)
@@ -632,7 +636,7 @@ private lemma point_geometry (e : ℝ) (he : 0 < e) (he4 : e < 1/4)
     · intro h
       have hz := hs.mpr h
       linarith
-  have hc : (roots p).card = 2 := by fin_cases p <;> norm_num [roots]
+  have hc : (roots p).card = 2 := by fin_cases p <;> decide
   exact ⟨(extreme_iff_tight_card (nodes e) (nodes_injective e he he4)
     (by norm_num : 2 < 6) (pt e p)).mpr ⟨hfeas, by rw [hact,hc]⟩,hact⟩
 
@@ -693,8 +697,18 @@ private lemma displacement (e : ℝ) (he : 0 < e) (he4 : e < 1/4)
   have hE : 0 < 1+10*e^2 := by positivity
   rw [row_formula, row_formula]
   funext j
-  fin_cases j <;>
-    norm_num [pt,nodes,Pi.sub_apply,Pi.add_apply,Pi.smul_apply,smul_eq_mul] <;>
+  fin_cases j
+  · change z 0 - 9*e/(1+4*e^2) =
+      ((1-((2*e-e)*z 0+((2*e)^2-(1+7*e^2)/3)*z 1))/(6*e^2/(1+4*e^2))) *
+        (3*e/(1+4*e^2)-9*e/(1+4*e^2)) +
+      ((1-((e-e)*z 0+(e^2-(1+7*e^2)/3)*z 1))/(6*e^2/(1+10*e^2))) *
+        (15*e/(1+10*e^2)-9*e/(1+4*e^2))
+    field_simp [ne_of_gt he,ne_of_gt hD,ne_of_gt hE] <;> ring
+  · change z 1 - (-3/(1+4*e^2)) =
+      ((1-((2*e-e)*z 0+((2*e)^2-(1+7*e^2)/3)*z 1))/(6*e^2/(1+4*e^2))) *
+        (-3/(1+4*e^2)-(-3/(1+4*e^2))) +
+      ((1-((e-e)*z 0+(e^2-(1+7*e^2)/3)*z 1))/(6*e^2/(1+10*e^2))) *
+        (-3/(1+10*e^2)-(-3/(1+4*e^2)))
     field_simp [ne_of_gt he,ne_of_gt hD,ne_of_gt hE] <;> ring
 
 /-- Completeness: there are exactly these two exposed original-edge neighbors.
@@ -708,8 +722,8 @@ theorem neighbors (e : ℝ) (he : 0 < e) (he4 : e < 1/4) (z : Fin 2 → ℝ) :
   have hu := (point_geometry e he he4 0).1
   have hl := (point_geometry e he he4 1).1
   have hr := (point_geometry e he he4 2).1
-  have el := edge_slice e he he4 0 1 (by norm_num [roots])
-  have er := edge_slice e he he4 0 2 (by norm_num [roots])
+  have el := edge_slice e he he4 0 1 (by decide)
+  have er := edge_slice e he he4 0 2 (by decide)
   constructor
   · rintro ⟨hz,hzu,hexp⟩
     by_cases h2 : row (nodes e) z 2=1
@@ -717,7 +731,10 @@ theorem neighbors (e : ℝ) (he : 0 < e) (he4 : e < 1/4) (z : Fin 2 → ℝ) :
         rw [← el.2]
         refine ⟨hz.1,?_⟩
         intro i hi
-        have hi2 : i=2 := by fin_cases i <;> norm_num [roots] at hi ⊢
+        have hi2 : i=2 := by
+          have hset : roots 0 ∩ roots 1 = {(2 : Fin 6)} := by decide
+          rw [hset] at hi
+          exact Finset.mem_singleton.mp hi
         simpa only [hi2] using h2
       rcases extreme_segment_endpoints P (pt e 0) (pt e 1) z hu.1 hl.1 hz hmem with h | h
       · exact False.elim (hzu h)
@@ -727,7 +744,10 @@ theorem neighbors (e : ℝ) (he : 0 < e) (he4 : e < 1/4) (z : Fin 2 → ℝ) :
           rw [← er.2]
           refine ⟨hz.1,?_⟩
           intro i hi
-          have hi3 : i=3 := by fin_cases i <;> norm_num [roots] at hi ⊢
+          have hi3 : i=3 := by
+            have hset : roots 0 ∩ roots 2 = {(3 : Fin 6)} := by decide
+            rw [hset] at hi
+            exact Finset.mem_singleton.mp hi
           simpa only [hi3] using h3
         rcases extreme_segment_endpoints P (pt e 0) (pt e 2) z hu.1 hr.1 hz hmem with h | h
         · exact False.elim (hzu h)
@@ -769,7 +789,7 @@ theorem neighbors (e : ℝ) (he : 0 < e) (he4 : e < 1/4) (z : Fin 2 → ℝ) :
         · have hL2 : row (nodes e) (pt e 1) 2=1 := by
             apply (mem_active (nodes e) (pt e 1) 2).mp
             rw [(point_geometry e he he4 1).2]
-            norm_num [roots]
+            decide
           exact False.elim (h2 (h ▸ hL2))
   · rintro (rfl | rfl)
     · exact ⟨hl,different_points e he he4 1 0 (by decide),el.1⟩
@@ -778,20 +798,32 @@ theorem neighbors (e : ℝ) (he : 0 < e) (he4 : e < 1/4) (z : Fin 2 → ℝ) :
 private def score (e : ℝ) (x : Fin 2 → ℝ) : ℝ :=
   row (nodes e) x 0 + row (nodes e) x 5
 
+private lemma score_formula (e : ℝ) (x : Fin 2 → ℝ) :
+    score e x = (-2*e)*x 0 + ((4-14*e^2)/3)*x 1 := by
+  unfold score
+  rw [row_formula, row_formula]
+  change ((-1-e)*x 0+(((-1 : ℝ)^2-(1+7*e^2)/3)*x 1)) +
+    ((1-e)*x 0+(((1 : ℝ)^2-(1+7*e^2)/3)*x 1)) =
+      (-2*e)*x 0+((4-14*e^2)/3)*x 1
+  ring
+
 private lemma score_values (e : ℝ) (he : 0 < e) (he4 : e < 1/4) :
     score e (pt e 3)-score e (pt e 0) = 6*(1+2*e^2)/(1+4*e^2) ∧
     score e (pt e 1)-score e (pt e 0) = 12*e^2/(1+4*e^2) ∧
     score e (pt e 2)-score e (pt e 0) =
       12*e^2*(1-2*e^2)/((1+4*e^2)*(1+10*e^2)) := by
   obtain ⟨he2,h1,h2,h3,hD,hE,hF,hG⟩ := parameter_bounds e he he4
-  dsimp only [score]
-  simp_rw [row_formula]
+  simp_rw [score_formula]
+  change ((-2*e)*(0)+((4-14*e^2)/3)*(3/(2-7*e^2))) -
+      ((-2*e)*(9*e/(1+4*e^2))+((4-14*e^2)/3)*(-3/(1+4*e^2))) = 6*(1+2*e^2)/(1+4*e^2) ∧
+    ((-2*e)*(3*e/(1+4*e^2))+((4-14*e^2)/3)*(-3/(1+4*e^2))) -
+      ((-2*e)*(9*e/(1+4*e^2))+((4-14*e^2)/3)*(-3/(1+4*e^2))) = 12*e^2/(1+4*e^2) ∧
+    ((-2*e)*(15*e/(1+10*e^2))+((4-14*e^2)/3)*(-3/(1+10*e^2))) -
+      ((-2*e)*(9*e/(1+4*e^2))+((4-14*e^2)/3)*(-3/(1+4*e^2))) =
+        12*e^2*(1-2*e^2)/((1+4*e^2)*(1+10*e^2))
   constructor
-  · norm_num [pt,nodes]
-    field_simp [ne_of_gt hD,ne_of_gt hF]
-    <;> ring
-  · constructor <;> norm_num [pt,nodes] <;>
-      field_simp [ne_of_gt hD,ne_of_gt hE] <;> ring
+  · field_simp [ne_of_gt hD,ne_of_gt hF] <;> ring
+  · constructor <;> field_simp [ne_of_gt hD,ne_of_gt hE] <;> ring
 
 /-- Both actual neighbor gains, not only a weighted lower guarantee, are small. -/
 theorem gain_bounds (e : ℝ) (he : 0 < e) (he4 : e < 1/4) :
@@ -843,15 +875,19 @@ theorem three_edge_route (e : ℝ) (he : 0 < e) (he4 : e < 1/4) :
   let r : Fin 4 → (Fin 2 → ℝ) := ![pt e 0,pt e 1,pt e 4,pt e 3]
   refine ⟨r,rfl,rfl,?_,?_⟩
   · intro i
-    fin_cases i <;> exact (point_geometry e he he4 _).1
+    fin_cases i
+    · exact (point_geometry e he he4 0).1
+    · exact (point_geometry e he he4 1).1
+    · exact (point_geometry e he he4 4).1
+    · exact (point_geometry e he he4 3).1
   · intro i
     fin_cases i
     · exact ⟨different_points e he he4 0 1 (by decide),
-        (edge_slice e he he4 0 1 (by norm_num [roots])).1⟩
+        (edge_slice e he he4 0 1 (by decide)).1⟩
     · exact ⟨different_points e he he4 1 4 (by decide),
-        (edge_slice e he he4 1 4 (by norm_num [roots])).1⟩
+        (edge_slice e he he4 1 4 (by decide)).1⟩
     · exact ⟨different_points e he he4 4 3 (by decide),
-        (edge_slice e he he4 4 3 (by norm_num [roots])).1⟩
+        (edge_slice e he he4 4 3 (by decide)).1⟩
 
 end Hirsch.SmallGain
 
