@@ -277,7 +277,6 @@ lemma extreme_kernel {d m : ℕ} (a : Fin m → ℝ) (x : Fin d → ℝ)
       exact ⟨hx.1 i,hx.1 i⟩
     · have hs : i ∈ S := Finset.mem_filter.mpr ⟨Finset.mem_univ i,hi⟩
       have hb := hsmall i hs
-      have hlo := mul_le_mul_of_nonneg_of_nonpos
       have hlo := mul_le_mul_of_nonneg_left (neg_abs_le (row a z i)) he.le
       have hhi := mul_le_mul_of_nonneg_left (le_abs_self (row a z i)) he.le
       simp only [row_add, row_sub, row_smul]
@@ -527,7 +526,7 @@ theorem exposed_edge {d m : ℕ} (a : Fin m → ℝ)
   · intro hz
     have hzC : (∀ i, row a z i ≤ 1) ∧ ∀ i ∈ C, row a z i = 1 := by
       rw [← heq] at hz
-      exact hz
+      exact hzC
     refine ⟨hzC.1, ?_⟩
     intro w hw
     change (∑ i ∈ C, row a w i) ≤ ∑ i ∈ C, row a z i
