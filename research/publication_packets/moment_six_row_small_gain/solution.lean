@@ -607,11 +607,67 @@ private lemma slack_spec (e : ℝ) (he : 0 < e) (he4 : e < 1/4)
   obtain ⟨he2,h1,h2,h3,hD,hE,hF,hG⟩ := parameter_bounds e he he4
   by_cases hi : i ∈ roots p
   · have hz : sl e p i = 0 := by
-      fin_cases p <;> fin_cases i <;> norm_num [roots, sl] at hi <;> norm_num [roots, sl]
+      fin_cases p <;> fin_cases i <;> first
+      | rfl
+      | (exfalso; revert hi; decide)
     exact ⟨by simpa only [hz] using (le_refl (0 : ℝ)), iff_of_true hz hi⟩
   · have hs : 0 < sl e p i := by
-      fin_cases p <;> fin_cases i <;> norm_num [roots, sl] at hi <;>
-        norm_num [roots, sl] <;> positivity
+      fin_cases p
+      · fin_cases i
+        · change (0 : ℝ) < 3*(e+1)*(2*e+1)/(1+4*e^2)
+          positivity
+        · change (0 : ℝ) < 6*e^2/(1+4*e^2)
+          positivity
+        · exact False.elim (hi (by decide))
+        · exact False.elim (hi (by decide))
+        · change (0 : ℝ) < 6*e^2/(1+4*e^2)
+          positivity
+        · change (0 : ℝ) < 3*(1-e)*(1-2*e)/(1+4*e^2)
+          positivity
+      · fin_cases i
+        · change (0 : ℝ) < 3*(e+1)/(1+4*e^2)
+          positivity
+        · exact False.elim (hi (by decide))
+        · exact False.elim (hi (by decide))
+        · change (0 : ℝ) < 6*e^2/(1+4*e^2)
+          positivity
+        · change (0 : ℝ) < 18*e^2/(1+4*e^2)
+          positivity
+        · change (0 : ℝ) < 3*(1-e)/(1+4*e^2)
+          positivity
+      · fin_cases i
+        · change (0 : ℝ) < 3*(2*e+1)*(3*e+1)/(1+10*e^2)
+          positivity
+        · change (0 : ℝ) < 18*e^2/(1+10*e^2)
+          positivity
+        · change (0 : ℝ) < 6*e^2/(1+10*e^2)
+          positivity
+        · exact False.elim (hi (by decide))
+        · exact False.elim (hi (by decide))
+        · change (0 : ℝ) < 3*(1-2*e)*(1-3*e)/(1+10*e^2)
+          positivity
+      · fin_cases i
+        · exact False.elim (hi (by decide))
+        · change (0 : ℝ) < 3/(2-7*e^2)
+          positivity
+        · change (0 : ℝ) < 3*(1-e)*(1+e)/(2-7*e^2)
+          positivity
+        · change (0 : ℝ) < 3*(1-2*e)*(1+2*e)/(2-7*e^2)
+          positivity
+        · change (0 : ℝ) < 3*(1-3*e)*(1+3*e)/(2-7*e^2)
+          positivity
+        · exact False.elim (hi (by decide))
+      · fin_cases i
+        · exact False.elim (hi (by decide))
+        · exact False.elim (hi (by decide))
+        · change (0 : ℝ) < 3*e*(e+1)/(1+3*e+7*e^2)
+          positivity
+        · change (0 : ℝ) < 6*e*(2*e+1)/(1+3*e+7*e^2)
+          positivity
+        · change (0 : ℝ) < 9*e*(3*e+1)/(1+3*e+7*e^2)
+          positivity
+        · change (0 : ℝ) < 6/(1+3*e+7*e^2)
+          positivity
     exact ⟨hs.le, iff_of_false (ne_of_gt hs) hi⟩
 
 private lemma point_geometry (e : ℝ) (he : 0 < e) (he4 : e < 1/4)
@@ -813,6 +869,7 @@ private lemma score_values (e : ℝ) (he : 0 < e) (he4 : e < 1/4) :
     score e (pt e 2)-score e (pt e 0) =
       12*e^2*(1-2*e^2)/((1+4*e^2)*(1+10*e^2)) := by
   obtain ⟨he2,h1,h2,h3,hD,hE,hF,hG⟩ := parameter_bounds e he he4
+  have hF' : (2 - e^2*7 : ℝ) ≠ 0 := by nlinarith
   simp_rw [score_formula]
   change ((-2*e)*(0)+((4-14*e^2)/3)*(3/(2-7*e^2))) -
       ((-2*e)*(9*e/(1+4*e^2))+((4-14*e^2)/3)*(-3/(1+4*e^2))) = 6*(1+2*e^2)/(1+4*e^2) ∧
@@ -822,7 +879,7 @@ private lemma score_values (e : ℝ) (he : 0 < e) (he4 : e < 1/4) :
       ((-2*e)*(9*e/(1+4*e^2))+((4-14*e^2)/3)*(-3/(1+4*e^2))) =
         12*e^2*(1-2*e^2)/((1+4*e^2)*(1+10*e^2))
   constructor
-  · field_simp [ne_of_gt hD,ne_of_gt hF] <;> ring
+  · field_simp [ne_of_gt hD,ne_of_gt hF,hF'] <;> ring
   · constructor <;> field_simp [ne_of_gt hD,ne_of_gt hE] <;> ring
 
 /-- Both actual neighbor gains, not only a weighted lower guarantee, are small. -/
