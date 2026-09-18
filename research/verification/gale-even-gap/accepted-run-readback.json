@@ -1,0 +1,89 @@
+{
+  "kind": "derived_successful_run_and_artifact_readback",
+  "pr": 307,
+  "proof_sha": "51c9e816f184dfda03b5373eaf91a69c06223b82",
+  "trusted_workflow_main": "fcb4dae2a66cd420a181c5412e369ec4b0f744b8",
+  "run_id": 35406946336,
+  "trigger_comment": 5737529297,
+  "acknowledgement_comment": 5737530443,
+  "verdict_comment": 5737555526,
+  "verdict_comment_created_at": "2026-09-18T23:50:08Z",
+  "jobs": {
+    "gate": {
+      "id": 105798546233,
+      "conclusion": "success"
+    },
+    "verify": {
+      "id": 105798581827,
+      "conclusion": "success"
+    },
+    "publish": {
+      "id": 105798905452,
+      "conclusion": "success"
+    },
+    "report-verify": {
+      "id": 105798906247,
+      "conclusion": "skipped"
+    }
+  },
+  "compile_exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "audited_declarations": [
+    "Hirsch.GaleGapRoutes.rank_balance",
+    "Hirsch.GaleGapRoutes.even_gaps_iff_phase",
+    "Hirsch.GaleGapRoutes.enumerate_complement",
+    "Hirsch.GaleGapRoutes.selected_routes",
+    "solution"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "authenticated_status": "ACCEPTED",
+  "publisher_live_status": "Proved",
+  "theorem_id": "1c79c95a-8107-4b7d-a81d-c1d120448924",
+  "submission_id": "e6fb5adf-6d0f-468f-aa35-1409f6fdb263",
+  "first_failed_run": 35402347556,
+  "compiler_gates_total": 2,
+  "new_gates_this_turn": 1,
+  "first_actual_platform_submission": true,
+  "only_proof_change": "One rfl after image_image in enumerate_complement",
+  "all_assumptions_public_statement_assembly_and_metadata_unchanged": true,
+  "previous_blocked_commit_created_no_run": true,
+  "normal_commit_and_ref_actions_succeeded": true,
+  "all_five_frozen_file_hashes_match": true,
+  "all_four_archive_hashes_match": true,
+  "separate_direct_platform_poll": false,
+  "raw_individual_platform_api_bodies_exported": false,
+  "publisher_log_read_through_verdict_upload_and_comment": true,
+  "artifacts": [
+    {
+      "artifact_id": 10570712987,
+      "file": "publish-request.zip",
+      "bytes": 310,
+      "sha256": "48df3df0721b6250b8787ab3470ec96ca67e9e5b80efca2992df876c8fdd32a0"
+    },
+    {
+      "artifact_id": 10573080796,
+      "file": "resume-request.zip",
+      "bytes": 309,
+      "sha256": "12058fb798225ec87fe2cfb652b0adeab71f5808ca06566ee233757391de5105"
+    },
+    {
+      "artifact_id": 10572612458,
+      "file": "resume-verified-packets.zip",
+      "bytes": 22382,
+      "sha256": "b8571953d191a1cfa6d9733357ec80ef909f9f72c39e063d329b0b62d9225c08"
+    },
+    {
+      "artifact_id": 10573096221,
+      "file": "resume-publication.zip",
+      "bytes": 903,
+      "sha256": "68ac2b21cefb269a45f3c6b879356dcb7e15b1f1b80052939933592f989a5466"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "kind": "current_accepted_dependency_recheck",
+  "source_commit": "ba1b6db2200e659bfd2970ca635da800a3dd0d51",
+  "all_five_manifest_hashes_match": {
+    "solution.lean": true,
+    "driver.lean": true,
+    "statement.lean": true,
+    "problem.json": true,
+    "explanation.md": true
+  },
+  "proof_reuse_exact_except_root_alias_and_omitted_prints": true,
+  "namespace_and_proof_bodies_unchanged": true,
+  "fresh_platform_poll": false
+}
