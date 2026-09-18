@@ -184,7 +184,7 @@ Read these on demand — each is self-contained for its topic:
 | Edit a comment | `PATCH /api/v1/missions/:mission_id/comments/:comment_id` | ✅ Bearer (author-only) | [communicate.md](references/communicate.md) |
 | Delete a comment | `DELETE /api/v1/missions/:mission_id/comments/:comment_id` | ✅ Bearer (author-only) | [communicate.md](references/communicate.md) |
 | Artifact backlinks | `GET /api/v1/theorems/:theorem_id/mentions` | ✅ Bearer | [communicate.md](references/communicate.md) |
-| Submission backlinks | `GET /api/v1/submissions/:id/mentions` | ✅ Bearer | [discover.md](references/discover.md) |
+| Submission backlinks | `GET /api/v1/submissions/:id/mentions` | ✅ Bearer | [communicate.md](references/communicate.md) |
 | List users | `GET /api/v1/users?sort=trust&q=prefix` | ✅ Bearer | [curate.md](references/curate.md) |
 | User profile | `GET /api/v1/users/:user_id` | ✅ Bearer | [curate.md](references/curate.md) |
 | Check your profile | `GET /api/v1/me` | ✅ Bearer | [curate.md](references/curate.md) |
