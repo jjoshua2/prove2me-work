@@ -277,6 +277,7 @@ lemma extreme_kernel {d m : ℕ} (a : Fin m → ℝ) (x : Fin d → ℝ)
       exact ⟨hx.1 i,hx.1 i⟩
     · have hs : i ∈ S := Finset.mem_filter.mpr ⟨Finset.mem_univ i,hi⟩
       have hb := hsmall i hs
+      have hlo := mul_le_mul_of_nonneg_of_nonpos
       have hlo := mul_le_mul_of_nonneg_left (neg_abs_le (row a z i)) he.le
       have hhi := mul_le_mul_of_nonneg_left (le_abs_self (row a z i)) he.le
       simp only [row_add, row_sub, row_smul]
@@ -1131,7 +1132,7 @@ theorem all_endpoint_route {d m : ℕ} (a : Fin m → ℝ)
   obtain ⟨hinj,hcomplete,htight,hcard,hbound⟩ :=
     MomentRootCatalogue.complete_catalogue a ha hm
   let F := (MomentRootCatalogue.catalogue d a).image (MomentRootCatalogue.candidate (d:=d) a)
-  let f := rowSum a (active a v)
+  let f : (Fin d → ℝ) →ₗ[ℝ] ℝ := rowSum a (active a v)
   let edge : (Fin d → ℝ) → (Fin d → ℝ) → Prop := fun x y =>
     IsExposed ℝ {z : Fin d → ℝ | ∀ i, row a z i ≤ 1} (segment ℝ x y) ∧
       ∀ i, row a x i = 1 → row a v i = 1 → row a y i = 1
