@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "report_and_fixture_byte_identical": true,
+  "files": [
+    {
+      "file": "report.json",
+      "bytes": 3548,
+      "sha256": "05114a9296c14bd680d1c14279c4cad0262789a9c861e152d6ba053bfd81a2b7"
+    },
+    {
+      "file": "fixtures.json",
+      "bytes": 31652,
+      "sha256": "f72f0b9698aa24f254ce0af05cb4f2fed97dffa1c370106015c08ce514a7ea44"
+    }
+  ],
+  "scope": "Exact rational replay, not Lean verification."
+}

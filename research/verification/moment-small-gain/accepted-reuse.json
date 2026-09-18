@@ -1,0 +1,9 @@
+{
+  "kind": "derived_accepted_prefix_readback",
+  "source_git_blob": "6d3b107ba24b08e9562ab8c132a093274f823a9d",
+  "prefix_lines": 544,
+  "prefix_bytes": 22583,
+  "prefix_sha256": "6a69e4198dd66e4890bb2d3d4be230a18bfc9f95c2a5487ac602e8f5b49e10b5",
+  "byte_identical": true,
+  "all_five_dependency_manifest_hashes_match": true
+}
