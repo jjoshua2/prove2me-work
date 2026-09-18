@@ -1,0 +1,11 @@
+--- first-gate/solution.lean
++++ dimension-annotation/solution.lean
+@@ -1131,7 +1131,7 @@
+   obtain ⟨hinj,hcomplete,htight,hcard,hbound⟩ :=
+     MomentRootCatalogue.complete_catalogue a ha hm
+   let F := (MomentRootCatalogue.catalogue d a).image (MomentRootCatalogue.candidate (d:=d) a)
+-  let f := rowSum a (active a v)
++  let f : (Fin d → ℝ) →ₗ[ℝ] ℝ := rowSum a (active a v)
+   let edge : (Fin d → ℝ) → (Fin d → ℝ) → Prop := fun x y =>
+     IsExposed ℝ {z : Fin d → ℝ | ∀ i, row a z i ≤ 1} (segment ℝ x y) ∧
+       ∀ i, row a x i = 1 → row a v i = 1 → row a y i = 1

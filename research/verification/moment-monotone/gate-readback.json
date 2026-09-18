@@ -1,0 +1,37 @@
+{
+  "acknowledgement_comment": 5732376984,
+  "authenticated_status": null,
+  "core_helpers_with_standard_axiom_reports": [
+    "Hirsch.MomentMonotone.improving_pivot",
+    "Hirsch.MomentMonotone.target_score_strict",
+    "Hirsch.MomentMonotone.finite_ascent"
+  ],
+  "driver_exit_code": 1,
+  "failed_root_reports_include_sorryAx": true,
+  "final_source_restored_to_gated_blob": "692a0caf76f2629636f6032a45095c830f8b734f",
+  "hosted_attempts": 1,
+  "intermediate_upload_mismatches_never_gated": true,
+  "job_id": 105661161544,
+  "jobs": {
+    "gate": "success",
+    "publish": "skipped",
+    "report_verify": "skipped",
+    "verify": "failure"
+  },
+  "kind": "derived_failed_comment_gate",
+  "pr": 301,
+  "primary_error": "Cannot infer implicit dimension d in local target-score linear map.",
+  "primary_error_line": 1134,
+  "proof_head": "d06f6e65463a24a1d13434d4cf1e16136de67f42",
+  "proposed_annotation_Lean_tested": false,
+  "publisher_live_status": null,
+  "request_artifact_id": 10554514822,
+  "request_zip_sha256": "3fd6c09081817b6f83baeb0e383e1d3a6a98913280baa266c160c28ba777a4fc",
+  "run_id": 35363756565,
+  "submission_id": null,
+  "theorem_id": null,
+  "trigger_comment": 5732373666,
+  "trusted_main": "539e0b0bd255682ff1115cf9d3e1c54b6822db2a",
+  "verified_artifact": null,
+  "whole_packet_verified": false
+}

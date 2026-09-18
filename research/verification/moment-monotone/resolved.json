@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/moment_monotone_allpairs"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "d06f6e65463a24a1d13434d4cf1e16136de67f42",
+  "pr": "301"
+}

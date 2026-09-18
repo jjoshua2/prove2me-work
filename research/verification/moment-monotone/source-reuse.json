@@ -1,0 +1,13 @@
+{
+  "accepted_catalogue_blob": "e0886b346742e7860463425a69e2a0ec5f90eff1",
+  "accepted_release_blob": "96f7a84e0f62433991e3fef24cf1b33992508d07",
+  "catalogue_namespace_sha256": "033aae2dcfe881681d0185a34f0c21ed2b469f3e91d149f69d1b3399e6da37ce",
+  "kind": "derived_exact_dependency_reuse",
+  "local_Lean": false,
+  "proof_sha": "d06f6e65463a24a1d13434d4cf1e16136de67f42",
+  "release_prefix_sha256": "a1734174fb7ad48ffdd6602413c390d192cd6b24cff9401d97d832b087cdf2e9",
+  "release_prefix_unchanged": true,
+  "root_catalogue_namespace_unchanged": true,
+  "solution_sha256": "ac4ced1386a54343864fa66d80e086fe286016726ffb3f7ef81724381fbcd34d",
+  "source_method": "Previous conversation archives, matched to current remote Git blobs and accepted receipts."
+}

@@ -1,0 +1,19 @@
+Selected exact lines from decoded verify-job105661161544 in run35363756565.
+This is an EXCERPT, not a full runner log. Bracketed omissions are explicit.
+
+2026-09-18T15:40:26.9404669Z Lake version 5.0.0-src+d024af0 (Lean version 4.30.0)
+[... setup and inherited linter warnings omitted ...]
+2026-09-18T15:40:40.0246351Z moment_monotone_allpairs/driver.lean failed to compile:
+[... warnings omitted ...]
+2026-09-18T15:40:40.0279168Z _verified/packets/moment_monotone_allpairs/driver.lean:1134:11: error: don't know how to synthesize implicit argument `d`
+2026-09-18T15:40:40.0279722Z   @rowSum ?m.180 m a (active a v)
+[... local context omitted ...]
+2026-09-18T15:40:40.0288394Z _verified/packets/moment_monotone_allpairs/driver.lean:1134:6: error: failed to infer `let` declaration type
+2026-09-18T15:40:40.0289517Z _verified/packets/moment_monotone_allpairs/driver.lean:1129:74: error: unsolved goals
+[... resulting final assembly goal omitted ...]
+2026-09-18T15:40:40.0310009Z 'Hirsch.MomentMonotone.improving_pivot' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-18T15:40:40.0311141Z 'Hirsch.MomentMonotone.target_score_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-18T15:40:40.0311868Z 'Hirsch.MomentMonotone.finite_ascent' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-18T15:40:40.0312585Z 'Hirsch.MomentMonotone.all_endpoint_route' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-18T15:40:40.0313247Z 'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-18T15:40:40.0332411Z ##[error]Process completed with exit code 1.

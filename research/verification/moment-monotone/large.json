@@ -1,0 +1,65 @@
+{
+  "records": [
+    {
+      "acquired_target_rows_never_lost": true,
+      "decompositions": 1,
+      "dimension": 8,
+      "edges": 1,
+      "labels": 17,
+      "status": "PASS",
+      "vertices": 2
+    },
+    {
+      "acquired_target_rows_never_lost": true,
+      "decompositions": 4,
+      "dimension": 8,
+      "edges": 4,
+      "labels": 17,
+      "status": "PASS",
+      "vertices": 5
+    },
+    {
+      "acquired_target_rows_never_lost": true,
+      "decompositions": 1,
+      "dimension": 12,
+      "edges": 1,
+      "labels": 25,
+      "status": "PASS",
+      "vertices": 2
+    },
+    {
+      "acquired_target_rows_never_lost": true,
+      "decompositions": 6,
+      "dimension": 12,
+      "edges": 6,
+      "labels": 25,
+      "status": "PASS",
+      "vertices": 7
+    },
+    {
+      "acquired_target_rows_never_lost": true,
+      "decompositions": 1,
+      "dimension": 16,
+      "edges": 1,
+      "labels": 33,
+      "status": "PASS",
+      "vertices": 2
+    },
+    {
+      "acquired_target_rows_never_lost": true,
+      "decompositions": 8,
+      "dimension": 16,
+      "edges": 8,
+      "labels": 33,
+      "status": "PASS",
+      "vertices": 9
+    }
+  ],
+  "scope": "Selected actual routes only; no full large graph enumeration.",
+  "sources": {
+    "test_moment_monotone_routes.py": "d7e7de04592ac9845a6e499cd9c47644fc646eb95825eeae2157fa30f16fe662",
+    "test_moment_release_pivots.py": "97d9c98924b9c31d6f6101b226bf15ac3b1485a56b72786cd21ec604a8ab2bd0",
+    "test_moment_root_catalogue.py": "1ced63aee976a036e6036b74d71cf3524a9232ec002fac77eef31b17ae66ebda"
+  },
+  "status": "PASS"
+}

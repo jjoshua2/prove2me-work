@@ -1,0 +1,19 @@
+{
+  "discovery_disabled": true,
+  "edges": 31,
+  "records": 15,
+  "rejected": [
+    "false target",
+    "wrong target inverse",
+    "omitted step",
+    "loop",
+    "nonfirst blocker",
+    "wrong direction"
+  ],
+  "sources": {
+    "test_moment_monotone_routes.py": "d7e7de04592ac9845a6e499cd9c47644fc646eb95825eeae2157fa30f16fe662",
+    "test_moment_release_pivots.py": "97d9c98924b9c31d6f6101b226bf15ac3b1485a56b72786cd21ec604a8ab2bd0",
+    "test_moment_root_catalogue.py": "1ced63aee976a036e6036b74d71cf3524a9232ec002fac77eef31b17ae66ebda"
+  },
+  "status": "PASS"
+}

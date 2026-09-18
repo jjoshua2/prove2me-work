@@ -1,0 +1,33 @@
+{
+  "all_five_files_byte_identical": true,
+  "files": [
+    {
+      "bytes": 567,
+      "path": "audit.json",
+      "sha256": "75b3c850160389fb148ff6e1170508b958d5441e3e499df08d559d1e2b69de32"
+    },
+    {
+      "bytes": 270473,
+      "path": "large-fixtures.json",
+      "sha256": "f8a7531334d776920f1c7b7e83d070f531d91c1999384b92b5585b41ca967067"
+    },
+    {
+      "bytes": 1603,
+      "path": "large.json",
+      "sha256": "b9e51f6f85e1f9e94fbbc784f1e65e0446bcdd91e8d5c24c2c0cbe44e23710e7"
+    },
+    {
+      "bytes": 22344,
+      "path": "small-fixtures.json",
+      "sha256": "a81ba020189a2211c1ac17a0ee56a2b9d56c3823a2568d9b128521294367458e"
+    },
+    {
+      "bytes": 2324,
+      "path": "small.json",
+      "sha256": "b38ef6542bec208f102118cd7691d9e57d3408024f65f78b24604f774dbd890a"
+    }
+  ],
+  "kind": "derived_clean_three_script_replay",
+  "scope": "Exact rational software checks; not Lean verification or a polynomial route bound.",
+  "status": "PASS"
+}

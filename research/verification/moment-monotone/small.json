@@ -1,0 +1,109 @@
+{
+  "models": [
+    {
+      "dimension": 0,
+      "edges": 0,
+      "labels": 2,
+      "max_length": 0,
+      "nonshortest": 0,
+      "routes": 1,
+      "shortest_edges": 0,
+      "systems": 1,
+      "vertices": 1
+    },
+    {
+      "dimension": 1,
+      "edges": 2,
+      "labels": 4,
+      "max_length": 1,
+      "nonshortest": 0,
+      "routes": 4,
+      "shortest_edges": 2,
+      "systems": 4,
+      "vertices": 2
+    },
+    {
+      "dimension": 2,
+      "edges": 33,
+      "labels": 5,
+      "max_length": 3,
+      "nonshortest": 3,
+      "routes": 25,
+      "shortest_edges": 30,
+      "systems": 10,
+      "vertices": 5
+    },
+    {
+      "dimension": 3,
+      "edges": 91,
+      "labels": 6,
+      "max_length": 4,
+      "nonshortest": 5,
+      "routes": 60,
+      "shortest_edges": 86,
+      "systems": 20,
+      "vertices": 8
+    },
+    {
+      "dimension": 4,
+      "edges": 109,
+      "labels": 7,
+      "max_length": 4,
+      "nonshortest": 7,
+      "routes": 60,
+      "shortest_edges": 102,
+      "systems": 35,
+      "vertices": 14
+    },
+    {
+      "dimension": 4,
+      "edges": 142,
+      "labels": 8,
+      "max_length": 5,
+      "nonshortest": 6,
+      "routes": 60,
+      "shortest_edges": 135,
+      "systems": 70,
+      "vertices": 20
+    },
+    {
+      "dimension": 5,
+      "edges": 117,
+      "labels": 8,
+      "max_length": 4,
+      "nonshortest": 5,
+      "routes": 60,
+      "shortest_edges": 112,
+      "systems": 56,
+      "vertices": 20
+    },
+    {
+      "dimension": 6,
+      "edges": 133,
+      "labels": 9,
+      "max_length": 4,
+      "nonshortest": 7,
+      "routes": 60,
+      "shortest_edges": 126,
+      "systems": 84,
+      "vertices": 30
+    }
+  ],
+  "scope": "Exact finite tests, not formal verification or a polynomial step bound.",
+  "sources": {
+    "test_moment_monotone_routes.py": "d7e7de04592ac9845a6e499cd9c47644fc646eb95825eeae2157fa30f16fe662",
+    "test_moment_release_pivots.py": "97d9c98924b9c31d6f6101b226bf15ac3b1485a56b72786cd21ec604a8ab2bd0",
+    "test_moment_root_catalogue.py": "1ced63aee976a036e6036b74d71cf3524a9232ec002fac77eef31b17ae66ebda"
+  },
+  "stats": {
+    "edges": 627,
+    "models": 8,
+    "nonshortest": 33,
+    "routes": 330,
+    "shortest_edges": 593,
+    "systems": 280,
+    "target_losses": 0,
+    "vertices": 100
+  },
+  "status": "PASS"
+}
