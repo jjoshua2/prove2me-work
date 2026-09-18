@@ -1,0 +1,11 @@
+# ACCEPTED: all-endpoint target-monotone moment routes
+
+Theorem Hirsch.moment_all_endpoint_monotone_routes, ID b6015256-7810-4aca-b2a0-136e13ee5e9c; submission550fd8a6-18bc-4b1d-80ed-9e2f3fc1170e. Authenticated publisher verdict ACCEPTED, live_status Proved. Do not submit again.
+
+New top-level trigger5732935324 resolved proofdaa1e4819bdee490620f6ed4df932fb98946cc1c in acknowledgement5732937598. Run35368293175 used trusted main539e0b0bd255682ff1115cf9d3e1c54b6822db2a. Verdict5732990367 was posted2026-09-18T16:28:48Z. The publication job105676454283 was read through verdict, artifact upload and comment; a fresh job read confirms gate/verify/publish completed successfully and report-verify skipped.
+
+The original1176-line proof differs from the first failed gate only by its saved target-score domain annotation. All theorem statements, assumptions, bounds and metadata are unchanged. This was the second compiler gate and first actual platform submission. Original failure diagnostics and upload/rollback history remain intact. All three compile modes exited zero and all five final transitive reports use only propext, Classical.choice and Quot.sound. Local Lean remains absent; this is pinned hosted compilation, not Python verification.
+
+Archive digests rechecked during evidence integration: request10557022999,269e263aef6fa8f098a2c16944966c96debf6dc05ac8fd0bb4e95682c4a1be58; verified10557407833,940f08929165ff3d755edbdbaa294e513e8a7882fd25a53ced939f15af51ae9a; publication10557423478,d35492604326e4cf8477708c7d355129c7b5c710d063a17f698fe696ab7acb1a. All five manifest hashes match. Raw audit/manifest/driver log/statement/receipt are preserved here; the original archives and full two-mode logs are also retained in the conversation export. The target statement's intentional placeholder is not a proof admission. Proved is the trusted publisher's authenticated readback, not another direct platform poll or a fresh mission-root audit.
+
+The exact theorem constructs an original-edge target-monotone route between any two actual moment vertices, retaining acquired target rows and bounding length by L<choose(m,d). This may be exponential. It is not Polynomial Hirsch, shortestness or full facet-nonrevisiting. The next quantitative task is control of progress between target-row acquisitions; avoid republishing the now-closed finite-ascent assembly.
