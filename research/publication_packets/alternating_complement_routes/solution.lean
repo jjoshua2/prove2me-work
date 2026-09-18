@@ -49,48 +49,50 @@ private lemma lower_bound {r : ℕ} (h : Fin r → ℕ) (hh : StrictMono h)
       intro hn
       have hn' : n < r := by omega
       have hlo := ih hn'
-      have hlt : h ⟨n, hn'⟩ < h ⟨n+1, hn⟩ :=
-        hh (show (⟨n, hn'⟩ : Fin r) < ⟨n+1, hn⟩ from by omega)
+      have hidx : (⟨n, hn'⟩ : Fin r) < ⟨n+1, hn⟩ := by
+        change n < n+1
+        exact Nat.lt_succ_self n
+      have hlt : h ⟨n, hn'⟩ < h ⟨n+1, hn⟩ := hh hidx
       omega
   intro i
   exact aux i.val i.isLt
 
-private def prefix {r : ℕ} (b : ℕ) (h : Fin r → ℕ) (t : ℕ) : Fin r → ℕ :=
+private def packedPrefix {r : ℕ} (b : ℕ) (h : Fin r → ℕ) (t : ℕ) : Fin r → ℕ :=
   fun i => if i.val < t then b + i.val else h i
 
 private lemma prefix_legal {m r : ℕ} (h : Fin r → ℕ)
     (hh : StrictMono h) (hm : ∀ i, h i < m)
     (b : ℕ) (hb : b < 2) (hp : ∀ i, h i % 2 = (b + i.val) % 2) (t : ℕ) :
-    Legal m (prefix b h t) := by
+    Legal m (packedPrefix b h t) := by
   have hlo := lower_bound h hh b hb hp
   refine ⟨?_, ?_, b, hb, ?_⟩
   · intro i j hij
     have hij' : i.val < j.val := hij
     by_cases hi : i.val < t <;> by_cases hj : j.val < t
-    · simp only [prefix, if_pos hi, if_pos hj]
+    · simp only [packedPrefix, if_pos hi, if_pos hj]
       omega
-    · simp only [prefix, if_pos hi, if_neg hj]
+    · simp only [packedPrefix, if_pos hi, if_neg hj]
       have h := hlo j
       omega
     · omega
-    · simpa only [prefix, if_neg hi, if_neg hj] using hh hij
+    · simpa only [packedPrefix, if_neg hi, if_neg hj] using hh hij
   · intro i
     by_cases hi : i.val < t
-    · simp only [prefix, if_pos hi]
+    · simp only [packedPrefix, if_pos hi]
       exact (hlo i).trans_lt (hm i)
-    · simpa only [prefix, if_neg hi] using hm i
+    · simpa only [packedPrefix, if_neg hi] using hm i
   · intro i
     by_cases hi : i.val < t
-    · simp only [prefix, if_pos hi]
-    · simpa only [prefix, if_neg hi] using hp i
+    · simp only [packedPrefix, if_pos hi]
+    · simpa only [packedPrefix, if_neg hi] using hp i
 
 private lemma prefix_zero {r : ℕ} (b : ℕ) (h : Fin r → ℕ) :
-    prefix b h 0 = h := by
+    packedPrefix b h 0 = h := by
   funext i
-  simp [prefix]
+  simp [packedPrefix]
 
 private lemma prefix_full {r : ℕ} (b : ℕ) (h : Fin r → ℕ) :
-    prefix b h r = (fun i : Fin r => b + i.val) := by
+    packedPrefix b h r = (fun i : Fin r => b + i.val) := by
   funext i
   exact if_pos i.isLt
 
@@ -135,8 +137,8 @@ private lemma prefix_step {m r : ℕ} (h : Fin r → ℕ)
     (hh : StrictMono h) (hm : ∀ i, h i < m)
     (b : ℕ) (hb : b < 2) (hp : ∀ i, h i % 2 = (b + i.val) % 2)
     (t : ℕ) (ht : t < r) :
-    labels (prefix b h t) = labels (prefix b h (t+1)) ∨
-      Exchange r (labels (prefix b h t)) (labels (prefix b h (t+1))) := by
+    labels (packedPrefix b h t) = labels (packedPrefix b h (t+1)) ∨
+      Exchange r (labels (packedPrefix b h t)) (labels (packedPrefix b h (t+1))) := by
   apply one_coordinate _ _
     (prefix_legal h hh hm b hb hp t).1.injective
     (prefix_legal h hh hm b hb hp (t+1)).1.injective ⟨t, ht⟩
@@ -146,7 +148,7 @@ private lemma prefix_step {m r : ℕ} (h : Fin r → ℕ)
     apply hj
     exact Fin.ext he
   have he : (j.val < t) ↔ (j.val < t+1) := by omega
-  simp only [prefix, he]
+  simp only [packedPrefix, he]
 
 /-- The two packed phases differ by one boundary label, not r coordinate
 moves. The r=0 case is an equality and will be removed. -/
@@ -200,7 +202,9 @@ private lemma anchor_step (r b c : ℕ) (hb : b < 2) (hc : c < 2) :
         · intro hx
           obtain ⟨i, _, hi⟩ := Finset.mem_image.mp hx
           have hh := i.isLt
-          have hx0 : 0 < x ∧ x ≤ r := by dsimp only at hi; omega
+          have hx0 : 0 < x ∧ x ≤ r := by
+            have hi' : 1+i.val = x := hi
+            omega
           by_cases hxr : x = r
           · exact Finset.mem_image.mpr ⟨⟨0, hr0⟩, Finset.mem_univ _, by simp [g, hxr]⟩
           · have hxm : x < r := by omega
@@ -261,7 +265,7 @@ theorem route {m r : ℕ} (h k : Fin r → ℕ) (hh : Legal m h) (hk : Legal m k
   obtain ⟨hh, hhm, b, hb, hhp⟩ := hh
   obtain ⟨hk, hkm, c, hc, hkp⟩ := hk
   let A : ℕ → Finset ℕ := fun t =>
-    if t ≤ r then labels (prefix b h t) else labels (prefix c k (2*r+1-t))
+    if t ≤ r then labels (packedPrefix b h t) else labels (packedPrefix c k (2*r+1-t))
   have hgood : ∀ t, Good m r (A t) := by
     intro t
     dsimp only [A]
@@ -285,8 +289,8 @@ theorem route {m r : ℕ} (h k : Fin r → ℕ) (hh : Legal m h) (hk : Legal m k
       have he0 : 2*r+1-t = s+1 := by dsimp only [s]; omega
       have he1 : 2*r+1-(t+1) = s := by dsimp only [s]; omega
       have h := prefix_step k hk hkm c hc hkp s hs
-      have hr : labels (prefix c k (s+1)) = labels (prefix c k s) ∨
-          Exchange r (labels (prefix c k (s+1))) (labels (prefix c k s)) := by
+      have hr : labels (packedPrefix c k (s+1)) = labels (packedPrefix c k s) ∨
+          Exchange r (labels (packedPrefix c k (s+1))) (labels (packedPrefix c k s)) := by
         rcases h with h | h
         · exact Or.inl h.symm
         · exact Or.inr (exchange_symm h)
