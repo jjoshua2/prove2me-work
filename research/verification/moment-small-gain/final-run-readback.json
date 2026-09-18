@@ -1,0 +1,74 @@
+{
+  "kind": "derived_final_run_and_artifact_inspection",
+  "pr": 304,
+  "proof_sha": "e991bc9b85bc60381f1b5fea283f4538dfaaa228",
+  "trusted_workflow_main": "d6e667d1d2ffa4eaa012e941fadec2898b6f9c5c",
+  "run_id": 35386824182,
+  "trigger_comment": 5735218437,
+  "resolved_comment": 5735220244,
+  "publisher_failure_comment": 5735240652,
+  "jobs": {
+    "gate": {
+      "id": 105735567490,
+      "conclusion": "success"
+    },
+    "verify": {
+      "id": 105735611880,
+      "conclusion": "success"
+    },
+    "publish": {
+      "id": 105736124723,
+      "conclusion": "failure"
+    },
+    "report-verify": {
+      "id": 105736126638,
+      "conclusion": "skipped"
+    }
+  },
+  "compile_exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "printed_declarations": 5,
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "all_five_frozen_file_hashes_match": true,
+  "both_new_archive_hashes_match": true,
+  "third_compiler_gate": true,
+  "new_compiler_gates_this_turn": 1,
+  "publication_stage": "VERSION_COMPATIBILITY_CHECK_FAILED",
+  "platform_verdict": null,
+  "live_proved": null,
+  "theorem_id": null,
+  "submission_id": null,
+  "new_theorem_registration_reached": false,
+  "proof_submission_reached": false,
+  "local_lean_compilation": false,
+  "proof_unchanged_after_gate": true,
+  "actual_refresh_response_version_logged": false,
+  "observed_upstream_documented_version": "0.10.5",
+  "trusted_client_expected_version": "0.10.4",
+  "upstream_version_commit": "a0677c0c4738f16e386545640ceafef4a731cf87",
+  "upstream_skill_blob": "3b64e0d72acd92c8e052b65624c059978ca66748",
+  "publication_receipt_exists": false,
+  "separate_direct_platform_poll": false,
+  "artifacts": [
+    {
+      "id": 10564805026,
+      "file": "pr304-final-request.zip",
+      "bytes": 313,
+      "sha256": "23c980315a112cabe65d1587caf87c7c987e42f07f28c07a63666d9449d3b0d8"
+    },
+    {
+      "id": 10564925223,
+      "file": "pr304-final-verified.zip",
+      "bytes": 30229,
+      "sha256": "456480b63523b07baf1f1256639392343d8797a0be46c93615cdfafeda3926b5"
+    }
+  ],
+  "scope": "Whole pinned Lean proof and standard-axiom audit passed. Trusted publisher stopped before theorem registration on its version check. Not ACCEPTED, not a fabricated publication receipt."
+}

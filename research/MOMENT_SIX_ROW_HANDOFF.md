@@ -1,104 +1,98 @@
-# PR #304: six-row tiny actual gains — compiler-blocked draft
+# PR304: proof compiles; publication awaits protocol refresh
 
-Read current STATUS, AGENTS, CLOUD_AGENT, SKILL, CONTINUE_HIRSCH, live PR heads,
-comments and receipts before continuing. This continuation started from
-main d6e667d1d2ffa4eaa012e941fadec2898b6f9c5c. Coordination comment5734235752
-on accepted #303 was posted and read back. #300 separated-pair routes and #302
-even-gap catalogue remain their owners' work. Reserved #210 is untouched.
+Read current STATUS, AGENTS, CLOUD_AGENT, SKILL, CONTINUE_HIRSCH and live PR
+heads/comments before continuing. Do not duplicate any pending/accepted packet.
+#300 separated-pair routes, #302 parity work and reserved #210 remain untouched.
 
-## Actual gate and last observed outcome
+## Current formal state
 
-A NEW top-level conversation comment5734429736 on open same-repository #304
-began `/prove2me publish research/publication_packets/moment_six_row_small_gain`.
-Acknowledgement5734431801 resolved prooff84d79808cf6fafab2e02027d5f0af81446f223a
-and run35380332439. Gate105714718592 succeeded; verify105714762470 FAILED
-driver compilation at18:30:13Z on2026-09-18. Publish105715440435 and report-
-verify105715440440 were skipped. No theorem registration/submission, verified
-packet, authenticated ACCEPTED verdict or live Proved readback was obtained.
-Exactly ONE hosted gate was triggered. Keep this PR OPEN/DRAFT; do not merge.
+Hirsch.moment_six_row_no_uniform_local_contraction now fully compiles and passes
+all five transitive standard-axiom reports. Driver/solution/statement exit0 in
+run35386824182, proof e991bc9b85bc60381f1b5fea283f4538dfaaa228. Actual new command
+5735218437, resolved acknowledgement5735220244. Gate105735567490 and
+verify105735611880 succeeded. All source, original formulas, hypotheses and
+accepted dependency bodies are fixed; no further Lean repair is indicated by
+this completed gate.
 
-The raw resolved request was downloaded in artifact10562007847, hash
- eb8e78e7bf47d8eb3c3e9c2f0a56c64965f08886a33eb066ffeba8985d403ba8.
-The original ZIP is in the export; resolved.json is committed. The full job log
-was inspected. first-diagnostics.txt preserves selected EXACT excerpts with
-explicit omissions; it is not mislabeled as the full raw log. first-gate.json
-is a separately labelled derived failure summary. No unavailable receipt is
-fabricated and no fresh mission-root/leaf platform poll is claimed.
+The publisher FAILED before theorem registration because its version check
+requires0.10.4 while the official upstream skill advertises0.10.5. Exact error:
+Platform skill version changed; refresh the skill before publishing.
+Publisher105736124723, fallback comment5735240652, both inspected. No platform
+receipt, theorem/submission ID, ACCEPTED verdict or live Proved was obtained.
+Do not label a compile as a platform acceptance. The run's overall result is
+failure; report-verify105736126638 is skipped.
 
-## Formal blocker — not a one-line repair
+Read publication_packets/moment_six_row_small_gain/compile-evidence.md and
+verification/moment-small-gain/final-run-readback.json. Raw audit/manifest/complete
+successful compiler logs are in the packet, separate from derived status records.
+Original request/verification ZIPs accompany the export. All five frozen file
+hashes and both new archives match. No fabricated raw platform API bodies.
 
-Actual diagnostics concern finite-index/vec notation reduction, multi-location
-simplification after a goal closed, finite-set cardinality/intersection facts,
-a reordered nonzero denominator, and route point index inference. The original
-line groups are582/585/607/610,595,635/711/712/720/730/850/852/854,
-691/790/793 and846. All FIVE printed new declarations contain sorryAx; the
-failed nodes_injective name is also propagated. Those are FAILED elaboration
-reports, not a passing audit or a permitted new axiom.
+## What is mathematically established by this Lean proof
 
-The complete908-line source is preserved unchanged at blob
-8e23165c5e8d06b15d8b81c7153defc38b9426bf, SHA256
-0c895c669d3a113d135b38e458826e16500a68acd2b28c9685f4f3a9b6051cfe.
-No proof or metadata edits and no second trigger followed the failure. The
-local repair plan gives concrete implementation directions but is NOT a tested
-patch. It requires actual pinned local compilation; correcting these errors
-may expose further ones. Local Lean/Lake is unavailable and toolchain-host DNS
-failed. Arithmetic/source checks are not a substitute.
+For every delta>0 construct e=min(1/8,delta/4),0<e<1/4, and the original2D
+mean-centered moment inequalities at six nodes(-1,0,e,2e,3e,1). Explicit u,v
+are actual extreme points. The COMPLETE exposed-segment neighbor set of u is
+{l,r}; both positive target-score gains are below delta*(f(v)-f(u)). A three-edge
+original route u,l,b,v is constructed. The two gain fractions are
+2e^2/(1+2e^2) and2e^2(1-2e^2)/((1+2e^2)(1+10e^2)).
 
-## Written mathematical progress
+The proof does not assume a vertex graph, neighbor classification, edge oracle
+or short route. It uses the accepted moment vertex/common-row proof, explicit
+full slack tables and a positive source-cone/exposing-functional argument.
+This refutes a uniform positive per-edge fraction for this particular numerical
+objective at fixed dimension and row count. It is NOT a diameter lower bound,
+shortestness assertion, or Polynomial Hirsch proof/counterexample. General
+routing needs coefficient-independent control of actual edge transitions or
+appropriate multi-step progress, not this disproved local-contraction premise.
 
-For a=(-1,0,e,2e,3e,1),0<e<1/4, use the ORIGINAL 2D mean-centered moment rows.
-The five explicit points u,l,r,v,b have exact tight sets{2,3},{1,2},{3,4},
-{0,5},{0,1}. The note writes every original slack and proves its sign. Accepted
-moment geometry then gives genuine vertices and the exposed edges u-l,u-r,
-l-b,b-v. A source-cone/exposing-functional argument excludes ALL other incident
-exposed-segment neighbors; it does not assume an adjacency table.
+## Exact repair and history
 
-For target score f=A_0+A_5, the two actual gain fractions are
+Source1001 lines, blob6a26ad84c3d9b84f16a597ef87e27e41a110d9f7,
+SHA2562e48c94e404ad7c006ec8442d10766195327413d5923afd58878582908609fe7.
+It matches the previously saved two-helper patch byte-for-byte. slack_spec now
+eliminates impossible finite memberships exactly and exposes the scalar positive
+cases. score_values supplies the equivalent reordered denominator to field_simp.
+The public theorem AND its full assembly, all definitions/signatures, accepted
+544-line prefix and problem/explanation bytes are unchanged. This was the third
+compiler gate overall, first passing complete gate, one new trigger this turn.
+No speculative further compiler iteration was performed.
 
-    2e^2/(1+2e^2),
-    2e^2(1-2e^2)/((1+2e^2)(1+10e^2)).
+The first two runs35380332439 and35384230220 stopped in compilation before any
+registration. They remain failed histories, not retroactively successful. The
+previous detached evidence commit0429f55bc30d4a9fd2a6b578aa624bb2aecfcd3c was not
+made the PR head, and its blocked ref move was not retried. Current proof changes
+and current successful verification evidence are separate from that old move.
 
-Both are positive and below2e^2. Choosing e=min(1/8,delta/4) makes them below
-ANY requested positive delta. Yet u,l,b,v remains a THREE-original-edge route.
-This goes beyond #303's written mass example, where the best actual gain stayed
-near6/13: here the true best incident gain tends tozero at fixed dimension and
-row count. Related earlier written contraction obstructions in #256 are credited;
-no historically new general obstruction is claimed.
+## Publication prerequisite, not another mathematical decomposition
 
-The written argument is complete as ordinary mathematics but the Lean packet is
-NOT yet verified. This is not a diameter lower bound, a long trajectory or
-Polynomial Hirsch. Formal shortestness, multi-step stalling and behavior for
-arbitrary objectives are not conclusions. Use the short route to avoid falsely
-inferring a long graph path from a small first-step score gain.
+The remaining immediate task is reviewed trusted-main compatibility with the
+actual current platform release. Official source:
+prove2me/prove2me_workspace commit a0677c0c4738f16e386545640ceafef4a731cf87,
+SKILL.md blob3b64e0d72acd92c8e052b65624c059978ca66748. Its documented0.10.5
+change concerns moderator review reports/status/item flags in mission_captain.md.
+The exact authenticated response version was not logged and is not invented.
+See PROTOCOL_REFRESH_REQUIRED.md. Keep exact-version rejection, duplicate checks,
+API host restrictions and the trusted verify/publish secret split. Do not disable
+those checks, request a key in chat, or use untrusted PR Python with secrets.
 
-## Accepted reuse, tests and exact scope
+After a reviewed protocol refresh, resume this SAME compiled packet only after
+checking live receipts again; no reproof or renamed target is needed. The observed
+version-failed run never registered/submitted it, but another agent may since
+have done so. Keep this PR draft until authenticated publication is preserved.
+No new protocol/guard/workflow/allowlist change is made in this continuation.
 
-The full544-line accepted namespace prefix through Hirsch.MomentEdges is
-byte-identical to #303's verified source; all five dependency manifest hashes
-were recomputed. Old public targets are omitted and not resubmitted. The new
-public statement uses explicit Mathlib lets and import/open/options-only
-preamble, with no feasible point, neighbor/rank/edge or route oracle.
+## Reproducibility
 
-The Fraction-only test independently reconstructs59 complete graphs from885
-original square systems:354 vertices/354 edges in total,1770 original point-row
-checks,59 source-neighbor classifications and177 route edges. Eight delta
-choices include2^-128. All59 saved records audit with explicit-point, solver
-and graph discovery disabled; five forgeries fail. Every computed shortest
-distance is3, but the public target asserts only the explicit three-edge route.
-
-The one-script clean replay matches both the full3548-byte report and31652-byte
-fixture. Report05114a9296c14bd680d1c14279c4cad0262789a9c861e152d6ba053bfd81a2b7;
+The unchanged59-model exact Fraction suite was rerun. Both complete outputs match
+the prior bytes: report05114a9296c14bd680d1c14279c4cad0262789a9c861e152d6ba053bfd81a2b7;
 fixturef72f0b9698aa24f254ce0af05cb4f2fed97dffa1c370106015c08ce514a7ea44.
-Script blobff17e71b2022297e9df63429b3ca8481a132af72, SHA256
-0a6ad3919ad7cedd49afcdcc3e1692d8577e22f7e1d0e2e52c2a09a0433e70a2.
-The full fixture and original request ZIP accompany the export and regenerate:
+The test covers885 systems,354 vertices/edges,1770 full row values,177 route edges,
+59 saved constructor-disabled replays and five forgeries. This is not Lean
+verification of the test code. Local Lean/Lake and compiler-host DNS remained
+unavailable; actual compilation is the pinned hosted gate.
 
-    python3 scripts/test_moment_six_row_small_gain.py --out /tmp/six-row-check
+    python3 scripts/test_moment_six_row_small_gain.py --out /tmp/six-row-checks
 
-Current original proof/metadata, root STATUS, Lean/Mathlib pin, protocol0.10.4,
-workflows, allowlist, duplicate safeguards and trusted verify/publish credential
-split remain unchanged. The next formal task is local reduction/assembly repair
-of THIS existing packet, not a duplicate theorem or broad new decomposition.
-The conjecture still requires coefficient-independent control of actual edge
-routes; this work excludes one proposed local numerical shortcut rather than
-supplying that global bound.
+Do not repeat the prior local-repair todo: the two helpers now pass. Preserve
+this successful artifact separately from the absent platform verdict.

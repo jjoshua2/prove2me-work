@@ -1,0 +1,14 @@
+Selected exact lines from decoded GitHub job 105736124723, run 35386824182.
+This is an EXCERPT, not the full runner log. Bracketed omissions are explicit.
+
+2026-09-18T19:37:50.1190341Z d6e667d1d2ffa4eaa012e941fadec2898b6f9c5c
+[... trusted-main checkout and immutable verified-artifact download ...]
+2026-09-18T19:37:50.6687122Z SHA256 digest of downloaded artifact is 456480b63523b07baf1f1256639392343d8797a0be46c93615cdfafeda3926b5
+2026-09-18T19:37:50.6691378Z Artifact download completed successfully.
+[... publisher invoked with its normal protected environment ...]
+2026-09-18T19:37:50.9835378Z Platform skill version changed; refresh the skill before publishing.
+2026-09-18T19:37:50.9979659Z ##[error]Process completed with exit code 1.
+[... artifact upload attempt ...]
+2026-09-18T19:37:51.1859167Z ##[warning]No files were found with the provided path: _receipts/. No artifacts will be uploaded.
+[... fallback status comment ...]
+2026-09-18T19:37:52.3203408Z https://github.com/jjoshua2/prove2me-work/pull/304#issuecomment-5735240652
