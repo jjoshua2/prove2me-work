@@ -1,0 +1,24 @@
+Selected exact lines from job105784785370 in run35402347556.
+This is an EXCERPT, not the complete runner log. Omitted warnings are marked.
+
+2026-09-18T22:38:49.5886325Z gale_even_gap_routes/driver.lean failed to compile:
+[... unused Fin.val_mk simp warnings at lines46 and478 ...]
+2026-09-18T22:38:49.5898664Z _verified/packets/gale_even_gap_routes/driver.lean:590:2: error: unsolved goals
+2026-09-18T22:38:49.5899155Z case refine_2
+2026-09-18T22:38:49.5899556Z m d : ℕ
+2026-09-18T22:38:49.5899855Z S : Finset (Fin m)
+2026-09-18T22:38:49.5900190Z hS : S.card = d
+2026-09-18T22:38:49.5900493Z hg : EvenGaps S
+2026-09-18T22:38:49.5900847Z H : Finset (Fin m) := Finset.univ \ S
+2026-09-18T22:38:49.5901251Z hH : H.card = m - d
+2026-09-18T22:38:49.5901685Z e : Fin (m - d) ↪o Fin m := H.orderEmbOfFin hH
+2026-09-18T22:38:49.5902178Z he : Finset.image (⇑e) Finset.univ = Finset.univ \ S
+2026-09-18T22:38:49.5903129Z hphase : ∃ b < 2, ∀ (i : Fin (m - d)), ↑(e i) % 2 = (b + ↑i) % 2
+2026-09-18T22:38:49.5903977Z ⊢ Finset.image (fun i => ↑(e i)) Finset.univ = Finset.image (Fin.val ∘ ⇑e) Finset.univ
+2026-09-18T22:38:49.5904757Z 'Hirsch.GaleGapRoutes.rank_balance' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-18T22:38:49.5905517Z 'Hirsch.GaleGapRoutes.even_gaps_iff_phase' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-18T22:38:49.5906354Z 'Hirsch.GaleGapRoutes.enumerate_complement' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-18T22:38:49.5907570Z 'Hirsch.GaleGapRoutes.selected_routes' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-18T22:38:49.5908359Z 'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-18T22:38:49.5908760Z 
+2026-09-18T22:38:49.5991029Z ##[error]Process completed with exit code 1.

@@ -1,0 +1,19 @@
+_verified/packets/gale_even_gap_routes/driver.lean:46:17: warning: This simp argument is unused:
+  Fin.val_mk
+
+Hint: Omit it from the simp argument list.
+  simp only [F̵i̵n̵.̵v̵a̵l̵_̵m̵k̵,̵ ̵Nat.add_zero] at he
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+_verified/packets/gale_even_gap_routes/driver.lean:478:19: warning: This simp argument is unused:
+  Fin.val_mk
+
+Hint: Omit it from the simp argument list.
+  simp only [̵z̵,̵F̵i̵n̵.̵v̵a̵l̵_̵m̵k̵,̵N̵a̵t̵.̵a̵d̵d̵_̵z̵e̵r̵o̵,̵N̵a̵t̵.̵m̵o̵d̵_̵m̵o̵d̵]̵[̲z̲,̲ ̲N̲a̲t̲.̲a̲d̲d̲_̲z̲e̲r̲o̲,̲ ̲N̲a̲t̲.̲m̲o̲d̲_̲m̲o̲d̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'Hirsch.GaleGapRoutes.rank_balance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.GaleGapRoutes.even_gaps_iff_phase' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.GaleGapRoutes.enumerate_complement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.GaleGapRoutes.selected_routes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]

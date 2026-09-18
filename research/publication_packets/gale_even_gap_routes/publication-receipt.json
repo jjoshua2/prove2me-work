@@ -1,0 +1,15 @@
+{
+  "head_sha": "51c9e816f184dfda03b5373eaf91a69c06223b82",
+  "packets": [
+    {
+      "packet": "gale_even_gap_routes",
+      "status": "ACCEPTED",
+      "theorem_id": "1c79c95a-8107-4b7d-a81d-c1d120448924",
+      "submission_id": "e6fb5adf-6d0f-468f-aa35-1409f6fdb263",
+      "theorem_name": "Hirsch.gale_even_gap_exchange_routes",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/gale_even_gap_routes"
+    }
+  ]
+}

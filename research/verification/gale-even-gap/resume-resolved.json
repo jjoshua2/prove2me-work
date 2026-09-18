@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/gale_even_gap_routes"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "51c9e816f184dfda03b5373eaf91a69c06223b82",
+  "pr": "307"
+}
