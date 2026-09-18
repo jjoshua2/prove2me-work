@@ -589,6 +589,7 @@ theorem enumerate_complement {m d : ℕ} (S : Finset (Fin m))
     exact e.strictMono hij
   · change Finset.univ.image (fun i => (e i).val) = (Finset.univ \ S).image Fin.val
     rw [← he,Finset.image_image]
+    rfl
 
 /-- A legal alternating natural-label configuration gives the exact even-gap
 predicate on its selected finite complement. This also covers empty holes. -/
