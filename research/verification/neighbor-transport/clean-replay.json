@@ -1,0 +1,35 @@
+{
+  "all_report_fixture_bytes_identical": true,
+  "files": [
+    {
+      "bytes": 2676,
+      "file": "report.json",
+      "sha256": "48eb2c1ecfc9065dff2d9f87aa8a51b9ed3b3b8a91bf7909c82ccc3b3b54d9fd"
+    },
+    {
+      "bytes": 282982,
+      "file": "fixtures.json",
+      "sha256": "41dcc5bff59ff114a39782459829c03dd1c3de5b0a6ef45aa6902d93628a3cfa"
+    }
+  ],
+  "kind": "derived_clean_three_script_replay",
+  "scope": "Exact finite rational regression; not Lean verification or an extracted parser.",
+  "sources": {
+    "test_moment_neighbor_transport.py": {
+      "bytes": 6758,
+      "git_blob": "960df2e48cfcd72c01d61b66ae083d8ddf77edb4",
+      "sha256": "b447168d508e92cbb4d1a2a1e2701ec8496ac39c4863ba499f82a6df9f7cf788"
+    },
+    "test_moment_release_pivots.py": {
+      "bytes": 8298,
+      "git_blob": "838a57f82e518a921b34012508846a9a383e62a1",
+      "sha256": "97d9c98924b9c31d6f6101b226bf15ac3b1485a56b72786cd21ec604a8ab2bd0"
+    },
+    "test_moment_root_catalogue.py": {
+      "bytes": 8212,
+      "git_blob": "e0b9e3013c90c7c3bd44698b9d9eee16be82eac7",
+      "sha256": "1ced63aee976a036e6036b74d71cf3524a9232ec002fac77eef31b17ae66ebda"
+    }
+  },
+  "status": "PASS"
+}

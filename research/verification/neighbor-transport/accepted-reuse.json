@@ -1,0 +1,9 @@
+{
+  "accepted_source_commit": "daa1e4819bdee490620f6ed4df932fb98946cc1c",
+  "kind": "derived_accepted_source_reuse",
+  "prefix_identical": true,
+  "prefix_lines": 722,
+  "prefix_sha256": "a1734174fb7ad48ffdd6602413c390d192cd6b24cff9401d97d832b087cdf2e9",
+  "row_finite_sum_declaration_identical": true,
+  "target_score_strict_declaration_identical": true
+}
