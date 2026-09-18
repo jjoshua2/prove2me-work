@@ -1,0 +1,20 @@
+{
+  "kind": "derived_current_turn_regression_replay",
+  "status": "PASS",
+  "files": [
+    {
+      "path": "exact-tests.json",
+      "bytes": 24690,
+      "sha256": "fda50f2890b7ca82751505b8f6913d6da34ce30ee2fdec29233f62fa82ac8f64",
+      "byte_identical_to_previous": true
+    },
+    {
+      "path": "fixtures.json",
+      "bytes": 536352,
+      "sha256": "933eb66f2f6222f077ba56cdbac6e7a0d5cd93395b57d8bd4fdac8abb548fb3d",
+      "byte_identical_to_previous": true
+    }
+  ],
+  "source_sha256": "229922781bbc8e84c91e4ee35fcd71dc2dcea809551bbfa0079f260dbe8bdcb5",
+  "scope": "Exact Python arithmetic regression; not Lean compilation or a platform verdict."
+}

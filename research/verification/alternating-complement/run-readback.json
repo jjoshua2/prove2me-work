@@ -1,0 +1,72 @@
+{
+  "kind": "derived_first_gate_readback",
+  "pr": 306,
+  "run_id": 35396849974,
+  "proof_sha": "48bf4e31182dbd6c17bd31d9414814682804bad8",
+  "trusted_workflow_main": "ec1f9940496d8cb0ed9308ede632d0ec3b62de67",
+  "comment_id": 5736389668,
+  "acknowledgement_comment_id": 5736391459,
+  "jobs": {
+    "gate": {
+      "id": 105767547472,
+      "conclusion": "success"
+    },
+    "verify": {
+      "id": 105767601862,
+      "conclusion": "failure"
+    },
+    "publish": {
+      "id": 105767831839,
+      "conclusion": "skipped"
+    },
+    "report-verify": {
+      "id": 105767831860,
+      "conclusion": "skipped"
+    }
+  },
+  "driver_exit_code": 1,
+  "diagnostics": [
+    {
+      "line": 53,
+      "issue": "omega treats the two finite numeral projections as unrelated atoms",
+      "proposal": "Explicitly change the index inequality to n<n+1 before Nat.lt_succ_self"
+    },
+    {
+      "line": 58,
+      "issue": "prefix is a reserved Lean syntax keyword; later uses cause cascading parse failures",
+      "proposal": "Rename only the internal declaration and its uses to packedPrefix"
+    },
+    {
+      "line": 203,
+      "issue": "dsimp only at hi made no progress",
+      "proposal": "Use an explicitly typed natural-number equality and omega"
+    }
+  ],
+  "one_coordinate_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "other_four_final_printouts_contain_sorryAx": true,
+  "whole_packet_verified": false,
+  "platform_registration": null,
+  "submission_id": null,
+  "authenticated_verdict": null,
+  "live_proved": false,
+  "number_of_triggers": 1,
+  "source_unchanged_after_gate": true,
+  "proposed_patch_applied_to_publication_source": false,
+  "proposed_patch_lean_compiled": false,
+  "proposed_patch_apply_reverse_matches": true,
+  "proposed_public_root_and_assembly_unchanged": true,
+  "proposed_source_sha256": "f92e3db7370b14aad8c27fe6648891742b4ed47f7c3def06ac9bb232878f472f",
+  "original_source_sha256": "0df8004b9262f6052d8d991a7dfa129e7f96bf1cd4408da9be54f673ad737fe1",
+  "request_artifact": {
+    "id": 10567942442,
+    "bytes": 316,
+    "sha256": "3db4d46656ac1884484b06f063c1d5d0fc7ac2d645d872134e583b1954e35cd1"
+  },
+  "verified_artifact": null,
+  "publication_artifact": null,
+  "scope": "One actual failed compiler gate; printed helper evidence is not a complete theorem or publication verdict."
+}

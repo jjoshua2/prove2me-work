@@ -1,0 +1,31 @@
+Selected exact lines from decoded job105767601862, run35396849974.
+This is an EXCERPT, not the complete runner log. Bracketed omissions are explicit.
+
+2026-09-18T21:28:24.0866105Z alternating_complement_routes/driver.lean failed to compile:
+2026-09-18T21:28:24.0867293Z _verified/packets/alternating_complement_routes/driver.lean:53:56: error: omega could not prove the goal:
+[... arithmetic constraints ...]
+2026-09-18T21:28:24.0973952Z  c := ↑r
+2026-09-18T21:28:24.0974285Z  d := ↑n
+2026-09-18T21:28:24.0974646Z  e := ↑(h ⟨n, hn'⟩)
+2026-09-18T21:28:24.0975038Z  f := ↑↑⟨n, hn'⟩
+2026-09-18T21:28:24.0975641Z  g := ↑↑⟨n + 1, hn⟩
+[... unused simp argument warning ...]
+2026-09-18T21:28:24.0980750Z _verified/packets/alternating_complement_routes/driver.lean:58:11: error: unexpected token 'prefix'; expected identifier
+2026-09-18T21:28:24.0982736Z _verified/packets/alternating_complement_routes/driver.lean:64:13: error: unexpected token 'prefix'; expected ')', '↑', '↥', '⇑' or term
+[... further cascading parser errors at uses of the same reserved identifier ...]
+2026-09-18T21:28:24.1010753Z _verified/packets/alternating_complement_routes/driver.lean:203:41: error: `dsimp` made no progress
+2026-09-18T21:28:24.1012385Z _verified/packets/alternating_complement_routes/driver.lean:264:26: error: unexpected token 'prefix'; expected ')', '↑', '↥', '⇑' or term
+[... dependent route parse failures and unsolved goals ...]
+2026-09-18T21:28:24.1031773Z '_private._verified.packets.alternating_complement_routes.driver.0.Hirsch.AlternatingComplement.lower_bound' depends on axioms: [propext,
+2026-09-18T21:28:24.1032547Z  sorryAx,
+2026-09-18T21:28:24.1033083Z  Quot.sound]
+2026-09-18T21:28:24.1033699Z '_private._verified.packets.alternating_complement_routes.driver.0.Hirsch.AlternatingComplement.one_coordinate' depends on axioms: [propext,
+2026-09-18T21:28:24.1034366Z  Classical.choice,
+2026-09-18T21:28:24.1034577Z  Quot.sound]
+2026-09-18T21:28:24.1035318Z '_private._verified.packets.alternating_complement_routes.driver.0.Hirsch.AlternatingComplement.anchor_step' depends on axioms: [propext,
+2026-09-18T21:28:24.1035989Z  sorryAx,
+2026-09-18T21:28:24.1036206Z  Classical.choice,
+2026-09-18T21:28:24.1036424Z  Quot.sound]
+2026-09-18T21:28:24.1036869Z 'Hirsch.AlternatingComplement.route' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-18T21:28:24.1037523Z 'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-18T21:28:24.1049256Z ##[error]Process completed with exit code 1.

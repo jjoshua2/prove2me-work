@@ -1,0 +1,17 @@
+_verified/packets/alternating_complement_routes/solution.lean:46:17: warning: This simp argument is unused:
+  Fin.val_mk
+
+Hint: Omit it from the simp argument list.
+  simp only [F̵i̵n̵.̵v̵a̵l̵_̵m̵k̵,̵ ̵Nat.add_zero] at he
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'_private._verified.packets.alternating_complement_routes.solution.0.Hirsch.AlternatingComplement.lower_bound' depends on axioms: [propext,
+ Quot.sound]
+'_private._verified.packets.alternating_complement_routes.solution.0.Hirsch.AlternatingComplement.one_coordinate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private._verified.packets.alternating_complement_routes.solution.0.Hirsch.AlternatingComplement.anchor_step' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Hirsch.AlternatingComplement.route' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]

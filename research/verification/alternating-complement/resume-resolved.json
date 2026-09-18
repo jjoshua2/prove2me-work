@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/alternating_complement_routes"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "ba1b6db2200e659bfd2970ca635da800a3dd0d51",
+  "pr": "306"
+}

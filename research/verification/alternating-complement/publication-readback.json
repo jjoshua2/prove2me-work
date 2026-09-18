@@ -1,0 +1,84 @@
+{
+  "kind": "derived_successful_run_and_artifact_readback",
+  "pr": 306,
+  "proof_sha": "ba1b6db2200e659bfd2970ca635da800a3dd0d51",
+  "trusted_workflow_main": "ec1f9940496d8cb0ed9308ede632d0ec3b62de67",
+  "run_id": 35400146836,
+  "trigger_comment": 5736776000,
+  "acknowledgement_comment": 5736777333,
+  "verdict_comment": 5736803354,
+  "verdict_comment_created_at": "2026-09-18T22:11:20Z",
+  "jobs": {
+    "gate": {
+      "id": 105777951083,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    "verify": {
+      "id": 105777989539,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    "publish": {
+      "id": 105778254068,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    "report-verify": {
+      "id": 105778255613,
+      "status": "completed",
+      "conclusion": "skipped"
+    }
+  },
+  "compile_exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "audited_declarations": 5,
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "authenticated_status": "ACCEPTED",
+  "publisher_live_status": "Proved",
+  "theorem_id": "640da3d5-6767-4a08-bdbc-70be357466af",
+  "submission_id": "1bc5e00d-3233-4c03-a914-8c8ec6168272",
+  "new_triggers_this_continuation": 1,
+  "compiler_gates_overall": 2,
+  "actual_platform_submissions": 1,
+  "exact_saved_repair": true,
+  "public_statement_and_assembly_unchanged": true,
+  "all_five_frozen_hashes_match": true,
+  "all_four_original_archive_hashes_match": true,
+  "local_lean_compile": false,
+  "separate_direct_platform_poll": false,
+  "raw_individual_API_bodies_exported": false,
+  "artifacts": [
+    {
+      "artifact_id": 10567942442,
+      "file": "first-request.zip",
+      "bytes": 316,
+      "sha256": "3db4d46656ac1884484b06f063c1d5d0fc7ac2d645d872134e583b1954e35cd1"
+    },
+    {
+      "artifact_id": 10570259258,
+      "file": "resume-request.zip",
+      "bytes": 314,
+      "sha256": "99a4bd09771db0f5c854d65ce2d44e04a2626224fe2180994f95c0a8c4e3537a"
+    },
+    {
+      "artifact_id": 10570254236,
+      "file": "verified-packets.zip",
+      "bytes": 17517,
+      "sha256": "30813e574ab75277c947b67c3a35f12084b559b1a614957a146ed05c0cafbf1a"
+    },
+    {
+      "artifact_id": 10569349276,
+      "file": "publication-receipts.zip",
+      "bytes": 909,
+      "sha256": "284a421135adb4771caf581c5291fac366eb792b49eb9378b8a0508d44d0801b"
+    }
+  ]
+}
