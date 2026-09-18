@@ -1,0 +1,13 @@
+test_default_expiry_remains_bounded (__main__.VersionRefreshTests.test_default_expiry_remains_bounded) ... ok
+test_matching_version_updates_state_and_uses_only_original_refresh_url (__main__.VersionRefreshTests.test_matching_version_updates_state_and_uses_only_original_refresh_url) ... ok
+test_matching_version_without_token_does_not_succeed (__main__.VersionRefreshTests.test_matching_version_without_token_does_not_succeed) ... ok
+test_mismatched_malformed_and_missing_versions_fail_closed (__main__.VersionRefreshTests.test_mismatched_malformed_and_missing_versions_fail_closed) ... ok
+test_refresh_does_not_log_key_or_token (__main__.VersionRefreshTests.test_refresh_does_not_log_key_or_token) ... ok
+test_runtime_change_is_only_reviewed_version_literal (__main__.VersionRefreshTests.test_runtime_change_is_only_reviewed_version_literal) ... ok
+test_skill_matches_official_release_exactly (__main__.VersionRefreshTests.test_skill_matches_official_release_exactly) ... ok
+test_transport_errors_are_not_swallowed (__main__.VersionRefreshTests.test_transport_errors_are_not_swallowed) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.019s
+
+OK
