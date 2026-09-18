@@ -1,0 +1,17 @@
+{
+  "kind": "derived_exact_finite_replay",
+  "report_and_fixture_byte_identical": true,
+  "files": [
+    {
+      "file": "exact-tests.json",
+      "bytes": 7089,
+      "sha256": "84847b48a26a583b349f136e2900386cef69c791e8830d0aafb64f4383863cf1"
+    },
+    {
+      "file": "fixtures.json",
+      "bytes": 437889,
+      "sha256": "941975b53160bdbeaedfab25cd9577949b8e48dabf35a8776636d4d0cd2f4aeb"
+    }
+  ],
+  "scope": "Two exact Python sources; no Lean verification or extracted implementation claim."
+}

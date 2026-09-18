@@ -1,0 +1,57 @@
+{
+  "status": "PASS",
+  "counts": {
+    "all_subsets": 2047,
+    "endpoint_pairs": 13724,
+    "exchanges": 77806,
+    "gap_partition_identities": 18943,
+    "illegal_subsets": 1451,
+    "legal_subsets": 596,
+    "opposite_phase_pairs": 6072,
+    "rank_balance_identities": 9217,
+    "repeated_vertex_routes": 3651,
+    "target_label_loss_routes": 11264,
+    "visited_even_gap_sets": 91530
+  },
+  "large": [
+    {
+      "bound": 65,
+      "d": 33,
+      "full_graph_enumerated": false,
+      "length": 33,
+      "m": 65
+    },
+    {
+      "bound": 65,
+      "d": 95,
+      "full_graph_enumerated": false,
+      "length": 63,
+      "m": 127
+    },
+    {
+      "bound": 129,
+      "d": 193,
+      "full_graph_enumerated": false,
+      "length": 127,
+      "m": 257
+    }
+  ],
+  "saved_records": 69,
+  "saved_exchanges": 463,
+  "rejected": [
+    "out of range",
+    "duplicate label",
+    "unequal size",
+    "odd selected gap",
+    "stationary edge",
+    "wrong endpoint",
+    "malformed intermediate"
+  ],
+  "producer_disabled_replay": true,
+  "source_sha256": "ad0bcb79d7704a29f9ce9636c1b392c135364789a563b638885bbdc1e277b301",
+  "unchanged_dependency_sha256": "229922781bbc8e84c91e4ee35fcd71dc2dcea809551bbfa0079f260dbe8bdcb5",
+  "scope": "Exact finite checks of selected-set enumeration/parity/route transport; not Lean verification or a geometric diameter theorem.",
+  "kind": "derived_summary_of_complete_exact_report",
+  "full_report_sha256": "84847b48a26a583b349f136e2900386cef69c791e8830d0aafb64f4383863cf1",
+  "full_fixture_sha256": "941975b53160bdbeaedfab25cd9577949b8e48dabf35a8776636d4d0cd2f4aeb"
+}

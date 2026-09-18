@@ -1,0 +1,33 @@
+{
+  "kind": "derived_prepared_source_binding",
+  "proof_sha": "055056470469fed116fcf64b0308ef2817d40634",
+  "local_lean_compilation": false,
+  "dependency_root_rename_only": true,
+  "old_axiom_printouts_omitted": true,
+  "all_five_accepted_dependency_manifest_hashes_checked": true,
+  "dependency_solution_sha256": "f92e3db7370b14aad8c27fe6648891742b4ed47f7c3def06ac9bb232878f472f",
+  "dependency_solution_blob": "36d626c9e9dc495a8866cb4eec6528bcec6b7668",
+  "public_signature_exact": true,
+  "packet_files": {
+    "problem.json": {
+      "bytes": 2800,
+      "sha256": "611c32d233d6e3ca37645ede65ba28e96919a9358006e264539b7d7c3de069e0",
+      "git_blob": "f2c84aead9260f06b67532e74ab7bc48b14d94e4"
+    },
+    "explanation.md": {
+      "bytes": 3474,
+      "sha256": "b06d65f13a8ad979d88cd9bd9a071f7fcd7ead30c401d767664ca49a0d73fb9d",
+      "git_blob": "652b4aa42f6f97af94469704e19ed06b4bd610c9"
+    },
+    "solution.lean": {
+      "bytes": 28836,
+      "sha256": "b09c648a87d714c517b9d33ca8378e0bc23e3a22831cd0b88c8bf07e13317117",
+      "git_blob": "225149d5193b8e46bada71b51b29d762df5cf849"
+    }
+  },
+  "new_test_source_sha256": "ad0bcb79d7704a29f9ce9636c1b392c135364789a563b638885bbdc1e277b301",
+  "new_test_source_blob": "513b8885ef461363a5d8f96642aa9b547a709bd2",
+  "unchanged_test_dependency_sha256": "229922781bbc8e84c91e4ee35fcd71dc2dcea809551bbfa0079f260dbe8bdcb5",
+  "unchanged_test_dependency_blob": "28767c9b18134ad396a51e32c6a069536bda01a9",
+  "scope": "Text/identity binding only. Not a Lean or platform verdict. No root/leaf mission poll."
+}
