@@ -1,0 +1,56 @@
+{
+  "controls": [
+    {
+      "epsilon": "1/16",
+      "mass": "226737/3505"
+    },
+    {
+      "epsilon": "1/256",
+      "mass": "938867457/916225"
+    },
+    {
+      "epsilon": "1/65536",
+      "mass": "15762555745796097/60129214465"
+    }
+  ],
+  "e_times_mass_limit": "4",
+  "mass": "(e - 4)*(e**2 - e - 14)/(e*(e**2 - 5*e + 14))",
+  "mass_minus_inverse_e": "(3 - e)*(-e**2 + 3*e + 14)/(e*(e**2 - 5*e + 14))",
+  "neighbor_gain_fraction_limits": [
+    "-1/13",
+    "6/13"
+  ],
+  "scope": "Symbolic identities plus written sign/extreme-point argument; NOT Lean or a new Prove2Me verdict.",
+  "slacks": {
+    "u": [
+      "0",
+      "0",
+      "(5 - 5*e)/(14 - 6*e)",
+      "(10 - 5*e)/(7 - 3*e)",
+      "(45 - 15*e)/(14 - 6*e)"
+    ],
+    "v": [
+      "30/(e**2 - 5*e + 14)",
+      "(2 - e)*(15 - 5*e)/(e**2 - 5*e + 14)",
+      "10/(e**2 - 5*e + 14)",
+      "0",
+      "0"
+    ],
+    "z0": [
+      "5*e/(8 - 2*e)",
+      "0",
+      "0",
+      "(10 - 5*e)/(8 - 2*e)",
+      "(15 - 5*e)/(4 - e)"
+    ],
+    "z1": [
+      "0",
+      "5*e*(3 - e)/((4 - e)*(e + 1))",
+      "10/((4 - e)*(e + 1))",
+      "10/((4 - e)*(e + 1))",
+      "0"
+    ]
+  },
+  "source_sha256": "0ed418b81bc4acc80986a2999c609b96c596263f9e1494ccb0bb5b3595976130",
+  "status": "PASS"
+}

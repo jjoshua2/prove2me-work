@@ -1,0 +1,57 @@
+{
+  "all_five_frozen_hashes_match": true,
+  "all_three_archive_hashes_match": true,
+  "artifacts": [
+    {
+      "artifact_id": 10560455616,
+      "bytes": 311,
+      "file": "pr303-publish-request.zip",
+      "sha256": "ffa4b29bd38af45d87779ae56dde04363c912bdd36a14323cc5d282b6ef50e81"
+    },
+    {
+      "artifact_id": 10559838534,
+      "bytes": 29402,
+      "file": "pr303-verified-packets.zip",
+      "sha256": "fd266a87e38300715fc8c065c853babb0b32c82eb5db75c81ca8efb4483c1493"
+    },
+    {
+      "artifact_id": 10559658851,
+      "bytes": 912,
+      "file": "pr303-publication-receipts.zip",
+      "sha256": "2bc0876e72b9a203737793f876bd46f76ad26304e57f05bf8e2bcf0be08291d9"
+    }
+  ],
+  "audited_declarations": 5,
+  "authenticated_status": "ACCEPTED",
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "compile_exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "first_gate_unchanged": true,
+  "first_platform_submission": true,
+  "jobs": {
+    "gate": "success",
+    "publish": "success",
+    "report-verify": "skipped",
+    "verify": "success"
+  },
+  "kind": "derived_run_and_artifact_readback",
+  "pr": 303,
+  "proof_sha": "7c75245fcbcca2127fdc3bff635f0ec38c8e4b9f",
+  "publisher_live_status": "Proved",
+  "raw_individual_API_bodies_exported": false,
+  "resolved_comment": 5733858775,
+  "run_id": 35375655311,
+  "separate_direct_platform_poll": false,
+  "submission_id": "41e163ac-e425-45d4-a471-c22b77345379",
+  "theorem_id": "b949797e-9406-4235-9a41-19bce04cf5f9",
+  "trigger_comment": 5733856223,
+  "trusted_workflow_main": "be7b4e8972a698526670f8de181fe8e7df3a684a",
+  "verdict_comment": 5733918919
+}

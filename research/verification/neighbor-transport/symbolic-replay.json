@@ -1,0 +1,8 @@
+{
+  "byte_identical": true,
+  "kind": "derived_symbolic_identity_replay",
+  "report_sha256": "e969605556d98539e187c15354690c006d2d38bb8a073d1e452e443248fff28f",
+  "scope": "Written proof with exact symbolic identities; not Lean or platform acceptance.",
+  "source_sha256": "0ed418b81bc4acc80986a2999c609b96c596263f9e1494ccb0bb5b3595976130",
+  "status": "PASS"
+}
