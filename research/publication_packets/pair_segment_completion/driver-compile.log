@@ -1,0 +1,5 @@
+'Hirsch.PairSegmentCompletion.compact_zonotope' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.PairSegmentCompletion.translate_hull' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.PairSegmentCompletion.support_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.PairSegmentCompletion.completion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]
