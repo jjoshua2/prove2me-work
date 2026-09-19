@@ -1,0 +1,103 @@
+{
+  "kind": "derived_successful_run_and_artifact_readback",
+  "pr": 313,
+  "proof_sha": "7dbeccc586323fb67ce565dec401306304bfeb9d",
+  "first_compiled_proof_sha": "caf342b4679820b8e8b12633493884938536135d",
+  "trusted_main": "51d0be383b4eca6a8709a9017dc9230278f71367",
+  "run_id": 35461651928,
+  "trigger_comment": 5744394367,
+  "acknowledgement_comment": 5744395232,
+  "verdict_comment": 5744414337,
+  "verdict_comment_timestamp": "2026-09-19T18:38:30Z",
+  "jobs": {
+    "gate": {
+      "id": 105946478690,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    "verify": {
+      "id": 105946501367,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    "publish": {
+      "id": 105946692398,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    "report-verify": {
+      "id": 105946692957,
+      "status": "completed",
+      "conclusion": "skipped"
+    }
+  },
+  "compile_exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "audited_declarations": [
+    "Hirsch.ZonotopeSweep.regularize_on",
+    "Hirsch.ZonotopeSweep.tied_collinear",
+    "Hirsch.ZonotopeSweep.mem_crossingSet",
+    "Hirsch.ZonotopeSweep.regular_sweep",
+    "solution"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "authenticated_status": "ACCEPTED",
+  "publisher_live_status": "Proved",
+  "theorem_id": "4713ca26-d458-47e6-9ae0-4654b0322f39",
+  "submission_id": "b56d6fcd-3014-4068-8734-41611b8028ad",
+  "registration": "PUBLISHED",
+  "prior_publication_blocked_run": 35460242988,
+  "compiler_gates_total": 2,
+  "compiler_failures": 0,
+  "new_gates_this_turn": 1,
+  "first_actual_platform_submission": true,
+  "proof_and_metadata_unchanged": true,
+  "all_five_frozen_hashes_match": true,
+  "all_five_packet_archives_recomputed": true,
+  "maintenance_pr": 314,
+  "expected_protocol_version": "0.10.6",
+  "separate_direct_platform_poll": false,
+  "raw_refresh_response_exported": false,
+  "raw_individual_platform_api_bodies_exported": false,
+  "verify_and_publish_logs_read_through_cleanup": true,
+  "local_Lean_compilation": false,
+  "artifacts": [
+    {
+      "id": 10589109280,
+      "file": "pr313-request.zip",
+      "bytes": 311,
+      "sha256": "04167d0132ac338487330476dfd641b1bb60afd6121463944884bf4bd594be2b"
+    },
+    {
+      "id": 10588748677,
+      "file": "pr313-verified.zip",
+      "bytes": 23931,
+      "sha256": "4708118df35e50cb1b0bfa4c99d269da218866cf3fe9207f232a0e713414d7ba"
+    },
+    {
+      "id": 10589945629,
+      "file": "pr313-resume-request.zip",
+      "bytes": 310,
+      "sha256": "894b0cb31eb07ea67f983cb425fea2fb9ea2014cac7e974144ddd41576bd29b0"
+    },
+    {
+      "id": 10589819863,
+      "file": "pr313-resume-verified.zip",
+      "bytes": 23929,
+      "sha256": "721392656667348837acbb2b2a42f8c531dd69f07ec663cbe0ef61e5e9b4272f"
+    },
+    {
+      "id": 10590015897,
+      "file": "pr313-resume-publication.zip",
+      "bytes": 910,
+      "sha256": "42352dc73c5da9acb7ce3cb6dc025417f892d937bfd0fa55d750e423e9494ff1"
+    }
+  ]
+}

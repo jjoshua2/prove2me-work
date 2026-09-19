@@ -1,0 +1,32 @@
+{
+  "kind": "derived_archive_hash_recheck",
+  "checks": {
+    "solution.lean": {
+      "sha256": "3d233db7a1ce78a9376a758af92ce71634f9a0a45887d48384b99dfbc30153f4",
+      "bytes": 30146,
+      "unchanged_from_first_verified": true
+    },
+    "driver.lean": {
+      "sha256": "3d233db7a1ce78a9376a758af92ce71634f9a0a45887d48384b99dfbc30153f4",
+      "bytes": 30146,
+      "unchanged_from_first_verified": true
+    },
+    "statement.lean": {
+      "sha256": "555bce4c43cbcde16c69ef4f8afd3ee11489f245b5a968c0f1daccf2462fd119",
+      "bytes": 1272,
+      "unchanged_from_first_verified": true
+    },
+    "problem.json": {
+      "sha256": "0439e706b7077bc9286d33f5d3c87cb8685cab585f4488197a338e96389dcbe2",
+      "bytes": 3388,
+      "unchanged_from_first_verified": true
+    },
+    "explanation.md": {
+      "sha256": "1b22f0a710c09eefa9a1b551afcc86306b6edf49a6c26b06cac0149c842abd59",
+      "bytes": 4485,
+      "unchanged_from_first_verified": true
+    }
+  },
+  "all_five_match": true,
+  "all_five_unchanged_from_first_gate": true
+}

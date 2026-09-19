@@ -1,0 +1,15 @@
+{
+  "head_sha": "7dbeccc586323fb67ce565dec401306304bfeb9d",
+  "packets": [
+    {
+      "packet": "zonotope_regular_sweep",
+      "status": "ACCEPTED",
+      "theorem_id": "4713ca26-d458-47e6-9ae0-4654b0322f39",
+      "submission_id": "b56d6fcd-3014-4068-8734-41611b8028ad",
+      "theorem_name": "Hirsch.zonotope_regular_sweep_original_edges",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/zonotope_regular_sweep"
+    }
+  ]
+}
