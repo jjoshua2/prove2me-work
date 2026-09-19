@@ -1,0 +1,20 @@
+{
+  "Lean_verification": false,
+  "kind": "derived_current_rational_and_clean_replay",
+  "outputs": [
+    {
+      "bytes": 12437,
+      "file": "exact-tests.json",
+      "historical_and_two_current_runs_identical": true,
+      "sha256": "978578e2dd9cc9edee710aecd9a9ec86babc7661f5ed2ac995bde887670bdd5b"
+    },
+    {
+      "bytes": 33706,
+      "file": "fixtures.json",
+      "historical_and_two_current_runs_identical": true,
+      "sha256": "efc7e10a8b59cd961323e85556ac6f5919c001d0c2f2d8c3a4f26ea2343ce625"
+    }
+  ],
+  "source_sha256": "be58ec91035a2b9415aea5e319267e2142824487e70030c19628758c20f73816",
+  "status": "PASS"
+}

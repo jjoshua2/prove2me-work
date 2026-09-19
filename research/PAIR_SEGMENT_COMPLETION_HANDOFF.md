@@ -1,120 +1,140 @@
-# PR #311: explicit pair-segment completion — first gate failed
+# PR #311: pair-segment completion — two helper proofs remain
 
-Read current STATUS, AGENTS, CLOUD_AGENT, SKILL, CONTINUE_HIRSCH and LIVE heads,
-comments and receipts before continuing. This turn started at main
-24b519ae1e7907a0d063cd36731d435da9918765. The saved #310 repair was already
-ACCEPTED/Proved and merged; it was NOT resubmitted. Other owned #244/#300/#302
-and reserved #210 were not edited or triggered. This distinct completion work
-was coordinated on #310 in comment5739226372 and read back.
+Read current STATUS, AGENTS, CLOUD_AGENT, SKILL, CONTINUE_HIRSCH and live PR
+heads/comments/receipts before work. This continuation resumed the existing
+#311 at main24b519ae1e7907a0d063cd36731d435da9918765. No duplicate PR or theorem
+was created. Other owned #244/#300/#302 and reserved #210 remain untouched.
+Accepted #309/#310 were not resubmitted.
 
-## Authoritative state: OPEN/DRAFT, not accepted
+## Current authoritative state: OPEN/DRAFT, no platform verdict
 
 Target: Hirsch.finite_hull_pair_segment_completion.
 Packet: research/publication_packets/pair_segment_completion.
 Branch: proof/pair-segment-completion.
-Frozen failed proof:97581dffabdfd0a0553460e17df06875a705b575.
-Actual NEW top-level command5739279584 and bot5739280398 were read back;
-the acknowledgement resolved that SHA and run35420782170.
+Latest tested proof: c1e5b8fe9517dd4a0284480c40598438ef860d9f.
+NEW top-level publication comment5739380499 was posted and read back. Bot
+5739381485 resolved that exact proof and run35421714330. Gate105840524620
+succeeded; verify105840548099 failed driver compilation with exit1;
+publish105840656050 and report-verify105840656023 were skipped. All jobs are
+completed. There is no complete passing packet audit, verified-packet artifact,
+platform registration/submission ID, ACCEPTED verdict or live Proved result.
 
-Gate105837948439 succeeded. Verify105837968753 failed driver compilation with
-exit1. Publish105838188574 and report-verify105838188519 were skipped. The run
-is completed/failure. There is NO registered theorem or submission ID, complete
-passing audit, ACCEPTED verdict, live Proved or verified/publication artifact.
-ALL FIVE requested axiom reports contain sorryAx from failed elaboration.
-None is an independently passing theorem audit. No second trigger was posted.
+The requested compact_zonotope report now contains only propext,
+Classical.choice and Quot.sound. The other FOUR requested reports
+(translate_hull, support_witness, completion, solution) contain sorryAx from
+failed elaboration. One standard-only helper is not a passing complete packet
+or a separate platform acceptance. The full runner log was inspected; committed
+resume-diagnostics-excerpt.log contains explicitly selected exact lines only.
 
-The original273-line/11238-byte solution stays unchanged after the gate:
-blobfbff4ac9cd9a0f066e316b04d67cb17bca11fb0b,
-SHA256c62c84689cabd67695dacfaee9e9c79d3f8af5f1c979b774787c95ea4d136fef.
-Original problem.json and explanation.md are unchanged too. Prepared-source
-comparisons are not Lean verification. Local Lean/Lake was absent and compiler
-host DNS failed; no local compilation or axiom audit is claimed.
+Exactly ONE new hosted attempt occurred this continuation, TWO overall.
+No third trigger and no post-failure publication-source or metadata edits.
+Local Lean/Lake was absent and the compiler host did not resolve. Source matching,
+patch replay and rational regression are not Lean compilation.
 
-## Actual compiler diagnostic groups and a separate proposal
+## Saved scope/API repair was actually applied and tested
 
-1. The sum notation takes too short a body without explicit parentheses around
-   additions. The second term escapes the e binder in point at line17 and in
-   the combo/replacement sums. This also affects the explicit public target
-   and its local Z at lines247/255. There were unknown-e and cascading goals.
-2. Function.update_same and Function.update_noteq do not exist at this pin.
-   The actual pinned TensorPower/Pairing.lean (blob18816895d34ceee2191e3d4b06cc2fb41362f4b6)
-   uses Function.update_self and Function.update_of_ne in the same equality cases.
-3. translate_hull must expose set membership before rewriting shift_combo:
-   change (a • x+b • y)+q ∈ zonotope v.
+The previous 274-line proposal is now on the PR exactly:
+solution blob9790db8a54ee6640c4e5d902c53b6b03e187d3d7,
+SHA25647ac25515cdbff7270a285f9906399aca4aa63750d3de7315764c6887d454a8a;
+problem blob31b3c124c57068b5300f31dacbc37a04d147fa96,
+SHA256bf6d1ca55dbb24d725299e9ed390d9659a8ed22e6abf921259733e1c9bc88e42.
+The repaired source is11294bytes and the problem2901bytes. Directory readback
+confirmed exact blobs. The commit comparison changed these TWO packet files
+only: full sum grouping, pinned update_self/update_of_ne names, and one explicit
+translate-membership reduction. The explanation stayed byte-identical.
 
-The separate proposed-local-repair.patch addresses all three groups, with no
-hosted retry. It is UNAPPLIED to the publication files and UNCOMPILED. The full
-proposed files are in the local bundle; the patch applies/reverses byte-exact.
-Source274 lines, SHA25647ac25515cdbff7270a285f9906399aca4aa63750d3de7315764c6887d454a8a,
-blob9790db8a54ee6640c4e5d902c53b6b03e187d3d7. Proposed problem SHA256
-bf6d1ca55dbb24d725299e9ed390d9659a8ed22e6abf921259733e1c9bc88e42.
-Further errors may appear once the sum expressions elaborate correctly.
+The old formal_statement was malformed and had never been registered. Its
+parentheses necessarily changed BYTES; do not claim an unchanged previously
+elaborated target. The intended mathematical formula, all hypotheses, name and
+n^2 segment-slot count were preserved. The new gate no longer reports the
+unknown-e, unknown-update-name or translate-membership errors, but this does
+not imply an independent passing audit of every other helper.
 
-IMPORTANT: the proposal changes formal_statement BYTES as well as Lean source
-because the public sum body itself needs grouping. Do not falsely claim an
-already elaborated target type or a byte-identical public statement. The intended
-mathematical formula, hypotheses, named target and n^2 slot count do not change.
-No platform target was registered by this run, so no immutable live theorem is
-being edited. Recheck live receipts before any future normal comment gate.
+First run35420782170, original source/target, request and diagnostics remain
+preserved as a failed attempt. The previous handoff is copied byte-identically
+to handoff-before-resume.md. Old proposed-local-repair.patch and its readback
+are historical: that proposal HAS now been applied and tested. Use the NEW
+proposed-two-helper-repair.patch for the outstanding candidate repair.
 
-## Concrete written completion, not a supplied equality
+## Two remaining diagnostic sites and separate uncompiled proposal
 
-For arbitrary n>0 real generators v_i in R^d, define P=conv{v_i},
-Z=sum_(i,j)[v_i,v_j], and Q={q:q+v_i in Z for every i}. The candidate's intended
-conclusion proves Z,Q compact/convex, Q nonempty and WHOLE-SET equality P+Q=Z.
-The construction includes n=1,d=0, repeated/interior generators and rank-deficient
-families; no genericity, full dimension, independence or summand oracle.
+At line54 in point_combo, the final simplifier leaves the distributivity of
+scalar multiplication over finite vector sums unresolved. The pinned lemma
+Finset.smul_sum exists in Mathlib/Algebra/BigOperators/GroupWithZero/Action.lean,
+blob0d0fb1428930a156a680faba5b2772288c79f7cf at the committed Mathlib revision.
+The proposal explicitly instantiates that lemma twice and combines the two
+equalities after sum_add_distrib, instead of relying on broad simplification.
 
-For any f choose k maximizing f(v_i). Select v_k on every ordered slot(k,i),
-then maximize each other segment independently. Their sum z maximizes f on Z.
-Changing just slot(k,i) to v_i produces z-v_k+v_i in Z. Thus q=z-v_k belongs
-to every required translate and v_k+q attains Z's support inside P+Q. This
-is an actual erosion witness, not just matching one inequality. Cube compactness
-and explicit coefficient convexity give Z. Q is closed/convex and bounded by
-one translate; the zero-objective witness makes it nonempty. Convexity extends
-all generator translations to P. Strict separation of compact convex P+Q
-then yields the reverse inclusion. See PAIR_SEGMENT_COMPLETION.md for the proof.
-This written argument is not upgraded to Lean verification by the rational tests.
+At line130 in replace_endpoint, the algebra tactic fails after simplifying
+the changed-pair case, reporting a coefficient goal1=0. The proposal explicitly
+exposes the pair projections and the updated coefficient before rewrites, then
+uses abelian-group normalization for v_i=v_k+(v_i-v_k). This is an unverified
+repair proposal, not evidence that the compiler accepted that diagnosis.
 
-The n^2 count is the number of represented ordered segment slots, including
-diagonals and duplicate directions, NOT an irredundant facet count or an optimal
-completion. If n is a large vertex inventory of an H-polytope, no polynomial
-original-row budget follows. A large count for this formula is not a lower bound
-for all completions either. There is NO short genuine Z-edge route in this
-packet; coefficient-cube edges are not assumed to project edge-for-edge.
-Accepted #309/#310 transfers remain available but are not resubmitted. A useful
-original-input budget and actual sum routing remain beyond this completion.
-No unrestricted Polynomial Hirsch or historical-priority claim is made.
+The proposal changes only those two HELPER PROOF BODIES, not their statements,
+the corrected public statement AND its assembly, problem.json or explanation.
+It is UNAPPLIED to the publication source and UNCOMPILED. Forward/reverse patch
+application in a separate Git workspace reproduces both versions byte-for-byte.
+Proposed283-line/11766-byte source:
+blob756319de8d9d6d2d00941f48a87ff9c572ce35e6,
+SHA256ac3bddf6ecc4dd20b3360e75d759013620bee82593065481205e7fe966a85bb5.
+The full proposed file accompanies the bundle; the repository stores its patch
+and labelled readback. Further errors may remain. The next required action is
+full pinned verification of this existing obligation, not a duplicate child
+assuming the completion or another speculative hosted edit loop.
 
-## Durable evidence and reproducibility
+## Mathematical scope and remaining conjecture boundary
 
-The sole request archive10577217846,308bytes was downloaded and hash-checked:
-bdf820108f50381bd83c34d31b236c5fb4854afa994d7bbeb9e69ce60dbbbec6.
-Its raw resolved.json is retained. No missing publication or verified archive
-is invented. The full runner log was inspected; the committed diagnostics file
-is explicitly SELECTED exact compiler/error/audit lines, not the entire log.
-Original source and target snapshots, failed-run readback and proposed patch
-are separate from derived test/source records.
+For arbitrary n>0 real generators v_i in R^d, put P=conv{v_i},
+Z=sum_(i,j)[v_i,v_j], and Q={q:q+v_i in Z for every i}. The target proves
+compactness/convexity of Z,Q, nonemptiness of Q and WHOLE-SET equality P+Q=Z.
+No completion, support equality, independence, full dimension or generic
+objective is supplied. Repeated/interior generators, n1 and d0 are retained.
 
-Standalone Fraction-only script150 lines/7169bytes:
-blobf8355ddbd033300c6670025c370374bcbe3b4c81,
-SHA256be58ec91035a2b9415aea5e319267e2142824487e70030c19628758c20f73816.
-46 complete planar completion models,1208 support witnesses,6627 replacements,
-42189 coefficient checks. The759 Z and759 Q vertices are totals over models,
-not a universal count. Nine selected instances reach d64 without full-body/graph
-enumeration. Nineteen saved witnesses replay with construction disabled; four
-forgeries are rejected. These tests are not a formally verified Python/JSON parser.
+For each linear objective choose a maximizing generator k. Select v_k on every
+ordered slot(k,i) and a maximizing endpoint elsewhere. Their sum z maximizes
+the objective on Z. Changing slot(k,i) yields z-v_k+v_i in Z for EVERY i, so
+q=z-v_k belongs to the actual erosion. Convexity gives all generator/hull
+translations; strict separation with the support witnesses yields the reverse
+inclusion. This remains the written argument; the complete Lean theorem is not
+yet verified. Compactness of the coefficient image is the requested helper that
+now has a standard-only report.
 
-Clean script-only replay reproduces the full12437-byte report and33706-byte
-fixture byte-for-byte:
-report978578e2dd9cc9edee710aecd9a9ec86babc7661f5ed2ac995bde887670bdd5b;
-fixtureefc7e10a8b59cd961323e85556ac6f5919c001d0c2f2d8c3a4f26ea2343ce625.
-The full files and original archive accompany the bundle; repository summaries
-are labelled derived and the full results regenerate with:
+The explicit n^2 inventory counts represented ordered segment slots in INPUT
+GENERATORS, including diagonals and repetitions. It is not an irredundant facet
+count or a minimal completion budget. A large complete vertex inventory of an
+H-polytope does not give a polynomial bound in its original rows. No short
+actual Z-edge route is proved by this packet; coefficient-cube edges are not
+assumed to project to ordinary original edges. Accepted #309/#310 remain
+available for contraction and endpoint lifts once actual compatible sum routes
+are established. A useful original-row budget and that routing step remain
+separate, and unrestricted Polynomial Hirsch is not concluded.
+
+## Current evidence and reproducible supporting checks
+
+Both original request archives were downloaded and their hashes recomputed:
+first10577217846,308bytes,
+bdf820108f50381bd83c34d31b236c5fb4854afa994d7bbeb9e69ce60dbbbec6;
+new10577848461,309bytes,
+37a3630a0ecb8adaed366b0bf23354fc9ee22af877aba0dd6ca90cd6b2500c9e.
+The raw new resume-resolved.json is retained. The second run's artifact listing
+contains only the request, not a fabricated verified or publication archive.
+Tested source/target snapshots, old handoff, selected exact diagnostics and
+derived run/proposal records are separated by name and purpose.
+
+The unchanged Fraction-only regression ran again and repeated in a clean
+script-only workspace:46 whole-body planar models,1208 support witnesses,
+6627 replacements,42189 coefficient bounds,9 selected instances through d64,
+19 discovery-disabled saved audits and4 rejected forgeries. Complete report
+and fixture match both the prior and the two current executions byte-for-byte:
+report12437bytes,978578e2dd9cc9edee710aecd9a9ec86babc7661f5ed2ac995bde887670bdd5b;
+fixture33706bytes,efc7e10a8b59cd961323e85556ac6f5919c001d0c2f2d8c3a4f26ea2343ce625.
+They are supporting finite checks, not Lean-extracted code or a universal JSON
+correctness theorem. Full outputs, original archives and proposal are bundled.
 
     python3 scripts/test_pair_segment_completion.py --out /tmp/pair-completion
 
-No existing main proof, root STATUS, Lean4.30.0/Mathlib
+No pre-existing main file, root STATUS, Lean4.30.0/Mathlib
 c5ea00351c28e24afc9f0f84379aa41082b1188f, strict0.10.5 guard, workflow, allowlist,
-duplicate safeguards or credential isolation was changed. Read live metadata
-for the later evidence head, rather than confusing it with the failed proof SHA.
+duplicate control or trusted verify/publish credential split changed. Consult
+live PR metadata for the evidence head, distinct from the frozen tested proof.

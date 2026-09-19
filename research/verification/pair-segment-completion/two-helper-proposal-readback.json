@@ -1,0 +1,26 @@
+{
+  "Lean_compiled": false,
+  "applied_to_publication_source": false,
+  "changed_proof_bodies": [
+    "point_combo",
+    "replace_endpoint"
+  ],
+  "forward_reverse_patch_exact": true,
+  "intended_assumptions_and_slot_budget_unchanged": true,
+  "kind": "derived_unapplied_uncompiled_proposal",
+  "note": "Use explicitly instantiated smul_sum equalities instead of a broad simplifier; expose pair projections and normalize the endpoint identity with abel. Further errors may remain.",
+  "pinned_sum_lemma_source": {
+    "blob": "0d0fb1428930a156a680faba5b2772288c79f7cf",
+    "path": "Mathlib/Algebra/BigOperators/GroupWithZero/Action.lean",
+    "ref": "c5ea00351c28e24afc9f0f84379aa41082b1188f"
+  },
+  "problem_and_explanation_unchanged": true,
+  "public_solution_statement_and_body_unchanged": true,
+  "source": {
+    "bytes": 11766,
+    "git_blob": "756319de8d9d6d2d00941f48a87ff9c572ce35e6",
+    "lines": 283,
+    "sha256": "ac3bddf6ecc4dd20b3360e75d759013620bee82593065481205e7fe966a85bb5"
+  },
+  "tested_proof": "c1e5b8fe9517dd4a0284480c40598438ef860d9f"
+}

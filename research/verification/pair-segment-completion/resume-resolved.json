@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/pair_segment_completion"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "c1e5b8fe9517dd4a0284480c40598438ef860d9f",
+  "pr": "311"
+}
