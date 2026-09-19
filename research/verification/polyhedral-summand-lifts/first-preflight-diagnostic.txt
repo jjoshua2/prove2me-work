@@ -1,0 +1,6 @@
+Selected exact preflight failure lines from job105822585566/run35415267769. This is not the full runner log.
+
+2026-09-19T02:20:02.9050937Z /home/runner/work/prove2me-work/prove2me-work/research/publication_packets/polyhedral_summand_endpoint_lifts solution.lean contains a forbidden admission
+2026-09-19T02:20:02.9101486Z ##[error]Process completed with exit code 2.
+
+Diagnosis: the raw trusted FORBIDDEN expression matched the ordinary English word in the public theorem documentation, before any Lean invocation. The later net correction only rewords that comment, with the guard and all proof code unchanged.

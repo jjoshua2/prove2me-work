@@ -1,0 +1,20 @@
+{
+  "kind": "derived_clean_two_script_replay",
+  "status": "PASS",
+  "source_sha256": "1f23b1f0a87edee8c29b2a17e00489bd34479ccc8ee4175d978749d5450ae371",
+  "dependency_sha256": "3d4fada8d802541e5ff1984c364faa6b59f5ed26f59476dedc804938d80f787c",
+  "full_outputs_byte_identical": true,
+  "not_Lean_verification": true,
+  "outputs": [
+    {
+      "file": "exact-tests.json",
+      "bytes": 12100,
+      "sha256": "f0deb1fb5d00e4acc5f2612ff8ffa15485843abfc4769b92a56f76b6bc35c810"
+    },
+    {
+      "file": "fixtures.json",
+      "bytes": 22185,
+      "sha256": "d83747025439cedb4ae48843292747ab102c47716e53e490743a7459c56ad61f"
+    }
+  ]
+}

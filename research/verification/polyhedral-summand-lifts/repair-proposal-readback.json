@@ -1,0 +1,15 @@
+{
+  "kind": "derived_uncompiled_unapplied_proposal",
+  "tested_proof": "2eeb484b1a82b821726be5e6f69d72b46e859c4d",
+  "source_sha256": "9c742306ff5c2bfd16bbf64e74d224450f19bf69f3d1d634415a37ccdcf58687",
+  "source_blob": "4235c1e90effe3546d3ad6595032b093ef00028b",
+  "lines": 603,
+  "bytes": 27878,
+  "one_changed_proof_body": "body_convex",
+  "proof_statements_assumptions_public_type_and_root_unchanged": true,
+  "full_accepted_prefix_unchanged": true,
+  "forward_reverse_patch_exact": true,
+  "applied_to_publication_source": false,
+  "Lean_compiled": false,
+  "note": "Replace the final arithmetic tactic by the explicit sum inequality and factor (s+t)*b_i using the existing hypothesis. Further errors may remain."
+}

@@ -1,0 +1,90 @@
+{
+  "kind": "derived_final_attempt_history",
+  "pr": 310,
+  "target": "Hirsch.polyhedral_summand_endpoint_lifts_and_routes",
+  "state": "open_draft",
+  "trusted_main": "c766c3f769b06912c481fd305d857e73d9546811",
+  "runs": [
+    {
+      "run_id": 35415267769,
+      "proof_sha": "92d2358a70e24fafaa683961dc7a11a88da87694",
+      "trigger_comment": 5738554540,
+      "acknowledgement_comment": 5738555355,
+      "kind": "preflight_regex_rejection",
+      "exit_code": 2,
+      "Lean_invoked": false,
+      "job_ids": {
+        "gate": 105822565515,
+        "verify": 105822585566,
+        "publish": 105822778998,
+        "report-verify": 105822778674
+      },
+      "reason": "Raw admission-word scan matched the English documentation verb; no tactic admission."
+    },
+    {
+      "run_id": 35415626388,
+      "proof_sha": "2eeb484b1a82b821726be5e6f69d72b46e859c4d",
+      "trigger_comment": 5738598809,
+      "acknowledgement_comment": 5738600111,
+      "kind": "first_actual_Lean_compilation",
+      "exit_code": 1,
+      "Lean_invoked": true,
+      "job_ids": {
+        "gate": 105823612311,
+        "verify": 105823631876,
+        "publish": 105823792853,
+        "report-verify": 105823793024
+      },
+      "diagnosed_line": 537,
+      "reason": "body_convex final arithmetic tactic did not use factorization by the existing s+t=1"
+    }
+  ],
+  "jobs_final": {
+    "gate": "success",
+    "verify": "failure",
+    "publish": "skipped",
+    "report-verify": "skipped"
+  },
+  "run_status": "completed",
+  "passing_helper_reports": [
+    "Hirsch.PolyhedralSummand.active_score_unique",
+    "Hirsch.PolyhedralSummand.compact_extreme_maximizer",
+    "Hirsch.PolyhedralSummand.lift_vertex"
+  ],
+  "failed_dependent_reports": [
+    "Hirsch.PolyhedralSummand.transfer_all_pairs",
+    "solution"
+  ],
+  "failed_elaboration_sorryAx_not_a_pass": true,
+  "complete_packet_audit_passed": false,
+  "verified_packet_artifact": null,
+  "publication_receipt": null,
+  "theorem_id": null,
+  "submission_id": null,
+  "authenticated_status": null,
+  "live_status": null,
+  "publication_reached": false,
+  "new_comment_commands": 2,
+  "actual_compiler_attempts": 1,
+  "post_compiler_failure_publication_source_edits": false,
+  "third_trigger_posted": false,
+  "uncompiled_repair_saved_separately": true,
+  "source_upload_whitespace_error_detected_and_restored_before_second_request": true,
+  "net_change_between_run_sources": "One English doc-comment word only; all Lean proof terms and metadata unchanged",
+  "artifacts": [
+    {
+      "id": 10574789331,
+      "file": "pr310-first-request.zip",
+      "bytes": 319,
+      "sha256": "b9a022a3beae42ad5e740de3bc3d0a3bc7332076230b2f4528120c172a199586"
+    },
+    {
+      "id": 10575174553,
+      "file": "pr310-compiler-request.zip",
+      "bytes": 317,
+      "sha256": "a1579a9a6f3dfaf604c1a8986a3b87068c281b1cb3b1cad9bb9363965db06221"
+    }
+  ],
+  "archive_digests_recomputed": true,
+  "local_Lean_compilation": false
+}

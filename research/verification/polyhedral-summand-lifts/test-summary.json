@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "counts": {
+    "active_rows": 283,
+    "endpoint_pairs": 566,
+    "face_size": 124,
+    "factor_route_edges": 741,
+    "lifts": 114,
+    "models": 25,
+    "stationary_steps_removed": 445,
+    "sum_generator_comparisons": 3033,
+    "sum_route_edges": 1186,
+    "tied_max_faces": 5
+  },
+  "unbounded": [
+    {"active_rows": 2, "face_size": 1, "sum_generator_comparisons": 4},
+    {"active_rows": 2, "face_size": 1, "sum_generator_comparisons": 8},
+    {"active_rows": 2, "face_size": 1, "sum_generator_comparisons": 8},
+    {"active_rows": 3, "face_size": 2, "sum_generator_comparisons": 4}
+  ],
+  "high_dimensional": [
+    {"coordinate_support_checks": 0, "dimension": 0, "full_graph_enumerated": false, "selected_endpoint": true},
+    {"coordinate_support_checks": 0, "dimension": 0, "full_graph_enumerated": false, "selected_endpoint": true},
+    {"coordinate_support_checks": 1, "dimension": 1, "full_graph_enumerated": false, "selected_endpoint": true},
+    {"coordinate_support_checks": 1, "dimension": 1, "full_graph_enumerated": false, "selected_endpoint": true},
+    {"coordinate_support_checks": 2, "dimension": 2, "full_graph_enumerated": false, "selected_endpoint": true},
+    {"coordinate_support_checks": 2, "dimension": 2, "full_graph_enumerated": false, "selected_endpoint": true},
+    {"coordinate_support_checks": 8, "dimension": 8, "full_graph_enumerated": false, "selected_endpoint": true},
+    {"coordinate_support_checks": 8, "dimension": 8, "full_graph_enumerated": false, "selected_endpoint": true},
+    {"coordinate_support_checks": 16, "dimension": 16, "full_graph_enumerated": false, "selected_endpoint": true},
+    {"coordinate_support_checks": 16, "dimension": 16, "full_graph_enumerated": false, "selected_endpoint": true},
+    {"coordinate_support_checks": 64, "dimension": 64, "full_graph_enumerated": false, "selected_endpoint": true},
+    {"coordinate_support_checks": 64, "dimension": 64, "full_graph_enumerated": false, "selected_endpoint": true}
+  ],
+  "saved_audits": 19,
+  "construction_disabled": true,
+  "rejected": [
+    "wrong sum point",
+    "wrong active score",
+    "negative perturbation",
+    "false exposing objective",
+    "omitted maximizer face"
+  ],
+  "countercontrols": [
+    "arbitrary summand vertex may not lift",
+    "nonextreme face maximizer may not lift"
+  ],
+  "scope": "Exact finite supporting checks, not Lean extraction or verification of arbitrary H input/parser.",
+  "kind": "derived_test_summary",
+  "full_report_and_fixture_in_bundle": true
+}

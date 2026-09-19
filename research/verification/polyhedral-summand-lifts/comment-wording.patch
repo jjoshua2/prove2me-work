@@ -1,0 +1,11 @@
+--- a/research/publication_packets/polyhedral_summand_endpoint_lifts/solution.lean
++++ b/research/publication_packets/polyhedral_summand_endpoint_lifts/solution.lean
+@@ -570,7 +570,7 @@
+ 
+ end Hirsch.PolyhedralSummand
+ 
+-/-- Compact summands admit lifts of every original H vertex, so an all-pairs
++/-- Compact summands provide lifts of every original H vertex, so an all-pairs
+ sum-edge bound descends without assuming compatible endpoint choices. -/
+ theorem solution (d m B : ℕ)
+     (A : Fin m → (Fin d → ℝ) →ₗ[ℝ] ℝ) (b : Fin m → ℝ)
