@@ -1,0 +1,14 @@
+{
+  "kind": "derived_uncompiled_unapplied_repair",
+  "tested_proof": "5f4ed856d772ad3872bf2e7295f042ba7993b312",
+  "proposed_source_blob": "dcfa6019d4c23b2d78fbfa96de0036357419ca71",
+  "proposed_source_sha256": "5a0a02ce8b00f58e121ab8372062d9765e7e405c6bab1b8a524abbd7b68627bf",
+  "proposed_lines": 1072,
+  "proposed_bytes": 47122,
+  "sites": 4,
+  "all_declaration_signatures_and_public_root_unchanged": true,
+  "accepted_prefix_byte_identical": true,
+  "patch_forward_reverse_exact": true,
+  "applied_to_publication_source": false,
+  "Lean_compiled": false
+}

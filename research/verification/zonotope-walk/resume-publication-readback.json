@@ -1,0 +1,50 @@
+{
+  "kind": "derived_successful_run_and_artifact_readback",
+  "pr": 315,
+  "proof_sha": "ba5f8fbc6f1d49412a619a97412dba002e731826",
+  "trusted_main": "971d9d672dabe6e147b8828fff31fadbda521af6",
+  "run_id": 35473441079,
+  "trigger_comment": 5745771123,
+  "acknowledgement_comment": 5745772323,
+  "verdict_comment": 5745802542,
+  "verdict_timestamp": "2026-09-19T22:33:10Z",
+  "jobs": {
+    "gate": {"id": 105978455306, "status": "completed", "conclusion": "success"},
+    "verify": {"id": 105978482401, "status": "completed", "conclusion": "success"},
+    "publish": {"id": 105978703016, "status": "completed", "conclusion": "success"},
+    "report-verify": {"id": 105978703426, "status": "completed", "conclusion": "skipped"}
+  },
+  "compile_exit_codes": {"driver.lean": 0, "solution.lean": 0, "statement.lean": 0},
+  "audited_declarations": [
+    "Hirsch.ZonotopeWalk.event_mesh",
+    "Hirsch.ZonotopeWalk.crossing_vertices_distinct",
+    "Hirsch.ZonotopeWalk.segment_eq_of_extremes",
+    "Hirsch.ZonotopeWalk.regular_objective_route",
+    "solution"
+  ],
+  "axioms": ["propext", "Classical.choice", "Quot.sound"],
+  "authenticated_status": "ACCEPTED",
+  "publisher_live_status": "Proved",
+  "theorem_id": "58ae59bf-f663-4bbb-ba6b-1858d7a64009",
+  "submission_id": "d8179a3d-ef00-488d-9079-0c563c5893c0",
+  "first_failed_run": 35472065688,
+  "compiler_gates_total": 2,
+  "new_gates_this_turn": 1,
+  "first_actual_platform_submission": true,
+  "exact_saved_repair": true,
+  "statements_assumptions_root_metadata_and_accepted_prefix_unchanged": true,
+  "no_post_success_proof_edit": true,
+  "all_five_frozen_hashes_match": true,
+  "all_four_archive_hashes_match": true,
+  "local_Lean_compilation": false,
+  "separate_direct_platform_poll": false,
+  "raw_individual_platform_api_bodies_exported": false,
+  "verify_and_publish_logs_read_through_cleanup": true,
+  "local_alternative_withheld_due_to_overlap": true,
+  "artifacts": [
+    {"id": 10593655183, "file": "pr315-first-request.zip", "bytes": 311, "sha256": "d3b897757110bba56784f89833c0f91542a4d1c877ecbc0f9ef4fa60e12b35c4"},
+    {"id": 10593187769, "file": "pr315-resume-request.zip", "bytes": 311, "sha256": "c1130782b14ee7fe49a19d31390ddaf610dd8f877ed5ed7451eca9f7cbfdc0d8"},
+    {"id": 10594206285, "file": "pr315-resume-verified.zip", "bytes": 31361, "sha256": "ee115c45d0483e71b498231e8b809c88f3cd7d92d57c50524742c408587f679e"},
+    {"id": 10593697389, "file": "pr315-resume-publication.zip", "bytes": 922, "sha256": "5591d83e7f01e89d6cea52be40e3208c946f4c9b8d0822bf25d1cd7e15bc2b02"}
+  ]
+}

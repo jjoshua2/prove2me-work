@@ -1,0 +1,13 @@
+{
+  "kind": "derived_exact_saved_repair_check",
+  "bytes": 47122,
+  "lines": 1072,
+  "solution_sha256": "5a0a02ce8b00f58e121ab8372062d9765e7e405c6bab1b8a524abbd7b68627bf",
+  "solution_blob": "dcfa6019d4c23b2d78fbfa96de0036357419ca71",
+  "exact_saved_proposal": true,
+  "patch_forward_reverse_exact": true,
+  "accepted_prefix_699_lines_unchanged": true,
+  "public_type_and_entire_root_body_unchanged": true,
+  "local_Lean_compilation": false,
+  "historical_local_alternative_withheld_due_to_overlap": true
+}

@@ -1,0 +1,15 @@
+{
+  "kind": "derived_dependency_readback",
+  "accepted_source": "7dbeccc586323fb67ce565dec401306304bfeb9d",
+  "archive_sha256": "721392656667348837acbb2b2a42f8c531dd69f07ec663cbe0ef61e5e9b4272f",
+  "all_five_frozen_hashes_match": {
+    "solution.lean": true,
+    "driver.lean": true,
+    "statement.lean": true,
+    "problem.json": true,
+    "explanation.md": true
+  },
+  "prefix_bytes": 28571,
+  "prefix_byte_identical": true,
+  "old_public_root_and_prints_omitted": true
+}

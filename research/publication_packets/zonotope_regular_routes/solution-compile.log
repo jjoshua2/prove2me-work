@@ -1,0 +1,5 @@
+'Hirsch.ZonotopeWalk.event_mesh' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.ZonotopeWalk.crossing_vertices_distinct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.ZonotopeWalk.segment_eq_of_extremes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.ZonotopeWalk.regular_objective_route' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]

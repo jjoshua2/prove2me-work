@@ -1,0 +1,15 @@
+{
+  "kind": "derived_accepted_dependency_hash_recheck",
+  "theorem_id": "4713ca26-d458-47e6-9ae0-4654b0322f39",
+  "source_commit": "7dbeccc586323fb67ce565dec401306304bfeb9d",
+  "all_five_hashes_match": true,
+  "checks": {
+    "solution.lean": true,
+    "driver.lean": true,
+    "statement.lean": true,
+    "problem.json": true,
+    "explanation.md": true
+  },
+  "prefix_699_lines_unchanged": true,
+  "separate_platform_poll": false
+}

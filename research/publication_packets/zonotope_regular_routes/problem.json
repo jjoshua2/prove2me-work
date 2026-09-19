@@ -1,0 +1,15 @@
+{
+  "theorem_name": "Hirsch.zonotope_regular_objective_original_routes",
+  "theorem_title": "Construct a generator-bounded original zonotope edge walk between regular exposed vertices",
+  "formal_statement": "theorem Hirsch.zonotope_regular_objective_original_routes (d m : ℕ) (w : Fin m → (Fin d → ℝ))\n    (f g : (Fin d → ℝ) →ₗ[ℝ] ℝ)\n    (hf : ∀ i, w i ≠ 0 → f (w i) ≠ 0)\n    (hg : ∀ i, w i ≠ 0 → g (w i) ≠ 0) :\n    let Z : Set (Fin d → ℝ) := {x | ∃ s : Fin m → ℝ,\n      (∀ i, 0 ≤ s i ∧ s i ≤ 1) ∧ (∑ i : Fin m, s i • w i)=x}\n    let F : ((Fin d → ℝ) →ₗ[ℝ] ℝ) → Set (Fin d → ℝ) :=\n      fun h => {x | x ∈ Z ∧ h x = ∑ i : Fin m, max 0 (h (w i))}\n    ∃ L : ℕ, L ≤ m ∧ ∃ p : Fin (L+1) → (Fin d → ℝ),\n      F f = {p 0} ∧ F g = {p (Fin.last L)} ∧\n      (∀ i, p i ∈ Z.extremePoints ℝ) ∧\n      ∀ i : Fin L, p i.castSucc ≠ p i.succ ∧\n        IsExposed ℝ Z (segment ℝ (p i.castSucc) (p i.succ)) ∧\n        IsExtreme ℝ Z (segment ℝ (p i.castSucc) (p i.succ)) := by sorry\n",
+  "preamble": "import Mathlib\nopen scoped BigOperators\nset_option autoImplicit false",
+  "env": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "natural_language_statement": "For any finite collection of m real vectors in R^d and two linear objectives nonzero on every nonzero generator, construct a vertex walk of at most m nondegenerate original exposed/extreme edges in the actual segment sum. Its endpoints are exactly the singleton whole maximizing faces of the two objectives, and every visited point is an actual extreme point. The finite crossing set, its sorted order, the chamber samples, vertex identities and original adjacency are derived, not assumed. Repeated, opposite, parallel, zero and rank-deficient generators, dimension zero and zero-crossing cases are retained. Regular endpoint objectives are explicit hypotheses. No claim that arbitrary specified vertices come with such objectives, no generator bound in terms of original H facets, no shortestness or unrestricted Polynomial Hirsch conclusion. The result is a noncomputable real theorem, not a verified Python parser or runtime algorithm.",
+  "source": "Concrete ordered-walk assembly following ACCEPTED #313, Hirsch.zonotope_regular_sweep_original_edges (4713ca26-d458-47e6-9ae0-4654b0322f39). Its complete namespace prefix, including accepted #312 original edge faces, is copied byte-for-byte from proof7dbeccc586323fb67ce565dec401306304bfeb9d, excluding only the old public theorem and print suffix. New work derives the finite event mesh, adjacent chamber face limits and distinct endpoint identification. This is a formalization of classical zonotope geometry, not a historical novelty or new best diameter bound.",
+  "tags": [
+    "hirsch-conjecture",
+    "convex-geometry",
+    "polytope-diameter",
+    "zonotopes"
+  ]
+}

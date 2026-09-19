@@ -1,0 +1,31 @@
+{
+  "kind": "derived_source_binding",
+  "base_main": "971d9d672dabe6e147b8828fff31fadbda521af6",
+  "proof_head": "5f4ed856d772ad3872bf2e7295f042ba7993b312",
+  "all_three_remote_blobs_match": true,
+  "prefix_lines": 699,
+  "prefix_bytes": 28571,
+  "prefix_exact_from_accepted_packet": true,
+  "public_type_matches_problem": true,
+  "local_Lean_compilation": false,
+  "packet": {
+    "solution.lean": {
+      "sha256": "6179925b6505d5dd667a27177848508a0c59e72fd419f7e085a86d8a406b778f",
+      "git_blob": "9656a4308be4161ca9a61b6054136aae6cac30e7",
+      "bytes": 46746,
+      "lines": 1066
+    },
+    "explanation.md": {
+      "sha256": "777a0e16e19f0c7b12d48712dbf882a4d6bd112ad70c8862cd6f7bfae04e596c",
+      "git_blob": "e47505115a7965de11cc19bb8faa97da507c6fc3",
+      "bytes": 4129,
+      "lines": 17
+    },
+    "problem.json": {
+      "sha256": "ec6b18d4b501e1f028ee782b75b26a5fc7a5b3d19a5775e33ecc68395344fe28",
+      "git_blob": "dc713a16d1b5940e9141d33a0c12ce0d89ab3220",
+      "bytes": 2910,
+      "lines": 15
+    }
+  }
+}

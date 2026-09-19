@@ -1,0 +1,52 @@
+--- a/research/publication_packets/zonotope_regular_routes/solution.lean
++++ b/research/publication_packets/zonotope_regular_routes/solution.lean
+@@ -744,8 +744,9 @@
+   let S : Finset ℝ := insert 0 (insert 1 T)
+   have h0' : (0 : ℝ) ∉ insert 1 T := by simp [h0]
+   have hcard : S.card = T.card+2 := by
+-    rw [S, Finset.card_insert_of_notMem h0', Finset.card_insert_of_notMem h1]
+-    omega
++    calc
++      S.card = (insert 1 T).card+1 := Finset.card_insert_of_notMem h0'
++      _ = T.card+2 := by rw [Finset.card_insert_of_notMem h1]
+   let e : Fin (T.card+2) ↪o ℝ := S.orderEmbOfFin hcard
+   have he : Finset.univ.image e = S := Finset.image_orderEmbOfFin_univ S hcard
+   have hemem : ∀ i, e i ∈ S := by
+@@ -822,12 +823,15 @@
+     (hx : x ∈ P.extremePoints ℝ) (hy : y ∈ P.extremePoints ℝ)
+     (hxs : x ∈ segment ℝ u v) (hys : y ∈ segment ℝ u v) (hne : x ≠ y) :
+     segment ℝ u v = segment ℝ x y := by
+-  rcases extreme_on_segment P u v x hu hv hx hxs with rfl | rfl <;>
+-    rcases extreme_on_segment P u v y hu hv hy hys with rfl | rfl
+-  · exact False.elim (hne rfl)
+-  · rfl
+-  · exact segment_symm ℝ _ _
+-  · exact False.elim (hne rfl)
++  have hxuv := extreme_on_segment P u v x hu hv hx hxs
++  have hyuv := extreme_on_segment P u v y hu hv hy hys
++  rcases hxuv with hxu | hxv
++  · rcases hyuv with hyu | hyv
++    · exact False.elim (hne (hxu.trans hyu.symm))
++    · rw [hxu,hyv]
++  · rcases hyuv with hyu | hyv
++    · simpa only [hxv,hyu] using (segment_symm ℝ u v)
++    · exact False.elim (hne (hxv.trans hyv.symm))
+ 
+ /-- Continuity and the exact absence of crossings put a chamber vertex in
+ the entire event face at either end of its chamber. -/
+@@ -970,6 +974,7 @@
+       have hepick := pick_constant (fun t => blend f k t (w j))
+         (by simp only [blend_apply]; fun_prop) 0 (sample 0) (sinterval 0).1.le hn
+       have heval : blend f k 0 (w j)=f (w j) := by simp [blend]
++      change pick (blend f k 0 (w j)) = pick (blend f k (sample 0) (w j)) at hepick
+       rw [heval] at hepick
+       by_cases h1 : 0 < f (w j) <;> by_cases h2 : 0 < blend f k (sample 0) (w j)
+       · exact iff_of_true h1 h2
+@@ -990,6 +995,7 @@
+       have hepick := pick_constant (fun t => blend f k t (w j))
+         (by simp only [blend_apply]; fun_prop) (sample (Fin.last n)) 1 (sinterval _).2.le hn
+       have heval : blend f k 1 (w j)=k (w j) := by simp [blend]
++      change pick (blend f k (sample (Fin.last n)) (w j)) = pick (blend f k 1 (w j)) at hepick
+       rw [heval] at hepick
+       by_cases h1 : 0 < blend f k (sample (Fin.last n)) (w j) <;> by_cases h2 : 0 < k (w j)
+       · exact iff_of_true h1 h2
