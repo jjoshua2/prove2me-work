@@ -52,7 +52,12 @@ lemma point_combo {d n : ℕ} (v : Fin n → (Fin d → ℝ))
       rw [ha]
       module
     _ = a • point v s+b • point v t := by
-      simp only [point,Finset.sum_add_distrib,Finset.smul_sum]
+      rw [Finset.sum_add_distrib]
+      exact congrArg₂ (fun x y : Fin d → ℝ => x+y)
+        (Finset.smul_sum (r:=a) (s:=Finset.univ)
+          (f:=fun e : Pair n => s e • v e.1+(1-s e) • v e.2)).symm
+        (Finset.smul_sum (r:=b) (s:=Finset.univ)
+          (f:=fun e : Pair n => t e • v e.1+(1-t e) • v e.2)).symm
 
 lemma convex_zonotope {d n : ℕ} (v : Fin n → (Fin d → ℝ)) :
     Convex ℝ (zonotope v) := by
@@ -125,9 +130,13 @@ lemma replace_endpoint {d n : ℕ} (v : Fin n → (Fin d → ℝ))
     intro e
     by_cases h : e=(k,i)
     · subst e
-      simp only [Function.update_self,ht,zero_smul,sub_zero,one_smul,
-        sub_self,if_pos rfl,add_zero,zero_add]
-      module
+      change (Function.update t (k,i) 0 (k,i)) • v k +
+        (1-Function.update t (k,i) 0 (k,i)) • v i =
+        (t (k,i) • v k+(1-t (k,i)) • v i) +
+        (if (k,i)=(k,i) then v i-v k else 0)
+      rw [Function.update_self,ht,if_pos rfl]
+      simp only [zero_smul,sub_zero,one_smul,sub_self,add_zero,zero_add]
+      abel
     · simp only [Function.update_of_ne h,if_neg h,add_zero]
   calc
     point v (Function.update t (k,i) 0) =
