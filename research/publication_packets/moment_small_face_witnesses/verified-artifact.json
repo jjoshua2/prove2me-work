@@ -1,0 +1,25 @@
+{
+  "head_sha": "c8589a1fee999c8497ebd2d1e6e9601ce739ec8b",
+  "packets": [
+    {
+      "path": "research/publication_packets/moment_small_face_witnesses",
+      "name": "moment_small_face_witnesses",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "95341bb2cfb6aff23e8ba0f5017b6b894818330aca4c1c97b16946535b4c50a0",
+        "driver.lean": "95341bb2cfb6aff23e8ba0f5017b6b894818330aca4c1c97b16946535b4c50a0",
+        "statement.lean": "697d0d5557b23157859e81ad8560fc2dd6408d9ce6036745a3a929c33c2638cf",
+        "problem.json": "20cd7998bbd61a98d3b501bc6203a27b5cfb1350060633a72d960a0f33b0d139",
+        "explanation.md": "3f7ad3cae100d76a0f0c355e107f415dd4605548b485119499c6e27495b41d98"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}
