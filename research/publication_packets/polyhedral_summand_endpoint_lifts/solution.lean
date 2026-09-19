@@ -534,7 +534,9 @@ lemma body_convex {d m : ℕ}
   have h1 := mul_le_mul_of_nonneg_left (hx i) hs
   have h2 := mul_le_mul_of_nonneg_left (hy i) ht
   simp only [map_add,map_smul,smul_eq_mul]
-  nlinarith
+  calc
+    s * A i x + t * A i y ≤ s * b i + t * b i := add_le_add h1 h2
+    _ = b i := by rw [← add_mul,hst,one_mul]
 
 /-- Having supplied only a uniform route bound on the SUM, we derive the same
 bound for independently chosen original H vertices; endpoint lifts are not inputs. -/
