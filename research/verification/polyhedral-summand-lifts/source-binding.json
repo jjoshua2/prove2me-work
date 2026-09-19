@@ -1,0 +1,16 @@
+{
+  "kind": "derived_exact_source_binding",
+  "initial_proof": "92d2358a70e24fafaa683961dc7a11a88da87694",
+  "current_proof": "2eeb484b1a82b821726be5e6f69d72b46e859c4d",
+  "solution_blob": "44a53a9bb9d56f15a9ecb83abe4e30cfe9da9277",
+  "solution_sha256": "ef4727c6a4270b6ebf209011e8af7c86de4437c0ed1f2a282cb5faf0b073e1fc",
+  "lines": 601,
+  "bytes": 27768,
+  "net_change": "One English doc-comment word only; all Lean declarations and proof terms unchanged",
+  "all_three_remote_files_match": true,
+  "public_type_matches": true,
+  "accepted_343_line_prefix_exact": true,
+  "dependency_five_manifest_hashes_match": true,
+  "upload_transcription_caught_and_restored_before_request": true,
+  "local_Lean_compilation": false
+}

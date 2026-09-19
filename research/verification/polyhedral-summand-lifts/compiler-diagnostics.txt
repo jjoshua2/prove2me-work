@@ -1,0 +1,29 @@
+Complete compiler error/context/axiom block from job105823631876/run35415626388. Runner setup/cache/cleanup are omitted; this is not the complete runner log.
+
+2026-09-19T02:27:13.5318538Z polyhedral_summand_endpoint_lifts/driver.lean failed to compile:
+2026-09-19T02:27:13.5319866Z _verified/packets/polyhedral_summand_endpoint_lifts/driver.lean:537:2: error: linarith failed to find a contradiction
+2026-09-19T02:27:13.5320692Z case h
+2026-09-19T02:27:13.5321149Z d m : ℕ
+2026-09-19T02:27:13.5321478Z A : Fin m → (Fin d → ℝ) →ₗ[ℝ] ℝ
+2026-09-19T02:27:13.5322570Z b : Fin m → ℝ
+2026-09-19T02:27:13.5322903Z x : Fin d → ℝ
+2026-09-19T02:27:13.5323231Z hx : x ∈ body A b
+2026-09-19T02:27:13.5323559Z y : Fin d → ℝ
+2026-09-19T02:27:13.5323888Z hy : y ∈ body A b
+2026-09-19T02:27:13.5324191Z s t : ℝ
+2026-09-19T02:27:13.5324483Z hs : 0 ≤ s
+2026-09-19T02:27:13.5324786Z ht : 0 ≤ t
+2026-09-19T02:27:13.5325042Z hst : s + t = 1
+2026-09-19T02:27:13.5325316Z i : Fin m
+2026-09-19T02:27:13.5325637Z h1 : s * (A i) x ≤ s * b i
+2026-09-19T02:27:13.5326008Z h2 : t * (A i) y ≤ t * b i
+2026-09-19T02:27:13.5326672Z a✝ : b i < s * (A i) x + t * (A i) y
+2026-09-19T02:27:13.5327085Z ⊢ False
+2026-09-19T02:27:13.5327339Z failed
+2026-09-19T02:27:13.5327987Z 'Hirsch.PolyhedralSummand.active_score_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-19T02:27:13.5329123Z 'Hirsch.PolyhedralSummand.compact_extreme_maximizer' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-19T02:27:13.5330206Z 'Hirsch.PolyhedralSummand.lift_vertex' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-19T02:27:13.5331315Z 'Hirsch.PolyhedralSummand.transfer_all_pairs' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-19T02:27:13.5332876Z 'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-19T02:27:13.5333407Z 
+2026-09-19T02:27:13.5399939Z ##[error]Process completed with exit code 1.
