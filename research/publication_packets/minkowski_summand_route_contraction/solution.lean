@@ -79,7 +79,8 @@ private lemma segment_parameter {d : ℕ} (u v z : Fin d → ℝ)
     ∃ t : ℝ, 0 ≤ t ∧ t ≤ 1 ∧ z = u + t • (v-u) := by
   obtain ⟨s,t,hs,ht,hst,he⟩ := hz
   refine ⟨t,ht,by linarith,?_⟩
-  rw [← he]
+  have hs' : s = 1-t := by linarith
+  rw [← he,hs']
   module
 
 private lemma line_injective {d : ℕ} (D : Fin d → ℝ) (hD : D ≠ 0) :
@@ -194,7 +195,7 @@ theorem left_face_of_sum_edge {d : ℕ} (P Q : Set (Fin d → ℝ))
         rw [hs0',zero_smul] at hxdisp
         rw [sub_eq_zero.mp hxdisp]
         exact left_mem_segment ℝ _ _
-      · have hap : 0 < α := lt_of_le_of_ne ha0 ha.symm
+      · have hap : 0 < α := lt_of_le_of_ne ha0 (Ne.symm ha)
         have hr0 : 0 ≤ s/α := div_nonneg hs0 ha0
         have hr1 : s/α ≤ 1 := (div_le_one hap).mpr hsa
         have hmul : (s/α)*α = s := div_mul_cancel₀ s ha
