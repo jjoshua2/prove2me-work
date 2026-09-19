@@ -1,0 +1,18 @@
+{
+  "kind": "derived_current_regression",
+  "Lean_verification": false,
+  "outputs": [
+    {
+      "file": "exact-tests.json",
+      "bytes": 1791,
+      "sha256": "390664da822e557169ffa0de181b509962c55114a757112da5e7ea79949fe670",
+      "previous_bytes_match": true
+    },
+    {
+      "file": "fixtures.json",
+      "bytes": 38439,
+      "sha256": "fef9b004e1b0593b968311f9732e5d607f97a98c0e2000dab99567b62b72e4eb",
+      "previous_bytes_match": true
+    }
+  ]
+}

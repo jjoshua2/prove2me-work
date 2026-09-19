@@ -1,0 +1,6 @@
+Selected exact lines from publisher job105942959283/run35460242988. The full job log was read through cleanup; this file is only the publication-failure excerpt.
+
+2026-09-19T18:10:32.0509436Z Platform skill version changed; refresh the skill before publishing.
+2026-09-19T18:10:32.0640132Z ##[error]Process completed with exit code 1.
+2026-09-19T18:10:32.2383273Z ##[warning]No files were found with the provided path: _receipts/. No artifacts will be uploaded.
+2026-09-19T18:10:33.3636980Z https://github.com/jjoshua2/prove2me-work/pull/313#issuecomment-5744227133

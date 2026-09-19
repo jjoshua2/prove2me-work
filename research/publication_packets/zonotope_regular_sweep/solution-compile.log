@@ -1,0 +1,5 @@
+'Hirsch.ZonotopeSweep.regularize_on' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.ZonotopeSweep.tied_collinear' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.ZonotopeSweep.mem_crossingSet' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.ZonotopeSweep.regular_sweep' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]

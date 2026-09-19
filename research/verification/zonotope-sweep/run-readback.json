@@ -1,0 +1,71 @@
+{
+  "kind": "derived_run_and_artifact_readback",
+  "pr": 313,
+  "proof_sha": "caf342b4679820b8e8b12633493884938536135d",
+  "trusted_main": "6b0ed8524c0b16b3e4acbc1f5c73708e2d221082",
+  "run_id": 35460242988,
+  "trigger_comment": 5744212067,
+  "acknowledgement_comment": 5744213464,
+  "no_receipt_comment": 5744227133,
+  "jobs": {
+    "gate": {
+      "id": 105942681452,
+      "conclusion": "success"
+    },
+    "verify": {
+      "id": 105942709293,
+      "conclusion": "success"
+    },
+    "publish": {
+      "id": 105942959283,
+      "conclusion": "failure"
+    },
+    "report-verify": {
+      "id": 105942959981,
+      "conclusion": "skipped"
+    }
+  },
+  "run_status": "completed",
+  "compile_exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "audited_declarations": 5,
+  "first_compiler_attempt": true,
+  "new_triggers": 1,
+  "source_and_metadata_unchanged_after_gate": true,
+  "publication_reached": false,
+  "theorem_id": null,
+  "submission_id": null,
+  "authenticated_status": null,
+  "live_status": null,
+  "publisher_error": "Platform skill version changed; refresh the skill before publishing.",
+  "actual_refresh_version_logged": false,
+  "expected_version": "0.10.5",
+  "official_upstream_version": "0.10.6",
+  "official_upstream_commit": "32b755663224d6c3f572406e893e9b10ca652202",
+  "version_guard_or_publisher_changed": false,
+  "all_five_frozen_file_hashes_match": true,
+  "all_two_current_archive_hashes_match": true,
+  "local_Lean_compilation": false,
+  "artifacts": [
+    {
+      "id": 10589109280,
+      "file": "pr313-request.zip",
+      "bytes": 311,
+      "sha256": "04167d0132ac338487330476dfd641b1bb60afd6121463944884bf4bd594be2b"
+    },
+    {
+      "id": 10588748677,
+      "file": "pr313-verified.zip",
+      "bytes": 23931,
+      "sha256": "4708118df35e50cb1b0bfa4c99d269da218866cf3fe9207f232a0e713414d7ba"
+    }
+  ]
+}

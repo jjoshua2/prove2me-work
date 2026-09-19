@@ -1,0 +1,14 @@
+{
+  "kind": "derived_protocol_maintenance_readback",
+  "pr": 314,
+  "head": "9f4d0704e4f57f31a5584829e3ac8fc9d7d6200d",
+  "merge": "51d0be383b4eca6a8709a9017dc9230278f71367",
+  "official_commit": "32b755663224d6c3f572406e893e9b10ca652202",
+  "official_skill_blob": "9848cfa34065eb650e2de3fb9be81786045cfca5",
+  "client_blob": "e20f826cdd582ad9ed5ec775c45d0f63b1069ae6",
+  "strict_version": "0.10.6",
+  "offline_method_cases": 10,
+  "changes": "two version literals and test/evidence; no theorem, workflow, pin, allowlist or credential separation changes",
+  "live_publication_succeeded_with_unchanged_exact_guard": true,
+  "raw_refresh_response_exported": false
+}

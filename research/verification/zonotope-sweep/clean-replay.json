@@ -1,0 +1,20 @@
+{
+  "kind": "derived_clean_script_replay",
+  "status": "PASS",
+  "not_Lean_verification": true,
+  "source_sha256": "f5a8544e29d67f1f4da76c57d4ba528773d27a8daca5e03386ac1e9447996469",
+  "outputs": [
+    {
+      "file": "exact-tests.json",
+      "bytes": 1791,
+      "sha256": "390664da822e557169ffa0de181b509962c55114a757112da5e7ea79949fe670",
+      "byte_identical": true
+    },
+    {
+      "file": "fixtures.json",
+      "bytes": 38439,
+      "sha256": "fef9b004e1b0593b968311f9732e5d607f97a98c0e2000dab99567b62b72e4eb",
+      "byte_identical": true
+    }
+  ]
+}

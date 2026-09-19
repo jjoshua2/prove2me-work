@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/zonotope_regular_sweep"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "7dbeccc586323fb67ce565dec401306304bfeb9d",
+  "pr": "313"
+}
