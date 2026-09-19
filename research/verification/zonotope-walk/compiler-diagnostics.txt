@@ -1,0 +1,25 @@
+Selected exact compiler diagnostic and axiom lines from job105974722350/run35472065688.
+Repeated local contexts and runner setup/cache/cleanup are explicitly omitted.
+The complete job log was read; this file is not the complete runner log.
+
+2026-09-19T22:01:40.8700286Z zonotope_regular_routes/driver.lean failed to compile:
+2026-09-19T22:01:40.8703002Z _verified/packets/zonotope_regular_routes/driver.lean:747:8: error: Invalid rewrite argument: Expected an equality or iff proof or definition name, but `S` is a value of type
+2026-09-19T22:01:40.8705414Z   Finset ℝ
+2026-09-19T22:01:40.8706320Z _verified/packets/zonotope_regular_routes/driver.lean:826:32: error(lean.unknownIdentifier): Unknown identifier `u`
+2026-09-19T22:01:40.8708015Z _verified/packets/zonotope_regular_routes/driver.lean:826:34: error(lean.unknownIdentifier): Unknown identifier `v`
+2026-09-19T22:01:40.8709601Z _verified/packets/zonotope_regular_routes/driver.lean:973:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+2026-09-19T22:01:40.8710760Z   (blend f k 0) (w j)
+2026-09-19T22:01:40.8711522Z in the target expression
+2026-09-19T22:01:40.8712184Z   pick ((fun t => (blend f k t) (w j)) 0) = pick ((fun t => (blend f k t) (w j)) (sample 0))
+[repeated local context omitted]
+2026-09-19T22:01:40.8753246Z _verified/packets/zonotope_regular_routes/driver.lean:993:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+2026-09-19T22:01:40.8754487Z   (blend f k 1) (w j)
+2026-09-19T22:01:40.8754853Z in the target expression
+2026-09-19T22:01:40.8755479Z   pick ((fun t => (blend f k t) (w j)) (sample (Fin.last n))) = pick ((fun t => (blend f k t) (w j)) 1)
+[repeated local context omitted]
+2026-09-19T22:01:40.8793226Z 'Hirsch.ZonotopeWalk.event_mesh' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-19T22:01:40.8794500Z 'Hirsch.ZonotopeWalk.crossing_vertices_distinct' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-19T22:01:40.8795811Z 'Hirsch.ZonotopeWalk.segment_eq_of_extremes' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-19T22:01:40.8797159Z 'Hirsch.ZonotopeWalk.regular_objective_route' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-19T22:01:40.8798478Z 'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-19T22:01:40.8822805Z ##[error]Process completed with exit code 1.

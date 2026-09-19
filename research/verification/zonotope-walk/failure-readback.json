@@ -1,0 +1,68 @@
+{
+  "kind": "derived_failed_run_readback",
+  "pr": 315,
+  "target": "Hirsch.zonotope_regular_objective_original_routes",
+  "proof_sha": "5f4ed856d772ad3872bf2e7295f042ba7993b312",
+  "trusted_main": "971d9d672dabe6e147b8828fff31fadbda521af6",
+  "run_id": 35472065688,
+  "trigger_comment": 5745607790,
+  "acknowledgement_comment": 5745608540,
+  "run_state": "completed",
+  "conclusion": "failure",
+  "jobs": {
+    "gate": {
+      "id": 105974700123,
+      "conclusion": "success"
+    },
+    "verify": {
+      "id": 105974722350,
+      "conclusion": "failure"
+    },
+    "publish": {
+      "id": 105974877023,
+      "conclusion": "skipped"
+    },
+    "report-verify": {
+      "id": 105974877076,
+      "conclusion": "skipped"
+    }
+  },
+  "driver_exit_code": 1,
+  "diagnostic_lines": [
+    747,
+    826,
+    973,
+    993
+  ],
+  "passing_helper_reports": [
+    "Hirsch.ZonotopeWalk.crossing_vertices_distinct"
+  ],
+  "failed_reports": [
+    "Hirsch.ZonotopeWalk.event_mesh",
+    "Hirsch.ZonotopeWalk.segment_eq_of_extremes",
+    "Hirsch.ZonotopeWalk.regular_objective_route",
+    "solution"
+  ],
+  "complete_packet_audit_passed": false,
+  "failed_elaboration_sorryAx_is_not_a_pass": true,
+  "theorem_id": null,
+  "submission_id": null,
+  "authenticated_verdict": null,
+  "live_status": null,
+  "verified_packet_artifact": null,
+  "publication_receipt": null,
+  "new_gates_this_turn": 1,
+  "post_failure_proof_edits": false,
+  "second_trigger_posted": false,
+  "local_Lean_compilation": false,
+  "repair_proposal_uncompiled_and_unapplied": true,
+  "original_artifact": {
+    "id": 10593655183,
+    "file": "request.zip",
+    "bytes": 311,
+    "sha256": "d3b897757110bba56784f89833c0f91542a4d1c877ecbc0f9ef4fa60e12b35c4",
+    "digest_recomputed": true
+  },
+  "full_job_log_inspected": true,
+  "committed_diagnostics_are_scoped_excerpt": true
+}

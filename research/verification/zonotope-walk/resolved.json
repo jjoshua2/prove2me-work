@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/zonotope_regular_routes"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "5f4ed856d772ad3872bf2e7295f042ba7993b312",
+  "pr": "315"
+}

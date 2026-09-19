@@ -1,0 +1,69 @@
+{
+  "constructors_disabled": true,
+  "counts": {
+    "boolean_representations": 4324,
+    "edges": 93,
+    "generators": 328,
+    "parallel_tie_events": 30,
+    "routes": 84,
+    "singleton_support_comparisons": 5463,
+    "vertices_visited": 177,
+    "whole_event_face_points": 299,
+    "zero_generators": 18
+  },
+  "dependency_sha256": "f5a8544e29d67f1f4da76c57d4ba528773d27a8daca5e03386ac1e9447996469",
+  "large": [
+    {
+      "dimension": 8,
+      "edges": 8,
+      "full_graph_enumerated": false,
+      "generators": 11,
+      "parallel_tie_events": 1,
+      "routes": 1,
+      "vertices_visited": 9,
+      "zero_generators": 1
+    },
+    {
+      "dimension": 16,
+      "edges": 12,
+      "full_graph_enumerated": false,
+      "generators": 15,
+      "parallel_tie_events": 1,
+      "routes": 1,
+      "vertices_visited": 13,
+      "zero_generators": 1
+    },
+    {
+      "dimension": 32,
+      "edges": 12,
+      "full_graph_enumerated": false,
+      "generators": 15,
+      "parallel_tie_events": 1,
+      "routes": 1,
+      "vertices_visited": 13,
+      "zero_generators": 1
+    },
+    {
+      "dimension": 64,
+      "edges": 12,
+      "full_graph_enumerated": false,
+      "generators": 15,
+      "parallel_tie_events": 1,
+      "routes": 1,
+      "vertices_visited": 13,
+      "zero_generators": 1
+    }
+  ],
+  "rejected": [
+    "missing crossing",
+    "unsorted mesh",
+    "sample at event",
+    "stationary edge",
+    "wrong point",
+    "non-saturated coefficient"
+  ],
+  "saved_records": 22,
+  "scope": "Finite original-face walk checks, separate from Lean. Regular endpoint objectives are inputs; original-facet complexity and arbitrary-vertex objective construction are not certified.",
+  "source_sha256": "4311ecd5a1e3af70a07d8a29d450443e14dc89cda2d5d4dba90b577ff6400024",
+  "status": "PASS"
+}
