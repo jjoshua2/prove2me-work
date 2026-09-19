@@ -1,113 +1,110 @@
-# PR #315: ordered original zonotope walk — compiler repair required
+# PR #315: ordered original zonotope walk — ACCEPTED
 
 Read current STATUS, AGENTS, CLOUD_AGENT, SKILL, CONTINUE_HIRSCH and live exact
-PR heads/comments before continuing. Baseline main:
-971d9d672dabe6e147b8828fff31fadbda521af6. This is the unowned walk-assembly
-obligation following accepted #313, not a duplicate sweep or general decomposition.
-Coordination comment5745535621 on #313 was posted/read back. Other owned work
-and reserved #210 are untouched.
+PR heads/comments before further work. Baseline main was
+971d9d672dabe6e147b8828fff31fadbda521af6. This continuation repaired existing
+#315, rather than publishing the overlapping local sign-progress alternative.
+Reserved #210 and other owned proof branches were not changed or triggered.
 
-## Authoritative current status
+## Authoritative result: do not resubmit
 
-Target: Hirsch.zonotope_regular_objective_original_routes.
-Packet: research/publication_packets/zonotope_regular_routes.
-PR #315 is OPEN/DRAFT. No complete passing packet audit, platform registration,
-submission ID, ACCEPTED verdict or live Proved result exists from this attempt.
+Hirsch.zonotope_regular_objective_original_routes is ACCEPTED; the trusted
+publisher records live Proved. Theorem 58ae59bf-f663-4bbb-ba6b-1858d7a64009,
+submission d8179a3d-ef00-488d-9079-0c563c5893c0.
+Accepted proof ba5f8fbc6f1d49412a619a97412dba002e731826;
+run 35473441079. Actual NEW top-level trigger 5745771123, exact-SHA
+acknowledgement 5745772323 and verdict 5745802542 were read back.
+Gate/verify/publish completed successfully; report-verify was skipped.
 
-Actual NEW top-level command5745607790 was read back. Bot5745608540 resolved
-proof5f4ed856d772ad3872bf2e7295f042ba7993b312 and run35472065688.
-Gate105974700123 succeeded; verify105974722350 failed driver compilation with
-exit1. Publish105974877023 and report-verify105974877076 were skipped. The run
-completed. Only one gate was triggered; no second request or post-failure proof
-edit occurred. Local Lean/Lake was absent and compiler-host DNS unavailable.
+All three compile modes exit zero. All five transitive reports use only
+propext, Classical.choice and Quot.sound. The packet contains the raw audit,
+manifest, full compiler logs, publication receipt and exact publisher comment.
+Derived run/provenance records are labelled separately. Both job logs were
+inspected through cleanup. Proved is the publisher's authenticated readback,
+not a second direct platform or root/leaf poll. No missing API body is invented.
+Local Lean/Lake was unavailable; the formal evidence is the pinned hosted gate.
 
-The crossing_vertices_distinct helper emitted only propext, Classical.choice
-and Quot.sound. The other FOUR printed reports contain sorryAx from failed
-elaboration. This is not a passed complete audit or independently published
-helper. The scoped compiler excerpt and the original request ZIP are preserved;
-the full runner log was inspected through cleanup but is not claimed committed.
-There is no verified-packet or publication artifact to fabricate.
+## Repair closed and first failure retained
 
-## Exact diagnosed sites and separate proposal
+The accepted source is EXACTLY the saved 1072-line / 47122-byte proposal:
+blob dcfa6019d4c23b2d78fbfa96de0036357419ca71,
+SHA256 5a0a02ce8b00f58e121ab8372062d9765e7e405c6bab1b8a524abbd7b68627bf.
+The four edits use direct card_insert equalities, named endpoint classifications,
+and explicit lambda reduction in the first/last pick equalities. Every signature,
+hypothesis, public statement AND root body, metadata file and accepted 699-line
+#313 prefix is unchanged. No post-success proof cleanup or extra trigger.
 
-1. Line747: rw treated the local finite-set value S as a rewrite theorem.
-   Replace the cardinal calculation with direct card_insert equalities.
-2. Line826: the first rcases/rfl eliminated u/v before the second classification
-   was invoked. Derive both classifications first and retain named equalities.
-3. Lines973 and993: endpoint rewrites did not find evaluations inside unreduced
-   lambda applications. Use explicit change at hepick before each rewrite.
+The original run 35472065688 at 5f4ed856d772ad3872bf2e7295f042ba7993b312 failed
+before publication. Its exact source, request and scoped diagnostic/axiom block
+remain unchanged. Old failure/proposal readbacks refer to that historical time;
+the current raw receipt supersedes their status. The previous handoff is copied
+verbatim to verification/zonotope-walk/handoff-before-acceptance.md.
+This is the SECOND compiler gate and FIRST actual platform submission, with
+ONE new gate this continuation. Do not retroactively call the first gate green.
 
-The proposed repair changes only these four elaboration sites. It does not alter
-any declaration signature, assumption, accepted prefix, public type or public
-root proof. It is UNAPPLIED to the publication source and UNCOMPILED. The patch
-applies/reverses byte-exact in a clean Git workspace. Further errors may surface
-once these sites are repaired; do not claim that the proposal is Lean verified.
-Proposed1072-line source blobdcfa6019d4c23b2d78fbfa96de0036357419ca71,
-SHA2565a0a02ce8b00f58e121ab8372062d9765e7e405c6bab1b8a524abbd7b68627bf.
+## Mathematical progress now complete
 
-The exact tested1066-line/46746-byte source remains blob
-9656a4308be4161ca9a61b6054136aae6cac30e7,
-SHA2566179925b6505d5dd667a27177848508a0c59e72fd419f7e085a86d8a406b778f.
-The complete699-line accepted #313 prefix is byte-identical; only its old root
-and prints were omitted. All five dependency manifest hashes were rechecked
-from its original verified archive. No accepted target was resubmitted.
+Given arbitrary generators w_i in R^d and objectives f,g nonzero on every nonzero
+w_i, construct p : Fin(L+1)->R^d with L<=m. Every p is an actual extreme point
+of the ORIGINAL coefficient segment sum. F(f)={p(0)} and F(g)={p(L)} as whole
+maximizing faces. Every consecutive segment is nondegenerate, IsExposed and
+IsExtreme in that same original Z. No sorted event list, chamber vertices,
+adjacency relation or short route is supplied.
 
-## Mathematical argument and non-oracular construction
+The accepted sweep constructs a same-target-face perturbed objective and exact
+finite crossing set T with |T|<=m. Insert 0 and 1, derive its order embedding and
+prove no event lies in the gaps. Midpoint samples supply regular objectives and
+canonical saturated vertices. The intermediate value theorem fixes nonzero
+signs across each chamber, putting both adjacent vertices in the event face.
+The crossing-distinctness argument uses saturation under a regular objective,
+not injectivity of the Boolean generator representation. Two distinct ambient
+extreme points on the event segment must be exactly its endpoints. This proves
+one genuine original edge per event and completes the walk.
 
-For Z=sum_i[0,w_i] and TWO supplied regular objectives f,g, accepted #313 derives
-a same-sign target perturbation k and an exact finite event set T, |T|<=m.
-Insert 0/1, enumerate increasingly, and prove no event lies between consecutive
-entries. Midpoint chamber objectives are regular; their saturated points are
-actual extreme points. Continuity and the intermediate value theorem fix signs
-on every nonzero interval, identifying the first/last faces with f/g and placing
-both adjoining chamber vertices in each event's WHOLE original edge face.
+Parallel/opposite/repeated/zero and rank-deficient generators, m=0, d=0 and
+zero-crossing cases are covered. This ordered-walk interface is CLOSED.
+Do not recreate it as a new conditional child or resubmit the local alternative
+under another name. A genuinely stronger statement needs separate justification.
 
-A crossed nonzero generator rules out equality of the two chamber points:
-coefficient saturation for the first regular objective would force the second
-representation to use the same pick on that generator, contradicting the affine
-sign crossing. This lemma has the new standard-only report and requires no
-injectivity of the redundant Boolean representation. Ambient extremality then
-forces the distinct adjoining points to be the event segment's two endpoints.
-One actual transition per event gives a Fin(|T|+1)-indexed original-edge walk.
+## Remaining conjecture-facing obligations
 
-No ordered schedule, adjacency, chamber vertex list or bounded path is assumed.
-The written composition is complete, but the full Lean packet still requires
-repair and successful verification. It includes zero/parallel/opposite/repeated
-and rank-deficient generators, dimension zero and zero-event cases. Regular
-endpoint objectives remain hypotheses. Constructing them for arbitrary requested
-vertices and controlling generator count by ORIGINAL H facets remain separate.
-No unrestricted Polynomial Hirsch result, shortestness, new best classical bound
-or historical priority is claimed. Do not replace the generator budget by an
-exponentially expanded list and call it an original-input polynomial bound.
+The endpoint objectives are still hypotheses. The next applicability step is
+to construct a regular exposing objective for each arbitrary requested extreme
+point of the actual zonotope, without supplying an objective or vertex catalogue
+as an oracle. Combine that construction with this accepted route to obtain a
+formal all-pairs result. That construction is NOT already claimed here.
 
-## Evidence and reproduction
+The input m counts segment generators, not the original H-polyhedron's facets.
+The #311 completion may expand through a large point catalogue. An upper bound
+polynomial in that expanded list is not necessarily polynomial in original
+facets. A controlled original-input generator budget or another route argument
+is still required for unrestricted Polynomial Hirsch. No shortestness, new
+optimal classical bound or historical-priority claim is made.
 
-The original request artifact10593655183 is311bytes; SHA256
- d3b897757110bba56784f89833c0f91542a4d1c877ecbc0f9ef4fa60e12b35c4.
-Its digest was recomputed and its raw resolved.json read back. The archive is
-committed and exported. Raw evidence and derived status records are separate.
+## Reproduction and evidence
 
-The unchanged new test script passed in a clean two-script workspace using the
-accepted sweep constructor.84 small walks over42 systems give93 edges,177
-visited vertices,30 parallel-tie events and18 zero generators.4324 Boolean
-representations were examined for full small support faces, with5463 singleton
-comparisons and299 event-face point checks. Four selected d8/16/32/64 routes
-have lengths8/12/12/12, without complete large graph enumeration.22 saved records
-pass with objective/route construction disabled; six forged inputs fail.
+Four original request/verification/publication ZIPs were downloaded and rehashed.
+All five frozen file hashes match the verified archive; the accepted dependency's
+five files also match. Raw archives and full fixtures accompany the export;
+raw extracted logs/audit/receipt are committed apart from derived summaries.
 
-Full report1810bytes SHA256
-101cc1cdeb7d4c41c31ef0c4656c2efc50f79cf6649019ce3c0e55f8c8785f77;
-fixture77271bytes SHA256
+The unchanged exact-rational suite reran and passed clean two-script replay:
+84 small walks/93 edges, 177 visited vertices, 30 parallel-tie events and 18 zero
+generators. Exhaustive small support checks use 4324 Boolean representations,
+5463 singleton comparisons and 299 event-face points. Selected d8/16/32/64 routes
+have 8/12/12/12 edges without complete large graphs. Twenty-two saved records
+pass with constructors disabled; six forged inputs fail. These are supporting
+checks, NOT Lean-extracted software or a formal arbitrary-input parser.
+
+Full report: 1810 bytes, SHA256
+101cc1cdeb7d4c41c31ef0c4656c2efc50f79cf6649019ce3c0e55f8c8785f77.
+Fixture: 77271 bytes, SHA256
 65c11eda693b3a6af2bee2dac494f817a6e573afff1efd3e467ffc2ca027718f.
-Both replay byte-for-byte. These are supporting finite checks, not Lean-extracted
-code or verified arbitrary JSON. Full fixture and unchanged dependency accompany
-the standalone bundle; the existing helper is not overwritten in this PR.
+Both exactly reproduce the earlier output and the new clean replay.
 
     python3 scripts/test_zonotope_regular_routes.py --out /tmp/zonotope-walk
 
-All main proofs, root STATUS, Lean4.30.0/Mathlib
-c5ea00351c28e24afc9f0f84379aa41082b1188f, strict0.10.6 guard, workflows,
-allowlist, duplicate controls and verify/publish credential separation are
-unchanged. Consult live PR metadata for the later evidence head; it differs
-from the frozen failed proof. Next step is full pinned verification of the saved
-repair after a fresh duplicate/ownership check, not a new renamed theorem.
+Lean 4.30.0 / Mathlib c5ea00351c28e24afc9f0f84379aa41082b1188f, strict protocol
+0.10.6, workflow, allowlist, duplicate and credential-separation controls remain
+unchanged. Root STATUS and other pre-existing main files are untouched.
+Consult live PR metadata for the later evidence/merge commits.

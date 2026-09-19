@@ -1,0 +1,25 @@
+{
+  "head_sha": "ba5f8fbc6f1d49412a619a97412dba002e731826",
+  "packets": [
+    {
+      "path": "research/publication_packets/zonotope_regular_routes",
+      "name": "zonotope_regular_routes",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "5a0a02ce8b00f58e121ab8372062d9765e7e405c6bab1b8a524abbd7b68627bf",
+        "driver.lean": "5a0a02ce8b00f58e121ab8372062d9765e7e405c6bab1b8a524abbd7b68627bf",
+        "statement.lean": "eafe570196aba4fec9c30b5ceb32e67921e9e16f7300c53b4d775f89483eb970",
+        "problem.json": "ec6b18d4b501e1f028ee782b75b26a5fc7a5b3d19a5775e33ecc68395344fe28",
+        "explanation.md": "777a0e16e19f0c7b12d48712dbf882a4d6bd112ad70c8862cd6f7bfae04e596c"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}
