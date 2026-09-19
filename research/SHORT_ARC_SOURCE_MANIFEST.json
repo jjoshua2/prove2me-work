@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "kind": "derived local source and clean replay record; no Lean/platform verdict",
+  "base_commit": "9456445941adbbfd6464d8bd1d559599d6f3ea18",
+  "unchanged_dependencies": {
+    "scripts/two_face_acquisition.py": "aa562f02dd492ecc47479381d637c6292757ebd3",
+    "scripts/simple_tangent_policy_audit.py": "73dc32b9753d7d0fe5e67ca1f4fad0534b6b1976"
+  },
+  "sha256": {
+    "scripts/short_arc_retirement.py": "4617bcf839a3037398129356c5471e19ff49264e3a60f64d2100bb3b1ca6506a",
+    "scripts/test_short_arc_retirement.py": "242890459100ba8ab96cf154cf67ca81a7d026d3216d744db46d32f5241ca73c",
+    "research/SHORT_ARC_RETIREMENT_AND_HIDDEN_TARGETS.md": "1b3228b6a1370f17477d126aa34ba42a50b4a4e6b15d0288e52f3e0725a44004",
+    "research/SHORT_ARC_GRAPH_TESTS.json": "19f03ebb7e25a0cc4f115d116f8a1a4fdcbf117a4d8dcfb9c722a6817b2542cb",
+    "research/SHORT_ARC_FAMILY_TESTS.json": "9f940a80d39886a1890e730dfde981c28eca5fa3fe97cea3ba2e69485c9c69cf",
+    "research/SHORT_ARC_HANDOFF.md": "3d31ad1376991db5bb5d4b7740358dab19c60055e87bb0bc07775ffe8979443a"
+  },
+  "replay": {
+    "workspace": "fresh directory populated by two exact dependency files and add-only patch",
+    "graph_and_family_fields_excluding_time": "identical",
+    "fixture_files_byte_identical": [
+      "hidden_target_4.json",
+      "short_arc_improvements.json",
+      "short_arc_pair_comparisons.json",
+      "short_arc_prism.json"
+    ],
+    "byte_equal_patch_additions": 7
+  },
+  "withheld_duplicate": "independent complete-two-face prototype and its tests were not included; imported actual merged #253 instead",
+  "lean_compiled": false,
+  "platform_submission": false
+}
