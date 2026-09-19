@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/polyhedral_summand_endpoint_lifts"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "9107fa9c847d1ed9ccea4fab30ad1b7aaf04b7e5",
+  "pr": "310"
+}

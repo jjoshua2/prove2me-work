@@ -1,0 +1,12 @@
+{
+  "kind": "derived_exact_repair_binding",
+  "base_head": "f4058faec090884875bb7e5a3a698ff32da13c54",
+  "proof_head": "9107fa9c847d1ed9ccea4fab30ad1b7aaf04b7e5",
+  "source_blob": "4235c1e90effe3546d3ad6595032b093ef00028b",
+  "source_sha256": "9c742306ff5c2bfd16bbf64e74d224450f19bf69f3d1d634415a37ccdcf58687",
+  "matches_saved_proposal": true,
+  "public_type_and_root_unchanged": true,
+  "metadata_unchanged": true,
+  "accepted_prefix_unchanged": true,
+  "local_Lean_compilation": false
+}

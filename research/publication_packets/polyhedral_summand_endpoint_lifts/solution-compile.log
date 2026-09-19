@@ -1,0 +1,5 @@
+'Hirsch.PolyhedralSummand.active_score_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.PolyhedralSummand.compact_extreme_maximizer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.PolyhedralSummand.lift_vertex' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.PolyhedralSummand.transfer_all_pairs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]

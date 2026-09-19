@@ -33,10 +33,11 @@ leaves an open-segment decomposition of q in Q, so y=y'=q. Hence u+q is extreme
 in P+Q. Different requested P endpoints may use different maximizing faces and
 different q; they need not share one objective.
 
-The complete603-line repaired packet now passes all three pinned compilations
-and all five transitive axiom reports, and Prove2Me has returned ACCEPTED with
-publisher readback Proved. The earlier failed convexity step and raw diagnostics
-remain as history. See accepted-evidence.md and the raw receipt for exact IDs.
+The lift lemma produced a standard-only axiom report in the actual compiler
+run. The complete packet nevertheless FAILED because of a later arithmetic
+tactic in the elementary proof that P is convex. No platform acceptance is
+claimed for any new public packet. Read the handoff and raw diagnostics for the
+actual status rather than inferring acceptance from this written argument.
 
 ## Endpoint-preserving route transfer
 
@@ -47,8 +48,8 @@ deleting stationary component steps. Uniqueness of each sum vertex's decompositi
 identifies the two contracted endpoints as exactly the requested u and v.
 Therefore the same bound B applies to independently chosen vertices of P.
 
-This final assembly is now completely compiled, audited and accepted. Its
-statement still assumes the actual uniform sum bound; it does not prove that a good
+This final assembly is still awaiting complete pinned Lean verification. Its
+statement assumes the actual uniform sum bound; it does not prove that a good
 summand/completion exists or bound its complexity. Consequently it does not
 settle Polynomial Hirsch, and does not permit arbitrary linear projections as
 an edge-preserving substitute. The classical Minkowski diameter relationship
@@ -72,6 +73,6 @@ perturbation certificate is used in these tests to verify the chosen lifts;
 it is not assumed in the Lean theorem. No arbitrary real-number runtime,
 extracted code, or formally verified JSON parser is claimed.
 
-The accepted source, both earlier request histories, current raw verification/
-publication artifacts, and the now-verified convexity repair are preserved.
-Source equality and regression replay remain separate from formal verification.
+The current source, both request histories, full compiler diagnostic/axiom block,
+and a separate uncompiled convexity repair are preserved. Source equality and
+byte-identical regression replay do not replace compilation or platform verdicts.

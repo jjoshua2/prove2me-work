@@ -1,0 +1,15 @@
+{
+  "head_sha": "9107fa9c847d1ed9ccea4fab30ad1b7aaf04b7e5",
+  "packets": [
+    {
+      "packet": "polyhedral_summand_endpoint_lifts",
+      "status": "ACCEPTED",
+      "theorem_id": "ab046a79-d0fb-47da-abac-df85c1ace598",
+      "submission_id": "b4a42675-7736-461c-830a-639d9d778c46",
+      "theorem_name": "Hirsch.polyhedral_summand_endpoint_lifts_and_routes",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/polyhedral_summand_endpoint_lifts"
+    }
+  ]
+}

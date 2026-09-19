@@ -1,0 +1,25 @@
+{
+  "head_sha": "9107fa9c847d1ed9ccea4fab30ad1b7aaf04b7e5",
+  "packets": [
+    {
+      "path": "research/publication_packets/polyhedral_summand_endpoint_lifts",
+      "name": "polyhedral_summand_endpoint_lifts",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "9c742306ff5c2bfd16bbf64e74d224450f19bf69f3d1d634415a37ccdcf58687",
+        "driver.lean": "9c742306ff5c2bfd16bbf64e74d224450f19bf69f3d1d634415a37ccdcf58687",
+        "statement.lean": "7da9e5ca26b084880d4924d287027bd90211916bc253dcc3e02e2a2f08dde647",
+        "problem.json": "169e0dda82dcfb88c1e0c099a39dd66c4c4e89e5b9af2b3ef1ebae8cae8040d8",
+        "explanation.md": "8aa0838fdb393279786bd91e02db6e71cb51c1f14dab13d75eac2b059dcb443f"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}

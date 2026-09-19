@@ -1,0 +1,95 @@
+{
+  "kind": "derived_successful_run_and_artifact_readback",
+  "pr": 310,
+  "proof_sha": "9107fa9c847d1ed9ccea4fab30ad1b7aaf04b7e5",
+  "trusted_main": "c766c3f769b06912c481fd305d857e73d9546811",
+  "run_id": 35419573011,
+  "trigger_comment": 5739124217,
+  "acknowledgement_comment": 5739125519,
+  "verdict_comment": 5739147492,
+  "verdict_timestamp": "2026-09-19T03:51:13Z",
+  "jobs": {
+    "gate": {
+      "id": 105834561962,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    "verify": {
+      "id": 105834581082,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    "publish": {
+      "id": 105834727645,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    "report-verify": {
+      "id": 105834728396,
+      "status": "completed",
+      "conclusion": "skipped"
+    }
+  },
+  "compile_exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "audited_declarations": 5,
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "authenticated_status": "ACCEPTED",
+  "publisher_live_status": "Proved",
+  "theorem_id": "ab046a79-d0fb-47da-abac-df85c1ace598",
+  "submission_id": "b4a42675-7736-461c-830a-639d9d778c46",
+  "registration": "PUBLISHED",
+  "prior_preflight_run": 35415267769,
+  "prior_failed_Lean_run": 35415626388,
+  "comment_triggered_attempts_total": 3,
+  "actual_Lean_compiler_attempts_total": 2,
+  "new_gates_this_turn": 1,
+  "first_actual_platform_submission": true,
+  "exact_saved_repair": true,
+  "all_statements_assumptions_public_root_metadata_unchanged": true,
+  "all_five_frozen_hashes_match": true,
+  "all_five_archive_hashes_recomputed": true,
+  "local_Lean_compilation": false,
+  "separate_direct_platform_poll": false,
+  "raw_individual_platform_api_bodies_exported": false,
+  "publisher_log_read_through_verdict_upload_comment_cleanup": true,
+  "artifacts": [
+    {
+      "id": 10574789331,
+      "file": "pr310-first-request.zip",
+      "bytes": 319,
+      "sha256": "b9a022a3beae42ad5e740de3bc3d0a3bc7332076230b2f4528120c172a199586"
+    },
+    {
+      "id": 10575174553,
+      "file": "pr310-compiler-request.zip",
+      "bytes": 317,
+      "sha256": "a1579a9a6f3dfaf604c1a8986a3b87068c281b1cb3b1cad9bb9363965db06221"
+    },
+    {
+      "id": 10577031471,
+      "file": "pr310-resume-request.zip",
+      "bytes": 318,
+      "sha256": "0fc3a6b3aad4c4b2c08a6667a597db8204d6df63a508a1ed8218eed968cca586"
+    },
+    {
+      "id": 10577710588,
+      "file": "pr310-resume-verified.zip",
+      "bytes": 23119,
+      "sha256": "1a8a06add93841557beb1f875aa7ac6568f31b5eee5f7f6e725c77d0f9192fdb"
+    },
+    {
+      "id": 10576786964,
+      "file": "pr310-resume-publication.zip",
+      "bytes": 915,
+      "sha256": "c4bd13e3b42beb0d3e5c89f0bdcc8d1d5edf94b2cb0b14e885c238b90060b652"
+    }
+  ]
+}
