@@ -1,0 +1,85 @@
+{
+  "acknowledgement_comment": 5737753940,
+  "all_five_frozen_file_hashes_match": true,
+  "all_three_archive_hashes_match": true,
+  "artifacts": [
+    {
+      "bytes": 317,
+      "file": "pr308-request.zip",
+      "id": 10573488401,
+      "sha256": "8415f58b999d1c0ebe0b97a36cdb0dfe8e08041a859b2d0de5b764ff6ccc2f47"
+    },
+    {
+      "bytes": 45077,
+      "file": "pr308-verified.zip",
+      "id": 10573413854,
+      "sha256": "e7766c720e3a9c11376efce86588a0c68aee1a2ab53a451c4da2d7acda923f85"
+    },
+    {
+      "bytes": 918,
+      "file": "pr308-publication.zip",
+      "id": 10572649812,
+      "sha256": "15210d26b8ea296d10ae1f609b0daf05a5e3b2b9cc4b2e81c2dfc94aca3779db"
+    }
+  ],
+  "audited_declarations": [
+    "Hirsch.MomentEvenGaps.complete_even_catalogue",
+    "Hirsch.GaleGapRoutes.selected_routes",
+    "Hirsch.MomentEdges.exposed_edge",
+    "Hirsch.MomentLinearRoutes.all_endpoint_original_routes",
+    "solution"
+  ],
+  "authenticated_status": "ACCEPTED",
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "compile_exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "first_compiler_gate": true,
+  "first_platform_submission": true,
+  "jobs": {
+    "gate": {
+      "conclusion": "success",
+      "id": 105804091003,
+      "status": "completed"
+    },
+    "publish": {
+      "conclusion": "success",
+      "id": 105804448056,
+      "status": "completed"
+    },
+    "report-verify": {
+      "conclusion": "skipped",
+      "id": 105804448825,
+      "status": "completed"
+    },
+    "verify": {
+      "conclusion": "success",
+      "id": 105804132279,
+      "status": "completed"
+    }
+  },
+  "kind": "derived_run_and_artifact_readback",
+  "new_publication_triggers_this_turn": 1,
+  "pr": 308,
+  "prior_PR302_actual_namespace_recompiled_in_full_new_proof": true,
+  "prior_PR302_public_wrapper_is_not_claimed_accepted": true,
+  "proof_sha": "c847e8336379ebf33bc59759e700f4d388e417b6",
+  "publisher_live_status": "Proved",
+  "publisher_log_read_through_verdict_upload_comment_cleanup": true,
+  "raw_individual_platform_api_bodies_exported": false,
+  "run_id": 35408824058,
+  "separate_direct_platform_poll": false,
+  "source_unchanged_after_gate": true,
+  "submission_id": "aa429b41-0d1b-4b55-ac03-6965bc2a32f3",
+  "theorem_id": "2abb8ca9-6373-47ad-8a8b-b721509350bc",
+  "trigger_comment": 5737751820,
+  "verdict_comment": 5737791292,
+  "verdict_timestamp": "2026-09-19T00:22:07Z",
+  "workflow_main": "799633bafcd02b7e1880f822686908df6c0d792c"
+}

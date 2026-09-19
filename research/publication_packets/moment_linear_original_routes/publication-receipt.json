@@ -1,0 +1,15 @@
+{
+  "head_sha": "c847e8336379ebf33bc59759e700f4d388e417b6",
+  "packets": [
+    {
+      "packet": "moment_linear_original_routes",
+      "status": "ACCEPTED",
+      "theorem_id": "2abb8ca9-6373-47ad-8a8b-b721509350bc",
+      "submission_id": "aa429b41-0d1b-4b55-ac03-6965bc2a32f3",
+      "theorem_name": "Hirsch.moment_all_endpoint_linear_original_routes",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/moment_linear_original_routes"
+    }
+  ]
+}
