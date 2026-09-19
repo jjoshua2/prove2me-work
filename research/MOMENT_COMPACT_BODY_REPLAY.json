@@ -1,0 +1,16 @@
+{
+  "record_kind": "actual final corrected clean rational replay; not Lean verification",
+  "status": "PASS",
+  "files": {
+    "research/MOMENT_COMPACT_BODY_TESTS.json": {
+      "byte_identical": true,
+      "sha256": "54b83a0177c5659c62a0aa5a8c2ae6402d01ca9d24dd9101221cf35448217114",
+      "bytes": 5835
+    },
+    "fixtures/moment_compact_body_examples.json": {
+      "byte_identical": true,
+      "sha256": "0792b005a4c453b460634e2a841bab2b028ad6760a9952f346b55ce99401b186",
+      "bytes": 789725
+    }
+  }
+}
