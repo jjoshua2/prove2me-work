@@ -1,0 +1,29 @@
+{
+  "kind": "derived_test_summary",
+  "status": "PASS",
+  "totals": {
+    "complete_planar_edges": 75,
+    "correct_nonedge_rejections": 751,
+    "edge_faces": 236,
+    "face_point_segment_checks": 736,
+    "face_rank_0": 570,
+    "face_rank_1": 236,
+    "face_rank_2": 163,
+    "face_rank_3": 14,
+    "face_rank_4": 4,
+    "objectives": 987,
+    "rational_saturation": 2961,
+    "representation_saturation": 37894
+  },
+  "small_models": 66,
+  "selected_high_dimensions": [2,8,16,32,64],
+  "full_high_dimensional_bodies_enumerated": false,
+  "selected_fractional_face_samples_per_high_model": 20,
+  "saved_records": 27,
+  "discovery_disabled": true,
+  "rejected": ["wrong endpoint", "zero width", "noncollinear tied generator", "missing coefficient", "wrong lower sign"],
+  "countercontrol": "A projected cube-edge endpoint is interior to the actual hexagon.",
+  "source_sha256": "5601084204fe011e5491ba309f341b5b6a6ffaf2f4fd8040a868ced0b0562d2f",
+  "full_report_and_fixture_in_bundle": true,
+  "scope": "Exact finite support-face and edge checks, not Lean extraction, path bounds, or a verified JSON parser."
+}

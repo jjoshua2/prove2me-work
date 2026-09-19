@@ -1,0 +1,40 @@
+Selected exact compiler error/context/axiom block from job105910693688/run35448186683.
+Runner setup, cache restoration and cleanup are omitted. This is not the complete runner log.
+
+2026-09-19T14:16:39.8680395Z zonotope_exposed_edge_criterion/driver.lean failed to compile:
+2026-09-19T14:16:39.8682043Z _verified/packets/zonotope_exposed_edge_criterion/driver.lean:198:32: error: unexpected identifier; expected '⟩'
+2026-09-19T14:16:39.8683399Z _verified/packets/zonotope_exposed_edge_criterion/driver.lean:198:6: error: typeclass instance problem is stuck
+2026-09-19T14:16:39.8684446Z   MulPosMono ?m.153
+2026-09-19T14:16:39.8684695Z 
+2026-09-19T14:16:39.8686196Z Note: Lean will not try to resolve this typeclass instance problem because the first, second, third, and fourth type arguments to `MulPosMono` are metavariables. These arguments must be fully determined before Lean will try to resolve the typeclass.
+2026-09-19T14:16:39.8687627Z 
+2026-09-19T14:16:39.8688919Z Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+2026-09-19T14:16:39.8690648Z _verified/packets/zonotope_exposed_edge_criterion/driver.lean:248:21: error: Tactic `split_ifs` failed: no if-then-else conditions to split
+2026-09-19T14:16:39.8691455Z 
+2026-09-19T14:16:39.8691672Z d m : ℕ
+2026-09-19T14:16:39.8692291Z w : Fin m → Fin d → ℝ
+2026-09-19T14:16:39.8692563Z f : (Fin d → ℝ) →ₗ[ℝ] ℝ
+2026-09-19T14:16:39.8692801Z j : Fin m
+2026-09-19T14:16:39.8693033Z hwj : w j ≠ 0
+2026-09-19T14:16:39.8693244Z hfj : f (w j) = 0
+2026-09-19T14:16:39.8693564Z hc : ∀ (i : Fin m), f (w i) = 0 → ∃ c, w i = c • w j
+2026-09-19T14:16:39.8693919Z c : Fin m → ℝ
+2026-09-19T14:16:39.8694220Z hrep : ∀ (i : Fin m), f (w i) = 0 → w i = c i • w j
+2026-09-19T14:16:39.8694695Z l : Fin m → ℝ := fun i => if f (w i) = 0 then low (c i) else pick (f (w i))
+2026-09-19T14:16:39.8695223Z h : Fin m → ℝ := fun i => if f (w i) = 0 then high (c i) else pick (f (w i))
+2026-09-19T14:16:39.8695668Z hlb : ∀ (i : Fin m), 0 ≤ l i ∧ l i ≤ 1
+2026-09-19T14:16:39.8695988Z hhb : ∀ (i : Fin m), 0 ≤ h i ∧ h i ≤ 1
+2026-09-19T14:16:39.8696274Z hlf : fixed w f l
+2026-09-19T14:16:39.8696493Z hhf : fixed w f h
+2026-09-19T14:16:39.8696778Z mass : ℝ := ∑ i, if f (w i) = 0 then |c i| else 0
+2026-09-19T14:16:39.8697109Z hcj : c j ≠ 0
+2026-09-19T14:16:39.8697325Z i : Fin m
+2026-09-19T14:16:39.8697757Z x✝ : i ∈ Finset.univ
+2026-09-19T14:16:39.8698108Z ⊢ 0 ≤ (fun i => if f (w i) = 0 then |c i| else 0) i
+2026-09-19T14:16:39.8698655Z 'Hirsch.ZonotopeWall.point_eq_cap_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-19T14:16:39.8699381Z 'Hirsch.ZonotopeWall.line_face' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-19T14:16:39.8700099Z 'Hirsch.ZonotopeWall.segment_forces_line' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-19T14:16:39.8700801Z 'Hirsch.ZonotopeWall.endpoints_extreme' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-19T14:16:39.8701675Z 'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-19T14:16:39.8702000Z 
+2026-09-19T14:16:39.8896729Z ##[error]Process completed with exit code 1.

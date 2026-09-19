@@ -1,0 +1,9 @@
+{
+  "kind": "derived_clean_script_only_replay",
+  "status": "PASS",
+  "Lean_verification": false,
+  "full_outputs_byte_identical": true,
+  "report": {"bytes": 27430, "sha256": "42ad193e6b3436487beed34b380ac5e5257af2c68dc8a044e9856bf8615c1386"},
+  "fixture": {"bytes": 36496, "sha256": "8ddda93ad1deeb89da2d00ca7c773c2c1977f03090d26ec6283efb5e5693118b"},
+  "source_sha256": "5601084204fe011e5491ba309f341b5b6a6ffaf2f4fd8040a868ced0b0562d2f"
+}
