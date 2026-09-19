@@ -1,0 +1,23 @@
+Selected exact compiler lines from job105811784206, run35411458055.
+This is the complete diagnostic/axiom block, not the full runner setup/cleanup log.
+
+2026-09-19T01:05:10.0248165Z minkowski_summand_route_contraction/driver.lean failed to compile:
+2026-09-19T01:05:10.0249419Z _verified/packets/minkowski_summand_route_contraction/driver.lean:83:2: error: ring failed, ring expressions not equal
+2026-09-19T01:05:10.0250619Z d : ℕ
+2026-09-19T01:05:10.0251000Z u v z : Fin d → ℝ
+2026-09-19T01:05:10.0251321Z s t : ℝ
+2026-09-19T01:05:10.0251562Z hs : 0 ≤ s
+2026-09-19T01:05:10.0251784Z ht : 0 ≤ t
+2026-09-19T01:05:10.0251976Z hst : s + t = 1
+2026-09-19T01:05:10.0252221Z he : s • u + t • v = z
+2026-09-19T01:05:10.0252482Z ⊢ s = 1 - t
+2026-09-19T01:05:10.0253404Z _verified/packets/minkowski_summand_route_contraction/driver.lean:197:50: error(lean.invalidField): Invalid field `symm`: The environment does not contain `Function.symm`, so it is not possible to project the field `symm` from an expression
+2026-09-19T01:05:10.0254406Z   ha
+2026-09-19T01:05:10.0254632Z of type `α = 0 → False`
+2026-09-19T01:05:10.0255138Z 'Hirsch.SummandContraction.vertex_decomposition' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-19T01:05:10.0256307Z 'Hirsch.SummandContraction.left_face_of_sum_edge' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-19T01:05:10.0257507Z 'Hirsch.SummandContraction.split_exposed_edge' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-19T01:05:10.0258347Z 'Hirsch.SummandContraction.contract_route' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-19T01:05:10.0259025Z 'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-19T01:05:10.0259356Z 
+2026-09-19T01:05:10.0344709Z ##[error]Process completed with exit code 1.

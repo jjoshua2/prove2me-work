@@ -1,0 +1,35 @@
+{
+  "kind": "derived_actual_compiler_failure",
+  "pr": 309,
+  "run_id": 35411458055,
+  "proof_sha": "90a8789546920b5d55387739cb7e735cc8d2c64a",
+  "trusted_main": "38475846e6cb588434893f912821617892306b29",
+  "trigger_comment": 5738089713,
+  "acknowledgement_comment": 5738091246,
+  "jobs": {
+    "gate": {"id": 105811756327, "conclusion": "success"},
+    "verify": {"id": 105811784206, "conclusion": "failure"},
+    "publish": {"id": 105811927334, "conclusion": "skipped"},
+    "report-verify": {"id": 105811929086, "conclusion": "skipped"}
+  },
+  "driver_exit_code": 1,
+  "reported_sites": [
+    {"line": 83, "helper": "segment_parameter", "diagnostic": "module normalization left s=1-t; hst was not used", "proposal": "derive s=1-t by linarith, rewrite it before module"},
+    {"line": 197, "helper": "left_face_of_sum_edge", "diagnostic": "ha.symm invalid because ha elaborated as a negated equality", "proposal": "use the explicit theorem Ne.symm ha"}
+  ],
+  "standard_only_report": ["Hirsch.SummandContraction.vertex_decomposition"],
+  "failed_elaboration_reports": ["Hirsch.SummandContraction.left_face_of_sum_edge", "Hirsch.SummandContraction.split_exposed_edge", "Hirsch.SummandContraction.contract_route", "solution"],
+  "packet_axiom_audit_passed": false,
+  "publication_attempted": false,
+  "theorem_id": null,
+  "submission_id": null,
+  "authenticated_status": null,
+  "live_readback": null,
+  "new_gates_this_turn": 1,
+  "proof_unchanged_after_failed_gate": true,
+  "proposal_applied_to_publication_source": false,
+  "proposal_Lean_compiled": false,
+  "request_artifact": {"id": 10574717840, "bytes": 315, "sha256": "39d672c346c0e7a3906c89e6b5c8ca5e61ff80028dc337dc8948e122a5395067", "hash_matches": true},
+  "full_runner_log_read": true,
+  "preserved_log": "complete compiler diagnostic block; not full runner setup/cleanup log"
+}

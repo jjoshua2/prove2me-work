@@ -1,0 +1,11 @@
+{
+  "kind": "prepared_source_binding_not_verification",
+  "proof_sha": "90a8789546920b5d55387739cb7e735cc8d2c64a",
+  "solution": {"blob": "dc0e8cb6e5c7c4dcb829c56c79b418f48ca570f5", "bytes": 17264, "lines": 376, "sha256": "5d753c0a11be9b147995a453601c303ae2c2c9b97b52ecaf32397518c81dc2b4"},
+  "problem": {"blob": "824ce26e37350d410af69a2bfdd743c05f464e4c", "sha256": "55fcf73d8b8828e48334d40880879d377699387257cfb40562cbcbcc82f599a5"},
+  "explanation": {"blob": "062e6e62e0603b95b78e49c1b0f6bdf0ca8338c9", "sha256": "1a47b5875d728790c1e72391a8026c229681f29df8e9f4bc7f75c7885a95b1f2"},
+  "remote_packet_hashes_match": true,
+  "test_source": {"blob": "f952d8b5fa94ef4ce517f93f2b16ef720116578c", "sha256": "3d4fada8d802541e5ff1984c364faa6b59f5ed26f59476dedc804938d80f787c"},
+  "accepted_compression_helper": {"packet": "alternating_complement_routes", "source_commit": "ba1b6db2200e659bfd2970ca635da800a3dd0d51", "lines": 32, "verbatim_in_new_namespace": true},
+  "no_old_public_target_resubmitted": true
+}

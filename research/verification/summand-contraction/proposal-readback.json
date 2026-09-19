@@ -1,0 +1,11 @@
+{
+  "kind": "source_checks_not_Lean_verification",
+  "original_source_sha256": "5d753c0a11be9b147995a453601c303ae2c2c9b97b52ecaf32397518c81dc2b4",
+  "proposal_source_sha256": "aa484136eb3bc13a03538f72a7cc8d1c188017cacfc1deb4990056cb5539f367",
+  "proposal_lines": 377,
+  "patch_sha256": "5c87f264ccc15085008c41d0ab6541292dd8f9626007bb6bfcaa235b2726d4f6",
+  "public_statement_and_root_body_unchanged": true,
+  "all_existing_signatures_unchanged": true,
+  "applies_and_reverses_byte_exact": true,
+  "second_gate_posted": false
+}
