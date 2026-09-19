@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "method_executed_from_source": true,
+  "network_calls": 0,
+  "real_credentials_read": false,
+  "cases": [
+    {"case": "supported-explicit-expiry", "status": "PASS"},
+    {"case": "supported-default-expiry", "status": "PASS"},
+    {"case": "old-version", "status": "PASS"},
+    {"case": "future-version", "status": "PASS"},
+    {"case": "missing-version", "status": "PASS"},
+    {"case": "null-version", "status": "PASS"},
+    {"case": "numeric-version", "status": "PASS"},
+    {"case": "version-suffix", "status": "PASS"},
+    {"case": "version-whitespace", "status": "PASS"},
+    {"case": "missing-token", "status": "PASS"}
+  ]
+}
