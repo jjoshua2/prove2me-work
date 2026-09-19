@@ -1,0 +1,15 @@
+{
+  "theorem_name": "Hirsch.triangular_polytope_original_edge_routes",
+  "theorem_title": "Construct original-edge routes between all triangular-polytope vertices in at most the dimension many steps",
+  "formal_statement": "theorem Hirsch.triangular_polytope_original_edge_routes (e : ℝ) (he : 0 < e) (he2 : e < 1/2) (d : ℕ)\n    (u v : Fin d → ℝ)\n    (hu : u ∈ ({x : Fin d → ℝ | (∀ i, 0 ≤ x i ∧ x i ≤ 1) ∧\n      ∀ (i j : Fin d), i.val+1=j.val → e*x j ≤ x i ∧ x i ≤ 1-e*x j}).extremePoints ℝ)\n    (hv : v ∈ ({x : Fin d → ℝ | (∀ i, 0 ≤ x i ∧ x i ≤ 1) ∧\n      ∀ (i j : Fin d), i.val+1=j.val → e*x j ≤ x i ∧ x i ≤ 1-e*x j}).extremePoints ℝ) :\n    ∃ (N : ℕ) (p : ℕ → Fin d → ℝ), N ≤ d ∧ p 0=u ∧ p N=v ∧\n      (∀ j, j ≤ N → p j ∈\n        ({x : Fin d → ℝ | (∀ i, 0 ≤ x i ∧ x i ≤ 1) ∧\n          ∀ (i k : Fin d), i.val+1=k.val → e*x k ≤ x i ∧ x i ≤ 1-e*x k}).extremePoints ℝ) ∧\n      ∀ j, j < N → p j ≠ p (j+1) ∧\n        IsExtreme ℝ\n          {x : Fin d → ℝ | (∀ i, 0 ≤ x i ∧ x i ≤ 1) ∧\n            ∀ (i k : Fin d), i.val+1=k.val → e*x k ≤ x i ∧ x i ≤ 1-e*x k}\n          (segment ℝ (p j) (p (j+1))) := by sorry\n",
+  "preamble": "import Mathlib\nset_option autoImplicit false",
+  "env": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "natural_language_statement": "For every real 0<e<1/2, every natural dimension d (including zero), and ANY two actual extreme points u,v of the explicit triangular inequality set, construct a path of length at most d between them. Every path point is an extreme point of the same original set and every step has distinct endpoints and is a Mathlib extreme segment of that set, hence a genuine original ordinary edge. The set is defined by 0<=x_i<=1 and e*x_j<=x_i<=1-e*x_j whenever j=i+1. Neither a Boolean labeling of the endpoints, completeness of a vertex list, an adjacency oracle, nor a bounded path is assumed. The proof classifies all extreme points by recursive lower/upper choices, proves lower/upper affine lifts preserve extreme sets, proves the vertical fibre over an extreme tail is an extreme segment, and recursively constructs the path. This is a positive original-edge route theorem for the classical triangular family, not a graph-distance lower bound and not an unrestricted proof of Polynomial Hirsch. The public theorem asserts an upper bound, not shortestness or nonrevisiting for arbitrary routes.",
+  "source": "Constructive positive counterpart to accepted #280, theorem75f43150-aee7-4659-a310-709b352b68a7. Reuses the exact TriangularFamily helper section of research/publication_packets/triangular_affine_levels/solution.lean at proof189b32df9e1c50c1c0b771bf6f43033094e06fea, without resubmitting its counting target. Classical triangular family and hypercube graph: Gaertner, Helbling, Ota, Takahashi, Large Shadows from Sparse Inequalities, arXiv:1308.2495v1 Section4. No historical novelty claim.",
+  "tags": [
+    "hirsch-conjecture",
+    "polytope-diameter",
+    "convex-geometry",
+    "formalization"
+  ]
+}
