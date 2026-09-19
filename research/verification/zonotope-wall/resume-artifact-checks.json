@@ -1,0 +1,44 @@
+{
+  "kind": "derived_current_frozen_packet_and_clean_replay_checks",
+  "proof_sha": "fefbdd9f422a7f1511713b4e2e80934087d40389",
+  "five_manifest_hashes_match": {
+    "solution.lean": true,
+    "driver.lean": true,
+    "statement.lean": true,
+    "problem.json": true,
+    "explanation.md": true
+  },
+  "all_three_prepared_files_match": true,
+  "driver_equals_solution": true,
+  "target_exactly_generated_from_metadata": true,
+  "compile_exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "new_archive_hashes": {
+    "resume-request.zip": "58df41d5edf46944afc0a026f1a037644de02ea071e2b99562391bcd36a6cdd7",
+    "resume-verified.zip": "6de395305908fa839cfd247476a9747a179b7cbbffb2438e80d0c531690c1534"
+  },
+  "regression_outputs": [
+    {
+      "file": "exact-tests.json",
+      "bytes": 27430,
+      "sha256": "42ad193e6b3436487beed34b380ac5e5257af2c68dc8a044e9856bf8615c1386",
+      "historical_and_both_current_runs_identical": true
+    },
+    {
+      "file": "fixtures.json",
+      "bytes": 36496,
+      "sha256": "8ddda93ad1deeb89da2d00ca7c773c2c1977f03090d26ec6283efb5e5693118b",
+      "historical_and_both_current_runs_identical": true
+    }
+  ],
+  "local_Lean_compilation": false,
+  "regression_is_Lean_verification": false
+}

@@ -1,0 +1,15 @@
+{
+  "head_sha": "fefbdd9f422a7f1511713b4e2e80934087d40389",
+  "packets": [
+    {
+      "packet": "zonotope_exposed_edge_criterion",
+      "status": "ACCEPTED",
+      "theorem_id": "bb32ac53-d8ba-4e21-92eb-b7e5ec568c70",
+      "submission_id": "f68818e2-63ce-40b3-a104-e63e9b71b454",
+      "theorem_name": "Hirsch.zonotope_exposed_edge_iff_tied_collinear",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/zonotope_exposed_edge_criterion"
+    }
+  ]
+}

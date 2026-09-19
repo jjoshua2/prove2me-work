@@ -1,113 +1,106 @@
-# PR #312: original zonotope-edge criterion — two proof sites remain
+# PR #312: original zonotope-edge criterion — ACCEPTED
 
-Read current STATUS, AGENTS, CLOUD_AGENT, SKILL, CONTINUE_HIRSCH and live exact
-heads/comments/receipts before continuing. This turn began at main
-7ed199c915cd97afd65008f7ba60e171e28a39cb. #311 is ACCEPTED/Proved and was not
-resubmitted. The distinct whole-edge criterion was coordinated in #311 comment
-5742480623, posted/read back. Other owned work and reserved #210 stayed untouched.
+Read current STATUS, AGENTS, CLOUD_AGENT, SKILL, CONTINUE_HIRSCH and live PR
+heads/comments before continuing. This turn resumed existing #312 from main
+7ed199c915cd97afd65008f7ba60e171e28a39cb. No duplicate target or PR was created.
+Other owned work, accepted packets and reserved #210 were untouched.
 
-## Actual status: OPEN/DRAFT, not accepted
+## Authoritative accepted packet — do not resubmit
 
-Target: Hirsch.zonotope_exposed_edge_iff_tied_collinear.
-Packet: research/publication_packets/zonotope_exposed_edge_criterion.
-Branch: proof/zonotope-exposed-edge-criterion.
-Frozen proof:6599be3895c7ab7fbe9e448625fb558e24139a31.
-NEW top-level command5742568565 was posted/read back; bot5742569989 resolved
-that exact proof and run35448186683. Gate105910664069 succeeded;
-verify105910693688 failed driver compilation with exit1; publish105910817042
-and report-verify105910816872 were skipped. Last observed run:completed/failure.
-No complete passing audit, verified packet, platform theorem/submission ID,
-ACCEPTED verdict or live Proved was produced. Exactly ONE gate; no retry.
+`Hirsch.zonotope_exposed_edge_iff_tied_collinear` is ACCEPTED, with authenticated
+publisher readback Proved. Theorem bb32ac53-d8ba-4e21-92eb-b7e5ec568c70;
+submission f68818e2-63ce-40b3-a104-e63e9b71b454.
+Frozen proof fefbdd9f422a7f1511713b4e2e80934087d40389; run 35449401954.
+Actual NEW top-level request 5742734506, exact-SHA acknowledgement 5742735713,
+and verdict 5742760113 were read back. Gate/verify/publish completed successfully;
+report-verify skipped. All three compile modes exit zero; all five transitive
+reports contain only propext, Classical.choice and Quot.sound.
 
-The requested reports for point_eq_cap_iff, segment_forces_line and
-endpoints_extreme contain only propext, Classical.choice and Quot.sound.
-line_face and public solution contain sorryAx from failed elaboration. Three
-standard-only reports are not a complete packet audit or separate acceptance.
+Read the packet's accepted-evidence.md, raw publication-receipt.json,
+packet-audit.json, manifest and complete compiler logs, plus the labelled
+verification/zonotope-wall/resume-publication-readback.json. Proved is the trusted
+publisher's authenticated readback, not a separate direct platform or mission-root
+poll. Missing individual API bodies are not invented.
 
-The tested447-line/18046-byte source remains unchanged:
-blobdff8ec1cf4d2b9230d321bccf53cf42bd9f3dbba,
-SHA256a849a1874713ac0396c7ac99f381f00794792e6fe3d01548cfa27b30f91e0618.
-Both metadata files are unchanged after the gate. Local Lean/Lake was absent
-and compiler-host DNS failed. Text equality and exact Python tests are not
-Lean verification. No second trigger or post-gate publication-source edit.
+## The existing repair is closed, not still pending
 
-## Two actual diagnostics and a separate proposal
+Accepted source: 454 lines / 18186 bytes; Git blob
+fdae9555c66329742f641c259e551f03edad132d, SHA256
+cdf116eed7169dd2e8ea0cd53c58154393689e8c052c4fa6301c1682ddd9aad5.
+It is exactly the previously saved proposal. Only scalar_bounds' pair-proof
+layout and line_face's mass nonnegativity lambda reduction changed. All
+definitions, statements, assumptions, public root AND proof and both metadata
+files remained unchanged. No further proof edits or triggers followed success.
 
-At line198, scalar_bounds contains a layout-sensitive multiline `by simpa ...
-using` inside a pair term; the parser expects the closing bracket and leaves
-an underdetermined multiplication instance. The proposal splits the two
-conjuncts and uses an explicit typed inequality followed by one_mul.
+First run 35448186683 remains a driver-compilation failure. Its source, request,
+scoped diagnostic block and failed-elaboration reports are retained. The old
+handoff is copied verbatim to handoff-before-acceptance.md. Old proposal metadata
+saying uncompiled is historical: the exact proposal is now applied and accepted.
+This was the SECOND compiler gate and FIRST actual platform submission, with
+ONE new trigger this turn. Local Lean/Lake and compiler-host DNS were unavailable;
+formal evidence is the pinned hosted gate, separate from rational/source checks.
 
-At line248, line_face's mass nonnegativity subproof calls split_ifs while its
-goal still contains the lambda application
-0 <= (fun i => if f(w_i)=0 then |c_i| else0) i.
-The proposal explicitly changes that expression to the displayed if-expression
-before splitting, then proves each branch directly.
+## Exact original-edge interface now proved
 
-The proposed-local-repair.patch is UNAPPLIED to the publication file and
-UNCOMPILED. It changes only those proof bodies, preserving all definitions,
-statements, assumptions, public root statement AND proof and metadata. It
-applies/reverses byte-exact in an isolated Git workspace. Proposed454-line file:
-blobfdae9555c66329742f641c259e551f03edad132d,
-SHA256cdf116eed7169dd2e8ea0cd53c58154393689e8c052c4fa6301c1682ddd9aad5.
-Further errors may emerge after the repair. Do not label it verified or run
-another speculative edit/compile cycle. Full pinned compilation and a fresh
-live duplicate check are prerequisites before another normal comment submission.
+For arbitrary finite real generators w_i and arbitrary linear f, let
+Z=sum_i[0,w_i] and F={x in Z: f(x)=sum_i max(0,f(w_i))}. The whole face F is a
+nondegenerate original exposed/extreme segment with extreme endpoints IFF all
+objective-tied generators lie on one line and at least one is nonzero.
+Collinearity is a necessary-and-sufficient condition, not a hidden genericity
+hypothesis or a claim that all cube edges project to original edges.
 
-## Mathematical interface and scope
+Saturation fixes every non-tied coefficient in EVERY maximizing representation.
+For collinear ties w_i=c_i*w_j, lower/upper endpoint choices yield displacement
+(sum_tied |c_i|)*w_j with positive width. Scalar bounds put the entire face in
+that segment; interpolated coefficients give the converse inclusion. Tied
+corner toggles prove necessity and the existence of a nonzero direction.
+Original exposed-face extremality gives actual vertex endpoints.
 
-The intended root is an IFF for arbitrary generator families and linear f.
-The whole maximizing face of Z=sum_i[0,w_i] is a nondegenerate original exposed
-segment with actual extreme endpoints exactly when all tied generators are
-collinear and at least one is nonzero. The proof derives support saturation for
-EVERY representation. It constructs endpoint coefficients and positive total
-width for sufficiency, and toggles each tied generator inside the actual face
-for necessity. Repeated/opposite/zero directions, f0, m0, d0 and rank deficiency
-are included. The collinearity condition is characterized, not assumed to hold
-for every objective or mistaken for projected coefficient-cube adjacency.
+Repeated, opposite, zero and rank-deficient generators, zero objective, m=0 and
+d=0 are included. No vertex catalogue, edge oracle, rank witness or short route
+is supplied. This full iff and its constructive half are CLOSED. Reuse the
+accepted code rather than another child assuming the same missing whole-face
+result. The two elementary segment helpers retain the accepted #309 proof bodies.
 
-Three supporting results have standard-only reports; the sufficiency direction
-and complete iff still need repair. The whole geometry and exact endpoint proof
-are not to be replaced by an edge-list assumption or weaker conditional target.
-Two elementary segment-parameter/line-injectivity proof bodies follow accepted
-#309. Classical support-face geometry is credited; no historical-priority claim.
+## Remaining route and conjecture boundary
 
-No generic objective sweep, endpoint-objective construction, all-pairs route,
-length bound, translated #311 composition, or original-H-row complexity bound
-is supplied by this packet. Those remain separate genuine obligations. In
-particular cube edges can project into the interior of Z. The accepted completion
-and summand-transfer results are not resubmitted. No general Polynomial Hirsch
-conclusion follows from this local criterion alone.
+A next objective-sweep route proof must construct suitable objectives for the
+requested actual endpoints, avoid simultaneous independent-direction ties, allow
+parallel repeated ties, and count genuine transitions. This packet does not
+construct that sweep or prove any all-pairs length bound. A use on #311's
+translated pair completion also needs explicit transport; coefficient-cube
+adjacency is not a substitute for this original-face criterion.
 
-## Evidence and reproduction
+The accepted #309 contraction, #310 endpoint lifts and #311 whole-set completion
+remain available, without resubmission. Their generator inventory still is not
+a polynomial bound in original H facets. Neither a general facet-polynomial
+completion budget nor unrestricted Polynomial Hirsch is established here.
+Classical face geometry is credited; no historical-priority claim.
 
-The sole request archive10585546576,315bytes was downloaded and hash-checked:
-b310dc760d33d14321635697d303e68186b267dcd9321a8aa23d64c8025c7f72.
-Its raw resolved.json is preserved. The runner log was read through compiler
-failure and cleanup; committed diagnostics are explicitly the selected exact
-error/context/axiom block, not a fabricated full runner log. No unavailable
-verified or publication artifact is invented. Tested source, raw request,
-proposed patch and derived readbacks are separately labelled.
+## Reproducible evidence
 
-The197-line standalone Fraction script has Git blob
-ba48c1514aa9cabc79c7dd8726c410db8cce6d0b, SHA256
-5601084204fe011e5491ba309f341b5b6a6ffaf2f4fd8040a868ced0b0562d2f.
-It checks66 small systems,987 objectives,37894 saturation statements,2961
-fractional representations,236 edge faces and751 nonedges. Complete independent
-planar hulls account for75 original edges. Five selected models through d64
-are not full graph enumerations. Twenty-seven saved certificates pass with
-construction/rank/hull discovery disabled; five forged records fail.
+Four original ZIP hashes and all five frozen packet hashes were recomputed.
+Raw extracted compiler/manifest/audit/request/receipt files are preserved separately
+from derived run/check summaries. The verify and publish logs were inspected
+through cleanup; complete runner-log files are not falsely claimed committed.
+The export contains all four original ZIPs and complete test outputs.
 
-The complete report27430bytes and fixture36496bytes reproduce in a clean
-script-only workspace with hashes
-42ad193e6b3436487beed34b380ac5e5257af2c68dc8a044e9856bf8615c1386 and
+The unchanged Fraction suite ran again and in a clean script-only workspace:
+66 small systems, 987 objectives, 37894 saturation checks, 2961 fractional cases,
+236 edge faces, 751 nonedges and all 75 independent original planar edges.
+Five selected models reach d64 without full graphs; 27 saved certificates audit
+with discovery disabled, and five forgeries are rejected. The projected cube-edge
+hexagon countercontrol remains retained.
+
+Report 27430 bytes, SHA256
+42ad193e6b3436487beed34b380ac5e5257af2c68dc8a044e9856bf8615c1386;
+fixture 36496 bytes, SHA256
 8ddda93ad1deeb89da2d00ca7c773c2c1977f03090d26ec6283efb5e5693118b.
-They are supporting tests, not Lean-extracted Python/JSON verification. Full
-outputs, original ZIP and proposed source accompany the download and regenerate:
+Both reproduce prior bytes exactly. These are not additional Lean theorems or
+verified Python/JSON. Reproduce with:
 
     python3 scripts/test_zonotope_wall.py --out /tmp/zonotope-wall
 
-No pre-existing main file, root STATUS, other owned branch, #210, Lean4.30.0 /
-Mathlibc5ea00351c28e24afc9f0f84379aa41082b1188f, strict0.10.5 guard, workflow,
-allowlist, duplicate safeguards or trusted credential split changed. Consult
-live PR metadata for the later evidence head, distinct from the frozen proof.
+Lean 4.30.0 / Mathlib c5ea00351c28e24afc9f0f84379aa41082b1188f, strict 0.10.5
+guard, workflows, actor allowlist, duplicate safeguards and credential isolation
+are unchanged. Consult current PR metadata for the later evidence/merge SHA.
