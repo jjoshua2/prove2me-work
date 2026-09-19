@@ -1,0 +1,15 @@
+{
+  "kind": "derived_prepared_source_binding",
+  "base_main": "24b519ae1e7907a0d063cd36731d435da9918765",
+  "proof_sha": "97581dffabdfd0a0553460e17df06875a705b575",
+  "all_three_remote_packet_blobs_match": true,
+  "source_lines": 273,
+  "solution": {"bytes": 11238, "sha256": "c62c84689cabd67695dacfaee9e9c79d3f8af5f1c979b774787c95ea4d136fef", "git_blob": "fbff4ac9cd9a0f066e316b04d67cb17bca11fb0b"},
+  "problem": {"bytes": 2899, "sha256": "95f0479155f7970321d33818866fd18e02c79f46fa1218570902fe8bbdfb2273", "git_blob": "fca9bea3aea689658a834cce5070398a51ac8b37"},
+  "explanation": {"bytes": 4881, "sha256": "8272075f0d285efd45c3d340d47d33cc092ea51c14161a3c6741178a98aca3b1", "git_blob": "89d0a6adf8643cbafd417af3f4aadb919af4a76a"},
+  "script": {"bytes": 7169, "sha256": "be58ec91035a2b9415aea5e319267e2142824487e70030c19628758c20f73816", "git_blob": "f8355ddbd033300c6670025c370374bcbe3b4c81"},
+  "local_Lean_compilation": false,
+  "public_type_text_generated_from_solution": true,
+  "public_type_text_match_is_not_successful_elaboration": true,
+  "compiler_later_rejected_sum_scope": true
+}

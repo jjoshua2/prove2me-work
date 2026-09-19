@@ -1,0 +1,40 @@
+Selected exact compiler diagnostic and audit lines from job105837968753/run35420782170.
+This is NOT the complete runner or compiler log; duplicated warnings and intermediate contexts are omitted.
+
+2026-09-19T04:17:00.0402426Z pair_segment_completion/driver.lean failed to compile:
+2026-09-19T04:17:00.0403074Z _verified/packets/pair_segment_completion/driver.lean:17:37: error(lean.unknownIdentifier): Unknown identifier `e`
+2026-09-19T04:17:00.0403711Z _verified/packets/pair_segment_completion/driver.lean:17:44: error(lean.unknownIdentifier): Unknown identifier `e`
+2026-09-19T04:17:00.0404826Z _verified/packets/pair_segment_completion/driver.lean:48:17: error(lean.unknownIdentifier): Unknown identifier `e`
+2026-09-19T04:17:00.0405422Z _verified/packets/pair_segment_completion/driver.lean:48:23: error(lean.unknownIdentifier): Unknown identifier `e`
+2026-09-19T04:17:00.0406040Z _verified/packets/pair_segment_completion/driver.lean:48:32: error(lean.unknownIdentifier): Unknown identifier `e`
+2026-09-19T04:17:00.0406637Z _verified/packets/pair_segment_completion/driver.lean:48:39: error(lean.unknownIdentifier): Unknown identifier `e`
+2026-09-19T04:17:00.0407165Z _verified/packets/pair_segment_completion/driver.lean:54:39: error: unsolved goals
+2026-09-19T04:17:00.0416117Z _verified/packets/pair_segment_completion/driver.lean:108:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+2026-09-19T04:17:00.0416637Z   a • x + b • y + q
+2026-09-19T04:17:00.0416812Z in the target expression
+2026-09-19T04:17:00.0417048Z   a • x + b • y ∈ {p | p + q ∈ zonotope v}
+2026-09-19T04:17:00.0420593Z _verified/packets/pair_segment_completion/driver.lean:127:17: error(lean.unknownIdentifier): Unknown identifier `Function.update_same`
+2026-09-19T04:17:00.0421232Z _verified/packets/pair_segment_completion/driver.lean:129:6: error: ring failed, ring expressions not equal
+2026-09-19T04:17:00.0422963Z _verified/packets/pair_segment_completion/driver.lean:130:17: error(lean.unknownIdentifier): Unknown identifier `Function.update_noteq`
+2026-09-19T04:17:00.0423527Z _verified/packets/pair_segment_completion/driver.lean:130:4: error: unsolved goals
+2026-09-19T04:17:00.0425981Z _verified/packets/pair_segment_completion/driver.lean:134:13: error(lean.unknownIdentifier): Unknown identifier `e`
+2026-09-19T04:17:00.0426496Z _verified/packets/pair_segment_completion/driver.lean:135:31: error: unsolved goals
+2026-09-19T04:17:00.0442256Z _verified/packets/pair_segment_completion/driver.lean:197:19: error(lean.unknownIdentifier): Unknown identifier `Function.update_same`
+2026-09-19T04:17:00.0442933Z _verified/packets/pair_segment_completion/driver.lean:197:8: error: `simp` made no progress
+2026-09-19T04:17:00.0443551Z _verified/packets/pair_segment_completion/driver.lean:199:20: error(lean.unknownIdentifier): Unknown identifier `Function.update_noteq`
+2026-09-19T04:17:00.0444210Z _verified/packets/pair_segment_completion/driver.lean:199:8: error: Type mismatch: After simplification, term
+2026-09-19T04:17:00.0444614Z   (mem_box t).mp htb e
+2026-09-19T04:17:00.0444791Z  has type
+2026-09-19T04:17:00.0444992Z   0 ≤ t e ∧ t e ≤ 1
+2026-09-19T04:17:00.0445178Z but is expected to have type
+2026-09-19T04:17:00.0445520Z   0 ≤ Function.update t (k, i) 0 e ∧ Function.update t (k, i) 0 e ≤ 1
+2026-09-19T04:17:00.0448212Z _verified/packets/pair_segment_completion/driver.lean:247:47: error(lean.unknownIdentifier): Unknown identifier `e`
+2026-09-19T04:17:00.0449659Z _verified/packets/pair_segment_completion/driver.lean:247:54: error(lean.unknownIdentifier): Unknown identifier `e`
+2026-09-19T04:17:00.0451077Z _verified/packets/pair_segment_completion/driver.lean:255:43: error(lean.unknownIdentifier): Unknown identifier `e`
+2026-09-19T04:17:00.0451713Z _verified/packets/pair_segment_completion/driver.lean:255:50: error(lean.unknownIdentifier): Unknown identifier `e`
+2026-09-19T04:17:00.0452890Z 'Hirsch.PairSegmentCompletion.compact_zonotope' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-19T04:17:00.0453551Z 'Hirsch.PairSegmentCompletion.translate_hull' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-19T04:17:00.0454352Z 'Hirsch.PairSegmentCompletion.support_witness' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-19T04:17:00.0454998Z 'Hirsch.PairSegmentCompletion.completion' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-19T04:17:00.0455524Z 'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-19T04:17:00.0496731Z ##[error]Process completed with exit code 1.

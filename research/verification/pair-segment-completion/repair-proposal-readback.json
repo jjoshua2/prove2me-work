@@ -1,0 +1,11 @@
+{
+  "kind": "derived_uncompiled_unapplied_repair_proposal",
+  "tested_proof": "97581dffabdfd0a0553460e17df06875a705b575",
+  "source": {"bytes": 11294, "lines": 274, "sha256": "47ac25515cdbff7270a285f9906399aca4aa63750d3de7315764c6887d454a8a", "git_blob": "9790db8a54ee6640c4e5d902c53b6b03e187d3d7"},
+  "problem": {"bytes": 2901, "lines": 15, "sha256": "bf6d1ca55dbb24d725299e9ed390d9659a8ed22e6abf921259733e1c9bc88e42", "git_blob": "31b3c124c57068b5300f31dacbc37a04d147fa96"},
+  "scope": "Explicitly group sum bodies in the definition, helper calculations and public target; use the two pinned update lemma names; expose the translate membership before rewriting. The malformed public target had not been registered. Its intended mathematical formula, all assumptions and n^2 slot bound are preserved, but formal_statement BYTES DO change.",
+  "applied_to_publication_files": false,
+  "Lean_compiled": false,
+  "forward_reverse_exact": true,
+  "pinned_update_api_evidence": "Mathlib/LinearAlgebra/TensorPower/Pairing.lean at c5ea00351c28e24afc9f0f84379aa41082b1188f, blob18816895d34ceee2191e3d4b06cc2fb41362f4b6 uses Function.update_self and Function.update_of_ne."
+}
