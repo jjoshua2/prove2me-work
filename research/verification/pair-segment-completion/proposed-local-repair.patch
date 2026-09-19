@@ -1,0 +1,90 @@
+--- a/research/publication_packets/pair_segment_completion/solution.lean
++++ b/research/publication_packets/pair_segment_completion/solution.lean
+@@ -14,7 +14,7 @@
+ def box (n : ℕ) : Set (Pair n → ℝ) := Icc 0 1
+ 
+ def point {d n : ℕ} (v : Fin n → (Fin d → ℝ)) (t : Pair n → ℝ) : Fin d → ℝ :=
+-  ∑ e : Pair n, (t e) • v e.1 + (1-t e) • v e.2
++  ∑ e : Pair n, ((t e) • v e.1 + (1-t e) • v e.2)
+ 
+ def zonotope {d n : ℕ} (v : Fin n → (Fin d → ℝ)) : Set (Fin d → ℝ) :=
+   point v '' box n
+@@ -44,8 +44,8 @@
+   have ha : a=1-b := by linarith
+   calc
+     point v (a • s+b • t) =
+-        ∑ e : Pair n, a • (s e • v e.1+(1-s e) • v e.2) +
+-          b • (t e • v e.1+(1-t e) • v e.2) := by
++        ∑ e : Pair n, (a • (s e • v e.1+(1-s e) • v e.2) +
++          b • (t e • v e.1+(1-t e) • v e.2)) := by
+       apply Finset.sum_congr rfl
+       intro e _
+       change (a*s e+b*t e) • v e.1+(1-(a*s e+b*t e)) • v e.2 = _
+@@ -105,6 +105,7 @@
+     ∀ p ∈ convexHull ℝ (range v), p+q ∈ zonotope v := by
+   have hc : Convex ℝ {p : Fin d → ℝ | p+q ∈ zonotope v} := by
+     intro x hx y hy a b ha hb hab
++    change (a • x+b • y)+q ∈ zonotope v
+     rw [← shift_combo x y q a b hab]
+     exact convex_zonotope v hx hy ha hb hab
+   apply convexHull_min _ hc
+@@ -124,14 +125,14 @@
+     intro e
+     by_cases h : e=(k,i)
+     · subst e
+-      simp only [Function.update_same,ht,zero_smul,sub_zero,one_smul,
++      simp only [Function.update_self,ht,zero_smul,sub_zero,one_smul,
+         sub_self,if_pos rfl,add_zero,zero_add]
+       module
+-    · simp only [Function.update_noteq h,if_neg h,add_zero]
++    · simp only [Function.update_of_ne h,if_neg h,add_zero]
+   calc
+     point v (Function.update t (k,i) 0) =
+-        ∑ e : Pair n, (t e • v e.1+(1-t e) • v e.2) +
+-          if e=(k,i) then v i-v k else 0 := Finset.sum_congr rfl (fun e _ => he e)
++        ∑ e : Pair n, ((t e • v e.1+(1-t e) • v e.2) +
++          if e=(k,i) then v i-v k else 0) := Finset.sum_congr rfl (fun e _ => he e)
+     _ = point v t+(v i-v k) := by
+       rw [Finset.sum_add_distrib]
+       simp [point]
+@@ -194,9 +195,9 @@
+       intro e
+       by_cases he : e=(k,i)
+       · subst e
+-        simp only [Function.update_same]
++        simp only [Function.update_self]
+         norm_num
+-      · simpa only [Function.update_noteq he] using (mem_box t).mp htb e
++      · simpa only [Function.update_of_ne he] using (mem_box t).mp htb e
+     refine ⟨Function.update t (k,i) 0,hnew,?_⟩
+     exact replace_endpoint v t k i htki
+   have heq : v k+q=point v t := by dsimp only [q]; module
+@@ -244,7 +245,7 @@
+     let Z : Set (Fin d → ℝ) :=
+       {z | ∃ t : (Fin n × Fin n) → ℝ,
+         (∀ e, 0 ≤ t e ∧ t e ≤ 1) ∧
+-        (∑ e : Fin n × Fin n, t e • v e.1+(1-t e) • v e.2)=z}
++        (∑ e : Fin n × Fin n, (t e • v e.1+(1-t e) • v e.2))=z}
+     let Q : Set (Fin d → ℝ) := {q | ∀ i, q+v i ∈ Z}
+     IsCompact Z ∧ Convex ℝ Z ∧ IsCompact Q ∧ Convex ℝ Q ∧ Q.Nonempty ∧
+       Z = {z | ∃ p ∈ convexHull ℝ (Set.range v), ∃ q ∈ Q, p+q=z} ∧
+@@ -252,7 +253,7 @@
+   classical
+   let Z : Set (Fin d → ℝ) := {z | ∃ t : (Fin n × Fin n) → ℝ,
+     (∀ e, 0 ≤ t e ∧ t e ≤ 1) ∧
+-    (∑ e : Fin n × Fin n, t e • v e.1+(1-t e) • v e.2)=z}
++    (∑ e : Fin n × Fin n, (t e • v e.1+(1-t e) • v e.2))=z}
+   have hZ : Hirsch.PairSegmentCompletion.zonotope v = Z := by
+     ext z
+     simp only [Z,Hirsch.PairSegmentCompletion.zonotope,Set.mem_image,
+--- a/research/publication_packets/pair_segment_completion/problem.json
++++ b/research/publication_packets/pair_segment_completion/problem.json
+@@ -1,7 +1,7 @@
+ {
+   "theorem_name": "Hirsch.finite_hull_pair_segment_completion",
+   "theorem_title": "Construct an explicit quadratic-generator zonotopal completion of every finite convex hull",
+-  "formal_statement": "theorem Hirsch.finite_hull_pair_segment_completion (d n : ℕ) (hn : 0 < n) (v : Fin n → (Fin d → ℝ)) :\n    let Z : Set (Fin d → ℝ) :=\n      {z | ∃ t : (Fin n × Fin n) → ℝ,\n        (∀ e, 0 ≤ t e ∧ t e ≤ 1) ∧\n        (∑ e : Fin n × Fin n, t e • v e.1+(1-t e) • v e.2)=z}\n    let Q : Set (Fin d → ℝ) := {q | ∀ i, q+v i ∈ Z}\n    IsCompact Z ∧ Convex ℝ Z ∧ IsCompact Q ∧ Convex ℝ Q ∧ Q.Nonempty ∧\n      Z = {z | ∃ p ∈ convexHull ℝ (Set.range v), ∃ q ∈ Q, p+q=z} ∧\n      Fintype.card (Fin n × Fin n) = n^2 := by sorry\n",
++  "formal_statement": "theorem Hirsch.finite_hull_pair_segment_completion (d n : ℕ) (hn : 0 < n) (v : Fin n → (Fin d → ℝ)) :\n    let Z : Set (Fin d → ℝ) :=\n      {z | ∃ t : (Fin n × Fin n) → ℝ,\n        (∀ e, 0 ≤ t e ∧ t e ≤ 1) ∧\n        (∑ e : Fin n × Fin n, (t e • v e.1+(1-t e) • v e.2))=z}\n    let Q : Set (Fin d → ℝ) := {q | ∀ i, q+v i ∈ Z}\n    IsCompact Z ∧ Convex ℝ Z ∧ IsCompact Q ∧ Convex ℝ Q ∧ Q.Nonempty ∧\n      Z = {z | ∃ p ∈ convexHull ℝ (Set.range v), ∃ q ∈ Q, p+q=z} ∧\n      Fintype.card (Fin n × Fin n) = n^2 := by sorry\n",
+   "preamble": "import Mathlib\nopen scoped BigOperators Pointwise\nset_option autoImplicit false",
+   "env": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+   "natural_language_statement": "For arbitrary natural d, positive n and arbitrary real vectors v_0,...,v_(n-1) in R^d, define Z as the actual sum over all n^2 ordered pairs of closed segments [v_i,v_j], with explicit coefficients in [0,1]. Define Q={q: q+v_i belongs to Z for every original generator i}. Prove Z and Q are compact and convex, Q is nonempty, and Z=conv(v_i)+Q as whole sets. In particular the specified finite convex hull is an actual Minkowski summand of this explicit segment-sum completion. No summand, support equality, rank, independence, full dimension, distinct generators, or generic objective is assumed. The construction includes repeated/interior generators, lower dimensions, d=0 and n=1. The n^2 count is the number of presented segment positions, including diagonal and repeated positions, not the number of irredundant facets or a minimal generator count. No original-edge route or polynomial-in-H-row bound is concluded.",

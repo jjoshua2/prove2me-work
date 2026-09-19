@@ -1,0 +1,19 @@
+{
+  "kind": "derived_current_rational_replay",
+  "Lean_verification": false,
+  "status": "PASS",
+  "outputs": [
+    {
+      "file": "exact-tests.json",
+      "bytes": 12437,
+      "sha256": "978578e2dd9cc9edee710aecd9a9ec86babc7661f5ed2ac995bde887670bdd5b",
+      "historical_byte_identical": true
+    },
+    {
+      "file": "fixtures.json",
+      "bytes": 33706,
+      "sha256": "efc7e10a8b59cd961323e85556ac6f5919c001d0c2f2d8c3a4f26ea2343ce625",
+      "historical_byte_identical": true
+    }
+  ]
+}

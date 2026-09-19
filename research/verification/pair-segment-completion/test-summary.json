@@ -1,0 +1,22 @@
+{
+  "kind": "derived_test_summary",
+  "status": "PASS",
+  "constructors_disabled": true,
+  "counts": {"Q_vertices": 759, "Z_vertices": 759, "models": 46, "replacement_identities": 6627, "segment_checks": 42189, "support_witnesses": 1208},
+  "rejected": ["missing pair", "wrong translate", "outside coefficient", "wrong sum point"],
+  "saved_replays": 19,
+  "selected_high_dimensional": [
+    {"dimension": 0, "generators": 1, "represented_segments": 1, "replacement_identities": 1, "full_bodies_enumerated": false},
+    {"dimension": 0, "generators": 5, "represented_segments": 25, "replacement_identities": 5, "full_bodies_enumerated": false},
+    {"dimension": 1, "generators": 4, "represented_segments": 16, "replacement_identities": 4, "full_bodies_enumerated": false},
+    {"dimension": 3, "generators": 4, "represented_segments": 16, "replacement_identities": 4, "full_bodies_enumerated": false},
+    {"dimension": 4, "generators": 6, "represented_segments": 36, "replacement_identities": 6, "full_bodies_enumerated": false},
+    {"dimension": 8, "generators": 5, "represented_segments": 25, "replacement_identities": 5, "full_bodies_enumerated": false},
+    {"dimension": 16, "generators": 6, "represented_segments": 36, "replacement_identities": 6, "full_bodies_enumerated": false},
+    {"dimension": 32, "generators": 4, "represented_segments": 16, "replacement_identities": 4, "full_bodies_enumerated": false},
+    {"dimension": 64, "generators": 3, "represented_segments": 9, "replacement_identities": 3, "full_bodies_enumerated": false}
+  ],
+  "source_sha256": "be58ec91035a2b9415aea5e319267e2142824487e70030c19628758c20f73816",
+  "full_report_and_fixture_in_export": true,
+  "scope": "Exact rational whole-set polygon checks and selected general-dimensional support witnesses, not Lean verification or edge-route certification."
+}

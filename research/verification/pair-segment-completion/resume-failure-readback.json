@@ -1,0 +1,74 @@
+{
+  "acknowledgement_comment": 5739381485,
+  "acknowledgement_created_at": "2026-09-19T04:35:57Z",
+  "applied_repair_corrects_unregistered_formal_statement_syntax": true,
+  "applied_repair_exactly_matches_previous_proposal": true,
+  "authenticated_status": null,
+  "compiler_gates_total": 2,
+  "complete_packet_audit_passed": false,
+  "diagnosed_sites": {
+    "point_combo": 54,
+    "replace_endpoint": 130
+  },
+  "driver_exit_code": 1,
+  "failed_dependent_reports": [
+    "Hirsch.PairSegmentCompletion.translate_hull",
+    "Hirsch.PairSegmentCompletion.support_witness",
+    "Hirsch.PairSegmentCompletion.completion",
+    "solution"
+  ],
+  "generated_sorryAx_is_failed_elaboration": true,
+  "jobs": {
+    "gate": {
+      "conclusion": "success",
+      "id": 105840524620
+    },
+    "publish": {
+      "conclusion": "skipped",
+      "id": 105840656050
+    },
+    "report-verify": {
+      "conclusion": "skipped",
+      "id": 105840656023
+    },
+    "verify": {
+      "conclusion": "failure",
+      "id": 105840548099
+    }
+  },
+  "kind": "derived_second_gate_failure_readback",
+  "last_observed_run_state": "completed/failure",
+  "live_status": null,
+  "local_Lean_compilation": false,
+  "new_gates_this_turn": 1,
+  "post_gate_publication_file_changes": false,
+  "pr": 311,
+  "previous_failed_run": 35420782170,
+  "proof_sha": "c1e5b8fe9517dd4a0284480c40598438ef860d9f",
+  "publication_reached": false,
+  "publication_receipt": null,
+  "request_artifacts": [
+    {
+      "bytes": 308,
+      "file": "pr311-request.zip",
+      "id": 10577217846,
+      "sha256": "bdf820108f50381bd83c34d31b236c5fb4854afa994d7bbeb9e69ce60dbbbec6"
+    },
+    {
+      "bytes": 309,
+      "file": "pr311-resume-request.zip",
+      "id": 10577848461,
+      "sha256": "37a3630a0ecb8adaed366b0bf23354fc9ee22af877aba0dd6ca90cd6b2500c9e"
+    }
+  ],
+  "run_id": 35421714330,
+  "standard_only_requested_helper": "Hirsch.PairSegmentCompletion.compact_zonotope",
+  "submission_id": null,
+  "theorem_id": null,
+  "third_trigger_posted": false,
+  "trigger_comment": 5739380499,
+  "trigger_created_at": "2026-09-19T04:35:44Z",
+  "trusted_main": "24b519ae1e7907a0d063cd36731d435da9918765",
+  "uncompiled_next_proposal_changes_only_two_helper_bodies": true,
+  "verified_packet_artifact": null
+}

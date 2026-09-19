@@ -1,0 +1,11 @@
+{
+  "kind": "derived_clean_script_only_replay",
+  "status": "PASS",
+  "Lean_verification": false,
+  "full_outputs_byte_identical": true,
+  "files": {
+    "exact-tests.json": {"bytes": 12437, "sha256": "978578e2dd9cc9edee710aecd9a9ec86babc7661f5ed2ac995bde887670bdd5b"},
+    "fixtures.json": {"bytes": 33706, "sha256": "efc7e10a8b59cd961323e85556ac6f5919c001d0c2f2d8c3a4f26ea2343ce625"}
+  },
+  "script": {"bytes": 7169, "sha256": "be58ec91035a2b9415aea5e319267e2142824487e70030c19628758c20f73816", "git_blob": "f8355ddbd033300c6670025c370374bcbe3b4c81"}
+}

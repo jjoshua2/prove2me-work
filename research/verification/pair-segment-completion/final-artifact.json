@@ -1,0 +1,25 @@
+{
+  "head_sha": "13930c76be3706447fc4d6dfd02f5ce4cf221a2e",
+  "packets": [
+    {
+      "path": "research/publication_packets/pair_segment_completion",
+      "name": "pair_segment_completion",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "ac3bddf6ecc4dd20b3360e75d759013620bee82593065481205e7fe966a85bb5",
+        "driver.lean": "ac3bddf6ecc4dd20b3360e75d759013620bee82593065481205e7fe966a85bb5",
+        "statement.lean": "9bbd1efa48d5ab17870747575cf890288558ad92cca5d5f47beb9bc0ab77fdb7",
+        "problem.json": "bf6d1ca55dbb24d725299e9ed390d9659a8ed22e6abf921259733e1c9bc88e42",
+        "explanation.md": "8272075f0d285efd45c3d340d47d33cc092ea51c14161a3c6741178a98aca3b1"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}

@@ -1,0 +1,32 @@
+Selected exact compiler error/context/axiom lines from job105840548099/run35421714330.
+This is NOT the complete compiler or runner log. Linter markup and setup/cleanup are omitted.
+
+2026-09-19T04:36:51.4910248Z pair_segment_completion/driver.lean failed to compile:
+2026-09-19T04:36:51.4911264Z _verified/packets/pair_segment_completion/driver.lean:54:39: error: unsolved goals
+2026-09-19T04:36:51.4912180Z d n : ℕ
+2026-09-19T04:36:51.4912540Z v : Fin n → Fin d → ℝ
+2026-09-19T04:36:51.4912952Z s t : Pair n → ℝ
+2026-09-19T04:36:51.4913286Z a b : ℝ
+2026-09-19T04:36:51.4913573Z hab : a + b = 1
+2026-09-19T04:36:51.4914224Z ha : a = 1 - b
+2026-09-19T04:36:51.4914995Z ⊢ ∑ x, a • (s x • v x.1 + (1 - s x) • v x.2) + ∑ x, b • (t x • v x.1 + (1 - t x) • v x.2) =
+2026-09-19T04:36:51.4916003Z     a • (∑ x, s x • v x.1 + ∑ x, (1 - s x) • v x.2) + b • (∑ x, t x • v x.1 + ∑ x, (1 - t x) • v x.2)
+2026-09-19T04:36:51.4917008Z _verified/packets/pair_segment_completion/driver.lean:55:46: warning: This simp argument is unused:
+2026-09-19T04:36:51.4917788Z   Finset.smul_sum
+[Unused-simp linter hint and markup omitted.]
+2026-09-19T04:36:51.4922216Z _verified/packets/pair_segment_completion/driver.lean:130:6: error: ring failed, ring expressions not equal
+2026-09-19T04:36:51.4923044Z d n : ℕ
+2026-09-19T04:36:51.4923384Z v : Fin n → Fin d → ℝ
+2026-09-19T04:36:51.4923755Z t : Pair n → ℝ
+2026-09-19T04:36:51.4924297Z k i : Fin n
+2026-09-19T04:36:51.4924618Z ht : t (k, i) = 1
+2026-09-19T04:36:51.4924991Z ⊢ 1 = 0
+2026-09-19T04:36:51.4925692Z _verified/packets/pair_segment_completion/driver.lean:129:17: warning: This simp argument is unused:
+2026-09-19T04:36:51.4926527Z   if_pos rfl
+[Unused-simp linter hint and markup omitted.]
+2026-09-19T04:36:51.4932968Z 'Hirsch.PairSegmentCompletion.compact_zonotope' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-19T04:36:51.4934794Z 'Hirsch.PairSegmentCompletion.translate_hull' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-19T04:36:51.4936158Z 'Hirsch.PairSegmentCompletion.support_witness' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-19T04:36:51.4937492Z 'Hirsch.PairSegmentCompletion.completion' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-19T04:36:51.4938922Z 'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-19T04:36:51.5130849Z ##[error]Process completed with exit code 1.
