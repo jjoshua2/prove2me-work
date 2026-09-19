@@ -1,0 +1,80 @@
+{
+  "kind": "derived_test_summary",
+  "status": "PASS",
+  "totals": {
+    "edge_occurrences": 2960,
+    "models": 28,
+    "negative_mean_visits": 1366,
+    "nonshortest_routes": 660,
+    "repeated_vertex_routes": 224,
+    "routes": 913,
+    "row_identities": 25223,
+    "shortest_edge_occurrences": 1262,
+    "square_systems": 247,
+    "supporting_vertex_checks": 1672,
+    "target_row_loss_routes": 584,
+    "unique_edges": 195,
+    "vertices": 125
+  },
+  "large": [
+    {
+      "bound": 19,
+      "common_rank_identities": 49,
+      "dimension": 8,
+      "full_graph_enumerated": false,
+      "length": 1,
+      "original_row_checks": 34,
+      "rows": 17,
+      "source_inverse_identities": 128,
+      "vertex_count": 2
+    },
+    {
+      "bound": 19,
+      "common_rank_identities": 441,
+      "dimension": 8,
+      "full_graph_enumerated": false,
+      "length": 9,
+      "original_row_checks": 170,
+      "rows": 17,
+      "source_inverse_identities": 640,
+      "vertex_count": 10
+    },
+    {
+      "bound": 35,
+      "common_rank_identities": 225,
+      "dimension": 16,
+      "full_graph_enumerated": false,
+      "length": 1,
+      "original_row_checks": 66,
+      "rows": 33,
+      "source_inverse_identities": 512,
+      "vertex_count": 2
+    },
+    {
+      "bound": 35,
+      "common_rank_identities": 3825,
+      "dimension": 16,
+      "full_graph_enumerated": false,
+      "length": 17,
+      "original_row_checks": 594,
+      "rows": 33,
+      "source_inverse_identities": 4608,
+      "vertex_count": 18
+    }
+  ],
+  "saved_replay": {
+    "constructors_disabled": true,
+    "edges": 36,
+    "records": 11
+  },
+  "rejected": [
+    "infeasible point",
+    "bad inverse",
+    "missing tight row",
+    "missing endpoint",
+    "reversed nodes",
+    "repeated nodes"
+  ],
+  "full_report_and_fixture_in_bundle": true,
+  "scope": "Supporting rational tests and rank certificates, not Lean extraction or a new optimal diameter claim."
+}

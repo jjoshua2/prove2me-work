@@ -1,0 +1,61 @@
+_verified/packets/moment_linear_original_routes/solution.lean:122:8: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+_verified/packets/moment_linear_original_routes/solution.lean:122:8: warning: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+_verified/packets/moment_linear_original_routes/solution.lean:343:36: warning: This simp argument is unused:
+  Module.finrank_self
+
+Hint: Omit it from the simp argument list.
+  simp only [Module.finrank_pi, M̵o̵d̵u̵l̵e̵.̵f̵i̵n̵r̵a̵n̵k̵_̵s̵e̵l̵f̵,̵ ̵Fintype.card_fin, Fintype.card_coe, hcard]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+_verified/packets/moment_linear_original_routes/solution.lean:417:6: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+_verified/packets/moment_linear_original_routes/solution.lean:498:44: warning: This simp argument is unused:
+  and_assoc
+
+Hint: Omit it from the simp argument list.
+  simp [catalogue, Finset.mem_powersetCard,̵ ̵a̵n̵d̵_̵a̵s̵s̵o̵c̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+_verified/packets/moment_linear_original_routes/solution.lean:671:10: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+_verified/packets/moment_linear_original_routes/solution.lean:703:12: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+_verified/packets/moment_linear_original_routes/solution.lean:671:10: warning: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+_verified/packets/moment_linear_original_routes/solution.lean:703:12: warning: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+_verified/packets/moment_linear_original_routes/solution.lean:799:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+_verified/packets/moment_linear_original_routes/solution.lean:1024:17: warning: This simp argument is unused:
+  Fin.val_mk
+
+Hint: Omit it from the simp argument list.
+  simp only [F̵i̵n̵.̵v̵a̵l̵_̵m̵k̵,̵ ̵Nat.add_zero] at he
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+_verified/packets/moment_linear_original_routes/solution.lean:1456:19: warning: This simp argument is unused:
+  Fin.val_mk
+
+Hint: Omit it from the simp argument list.
+  simp only [̵z̵,̵F̵i̵n̵.̵v̵a̵l̵_̵m̵k̵,̵N̵a̵t̵.̵a̵d̵d̵_̵z̵e̵r̵o̵,̵N̵a̵t̵.̵m̵o̵d̵_̵m̵o̵d̵]̵[̲z̲,̲ ̲N̲a̲t̲.̲a̲d̲d̲_̲z̲e̲r̲o̲,̲ ̲N̲a̲t̲.̲m̲o̲d̲_̲m̲o̲d̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'Hirsch.MomentEvenGaps.complete_even_catalogue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.GaleGapRoutes.selected_routes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.MomentEdges.exposed_edge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.MomentLinearRoutes.all_endpoint_original_routes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]

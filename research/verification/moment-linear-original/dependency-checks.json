@@ -1,0 +1,43 @@
+{
+  "kind": "derived_dependency_archive_checks",
+  "dependencies": [
+    {
+      "packet": "moment_root_vertex_catalogue",
+      "source_commit": "f5f8093b1be2815dba7329b08cbd04493ff09140",
+      "manifest_checks": {
+        "solution.lean": true,
+        "driver.lean": true,
+        "statement.lean": true,
+        "problem.json": true,
+        "explanation.md": true
+      }
+    },
+    {
+      "packet": "gale_even_gap_routes",
+      "source_commit": "51c9e816f184dfda03b5373eaf91a69c06223b82",
+      "manifest_checks": {
+        "solution.lean": true,
+        "driver.lean": true,
+        "statement.lean": true,
+        "problem.json": true,
+        "explanation.md": true
+      }
+    },
+    {
+      "packet": "moment_common_rows_edges",
+      "source_commit": "2e5a27346baa0c00f5329bcb6e8c44a67278281a",
+      "archive_sha256": "0b4bd54a643462ce571dd34de07c616354daf5e8b3ad77a66d0e55eee7f903fd",
+      "manifest_checks": {
+        "solution.lean": true,
+        "driver.lean": true,
+        "statement.lean": true,
+        "problem.json": true,
+        "explanation.md": true
+      },
+      "namespace_byte_identical": true
+    }
+  ],
+  "parity_PR302_full_source_blob_reconstructed_exactly": "04e14323f2bc62fd9a452345825c21a827f6271f",
+  "parity_namespace_unchanged_and_old_failed_root_excluded": true,
+  "fresh_platform_poll": false
+}
