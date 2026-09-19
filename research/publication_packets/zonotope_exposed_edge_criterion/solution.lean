@@ -194,8 +194,11 @@ lemma scalar_bounds (c t : ℝ) (ht : 0 ≤ t ∧ t ≤ 1) :
       nlinarith
   · have hc0 : 0 ≤ c := le_of_not_gt hc
     rw [low,if_neg hc,abs_of_nonneg hc0,sub_zero]
-    exact ⟨mul_nonneg ht0 hc0,by simpa only [one_mul] using
-      mul_le_mul_of_nonneg_right ht1 hc0⟩
+    constructor
+    · exact mul_nonneg ht0 hc0
+    · calc
+        t*c ≤ 1*c := mul_le_mul_of_nonneg_right ht1 hc0
+        _ = c := one_mul c
 
 lemma scalar_full (c : ℝ) : (high c-low c)*c = |c| := by
   rcases lt_trichotomy c 0 with hc | hc | hc
@@ -245,7 +248,11 @@ theorem line_face {d m : ℕ} (w : Fin m → (Fin d → ℝ))
       exact hwj he
     have hle := Finset.single_le_sum
       (s := Finset.univ) (f := fun i : Fin m => if f (w i)=0 then |c i| else 0)
-      (fun i _ => by split_ifs <;> positivity) (Finset.mem_univ j)
+      (fun i _ => by
+        change 0 ≤ (if f (w i)=0 then |c i| else 0)
+        split_ifs
+        · exact abs_nonneg _
+        · exact le_rfl) (Finset.mem_univ j)
     simp only [hfj,if_true] at hle
     exact (abs_pos.mpr hcj).trans_le hle
   have hdispl : ∀ t : Fin m → ℝ, fixed w f t →
