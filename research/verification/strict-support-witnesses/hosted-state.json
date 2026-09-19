@@ -1,0 +1,44 @@
+{
+  "kind": "derived_observation_of_GitHub_jobs_and_compiler_log_not_platform_verdict",
+  "pr_number": 238,
+  "run_id": 34792841881,
+  "event": "issue_comment",
+  "trigger_comment_id": 5657395115,
+  "bot_comment_id": 5657396267,
+  "proof_sha": "66be0366279ba47b31dbd88c516dc96c70d53ca6",
+  "workflow_main_sha": "d743bc45a77bbf2047c9bef8ac7b50d95acf3447",
+  "jobs": {
+    "gate": {"id": 103820204688, "conclusion": "success"},
+    "verify": {"id": 103820234893, "conclusion": "failure"},
+    "publish": {"id": 103820430754, "conclusion": "skipped"},
+    "report-verify": {"id": 103820431149, "conclusion": "skipped"}
+  },
+  "compile": {
+    "driver_exit": 1,
+    "error_locations": [[480, 15], [515, 66]],
+    "diagnosis": "Two point-mass dotForm sums are not simplified by the existing simp calls; generic dotForm_apply expansion wins over dotForm_single.",
+    "rest_of_pipeline": "solution/statement compile and packet audit were not completed after driver failure",
+    "observed_axioms": "recession helper: standard three; dependent declarations and solution include generated sorryAx from the unsolved goals"
+  },
+  "publication": {
+    "attempted": false,
+    "theorem_id": null,
+    "submission_id": null,
+    "accepted": false,
+    "live_proved": false
+  },
+  "request_artifact": {
+    "id": 10328537816,
+    "sha256": "6841ebfb85f5a14c0d8afa99dacc1331b588e22e6556157006572a9a0a01964c"
+  },
+  "verified_packet_artifact": null,
+  "publication_receipt_artifact": null,
+  "proposed_repair": {
+    "path": "research/verification/strict-support-witnesses/targeted-elaboration-repair.patch",
+    "applied_and_byte_checked_in_clean_git_directory": true,
+    "Lean_compiled": false,
+    "hosted_rerun": false,
+    "proposed_solution_sha256": "7f82981f3d1bc242d110c98c71ce87d6798db843848e87265f6fc084152b5ddf"
+  },
+  "source_unchanged_after_gate": true
+}

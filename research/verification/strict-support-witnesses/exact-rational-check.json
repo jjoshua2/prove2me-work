@@ -1,0 +1,18 @@
+{
+  "kind": "executed_exact_rational_regression_not_Lean_verification",
+  "status": "PASS",
+  "seed": 20260913,
+  "counts": {
+    "bounded_systems": 48,
+    "active_bases_checked": 1860,
+    "vertices_compared": 180,
+    "optimality_certificates": 336,
+    "nonsharp_valid_bounds": 336,
+    "positive_eta_tests": 1008,
+    "zero_eta_tests": 27,
+    "unbounded_certificates": 9,
+    "rejected_controls": 675
+  },
+  "case_sha256": "0a86ba70f9d670a82d4a848bffb5020324ec1471b9b8aa4b3c67259157283e9d",
+  "script_sha256": "eb368d28d440eb233a366e5a49a14ea31e93cd2063548f24fcf62257b4271634"
+}
