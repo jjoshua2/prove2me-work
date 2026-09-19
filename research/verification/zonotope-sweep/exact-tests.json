@@ -1,0 +1,68 @@
+{
+  "construction_disabled": true,
+  "large": [
+    {
+      "changed_target_objectives": true,
+      "constructed_test_route_edges": 8,
+      "crossings": 8,
+      "d": 8,
+      "generators": 11,
+      "models": 1,
+      "parallel_tie_events": 1,
+      "zero_generators": 1
+    },
+    {
+      "changed_target_objectives": true,
+      "constructed_test_route_edges": 10,
+      "crossings": 10,
+      "d": 16,
+      "generators": 13,
+      "models": 1,
+      "parallel_tie_events": 1,
+      "zero_generators": 1
+    },
+    {
+      "changed_target_objectives": true,
+      "constructed_test_route_edges": 10,
+      "crossings": 10,
+      "d": 32,
+      "generators": 13,
+      "models": 1,
+      "parallel_tie_events": 1,
+      "zero_generators": 1
+    },
+    {
+      "changed_target_objectives": true,
+      "constructed_test_route_edges": 10,
+      "crossings": 10,
+      "d": 64,
+      "generators": 13,
+      "models": 1,
+      "parallel_tie_events": 1,
+      "zero_generators": 1
+    }
+  ],
+  "naive_simultaneous_independent_tie_control": true,
+  "rejected": [
+    "missing crossing",
+    "duplicate crossing",
+    "wrong target chamber",
+    "nonregular target"
+  ],
+  "saved_records": 34,
+  "scope": "Exact finite supporting checks. The test constructs sample routes; the Lean target certifies sweeps and faces, not a completed all-pairs walk theorem.",
+  "source_sha256": "f5a8544e29d67f1f4da76c57d4ba528773d27a8daca5e03386ac1e9447996469",
+  "status": "PASS",
+  "totals": {
+    "boolean_representations": 9462,
+    "changed_target_objectives": 159,
+    "constructed_test_route_edges": 125,
+    "crossings": 125,
+    "generators": 669,
+    "models": 165,
+    "parallel_tie_events": 46,
+    "singleton_support_checks": 19832,
+    "whole_face_checks": 369,
+    "zero_generators": 39
+  }
+}

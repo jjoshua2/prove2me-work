@@ -1,0 +1,1 @@
+Prove2Me publication job finished without a receipt. See the Actions run.

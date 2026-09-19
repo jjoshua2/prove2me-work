@@ -1,0 +1,25 @@
+{
+  "kind": "derived_exact_source_and_dependency_binding",
+  "proof_sha": "caf342b4679820b8e8b12633493884938536135d",
+  "source_blob": "097c1df64a2eea944613a4a62eb63edbe9d5ccea",
+  "source_sha256": "3d233db7a1ce78a9376a758af92ce71634f9a0a45887d48384b99dfbc30153f4",
+  "lines": 726,
+  "bytes": 30146,
+  "accepted_prefix_byte_identical": true,
+  "accepted_prefix_lines": 425,
+  "dependency_source_commit": "fefbdd9f422a7f1511713b4e2e80934087d40389",
+  "dependency_manifest_checks": {
+    "solution.lean": true,
+    "driver.lean": true,
+    "statement.lean": true,
+    "problem.json": true,
+    "explanation.md": true
+  },
+  "dependency_zip_sha256": "6de395305908fa839cfd247476a9747a179b7cbbffb2438e80d0c531690c1534",
+  "metadata_sha256": {
+    "problem.json": "0439e706b7077bc9286d33f5d3c87cb8685cab585f4488197a338e96389dcbe2",
+    "explanation.md": "1b22f0a710c09eefa9a1b551afcc86306b6edf49a6c26b06cac0149c842abd59"
+  },
+  "all_three_remote_blobs_match": true,
+  "local_Lean_compilation": false
+}
