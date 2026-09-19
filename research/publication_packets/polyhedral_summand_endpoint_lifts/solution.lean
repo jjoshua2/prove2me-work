@@ -564,13 +564,13 @@ theorem transfer_all_pairs {d m : ℕ}
   have h0 := hac 0 (Nat.zero_le N)
   have hN' := hac N le_rfl
   have ha0 : a 0=u := (h0.2.2.2 u hu.1 q₀ hq₀.1 hz0.symm).1.symm
-  have haN : a N=v := (hN'.2.2.2 v hv.1 q₁ hq₁.1 hzN.symm).1.symm
+  have haN : a N=v := (hN'.2.2.2 v hv.1 q₁hq₁.1 hzN.symm).1.symm
   obtain ⟨L,hL,p,hp0,hpL,hpv,hpe⟩ := hleft
   exact ⟨L,hL.trans hN,p,hp0.trans ha0,hpL.trans haN,hpv,hpe⟩
 
 end Hirsch.PolyhedralSummand
 
-/-- Compact summands admit lifts of every original H vertex, so an all-pairs
+/-- Compact summands provide lifts of every original H vertex, so an all-pairs
 sum-edge bound descends without assuming compatible endpoint choices. -/
 theorem solution (d m B : ℕ)
     (A : Fin m → (Fin d → ℝ) →ₗ[ℝ] ℝ) (b : Fin m → ℝ)
