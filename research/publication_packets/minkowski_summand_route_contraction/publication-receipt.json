@@ -1,0 +1,15 @@
+{
+  "head_sha": "66abd8d056b6069a53e983dc7489ee8f1e187cb0",
+  "packets": [
+    {
+      "packet": "minkowski_summand_route_contraction",
+      "status": "ACCEPTED",
+      "theorem_id": "9058b830-964e-4c2d-80d7-e17c68e51cb6",
+      "submission_id": "e74048d0-521b-4ef6-ac50-048b12542d03",
+      "theorem_name": "Hirsch.minkowski_summand_exposed_route_contraction",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/minkowski_summand_route_contraction"
+    }
+  ]
+}

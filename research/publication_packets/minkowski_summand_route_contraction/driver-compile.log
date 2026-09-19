@@ -1,0 +1,5 @@
+'Hirsch.SummandContraction.vertex_decomposition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.SummandContraction.left_face_of_sum_edge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.SummandContraction.split_exposed_edge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.SummandContraction.contract_route' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]
