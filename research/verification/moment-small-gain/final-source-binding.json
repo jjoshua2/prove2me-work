@@ -1,0 +1,43 @@
+{
+  "kind": "derived_final_two_helper_source_binding",
+  "proof_head": "e991bc9b85bc60381f1b5fea283f4538dfaaa228",
+  "parent_proof": "e911d83581852520811efca6e8b0204d255b9285",
+  "source": {
+    "bytes": 42864,
+    "sha256": "2e48c94e404ad7c006ec8442d10766195327413d5923afd58878582908609fe7",
+    "git_blob": "6a26ad84c3d9b84f16a597ef87e27e41a110d9f7"
+  },
+  "unchanged_target": {
+    "bytes": 3747,
+    "sha256": "7046b54213290b30c8c42eb88ef1d3217d752429668e5487138ae93e22048368",
+    "git_blob": "8b79001a7a4acd95cc24462f1299ec5928bc49d2"
+  },
+  "unchanged_explanation": {
+    "bytes": 4019,
+    "sha256": "7e5f888d66ff0b585ecc314ed7b9f637f8f7b678a105f0519e625f133b32e7e1",
+    "git_blob": "32a1569d16e411a12299d0efa49ffa90b5fd53ae"
+  },
+  "changes": [
+    "slack_spec proof body",
+    "score_values proof body"
+  ],
+  "all_preexisting_signatures_unchanged": true,
+  "public_theorem_and_assembly_unchanged": true,
+  "accepted_prefix_unchanged": true,
+  "saved_proposal_bytes_identical": true,
+  "local_lean_compilation": false,
+  "fresh_regression": {
+    "report": {
+      "bytes": 3548,
+      "sha256": "05114a9296c14bd680d1c14279c4cad0262789a9c861e152d6ba053bfd81a2b7",
+      "git_blob": "0848d9b4c02c332a1fd18df68cc1fe5aa3470e84"
+    },
+    "fixtures": {
+      "bytes": 31652,
+      "sha256": "f72f0b9698aa24f254ce0af05cb4f2fed97dffa1c370106015c08ce514a7ea44",
+      "git_blob": "5641dfd0e27f90a8e7c0ae002423f0925331cf5e"
+    },
+    "both_match_prior_bytes": true
+  },
+  "scope": "Source identity and executed rational tests only; not Lean verification."
+}

@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/moment_six_row_small_gain"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "e991bc9b85bc60381f1b5fea283f4538dfaaa228",
+  "pr": "304"
+}

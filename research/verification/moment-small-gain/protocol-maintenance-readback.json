@@ -1,0 +1,16 @@
+{
+  "kind": "maintenance_integration_readback",
+  "pr": 305,
+  "source_head": "b5d4a500f354a8d4926a3b23394607151c96b73e",
+  "merge": "ec1f9940496d8cb0ed9308ede632d0ec3b62de67",
+  "runtime_blob": "e03550a5dd351b67cc4921d66fe13171d474681b",
+  "skill_blob": "3b64e0d72acd92c8e052b65624c059978ca66748",
+  "runtime_change": "Exact expected-version literal only, 0.10.4 to 0.10.5",
+  "unit_tests": 8,
+  "guard_retained": true,
+  "allowlist_changed": false,
+  "workflows_changed": false,
+  "lean_pin_changed": false,
+  "secret_isolation_changed": false,
+  "review_scope": "Agent-authored change reviewed by the same agent; not an independent human approval."
+}
