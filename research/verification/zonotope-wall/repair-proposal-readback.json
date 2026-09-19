@@ -1,0 +1,19 @@
+{
+  "kind": "derived_unapplied_uncompiled_repair",
+  "tested_proof": "6599be3895c7ab7fbe9e448625fb558e24139a31",
+  "source": {
+    "bytes": 18186,
+    "lines": 454,
+    "sha256": "cdf116eed7169dd2e8ea0cd53c58154393689e8c052c4fa6301c1682ddd9aad5",
+    "git_blob": "fdae9555c66329742f641c259e551f03edad132d"
+  },
+  "changed_proof_bodies": [
+    "scalar_bounds",
+    "line_face mass nonnegativity subproof"
+  ],
+  "all_statements_assumptions_public_root_and_metadata_unchanged": true,
+  "applied_to_publication_source": false,
+  "Lean_compiled": false,
+  "forward_reverse_patch_exact": true,
+  "note": "Split the layout-sensitive pair term into two goals and beta-reduce the compiler-displayed if-expression before case splitting. Further errors may remain."
+}

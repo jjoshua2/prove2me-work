@@ -1,0 +1,39 @@
+{
+  "kind": "derived_first_gate_failure",
+  "pr": 312,
+  "proof_sha": "6599be3895c7ab7fbe9e448625fb558e24139a31",
+  "trusted_main": "7ed199c915cd97afd65008f7ba60e171e28a39cb",
+  "run_id": 35448186683,
+  "trigger_comment": 5742568565,
+  "acknowledgement_comment": 5742569989,
+  "jobs": {
+    "gate": {"id": 105910664069, "conclusion": "success"},
+    "verify": {"id": 105910693688, "conclusion": "failure"},
+    "publish": {"id": 105910817042, "conclusion": "skipped"},
+    "report-verify": {"id": 105910816872, "conclusion": "skipped"}
+  },
+  "last_observed_state": "completed/failure",
+  "driver_exit_code": 1,
+  "standard_only_requested_helpers": [
+    "Hirsch.ZonotopeWall.point_eq_cap_iff",
+    "Hirsch.ZonotopeWall.segment_forces_line",
+    "Hirsch.ZonotopeWall.endpoints_extreme"
+  ],
+  "failed_requested_reports": ["Hirsch.ZonotopeWall.line_face", "solution"],
+  "failed_elaboration_sorryAx_not_a_passing_audit": true,
+  "complete_packet_audit_passed": false,
+  "theorem_id": null,
+  "submission_id": null,
+  "authenticated_status": null,
+  "live_status": null,
+  "verified_artifact": null,
+  "publication_receipt": null,
+  "publication_reached": false,
+  "new_triggers": 1,
+  "compiler_attempts": 1,
+  "post_gate_publication_source_edits": false,
+  "unapplied_uncompiled_repair_preserved": true,
+  "artifact": {"id": 10585546576, "file": "request.zip", "bytes": 315, "sha256": "b310dc760d33d14321635697d303e68186b267dcd9321a8aa23d64c8025c7f72"},
+  "archive_digest_recomputed": true,
+  "local_Lean_compilation": false
+}

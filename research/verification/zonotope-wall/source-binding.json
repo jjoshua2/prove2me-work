@@ -1,0 +1,15 @@
+{
+  "kind": "derived_prepared_source_binding",
+  "base_main": "7ed199c915cd97afd65008f7ba60e171e28a39cb",
+  "proof_sha": "6599be3895c7ab7fbe9e448625fb558e24139a31",
+  "all_three_remote_packet_blobs_match": true,
+  "solution": {"bytes": 18046, "lines": 447, "sha256": "a849a1874713ac0396c7ac99f381f00794792e6fe3d01548cfa27b30f91e0618", "git_blob": "dff8ec1cf4d2b9230d321bccf53cf42bd9f3dbba"},
+  "problem": {"bytes": 3116, "sha256": "fe591c778fd144dbb4796fc13ff10b26c200645560a73bf78e3372d83119176b", "git_blob": "2f35ff939393a76848f4b99da0146e182d1565c3"},
+  "explanation": {"bytes": 4833, "sha256": "4db3cb01d9c7f2b6fd2f3da9adc0e7f82088c54dc8e2dd4a428e027816593e26", "git_blob": "c905109b3996df6f392325de95d141167eaa8139"},
+  "script": {"bytes": 9894, "lines": 197, "sha256": "5601084204fe011e5491ba309f341b5b6a6ffaf2f4fd8040a868ced0b0562d2f", "git_blob": "ba48c1514aa9cabc79c7dd8726c410db8cce6d0b"},
+  "script_blob_read_back_matches": true,
+  "public_statement_text_generated_from_solution": true,
+  "text_equality_is_not_Lean_verification": true,
+  "local_Lean_compilation": false,
+  "post_gate_publication_file_changes": false
+}

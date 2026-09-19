@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/zonotope_exposed_edge_criterion"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "fefbdd9f422a7f1511713b4e2e80934087d40389",
+  "pr": "312"
+}

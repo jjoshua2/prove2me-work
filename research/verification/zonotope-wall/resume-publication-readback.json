@@ -1,0 +1,93 @@
+{
+  "kind": "derived_successful_run_readback",
+  "pr": 312,
+  "proof_sha": "fefbdd9f422a7f1511713b4e2e80934087d40389",
+  "trusted_main": "7ed199c915cd97afd65008f7ba60e171e28a39cb",
+  "run_id": 35449401954,
+  "trigger_comment": 5742734506,
+  "acknowledgement_comment": 5742735713,
+  "verdict_comment": 5742760113,
+  "verdict_timestamp": "2026-09-19T14:43:12Z",
+  "jobs": {
+    "gate": {
+      "id": 105913822108,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    "verify": {
+      "id": 105913848624,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    "publish": {
+      "id": 105914049575,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    "report-verify": {
+      "id": 105914050176,
+      "status": "completed",
+      "conclusion": "skipped"
+    }
+  },
+  "compile_exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "audited_declarations": [
+    "Hirsch.ZonotopeWall.point_eq_cap_iff",
+    "Hirsch.ZonotopeWall.line_face",
+    "Hirsch.ZonotopeWall.segment_forces_line",
+    "Hirsch.ZonotopeWall.endpoints_extreme",
+    "solution"
+  ],
+  "authenticated_status": "ACCEPTED",
+  "publisher_live_status": "Proved",
+  "theorem_id": "bb32ac53-d8ba-4e21-92eb-b7e5ec568c70",
+  "submission_id": "f68818e2-63ce-40b3-a104-e63e9b71b454",
+  "first_failed_run": 35448186683,
+  "compiler_gates_total": 2,
+  "new_gates_this_turn": 1,
+  "first_actual_platform_submission": true,
+  "saved_repair_exactly_applied": true,
+  "all_statements_assumptions_public_root_and_metadata_unchanged": true,
+  "no_post_success_proof_edit": true,
+  "all_five_frozen_file_hashes_match": true,
+  "all_four_archive_hashes_match": true,
+  "local_Lean_compilation": false,
+  "verify_and_publish_logs_read_through_cleanup": true,
+  "separate_direct_platform_poll": false,
+  "raw_individual_platform_API_bodies_exported": false,
+  "artifacts": [
+    {
+      "id": 10585546576,
+      "file": "request.zip",
+      "bytes": 315,
+      "sha256": "b310dc760d33d14321635697d303e68186b267dcd9321a8aa23d64c8025c7f72"
+    },
+    {
+      "id": 10586603204,
+      "file": "resume-request.zip",
+      "bytes": 315,
+      "sha256": "58df41d5edf46944afc0a026f1a037644de02ea071e2b99562391bcd36a6cdd7"
+    },
+    {
+      "id": 10586682280,
+      "file": "resume-verified.zip",
+      "bytes": 18283,
+      "sha256": "6de395305908fa839cfd247476a9747a179b7cbbffb2438e80d0c531690c1534"
+    },
+    {
+      "id": 10586418609,
+      "file": "resume-publication.zip",
+      "bytes": 927,
+      "sha256": "39d9bcbba398d37ffee6c5aa01342dc83c362068a0952f54eee887796c96dde3"
+    }
+  ]
+}
