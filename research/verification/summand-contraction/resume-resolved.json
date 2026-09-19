@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/minkowski_summand_route_contraction"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "66abd8d056b6069a53e983dc7489ee8f1e187cb0",
+  "pr": "309"
+}

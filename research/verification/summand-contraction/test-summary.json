@@ -1,0 +1,26 @@
+{
+  "kind": "derived_exact_test_summary",
+  "status": "PASS",
+  "counts": {
+    "backtrack_controls": 55,
+    "both_move": 21,
+    "comparisons": 5294,
+    "left_moves": 280,
+    "left_walk_edges": 24894,
+    "models": 56,
+    "right_moves": 259,
+    "right_walk_edges": 23454,
+    "sum_edges": 518,
+    "sum_vertices": 519,
+    "sum_walk_edges": 47122,
+    "walks": 10270
+  },
+  "large_selected_product_cases": 12,
+  "maximum_selected_dimension": 64,
+  "large_graphs_enumerated": false,
+  "saved_records": 18,
+  "discovery_disabled_replay": true,
+  "rejected": ["false split", "wrong alpha", "stationary sum edge", "bad support", "false component endpoint"],
+  "full_reports_in_bundle": true,
+  "scope": "Exact finite support and edge tests; not Lean extraction or proof of a universal small completion."
+}

@@ -1,0 +1,21 @@
+{
+  "kind": "derived_exact_repair_binding",
+  "base_head": "3e3ea69f35265093a715c8dd35475c9dca2d26e4",
+  "proof_head": "66abd8d056b6069a53e983dc7489ee8f1e187cb0",
+  "source_blob": "785b426042baa279d9532dee785fd3ffa133b421",
+  "solution_sha256": "aa484136eb3bc13a03538f72a7cc8d1c188017cacfc1deb4990056cb5539f367",
+  "lines": 377,
+  "bytes": 17309,
+  "matches_previously_saved_proposal": true,
+  "public_root_type_and_body_unchanged": true,
+  "patch_forward_reverse_exact": true,
+  "local_Lean_compilation": false,
+  "local_tools": {
+    "lean": null,
+    "lake": null
+  },
+  "metadata_sha256": {
+    "problem.json": "55fcf73d8b8828e48334d40880879d377699387257cfb40562cbcbcc82f599a5",
+    "explanation.md": "1a47b5875d728790c1e72391a8026c229681f29df8e9f4bc7f75c7885a95b1f2"
+  }
+}
