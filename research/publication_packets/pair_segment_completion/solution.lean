@@ -14,7 +14,7 @@ abbrev Pair (n : ℕ) := Fin n × Fin n
 def box (n : ℕ) : Set (Pair n → ℝ) := Icc 0 1
 
 def point {d n : ℕ} (v : Fin n → (Fin d → ℝ)) (t : Pair n → ℝ) : Fin d → ℝ :=
-  ∑ e : Pair n, (t e) • v e.1 + (1-t e) • v e.2
+  ∑ e : Pair n, ((t e) • v e.1 + (1-t e) • v e.2)
 
 def zonotope {d n : ℕ} (v : Fin n → (Fin d → ℝ)) : Set (Fin d → ℝ) :=
   point v '' box n
@@ -44,8 +44,8 @@ lemma point_combo {d n : ℕ} (v : Fin n → (Fin d → ℝ))
   have ha : a=1-b := by linarith
   calc
     point v (a • s+b • t) =
-        ∑ e : Pair n, a • (s e • v e.1+(1-s e) • v e.2) +
-          b • (t e • v e.1+(1-t e) • v e.2) := by
+        ∑ e : Pair n, (a • (s e • v e.1+(1-s e) • v e.2) +
+          b • (t e • v e.1+(1-t e) • v e.2)) := by
       apply Finset.sum_congr rfl
       intro e _
       change (a*s e+b*t e) • v e.1+(1-(a*s e+b*t e)) • v e.2 = _
@@ -105,6 +105,7 @@ lemma translate_hull {d n : ℕ} (v : Fin n → (Fin d → ℝ))
     ∀ p ∈ convexHull ℝ (range v), p+q ∈ zonotope v := by
   have hc : Convex ℝ {p : Fin d → ℝ | p+q ∈ zonotope v} := by
     intro x hx y hy a b ha hb hab
+    change (a • x+b • y)+q ∈ zonotope v
     rw [← shift_combo x y q a b hab]
     exact convex_zonotope v hx hy ha hb hab
   apply convexHull_min _ hc
@@ -124,14 +125,14 @@ lemma replace_endpoint {d n : ℕ} (v : Fin n → (Fin d → ℝ))
     intro e
     by_cases h : e=(k,i)
     · subst e
-      simp only [Function.update_same,ht,zero_smul,sub_zero,one_smul,
+      simp only [Function.update_self,ht,zero_smul,sub_zero,one_smul,
         sub_self,if_pos rfl,add_zero,zero_add]
       module
-    · simp only [Function.update_noteq h,if_neg h,add_zero]
+    · simp only [Function.update_of_ne h,if_neg h,add_zero]
   calc
     point v (Function.update t (k,i) 0) =
-        ∑ e : Pair n, (t e • v e.1+(1-t e) • v e.2) +
-          if e=(k,i) then v i-v k else 0 := Finset.sum_congr rfl (fun e _ => he e)
+        ∑ e : Pair n, ((t e • v e.1+(1-t e) • v e.2) +
+          if e=(k,i) then v i-v k else 0) := Finset.sum_congr rfl (fun e _ => he e)
     _ = point v t+(v i-v k) := by
       rw [Finset.sum_add_distrib]
       simp [point]
@@ -194,9 +195,9 @@ theorem support_witness {d n : ℕ} (hn : 0 < n) (v : Fin n → (Fin d → ℝ))
       intro e
       by_cases he : e=(k,i)
       · subst e
-        simp only [Function.update_same]
+        simp only [Function.update_self]
         norm_num
-      · simpa only [Function.update_noteq he] using (mem_box t).mp htb e
+      · simpa only [Function.update_of_ne he] using (mem_box t).mp htb e
     refine ⟨Function.update t (k,i) 0,hnew,?_⟩
     exact replace_endpoint v t k i htki
   have heq : v k+q=point v t := by dsimp only [q]; module
@@ -244,7 +245,7 @@ theorem solution (d n : ℕ) (hn : 0 < n) (v : Fin n → (Fin d → ℝ)) :
     let Z : Set (Fin d → ℝ) :=
       {z | ∃ t : (Fin n × Fin n) → ℝ,
         (∀ e, 0 ≤ t e ∧ t e ≤ 1) ∧
-        (∑ e : Fin n × Fin n, t e • v e.1+(1-t e) • v e.2)=z}
+        (∑ e : Fin n × Fin n, (t e • v e.1+(1-t e) • v e.2))=z}
     let Q : Set (Fin d → ℝ) := {q | ∀ i, q+v i ∈ Z}
     IsCompact Z ∧ Convex ℝ Z ∧ IsCompact Q ∧ Convex ℝ Q ∧ Q.Nonempty ∧
       Z = {z | ∃ p ∈ convexHull ℝ (Set.range v), ∃ q ∈ Q, p+q=z} ∧
@@ -252,7 +253,7 @@ theorem solution (d n : ℕ) (hn : 0 < n) (v : Fin n → (Fin d → ℝ)) :
   classical
   let Z : Set (Fin d → ℝ) := {z | ∃ t : (Fin n × Fin n) → ℝ,
     (∀ e, 0 ≤ t e ∧ t e ≤ 1) ∧
-    (∑ e : Fin n × Fin n, t e • v e.1+(1-t e) • v e.2)=z}
+    (∑ e : Fin n × Fin n, (t e • v e.1+(1-t e) • v e.2))=z}
   have hZ : Hirsch.PairSegmentCompletion.zonotope v = Z := by
     ext z
     simp only [Z,Hirsch.PairSegmentCompletion.zonotope,Set.mem_image,
