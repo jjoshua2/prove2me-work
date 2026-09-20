@@ -1,0 +1,16 @@
+{
+  "kind": "derived_exact_saved_repair_check",
+  "proof_sha": "13365da5ce10b03628d9db83c4896360893c74ef",
+  "solution_blob": "c106008250409e7fc9eb3a3e8b187eb64d9f49e9",
+  "solution_sha256": "80403727d5d0e7b3e11932dc937e76c3bdcd283c786a426bcfe44a7ea781aa87",
+  "lines": 1247,
+  "bytes": 54466,
+  "exact_saved_proposal": true,
+  "patch_forward_reverse_exact": true,
+  "all_statements_and_hypotheses_unchanged": true,
+  "public_root_proof_change": "Explicit dsimp only before intro hu hv",
+  "accepted_1048_line_prefix_unchanged": true,
+  "accepted_dependency_all_five_hashes_match": true,
+  "no_metadata_change": true,
+  "local_Lean_compilation": false
+}

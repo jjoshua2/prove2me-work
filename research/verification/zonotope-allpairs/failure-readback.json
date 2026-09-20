@@ -1,0 +1,50 @@
+{
+  "kind": "derived_completed_failed_run_readback",
+  "pr": 316,
+  "proof_sha": "c0c2d6111ac1bad28f7a5cea60ad353fa1c8a26a",
+  "trusted_main": "c9a9a44a0d144efa66c07c2c26605adafd0c2dd3",
+  "run_id": 35489239756,
+  "trigger_comment": 5747621045,
+  "acknowledgement_comment": 5747621792,
+  "jobs": {
+    "gate": {"id": 106021169315, "status": "completed", "conclusion": "success"},
+    "verify": {"id": 106021186209, "status": "completed", "conclusion": "failure"},
+    "publish": {"id": 106021292098, "status": "completed", "conclusion": "skipped"},
+    "report-verify": {"id": 106021292014, "status": "completed", "conclusion": "skipped"}
+  },
+  "driver_exit_code": 1,
+  "passing_helper_reports": [
+    "Hirsch.ZonotopeAllPairs.body_eq_corner_hull",
+    "Hirsch.ZonotopeAllPairs.corner_unique_objective"
+  ],
+  "failed_dependent_reports": [
+    "Hirsch.ZonotopeAllPairs.extreme_regular_objective",
+    "Hirsch.ZonotopeAllPairs.all_endpoint_route",
+    "solution"
+  ],
+  "errors": {
+    "1160": "Or.inr rfl supplies equality proof after simplification expects True",
+    "1241": "intro introduced the public let-bound set as hu instead of the extremality hypothesis"
+  },
+  "packet_audit_passed": false,
+  "publication_reached": false,
+  "theorem_id": null,
+  "submission_id": null,
+  "authenticated_status": null,
+  "live_status": null,
+  "verified_packet_artifact": null,
+  "publication_receipt": null,
+  "compiler_attempts": 1,
+  "new_triggers": 1,
+  "post_failure_source_changes": false,
+  "second_trigger_posted": false,
+  "local_lean_compilation": false,
+  "artifact": {
+    "id": 10598607331,
+    "file": "pr316-request.zip",
+    "bytes": 314,
+    "sha256": "c0874d334ebad378428daeef4581c1574e0113e4979e8be2df91c302d016133e",
+    "digest_recomputed": true
+  },
+  "repair_proposal_saved_separately": true
+}

@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "counts": {
+    "boolean_representations": 20171,
+    "discovered_vertex_support_checks": 1630,
+    "discovered_vertices": 84,
+    "duplicate_boolean_images": 138,
+    "edges": 874,
+    "generators": 2349,
+    "independent_hull_edges": 874,
+    "nonshortest_routes": 0,
+    "nonvertex_corner_images": 143,
+    "parallel_tie_events": 272,
+    "requested_endpoint_comparisons": 25860,
+    "routes": 502,
+    "singleton_support_comparisons": 40046,
+    "vertices_visited": 1376,
+    "whole_event_face_points": 2100,
+    "zero_generators": 53,
+    "zero_length_routes": 84
+  },
+  "large": [
+    {"ambient_dimension": 8, "edges": 8, "full_graph_enumerated": false, "generators": 11, "parallel_tie_events": 1, "rank": 8, "requested_endpoint_comparisons": 0, "routes": 1, "vertices_visited": 9, "zero_generators": 1},
+    {"ambient_dimension": 16, "edges": 16, "full_graph_enumerated": false, "generators": 19, "parallel_tie_events": 1, "rank": 16, "requested_endpoint_comparisons": 0, "routes": 1, "vertices_visited": 17, "zero_generators": 1},
+    {"ambient_dimension": 32, "edges": 6, "full_graph_enumerated": false, "generators": 9, "parallel_tie_events": 1, "rank": 6, "requested_endpoint_comparisons": 0, "routes": 1, "vertices_visited": 7, "zero_generators": 1},
+    {"ambient_dimension": 64, "edges": 6, "full_graph_enumerated": false, "generators": 9, "parallel_tie_events": 1, "rank": 6, "requested_endpoint_comparisons": 0, "routes": 1, "vertices_visited": 7, "zero_generators": 1}
+  ],
+  "saved_records": 26,
+  "constructors_disabled": true,
+  "rejected": ["wrong requested endpoint", "zero objective", "wrong target sign", "removed crossing", "stationary step"],
+  "nonvertex_corner_control": true,
+  "scope": "Exact finite support/endpoint/edge checks, not Lean extraction or a generic input parser.",
+  "kind": "derived_compact_test_summary",
+  "complete_report_and_fixture_in_bundle": true
+}

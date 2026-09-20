@@ -1,0 +1,27 @@
+{
+  "kind": "derived_prepared_source_binding",
+  "base_main": "c9a9a44a0d144efa66c07c2c26605adafd0c2dd3",
+  "accepted_dependency": "58ae59bf-f663-4bbb-ba6b-1858d7a64009",
+  "accepted_prefix_lines": 1048,
+  "accepted_prefix_exact": true,
+  "all_five_dependency_hashes_match": true,
+  "local_lean_available": false,
+  "local_compilation": false,
+  "files": {
+    "solution.lean": {
+      "bytes": 54504,
+      "sha256": "f74470f80704b84242a50dc983a4826f49a672870af4569b5a1dd9634df46405",
+      "git_blob": "96e5c259bbab1fec733aa054f7cd1f90b1b1af30"
+    },
+    "problem.json": {
+      "bytes": 2834,
+      "sha256": "c25801c84b995eb1c18299407dafc978827fdb2da59fcea7ddae754e36c2c6cf",
+      "git_blob": "43949fe27db2daa28de77bde1e41cb41799e750d"
+    },
+    "explanation.md": {
+      "bytes": 3127,
+      "sha256": "15d0097c51f52433711ec49d3f7261cb4904a387732ea5f8e41ba47e197c25b5",
+      "git_blob": "f98457dcaf03b9ea651ad79fa7971cb8ebdf3b50"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "kind": "derived_clean_three_script_replay",
+  "status": "PASS",
+  "lean_verification": false,
+  "outputs": [
+    {
+      "file": "exact-tests.json",
+      "bytes": 11723,
+      "sha256": "243bf692ad7ed0a4600d58e7895b1bfd11d6071f76924765641773da59bcd1dc",
+      "clean_replay_byte_identical": true
+    },
+    {
+      "file": "fixtures.json",
+      "bytes": 65977,
+      "sha256": "3c6be707b30cf0214b87d7096bf8abe05b206089b2f79d8de4641031b4ad34da",
+      "clean_replay_byte_identical": true
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+Complete compiler error/context/axiom block from job106021186209 in run35489239756. Runner setup/cache/cleanup were inspected but are omitted here; this is not the full runner log.
+
+2026-09-20T04:29:50.7265759Z zonotope_all_endpoint_routes/driver.lean failed to compile:
+2026-09-20T04:29:50.7267097Z _verified/packets/zonotope_all_endpoint_routes/driver.lean:1160:19: error: Application type mismatch: The argument
+2026-09-20T04:29:50.7267791Z   rfl
+2026-09-20T04:29:50.7268019Z has type
+2026-09-20T04:29:50.7268258Z   ?m.79 = ?m.79
+2026-09-20T04:29:50.7268513Z but is expected to have type
+2026-09-20T04:29:50.7268805Z   True
+2026-09-20T04:29:50.7269036Z in the application
+2026-09-20T04:29:50.7269284Z   Or.inr rfl
+2026-09-20T04:29:50.7269860Z _verified/packets/zonotope_all_endpoint_routes/driver.lean:1241:57: error: Application type mismatch: The argument
+2026-09-20T04:29:50.7270697Z   hu
+2026-09-20T04:29:50.7270981Z has type
+2026-09-20T04:29:50.7271516Z   Set (Fin d → ℝ)
+2026-09-20T04:29:50.7271955Z of sort `Type` but is expected to have type
+2026-09-20T04:29:50.7272689Z   u ∈ Set.extremePoints ℝ (Hirsch.ZonotopeWall.body w)
+2026-09-20T04:29:50.7273364Z of sort `Prop` in the application
+2026-09-20T04:29:50.7274025Z   Hirsch.ZonotopeAllPairs.all_endpoint_route w u v hu
+2026-09-20T04:29:50.7275232Z 'Hirsch.ZonotopeAllPairs.body_eq_corner_hull' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-20T04:29:50.7284837Z 'Hirsch.ZonotopeAllPairs.corner_unique_objective' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-20T04:29:50.7287130Z 'Hirsch.ZonotopeAllPairs.extreme_regular_objective' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-20T04:29:50.7288604Z 'Hirsch.ZonotopeAllPairs.all_endpoint_route' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-20T04:29:50.7289761Z 'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-20T04:29:50.7290281Z 
+2026-09-20T04:29:50.7349292Z ##[error]Process completed with exit code 1.
