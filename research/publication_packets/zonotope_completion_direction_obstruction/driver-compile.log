@@ -1,0 +1,5 @@
+'Hirsch.CompletionDirections.projection_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.CompletionDirections.inherited_edge_direction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.CompletionDirections.completion_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.ZonotopeDirections.antipodal_direction_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]

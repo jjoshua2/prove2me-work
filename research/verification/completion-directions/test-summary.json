@@ -1,0 +1,29 @@
+{
+  "kind": "derived_compact_regression_summary",
+  "status": "PASS",
+  "Lean_verification": false,
+  "small_models": 18,
+  "totals": {
+    "all_pair_distances": 4092,
+    "directions": 360,
+    "edges": 963,
+    "facet_checks": 1092,
+    "original_facets": 126,
+    "original_square_bases": 3822,
+    "support_checks": 46422,
+    "vertices": 378
+  },
+  "whole_planar_completion_models": 28,
+  "saved_edge_audits": 82,
+  "selected_larger_edge_checks": 64,
+  "large_dimensions": [8,16,32,64],
+  "large_graphs_not_enumerated": true,
+  "construction_disabled_for_saved_audits": true,
+  "rejected": ["stationary","infeasible","false direction","wrong tail","zero epsilon","collapsed width","false summand equality"],
+  "full_report_bytes": 9885,
+  "full_fixture_bytes": 303297,
+  "two_current_runs_reproduce_saved_bytes": true,
+  "script_sha256": "a10c6dee40892a16b0901cde3da4b7d1901adfef1ad32c72d3199faef1447e84",
+  "full_outputs_in_export_and_regenerable": true,
+  "scope": "Written family application and exact finite checks are separate from the accepted generic inheritance theorem."
+}

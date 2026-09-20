@@ -1,0 +1,15 @@
+{
+  "head_sha": "7b1d1e7199de25855c5eadafe277a763796eaeb5",
+  "packets": [
+    {
+      "packet": "zonotope_completion_direction_obstruction",
+      "status": "ACCEPTED",
+      "theorem_id": "da8f6dad-a557-46a6-99ad-11ef6d2e5a9c",
+      "submission_id": "eff892fe-babc-4217-ae49-2eb46336d233",
+      "theorem_name": "Hirsch.zonotope_completion_original_direction_obstruction",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/zonotope_completion_direction_obstruction"
+    }
+  ]
+}

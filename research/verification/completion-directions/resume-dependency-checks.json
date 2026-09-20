@@ -1,0 +1,30 @@
+{
+  "kind": "derived_current_dependency_recheck",
+  "checks": [
+    {
+      "packet": "zonotope_direction_lower_bound",
+      "source_commit": "ef6b66fdc467b8a01dee0d7c10d31cc9f35bd1f6",
+      "hashes": {
+        "solution.lean": true,
+        "driver.lean": true,
+        "statement.lean": true,
+        "problem.json": true,
+        "explanation.md": true
+      }
+    },
+    {
+      "packet": "pr313-accepted-packet",
+      "source_commit": "7dbeccc586323fb67ce565dec401306304bfeb9d",
+      "hashes": {
+        "solution.lean": true,
+        "driver.lean": true,
+        "statement.lean": true,
+        "problem.json": true,
+        "explanation.md": true
+      }
+    }
+  ],
+  "first_629_lines_byte_identical": true,
+  "regularization_section_unchanged": true,
+  "fresh_platform_poll": false
+}
