@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "Lean_verification": false,
+  "outputs": [
+    {
+      "file": "exact-tests.json",
+      "bytes": 4361,
+      "sha256": "d562c74a919b67aa0a235646a6210d23ed6690d033834a109e581bcf8c3f1623",
+      "clean_replay_identical": true
+    },
+    {
+      "file": "fixtures.json",
+      "bytes": 479933,
+      "sha256": "69d1e0585f2fed7405dfa0b5fe57dedda6692575b71031225ed12ccb3d7eb0d2",
+      "clean_replay_identical": true
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "kind": "derived_prepared_source_binding",
+  "local_Lean_compilation": false,
+  "source_lines": 1642,
+  "source_bytes": 68245,
+  "accepted_prefix319_lines": 916,
+  "accepted_namespace280_lines": 203,
+  "public_type_exact": true,
+  "hashes": {
+    "explanation.md": {
+      "sha256": "a9ba01d0c6d3f6ae2160cd7a6e0a2dca87734e49e43544c9e0e71022ca08ee37",
+      "git_blob": "867eac7412888f32bdbcd0eeb2dc67dd5ba7005e",
+      "bytes": 4049
+    },
+    "problem.json": {
+      "sha256": "252244220c3676656fa03afc10e3d7e46f9cfc09063f52da12b7a654b60329e2",
+      "git_blob": "59cc714170656a7778a9d92c9a5a06a7744e75ef",
+      "bytes": 3303
+    },
+    "solution.lean": {
+      "bytes": 68245,
+      "sha256": "e6142ce4aca2189943bac4f865c1b6370546f8c4193d7f6b2ead7f9759b5dde3",
+      "git_blob": "21b9482d09b3abb5d22ee1a80b6b2561952b4540"
+    }
+  },
+  "proof_sha": "9c4c8c1e046759df90e02115d9cc3847273118fb",
+  "remote_readback_all_three_files_match": true,
+  "pre_upload_whitespace_reconciliation": "Removed one blank separator and retained one leading declaration space; all mathematical tokens unchanged"
+}

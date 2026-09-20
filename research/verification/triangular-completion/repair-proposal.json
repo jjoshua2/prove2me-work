@@ -1,0 +1,16 @@
+{
+  "kind": "derived_unapplied_uncompiled_proposal",
+  "lines": 1649,
+  "bytes": 68361,
+  "sha256": "0d66d238760cd88b933429d49c0d421a04af8c4c66f13c6ad532feff625b4fb2",
+  "git_blob": "d601bb6d8c223609a9b9b269385421f4e0bbc39b",
+  "changed_proof_sites": [
+    "supporting_line zero-dimensional-tail index",
+    "minimal_eq_body base last-index equality"
+  ],
+  "statements_assumptions_and_full_public_root_unchanged": true,
+  "all_accepted_bodies_unchanged": true,
+  "applied_to_publication_source": false,
+  "Lean_compiled": false,
+  "patch_forward_reverse_exact": true
+}

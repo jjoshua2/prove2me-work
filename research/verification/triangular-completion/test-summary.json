@@ -1,0 +1,36 @@
+{
+  "kind": "derived_compact_test_summary",
+  "status": "PASS",
+  "Lean_verification": false,
+  "small_models": 18,
+  "totals": {
+    "convex_combination_terms": 1134,
+    "full_support_checks": 8190,
+    "selected_edges": 189,
+    "square_systems": 3822,
+    "unique_row_witness_checks": 1092,
+    "vertices": 378
+  },
+  "large": [
+    {"dimension": 8, "selected_edges": 8, "whole_graph_enumerated": false},
+    {"dimension": 16, "selected_edges": 8, "whole_graph_enumerated": false},
+    {"dimension": 32, "selected_edges": 8, "whole_graph_enumerated": false},
+    {"dimension": 64, "selected_edges": 8, "whole_graph_enumerated": false}
+  ],
+  "saved_edges": 62,
+  "saved_hull_records": 54,
+  "serialized_producer_disabled": true,
+  "rejected": [
+    "zero epsilon",
+    "collapsed interval",
+    "infeasible endpoint",
+    "wrong direction",
+    "wrong objective",
+    "negative convex weight"
+  ],
+  "source_sha256": "d574029dbd607e3c2c9dec06df76700acb3bdcba6578d0da8a23781703abd4a8",
+  "reference_sha256": "a10c6dee40892a16b0901cde3da4b7d1901adfef1ad32c72d3199faef1447e84",
+  "full_outputs_in_export": true,
+  "full_outputs_regenerable": true,
+  "clean_replay_byte_identical": true
+}

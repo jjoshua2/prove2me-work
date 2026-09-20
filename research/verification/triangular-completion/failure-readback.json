@@ -1,0 +1,56 @@
+{
+  "kind": "derived_first_attempt_run_readback",
+  "pr": 320,
+  "target": "Hirsch.triangular_all_zonotope_completions_exponential",
+  "proof_sha": "9c4c8c1e046759df90e02115d9cc3847273118fb",
+  "trusted_main": "d3d722007211c6fbb9d28417ef7a1c1b5a47c585",
+  "trigger_comment": 5750632491,
+  "acknowledgement_comment": 5750633628,
+  "run_id": 35518652354,
+  "run_status": "completed",
+  "run_conclusion": "failure",
+  "jobs": {
+    "gate": {"id": 106098795378, "status": "completed", "conclusion": "success"},
+    "verify": {"id": 106098819456, "status": "completed", "conclusion": "failure"},
+    "publish": {"id": 106098946181, "status": "completed", "conclusion": "skipped"},
+    "report-verify": {"id": 106098946536, "status": "completed", "conclusion": "skipped"}
+  },
+  "actual_compiler_attempts": 1,
+  "new_publication_triggers": 1,
+  "driver_exit_code": 1,
+  "error_lines": [1403,1548],
+  "standard_only_reports": [
+    "Hirsch.TriangularCompletion.hull_eq_body",
+    "Hirsch.TriangularCompletion.directions_separate"
+  ],
+  "failed_elaboration_reports": [
+    "Hirsch.TriangularCompletion.exposed_line",
+    "Hirsch.TriangularCompletion.minimal_eq_body",
+    "Hirsch.TriangularCompletion.exponential_completion",
+    "solution"
+  ],
+  "failed_sorryAx_is_not_a_passing_audit": true,
+  "full_packet_compile_passed": false,
+  "full_packet_axiom_audit_passed": false,
+  "publication_reached": false,
+  "theorem_id": null,
+  "submission_id": null,
+  "authenticated_status": null,
+  "live_status": null,
+  "verified_packet_artifact": null,
+  "publication_receipt": null,
+  "proof_and_metadata_unchanged_after_gate": true,
+  "repair_saved_separately": true,
+  "repair_applied_to_publication_source": false,
+  "repair_compiled": false,
+  "local_Lean_compilation": false,
+  "verification_log_read_through_cleanup": true,
+  "committed_diagnostic_is_scoped_excerpt": true,
+  "request_artifact": {
+    "id": 10607707101,
+    "file": "pr320-request.zip",
+    "bytes": 318,
+    "sha256": "202fa6f377f7763368c5df032cb5808758c426ad53c960687735b18793408b59",
+    "digest_recomputed": true
+  }
+}
