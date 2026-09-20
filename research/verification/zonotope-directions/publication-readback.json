@@ -1,0 +1,39 @@
+{
+  "kind": "derived_successful_run_and_artifact_readback",
+  "pr": 317,
+  "proof_sha": "ef6b66fdc467b8a01dee0d7c10d31cc9f35bd1f6",
+  "trusted_main": "7b487ef9b0f9e92e5718fb395ed36785b338f4b5",
+  "run_id": 35510763090,
+  "trigger_comment": 5749802849,
+  "acknowledgement_comment": 5749803732,
+  "verdict_comment": 5749823763,
+  "verdict_timestamp": "2026-09-20T12:33:38Z",
+  "jobs": {
+    "gate": {"id": 106078154010, "status": "completed", "conclusion": "success"},
+    "verify": {"id": 106078173565, "status": "completed", "conclusion": "success"},
+    "publish": {"id": 106078437475, "status": "completed", "conclusion": "success"},
+    "report-verify": {"id": 106078438300, "status": "completed", "conclusion": "skipped"}
+  },
+  "compile_exit_codes": {"driver.lean": 0, "solution.lean": 0, "statement.lean": 0},
+  "axioms": ["propext", "Classical.choice", "Quot.sound"],
+  "audited_declarations": 5,
+  "authenticated_status": "ACCEPTED",
+  "publisher_live_status": "Proved",
+  "theorem_id": "75191fbb-65af-4558-b604-41faefe019f3",
+  "submission_id": "93392a4b-67d9-432b-a8ca-eb57f6489164",
+  "compiler_gates_total": 1,
+  "platform_submissions_total": 1,
+  "new_triggers_this_turn": 1,
+  "no_proof_or_metadata_changes_after_gate": true,
+  "all_three_original_archive_hashes_match": true,
+  "all_five_frozen_hashes_match": true,
+  "local_Lean_compilation": false,
+  "separate_direct_platform_poll": false,
+  "individual_API_responses_exported": false,
+  "verify_and_publish_logs_read_through_cleanup": true,
+  "artifacts": [
+    {"id": 10605785407, "file": "pr317-request.zip", "bytes": 315, "sha256": "0058eda22e40164b8ac8c1ff532df16b41032247e5db59d55abe9a6b45d46d86"},
+    {"id": 10605171677, "file": "pr317-verified.zip", "bytes": 22360, "sha256": "ca177c8baaddc2edfb492e98ec6bf86bdd8909b7d160fa553cf1db0e2f8a22de"},
+    {"id": 10605716251, "file": "pr317-publication.zip", "bytes": 911, "sha256": "11d9f1067f463156d7e0ff4f987222094578b986ddb173a09b5ee2b312ce0836"}
+  ]
+}

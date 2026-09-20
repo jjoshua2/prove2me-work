@@ -1,0 +1,5 @@
+'Hirsch.ZonotopeDirections.exposed_segment_objective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.ZonotopeDirections.changed_indices_parallel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.ZonotopeDirections.exists_change' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.ZonotopeDirections.antipodal_direction_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]

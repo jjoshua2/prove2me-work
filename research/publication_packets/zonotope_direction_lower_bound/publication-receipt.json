@@ -1,0 +1,15 @@
+{
+  "head_sha": "ef6b66fdc467b8a01dee0d7c10d31cc9f35bd1f6",
+  "packets": [
+    {
+      "packet": "zonotope_direction_lower_bound",
+      "status": "ACCEPTED",
+      "theorem_id": "75191fbb-65af-4558-b604-41faefe019f3",
+      "submission_id": "93392a4b-67d9-432b-a8ca-eb57f6489164",
+      "theorem_name": "Hirsch.zonotope_selected_direction_lower_bound",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/zonotope_direction_lower_bound"
+    }
+  ]
+}

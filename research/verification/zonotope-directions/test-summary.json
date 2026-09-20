@@ -1,0 +1,33 @@
+{
+  "kind": "derived_compact_test_summary",
+  "status": "PASS",
+  "source_sha256": "91c0719209d48a0a003ba932dc39b2ed02dba941308fbe742c2b822d046a8823",
+  "totals": {
+    "edge_occurrences": 852,
+    "face_point_checks": 2016,
+    "hull_vertices": 154,
+    "models": 30,
+    "repeated_changes": 92,
+    "routes": 264,
+    "selected_direction_assignments": 360,
+    "zero_generators": 3,
+    "zero_length_routes": 12
+  },
+  "saved_records": 45,
+  "constructors_disabled": true,
+  "rejected": ["false support", "parallel double count", "wrong endpoint", "wrong coefficient", "missing step"],
+  "cube_direction_checks": [
+    {"dimension": 1, "original_cube_rows": 2, "ordered_pair_slots": 4, "distinct_nonzero_directions": 1, "selected_binary_directions": 1},
+    {"dimension": 2, "original_cube_rows": 4, "ordered_pair_slots": 16, "distinct_nonzero_directions": 4, "selected_binary_directions": 2},
+    {"dimension": 3, "original_cube_rows": 6, "ordered_pair_slots": 64, "distinct_nonzero_directions": 13, "selected_binary_directions": 4},
+    {"dimension": 4, "original_cube_rows": 8, "ordered_pair_slots": 256, "distinct_nonzero_directions": 40, "selected_binary_directions": 8},
+    {"dimension": 5, "original_cube_rows": 10, "ordered_pair_slots": 1024, "distinct_nonzero_directions": 121, "selected_binary_directions": 16},
+    {"dimension": 6, "original_cube_rows": 12, "ordered_pair_slots": 4096, "distinct_nonzero_directions": 364, "selected_binary_directions": 32},
+    {"dimension": 7, "original_cube_rows": 14, "ordered_pair_slots": 16384, "distinct_nonzero_directions": 1093, "selected_binary_directions": 64},
+    {"dimension": 8, "original_cube_rows": 16, "ordered_pair_slots": 65536, "distinct_nonzero_directions": 3280, "selected_binary_directions": 128}
+  ],
+  "cube_instances_Lean_verified": false,
+  "complete_completion_graphs_enumerated": false,
+  "full_report_and_fixture_in_bundle": true,
+  "scope": "Supporting exact arithmetic; not Lean verification, extraction, or a universal H-completion lower bound."
+}
