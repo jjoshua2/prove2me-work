@@ -1,0 +1,14 @@
+{
+  "kind": "derived_unapplied_uncompiled_repair_proposal",
+  "source_sha256": "80403727d5d0e7b3e11932dc937e76c3bdcd283c786a426bcfe44a7ea781aa87",
+  "git_blob": "c106008250409e7fc9eb3a3e8b187eb64d9f49e9",
+  "bytes": 54466,
+  "lines": 1247,
+  "all_statements_and_assumptions_unchanged": true,
+  "accepted_prefix_1048_lines_unchanged": true,
+  "public_root_proof_change": "Add dsimp only before intros; local let must not be introduced as a proof hypothesis",
+  "other_proof_change": "Close the update-self binary case using simp instead of constructing a proof of an already simplified True with rfl",
+  "patch_forward_reverse_exact": true,
+  "applied_to_publication_source": false,
+  "lean_compiled": false
+}

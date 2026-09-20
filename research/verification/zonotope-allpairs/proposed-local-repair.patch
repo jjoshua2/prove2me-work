@@ -1,0 +1,20 @@
+--- a/research/publication_packets/zonotope_all_endpoint_routes/solution.lean
++++ b/research/publication_packets/zonotope_all_endpoint_routes/solution.lean
+@@ -1156,8 +1156,7 @@
+     intro j
+     by_cases hji : j = i
+     · subst j
+-      simp only [Function.update_self]
+-      exact Or.inr rfl
++      simp
+     · rw [Function.update_of_ne hji]
+       dsimp only [t, pick]
+       split_ifs <;> simp
+@@ -1237,6 +1236,7 @@
+         ∀ i : Fin L, p i.castSucc ≠ p i.succ ∧
+           IsExposed ℝ Z (segment ℝ (p i.castSucc) (p i.succ)) ∧
+           IsExtreme ℝ Z (segment ℝ (p i.castSucc) (p i.succ)) := by
++  dsimp only
+   intro hu hv
+   exact Hirsch.ZonotopeAllPairs.all_endpoint_route w u v hu hv
+ 
