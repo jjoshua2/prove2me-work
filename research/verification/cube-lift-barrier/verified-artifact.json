@@ -1,0 +1,25 @@
+{
+  "head_sha": "fa8e95312f1a159ff5731e0ea2b7f228d5d8cfec",
+  "packets": [
+    {
+      "path": "research/publication_packets/cube_lift_barrier",
+      "name": "cube_lift_barrier",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "8ba3abdf0fdd055be52ea3e15fa4b8cfb583ad340ea1a086145efbafbbd29d25",
+        "driver.lean": "8ba3abdf0fdd055be52ea3e15fa4b8cfb583ad340ea1a086145efbafbbd29d25",
+        "statement.lean": "74942e6d5e6945b37109297ca52ab447237f5eccd688272f3b0e5f118bf06137",
+        "problem.json": "c69e04d207100f1a70a86c28eb52ef0a3225a0ff905eea857bc9dee9da97cdc8",
+        "explanation.md": "5a1e534ce81dda5a5f6ed383ec2b5761cda84813549c352311c4c088fda2f400"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}

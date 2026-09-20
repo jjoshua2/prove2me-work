@@ -1,0 +1,15 @@
+{
+  "head_sha": "fa8e95312f1a159ff5731e0ea2b7f228d5d8cfec",
+  "packets": [
+    {
+      "packet": "cube_lift_barrier",
+      "status": "ACCEPTED",
+      "theorem_id": "0ca69a92-2b6d-43ea-857c-0e684e8b7248",
+      "submission_id": "4581df96-9ce6-4bdd-bb5e-5e974589db39",
+      "theorem_name": "Hirsch.cube_fibre_lift_exponential_barrier",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/cube_lift_barrier"
+    }
+  ]
+}

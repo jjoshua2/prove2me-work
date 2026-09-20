@@ -1,0 +1,15 @@
+{
+  "kind": "derived_exact_source_and_dependency_binding",
+  "proof_sha": "fa8e95312f1a159ff5731e0ea2b7f228d5d8cfec",
+  "source_blob": "a1508b05e446aa9323554c521c53c9381b290dbd",
+  "source_sha256": "8ba3abdf0fdd055be52ea3e15fa4b8cfb583ad340ea1a086145efbafbbd29d25",
+  "source_lines": 774,
+  "source_bytes": 31504,
+  "all_three_uploaded_blobs_match": true,
+  "accepted_prefix_lines": 540,
+  "accepted_prefix_byte_identical": true,
+  "accepted_dependency_source": "ef6b66fdc467b8a01dee0d7c10d31cc9f35bd1f6",
+  "all_five_dependency_hashes_match": true,
+  "all_five_new_frozen_hashes_match": true,
+  "local_Lean_compilation": false
+}
