@@ -1,0 +1,27 @@
+{
+  "kind": "derived_local_source_binding",
+  "proof_sha": "ef6b66fdc467b8a01dee0d7c10d31cc9f35bd1f6",
+  "local_Lean_compilation": false,
+  "files": {
+    "research/publication_packets/zonotope_direction_lower_bound/solution.lean": {
+      "bytes": 26759,
+      "sha256": "d3150b17fd5db0866cbec7c86925084e1af3a86326af62695abd89a12fa69ea1",
+      "blob": "da350f3cc013086fdfd67beeb357bd6b76879e48"
+    },
+    "research/publication_packets/zonotope_direction_lower_bound/problem.json": {
+      "bytes": 3460,
+      "sha256": "e840d6896ba80fdacefd8bedabd42032baad78d0abd136d4e613d1e6e8e98e08",
+      "blob": "4c0346ba7f04c5e27632291eabc7ca0b6a3e50ec"
+    },
+    "research/publication_packets/zonotope_direction_lower_bound/explanation.md": {
+      "bytes": 4617,
+      "sha256": "c7621e53f0aaa9778e701147946f38be101ebce3c402bc8e0b353e732d386d36",
+      "blob": "6075e62564cba57116a5222e0b2116153c8ffd8c"
+    },
+    "scripts/test_zonotope_direction_lower.py": {
+      "bytes": 8712,
+      "sha256": "91c0719209d48a0a003ba932dc39b2ed02dba941308fbe742c2b822d046a8823",
+      "blob": "7cf32e52a11907f89f99d8cf9b45237d194c7f72"
+    }
+  }
+}

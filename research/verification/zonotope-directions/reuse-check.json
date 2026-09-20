@@ -1,0 +1,10 @@
+{
+  "kind": "derived_accepted_source_reuse_check",
+  "accepted_source_sha256": "3d233db7a1ce78a9376a758af92ce71634f9a0a45887d48384b99dfbc30153f4",
+  "prefix_lines": 424,
+  "prefix_byte_identical": true,
+  "regular_face_proof_byte_identical": true,
+  "regular_face_namespace_changed": true,
+  "all_five_frozen_hashes_match": true,
+  "fresh_platform_poll": false
+}

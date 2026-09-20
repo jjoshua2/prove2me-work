@@ -1,0 +1,23 @@
+# An intrinsic direction lower bound, not a slow routing algorithm
+
+For any selected r nonzero, pairwise nonparallel generators in Z=sum_i[0,w_i], construct opposite actual extreme points u,v for which every genuine original exposed-edge walk has at least r steps. Other generators may be zero, repeated, parallel or opposite. The direction-family assumptions are structural and explicit; neither a graph nor a bound on a path is supplied.
+
+First select a linear functional nonzero on every nonzero generator by finite dual avoidance. Saturating each coefficient at zero or one gives its unique maximizing vertex; the negative functional gives the opposite vertex. The proof establishes u+v=sum_i w_i and actual Mathlib extremality, not just membership of two cube images.
+
+For any proposed path, choose feasible coefficient representations of every visited point. This does not assume those representations are unique or binary. Saturation at the two regular endpoint objectives forces the selected coefficients to start and finish at opposite values. Every selected coordinate therefore changes on at least one actual adjacent step.
+
+An arbitrary whole exposed segment is identified with the coefficient maximizing face of its actual exposing functional. Any coordinate whose two endpoint representations differ must be tied by that functional, since all nontied maximizing coefficients are forced. The accepted converse whole-face theorem proves all tied generators collinear. Hence two distinct selected directions cannot both change on one step. Choosing one changing step per selected generator gives an injection Fin r -> Fin L, proving r<=L. Extra/backtracking steps are permitted. No monotonicity, shortestness, fixed objective along the path, or injective Boolean representation is used.
+
+The statement uses feasible visited points and actual nondegenerate exposed segments, so it applies in particular to ordinary exposed-edge vertex walks. It proves a lower bound, not existence of a path; the already accepted #316 separately constructs one for every endpoint pair. Taking all generators as the selected family when they are nonzero and pairwise nonparallel gives the matching lower bound to the accepted m-step upper bound. This is a classical fact, not a new best diameter estimate or historical first; see Deza--Pournin--Sukegawa, arXiv:1905.04750, Proc. AMS 148 (2020), 3507-3516.
+
+## Why this matters for the current completion route
+
+The accepted #311 construction uses ordered segments between all listed points of P. For the d-cube's full Boolean vertex list, the generator differences include every ternary vector in {-1,0,1}^d. Up to nonzero scalar multiples, the nonzero such vectors have exactly (3^d-1)/2 directions: two nonzero ternary vectors are proportional only when equal or opposite after normalizing the first nonzero coordinate. This is a written finite-count application, NOT an additional Lean theorem in this packet. Exact direction enumeration is tested for d=1,...,8 without constructing the completion graph.
+
+The route lower bound means that the exponential direction inventory can reflect long genuine routes in that PARTICULAR completion, rather than an inefficient choice of sweep. It does NOT show every zonotope completion of the cube is large: the cube itself already has only d generator directions and diameter d. Nor does it transfer a lower bound from the larger completion to the original polytope. A better controlled completion, or endpoint-sensitive reasoning that avoids its global diameter, is still needed for the general conjecture. No counterexample to Polynomial Hirsch is claimed.
+
+## Reuse and verification boundary
+
+The complete 424-line Wall namespace prefix from accepted #313 is unchanged. Its regular_face body is also unchanged, relocated to the new namespace. The proof independently recompiles/audits this entire chain; no old public target is resubmitted. The new target uses only Mathlib names in an imports/settings-only preamble and matches the top-level solution. Five transitive printouts cover exposing-functional extraction, one-direction-per-edge, the finite change lemma, the lower bound and the public root.
+
+Local Lean/Lake is absent and toolchain-host DNS failed. Source equality and exact rational checks are not compilation. This complete prepared packet is intended for one normal pinned compiler/axiom/publication comment gate; preserve any failure rather than using repeated speculative Actions editing. Pins, strict protocol check, workflows, allowlist, duplicate safeguards and verify/publish secret isolation are unchanged.
