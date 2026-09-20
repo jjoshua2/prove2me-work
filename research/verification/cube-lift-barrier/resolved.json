@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/cube_lift_barrier"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "fa8e95312f1a159ff5731e0ea2b7f228d5d8cfec",
+  "pr": "318"
+}

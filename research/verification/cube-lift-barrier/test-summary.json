@@ -1,0 +1,29 @@
+{
+  "kind": "derived_summary_not_full_report_or_fixture",
+  "status": "PASS",
+  "complete_planar_models": 11,
+  "counts": {
+    "collapsed_steps": 304,
+    "cube_component_edges": 198,
+    "edges": 502,
+    "extra_unforced_events": 205,
+    "forced_directions": 297,
+    "original_hull_edge_checks": 502,
+    "routes": 99
+  },
+  "selected_larger": [
+    {"dimension": 1, "completion_edges": 1, "cube_edges": 1, "collapsed_steps": 0},
+    {"dimension": 3, "completion_edges": 7, "cube_edges": 3, "collapsed_steps": 4},
+    {"dimension": 4, "completion_edges": 15, "cube_edges": 4, "collapsed_steps": 11},
+    {"dimension": 5, "completion_edges": 31, "cube_edges": 5, "collapsed_steps": 26},
+    {"dimension": 6, "completion_edges": 63, "cube_edges": 6, "collapsed_steps": 57},
+    {"dimension": 8, "completion_edges": 255, "cube_edges": 8, "collapsed_steps": 247}
+  ],
+  "large_graphs_enumerated": false,
+  "saved_audits": 18,
+  "saved_edges": 424,
+  "construction_disabled": true,
+  "rejected": ["missing event", "bad source lift", "missing selected direction", "bad coefficient", "stationary edge"],
+  "full_report_and_fixture_in_bundle": true,
+  "not_Lean_verification": true
+}

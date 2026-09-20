@@ -1,0 +1,5 @@
+'Hirsch.CubeLiftBarrier.lower_saturation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.CubeLiftBarrier.upper_saturation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.CubeLiftBarrier.binary_parallel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.CubeLiftBarrier.every_cube_lift_route' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]

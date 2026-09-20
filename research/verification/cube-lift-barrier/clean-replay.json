@@ -1,0 +1,28 @@
+{
+  "kind": "derived_clean_single_script_replay",
+  "status": "PASS",
+  "all_outputs_byte_identical": true,
+  "not_Lean_verification": true,
+  "initial_combined_command_timed_out_during_second_replay": true,
+  "separate_clean_replay_completed": true,
+  "files": [
+    {
+      "path": "research/verification/cube-lift-barrier/tests/exact-tests.json",
+      "bytes": 4443,
+      "sha256": "96132e025c1bf3e3de858d5703f1373a9a81ce1f47366abc754e4e88feadaddd",
+      "git_blob": "8cdd68cdf1546b6de605fb7992de03566c744353"
+    },
+    {
+      "path": "research/verification/cube-lift-barrier/tests/fixtures.json",
+      "bytes": 901216,
+      "sha256": "c93a25d4117d85da63be60332c2f8d4b4cc96f99a925a02a8653dee049bd2689",
+      "git_blob": "9abe3d6b9ce33bd6c0113555c585ece42623d1fe"
+    },
+    {
+      "path": "scripts/test_cube_lift_barrier.py",
+      "bytes": 9248,
+      "sha256": "774d4fcac4a91d0e5ece3d17e2e480624bf70130cf0ae4010aca33db31385ff0",
+      "git_blob": "c0e97ae1ff4f5fa42fefcccc1efe910da73679b7"
+    }
+  ]
+}
