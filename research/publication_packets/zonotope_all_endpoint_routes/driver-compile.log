@@ -1,0 +1,5 @@
+'Hirsch.ZonotopeAllPairs.body_eq_corner_hull' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.ZonotopeAllPairs.corner_unique_objective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.ZonotopeAllPairs.extreme_regular_objective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.ZonotopeAllPairs.all_endpoint_route' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]

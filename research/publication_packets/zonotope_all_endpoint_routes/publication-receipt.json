@@ -1,0 +1,15 @@
+{
+  "head_sha": "13365da5ce10b03628d9db83c4896360893c74ef",
+  "packets": [
+    {
+      "packet": "zonotope_all_endpoint_routes",
+      "status": "ACCEPTED",
+      "theorem_id": "26dac93f-73ea-405f-9597-11a05db6f697",
+      "submission_id": "d9928e58-dff8-4a57-ae0f-cb4e15d2523d",
+      "theorem_name": "Hirsch.zonotope_all_endpoint_original_routes",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/zonotope_all_endpoint_routes"
+    }
+  ]
+}

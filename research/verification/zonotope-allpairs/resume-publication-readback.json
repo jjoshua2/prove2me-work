@@ -1,0 +1,50 @@
+{
+  "kind": "derived_successful_run_and_artifact_readback",
+  "pr": 316,
+  "proof_sha": "13365da5ce10b03628d9db83c4896360893c74ef",
+  "trusted_main": "c9a9a44a0d144efa66c07c2c26605adafd0c2dd3",
+  "run_id": 35509181938,
+  "trigger_comment": 5749637387,
+  "acknowledgement_comment": 5749638345,
+  "verdict_comment": 5749652320,
+  "verdict_timestamp": "2026-09-20T11:59:00Z",
+  "jobs": {
+    "gate": {"id": 106073991194, "status": "completed", "conclusion": "success"},
+    "verify": {"id": 106074012796, "status": "completed", "conclusion": "success"},
+    "publish": {"id": 106074147720, "status": "completed", "conclusion": "success"},
+    "report-verify": {"id": 106074148384, "status": "completed", "conclusion": "skipped"}
+  },
+  "compile_exit_codes": {"driver.lean": 0, "solution.lean": 0, "statement.lean": 0},
+  "audited_declarations": [
+    "Hirsch.ZonotopeAllPairs.body_eq_corner_hull",
+    "Hirsch.ZonotopeAllPairs.corner_unique_objective",
+    "Hirsch.ZonotopeAllPairs.extreme_regular_objective",
+    "Hirsch.ZonotopeAllPairs.all_endpoint_route",
+    "solution"
+  ],
+  "axioms": ["propext", "Classical.choice", "Quot.sound"],
+  "authenticated_status": "ACCEPTED",
+  "publisher_live_status": "Proved",
+  "theorem_id": "26dac93f-73ea-405f-9597-11a05db6f697",
+  "submission_id": "d9928e58-dff8-4a57-ae0f-cb4e15d2523d",
+  "first_failed_run": 35489239756,
+  "compiler_gates_total": 2,
+  "new_gates_this_turn": 1,
+  "first_actual_platform_submission": true,
+  "exact_saved_repair": true,
+  "statements_hypotheses_metadata_and_prefix_unchanged": true,
+  "public_root_proof_change": "Added dsimp only before intro hu hv",
+  "no_post_success_proof_edit": true,
+  "all_five_frozen_hashes_match": true,
+  "all_four_archive_hashes_match": true,
+  "local_Lean_compilation": false,
+  "separate_direct_platform_poll": false,
+  "raw_individual_platform_api_bodies_exported": false,
+  "publisher_log_read_through_cleanup": true,
+  "artifacts": [
+    {"id": 10598607331, "file": "pr316-first-request.zip", "bytes": 314, "sha256": "c0874d334ebad378428daeef4581c1574e0113e4979e8be2df91c302d016133e"},
+    {"id": 10604218413, "file": "pr316-resume-request.zip", "bytes": 316, "sha256": "baf34a27a165211a6a61bae677922d1dd27ae40c444ac247b3b861ebf18525be"},
+    {"id": 10603949117, "file": "pr316-resume-verified.zip", "bytes": 34596, "sha256": "2b4a7fbdc53741e4e955a0e2b89bc7fb59233ffba0a28f97201c1385b2b8aa53"},
+    {"id": 10604279707, "file": "pr316-resume-publication.zip", "bytes": 915, "sha256": "6480cbc7fba887334e8cf90130333b3ba16b60cce6840bd301f8ce71899449da"}
+  ]
+}
