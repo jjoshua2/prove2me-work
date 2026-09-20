@@ -1,0 +1,25 @@
+{
+  "head_sha": "7b1d1e7199de25855c5eadafe277a763796eaeb5",
+  "packets": [
+    {
+      "path": "research/publication_packets/zonotope_completion_direction_obstruction",
+      "name": "zonotope_completion_direction_obstruction",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "8ffc6b7da55ed39449ee1a21f8a0bdb38c2b4d56b592c940ef52bc00ce0aae05",
+        "driver.lean": "8ffc6b7da55ed39449ee1a21f8a0bdb38c2b4d56b592c940ef52bc00ce0aae05",
+        "statement.lean": "2694beb87b7683f0f376a20b73bb79da4ad0988673f1fb38491782c9754f3501",
+        "problem.json": "265db9182bd20985b46accecaf336205ad37ec6b11082875879219419430d00c",
+        "explanation.md": "43c1afeee989ecb46bdd767aea8887d687a81c51b160becf01f2b680fde6c4ac"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}

@@ -1,0 +1,48 @@
+{
+  "kind": "derived_successful_run_and_artifact_readback",
+  "pr": 319,
+  "proof_sha": "7b1d1e7199de25855c5eadafe277a763796eaeb5",
+  "trusted_main": "56edc3105ff0dd1f373d28601b578cc0c441a7b2",
+  "run_id": 35515972056,
+  "trigger_comment": 5750350283,
+  "acknowledgement_comment": 5750351204,
+  "verdict_comment": 5750368908,
+  "jobs": {
+    "gate": {"id": 106091856386, "status": "completed", "conclusion": "success"},
+    "verify": {"id": 106091875525, "status": "completed", "conclusion": "success"},
+    "publish": {"id": 106092094116, "status": "completed", "conclusion": "success"},
+    "report-verify": {"id": 106092094750, "status": "completed", "conclusion": "skipped"}
+  },
+  "compile_exit_codes": {"driver.lean": 0, "solution.lean": 0, "statement.lean": 0},
+  "audited_declarations": [
+    "Hirsch.CompletionDirections.projection_self",
+    "Hirsch.CompletionDirections.inherited_edge_direction",
+    "Hirsch.CompletionDirections.completion_lower_bound",
+    "Hirsch.ZonotopeDirections.antipodal_direction_lower_bound",
+    "solution"
+  ],
+  "axioms": ["propext", "Classical.choice", "Quot.sound"],
+  "authenticated_status": "ACCEPTED",
+  "publisher_live_status": "Proved",
+  "theorem_id": "da8f6dad-a557-46a6-99ad-11ef6d2e5a9c",
+  "submission_id": "eff892fe-babc-4217-ae49-2eb46336d233",
+  "first_compiler_gate": true,
+  "first_platform_submission": true,
+  "new_triggers_this_turn": 1,
+  "source_equal_to_previously_local_only_candidate": true,
+  "public_type_and_assumptions_unchanged": true,
+  "metadata_status_wording_updated_before_first_request": true,
+  "no_post_gate_source_or_metadata_edits": true,
+  "all_five_frozen_hashes_match": true,
+  "all_three_archive_hashes_match": true,
+  "local_Lean_compilation": false,
+  "separate_direct_platform_poll": false,
+  "raw_individual_platform_API_bodies_exported": false,
+  "verify_and_publish_logs_read_through_cleanup": true,
+  "written_deformed_cube_application_is_not_a_separate_Lean_theorem": true,
+  "artifacts": [
+    {"id": 10607120861, "file": "pr319-request.zip", "bytes": 315, "sha256": "7c7a838c8bb75035d4aa788bc47b5a913320f24f5877d3cb96d0c49d94e258b8"},
+    {"id": 10606502270, "file": "pr319-verified.zip", "bytes": 28740, "sha256": "87324fba70e35912d0116edd0ce39be49dba0dcfb81fb8c9da57339232905a92"},
+    {"id": 10607090999, "file": "pr319-publication.zip", "bytes": 918, "sha256": "1213940133204684d38b8a553925173713d269fac9270aa9dd8398acb999bfb4"}
+  ]
+}
