@@ -1,0 +1,29 @@
+# Scoped compiler transcript, runner timestamps removed; NOT a raw runner archive.
+# Run 35663132643, verify job 106542816852; proof bb3429695dcf94b1eff6c08d80b4a8d2cb01d47a.
+# Complete decoded verifier log was read through cleanup. Only its full
+# compiler error/axiom block is transcribed below. No verified packet exists.
+
+target_two_level_routes/driver.lean failed to compile:
+_verified/packets/target_two_level_routes/driver.lean:715:6: error: Type mismatch: After simplification, term
+  IsExposed.isExtreme hex
+ has type
+  IsExtreme ℝ ((convexHull ℝ) ↑(Finset.image (fun x => x) D))
+    ((convexHull ℝ) ↑(Finset.image (fun x => x) ({x ∈ D | (A i) x = (A i) v})))
+but is expected to have type
+  IsExtreme ℝ ((convexHull ℝ) ↑D) ((convexHull ℝ) ↑({x ∈ D | (A i) x = (A i) v}))
+_verified/packets/target_two_level_routes/driver.lean:859:73: error: Application type mismatch: The argument
+  hp
+has type
+  p.length ≤ (Hirsch.TargetRows.missing A b v u).card
+but is expected to have type
+  p.length ≤ {i | (A i) v = b i ∧ (A i) u ≠ b i}.card
+in the application
+  And.intro hp
+'Hirsch.TargetRows.extreme_kernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.TargetRows.active_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.TargetRows.locked_face' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.TargetRows.acquiring_step' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.TargetRows.locked_route' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+
+# Actual final runner result: Process completed with exit code 1.
