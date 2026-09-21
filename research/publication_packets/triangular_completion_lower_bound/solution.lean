@@ -1400,7 +1400,11 @@ theorem supporting_line (e : ℝ) : ∀ n (bits : Fin n → Bool),
     intro x hx
     refine ⟨le_rfl,fun _ => ⟨x 0,(hx.1 0).1,(hx.1 0).2,?_⟩⟩
     funext i
-    have hi : i = (0 : Fin 1) := Subsingleton.elim _ _
+    have hi : i = (0 : Fin 1) := by
+      apply Fin.ext
+      change i.val = 0
+      have hiBound := i.isLt
+      omega
     subst i
     rfl
   | succ n ih =>
@@ -1545,7 +1549,10 @@ theorem minimal_eq_body (e : ℝ) (he : 0 < e) (n : ℕ) :
       induction k with
       | zero =>
         intro i hi
-        have hi' : i=Fin.last n := Fin.ext (by omega)
+        have hi' : i=Fin.last n := by
+          apply Fin.ext
+          change i.val = n
+          omega
         rw [hi']
         exact hx.1
       | succ k ih =>
