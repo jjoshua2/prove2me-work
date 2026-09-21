@@ -1,0 +1,21 @@
+--- a/research/publication_packets/strict_support_witnesses/solution.lean
++++ b/research/publication_packets/strict_support_witnesses/solution.lean
+@@ -477,7 +477,7 @@
+     calc
+       1 = (delta i)⁻¹ * delta i := (inv_mul_cancel₀ (ne_of_gt (hd i))).symm
+       _ ≤ R * delta i := mul_le_mul_of_nonneg_right hi (hd i).le
+-      _ = _ := by simp [budget]
++      _ = _ := by simp only [budget, dotForm_single, Fin.sum_univ_one]
+   let e := Fintype.equivFin (Fin d ⊕ (Fin d ⊕ Fin 1))
+   let rows : Fin (Fintype.card (Fin d ⊕ (Fin d ⊕ Fin 1))) →
+       (Fin m → ℝ) →L[ℝ] ℝ := fun u =>
+@@ -515,7 +515,8 @@
+             (∑ j, q j * a i (Pi.single j (1 : ℝ))) + lam * b i := by
+           rw [← Equiv.sum_comp e (fun u => v u * rows u (Pi.single i (1 : ℝ)))]
+           simp [rows, p, q, lam, Fintype.sum_sum_type, mul_neg,
+-            Finset.sum_neg_distrib, sub_eq_add_neg, add_assoc]
++            Finset.sum_neg_distrib, sub_eq_add_neg, add_assoc,
++            Pi.single_apply, mul_ite]
+         _ = _ := by rw [hyvalue]; ring
+     have hrhs : (∑ u, v u * rhs u) = -f y + lam * M := by
+       calc

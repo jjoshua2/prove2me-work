@@ -1,0 +1,24 @@
+Extract from GitHub job103820234893, run34792841881; not the full job log.
+Frozen proof66be0366279ba47b31dbd88c516dc96c70d53ca6.
+Runner compiler: Lake5.0.0-src+d024af0, Lean4.30.0.
+
+2026-09-14T00:30:37.3059650Z strict_support_witnesses/driver.lean failed to compile:
+2026-09-14T00:30:37.3081473Z _verified/packets/strict_support_witnesses/driver.lean:480:15: error: unsolved goals
+2026-09-14T00:30:37.3090261Z ⊢ delta i = ∑ i_1, delta i_1 * Pi.single i 1 i_1 ∨ R = 0
+
+2026-09-14T00:30:37.3091087Z _verified/packets/strict_support_witnesses/driver.lean:515:66: error: unsolved goals
+2026-09-14T00:30:37.3116188Z ⊢ ∑ x, v (e (Sum.inl x)) * ∑ i_1, (a i_1) (Pi.single x 1) * Pi.single i 1 i_1 +
+2026-09-14T00:30:37.3117187Z       (-∑ x, v (e (Sum.inr (Sum.inl x))) * ∑ i_1, (a i_1) (Pi.single x 1) * Pi.single i 1 i_1 +
+2026-09-14T00:30:37.3118121Z         v (e (Sum.inr (Sum.inr 0))) * ∑ i_1, b i_1 * Pi.single i 1 i_1) =
+2026-09-14T00:30:37.3118885Z     ∑ x, v (e (Sum.inl x)) * (a i) (Pi.single x 1) +
+2026-09-14T00:30:37.3119783Z       (-∑ x, v (e (Sum.inr (Sum.inl x))) * (a i) (Pi.single x 1) + v (e (Sum.inr (Sum.inr 0))) * b i)
+
+2026-09-14T00:30:37.3121000Z 'Hirsch.StrictSupport.nonpositive_on_recession' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-14T00:30:37.3122639Z 'Hirsch.StrictSupport.valid_bound_has_row_certificate' depends on axioms: [propext,
+2026-09-14T00:30:37.3123394Z  sorryAx,
+2026-09-14T00:30:37.3123709Z  Classical.choice,
+2026-09-14T00:30:37.3124053Z  Quot.sound]
+2026-09-14T00:30:37.3124881Z 'Hirsch.StrictSupport.certificate_at_maximizer' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-14T00:30:37.3126379Z 'Hirsch.StrictSupport.compact_support_witnesses' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-14T00:30:37.3127551Z 'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-14T00:30:37.3158412Z ##[error]Process completed with exit code 1.
