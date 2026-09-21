@@ -1,0 +1,30 @@
+{
+  "kind": "offline_stored_evidence_integrity_not_new_Lean_or_platform_verification",
+  "status": "PASS",
+  "checks": [
+    "request/artifact/manifest/receipt bind the same accepted head",
+    "pinned self-contained environment",
+    "exact request target",
+    "single packet",
+    "trusted publisher records published/accepted/proved",
+    "exact theorem/submission identity",
+    "all expected frozen hashes recorded",
+    "hash: solution.lean",
+    "hash: driver.lean",
+    "hash: statement.lean",
+    "hash: problem.json",
+    "hash: explanation.md",
+    "driver equals solution",
+    "three recorded compilation exits are zero",
+    "recorded audit uses only standard axioms and expected source hashes",
+    "no admission tokens in proof source",
+    "exact public target type and environment",
+    "six standard-only proof reports: driver-compile.log",
+    "six standard-only proof reports: solution-compile.log",
+    "packet receipt is an unchanged copy of raw receipt"
+  ],
+  "check_count": 20,
+  "accepted_head": "7687e9c9ad08d93e6be852ab5950185b9e18469e",
+  "theorem_id": "7be0886c-9c8d-47a1-aa3f-367415e6830f",
+  "submission_id": "ea54d85a-0fa7-479f-973a-b7ba4059f215"
+}

@@ -1,0 +1,30 @@
+Complete compiler warning/error/axiom block from run35518652354, verify job106098819456. The runner setup, cache and cleanup were read but are omitted; this is NOT the full runner log.
+
+2026-09-20T15:09:54.6895208Z triangular_completion_lower_bound/driver.lean failed to compile:
+2026-09-20T15:09:54.6896474Z _verified/packets/triangular_completion_lower_bound/driver.lean:1102:41: warning: This simp argument is unused:
+2026-09-20T15:09:54.6897360Z   h
+2026-09-20T15:09:54.6897532Z 
+2026-09-20T15:09:54.6897716Z Hint: Omit it from the simp argument list.
+2026-09-20T15:09:54.6900843Z   simp [branch,̵ ̵h̵]
+2026-09-20T15:09:54.6901144Z 
+2026-09-20T15:09:54.6901577Z Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+2026-09-20T15:09:54.6903058Z _verified/packets/triangular_completion_lower_bound/driver.lean:1403:33: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+2026-09-20T15:09:54.6904326Z   Subsingleton (Fin (0 + 1))
+2026-09-20T15:09:54.6904624Z 
+2026-09-20T15:09:54.6905267Z Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+2026-09-20T15:09:54.6906700Z _verified/packets/triangular_completion_lower_bound/driver.lean:1548:47: error: omega could not prove the goal:
+2026-09-20T15:09:54.6907619Z a possible counterexample may satisfy the constraints
+2026-09-20T15:09:54.6908553Z   b ≥ 0
+2026-09-20T15:09:54.6908863Z   a ≥ 0
+2026-09-20T15:09:54.6909189Z   a - b ≥ 1
+2026-09-20T15:09:54.6909473Z where
+2026-09-20T15:09:54.6909788Z  a := ↑n
+2026-09-20T15:09:54.6910556Z  b := ↑↑(Fin.last n)
+2026-09-20T15:09:54.6911265Z 'Hirsch.TriangularCompletion.hull_eq_body' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-20T15:09:54.6912596Z 'Hirsch.TriangularCompletion.exposed_line' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-20T15:09:54.6913847Z 'Hirsch.TriangularCompletion.directions_separate' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-20T15:09:54.6915080Z 'Hirsch.TriangularCompletion.minimal_eq_body' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-20T15:09:54.6916390Z 'Hirsch.TriangularCompletion.exponential_completion' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-20T15:09:54.6917502Z 'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-20T15:09:54.6918019Z 
+2026-09-20T15:09:54.7001935Z ##[error]Process completed with exit code 1.

@@ -1,0 +1,39 @@
+{
+  "kind": "derived_GitHub_and_trusted_receipt_readback",
+  "run_id": 35641946351,
+  "accepted_request_head": "7687e9c9ad08d93e6be852ab5950185b9e18469e",
+  "repaired_proof": "2efb69e4e25165bfd2a5abc2fe2673d950114ab9",
+  "trusted_main": "00199bbd04ff7e064741cfcbe4b9282472315b22",
+  "trigger": 5765876724,
+  "acknowledgement": 5765879378,
+  "verdict_comment": 5765941894,
+  "jobs": {
+    "gate": {
+      "id": 106473123981,
+      "conclusion": "success"
+    },
+    "verify": {
+      "id": 106473202107,
+      "conclusion": "success"
+    },
+    "publish": {
+      "id": 106473638113,
+      "conclusion": "success"
+    },
+    "report-verify": {
+      "id": 106473640221,
+      "conclusion": "skipped"
+    }
+  },
+  "registration": "PUBLISHED",
+  "proof_status": "ACCEPTED",
+  "trusted_publisher_live_status": "Proved",
+  "theorem_id": "7be0886c-9c8d-47a1-aa3f-367415e6830f",
+  "submission_id": "ea54d85a-0fa7-479f-973a-b7ba4059f215",
+  "independent_platform_poll": false,
+  "new_Lean_compilation_this_receipt_integration": false,
+  "new_publication_trigger_this_receipt_integration": false,
+  "publisher_runner_log_read_through_cleanup": true,
+  "complete_publisher_runner_log_stored": false,
+  "individual_platform_API_responses_available": false
+}

@@ -1,0 +1,31 @@
+{
+  "kind": "offline_negative_integrity_controls_not_Lean_verification",
+  "controls": {
+    "modified-proof": {
+      "rejected": true,
+      "reason": "hash: solution.lean"
+    },
+    "unaccepted-receipt": {
+      "rejected": true,
+      "reason": "trusted publisher records published/accepted/proved"
+    },
+    "wrong-frozen-head": {
+      "rejected": true,
+      "reason": "request/artifact/manifest/receipt bind the same accepted head"
+    },
+    "admitted-proof-report": {
+      "rejected": true,
+      "reason": "six standard-only proof reports: driver-compile.log"
+    },
+    "wrong-theorem-id": {
+      "rejected": true,
+      "reason": "exact theorem/submission identity"
+    },
+    "missing-root-report": {
+      "rejected": true,
+      "reason": "six standard-only proof reports: solution-compile.log"
+    }
+  },
+  "count": 6,
+  "clean_copy_replay_check_count": 20
+}

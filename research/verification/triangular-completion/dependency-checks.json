@@ -1,0 +1,30 @@
+{
+  "kind": "derived_current_accepted_dependency_recheck",
+  "dependencies": [
+    {
+      "pr": 280,
+      "source_commit": "189b32df9e1c50c1c0b771bf6f43033094e06fea",
+      "hashes": {
+        "solution.lean": true,
+        "driver.lean": true,
+        "statement.lean": true,
+        "problem.json": true,
+        "explanation.md": true
+      }
+    },
+    {
+      "pr": 319,
+      "source_commit": "7b1d1e7199de25855c5eadafe277a763796eaeb5",
+      "hashes": {
+        "solution.lean": true,
+        "driver.lean": true,
+        "statement.lean": true,
+        "problem.json": true,
+        "explanation.md": true
+      }
+    }
+  ],
+  "prefix319_unchanged": true,
+  "namespace280_unchanged": true,
+  "direct_new_platform_poll": false
+}

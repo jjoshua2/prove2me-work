@@ -1,0 +1,82 @@
+{
+  "kind": "derived_GitHub_run_and_log_readback_not_a_platform_receipt",
+  "repo": "jjoshua2/prove2me-work",
+  "pr": 320,
+  "proof_sha": "2efb69e4e25165bfd2a5abc2fe2673d950114ab9",
+  "trusted_main_sha": "d3d722007211c6fbb9d28417ef7a1c1b5a47c585",
+  "coordination_comment": 5763614415,
+  "trigger_comment": 5763775688,
+  "acknowledgement_comment": 5763779304,
+  "no_receipt_comment": 5763800712,
+  "run_id": 35624792380,
+  "jobs": {
+    "gate": {
+      "id": 106416398632,
+      "conclusion": "success"
+    },
+    "verify": {
+      "id": 106416491690,
+      "conclusion": "success"
+    },
+    "publish": {
+      "id": 106416979748,
+      "conclusion": "failure"
+    },
+    "report-verify": {
+      "id": 106416982103,
+      "conclusion": "skipped"
+    }
+  },
+  "lean_version_observed_in_verify_log": "4.30.0",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "complete_packet_compilation": "PASS",
+  "transitive_axiom_audit": "PASS",
+  "driver_solution_statement_exit_codes": [
+    0,
+    0,
+    0
+  ],
+  "six_proof_axiom_reports": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "publisher_failure": "Platform skill version changed; refresh the skill before publishing.",
+  "failure_timestamp_utc": "2026-09-21T16:20:34.2520449Z",
+  "required_version_at_trusted_main": "0.10.6",
+  "actual_refresh_version": null,
+  "actual_refresh_version_exposed_by_log": false,
+  "failure_location": "VersionCheckedAPI.refresh before authenticated theorem lookup / registration / proof submission",
+  "theorem_registration_in_this_run": false,
+  "proof_submission_in_this_run": false,
+  "theorem_id": null,
+  "submission_id": null,
+  "ACCEPTED_observed": false,
+  "Proved_observed": false,
+  "independent_platform_poll": false,
+  "publication_receipt_artifact_produced": false,
+  "raw_artifacts": [
+    {
+      "name": "prove2me-publish-request",
+      "id": 10651081845,
+      "bytes": 315,
+      "sha256": "df9f79a4c8cc0152bd53114779c6489709cb36ba6585440cd1892de2ba7e716a",
+      "downloaded_and_rehashed": true
+    },
+    {
+      "name": "prove2me-verified-packets",
+      "id": 10651296899,
+      "bytes": 41487,
+      "sha256": "228d87f5c292a93570614b386f22a47fcd22f5b1e86c89f0434ed8ea592b7c09",
+      "downloaded_and_rehashed": true
+    }
+  ],
+  "raw_compiler_logs_preserved": true,
+  "complete_runner_logs_read": true,
+  "complete_runner_logs_committed": false,
+  "runner_log_storage": "Selected diagnostic excerpt only; not a full raw runner archive.",
+  "prior_failed_run_preserved": 35518652354,
+  "proof_edits_after_current_gate": false,
+  "additional_gate_or_rerun_after_failure": false,
+  "next_action": "Separately reviewed official protocol compatibility update on trusted main; preserve frozen proof and all safeguards. Recheck pending/accepted submissions before any later authorized retry. Do not edit this proof or bypass the strict version check."
+}

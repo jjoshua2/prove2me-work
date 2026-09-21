@@ -1,0 +1,19 @@
+{
+  "kind": "derived_checks_on_downloaded_trusted_verified_artifact",
+  "proof_sha": "2efb69e4e25165bfd2a5abc2fe2673d950114ab9",
+  "manifest_file_hashes": {
+    "solution.lean": true,
+    "driver.lean": true,
+    "statement.lean": true,
+    "problem.json": true,
+    "explanation.md": true
+  },
+  "solution_equals_committed_repair": true,
+  "driver_equals_solution": true,
+  "public_target_type_exact_text_match": true,
+  "problem_and_explanation_original_git_blobs_match": true,
+  "full_solution_has_no_admission_tokens": true,
+  "all_six_printed_axiom_reports_standard_only": true,
+  "local_Lean_compilation": false,
+  "compilation_evidence": "Hosted secret-free verifier run 35624792380, job 106416491690"
+}

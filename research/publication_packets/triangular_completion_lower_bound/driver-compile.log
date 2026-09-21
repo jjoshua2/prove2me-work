@@ -1,0 +1,13 @@
+_verified/packets/triangular_completion_lower_bound/driver.lean:1102:41: warning: This simp argument is unused:
+  h
+
+Hint: Omit it from the simp argument list.
+  simp [branch,̵ ̵h̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'Hirsch.TriangularCompletion.hull_eq_body' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.TriangularCompletion.exposed_line' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.TriangularCompletion.directions_separate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.TriangularCompletion.minimal_eq_body' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.TriangularCompletion.exponential_completion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]

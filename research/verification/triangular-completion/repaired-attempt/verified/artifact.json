@@ -1,0 +1,25 @@
+{
+  "head_sha": "2efb69e4e25165bfd2a5abc2fe2673d950114ab9",
+  "packets": [
+    {
+      "path": "research/publication_packets/triangular_completion_lower_bound",
+      "name": "triangular_completion_lower_bound",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "0d66d238760cd88b933429d49c0d421a04af8c4c66f13c6ad532feff625b4fb2",
+        "driver.lean": "0d66d238760cd88b933429d49c0d421a04af8c4c66f13c6ad532feff625b4fb2",
+        "statement.lean": "ca301ede669b45029e571c7e27b9c262a08e9da31bd08c906ceda83f45d28792",
+        "problem.json": "252244220c3676656fa03afc10e3d7e46f9cfc09063f52da12b7a654b60329e2",
+        "explanation.md": "a9ba01d0c6d3f6ae2160cd7a6e0a2dca87734e49e43544c9e0e71022ca08ee37"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}
