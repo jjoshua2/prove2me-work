@@ -1,0 +1,11 @@
+{
+  "kind": "static_accepted_dependency_hash_check_not_new_compilation",
+  "accepted_source_blob": "0d61d89eeb25e11dd8daa062253e35b77163d516",
+  "hashes": {
+    "solution.lean": true,
+    "driver.lean": true,
+    "statement.lean": true,
+    "problem.json": true,
+    "explanation.md": true
+  }
+}

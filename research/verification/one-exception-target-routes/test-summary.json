@@ -1,0 +1,26 @@
+{
+  "kind": "derived_summary_not_Lean",
+  "models": 22,
+  "totals": {
+    "vertices": 142,
+    "rows": 155,
+    "eligible_targets": 116,
+    "newly_eligible_targets": 46,
+    "rejected_targets": 26,
+    "routes": 930,
+    "edge_occurrences": 1373,
+    "shortest_edge_total": 1366,
+    "nonshortest_routes": 7,
+    "terminal_exception_edges": 200
+  },
+  "large_dimensions": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "large_route_edges": 120,
+  "negative_controls": 7,
+  "initial_large_check_timed_out": true,
+  "final_sparse_arithmetic_check_passed": true
+}

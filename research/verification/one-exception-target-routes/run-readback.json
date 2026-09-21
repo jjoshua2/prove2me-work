@@ -1,0 +1,78 @@
+{
+  "kind": "derived_GitHub_and_artifact_readback_not_independent_platform_poll",
+  "repository": "jjoshua2/prove2me-work",
+  "pr": 324,
+  "proof_sha": "5a37e1abe273c71f4c5fccc08746de08885d2303",
+  "trusted_main_sha": "7d211b66007c66816b790618d783bc058cebd0d6",
+  "coordination_comment": 5768801948,
+  "trigger_comment": 5768971669,
+  "acknowledgement_comment": 5768974387,
+  "verdict_comment": 5769045532,
+  "verdict_comment_time_utc": "2026-09-21T23:35:34Z",
+  "run_id": 35667781584,
+  "jobs": {
+    "gate": {
+      "id": 106557265948,
+      "conclusion": "success"
+    },
+    "verify": {
+      "id": 106557323119,
+      "conclusion": "success"
+    },
+    "publish": {
+      "id": 106557774039,
+      "conclusion": "success"
+    },
+    "report-verify": {
+      "id": 106557775372,
+      "conclusion": "skipped"
+    }
+  },
+  "compilation_exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "standard_only_reports_per_proof_log": 5,
+  "publication": {
+    "packet": "one_exception_target_routes",
+    "status": "ACCEPTED",
+    "theorem_id": "c1dc3a15-302a-4063-b3ca-e9ac669d7c48",
+    "submission_id": "679b2373-2760-4a2f-89d5-21eb31e8ca78",
+    "theorem_name": "Hirsch.one_exception_target_original_hirsch_routes",
+    "registration": "PUBLISHED",
+    "live_status": "Proved",
+    "path": "research/publication_packets/one_exception_target_routes"
+  },
+  "independent_platform_or_root_poll": false,
+  "hosted_compile_attempts": 1,
+  "actual_platform_submissions": 1,
+  "proof_repairs": 0,
+  "post_gate_proof_or_metadata_edits": false,
+  "local_Lean_compilation": false,
+  "full_verify_and_publish_runner_logs_read": true,
+  "runner_log_storage": "selected exact excerpt; complete compiler logs unchanged",
+  "artifacts": [
+    {
+      "file": "pr324-first-request.zip",
+      "id": 10669509457,
+      "bytes": 309,
+      "sha256": "b9c785951b77439bcf3b089387d461cd7fd2b7791fbadc1f178f08f91fc121f8",
+      "downloaded_and_rehashed": true
+    },
+    {
+      "file": "pr324-verified.zip",
+      "id": 10669980726,
+      "bytes": 32539,
+      "sha256": "f7bcf0dfba23e1ae5603a099c6c6288d40618fd103ced49383fa6e6a070856b0",
+      "downloaded_and_rehashed": true
+    },
+    {
+      "file": "pr324-publication-receipts.zip",
+      "id": 10670135903,
+      "bytes": 914,
+      "sha256": "9d027865468aef02b115a747c1cc5b3b45828f79f1033438e919fafc918f1c9c",
+      "downloaded_and_rehashed": true
+    }
+  ]
+}

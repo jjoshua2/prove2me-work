@@ -1,0 +1,25 @@
+{
+  "kind": "exact_clean_replay_not_Lean_verification",
+  "files": {
+    "large-fixtures.json": {
+      "bytes": 5520018,
+      "sha256": "55687dcc39e1a66e90162702b79805e0271760a52e124d7104ff00614f29bb31",
+      "clean_three_script_replay_byte_identical": true
+    },
+    "large-report.json": {
+      "bytes": 1453,
+      "sha256": "452fe06bc3853f3876d73d023923630176e81d5feb7bff7bf04fe936d36754cb",
+      "clean_three_script_replay_byte_identical": true
+    },
+    "small-fixtures.json": {
+      "bytes": 1476168,
+      "sha256": "6c4dec01069832b2d4096751efcf03a4a8b4bb5a5945e1e04087e79fe5e9ddd9",
+      "clean_three_script_replay_byte_identical": true
+    },
+    "small-report.json": {
+      "bytes": 7686,
+      "sha256": "af9c4ceb0682da0bfb5bf0c73e094b2b801340b464c37fa61c074627c65ef0f9",
+      "clean_three_script_replay_byte_identical": true
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "head_sha": "5a37e1abe273c71f4c5fccc08746de08885d2303",
+  "packets": [
+    {
+      "packet": "one_exception_target_routes",
+      "status": "ACCEPTED",
+      "theorem_id": "c1dc3a15-302a-4063-b3ca-e9ac669d7c48",
+      "submission_id": "679b2373-2760-4a2f-89d5-21eb31e8ca78",
+      "theorem_name": "Hirsch.one_exception_target_original_hirsch_routes",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/one_exception_target_routes"
+    }
+  ]
+}
