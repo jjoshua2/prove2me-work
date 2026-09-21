@@ -1,0 +1,14 @@
+{
+  "kind": "static_source_checks_not_Lean_compilation",
+  "original_blob": "a8cde6866730466bb64ca986e8e452378d4f6491",
+  "repaired_blob": "0d61d89eeb25e11dd8daa062253e35b77163d516",
+  "repaired_sha256": "f94cfe8e0c8951167832c6a60bdf128bb26ec309fe1f4348bc3f43bdc7aa3741",
+  "bytes": 37431,
+  "lines": 887,
+  "patch_roundtrip": true,
+  "public_type_exact_match": true,
+  "accepted_dependency_ranges_unchanged": true,
+  "metadata_unchanged": true,
+  "local_Lean_compilation": false,
+  "public_root_body_change": "explicit finite-count equality transport only"
+}

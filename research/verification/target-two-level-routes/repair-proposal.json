@@ -1,0 +1,20 @@
+{
+  "kind": "UNAPPLIED_UNCOMPILED_repair_proposal",
+  "source_bytes": 37431,
+  "source_lines": 887,
+  "sha256": "f94cfe8e0c8951167832c6a60bdf128bb26ec309fe1f4348bc3f43bdc7aa3741",
+  "git_blob": "0d61d89eeb25e11dd8daa062253e35b77163d516",
+  "edit_sites": [
+    "locked_face: explicit extensional identity-image equality",
+    "solution: explicit extensional missing-label filter transport"
+  ],
+  "all_declaration_signatures_unchanged": true,
+  "all_structural_hypotheses_and_conclusions_unchanged": true,
+  "accepted_dependency_ranges_unchanged": true,
+  "public_root_statement_unchanged": true,
+  "public_root_body_change": "only explicit equality transport for the existing finite count; route call, endpoint/edge/locking witnesses and m-d argument unchanged",
+  "metadata_unchanged": true,
+  "patch_apply_reverse_exact": true,
+  "local_Lean_compilation": false,
+  "publication_source_modified_after_gate": false
+}
