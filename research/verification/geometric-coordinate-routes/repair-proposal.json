@@ -1,0 +1,21 @@
+{
+  "kind": "UNAPPLIED_UNCOMPILED_local_repair_proposal",
+  "original_blob": "9ada1c7febd018f80531df1c5755bae1626972e8",
+  "source_bytes": 43268,
+  "source_lines": 995,
+  "sha256": "250ab15136fee24d87a2b77312ecd51bd5cefb2f082b9a57f9771d266da4cfa2",
+  "git_blob": "b0da419948aeced1815471e66dbe1f7ec7db8404",
+  "edit_sites": [
+    "improving_edge: implicit scalar argument for convex_segment",
+    "original_routes: remove tactic after rw already closed goal",
+    "original_routes: nondependent congrArg transport for coordinate image",
+    "zero_one_routes: parenthesized per-coordinate subtraction; use the existing vertices definition"
+  ],
+  "declaration_signatures_unchanged": true,
+  "complete_public_root_and_proof_unchanged": true,
+  "accepted_coordinate_dependency_unchanged": true,
+  "source_metadata_unchanged": true,
+  "patch_apply_and_reverse_exact": true,
+  "local_Lean_compilation": false,
+  "publication_source_changed_after_gate": false
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "static_source_checks_not_Lean_compilation",
+  "local_lean_available": false,
+  "source_lines": 1000,
+  "source_bytes": 43482,
+  "source_sha256": "236c70b717aeb0860250dcd2600b7e34f4d08e4384a8d1c039691f34b5e429f2",
+  "source_blob": "9ada1c7febd018f80531df1c5755bae1626972e8",
+  "coordinate_dependency_reused_after_only_public_root_and_print_rename": true,
+  "no_admission_tokens": true,
+  "complete_public_type_matches_metadata": true,
+  "pin_unchanged": true,
+  "mathematical_definition_transcription_reviewed": true
+}

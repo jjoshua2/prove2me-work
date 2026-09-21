@@ -1,0 +1,49 @@
+{
+  "kind": "offline_negative_controls_not_hypothesis_necessity_proofs",
+  "controls": [
+    {
+      "name": "zero_support",
+      "rejected": true
+    },
+    {
+      "name": "wrong_sign_support",
+      "rejected": true
+    },
+    {
+      "name": "not_improving",
+      "rejected": true
+    },
+    {
+      "name": "stationary_edge",
+      "rejected": true
+    },
+    {
+      "name": "diagonal_instead_of_edge",
+      "rejected": true
+    },
+    {
+      "name": "nonface_vertex_subset",
+      "rejected": true
+    },
+    {
+      "name": "missing_endpoint",
+      "rejected": true
+    },
+    {
+      "name": "truncated_support",
+      "rejected": true
+    },
+    {
+      "name": "empty_hull",
+      "rejected": true
+    },
+    {
+      "name": "mixed_dimensions",
+      "rejected": true
+    },
+    {
+      "name": "constant_objective",
+      "rejected": true
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "kind": "derived_archive_integrity_not_new_compilation",
+  "source_commit": "74dbb5e144bc9ab4c822daff63dabe4f387d9d76",
+  "manifest_hashes": {
+    "solution.lean": true,
+    "driver.lean": true,
+    "statement.lean": true,
+    "problem.json": true,
+    "explanation.md": true
+  }
+}

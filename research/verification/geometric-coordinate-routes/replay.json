@@ -1,0 +1,28 @@
+{
+  "kind": "derived_clean_script_only_replay_not_Lean",
+  "script_count": 2,
+  "full_report_byte_identical": true,
+  "full_fixture_byte_identical": true,
+  "source_and_output_inventory": {
+    "scripts/check_geometric_coordinate_controls.py": {
+      "bytes": 1938,
+      "sha256": "106b5135591e00c612c7493cacd1f47a8cac3cea47cd86fa3b84832d44000379",
+      "git_blob": "26ada14a7a82d0483cd4cae8481a749807f96e96"
+    },
+    "scripts/test_geometric_coordinate_routes.py": {
+      "bytes": 12364,
+      "sha256": "f42b703f7050f3d43ea74ad1055f1d18f23edeafd91ad49d6e793c20aafd4508",
+      "git_blob": "74950294276562c9e9fa5f60c91f210c3a211997"
+    },
+    "research/tests_all/report.json": {
+      "bytes": 6465,
+      "sha256": "b413e70eb1e9606d6b46d329f0be6c4cdcd1cc7e5f13c272c98362ff1450435d",
+      "git_blob": "a004fa1f592faf5134952d0b1e93524049f475db"
+    },
+    "research/tests_all/fixtures.json": {
+      "bytes": 331977,
+      "sha256": "e0d7c76bcbda5e8a86753afbf60bcc423e1cae8232f1618058ea1b69dfbcf0af",
+      "git_blob": "c721cb318b326affaccc058969b06d9aeb0d4eca"
+    }
+  }
+}
