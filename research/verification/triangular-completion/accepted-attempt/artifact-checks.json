@@ -1,0 +1,43 @@
+{
+  "kind": "derived_hash_inventory_not_platform_response",
+  "run_id": 35641946351,
+  "archives": [
+    {
+      "file": "pr320-accepted-request.zip",
+      "artifact_id": 10658692087,
+      "bytes": 317,
+      "sha256": "0c9f65b4dbce25eefaec8d6356f517c611c0a6c3f04b8beb669df2f83c50a762",
+      "recomputed": true
+    },
+    {
+      "file": "pr320-accepted-verified.zip",
+      "artifact_id": 10657983183,
+      "bytes": 41488,
+      "sha256": "0c16a3dc54374ca49049ae1821735b49fbaa7329ffedadf390865065a805d172",
+      "recomputed": true
+    },
+    {
+      "file": "pr320-accepted-receipt.zip",
+      "artifact_id": 10658633050,
+      "bytes": 939,
+      "sha256": "a956aa0af21985a7a0e43662d7093795bcea3cf3828d28cd8f50e2ed920f7a62",
+      "recomputed": true
+    }
+  ],
+  "raw_file_sha256": {
+    "verified/pr-comment.md": "b1dc90b51e0f6e0a646aaeb56df4c8d65a53c0d6d3ec7d3d1e6c26fd25f65669",
+    "verified/artifact.json": "fce892ecfa17cca22dea4830f20c5a644bc2b30f8096c4ec103bfb0898e14bbd",
+    "verified/packets/triangular_completion_lower_bound/driver.lean": "0d66d238760cd88b933429d49c0d421a04af8c4c66f13c6ad532feff625b4fb2",
+    "verified/packets/triangular_completion_lower_bound/solution.lean": "0d66d238760cd88b933429d49c0d421a04af8c4c66f13c6ad532feff625b4fb2",
+    "verified/packets/triangular_completion_lower_bound/driver-compile.log": "750a9336859b9099754137017c7750af527a8a3790c7203ff2bbaaaf7f329b6a",
+    "verified/packets/triangular_completion_lower_bound/packet-audit.json": "6dcb3e542b2937189ef3b4f2fa32e8be1f43789e08ecf5098a9c56ae779f1b49",
+    "verified/packets/triangular_completion_lower_bound/explanation.md": "a9ba01d0c6d3f6ae2160cd7a6e0a2dca87734e49e43544c9e0e71022ca08ee37",
+    "verified/packets/triangular_completion_lower_bound/statement.lean": "ca301ede669b45029e571c7e27b9c262a08e9da31bd08c906ceda83f45d28792",
+    "verified/packets/triangular_completion_lower_bound/manifest.json": "07499f6bdfaad23c972908c76af2c93d33c384de7ede09f30c0634133a4ffcc5",
+    "verified/packets/triangular_completion_lower_bound/problem.json": "252244220c3676656fa03afc10e3d7e46f9cfc09063f52da12b7a654b60329e2",
+    "verified/packets/triangular_completion_lower_bound/solution-compile.log": "aa6da8a3addb84dfb7c09a7bf3e2b8635cef2e7e4a89bcc8de2f88221e4bbcbf",
+    "verified/packets/triangular_completion_lower_bound/statement-compile.log": "88a4aa195a4408c5a1a68b48d7661f68678d8c6566ec0725c9d20eaaca73351e",
+    "receipts/pr-comment.md": "a816d0937e0aa983a10a99a1fd134fcc2fbdef757b7dd77df1173a2776fba907",
+    "receipts/publication-receipt.json": "018868ecfb1994d167b4cd7fde72b345d5e8d4c2f6338b279d1caa1bba7f9821"
+  }
+}

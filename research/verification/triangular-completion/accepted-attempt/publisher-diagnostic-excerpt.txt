@@ -1,0 +1,12 @@
+SELECTED EXACT LINES from publisher job 106473638113, run 35641946351.
+This is not the complete runner log and not a separately fetched platform response.
+The complete decoded publisher log was inspected through cleanup.
+
+2026-09-21T19:04:19.4203130Z ## Prove2Me publication
+2026-09-21T19:04:19.4203918Z Head SHA: `7687e9c9ad08d93e6be852ab5950185b9e18469e`
+2026-09-21T19:04:19.4204706Z Actions run: https://github.com/jjoshua2/prove2me-work/actions/runs/35641946351
+2026-09-21T19:04:19.4205601Z - **Hirsch.triangular_all_zonotope_completions_exponential**: ACCEPTED
+2026-09-21T19:04:19.4206292Z   - theorem `7be0886c-9c8d-47a1-aa3f-367415e6830f`
+2026-09-21T19:04:19.4206827Z   - submission `ea54d85a-0fa7-479f-973a-b7ba4059f215`
+2026-09-21T19:04:19.8748199Z SHA256 digest of uploaded artifact zip is a956aa0af21985a7a0e43662d7093795bcea3cf3828d28cd8f50e2ed920f7a62
+2026-09-21T19:04:21.1905414Z https://github.com/jjoshua2/prove2me-work/pull/320#issuecomment-5765941894

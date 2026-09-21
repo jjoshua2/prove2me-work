@@ -2,15 +2,15 @@
 
 ## Current formal status
 
-The full theorem is ACCEPTED: theorem 7be0886c-9c8d-47a1-aa3f-367415e6830f,
-submission ea54d85a-0fa7-479f-973a-b7ba4059f215, trusted publisher live Proved in
-run 35641946351. Frozen accepted head 7687e9c9ad08d93e6be852ab5950185b9e18469e
-uses exactly the repaired proof from 2efb69e4e25165bfd2a5abc2fe2673d950114ab9.
-All compiler modes and six transitive proof reports pass. The former protocol
-blocker was resolved separately in #321 without further proof changes.
-Read TRIANGULAR_COMPLETION_HANDOFF.md and packet accepted-evidence.md for raw
-receipts, immutable hashes and prior failed history. This is publisher readback,
-not a separate fresh mission-root poll or an unrestricted Hirsch result.
+PR #320 is OPEN/DRAFT: complete Lean proof and transitive axiom audit PASS;
+Prove2Me publication is blocked before registration by the trusted-main protocol
+version guard. Frozen proof 2efb69e4e25165bfd2a5abc2fe2673d950114ab9 passed run
+35624792380 after the exact saved two-site Fin.ext repair. Driver, solution and
+separate target statement all exited 0; every one of six proof axiom reports lists
+only propext, Classical.choice and Quot.sound. No platform ACCEPTED or Proved
+result exists from this run. Read TRIANGULAR_COMPLETION_HANDOFF.md for exact
+request, artifact, source-hash and blocker evidence. The prior failed mathematical
+note and handoff are preserved under verification/triangular-completion/repaired-attempt/.
 
 ## Explicit small original presentation
 
@@ -98,8 +98,6 @@ both compile completely and their full-root transitive axiom audits pass.
 The earlier exact-rational regression remains supporting evidence; it was not
 rerun in this continuation and is not substituted for the hosted Lean evidence.
 
-The protocol blocker was resolved in separately reviewed #321; accepted run
-35641946351 registered and proved this unchanged packet. The next mathematical
-obligation is positive ORIGINAL surviving-edge or repeated-row charge control,
-not another proof repair or equivalent completion obstruction. Preserve accepted
-bytes, authenticated receipt, prior failed history and all security safeguards.
+The next blocker is a separately reviewed official protocol compatibility update
+on trusted main, not another proof repair, enlarged inventory bound or duplicate
+obstruction theorem. Preserve exact verified bytes and all security safeguards.
