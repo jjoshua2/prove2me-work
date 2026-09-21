@@ -1,0 +1,15 @@
+{
+  "kind": "local_source_checks_not_Lean_compilation",
+  "original_blob": "21b9482d09b3abb5d22ee1a80b6b2561952b4540",
+  "repaired_blob": "d601bb6d8c223609a9b9b269385421f4e0bbc39b",
+  "repaired_sha256": "0d66d238760cd88b933429d49c0d421a04af8c4c66f13c6ad532feff625b4fb2",
+  "repaired_bytes": 68361,
+  "repaired_lines": 1649,
+  "patch_blob": "f08ddca0fb85f6015a1ede75d767c323fe415b5a",
+  "patch_applies_and_reverses_exactly": true,
+  "complete_public_root_unchanged": true,
+  "accepted_namespace_bodies_unchanged": true,
+  "local_lean_compilation": false,
+  "Lean_or_Lake_found": false,
+  "pinned_dependency319_archive_sha256": "87324fba70e35912d0116edd0ce39be49dba0dcfb81fb8c9da57339232905a92"
+}

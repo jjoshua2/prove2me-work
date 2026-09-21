@@ -1,0 +1,30 @@
+# Scoped runner-log readback, not a publication receipt or full raw runner archive
+
+Source: GitHub Actions run 35624792380, repository jjoshua2/prove2me-work.
+The complete decoded gate, verify and publish logs were read through cleanup.
+Only these relevant lines are transcribed here. Raw full compiler logs are stored
+separately, unchanged, inside verified/packets/triangular_completion_lower_bound/.
+
+## Verifier job 106416491690
+2026-09-21T16:19:55.2785459Z Lake version 5.0.0-src+d024af0 (Lean version 4.30.0)
+2026-09-21T16:19:55.2975626Z   GITHUB_TOKEN: 
+2026-09-21T16:19:55.2975877Z   PROVE2ME_API_KEY: 
+2026-09-21T16:20:25.1344391Z SHA256 digest of uploaded artifact zip is 228d87f5c292a93570614b386f22a47fcd22f5b1e86c89f0434ed8ea592b7c09
+
+## Trusted-main publisher job 106416979748
+2026-09-21T16:20:34.0058239Z SHA256 digest of downloaded artifact is 228d87f5c292a93570614b386f22a47fcd22f5b1e86c89f0434ed8ea592b7c09
+2026-09-21T16:20:34.2520449Z Platform skill version changed; refresh the skill before publishing.
+2026-09-21T16:20:34.2629518Z ##[error]Process completed with exit code 1.
+2026-09-21T16:20:34.4069469Z ##[warning]No files were found with the provided path: _receipts/. No artifacts will be uploaded.
+2026-09-21T16:20:35.5638198Z https://github.com/jjoshua2/prove2me-work/pull/320#issuecomment-5763800712
+
+## Bot comment read back by ID
+Prove2Me publication job finished without a receipt. See the Actions run.
+
+## Source-level diagnosis (derived, not a server response)
+At trusted main d3d722007211c6fbb9d28417ef7a1c1b5a47c585,
+scripts/publish_projective_small_blocks.py, VersionCheckedAPI.refresh, rejects
+any agent-refresh response whose version is not exactly 0.10.6. This check runs
+before authenticated theorem queries, registration and proof submission. The
+actual returned version is not printed by this diagnostic; do not guess it.
+No protocol, workflow, allowlist, pin or credential separation was changed.

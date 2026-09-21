@@ -1,116 +1,115 @@
-# PR #320: explicit triangular completion lower bound — repair required
+# Triangular all-completion lower bound: verified proof, publication blocked
 
-Read current STATUS, AGENTS, CLOUD_AGENT, SKILL, CONTINUE_HIRSCH and LIVE exact
-PR heads/comments before continuing. Baseline main was
- d3d722007211c6fbb9d28417ef7a1c1b5a47c585.
-Branch: proof/triangular-all-completion-exponential.
-Packet: research/publication_packets/triangular_completion_lower_bound.
+## Current result (September 21, 2026)
+
+PR #320 remains OPEN/DRAFT on proof/triangular-all-completion-exponential.
+The entire standalone packet now compiles and passes transitive axiom auditing.
+Publication is blocked by the trusted publisher's strict protocol-version check,
+not by the Lean proof. No registration, submission, ACCEPTED or Proved result
+was produced by this run. Do not label a local/hosted compiler PASS a platform verdict.
+
 Target: Hirsch.triangular_all_zonotope_completions_exponential.
-Coordination5750522099 on #319 was posted/read back before work. #282's separate
-positive route/classification packet remains its owner's work. Reserved #210,
-other owned branches, and accepted targets were not modified or triggered.
+Packet: research/publication_packets/triangular_completion_lower_bound.
+Frozen verified proof SHA: 2efb69e4e25165bfd2a5abc2fe2673d950114ab9.
+Source blob: d601bb6d8c223609a9b9b269385421f4e0bbc39b.
+SHA256: 0d66d238760cd88b933429d49c0d421a04af8c4c66f13c6ad532feff625b4fb2.
+The source is 1649 lines / 68361 bytes. Any later evidence-only branch head is
+not a new verified proof SHA; preserve this source and metadata byte-for-byte.
 
-## Actual current status: OPEN/DRAFT, not accepted
+## Actual request and last observed execution
 
-NEW top-level command5750632491 began the normal publish command on #320.
-It was read back. Bot5750633628 resolved proof
-9c4c8c1e046759df90e02115d9cc3847273118fb and run35518652354.
-Trusted workflow main was the baseline SHA above. The run completed/failure:
-gate106098795378 succeeded; verify106098819456 failed driver compilation with
-exit1; publish106098946181 and report-verify106098946536 were skipped.
-This was ONE comment-triggered gate and ONE actual Lean compilation.
+Coordination comment 5763614415 was posted after live main, PR heads, ownership,
+conversation and empty review-thread checks. Applied only the saved two-site patch
+and read the resulting exact diff/blob back before the publication trigger.
 
-There is NO passing complete packet audit, verified-packet archive, platform
-registration/submission ID, ACCEPTED verdict or live Proved result. The actual
-compiler reports for hull_eq_body and directions_separate use only propext,
-Classical.choice and Quot.sound. exposed_line, minimal_eq_body,
-exponential_completion and solution contain sorryAx from failed elaboration.
-Do not mistake those four dependent reports for passing verification.
+NEW top-level publication comment 5763775688 was posted and read back by ID.
+Its first line was:
+/prove2me publish research/publication_packets/triangular_completion_lower_bound
 
-## Exact errors and unapplied repair
+Bot acknowledgement 5763779304 resolved the frozen proof above to run 35624792380.
+The issue_comment workflow's trusted main SHA was
+ d3d722007211c6fbb9d28417ef7a1c1b5a47c585, not the proof SHA.
 
-Two sites failed: line1403 attempted Subsingleton.elim for Fin(0+1) in the base
-case of supporting_line; line1548 left Fin.last n's value opaque to omega in
-minimal_eq_body. The saved proposal replaces both implicit index equalities by
-Fin.ext followed by explicit natural-value goals. The first uses i.isLt and
-omega to prove i.val=0; the second exposes i.val=n before omega. No hypothesis,
-signature, complete public root proof or accepted body changes.
+Gate 106416398632: success.
+Verify 106416491690: success; driver.lean, solution.lean and statement.lean all exit 0.
+Publish 106416979748: failure before theorem lookup / registration / submission.
+Report-verify 106416982103: skipped.
+No-receipt bot comment 5763800712 was read back; it is not an acceptance verdict.
 
-The proposal is UNAPPLIED to the publication source and UNCOMPILED. It applies
-and reverses byte-for-byte in an isolated Git workspace. Proposed1649-line,
-68361-byte source: blob d601bb6d8c223609a9b9b269385421f4e0bbc39b;
-SHA256 0d66d238760cd88b933429d49c0d421a04af8c4c66f13c6ad532feff625b4fb2.
-Further errors may remain. Do not infer complete verification from the patch.
-No source or metadata edit and no second trigger followed the compiler failure.
+Publisher diagnostic at 2026-09-21T16:20:34.2520449Z:
+"Platform skill version changed; refresh the skill before publishing."
+The trusted VersionCheckedAPI.refresh guard still requires exactly 0.10.6.
+The actual returned version is not exposed in the log. No receipt files or
+publication-receipts artifact were produced. No independent platform poll occurred.
 
-The submitted1642-line/68245-byte source remains blob
-21b9482d09b3abb5d22ee1a80b6b2561952b4540, SHA256
-e6142ce4aca2189943bac4f865c1b6370546f8c4193d7f6b2ead7f9759b5dde3.
-Its inherited unused-simp warning is preserved, not cleaned up. Before the first
-gate, one blank separator and one leading declaration space differed during
-upload; exact source reconstruction reconciled them without proof-token changes.
-The exact916-line accepted #319 prefix and203-line #280 namespace are unchanged;
-all ten dependency manifest checks passed. Old public targets are not resubmitted.
-Local Lean/Lake and compiler-host DNS were unavailable. Source and Python checks
-are not Lean compilation.
+## Full proof and artifact verification
 
-## New mathematical interface, including its limits
+Lean 4.30.0 was reported by the hosted pinned environment; Mathlib remains
+c5ea00351c28e24afc9f0f84379aa41082b1188f. The secret-free verifier compiled the
+complete driver and standalone solution. All SIX explicit reports, including
+exposed_line, minimal_eq_body, exponential_completion and the full public solution,
+now contain only propext, Classical.choice and Quot.sound. No sorryAx remains.
+The statement.lean warning concerns only the separate target-statement placeholder;
+it is not used as the proof. The inherited unused-simp warning is unchanged.
 
-For every0<e<1/2 and dimension n+1, the ORIGINAL body uses exactly2(n+1) displayed
-inequalities: 0<=x_n<=1 and e*x_(i+1)<=x_i<=1-e*x_(i+1), i<n. The candidate derives
-the entire finite-hull representation, then constructs2^n selected nondegenerate
-whole exposed edges by fixing the first n boundary choices and freeing x_n.
-Their last-normalized displacements satisfy signed multiplication by e, so
-parallelism recovers every bit. The direction-separation and full-hull helpers
-have standard-only reports, but the complete exposed-edge application is not yet
-verified because of the two sites above.
+Downloaded and independently rehashed both raw ZIP artifacts:
+- request 10651081845: 315 bytes; SHA256 df9f79a4c8cc0152bd53114779c6489709cb36ba6585440cd1892de2ba7e716a;
+- verified packet 10651296899: 41487 bytes; SHA256 228d87f5c292a93570614b386f22a47fcd22f5b1e86c89f0434ed8ea592b7c09.
 
-The intended final theorem applies accepted #319 to ANY nonempty compact Q with
-actual equality P+Q=sum_i[0,w_i]. It concludes2^n<=m and constructs opposite actual
-completion vertices requiring at least2^n steps on every genuine exposed-edge
-walk. No finite-hull, edge-family, direction-count or matching oracle is supplied.
-Q need not be convex. Compactness/nonemptiness,0<e<1/2 and whole-set sum equality
-remain actual hypotheses. It does not prove a large diameter for the original P.
+All five frozen manifest-file hashes pass recomputation. The artifact solution is
+byte-identical to the committed repair; driver equals solution; problem.json and
+explanation.md retain their original Git blobs. The public solution's type exactly
+matches the target text after replacing only the theorem name. All declarations,
+hypotheses, accepted namespace bodies and full public proof assembly were preserved.
 
-The sufficient count is2^n, not the stronger full2^(n+1)-1 direction count. No
-formal facet-lattice count, exact original shortest diameter, asymptotic domination
-lemma or translation extension is included. This is not a Polynomial Hirsch
-counterexample. A completed proof would certify a concrete obstruction to
-uniformly cheap GLOBAL zonotope completions, without excluding charging surviving
-contracted steps, non-zonotopal constructions or other original-edge arguments.
+## Durable evidence and original failure
 
-## Evidence and reproduction
+research/verification/triangular-completion/repaired-attempt/ contains the raw
+resolved request; all 12 files unpacked from the verified artifact, including
+complete compiler logs, manifest and packet-audit; source/artifact checks; and a
+DERIVED run-readback plus explicitly scoped runner-log diagnostic excerpt.
+The full decoded runner logs were read but are not represented as a committed raw
+runner archive. The two original raw ZIPs also accompany this continuation's export.
 
-The only run artifact is the original318-byte request ZIP10607707101. Its SHA256
-was independently recomputed:
-202fa6f377f7763368c5df032cb5808758c426ad53c960687735b18793408b59.
-Raw resolved.json and the full compiler warning/error/axiom block are preserved.
-The whole verification log was read through cleanup, but the committed diagnostic
-file is explicitly an excerpt excluding setup/cache/cleanup. No absent API bodies,
-verified artifact or publication receipt are invented.
+The first failed source and diagnostics under research/verification/triangular-completion/
+remain untouched. Original proof 9c4c8c1e046759df90e02115d9cc3847273118fb,
+evidence head c0a282ae0e1b646bbcfe210fccb08fc736fe9896, trigger 5750632491,
+acknowledgement 5750633628 and failed run 35518652354 remain historical evidence.
+The previous handoff and mathematical note are copied into repaired-attempt/.
+The saved patch changed only finite-index equality proofs in supporting_line
+and minimal_eq_body. No source or metadata edit followed the new hosted gate.
+Local Lean/Lake was unavailable; source checks were not misreported as compilation.
+The earlier rational regression remains supporting evidence, not a new rerun here.
 
-The new177-line exact-rational script ran twice, including a clean two-script
-workspace. Eighteen small H models use3822 independent square systems,378 vertices,
-189 selected edges and8190 whole-reference support checks. Fifty-four hull records
-use1134 convex-combination terms;1092 strict-other-row checks support the written
-facet interpretation only. Thirty-two selected larger edges reach dimension64
-without full graphs. Sixty-two serialized edge records and54 hull records audit
-with producers disabled; six forged inputs fail. These are not extra Lean theorems,
-extracted software or a formally verified arbitrary-input parser.
+## Mathematical statement and unchanged limits
 
-Full report4361bytes SHA256
-d562c74a919b67aa0a235646a6210d23ed6690d033834a109e581bcf8c3f1623;
-fixture479933bytes SHA256
-69d1e0585f2fed7405dfa0b5fe57dedda6692575b71031225ed12ccb3d7eb0d2.
-Both runs reproduce these bytes. Full files and the original request ZIP are in
-the export and regenerate; repository compact summaries are labelled separately.
-The existing #319 reference script is reused unchanged, not overwritten.
+For 0<e<1/2, P in dimension n+1 has exactly 2(n+1) DISPLAYED ORIGINAL inequalities:
+0<=x_n<=1 and e*x_(i+1)<=x_i<=1-e*x_(i+1) for i<n.
+The verified proof derives the entire finite-hull identity and constructs 2^n
+pairwise nonparallel genuine original exposed edges, then applies accepted #319.
+For EVERY nonempty compact Q and ACTUAL whole-set equality P+Q=sum_i[0,w_i], it
+proves 2^n<=m and constructs opposite actual completion vertices requiring at least
+2^n steps along nondegenerate whole exposed completion segments. Q need not be convex.
+No vertex catalogue, edge family, direction matching or count oracle is assumed.
 
-    python3 scripts/test_triangular_completion_family.py --out /tmp/triangular-completion
+The lower bound concerns the COMPLETION, not P. This is not a Polynomial Hirsch
+counterexample or a solution of the mission. A formal facet-lattice count, the
+stronger full 2^(n+1)-1 direction count, exact original shortest diameter,
+translation extension and asymptotic domination theorem are not claimed.
 
-Next is complete pinned compilation/auditing of the saved repair after a fresh
-ownership and duplicate check, not a new assumed-family child. Lean4.30.0/Mathlib
-c5ea00351c28e24afc9f0f84379aa41082b1188f, strict0.10.6, workflows, allowlist,
-duplicate controls and verification/publication credential isolation are unchanged.
-Use live PR metadata for the later evidence commit; it differs from the failed
-proof SHA. Root STATUS and other existing main files remain untouched.
+## Exact next blocker and ownership
+
+Freeze the verified proof and packet metadata. Resolve the official protocol
+compatibility change in a SEPARATELY REVIEWED trusted-main change; do not change
+or weaken the 0.10.6 guard, workflows, allowlist or credential separation on this
+proof branch. The new version must be obtained from official evidence, not guessed.
+Do not request credentials or repeat speculative Actions runs. After compatibility
+is actually resolved, recheck live ownership and pending/accepted submissions before
+any later authorized publication retry of these identical proof bytes.
+
+PR #320 deliberately remains draft pending publication. Do not merge it as accepted.
+Do not resubmit accepted #319, reserved #210, or #282's separately owned positive
+triangular original-route/classification work. No unrelated PR was changed.
+After this publication obligation is closed, prefer an unowned positive ORIGINAL
+surviving-edge or repeated original-row charge bound after reading live handoffs
+and counterexamples; do not manufacture equivalent completion obstructions.
