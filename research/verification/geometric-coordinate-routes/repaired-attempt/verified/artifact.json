@@ -1,0 +1,25 @@
+{
+  "head_sha": "3fa9791c65405c57804730cac7481f28ac26f066",
+  "packets": [
+    {
+      "path": "research/publication_packets/geometric_coordinate_routes",
+      "name": "geometric_coordinate_routes",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "250ab15136fee24d87a2b77312ecd51bd5cefb2f082b9a57f9771d266da4cfa2",
+        "driver.lean": "250ab15136fee24d87a2b77312ecd51bd5cefb2f082b9a57f9771d266da4cfa2",
+        "statement.lean": "3b24b67ce9dc8926c591cfacdc734fa57d6913a1e20dbaad9d11110d33869a96",
+        "problem.json": "c30f73bdcf3477442a793a917f4c581a4712859d212ebc7f2de99ad002a741df",
+        "explanation.md": "550e6f9be90a622a462f0473afda43e87b0633b96353695e04e681e3683c9634"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}

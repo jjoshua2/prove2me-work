@@ -1,0 +1,14 @@
+{
+  "kind": "derived_current_exact_regression_replay_not_Lean",
+  "script_count": 2,
+  "models": 14,
+  "routes": 480,
+  "edges": 690,
+  "local_improvement_checks": 2811,
+  "nonshortest_routes": 134,
+  "negative_controls_rejected": 11,
+  "full_report_identical": true,
+  "full_fixture_identical": true,
+  "report_sha256": "b413e70eb1e9606d6b46d329f0be6c4cdcd1cc7e5f13c272c98362ff1450435d",
+  "fixture_sha256": "e0d7c76bcbda5e8a86753afbf60bcc423e1cae8232f1618058ea1b69dfbcf0af"
+}

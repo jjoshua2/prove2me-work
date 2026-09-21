@@ -1,0 +1,33 @@
+{
+  "kind": "offline stored-evidence check, not new Lean or platform verification",
+  "publication_receipt_checked": true,
+  "passed": 26,
+  "checks": [
+    "frozen proof commit",
+    "pinned Mathlib revision",
+    "self-contained packet",
+    "exact five-file manifest",
+    "frozen bytes: solution.lean",
+    "frozen bytes: driver.lean",
+    "frozen bytes: statement.lean",
+    "frozen bytes: problem.json",
+    "frozen bytes: explanation.md",
+    "stored packet audit PASS",
+    "all three stored compilation exit codes",
+    "audit hashes bound to frozen inputs",
+    "stored audit standard axioms",
+    "no written proof admissions",
+    "complete driver equals standalone solution",
+    "exact public target name",
+    "full public statement text matches target",
+    "all eleven proof reports: driver-compile.log",
+    "only standard axioms and no errors: driver-compile.log",
+    "all eleven proof reports: solution-compile.log",
+    "only standard axioms and no errors: solution-compile.log",
+    "publisher proof commit",
+    "one publisher packet",
+    "publisher target identity",
+    "stored authenticated publisher ACCEPTED and Proved",
+    "publisher identifiers present"
+  ]
+}

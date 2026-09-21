@@ -1,0 +1,29 @@
+{
+  "kind": "static source checks, not Lean compilation",
+  "original_blob": "9ada1c7febd018f80531df1c5755bae1626972e8",
+  "repaired_blob": "b0da419948aeced1815471e66dbe1f7ec7db8404",
+  "repaired_sha256": "250ab15136fee24d87a2b77312ecd51bd5cefb2f082b9a57f9771d266da4cfa2",
+  "bytes": 43268,
+  "lines": 995,
+  "patch_roundtrip": true,
+  "declaration_signatures_unchanged": true,
+  "full_public_root_and_proof_unchanged": true,
+  "accepted_coordinate_prefix_unchanged": true,
+  "metadata_type_exact_match": true,
+  "no_admission_tokens": true,
+  "local_lean_available": false,
+  "packet_inputs": {
+    "problem.json": {
+      "git_blob": "9864faee36974d3c61a48c6a0dc61eb10071bdc7",
+      "sha256": "c30f73bdcf3477442a793a917f4c581a4712859d212ebc7f2de99ad002a741df"
+    },
+    "solution.lean": {
+      "git_blob": "b0da419948aeced1815471e66dbe1f7ec7db8404",
+      "sha256": "250ab15136fee24d87a2b77312ecd51bd5cefb2f082b9a57f9771d266da4cfa2"
+    },
+    "explanation.md": {
+      "git_blob": "78673f293dea01d30fa8107c4356194157d1893a",
+      "sha256": "550e6f9be90a622a462f0473afda43e87b0633b96353695e04e681e3683c9634"
+    }
+  }
+}

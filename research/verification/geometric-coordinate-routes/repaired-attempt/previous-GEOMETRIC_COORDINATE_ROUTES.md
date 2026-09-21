@@ -1,18 +1,5 @@
 # Original-edge routes from actual finite hulls
 
-## Accepted status — September 21, 2026
-
-PR #322's complete repaired proof is ACCEPTED, with trusted-publisher live_status
-Proved. Theorem 5a81c2f0-e6fe-4eea-a627-0acdde34206a; submission
-acd494ac-d764-4d26-972a-f92614c800d7; run 35659994840; exact proof
-3fa9791c65405c57804730cac7481f28ac26f066. All eleven proof reports are standard-only.
-The internal 0/1-hull corollary also compiles; it is not separately registered.
-Read GEOMETRIC_COORDINATE_HANDOFF.md and the packet's accepted-evidence.md.
-The following original mathematical argument and test description are retained
-verbatim as preparation history; its candidate-status language is superseded by
-this receipt. The theorem's assumptions and limitations have not changed.
-
-
 ## Result and verification boundary
 
 This is the positive geometric adapter to accepted PR #283, not another

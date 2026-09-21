@@ -1,0 +1,77 @@
+{
+  "kind": "derived GitHub execution readback; raw publisher receipt stored separately",
+  "repo": "jjoshua2/prove2me-work",
+  "pr": 322,
+  "proof_sha": "3fa9791c65405c57804730cac7481f28ac26f066",
+  "trusted_main_sha": "3ee00edc5a9d5e2a22e5c0971f7f0c5b5f2eeeff",
+  "coordination_comment": 5768026697,
+  "trigger_comment": 5768069486,
+  "acknowledgement_comment": 5768072284,
+  "verdict_comment": 5768112115,
+  "run_id": 35659994840,
+  "jobs": {
+    "gate": {
+      "id": 106532701861,
+      "conclusion": "success"
+    },
+    "verify": {
+      "id": 106532776562,
+      "conclusion": "success"
+    },
+    "publish": {
+      "id": 106533114357,
+      "conclusion": "success"
+    },
+    "report-verify": {
+      "id": 106533116098,
+      "conclusion": "skipped"
+    }
+  },
+  "driver_solution_statement_exit_codes": [
+    0,
+    0,
+    0
+  ],
+  "proof_axiom_reports_per_log": 11,
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "registration": "PUBLISHED",
+  "status": "ACCEPTED",
+  "live_status": "Proved",
+  "theorem_id": "5a81c2f0-e6fe-4eea-a627-0acdde34206a",
+  "submission_id": "acd494ac-d764-4d26-972a-f92614c800d7",
+  "publisher_output_timestamp_utc": "2026-09-21T22:00:28.7551803Z",
+  "verdict_comment_timestamp_utc": "2026-09-21T22:00:30Z",
+  "independent_platform_poll": false,
+  "local_Lean_compilation": false,
+  "full_decoded_verify_and_publish_logs_read": true,
+  "stored_runner_log_kind": "selected exact excerpt, not full raw runner archive",
+  "raw_artifacts": [
+    {
+      "id": 10667461028,
+      "name": "prove2me-publish-request",
+      "bytes": 313,
+      "sha256": "a8be29fa1a64296ffa6871e27defac55cdcf69d48098d3f7a6d5e399a606011e"
+    },
+    {
+      "id": 10666916593,
+      "name": "prove2me-verified-packets",
+      "bytes": 31080,
+      "sha256": "e3cc65ff3812fa4793bc4e59eb007162822816b93621fa7bb6bf695ebc04afcf"
+    },
+    {
+      "id": 10667201809,
+      "name": "prove2me-publication-receipts",
+      "bytes": 918,
+      "sha256": "6e99f24be56c064abad4e822bee4ca85a06838adeb95bcc60b8fc1c4c7647ade"
+    }
+  ],
+  "all_three_ZIPs_rehashed": true,
+  "all_five_frozen_hashes_rehashed": true,
+  "first_failed_run_preserved": 35657778026,
+  "source_edits_after_current_gate": false,
+  "extra_gate_or_resubmission": false
+}
