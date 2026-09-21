@@ -1,0 +1,5 @@
+'Hirsch.OneException.improve_locked_row' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.OneException.last_row_attained' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.OneException.acquiring_step_one_exception' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.OneException.locked_route_one_exception' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]

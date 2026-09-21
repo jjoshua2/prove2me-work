@@ -1,0 +1,13 @@
+{
+  "kind": "source_checks_not_Lean_compilation",
+  "prefix_exact_bytes": 35088,
+  "prefix_exact_lines": 844,
+  "accepted_prefix_unchanged": true,
+  "no_admission_tokens": true,
+  "public_type_exact_match": true,
+  "local_Lean_available": false,
+  "source_lines": 1062,
+  "source_bytes": 45730,
+  "source_sha256": "60043de4fc9317bd81b5813c72ed9afb575ea15e0fa329f573cdd0d811722a70",
+  "source_git_blob": "bd5cc3b53fea2c68f0005fdbb6e7372aca748769"
+}

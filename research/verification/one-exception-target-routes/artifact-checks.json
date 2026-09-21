@@ -1,0 +1,25 @@
+{
+  "kind": "derived_source_and_artifact_identity_checks_not_new_compilation",
+  "proof_sha": "5a37e1abe273c71f4c5fccc08746de08885d2303",
+  "raw_packet_tree": "004100caae20607ebb5ce593fbd08c6c6ba58ae8",
+  "raw_verified_tree": "3127f98ae21850e3e25679a428dceea4d58222ca",
+  "all_five_manifest_digests_match": true,
+  "all_three_original_inputs_unchanged": true,
+  "driver_identical_to_solution": true,
+  "five_standard_only_reports_in_each_proof_log": true,
+  "local_Lean_compilation": false,
+  "files": {
+    "artifact.json": "3b0c8c32967be57f602ed8e724031053467ad65d38cdcd9080aed9d64c9e866c",
+    "packets/one_exception_target_routes/driver-compile.log": "f19caa5ab6f9e090517eb7bb620e20e9b083ff4f9a4f1d1e2de9cf5341c68186",
+    "packets/one_exception_target_routes/driver.lean": "60043de4fc9317bd81b5813c72ed9afb575ea15e0fa329f573cdd0d811722a70",
+    "packets/one_exception_target_routes/explanation.md": "8122a20ed33790aa0aeffbdfdaecdeb84a3c1b15accde6e425854c2d03fe3628",
+    "packets/one_exception_target_routes/manifest.json": "6b5367c64def77c2213a1954fd87066cbf46b2687c0cb8f17a29d32c20dd9b46",
+    "packets/one_exception_target_routes/packet-audit.json": "e843b95ecbc17fb8906a796b020b589a6bead3b1b8fb412174988f7dd3a425e5",
+    "packets/one_exception_target_routes/problem.json": "943cd14354d9eb98bec862897b5b884183836c9d06e024cd0c7853094b62d56f",
+    "packets/one_exception_target_routes/solution-compile.log": "f19caa5ab6f9e090517eb7bb620e20e9b083ff4f9a4f1d1e2de9cf5341c68186",
+    "packets/one_exception_target_routes/solution.lean": "60043de4fc9317bd81b5813c72ed9afb575ea15e0fa329f573cdd0d811722a70",
+    "packets/one_exception_target_routes/statement-compile.log": "c316a582f3c076b582aadff9bf8405b0b7532bf20c11eb3e314aba16afd1fe09",
+    "packets/one_exception_target_routes/statement.lean": "679af22351086e051aaaf68f63309ed115ae2c47ef2f57a00a8c87692cf7afda",
+    "pr-comment.md": "e5c1b56666dea84553b1d718ed5d6a8b90ff5cddc4e98bdc9414766dde82e0d4"
+  }
+}
