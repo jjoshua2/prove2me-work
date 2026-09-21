@@ -706,7 +706,7 @@ theorem improving_edge (C : Finset (Fin d → ℝ))
     have hle := hqbound x hx
     rw [map_sub] at hle
     linarith
-  have hsupport := hull_support C q (q u) (segment ℝ u v) (convex_segment ℝ _ _) hC
+  have hsupport := hull_support C q (q u) (segment ℝ u v) (convex_segment u v) hC
   have hvP : v ∈ convexHull ℝ (C : Set (Fin d → ℝ)) := subset_convexHull ℝ _ hvC
   have hqvu : q v=q u := by
     rw [map_sub] at hqv
@@ -913,7 +913,6 @@ theorem original_routes (C : Finset (Fin d → ℝ)) (u v : Fin d → ℝ)
   have hFace : Face Finset.univ := by
     change IsExtreme ℝ P (convexHull ℝ (Finset.univ.image c : Set (Fin d → ℝ)))
     rw [himage,vertex_hull C]
-    exact IsExtreme.rfl
   have huV : u ∈ V := Finset.mem_filter.mpr ⟨extremePoints_convexHull_subset hu,hu⟩
   have hvV : v ∈ V := Finset.mem_filter.mpr ⟨extremePoints_convexHull_subset hv,hv⟩
   let i := E ⟨u,huV⟩
@@ -926,8 +925,8 @@ theorem original_routes (C : Finset (Fin d → ℝ)) (u v : Fin d → ℝ)
   have hlevels : ∀ k : Fin d,
       Finset.univ.image (fun a => c a k)=V.image (fun x => x k) := by
     intro k
-    rw [← himage,Finset.image_image]
-    rfl
+    simpa only [Finset.image_image] using
+      congrArg (fun S : Finset (Fin d → ℝ) => S.image (fun x => x k)) himage
   refine ⟨L,?_,fun t => c (p t.val),?_,?_,?_,?_⟩
   · simpa only [hlevels] using hL
   · change c (p 0)=u
@@ -956,21 +955,17 @@ theorem zero_one_routes (C : Finset (Fin d → ℝ))
   refine ⟨L,?_,p,hp⟩
   apply hL.trans
   calc
-    (∑ j : Fin d, ((C.filter (fun x =>
-      x ∈ (convexHull ℝ (C : Set (Fin d → ℝ))).extremePoints ℝ)).image (fun x => x j)).card-1)
+    (∑ j : Fin d, (((vertices C).image (fun x => x j)).card-1))
         ≤ ∑ _j : Fin d, 1 := by
       apply Finset.sum_le_sum
       intro j hj
-      have hs : (C.filter (fun x =>
-          x ∈ (convexHull ℝ (C : Set (Fin d → ℝ))).extremePoints ℝ)).image (fun x => x j)
-          ⊆ ({0,1} : Finset ℝ) := by
+      have hs : (vertices C).image (fun x => x j) ⊆ ({0,1} : Finset ℝ) := by
         intro t ht
         obtain ⟨x,hx,rfl⟩ := Finset.mem_image.mp ht
         have h := h01 x (Finset.mem_filter.mp hx).1 j
         simpa only [Finset.mem_insert,Finset.mem_singleton] using h
       have hc := Finset.card_le_card hs
-      have hc2 : ((C.filter (fun x =>
-          x ∈ (convexHull ℝ (C : Set (Fin d → ℝ))).extremePoints ℝ)).image (fun x => x j)).card ≤ 2 := by simpa using hc
+      have hc2 : ((vertices C).image (fun x => x j)).card ≤ 2 := by simpa using hc
       omega
     _ = d := by simp
 
