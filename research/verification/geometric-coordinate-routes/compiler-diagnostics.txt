@@ -1,0 +1,102 @@
+# Scoped compiler-diagnostic transcript; runner timestamps removed
+# Source: run 35657778026, verifier job 106525605176, proof fe90bf7fae251e8ea8670bff0ad4c362d645ec92.
+# Full decoded verifier runner log was read through cleanup. This file preserves
+# its compiler warning/error/axiom block, not its setup/cache/cleanup output and
+# not a byte-for-byte raw runner archive. No passing packet artifact was produced.
+
+geometric_coordinate_routes/driver.lean failed to compile:
+_verified/packets/geometric_coordinate_routes/driver.lean:116:39: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+_verified/packets/geometric_coordinate_routes/driver.lean:103:0: warning: automatically included section variable(s) unused in theorem `Hirsch.CoordinateRoute.descend`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+'Hirsch.CoordinateRoute.descend' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.CoordinateRoute.ascend' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.CoordinateRoute.rank_routes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.CoordinateRoute.levelRank_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'finite_coordinate_route_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+_verified/packets/geometric_coordinate_routes/driver.lean:709:59: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  AddCommMonoid Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+_verified/packets/geometric_coordinate_routes/driver.lean:916:4: error: No goals to be solved
+_verified/packets/geometric_coordinate_routes/driver.lean:929:8: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => Finset.image (fun a => c a k) Finset.univ = Finset.image (fun x => x k) _a
+Error: Application type mismatch: The argument
+  a
+has type
+  Fin (Fintype.card ↥_a)
+but is expected to have type
+  Fin (Fintype.card ↥V)
+in the application
+  c a
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+d : ℕ
+C : Finset (Fin d → ℝ)
+u v : Fin d → ℝ
+hu : u ∈ extremePoints ℝ ((convexHull ℝ) ↑C)
+hv : v ∈ extremePoints ℝ ((convexHull ℝ) ↑C)
+P : Set (Fin d → ℝ) := (convexHull ℝ) ↑C
+V : Finset (Fin d → ℝ) := vertices C
+E : ↥V ≃ Fin (Fintype.card ↥V) := Fintype.equivFin ↥V
+c : Fin (Fintype.card ↥V) → Fin d → ℝ := fun i => ↑(E.symm i)
+hc : Function.Injective c
+hvertices : ∀ (i : Fin (Fintype.card ↥V)), c i ∈ extremePoints ℝ P
+Face : Finset (Fin (Fintype.card ↥V)) → Prop := fun F => IsExtreme ℝ P ((convexHull ℝ) ↑(Finset.image c F))
+R : Fin (Fintype.card ↥V) → Fin (Fintype.card ↥V) → Prop := fun i j => c i ≠ c j ∧ IsExtreme ℝ P (segment ℝ (c i) (c j))
+hsym : ∀ (i j : Fin (Fintype.card ↥V)), R i j → R j i
+hmaxface :
+  ∀ (F : Finset (Fin (Fintype.card ↥V))),
+    Face F → ∀ (j : Fin d), ∀ a ∈ F, (∀ x ∈ F, c x j ≤ c a j) → Face ({x ∈ F | c x j = c a j})
+hminface :
+  ∀ (F : Finset (Fin (Fintype.card ↥V))),
+    Face F → ∀ (j : Fin d), ∀ a ∈ F, (∀ x ∈ F, c a j ≤ c x j) → Face ({x ∈ F | c x j = c a j})
+himprove :
+  ∀ (F : Finset (Fin (Fintype.card ↥V))),
+    Face F → ∀ (f : (Fin d → ℝ) →ₗ[ℝ] ℝ), ∀ x ∈ F, ∀ y ∈ F, f (c x) < f (c y) → ∃ z ∈ F, R x z ∧ f (c x) < f (c z)
+hdown :
+  ∀ (F : Finset (Fin (Fintype.card ↥V))),
+    Face F → ∀ (j : Fin d), ∀ x ∈ F, ∀ y ∈ F, c y j < c x j → ∃ z ∈ F, R x z ∧ c z j < c x j
+hup :
+  ∀ (F : Finset (Fin (Fintype.card ↥V))),
+    Face F → ∀ (j : Fin d), ∀ x ∈ F, ∀ y ∈ F, c x j < c y j → ∃ z ∈ F, R x z ∧ c x j < c z j
+himage : Finset.image c Finset.univ = V
+hFace : Face Finset.univ
+huV : u ∈ V
+hvV : v ∈ V
+i : Fin (Fintype.card ↥V) := E ⟨u, huV⟩
+j : Fin (Fintype.card ↥V) := E ⟨v, hvV⟩
+hci : c i = u
+hcj : c j = v
+L : ℕ
+hL : L ≤ ∑ j, ((Finset.image (fun x => c x j) Finset.univ).card - 1)
+p : ℕ → Fin (Fintype.card ↥V)
+hp0 : p 0 = i
+hpL : p L = j
+hpm : ∀ i ≤ L, p i ∈ Finset.univ
+hpe : ∀ i < L, R (p i) (p (i + 1))
+k : Fin d
+⊢ Finset.image (fun a => c a k) Finset.univ = Finset.image (fun x => x k) V
+_verified/packets/geometric_coordinate_routes/driver.lean:959:4: error: invalid 'calc' step, left-hand side is
+  ∑ j, (Finset.image (fun x => x j) ({x ∈ C | x ∈ extremePoints ℝ ((convexHull ℝ) ↑C)})).card - 1 : Nat
+but is expected to be
+  ∑ j, ((Finset.image (fun x => x j) (vertices C)).card - 1) : Nat
+_verified/packets/geometric_coordinate_routes/driver.lean:986:11: warning: unused variable `p`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'Hirsch.HullCoordinate.improving_edge' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.HullCoordinate.hull_filter_exposed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.HullCoordinate.vertex_hull' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.HullCoordinate.original_routes' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.HullCoordinate.zero_one_routes' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+
+# Runner result: Process completed with exit code 1.

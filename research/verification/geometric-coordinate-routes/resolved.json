@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/geometric_coordinate_routes"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "fe90bf7fae251e8ea8670bff0ad4c362d645ec92",
+  "pr": "322"
+}

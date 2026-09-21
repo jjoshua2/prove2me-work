@@ -1,0 +1,19 @@
+# Selected exact runner-log excerpt, NOT a full runner archive
+# Full decoded verify and publish logs were inspected through cleanup.
+# Raw compiler logs and authenticated aggregate receipt are preserved separately.
+
+# Verify job 106532776562, run 35659994840
+2026-09-21T21:57:19.3890307Z Lake version 5.0.0-src+d024af0 (Lean version 4.30.0)
+2026-09-21T21:57:19.4072737Z   GITHUB_TOKEN: 
+2026-09-21T21:57:19.4073087Z   PROVE2ME_API_KEY: 
+2026-09-21T21:57:45.1667137Z SHA256 digest of uploaded artifact zip is e3cc65ff3812fa4793bc4e59eb007162822816b93621fa7bb6bf695ebc04afcf
+
+# Publish job 106533114357, run 35659994840
+2026-09-21T22:00:28.7551803Z ## Prove2Me publication
+2026-09-21T22:00:28.7552438Z Head SHA: `3fa9791c65405c57804730cac7481f28ac26f066`
+2026-09-21T22:00:28.7553207Z Actions run: https://github.com/jjoshua2/prove2me-work/actions/runs/35659994840
+2026-09-21T22:00:28.7553996Z - **Hirsch.finite_hull_original_coordinate_routes**: ACCEPTED
+2026-09-21T22:00:28.7554657Z   - theorem `5a81c2f0-e6fe-4eea-a627-0acdde34206a`
+2026-09-21T22:00:28.7555527Z   - submission `acd494ac-d764-4d26-972a-f92614c800d7`
+2026-09-21T22:00:29.5464537Z SHA256 digest of uploaded artifact zip is 6e99f24be56c064abad4e822bee4ca85a06838adeb95bcc60b8fc1c4c7647ade
+2026-09-21T22:00:30.9210046Z https://github.com/jjoshua2/prove2me-work/pull/322#issuecomment-5768112115

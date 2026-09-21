@@ -1,0 +1,76 @@
+{
+  "kind": "derived_GitHub_failure_readback_not_platform_receipt",
+  "repo": "jjoshua2/prove2me-work",
+  "pr": 322,
+  "proof_sha": "fe90bf7fae251e8ea8670bff0ad4c362d645ec92",
+  "trusted_main_sha": "3ee00edc5a9d5e2a22e5c0971f7f0c5b5f2eeeff",
+  "coordination_comment": 5767607284,
+  "trigger_comment": 5767819039,
+  "acknowledgement_comment": 5767821145,
+  "run_id": 35657778026,
+  "jobs": {
+    "gate": {
+      "id": 106525550822,
+      "conclusion": "success"
+    },
+    "verify": {
+      "id": 106525605176,
+      "conclusion": "failure"
+    },
+    "publish": {
+      "id": 106526033174,
+      "conclusion": "skipped"
+    },
+    "report-verify": {
+      "id": 106526032699,
+      "conclusion": "skipped"
+    }
+  },
+  "driver_exit_code": 1,
+  "solution_separate_compile": "not_reached",
+  "statement_separate_compile": "not_reached",
+  "complete_packet_audit": "not_produced",
+  "reported_error_lines": [
+    709,
+    916,
+    929,
+    959
+  ],
+  "new_standard_only_reports": [
+    "Hirsch.HullCoordinate.hull_filter_exposed",
+    "Hirsch.HullCoordinate.vertex_hull"
+  ],
+  "failed_elaboration_reports_with_sorryAx": [
+    "Hirsch.HullCoordinate.improving_edge",
+    "Hirsch.HullCoordinate.original_routes",
+    "Hirsch.HullCoordinate.zero_one_routes",
+    "solution"
+  ],
+  "preserved_accepted_finite_proof_reports_standard_only": 5,
+  "lean_version_observed": "4.30.0",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "theorem_registration_in_this_run": false,
+  "proof_submission_in_this_run": false,
+  "theorem_id": null,
+  "submission_id": null,
+  "ACCEPTED_observed": false,
+  "Proved_observed": false,
+  "independent_platform_poll": false,
+  "artifacts": [
+    {
+      "id": 10665062775,
+      "name": "prove2me-publish-request",
+      "bytes": 313,
+      "sha256": "1ee3ea6e81fc354edf4491ed3b74d4b3ed5b1e1d01c5d4c16ab64af7701a3ae4",
+      "downloaded_and_rehashed": true
+    }
+  ],
+  "verified_packet_artifact_produced": false,
+  "publication_receipt_artifact_produced": false,
+  "full_decoded_verifier_runner_log_read": true,
+  "compiler_diagnostics_storage": "complete compiler warning/error/axiom block transcribed without runner timestamps; not raw runner archive",
+  "source_edits_after_gate": false,
+  "extra_trigger_or_rerun": false,
+  "proposal_applied_to_publication_source": false,
+  "local_Lean_compilation": false
+}

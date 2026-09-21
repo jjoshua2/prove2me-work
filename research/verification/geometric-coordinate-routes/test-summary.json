@@ -1,0 +1,28 @@
+{
+  "kind": "derived_exact_regression_summary_not_Lean_verification",
+  "models": 14,
+  "totals": {
+    "generators": 79,
+    "vertices": 74,
+    "facets": 91,
+    "reference_edges": 146,
+    "faces": 424,
+    "active_system_candidates": 417,
+    "nonsimple_vertices": 37,
+    "redundant_generators": 5,
+    "routes": 480,
+    "edges": 690,
+    "shortest_edges": 534,
+    "nonshortest": 134,
+    "local_checks": 2811,
+    "saved_certificates": 690
+  },
+  "full_report_sha256": "b413e70eb1e9606d6b46d329f0be6c4cdcd1cc7e5f13c272c98362ff1450435d",
+  "fixture_sha256": "e0d7c76bcbda5e8a86753afbf60bcc423e1cae8232f1618058ea1b69dfbcf0af",
+  "fixture_bytes": 331977,
+  "clean_script_only_replay_report_and_fixtures_byte_identical": true,
+  "negative_controls": 11,
+  "constructor_uses_reference_edge_table": false,
+  "constructor_uses_exhaustively_derived_supporting_rows": true,
+  "saved_consumer_replay_with_edge_producer_disabled": true
+}

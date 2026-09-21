@@ -1,0 +1,40 @@
+{
+  "kind": "offline stored-evidence corruption checks, not Lean or live API",
+  "controls": [
+    {
+      "name": "altered_source",
+      "rejected": true,
+      "reason": "frozen bytes: solution.lean"
+    },
+    {
+      "name": "missing_axiom_report",
+      "rejected": true,
+      "reason": "all eleven proof reports: solution-compile.log"
+    },
+    {
+      "name": "forbidden_axiom",
+      "rejected": true,
+      "reason": "only standard axioms and no errors: driver-compile.log"
+    },
+    {
+      "name": "nonzero_compile",
+      "rejected": true,
+      "reason": "all three stored compilation exit codes"
+    },
+    {
+      "name": "pending_receipt",
+      "rejected": true,
+      "reason": "stored authenticated publisher ACCEPTED and Proved"
+    },
+    {
+      "name": "wrong_target",
+      "rejected": true,
+      "reason": "publisher target identity"
+    },
+    {
+      "name": "wrong_proof_head",
+      "rejected": true,
+      "reason": "publisher proof commit"
+    }
+  ]
+}

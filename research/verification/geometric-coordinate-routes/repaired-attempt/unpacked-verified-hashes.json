@@ -1,0 +1,54 @@
+{
+  "kind": "derived_hash_inventory_of_unmodified_trusted_artifact",
+  "artifact_id": 10666916593,
+  "files": {
+    "artifact.json": {
+      "sha256": "0f4bf479e34f975da95ebe8733a2ae120a63e5ccf56c814d21163c06e9342f6b",
+      "bytes": 888
+    },
+    "packets/geometric_coordinate_routes/driver-compile.log": {
+      "sha256": "019005a9dca05b028bf5035e745409376b9a66c2292858d59c1531eceafba4ce",
+      "bytes": 1824
+    },
+    "packets/geometric_coordinate_routes/driver.lean": {
+      "sha256": "250ab15136fee24d87a2b77312ecd51bd5cefb2f082b9a57f9771d266da4cfa2",
+      "bytes": 43268
+    },
+    "packets/geometric_coordinate_routes/explanation.md": {
+      "sha256": "550e6f9be90a622a462f0473afda43e87b0633b96353695e04e681e3683c9634",
+      "bytes": 5053
+    },
+    "packets/geometric_coordinate_routes/manifest.json": {
+      "sha256": "8f9c8f7163ba49db7a2bf98de98400da4eef8732bb6495f23457e27229fe7bc4",
+      "bytes": 663
+    },
+    "packets/geometric_coordinate_routes/packet-audit.json": {
+      "sha256": "20fadaa66b6e19935d21af78179b6faf22f343bb42316941be9b172559ef4155",
+      "bytes": 475
+    },
+    "packets/geometric_coordinate_routes/problem.json": {
+      "sha256": "c30f73bdcf3477442a793a917f4c581a4712859d212ebc7f2de99ad002a741df",
+      "bytes": 3019
+    },
+    "packets/geometric_coordinate_routes/solution-compile.log": {
+      "sha256": "6f6fe95f6b7506c263182f23f920250d10a881222175f39ec3375a2567cde35c",
+      "bytes": 1830
+    },
+    "packets/geometric_coordinate_routes/solution.lean": {
+      "sha256": "250ab15136fee24d87a2b77312ecd51bd5cefb2f082b9a57f9771d266da4cfa2",
+      "bytes": 43268
+    },
+    "packets/geometric_coordinate_routes/statement-compile.log": {
+      "sha256": "29bf6128abf77cf7e435fdeeedc26a720b1fd9a4da52eee7ab2dbbffa0e6d8a2",
+      "bytes": 100
+    },
+    "packets/geometric_coordinate_routes/statement.lean": {
+      "sha256": "3b24b67ce9dc8926c591cfacdc734fa57d6913a1e20dbaad9d11110d33869a96",
+      "bytes": 943
+    },
+    "pr-comment.md": {
+      "sha256": "7547cd2ad5751aedb8d7db801433e8a50ab82ec94601fe52eb3613d2eed0d773",
+      "bytes": 359
+    }
+  }
+}
