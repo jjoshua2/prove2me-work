@@ -712,7 +712,16 @@ lemma locked_face (C : Finset (Fin d → ℝ))
         exact ⟨⟨hx,fun j hj => hs j (Or.inr hj)⟩,(hs i (Or.inl rfl)).trans hvi.symm⟩
     have hlocal : IsExtreme ℝ (convexHull ℝ (D : Set (Fin d → ℝ)))
         (convexHull ℝ (D.filter (fun x => A i x=A i v) : Set (Fin d → ℝ))) := by
-      simpa only [Finset.image_id] using hex.isExtreme
+      have hid : ∀ E : Finset (Fin d → ℝ), E.image (fun x => x)=E := by
+        intro E
+        ext x
+        constructor
+        · intro hx
+          obtain ⟨y,hy,he⟩ := Finset.mem_image.mp hx
+          exact he ▸ hy
+        · intro hx
+          exact Finset.mem_image.mpr ⟨x,hx,rfl⟩
+      simpa only [hid] using hex.isExtreme
     rw [hfilter] at hlocal
     exact (ih hS).trans hlocal
 
@@ -856,8 +865,15 @@ theorem solution (d m : ℕ) (C : Finset (Fin d → ℝ))
           ∃ i, A i v=b i ∧ A i (p t.castSucc) ≠ b i ∧ A i (p t.succ)=b i := by
   classical
   obtain ⟨p,hp⟩ := Hirsch.TargetRows.locked_route C A b hP v hv htwo u hu
-  refine ⟨p.length,hp.trans (Hirsch.TargetRows.missing_bound A b u v hu),hp,
+  have hset : Hirsch.TargetRows.missing A b v u =
+      @Finset.filter (Fin m) (fun i => A i v=b i ∧ A i u ≠ b i)
+        (fun _ => Classical.propDecidable _) Finset.univ := by
+    ext i
+    simp only [Hirsch.TargetRows.mem_missing,Finset.mem_filter,Finset.mem_univ,true_and]
+  refine ⟨p.length,hp.trans (Hirsch.TargetRows.missing_bound A b u v hu),?_,
     fun t => p.point t.val,p.first,p.last,?_,?_⟩
+  · rw [← hset]
+    exact hp
   · intro t
     exact (Finset.mem_filter.mp (p.mem t.val (by have h := t.isLt; omega))).2
   · intro t
