@@ -1,0 +1,25 @@
+{
+  "head_sha": "cc03202e6f263464af86d58d82a6b3414d097b67",
+  "packets": [
+    {
+      "path": "research/publication_packets/target_two_level_routes",
+      "name": "target_two_level_routes",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "f94cfe8e0c8951167832c6a60bdf128bb26ec309fe1f4348bc3f43bdc7aa3741",
+        "driver.lean": "f94cfe8e0c8951167832c6a60bdf128bb26ec309fe1f4348bc3f43bdc7aa3741",
+        "statement.lean": "d91d6192d6fe0d45c2ba89e69590f826aab6108457b0dabe3840643173b4e204",
+        "problem.json": "551c497ddc57f120bf04b5ec00b3a8ebc256347b47899cfb270fe569f69dadfe",
+        "explanation.md": "cd40d357757d1039a697788d5e6a98b82663418ad46ed871cb16e7e9bfa54103"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}

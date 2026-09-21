@@ -1,0 +1,15 @@
+{
+  "head_sha": "cc03202e6f263464af86d58d82a6b3414d097b67",
+  "packets": [
+    {
+      "packet": "target_two_level_routes",
+      "status": "ACCEPTED",
+      "theorem_id": "1af3403d-78a5-4897-888c-f212df868057",
+      "submission_id": "0f245701-cf03-4175-b094-ffec557cab21",
+      "theorem_name": "Hirsch.target_two_level_original_hirsch_routes",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/target_two_level_routes"
+    }
+  ]
+}

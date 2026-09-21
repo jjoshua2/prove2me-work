@@ -1,0 +1,18 @@
+# Scoped exact excerpt from decoded runner logs, not a full raw log archive
+# Run 35664864881; complete decoded verify/publish logs were read through cleanup.
+# Complete compiler logs are preserved unchanged in verified/packets/target_two_level_routes/.
+
+2026-09-21T22:53:22.7972926Z Lake version 5.0.0-src+d024af0 (Lean version 4.30.0)
+2026-09-21T22:53:22.8609225Z   GITHUB_TOKEN: 
+2026-09-21T22:53:22.8609474Z   PROVE2ME_API_KEY: 
+2026-09-21T22:53:47.6546520Z SHA256 digest of uploaded artifact zip is 4f49fbfb204a56c48be048158934447fb2635a60d419a10d5ecccc818de77edc
+2026-09-21T22:53:56.9472839Z SHA256 digest of downloaded artifact is 4f49fbfb204a56c48be048158934447fb2635a60d419a10d5ecccc818de77edc
+2026-09-21T22:56:51.0945723Z - **Hirsch.target_two_level_original_hirsch_routes**: ACCEPTED
+2026-09-21T22:56:51.0946336Z   - theorem `1af3403d-78a5-4897-888c-f212df868057`
+2026-09-21T22:56:51.0946859Z   - submission `0f245701-cf03-4175-b094-ffec557cab21`
+2026-09-21T22:56:51.7437071Z SHA256 digest of uploaded artifact zip is cc29426dd204208a0db36288fb256bd85e616ee27b8289d6705d7113a2b1c4fd
+2026-09-21T22:56:52.9109699Z https://github.com/jjoshua2/prove2me-work/pull/323#issuecomment-5768657981
+
+# The downloaded aggregate receipt additionally records registration PUBLISHED
+# and live_status Proved. This is the publisher's authenticated readback, not
+# an independent new platform/root poll or an export of individual API bodies.

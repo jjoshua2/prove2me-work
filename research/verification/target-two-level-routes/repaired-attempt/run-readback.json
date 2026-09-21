@@ -1,0 +1,85 @@
+{
+  "kind": "derived_GitHub_and_downloaded_artifact_readback_not_new_platform_poll",
+  "repository": "jjoshua2/prove2me-work",
+  "pr": 323,
+  "proof_sha": "cc03202e6f263464af86d58d82a6b3414d097b67",
+  "main_sha": "88ceb7dc0465c724227cce8aa96a29d00eed17a9",
+  "coordination_comment": 5768590123,
+  "trigger_comment": 5768617666,
+  "acknowledgement_comment": 5768619366,
+  "verdict_comment": 5768657981,
+  "verdict_comment_time_utc": "2026-09-21T22:56:52Z",
+  "run_id": 35664864881,
+  "jobs": {
+    "gate": {
+      "id": 106548225103,
+      "conclusion": "success"
+    },
+    "verify": {
+      "id": 106548276390,
+      "conclusion": "success"
+    },
+    "publish": {
+      "id": 106548579518,
+      "conclusion": "success"
+    },
+    "report-verify": {
+      "id": 106548580382,
+      "conclusion": "skipped"
+    }
+  },
+  "lean_version_observed_in_log": "4.30.0",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "compilation_exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "complete_proof_axiom_reports_per_file": 6,
+  "standard_only": true,
+  "publication": {
+    "packet": "target_two_level_routes",
+    "status": "ACCEPTED",
+    "theorem_id": "1af3403d-78a5-4897-888c-f212df868057",
+    "submission_id": "0f245701-cf03-4175-b094-ffec557cab21",
+    "theorem_name": "Hirsch.target_two_level_original_hirsch_routes",
+    "registration": "PUBLISHED",
+    "live_status": "Proved",
+    "path": "research/publication_packets/target_two_level_routes"
+  },
+  "publication_source": "unchanged downloaded aggregate publisher receipt",
+  "independent_platform_or_mission_root_poll": false,
+  "individual_API_response_bodies_available": false,
+  "first_failed_run_preserved": 35663132643,
+  "hosted_compile_attempts_for_target": 2,
+  "actual_platform_submissions_for_target": 1,
+  "new_publication_triggers_this_continuation": 1,
+  "post_gate_proof_edits": false,
+  "local_Lean_compilation": false,
+  "full_decoded_verify_and_publish_logs_read": true,
+  "runner_log_preservation": "selected exact excerpt only; full compiler logs preserved unchanged",
+  "artifacts": [
+    {
+      "file": "pr323-repaired-request.zip",
+      "id": 10667904985,
+      "bytes": 311,
+      "sha256": "60cc1fe8d31dfb278e9ea05eec4f0e717cbf9f6cf8e389f3b328f301454e8e37",
+      "downloaded_and_rehashed": true
+    },
+    {
+      "file": "pr323-repaired-verified.zip",
+      "id": 10668264915,
+      "bytes": 28865,
+      "sha256": "4f49fbfb204a56c48be048158934447fb2635a60d419a10d5ecccc818de77edc",
+      "downloaded_and_rehashed": true
+    },
+    {
+      "file": "pr323-publication-receipts.zip",
+      "id": 10669690092,
+      "bytes": 916,
+      "sha256": "cc29426dd204208a0db36288fb256bd85e616ee27b8289d6705d7113a2b1c4fd",
+      "downloaded_and_rehashed": true
+    }
+  ],
+  "optional_checker_script_upload": "blocked by tool safety check; no alternative-action retry; remains local export only"
+}

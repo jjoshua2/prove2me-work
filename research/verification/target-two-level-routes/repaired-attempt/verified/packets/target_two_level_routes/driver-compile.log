@@ -1,0 +1,6 @@
+'Hirsch.TargetRows.extreme_kernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.TargetRows.active_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.TargetRows.locked_face' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.TargetRows.acquiring_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.TargetRows.locked_route' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]

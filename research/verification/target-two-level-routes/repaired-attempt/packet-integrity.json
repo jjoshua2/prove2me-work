@@ -1,0 +1,74 @@
+{
+  "kind": "offline_frozen_evidence_check_not_Lean_or_live_platform_verification",
+  "status": "PASS",
+  "checks": [
+    "manifest proof identity",
+    "Mathlib pin",
+    "publishable flag",
+    "complete immutable hash map",
+    "solution.lean digest",
+    "driver.lean digest",
+    "statement.lean digest",
+    "problem.json digest",
+    "explanation.md digest",
+    "driver equals solution",
+    "recorded audit PASS",
+    "three recorded compile exits",
+    "audit hash binding",
+    "recorded audit axiom set",
+    "exact public type text",
+    "target metadata binding",
+    "source admission-token scan",
+    "driver-compile.log six exact reports",
+    "driver-compile.log standard-only axioms",
+    "driver-compile.log no recorded proof errors",
+    "solution-compile.log six exact reports",
+    "solution-compile.log standard-only axioms",
+    "solution-compile.log no recorded proof errors",
+    "receipt proof identity",
+    "receipt target binding",
+    "recorded publisher verdict",
+    "exact receipt identifiers",
+    "receipt identifier format"
+  ],
+  "count": 28,
+  "publication_checked": true,
+  "negative_controls": [
+    {
+      "case": "altered proof",
+      "rejected": true
+    },
+    {
+      "case": "wrong environment",
+      "rejected": true
+    },
+    {
+      "case": "failed compile exit",
+      "rejected": true
+    },
+    {
+      "case": "missing axiom report",
+      "rejected": true
+    },
+    {
+      "case": "sorryAx log",
+      "rejected": true
+    },
+    {
+      "case": "pending receipt",
+      "rejected": true
+    },
+    {
+      "case": "wrong receipt proof",
+      "rejected": true
+    },
+    {
+      "case": "wrong receipt identifier",
+      "rejected": true
+    },
+    {
+      "case": "wrong receipt theorem",
+      "rejected": true
+    }
+  ]
+}
