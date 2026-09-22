@@ -1,0 +1,87 @@
+{
+  "kind": "derived_GitHub_and_downloaded_artifact_readback_not_independent_platform_poll",
+  "repository": "jjoshua2/prove2me-work",
+  "pr": 334,
+  "proof_sha": "38ddf462561dfeb95b448084ae98c4d4ba83b0e8",
+  "trusted_main_sha": "165eadd7cfc012c6d251b576ee89351c8fea8b62",
+  "coordination_comment": 5782598899,
+  "trigger_comment": 5782625542,
+  "acknowledgement_comment": 5782629064,
+  "verdict_comment": 5782697350,
+  "verdict_time_utc": "2026-09-22T19:31:44Z",
+  "run_id": 35773822193,
+  "jobs": {
+    "gate": {
+      "id": 106901845896,
+      "conclusion": "success"
+    },
+    "verify": {
+      "id": 106901935747,
+      "conclusion": "success"
+    },
+    "publish": {
+      "id": 106902332565,
+      "conclusion": "success"
+    },
+    "report-verify": {
+      "id": 106902335313,
+      "conclusion": "skipped"
+    }
+  },
+  "theorem_id": "e3e924a7-cae1-4fff-9bdb-1433126cb7f7",
+  "submission_id": "56cc888e-a904-4dff-8695-c0be8e26804d",
+  "publication": {
+    "packet": "affine_normalizer_search",
+    "status": "ACCEPTED",
+    "theorem_id": "e3e924a7-cae1-4fff-9bdb-1433126cb7f7",
+    "submission_id": "56cc888e-a904-4dff-8695-c0be8e26804d",
+    "theorem_name": "Hirsch.affine_normalizer_finite_search",
+    "registration": "PUBLISHED",
+    "live_status": "Proved",
+    "path": "research/publication_packets/affine_normalizer_search"
+  },
+  "compile_exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "standard_only_reports_per_proof_log": 6,
+  "lean_version_observed": "4.30.0",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "protocol_unchanged": "0.10.8",
+  "hosted_compiler_attempts": 2,
+  "actual_platform_submissions": 1,
+  "new_triggers_this_continuation": 1,
+  "first_failed_run_preserved": 35763480309,
+  "post_gate_proof_or_metadata_changes": false,
+  "local_Lean_compilation": false,
+  "independent_platform_or_mission_root_poll": false,
+  "full_decoded_verify_and_publish_logs_read": true,
+  "runner_log_storage": "Selected exact excerpt; complete compiler logs preserved unchanged",
+  "individual_platform_API_bodies_available": false,
+  "raw_packet_tree": "d4328423ddceda26949ad50499adfb2b43e38202",
+  "raw_verified_tree": "1b7f2fb2caad5e792d0bba27c91934f84a9fad19",
+  "artifacts": [
+    {
+      "file": "pr334-repaired-verified.zip",
+      "id": 10715690126,
+      "bytes": 18233,
+      "sha256": "4160a16a0910e63b9e971eceacc579c1031b27309c4e4c3a8948a1628ecd007b",
+      "extract_dir": "verified"
+    },
+    {
+      "file": "pr334-repaired-request.zip",
+      "id": 10715157436,
+      "bytes": 308,
+      "sha256": "3510783d5e63432b51be6c53c973bc5aebe4d9c42e12459aaafd28c773af2866",
+      "extract_dir": "request"
+    },
+    {
+      "file": "pr334-publication-receipts.zip",
+      "id": 10714878990,
+      "bytes": 897,
+      "sha256": "27486b88c2360637e7e40e655024383d25b4dd6b327c4a98f618f5d558bea372",
+      "extract_dir": "receipts"
+    }
+  ]
+}

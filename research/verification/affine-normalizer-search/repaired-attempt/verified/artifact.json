@@ -1,0 +1,25 @@
+{
+  "head_sha": "38ddf462561dfeb95b448084ae98c4d4ba83b0e8",
+  "packets": [
+    {
+      "path": "research/publication_packets/affine_normalizer_search",
+      "name": "affine_normalizer_search",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "5e37a3c417a051e978bf7cb6f330007eb27a0808dc0530f02ee30c449e1e233c",
+        "driver.lean": "5e37a3c417a051e978bf7cb6f330007eb27a0808dc0530f02ee30c449e1e233c",
+        "statement.lean": "b7e39dabbaf6fe166ecdb8f4530367e565fe2fd65d4234216cbbbbdff5c64139",
+        "problem.json": "78be5e5fcb5a73c03ed540bdfb1fb9f8251fe2debf94c098a93b3c2b6a2592b7",
+        "explanation.md": "9edaa35921d89444b59da8e73190906e9f08e9c79c39e648519ef1f142b639f8"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}

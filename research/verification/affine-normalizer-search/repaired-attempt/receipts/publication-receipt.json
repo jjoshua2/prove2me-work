@@ -1,0 +1,15 @@
+{
+  "head_sha": "38ddf462561dfeb95b448084ae98c4d4ba83b0e8",
+  "packets": [
+    {
+      "packet": "affine_normalizer_search",
+      "status": "ACCEPTED",
+      "theorem_id": "e3e924a7-cae1-4fff-9bdb-1433126cb7f7",
+      "submission_id": "56cc888e-a904-4dff-8695-c0be8e26804d",
+      "theorem_name": "Hirsch.affine_normalizer_finite_search",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/affine_normalizer_search"
+    }
+  ]
+}

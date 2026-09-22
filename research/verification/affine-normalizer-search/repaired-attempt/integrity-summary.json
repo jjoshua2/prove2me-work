@@ -1,0 +1,17 @@
+{
+  "kind": "offline_consistency_not_Lean_or_live_authentication",
+  "status": "PASS",
+  "file_checks": 0,
+  "content_checks": 74,
+  "raw_members": 15,
+  "corruptions_rejected": [
+    "altered proof",
+    "missing axiom report",
+    "forbidden axiom",
+    "failed compilation",
+    "wrong request",
+    "pending result",
+    "non-Proved readback",
+    "changed raw archive"
+  ]
+}
