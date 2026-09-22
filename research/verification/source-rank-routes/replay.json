@@ -1,0 +1,8 @@
+{
+  "kind": "clean_five_script_replay_not_Lean",
+  "script_count": 5,
+  "outputs": {
+    "report.json": {"bytes": 4317, "sha256": "960ddf9755e71358a1be54dd7f4900672ff2c49befe0d27aee5e7cc67490300b", "byte_identical": true},
+    "fixtures.json": {"bytes": 5674989, "sha256": "f065c9036dc879f850907415078cdbae0a92cb814f6165cc3a5e71ccc68e58cc", "byte_identical": true}
+  }
+}

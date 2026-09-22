@@ -1,0 +1,13 @@
+--- a/research/publication_packets/source_rank_routes/solution.lean
++++ b/research/publication_packets/source_rank_routes/solution.lean
+@@ -1056,7 +1056,9 @@
+     exact (Finset.mem_filter.mp (p.mem t.val (by have ht := t.isLt; omega))).2
+   · intro t
+     have ht := p.step t.val t.isLt
+-    exact ⟨ht.1,by simpa only [hR] using ht.2⟩
++    have hs : t.succ.val=t.val+1 := rfl
++    have hc : t.castSucc.val=t.val := rfl
++    exact ⟨ht.1,by simpa only [hR,R,F,V,hs,hc] using ht.2⟩
+ 
+ #print axioms Hirsch.HullCoordinate.strict_vertex_functional
+ #print axioms Hirsch.SourceRank.minimizers

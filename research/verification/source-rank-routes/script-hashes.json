@@ -1,0 +1,10 @@
+{
+  "kind": "local_executed_script_hashes_not_committed_new_scripts",
+  "scripts": {
+    "normalizer_synthesis.py": {"bytes": 10823, "sha256": "2317b793b75e6e08d9baedb67db9028857fe3e7b024f977430dd73ab61839080", "git_blob": "4e9156079b7962bcd989c9e17b75e6ad63a1b2d9", "new": false},
+    "source_rank_search.py": {"bytes": 6634, "sha256": "ea782a9af84afee4fd0a73b3928bce0b00a70cb79fc58c6c61859fde72b13968", "git_blob": "d1ef15a85f6711b110523acbd35f6a750dfee005", "new": true},
+    "test_geometric_coordinate_routes.py": {"bytes": 12364, "sha256": "f42b703f7050f3d43ea74ad1055f1d18f23edeafd91ad49d6e793c20aafd4508", "git_blob": "74950294276562c9e9fa5f60c91f210c3a211997", "new": false},
+    "test_source_rank_routes.py": {"bytes": 9261, "sha256": "ab7096e9d4f9872aa56b43257c6f28b2e0ddd0022665acd34d5d4ab3fcb6052f", "git_blob": "833de42b85922576812025dc48dbfe2866a45787", "new": true},
+    "test_target_two_level_routes.py": {"bytes": 11453, "sha256": "6a29d39d5d989632b5708ae6d4c6df07052304d137371c8842cc906e04b25b74", "git_blob": "ca51b8dc4e752a9b136ca55748f0f52f5e02ffa5", "new": false}
+  }
+}

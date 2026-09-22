@@ -1,0 +1,11 @@
+# Selected exact runner lines, not a complete raw runner archive.
+# Both complete decoded job logs were read through cleanup.
+2026-09-22T23:46:54.7508907Z Lake version 5.0.0-src+d024af0 (Lean version 4.30.0)
+2026-09-22T23:46:54.7765933Z   GITHUB_TOKEN: 
+2026-09-22T23:46:54.7766147Z   PROVE2ME_API_KEY: 
+2026-09-22T23:47:20.9110990Z SHA256 digest of uploaded artifact zip is d8dc453bcb0d0612c0af0ce13929c011048e922267b74e7e7029d2a3251056ec
+2026-09-22T23:51:28.8457555Z - **Hirsch.source_rank_reoptimized_original_routes**: ACCEPTED
+2026-09-22T23:51:28.8458034Z   - theorem `0953784a-17e7-4bbd-a3d7-29d1f96b3925`
+2026-09-22T23:51:28.8458459Z   - submission `4321c4cc-1ab7-4e8a-be32-0f811d48da45`
+2026-09-22T23:51:29.5168536Z SHA256 digest of uploaded artifact zip is 0b3f3ef60623271bdeee2955e5419ae975b559dd1f943e8d5da151f7d465d318
+2026-09-22T23:51:32.2291964Z https://github.com/jjoshua2/prove2me-work/pull/336#issuecomment-5786411938

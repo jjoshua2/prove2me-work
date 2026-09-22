@@ -1,0 +1,10 @@
+# Selected exact runner lines, not a complete raw runner archive.
+# Full decoded verifier log was read through cleanup; compiler output is in driver-diagnostics.txt.
+2026-09-22T22:07:54.2121469Z SHA256 digest of downloaded artifact is db513b8440f3acf910eea14ff604edeb9219311e5c77f8f3e60d3c2db7213ca7
+2026-09-22T22:08:30.7688438Z Lake version 5.0.0-src+d024af0 (Lean version 4.30.0)
+2026-09-22T22:08:30.7875573Z   GITHUB_TOKEN: 
+2026-09-22T22:08:30.7875917Z   PROVE2ME_API_KEY: 
+2026-09-22T22:08:42.7989259Z _verified/packets/source_rank_routes/driver.lean:1059:19: error: Type mismatch: After simplification, term
+2026-09-22T22:08:42.8084446Z 'Hirsch.SourceRank.ranked_route' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-22T22:08:42.8085438Z 'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-22T22:08:42.8101360Z ##[error]Process completed with exit code 1.
