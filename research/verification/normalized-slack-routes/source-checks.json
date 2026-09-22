@@ -1,0 +1,26 @@
+{
+  "kind": "static_source_checks_not_compilation",
+  "source_lines": 1255,
+  "dependency_prefix_bytes": 38243,
+  "dependency_prefix_lines": 932,
+  "public_type_exact_match": true,
+  "all_dependency_manifest_hashes_checked": true,
+  "files": {
+    "explanation.md": {
+      "bytes": 11123,
+      "sha256": "0cbefb5c6eacdf95840b2bd9d5304f7c7a8a4bfd39cc58efb9082c98541d9c78",
+      "git_blob": "8ded29786b83409a7e181d13fbd1730ce9d3e17c"
+    },
+    "problem.json": {
+      "bytes": 4216,
+      "sha256": "43ce216c986698eae370f4a38c7a311adcdae876915a5b8742f703ef8175bc8d",
+      "git_blob": "f19a813e28ceb881030d5b904084bb181382f6df"
+    },
+    "solution.lean": {
+      "bytes": 54761,
+      "sha256": "5c2fee6a2a2d3c2db51061a3b69251937b1dafd4b7ea068a6973a7d01a1a80ff",
+      "git_blob": "cec73e910f915bb2eca51f5e93564e48c39fdc2d"
+    }
+  },
+  "upload_note": "One separating blank line between new namespace and public root was added during serialization; local reconstruction matches the remote blob exactly. No proof tokens, inherited prefix or type changed."
+}

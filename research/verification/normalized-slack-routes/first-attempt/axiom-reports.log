@@ -1,0 +1,7 @@
+'Hirsch.TargetDetermining.small_completion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.NormalizedSlack.improve_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.NormalizedSlack.acquire_row' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.NormalizedSlack.minimum_completion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.NormalizedSlack.selected_routes' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.NormalizedSlack.weight_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

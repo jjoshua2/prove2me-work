@@ -1,0 +1,18 @@
+{
+  "kind": "unapplied_uncompiled_two_site_repair_proposal",
+  "tested_proof": "68a18b866c9a3e2cd3ea8a3f2b9f127d46e312ca",
+  "tested_source_blob": "cec73e910f915bb2eca51f5e93564e48c39fdc2d",
+  "proposed_source_bytes": 54933,
+  "proposed_source_lines": 1261,
+  "proposed_source_sha256": "06243abca39cde66c3491ab7ba95248f74de5ca78993b9b9538525c90568746d",
+  "proposed_source_blob": "f0a56f9af96ab0cb19a6cdc14bc84f388923e9d7",
+  "changes": [
+    "Name the acquisition length bound with the existing local S.card before returning it; do not make omega identify the local alias with a new atom.",
+    "Expose a pointwise equality for the partially applied ratio function in the public weight wrapper before simplifying its Finset.image."
+  ],
+  "public_type_unchanged": true,
+  "metadata_and_explanation_unchanged": true,
+  "applied_to_publication_source": false,
+  "compiled": false,
+  "patch_apply_reverse_roundtrip": true
+}
