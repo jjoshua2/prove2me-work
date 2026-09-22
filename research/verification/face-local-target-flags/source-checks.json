@@ -1,0 +1,17 @@
+{
+  "kind": "static_source_checks_not_Lean_compilation",
+  "dependency_full_source_blob": "4202603709626ec3c9ad0bf9922f5c2affbdae53",
+  "dependency_manifest_all_five_hashes_checked": true,
+  "retained_blocks_byte_identical": true,
+  "reuse_bytes": 38243,
+  "reuse_lines": 932,
+  "public_type_matches_metadata": true,
+  "axiom_report_requests": 8,
+  "local_Lean_compilation": false,
+  "source_sha256": "095a943e655a507455037404f750f96e52f671cb3fe68f20432bf09342f9b620",
+  "source_blob": "e044971a320c27c5b899a961063ae99a2b4cdc6c",
+  "source_lines": 1297,
+  "source_bytes": 55795,
+  "remote_blob_matches": true,
+  "precommit_serialization_note": "Independent optimal-route obtain moved before local q-identity proof during upload; local reconstruction hashes exactly to returned blob. No inherited proof body or public type changed."
+}

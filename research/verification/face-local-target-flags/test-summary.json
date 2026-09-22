@@ -1,0 +1,20 @@
+{
+  "kind": "derived_summary_of_executed_exact_tests_not_Lean",
+  "models": 18,
+  "totals": {
+    "vertices": 100,
+    "original_rows": 136,
+    "routes": 650,
+    "edges": 733,
+    "shortest_edges": 726,
+    "nonshortest": 7,
+    "local_better_than_global_min": 184,
+    "candidate_orders": 30238,
+    "multi_edge_phases": 36,
+    "nonacquiring_steps": 18
+  },
+  "small_controls_rejected": 9,
+  "large_cases": 5,
+  "large_original_edges": 124,
+  "large_controls_rejected": 4
+}

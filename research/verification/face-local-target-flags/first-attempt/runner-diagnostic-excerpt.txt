@@ -1,0 +1,11 @@
+# Selected exact runner lines, NOT a complete raw runner archive.
+# Full decoded verifier job log was read through cleanup.
+2026-09-22T15:05:24.0056720Z SHA256 digest of downloaded artifact is b6c7b873285f5cba5e745482b6282a684d139dc1177e30c0e3d1a385c5fb93dd
+2026-09-22T15:06:00.6270953Z Lake version 5.0.0-src+d024af0 (Lean version 4.30.0)
+2026-09-22T15:06:00.6480173Z   GITHUB_TOKEN: 
+2026-09-22T15:06:00.6480407Z   PROVE2ME_API_KEY: 
+2026-09-22T15:06:12.7524996Z face_local_target_flags/driver.lean failed to compile:
+2026-09-22T15:06:12.7540584Z _verified/packets/face_local_target_flags/driver.lean:1265:78: error: unsolved goals
+2026-09-22T15:06:12.7581305Z 'Hirsch.FaceLocal.optimal_flag_routes' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-22T15:06:12.7582398Z 'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-22T15:06:12.7625345Z ##[error]Process completed with exit code 1.
