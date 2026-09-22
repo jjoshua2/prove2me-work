@@ -1,113 +1,107 @@
-# PR336: source-sensitive original-edge rank — internal proof clean, wrapper failed
+# PR #336: second wrapper gate failed; explicit extensional repair proposed
 
-Read STATUS.md, AGENTS.md, CLOUD_AGENT.md, SKILL.md and CONTINUE_HIRSCH.md, then
-LIVE heads, comments and assignments before resuming. Do not repeat accepted
-#335 or other targets. #336 remains OPEN/DRAFT; no actual platform submission.
+Read the five project instruction files and live heads/comments before resuming.
+Continue this same PR and target. Do not reapply the first repair or resubmit
+accepted dependencies. #326, #282 and reserved #210 remain separate assignments.
 
-## Identity and actual gate
+## Exact current state
 
-Repository jjoshua2/prove2me-work; PR336.
+Repository jjoshua2/prove2me-work; PR #336, OPEN/DRAFT and unmerged.
 Branch proof/source-rank-original-routes.
-Target Hirsch.source_rank_reoptimized_original_routes.
 Packet research/publication_packets/source_rank_routes.
-Frozen tested proof e0dda913902528901bafb5b2c3049cef4dcb142b.
-Base/trusted main952c00ef150bedc0b114f7cd428ea90e36daf021.
-Source1067 lines/45630 bytes; blob39ab5cec2a687fdf40386c4571fb94278c5cf407,
-SHA25645e9676e473e3ff1c61f4ec37b8044971ef2e5f86e94fb4baf1e2edc738c3fc8.
-Coordination5784729457; actual request5784984308; acknowledgement5784987737;
-run35790637527. All relevant comment identities were read back.
+Target Hirsch.source_rank_reoptimized_original_routes.
+Tested proof b144922b8ca5e4f7fad71aaa0c948892753657c7.
+Trusted main 952c00ef150bedc0b114f7cd428ea90e36daf021.
+Source 1069 lines / 45724 bytes; blob 47af41dbdda528862c585c522c2452de918e1af3;
+SHA256 0ec12af9c127caf4d28df32997ad5607aa8cdb98c69722bf2613ce48f7372853.
+The evidence commit does not replace this tested identity or modify its inputs.
 
-Gate106957989213 succeeded; verifier106958053993 failed driver compilation with
-one error at1059:19. The standalone solution and statement were not reached.
-Publish106958349197 and report-verify106958348832 skipped. No theorem/submission
-IDs, registration, submission, ACCEPTED, Proved or receipt exists from the run.
-All6 internal named reports, including the full ranked_route, are standard-only;
-public solution still has failed-elaboration sorryAx. No admission was written.
-Do not call the complete packet verified based on those helper reports.
+Coordination 5785931947, actual new request 5786002661, acknowledgement
+5786005146, run 35797243242. Gate 106979273223 succeeded; verifier 106979325443
+failed driver compilation, exit 1. Separate solution/statement were not reached.
+Publish 106979866989 and report-verify 106979867272 were skipped. Two hosted
+compiler attempts overall, one new trigger in this continuation, zero actual
+platform registrations or proof submissions. No IDs, receipt, ACCEPTED or Proved.
+No third trigger and no post-gate proof/metadata edit.
 
-## Saved, UNAPPLIED and UNCOMPILED repair
+## Applied first patch and remaining error
 
-The final per-edge wrapper simplification must connect natural route indices
-t.val+1/t.val with t.succ.val/t.castSucc.val while exposing local finite filters.
-The proposed one-site replacement is:
+The first saved patch was applied exactly: three lines replaced one at the last
+public step. Explicit Fin successor and castSucc projection equalities now put
+both printed sides at t.val+1 and t.val. The sole error remains at 1061:19:
+Lean rejects the final inequality between displayed filter/image cardinalities.
+Do not treat alpha-equivalent printing as definitional equality or infer an
+exact hidden-instance cause from this log.
 
-    have hs : t.succ.val=t.val+1 := rfl
-    have hc : t.castSucc.val=t.val := rfl
-    exact ⟨ht.1,by simpa only [hR,R,F,V,hs,hc] using ht.2⟩
+Six internal reports remain standard-only, including ranked_route. Public
+solution retains failed-elaboration sorryAx. No admission was written. Neither
+the wrapper nor the complete public packet has passed.
 
-All helpers, declaration signatures, public type, other root proof code,
-problem.json and explanation.md remain identical. Proposed complete source:
-1069 lines/45724 bytes; blob47af41dbdda528862c585c522c2452de918e1af3;
-SHA2560ec12af9c127caf4d28df32997ad5607aa8cdb98c69722bf2613ce48f7372853.
-The repository stores the exact patch and proposal record; the export also
-contains proposal/solution.lean. Apply/check/reverse passes, not compilation.
-Further errors can appear. The publication source remains the failed source.
+## New one-site proposal, UNAPPLIED and UNCOMPILED
 
-Next proof action: recheck pending jobs/ownership, apply the narrow patch on
-THIS PR, review the exact diff, compile locally when possible, then use one
-prepared complete final gate with the SAME target. Preserve the first failure.
-Do not weaken any hypothesis or change environment/protocol to compile.
+Retain hs and hc, then use:
 
-## Positive mathematical content and limits
+    refine ⟨ht.1, ?_⟩
+    convert ht.2 using 1 <;> congr 1 <;> ext a <;>
+      simp only [Hirsch.SourceRank.lower,Hirsch.SourceRank.ratio,
+        Hirsch.SourceRank.face,Hirsch.TargetRows.vertexSet,
+        Hirsch.TargetRows.body,R,F,V,Finset.mem_filter,Finset.mem_image,hs,hc]
 
-Derive a fixed strictly target-exposing linear h. At each actual vertex x,
-F(x) is the COMPLETE actual vertex set satisfying all original rows tight at
-both x and target v. Among all affine q_D(z)=1+D(z-v)>0 on F(x), minimize the
-number of DISTINCT h(z-v)/q_D(z) values below the CURRENT value at x. Let rho(x)
-be that minimum. The internal theorem derives an original neighbor lowering
-rho at EVERY edge, including steps acquiring no new target row, then assembles
-a route of length<=rho(u) with rho(v)=0.
+This attempts explicit cardinality congruence and finite-set membership equality
+rather than another whole-expression simplification. Exact patch:
+research/verification/source-rank-routes/second-attempt/proposed-extensional-repair.patch.
+Proposed full source 1073 lines / 45943 bytes; computed blob
+6617ad6d6c02ee0f2fa2cbb4b66c6993b42b375d; SHA256
+3e366e4f2472806d216e6024978b7efd2014e9b6d12c03136d779f50a865b85d.
+All helper bodies/signatures, public type, other root code and metadata stay
+unchanged. Apply/check/reverse passes. This is not compilation; further errors
+may appear. The proposed full file is export-only, while the exact patch and
+proposal identity are in the repository.
 
-Old-ratio improvement preserves target locks, gives F(y) subset F(x), and
-strictly removes the new neighbor's old ratio from the lower-value set. The old
-normalizer remains feasible at y, so reoptimization cannot reset the potential.
-Original whole nondegenerate IsExtreme segments and actual vertices are proved.
-Exposure, positive normalizers, attained minima and route are outputs.
+Next: recheck live ownership/pending state, apply this narrow proposal on this
+same source, compile locally when available, and use one complete prepared
+final gate. Do not weaken the public statement or start an Actions edit loop.
 
-The public explicit comparison is with anchored slopes; positive rescaling
-extends it to arbitrary affine intercepts in the written interpretation.
-The numerator is fixed, not jointly optimized at every vertex. Exact finite
-H/hull equality and actual endpoints remain. Redundancy, nonsimple/lower-
-dimensional cases, dimension0 and coincident endpoints remain. No uniform
-polynomial bound on rho, efficient H-to-V, shortestness, or dominance of #335's
-different rowwise phase budget is claimed. The mission still needs original-
-input control of this potential or a different ordinary-edge invariant.
+## Mathematical scope retained
 
-## Exact computations and code-write limitation
+The fixed target-exposing numerator h and positive local normalizers are derived.
+At current x, the complete actual face F(x) retains every original equation
+tight at both x and v. Minimize the number of distinct normalized values below
+the current value. Original ratio-improving edges preserve locks; the old lower
+set strictly shrinks, and reoptimization cannot reset its rank. Strong induction
+constructs the internal route with L<=rho(u), rho(v)=0 and strict rank descent
+on every delivered edge, including constant-face/nonacquiring steps.
 
-The eight-model suite checks159 routes/180 original edges and6346 order cells,
-with6220 rational infeasibility certificates. Source rank beats the minimum FULL
-normalized spectrum minus1 in33 states for the SAME numerator and face. Six
-nonacquiring edges still lower rho. Nine malformed controls fail. All small
-routes happen shortest and no strict extra benefit of reoptimization was
-observed; this is not a theorem of shortestness. The extra seven-vertex stress
-attempt timed out before a complete result and is explicitly marked incomplete.
+Exact finite H/hull equality and actual endpoint extremality remain explicit.
+No uniform polynomial bound on rho, shortestness, efficient H-to-V/order-cell
+search, or dominance over #335's different rowwise budget is proved. Anchored
+normalizers are the public comparison class; general intercepts by rescaling
+remain written interpretation. The mission still needs original-input control
+of the optimum or another positive ordinary-edge argument.
 
-The exact solver enumerates ordered ratio partitions, solves linear equality,
-strict-order and positivity systems, and certifies every lower-rank exclusion.
-The independent consumer reenumerates the exact prefix and verifies nullspaces,
-duals and original edges with solver/route producers disabled. This finite-cell
-construction is written and executed, not formal extraction or parser verification.
+## Evidence and reproducibility
 
-OpenAI blocked the create_blob call staging scripts/source_rank_search.py because
-it could not determine the safety status. No blob was returned and no retry or
-alternate upload was attempted. Both NEW scripts are retained ONLY in the local
-export, alongside three unchanged dependencies. Do not claim them committed or
-try to route around that blocked write. The Lean packet does not depend on them.
+second-attempt/ preserves the tested inputs, old complete handoff, exact request,
+full displayed diagnostic/all seven reports, selected runner lines and labelled
+derived failure/repair/source/replay records. first-attempt/ is unchanged.
+Packet second-gate-evidence.md is current; first-gate-evidence.md is historical.
+The raw second request ZIP was rehashed: artifact10724096862, 307 bytes,
+SHA25679621ab6cff62cefd32e72db42c59cc168343886580daa1bfe04255e0bf9a477.
+Only a request artifact exists. No missing verified/publication archive is invented.
+Full decoded runner logs were read; stored extracts are not full raw archives.
 
-From the EXTRACTED EXPORT (not the current repository), reproduce with:
+The five export scripts reran unchanged and reproduced both complete outputs:
+159 routes/180 original edges,6346 cells/6220 exclusions,33 same-numerator savings,
+six nonacquiring steps and nine rejected controls. The seven-vertex timeout is
+still incomplete, not rerun, and excluded. The small shortestness observation
+is not universal. Python/JSON and offline consistency checks are not Lean proofs.
 
-    python3 -m pip install -r requirements.txt
+The previously blocked supporting solver upload was not retried or routed around.
+Both new scripts remain ONLY in the export with three unchanged dependencies.
+Do not claim them committed. Reproduction from the EXTRACTED EXPORT:
+
     python3 scripts/test_source_rank_routes.py --out /tmp/source-rank-tests
 
-Clean five-script replay reproduced report4317 bytes and fixtures5674989 bytes.
-Full JSON is exported, not reconstructed from summary counts. The raw request
-ZIP and resolved.json match SHA256db513b8440f3acf910eea14ff604edeb9219311e5c77f8f3e60d3c2db7213ca7.
-Only that request artifact exists. No verified packet or publication is invented.
-Full compiler error and reports are extracted; runner excerpts are selected,
-not full raw logs. Source/fixture consistency checks do not execute Lean.
-
-Local lean/lake/elan and checked caches were absent; toolchain-host DNS failed.
-Keep Lean4.30.0/Mathlibc5ea00351c28e24afc9f0f84379aa41082b1188f, strict0.10.8,
-allowed actors, pending/duplicate guards and secret-free verifier/trusted
-publisher isolation unchanged. Respect #326,#282,reserved #210 and other owners.
+Local Lean/Lake/Elan and checked installations/caches are absent; release/raw
+hosts failed DNS. Preserve Lean4.30.0/Mathlibc5ea00351c28e24afc9f0f84379aa41082b1188f,
+strict0.10.8, allowed actors, duplicate guards and verifier/publisher separation.

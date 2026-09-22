@@ -1,0 +1,11 @@
+# Selected exact runner lines, not a complete raw archive.
+# Full decoded verifier log was read through cleanup.
+2026-09-22T23:24:39.0352310Z SHA256 digest of downloaded artifact is 79621ab6cff62cefd32e72db42c59cc168343886580daa1bfe04255e0bf9a477
+2026-09-22T23:26:17.4259855Z Lake version 5.0.0-src+d024af0 (Lean version 4.30.0)
+2026-09-22T23:26:17.4477211Z   GITHUB_TOKEN: 
+2026-09-22T23:26:17.4477433Z   PROVE2ME_API_KEY: 
+2026-09-22T23:26:28.6398812Z source_rank_routes/driver.lean failed to compile:
+2026-09-22T23:26:28.6401242Z _verified/packets/source_rank_routes/driver.lean:1061:19: error: Type mismatch: After simplification, term
+2026-09-22T23:26:28.6421634Z 'Hirsch.SourceRank.ranked_route' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-22T23:26:28.6422721Z 'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-22T23:26:28.6485942Z ##[error]Process completed with exit code 1.

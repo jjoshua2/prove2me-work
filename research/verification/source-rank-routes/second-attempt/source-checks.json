@@ -1,0 +1,17 @@
+{
+  "kind": "static_source_checks_not_Lean",
+  "tested_source": {
+    "bytes": 45724,
+    "lines": 1069,
+    "sha256": "0ec12af9c127caf4d28df32997ad5607aa8cdb98c69722bf2613ce48f7372853",
+    "git_blob": "47af41dbdda528862c585c522c2452de918e1af3"
+  },
+  "matches_saved_first_proposal": true,
+  "first_repair_additions": 3,
+  "first_repair_deletions": 1,
+  "public_type_matches_metadata": true,
+  "mathematical_helpers_unchanged": true,
+  "metadata_and_explanation_unchanged": true,
+  "no_post_gate_publication_source_edit": true,
+  "local_Lean_compilation": false
+}

@@ -1,0 +1,19 @@
+{
+  "kind": "unapplied_uncompiled_extensional_repair_proposal",
+  "tested_proof": "b144922b8ca5e4f7fad71aaa0c948892753657c7",
+  "reported_error_line": 1061,
+  "change": "Replace only final pair assembly with convert, cardinality congruence and membership extensionality. Retain the now-explicit Fin value equalities.",
+  "source": {
+    "bytes": 45943,
+    "lines": 1073,
+    "sha256": "3e366e4f2472806d216e6024978b7efd2014e9b6d12c03136d779f50a865b85d",
+    "git_blob": "6617ad6d6c02ee0f2fa2cbb4b66c6993b42b375d"
+  },
+  "patch_apply_reverse_roundtrip": true,
+  "public_type_unchanged": true,
+  "mathematical_helpers_unchanged": true,
+  "metadata_and_explanation_unchanged": true,
+  "applied_to_publication_source": false,
+  "compiled": false,
+  "diagnosis_boundary": "The displayed indices now agree. Hidden elaboration details are not identified by the log; identical printed filter expressions are not evidence of definitional equality."
+}

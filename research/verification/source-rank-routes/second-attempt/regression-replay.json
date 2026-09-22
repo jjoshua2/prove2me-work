@@ -1,0 +1,18 @@
+{
+  "kind": "fresh_execution_of_unchanged_export_scripts_not_Lean",
+  "outputs": {
+    "report.json": {
+      "bytes": 4317,
+      "sha256": "960ddf9755e71358a1be54dd7f4900672ff2c49befe0d27aee5e7cc67490300b",
+      "byte_identical_to_prior": true
+    },
+    "fixtures.json": {
+      "bytes": 5674989,
+      "sha256": "f065c9036dc879f850907415078cdbae0a92cb814f6165cc3a5e71ccc68e58cc",
+      "byte_identical_to_prior": true
+    }
+  },
+  "solver_upload_retried": false,
+  "scripts_export_only": true,
+  "prior_stress_timeout_rerun": false
+}

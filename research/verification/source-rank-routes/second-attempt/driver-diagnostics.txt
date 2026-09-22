@@ -1,0 +1,38 @@
+# Extracted complete displayed compiler error and all seven reports.
+# Runner timestamps and setup/cleanup are omitted; not a full raw runner log.
+# Tested proof b144922b8ca5e4f7fad71aaa0c948892753657c7.
+# Run 35797243242; verifier job 106979325443; driver exit 1.
+
+source_rank_routes/driver.lean failed to compile:
+_verified/packets/source_rank_routes/driver.lean:1061:19: error: Type mismatch: After simplification, term
+  ht.right
+ has type
+  {a ∈
+          Finset.image (fun z => h (z - v) / (1 + (E (p.point (↑t + 1))) (z - v)))
+            ({z ∈ {x ∈ C | x ∈ Set.extremePoints ℝ {x | ∀ (i : Fin m), (A i) x ≤ b i}} |
+              ∀ (i : Fin m), (A i) v = b i → (A i) (p.point (↑t + 1)) = b i → (A i) z = b i}) |
+        a < h (p.point (↑t + 1) - v) / (1 + (E (p.point (↑t + 1))) (p.point (↑t + 1) - v))}.card <
+    {a ∈
+          Finset.image (fun z => h (z - v) / (1 + (E (p.point ↑t)) (z - v)))
+            ({z ∈ {x ∈ C | x ∈ Set.extremePoints ℝ {x | ∀ (i : Fin m), (A i) x ≤ b i}} |
+              ∀ (i : Fin m), (A i) v = b i → (A i) (p.point ↑t) = b i → (A i) z = b i}) |
+        a < h (p.point ↑t - v) / (1 + (E (p.point ↑t)) (p.point ↑t - v))}.card
+but is expected to have type
+  {x ∈
+          Finset.image (fun z => h (z - v) / (1 + (E (p.point (↑t + 1))) (z - v)))
+            ({x ∈ {x ∈ C | x ∈ Set.extremePoints ℝ {x | ∀ (i : Fin m), (A i) x ≤ b i}} |
+              ∀ (i : Fin m), (A i) v = b i → (A i) (p.point (↑t + 1)) = b i → (A i) x = b i}) |
+        x < h (p.point (↑t + 1) - v) / (1 + (E (p.point (↑t + 1))) (p.point (↑t + 1) - v))}.card <
+    {x ∈
+          Finset.image (fun z => h (z - v) / (1 + (E (p.point ↑t)) (z - v)))
+            ({x ∈ {x ∈ C | x ∈ Set.extremePoints ℝ {x | ∀ (i : Fin m), (A i) x ≤ b i}} |
+              ∀ (i : Fin m), (A i) v = b i → (A i) (p.point ↑t) = b i → (A i) x = b i}) |
+        x < h (p.point ↑t - v) / (1 + (E (p.point ↑t)) (p.point ↑t - v))}.card
+
+'Hirsch.HullCoordinate.strict_vertex_functional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.SourceRank.minimizers' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.SourceRank.lower_decreases' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.SourceRank.decreasing_edge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.SourceRank.target_rank_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.SourceRank.ranked_route' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

@@ -1,0 +1,7 @@
+'Hirsch.HullCoordinate.strict_vertex_functional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.SourceRank.minimizers' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.SourceRank.lower_decreases' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.SourceRank.decreasing_edge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.SourceRank.target_rank_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.SourceRank.ranked_route' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

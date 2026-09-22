@@ -1,0 +1,15 @@
+--- a/research/publication_packets/source_rank_routes/solution.lean
++++ b/research/publication_packets/source_rank_routes/solution.lean
+@@ -1058,7 +1058,11 @@
+     have ht := p.step t.val t.isLt
+     have hs : t.succ.val=t.val+1 := rfl
+     have hc : t.castSucc.val=t.val := rfl
+-    exact ⟨ht.1,by simpa only [hR,R,F,V,hs,hc] using ht.2⟩
++    refine ⟨ht.1, ?_⟩
++    convert ht.2 using 1 <;> congr 1 <;> ext a <;>
++      simp only [Hirsch.SourceRank.lower,Hirsch.SourceRank.ratio,
++        Hirsch.SourceRank.face,Hirsch.TargetRows.vertexSet,
++        Hirsch.TargetRows.body,R,F,V,Finset.mem_filter,Finset.mem_image,hs,hc]
+ 
+ #print axioms Hirsch.HullCoordinate.strict_vertex_functional
+ #print axioms Hirsch.SourceRank.minimizers
