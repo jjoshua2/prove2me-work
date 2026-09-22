@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/two_exception_linear_routes"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "8d73bd5b4601c5ee45ea33c9fec0dbc3d217e533",
+  "pr": "327"
+}

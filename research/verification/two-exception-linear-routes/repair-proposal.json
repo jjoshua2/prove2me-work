@@ -1,0 +1,19 @@
+{
+  "kind": "UNAPPLIED_UNCOMPILED_repair_proposal",
+  "original_blob": "90ee12a3607c25fbf58fe016a5ced05afa47f996",
+  "proposal_blob": "d02975bf7cb5ee98ab379bb39fe01a347152977e",
+  "proposal_sha256": "22d684b09b61f86ad59aa07db731d4b17b6ceca30029f50221e37bcaf421d68a",
+  "bytes": 53918,
+  "lines": 1252,
+  "public_root_statement_and_proof_unchanged": true,
+  "retained_dependency_blocks_unchanged": true,
+  "declaration_signatures_unchanged": true,
+  "metadata_unchanged": true,
+  "patch_apply_reverse_exact": true,
+  "local_Lean_compilation": false,
+  "publication_source_edited_after_gate": false,
+  "edit_sites": [
+    "explicit kernel subtype for generic line_extreme_card application",
+    "explicit D.card type for residual-card bound before omega"
+  ]
+}

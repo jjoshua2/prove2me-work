@@ -1,0 +1,530 @@
+{
+  "kind": "exact_supporting_tests_not_Lean",
+  "models": [
+    {
+      "name": "point0",
+      "ambient_dimension": 0,
+      "vertices": 1,
+      "rows": 0,
+      "qualifying_targets": 1,
+      "rejected_targets": 0,
+      "incidence_certificates": 1,
+      "residual_dimensions": {
+        "0": 1,
+        "1": 0,
+        "2": 0
+      },
+      "planar_vertex_occurrences": 0,
+      "incidences": 0,
+      "routes": 1,
+      "edges": 0,
+      "shortest_edges": 0,
+      "nonshortest_routes": 0,
+      "nonacquiring_steps": 0
+    },
+    {
+      "name": "point3",
+      "ambient_dimension": 3,
+      "vertices": 1,
+      "rows": 6,
+      "qualifying_targets": 1,
+      "rejected_targets": 0,
+      "incidence_certificates": 2,
+      "residual_dimensions": {
+        "0": 1,
+        "1": 1,
+        "2": 0
+      },
+      "planar_vertex_occurrences": 0,
+      "incidences": 2,
+      "routes": 2,
+      "edges": 0,
+      "shortest_edges": 0,
+      "nonshortest_routes": 0,
+      "nonacquiring_steps": 0
+    },
+    {
+      "name": "segment_redundant",
+      "ambient_dimension": 2,
+      "vertices": 2,
+      "rows": 4,
+      "qualifying_targets": 2,
+      "rejected_targets": 0,
+      "incidence_certificates": 4,
+      "residual_dimensions": {
+        "0": 2,
+        "1": 2,
+        "2": 0
+      },
+      "planar_vertex_occurrences": 0,
+      "incidences": 4,
+      "routes": 8,
+      "edges": 4,
+      "shortest_edges": 4,
+      "nonshortest_routes": 0,
+      "nonacquiring_steps": 0
+    },
+    {
+      "name": "square_redundant",
+      "ambient_dimension": 2,
+      "vertices": 4,
+      "rows": 4,
+      "qualifying_targets": 4,
+      "rejected_targets": 0,
+      "incidence_certificates": 8,
+      "residual_dimensions": {
+        "0": 5,
+        "1": 2,
+        "2": 1
+      },
+      "planar_vertex_occurrences": 4,
+      "incidences": 12,
+      "routes": 32,
+      "edges": 32,
+      "shortest_edges": 32,
+      "nonshortest_routes": 0,
+      "nonacquiring_steps": 0
+    },
+    {
+      "name": "pyramid_nonsimple",
+      "ambient_dimension": 3,
+      "vertices": 5,
+      "rows": 5,
+      "qualifying_targets": 5,
+      "rejected_targets": 0,
+      "incidence_certificates": 10,
+      "residual_dimensions": {
+        "0": 6,
+        "1": 3,
+        "2": 1
+      },
+      "planar_vertex_occurrences": 4,
+      "incidences": 15,
+      "routes": 50,
+      "edges": 48,
+      "shortest_edges": 48,
+      "nonshortest_routes": 0,
+      "nonacquiring_steps": 0
+    },
+    {
+      "name": "cube3",
+      "ambient_dimension": 3,
+      "vertices": 8,
+      "rows": 6,
+      "qualifying_targets": 8,
+      "rejected_targets": 0,
+      "incidence_certificates": 16,
+      "residual_dimensions": {
+        "0": 10,
+        "1": 4,
+        "2": 2
+      },
+      "planar_vertex_occurrences": 8,
+      "incidences": 24,
+      "routes": 128,
+      "edges": 192,
+      "shortest_edges": 192,
+      "nonshortest_routes": 0,
+      "nonacquiring_steps": 0
+    },
+    {
+      "name": "hypersimplex4",
+      "ambient_dimension": 4,
+      "vertices": 6,
+      "rows": 10,
+      "qualifying_targets": 6,
+      "rejected_targets": 0,
+      "incidence_certificates": 12,
+      "residual_dimensions": {
+        "0": 10,
+        "1": 2,
+        "2": 0
+      },
+      "planar_vertex_occurrences": 0,
+      "incidences": 8,
+      "routes": 72,
+      "edges": 72,
+      "shortest_edges": 72,
+      "nonshortest_routes": 0,
+      "nonacquiring_steps": 0
+    },
+    {
+      "name": "simplex4",
+      "ambient_dimension": 4,
+      "vertices": 5,
+      "rows": 5,
+      "qualifying_targets": 5,
+      "rejected_targets": 0,
+      "incidence_certificates": 10,
+      "residual_dimensions": {
+        "0": 5,
+        "1": 2,
+        "2": 3
+      },
+      "planar_vertex_occurrences": 9,
+      "incidences": 22,
+      "routes": 50,
+      "edges": 40,
+      "shortest_edges": 40,
+      "nonshortest_routes": 0,
+      "nonacquiring_steps": 0
+    },
+    {
+      "name": "rational_polygon",
+      "ambient_dimension": 2,
+      "vertices": 6,
+      "rows": 6,
+      "qualifying_targets": 6,
+      "rejected_targets": 0,
+      "incidence_certificates": 6,
+      "residual_dimensions": {
+        "0": 0,
+        "1": 0,
+        "2": 6
+      },
+      "planar_vertex_occurrences": 36,
+      "incidences": 72,
+      "routes": 36,
+      "edges": 54,
+      "shortest_edges": 54,
+      "nonshortest_routes": 0,
+      "nonacquiring_steps": 6
+    },
+    {
+      "name": "zero_one_random0",
+      "ambient_dimension": 4,
+      "vertices": 8,
+      "rows": 14,
+      "qualifying_targets": 6,
+      "rejected_targets": 2,
+      "incidence_certificates": 8,
+      "residual_dimensions": {
+        "0": 7,
+        "1": 1,
+        "2": 0
+      },
+      "planar_vertex_occurrences": 0,
+      "incidences": 6,
+      "routes": 64,
+      "edges": 69,
+      "shortest_edges": 68,
+      "nonshortest_routes": 1,
+      "nonacquiring_steps": 0
+    },
+    {
+      "name": "zero_one_random1",
+      "ambient_dimension": 4,
+      "vertices": 8,
+      "rows": 14,
+      "qualifying_targets": 6,
+      "rejected_targets": 2,
+      "incidence_certificates": 8,
+      "residual_dimensions": {
+        "0": 8,
+        "1": 0,
+        "2": 0
+      },
+      "planar_vertex_occurrences": 0,
+      "incidences": 0,
+      "routes": 64,
+      "edges": 68,
+      "shortest_edges": 68,
+      "nonshortest_routes": 0,
+      "nonacquiring_steps": 0
+    },
+    {
+      "name": "zero_one_random2",
+      "ambient_dimension": 4,
+      "vertices": 8,
+      "rows": 9,
+      "qualifying_targets": 8,
+      "rejected_targets": 0,
+      "incidence_certificates": 14,
+      "residual_dimensions": {
+        "0": 12,
+        "1": 2,
+        "2": 0
+      },
+      "planar_vertex_occurrences": 0,
+      "incidences": 6,
+      "routes": 112,
+      "edges": 130,
+      "shortest_edges": 128,
+      "nonshortest_routes": 2,
+      "nonacquiring_steps": 0
+    },
+    {
+      "name": "zero_one_random3",
+      "ambient_dimension": 4,
+      "vertices": 8,
+      "rows": 14,
+      "qualifying_targets": 6,
+      "rejected_targets": 2,
+      "incidence_certificates": 8,
+      "residual_dimensions": {
+        "0": 7,
+        "1": 1,
+        "2": 0
+      },
+      "planar_vertex_occurrences": 0,
+      "incidences": 6,
+      "routes": 64,
+      "edges": 68,
+      "shortest_edges": 68,
+      "nonshortest_routes": 0,
+      "nonacquiring_steps": 0
+    },
+    {
+      "name": "target_only_cut_cube",
+      "ambient_dimension": 3,
+      "vertices": 7,
+      "rows": 7,
+      "qualifying_targets": 7,
+      "rejected_targets": 0,
+      "incidence_certificates": 14,
+      "residual_dimensions": {
+        "0": 9,
+        "1": 3,
+        "2": 2
+      },
+      "planar_vertex_occurrences": 7,
+      "incidences": 25,
+      "routes": 98,
+      "edges": 125,
+      "shortest_edges": 120,
+      "nonshortest_routes": 5,
+      "nonacquiring_steps": 0
+    },
+    {
+      "name": "dense_target_only_cut_cube",
+      "ambient_dimension": 3,
+      "vertices": 7,
+      "rows": 7,
+      "qualifying_targets": 7,
+      "rejected_targets": 0,
+      "incidence_certificates": 14,
+      "residual_dimensions": {
+        "0": 10,
+        "1": 3,
+        "2": 1
+      },
+      "planar_vertex_occurrences": 4,
+      "incidences": 16,
+      "routes": 98,
+      "edges": 125,
+      "shortest_edges": 120,
+      "nonshortest_routes": 5,
+      "nonacquiring_steps": 0
+    },
+    {
+      "name": "rescaled_redundant_cube",
+      "ambient_dimension": 3,
+      "vertices": 8,
+      "rows": 8,
+      "qualifying_targets": 8,
+      "rejected_targets": 0,
+      "incidence_certificates": 16,
+      "residual_dimensions": {
+        "0": 10,
+        "1": 4,
+        "2": 2
+      },
+      "planar_vertex_occurrences": 8,
+      "incidences": 30,
+      "routes": 128,
+      "edges": 192,
+      "shortest_edges": 192,
+      "nonshortest_routes": 0,
+      "nonacquiring_steps": 0
+    },
+    {
+      "name": "simplex5",
+      "ambient_dimension": 5,
+      "vertices": 6,
+      "rows": 6,
+      "qualifying_targets": 6,
+      "rejected_targets": 0,
+      "incidence_certificates": 12,
+      "residual_dimensions": {
+        "0": 6,
+        "1": 2,
+        "2": 4
+      },
+      "planar_vertex_occurrences": 12,
+      "incidences": 28,
+      "routes": 72,
+      "edges": 60,
+      "shortest_edges": 60,
+      "nonshortest_routes": 0,
+      "nonacquiring_steps": 0
+    },
+    {
+      "name": "dense_cube",
+      "ambient_dimension": 3,
+      "vertices": 8,
+      "rows": 6,
+      "qualifying_targets": 8,
+      "rejected_targets": 0,
+      "incidence_certificates": 16,
+      "residual_dimensions": {
+        "0": 10,
+        "1": 4,
+        "2": 2
+      },
+      "planar_vertex_occurrences": 8,
+      "incidences": 24,
+      "routes": 128,
+      "edges": 192,
+      "shortest_edges": 192,
+      "nonshortest_routes": 0,
+      "nonacquiring_steps": 0
+    },
+    {
+      "name": "two_exception_hexagon",
+      "ambient_dimension": 2,
+      "vertices": 6,
+      "rows": 6,
+      "qualifying_targets": 6,
+      "rejected_targets": 0,
+      "incidence_certificates": 6,
+      "residual_dimensions": {
+        "0": 0,
+        "1": 0,
+        "2": 6
+      },
+      "planar_vertex_occurrences": 36,
+      "incidences": 72,
+      "routes": 36,
+      "edges": 54,
+      "shortest_edges": 54,
+      "nonshortest_routes": 0,
+      "nonacquiring_steps": 6
+    },
+    {
+      "name": "two_roofs",
+      "ambient_dimension": 4,
+      "vertices": 16,
+      "rows": 8,
+      "qualifying_targets": 16,
+      "rejected_targets": 0,
+      "incidence_certificates": 16,
+      "residual_dimensions": {
+        "0": 0,
+        "1": 0,
+        "2": 16
+      },
+      "planar_vertex_occurrences": 64,
+      "incidences": 128,
+      "routes": 256,
+      "edges": 512,
+      "shortest_edges": 512,
+      "nonshortest_routes": 0,
+      "nonacquiring_steps": 0
+    },
+    {
+      "name": "three_roofs_exclusion",
+      "ambient_dimension": 4,
+      "vertices": 16,
+      "rows": 8,
+      "qualifying_targets": 0,
+      "rejected_targets": 16,
+      "incidence_certificates": 0,
+      "residual_dimensions": {
+        "0": 0,
+        "1": 0,
+        "2": 0
+      },
+      "planar_vertex_occurrences": 0,
+      "incidences": 0,
+      "routes": 0,
+      "edges": 0,
+      "shortest_edges": 0,
+      "nonshortest_routes": 0,
+      "nonacquiring_steps": 0
+    },
+    {
+      "name": "parabolic_polygon_5",
+      "ambient_dimension": 2,
+      "vertices": 5,
+      "rows": 5,
+      "qualifying_targets": 5,
+      "rejected_targets": 0,
+      "incidence_certificates": 5,
+      "residual_dimensions": {
+        "0": 0,
+        "1": 0,
+        "2": 5
+      },
+      "planar_vertex_occurrences": 25,
+      "incidences": 50,
+      "routes": 25,
+      "edges": 34,
+      "shortest_edges": 30,
+      "nonshortest_routes": 4,
+      "nonacquiring_steps": 4
+    },
+    {
+      "name": "parabolic_polygon_8",
+      "ambient_dimension": 2,
+      "vertices": 8,
+      "rows": 8,
+      "qualifying_targets": 8,
+      "rejected_targets": 0,
+      "incidence_certificates": 8,
+      "residual_dimensions": {
+        "0": 0,
+        "1": 0,
+        "2": 8
+      },
+      "planar_vertex_occurrences": 64,
+      "incidences": 128,
+      "routes": 64,
+      "edges": 156,
+      "shortest_edges": 128,
+      "nonshortest_routes": 10,
+      "nonacquiring_steps": 60
+    },
+    {
+      "name": "parabolic_polygon_12",
+      "ambient_dimension": 2,
+      "vertices": 12,
+      "rows": 12,
+      "qualifying_targets": 12,
+      "rejected_targets": 0,
+      "incidence_certificates": 12,
+      "residual_dimensions": {
+        "0": 0,
+        "1": 0,
+        "2": 12
+      },
+      "planar_vertex_occurrences": 144,
+      "incidences": 288,
+      "routes": 144,
+      "edges": 552,
+      "shortest_edges": 432,
+      "nonshortest_routes": 28,
+      "nonacquiring_steps": 312
+    },
+    {
+      "name": "polygon_prism",
+      "ambient_dimension": 3,
+      "vertices": 12,
+      "rows": 8,
+      "qualifying_targets": 12,
+      "rejected_targets": 0,
+      "incidence_certificates": 12,
+      "residual_dimensions": {
+        "0": 0,
+        "1": 0,
+        "2": 12
+      },
+      "planar_vertex_occurrences": 72,
+      "incidences": 144,
+      "routes": 144,
+      "edges": 320,
+      "shortest_edges": 288,
+      "nonshortest_routes": 16,
+      "nonacquiring_steps": 56
+    }
+  ]
+}

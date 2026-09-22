@@ -1,0 +1,15 @@
+{
+  "theorem_name": "Hirsch.two_exception_linear_original_routes",
+  "theorem_title": "Linear original-edge routes with at most two exceptional target rows",
+  "formal_statement": "theorem Hirsch.two_exception_linear_original_routes (d m : ℕ) (C : Finset (Fin d → ℝ))\n    (A : Fin m → (Fin d → ℝ) →ₗ[ℝ] ℝ) (b : Fin m → ℝ)\n    (hP : convexHull ℝ (C : Set (Fin d → ℝ))={x | ∀ i, A i x ≤ b i})\n    (B : Finset (Fin m)) (hB : B.card ≤ 2) (u v : Fin d → ℝ)\n    (hu : u ∈ ({x | ∀ i, A i x ≤ b i} : Set (Fin d → ℝ)).extremePoints ℝ)\n    (hv : v ∈ ({x | ∀ i, A i x ≤ b i} : Set (Fin d → ℝ)).extremePoints ℝ)\n    (htwo : ∀ i, i ∉ B → A i v=b i → ∃ lo : ℝ,\n      ∀ x ∈ ({x | ∀ j, A j x ≤ b j} : Set (Fin d → ℝ)).extremePoints ℝ,\n        A i x=lo ∨ A i x=b i) :\n    ∃ L : ℕ, L ≤ (m-d)+m ∧\n      ∃ p : Fin (L+1) → (Fin d → ℝ), p 0=u ∧ p (Fin.last L)=v ∧\n        (∀ t, p t ∈ ({x | ∀ i, A i x ≤ b i} : Set (Fin d → ℝ)).extremePoints ℝ) ∧\n        ∀ t : Fin L, p t.castSucc ≠ p t.succ ∧\n          IsExtreme ℝ {x : Fin d → ℝ | ∀ i, A i x ≤ b i}\n            (segment ℝ (p t.castSucc) (p t.succ)) ∧\n          (∀ i, A i v=b i → A i (p t.castSucc)=b i → A i (p t.succ)=b i) := by sorry\n",
+  "preamble": "import Mathlib\nopen scoped BigOperators\nset_option autoImplicit false",
+  "env": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "natural_language_statement": "For any finite real generator family C in ambient dimension d whose convex hull is exactly the original m linear halfspaces, any actual vertices u,v, and a set B of at most two original row labels, assume every target-tight row outside B has at most two values on all actual vertices, one being its boundary value. Construct a route in the original polytope of length at most (m-d)+m. Every visited point is an actual extreme point. Every successive pair is distinct and its entire segment is an extreme subset of the original polytope. Every target row already tight stays tight at each step, including exceptional rows. The remaining affine dimension, original-row incidence count, and route are derived; there is no graph, basis, small-catalogue or cheap-route premise. Redundancies, nonsimple or lower-dimensional hulls, zero dimension and coincident endpoints are allowed. The theorem is a restricted class result, not a uniform Polynomial Hirsch theorem or shortest-path assertion.",
+  "source": "Classical affine-line extremality and planar vertex/row incidence counting, composed with accepted #325 geometric entry and locked strict-ascent proof bodies. The original #325 optional-row-code bound specializes quadratically for two exceptions; this packet proves a linear residual vertex bound by counting actual incidences instead. No historical priority or best-known diameter claim. Accepted #324 remains sharper for at most one exception. Independent affine-roof work #326 and reserved #282/#210 are not used or modified.",
+  "tags": [
+    "hirsch-conjecture",
+    "convex-geometry",
+    "polytope-diameter",
+    "routing"
+  ]
+}

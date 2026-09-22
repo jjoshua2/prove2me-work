@@ -1,0 +1,8 @@
+'Hirsch.PlanarResidual.line_extreme_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.PlanarResidual.active_nonzero_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.PlanarResidual.row_slice_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.PlanarResidual.planar_vertex_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.PlanarResidual.residual_card_linear' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.PlanarResidual.residual_route_linear' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.PlanarResidual.two_exception_routes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]

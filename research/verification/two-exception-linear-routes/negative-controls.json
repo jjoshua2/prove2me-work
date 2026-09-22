@@ -1,0 +1,44 @@
+{
+  "controls": [
+    {
+      "name": "false_dimension",
+      "rejected": true
+    },
+    {
+      "name": "incomplete_vertex_set",
+      "rejected": true
+    },
+    {
+      "name": "missing_nonzero_row",
+      "rejected": true
+    },
+    {
+      "name": "wrong_incidence_total",
+      "rejected": true
+    },
+    {
+      "name": "understated_vertex_bound",
+      "rejected": true
+    },
+    {
+      "name": "zero_motion_basis",
+      "rejected": true
+    },
+    {
+      "name": "oversized_exception_set",
+      "rejected": true
+    },
+    {
+      "name": "stationary_edge",
+      "rejected": true
+    },
+    {
+      "name": "wrong_prefix_count",
+      "rejected": true
+    },
+    {
+      "name": "zero_edge_objective",
+      "rejected": true
+    }
+  ]
+}

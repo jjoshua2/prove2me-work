@@ -1,0 +1,71 @@
+{
+  "kind": "derived_GitHub_failure_readback_not_platform_receipt",
+  "repo": "jjoshua2/prove2me-work",
+  "pr": 327,
+  "proof_sha": "c7a6eca15fa16f107e4065392587bea2ffb48ddc",
+  "trusted_main_sha": "7b1db85d8182cf43ddcf6eae30ca77442906e843",
+  "coordination_comment": 5769805520,
+  "trigger_comment": 5769921814,
+  "acknowledgement_comment": 5769922868,
+  "run_id": 35675757480,
+  "jobs": {
+    "gate": {
+      "id": 106581827719,
+      "conclusion": "success"
+    },
+    "verify": {
+      "id": 106581853652,
+      "conclusion": "failure"
+    },
+    "publish": {
+      "id": 106582150594,
+      "conclusion": "skipped"
+    },
+    "report-verify": {
+      "id": 106582150749,
+      "conclusion": "skipped"
+    }
+  },
+  "driver_exit_code": 1,
+  "separate_solution_compile": "not_reached",
+  "separate_statement_compile": "not_reached",
+  "complete_packet_audit": "not_produced",
+  "error_lines": [
+    1069,
+    1189
+  ],
+  "standard_only_reports": [
+    "Hirsch.PlanarResidual.line_extreme_card",
+    "Hirsch.PlanarResidual.active_nonzero_card"
+  ],
+  "failed_elaboration_reports_with_sorryAx": [
+    "Hirsch.PlanarResidual.row_slice_card",
+    "Hirsch.PlanarResidual.planar_vertex_card",
+    "Hirsch.PlanarResidual.residual_card_linear",
+    "Hirsch.PlanarResidual.residual_route_linear",
+    "Hirsch.PlanarResidual.two_exception_routes",
+    "solution"
+  ],
+  "lean_version_observed": "4.30.0",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "registration": false,
+  "proof_submission": false,
+  "theorem_id": null,
+  "submission_id": null,
+  "ACCEPTED_observed": false,
+  "Proved_observed": false,
+  "independent_platform_poll": false,
+  "full_decoded_verifier_runner_log_read": true,
+  "stored_runner_log_scope": "complete compiler error/axiom block, timestamps removed; not full raw runner archive",
+  "artifact": {
+    "id": 10672549018,
+    "name": "prove2me-publish-request",
+    "bytes": 311,
+    "sha256": "763410dabda0e848bbdcb1c1bcb9d4846cdda575bccae8879973010f3b0e2230",
+    "downloaded_and_rehashed": true
+  },
+  "verified_or_receipt_artifact_produced": false,
+  "post_gate_proof_edits": false,
+  "additional_triggers": 0,
+  "local_Lean_compilation": false
+}

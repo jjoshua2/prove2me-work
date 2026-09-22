@@ -1,0 +1,86 @@
+{
+  "kind": "derived_GitHub_and_artifact_readback_not_a_new_platform_poll",
+  "repository": "jjoshua2/prove2me-work",
+  "pr": 327,
+  "proof_sha": "8d73bd5b4601c5ee45ea33c9fec0dbc3d217e533",
+  "trusted_main_sha": "7b1db85d8182cf43ddcf6eae30ca77442906e843",
+  "coordination_comment": 5770085129,
+  "trigger_comment": 5770115525,
+  "acknowledgement_comment": 5770116911,
+  "verdict_comment": 5770147741,
+  "verdict_time_utc": "2026-09-22T01:58:13Z",
+  "run_id": 35677432176,
+  "jobs": {
+    "gate": {
+      "id": 106586774912,
+      "conclusion": "success"
+    },
+    "verify": {
+      "id": 106586817475,
+      "conclusion": "success"
+    },
+    "publish": {
+      "id": 106587094875,
+      "conclusion": "success"
+    },
+    "report-verify": {
+      "id": 106587096237,
+      "conclusion": "skipped"
+    }
+  },
+  "lean_version_observed": "4.30.0",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "compile_exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "standard_only_proof_reports_per_full_log": 8,
+  "publication": {
+    "packet": "two_exception_linear_routes",
+    "status": "ACCEPTED",
+    "theorem_id": "0ad22f42-8283-45ec-87e1-cfaadbe632ea",
+    "submission_id": "9d7b24ce-cb51-4d22-a819-19eaec42154f",
+    "theorem_name": "Hirsch.two_exception_linear_original_routes",
+    "registration": "PUBLISHED",
+    "live_status": "Proved",
+    "path": "research/publication_packets/two_exception_linear_routes"
+  },
+  "independent_platform_or_mission_root_poll": false,
+  "individual_API_response_bodies_available": false,
+  "first_failed_run_preserved": 35675757480,
+  "hosted_compiler_attempts": 2,
+  "actual_platform_submissions": 1,
+  "new_triggers_this_continuation": 1,
+  "post_gate_proof_or_metadata_edits": false,
+  "local_Lean_compilation": false,
+  "full_decoded_verify_and_publish_logs_read": true,
+  "runner_log_storage": "Selected exact excerpt, not a full raw runner archive. Full compiler logs preserved unchanged.",
+  "artifacts": [
+    {
+      "file": "pr327-repaired-request.zip",
+      "id": 10673706944,
+      "bytes": 310,
+      "sha256": "739e30bbfa6a2572760417284e1c3550ac01fae3f7627e2560d32784c9126af1",
+      "downloaded_and_rehashed": true
+    },
+    {
+      "file": "pr327-repaired-verified.zip",
+      "id": 10673452370,
+      "bytes": 36401,
+      "sha256": "77eb5bd0df15f9aca361e94cb66de23fa1fef19c416afe2bb3541f5bf8eef76c",
+      "downloaded_and_rehashed": true
+    },
+    {
+      "file": "pr327-publication-receipts.zip",
+      "id": 10673228195,
+      "bytes": 907,
+      "sha256": "3751d36d2c4f7377b6c948141afd442f04b05689b12b38534e52e5699ab4adf0",
+      "downloaded_and_rehashed": true
+    }
+  ],
+  "raw_verified_packet_tree": "97514f394d39c43a5fd8625078720b209f1aed5d",
+  "raw_verified_tree": "46fbb084c927e72b30e215ef48d6c0629b0892b5",
+  "raw_receipts_tree": "28cf57e0f54323917485dd290d90177815d1e836",
+  "checker_script": "export-only review/check_frozen_packet.py; derived output stored in packet-integrity.json"
+}

@@ -1,0 +1,15 @@
+{
+  "head_sha": "8d73bd5b4601c5ee45ea33c9fec0dbc3d217e533",
+  "packets": [
+    {
+      "packet": "two_exception_linear_routes",
+      "status": "ACCEPTED",
+      "theorem_id": "0ad22f42-8283-45ec-87e1-cfaadbe632ea",
+      "submission_id": "9d7b24ce-cb51-4d22-a819-19eaec42154f",
+      "theorem_name": "Hirsch.two_exception_linear_original_routes",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/two_exception_linear_routes"
+    }
+  ]
+}
