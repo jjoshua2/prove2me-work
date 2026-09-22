@@ -1066,7 +1066,7 @@ lemma row_slice_card (A : Fin m → (Fin d → ℝ) →ₗ[ℝ] ℝ)
   have hker : Module.finrank ℝ (LinearMap.ker f) ≤ 1 := by omega
   let e : (LinearMap.ker f) →ₗ[ℝ] (Fin d → ℝ) :=
     N.subtype.comp (LinearMap.ker f).subtype
-  apply line_extreme_card e hker (body A b) _
+  apply line_extreme_card (W := LinearMap.ker f) e hker (body A b) _
   · intro x hx
     exact hV x (Finset.mem_filter.mp hx).1
   · intro x hx y hy
@@ -1185,7 +1185,7 @@ theorem residual_route_linear (C : Finset (Fin d → ℝ))
       exact he.2.2 i ((mem_active A b v i).mp (Finset.mem_sdiff.mp hi).1) (hxG i hi)
     exact ⟨y,Finset.mem_filter.mpr ⟨hyV,hyG⟩,he,hinc⟩
   obtain ⟨p,hp⟩ := finite_ascent D (Edge A b v) f v hstep u hu
-  have hc := residual_card_linear C A b v hv B hB
+  have hc : D.card ≤ m+1 := residual_card_linear C A b v hv B hB
   exact ⟨p,by omega⟩
 
 /-- At most two unrestricted target rows have a LINEAR original-m bound,
