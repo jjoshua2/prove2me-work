@@ -1,0 +1,15 @@
+{
+  "kind": "unapplied_uncompiled_single_site_wrapper_repair",
+  "tested_proof": "e0dda913902528901bafb5b2c3049cef4dcb142b",
+  "tested_blob": "39ab5cec2a687fdf40386c4571fb94278c5cf407",
+  "reported_error_line": 1059,
+  "reported_error_column": 19,
+  "change": "Expose Fin successor/castSucc values by rfl and unfold the local R/F/V wrappers during the last public per-edge rank conversion. All helper bodies, signatures, public type, metadata and other root code are unchanged.",
+  "proposal_bytes": 45724,
+  "proposal_lines": 1069,
+  "proposal_sha256": "0ec12af9c127caf4d28df32997ad5607aa8cdb98c69722bf2613ce48f7372853",
+  "proposal_git_blob": "47af41dbdda528862c585c522c2452de918e1af3",
+  "patch_apply_reverse_roundtrip": true,
+  "applied_to_publication_source": false,
+  "compiled": false
+}

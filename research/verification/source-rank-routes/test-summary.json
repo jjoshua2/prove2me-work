@@ -1,0 +1,18 @@
+{
+  "kind": "derived_exact_test_summary_not_Lean",
+  "models": 8,
+  "totals": {"vertices": 33, "original_rows": 36, "routes": 159, "edges": 180, "shortest_edges": 180, "nonshortest_routes": 0, "rank_above_distance": 0, "ordered_cells_checked": 6346, "certified_exclusions": 6220, "strict_source_rank_savings": 33, "nonacquiring_steps": 6, "reoptimization_strictly_helps": 0},
+  "maximum_dimension": 3,
+  "maximum_rank": 3,
+  "controls": [
+    {"case": "false source rank", "rejected": true},
+    {"case": "unchanged optimized rank", "rejected": true},
+    {"case": "stationary edge", "rejected": true},
+    {"case": "wrong objective", "rejected": true},
+    {"case": "fabricated old-rank decrease", "rejected": true},
+    {"case": "omitted lower-rank cell", "rejected": true},
+    {"case": "wrong cell inventory", "rejected": true},
+    {"case": "false strict witness", "rejected": true},
+    {"case": "false reported optimum", "rejected": true}
+  ]
+}

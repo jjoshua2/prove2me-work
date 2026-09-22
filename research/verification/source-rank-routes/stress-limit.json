@@ -1,0 +1,8 @@
+{
+  "kind": "incomplete_extra_stress_test",
+  "case": "heptagon2",
+  "points": [[-3,0],[-2,-2],[1,-3],[4,0],[3,3],[0,5],[-3,3]],
+  "time_limit_seconds": 45,
+  "result": "command timed out before report/fixture was produced",
+  "included_in_success_totals": false
+}

@@ -1,0 +1,27 @@
+# Complete displayed compiler diagnostic and all seven reports, extracted from
+# verifier job106958053993 in run35790637527. Runner timestamps are removed.
+# This is not the complete raw runner log archive. Full decoded job log was read.
+
+source_rank_routes/driver.lean failed to compile:
+_verified/packets/source_rank_routes/driver.lean:1059:19: error: Type mismatch: After simplification, term
+  ht.right
+ has type
+  (R (p.point (↑t + 1)) (E (p.point (↑t + 1)))).card < (R (p.point ↑t) (E (p.point ↑t))).card
+but is expected to have type
+  {x ∈
+          Finset.image (fun z => h (z - v) / (1 + (E (p.point ↑t.succ)) (z - v)))
+            ({x ∈ {x ∈ C | x ∈ Set.extremePoints ℝ {x | ∀ (i : Fin m), (A i) x ≤ b i}} |
+              ∀ (i : Fin m), (A i) v = b i → (A i) (p.point ↑t.succ) = b i → (A i) x = b i}) |
+        x < h (p.point ↑t.succ - v) / (1 + (E (p.point ↑t.succ)) (p.point ↑t.succ - v))}.card <
+    {x ∈
+          Finset.image (fun z => h (z - v) / (1 + (E (p.point ↑t.castSucc)) (z - v)))
+            ({x ∈ {x ∈ C | x ∈ Set.extremePoints ℝ {x | ∀ (i : Fin m), (A i) x ≤ b i}} |
+              ∀ (i : Fin m), (A i) v = b i → (A i) (p.point ↑t.castSucc) = b i → (A i) x = b i}) |
+        x < h (p.point ↑t.castSucc - v) / (1 + (E (p.point ↑t.castSucc)) (p.point ↑t.castSucc - v))}.card
+'Hirsch.HullCoordinate.strict_vertex_functional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.SourceRank.minimizers' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.SourceRank.lower_decreases' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.SourceRank.decreasing_edge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.SourceRank.target_rank_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.SourceRank.ranked_route' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
