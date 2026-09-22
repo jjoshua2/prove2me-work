@@ -1,0 +1,17 @@
+# Scoped exact runner excerpt, not a full raw runner archive
+# Run 35673081377; complete decoded verifier/publisher logs read through cleanup.
+# Complete compiler logs are preserved unchanged inside verified/packets/.
+
+2026-09-22T00:48:34.0500768Z Lake version 5.0.0-src+d024af0 (Lean version 4.30.0)
+2026-09-22T00:48:34.0649588Z   GITHUB_TOKEN: 
+2026-09-22T00:48:34.0649773Z   PROVE2ME_API_KEY: 
+2026-09-22T00:48:56.9945321Z SHA256 digest of uploaded artifact zip is 55bc5675fdeda940cd599a0a53aad08d41a7aae3b63ccf661cc1564095ffd0e1
+2026-09-22T00:49:09.3500066Z SHA256 digest of downloaded artifact is 55bc5675fdeda940cd599a0a53aad08d41a7aae3b63ccf661cc1564095ffd0e1
+2026-09-22T00:51:51.0290950Z - **Hirsch.few_exception_target_original_routes**: ACCEPTED
+2026-09-22T00:51:51.0291402Z   - theorem `e8842064-8672-4cea-9e53-6f6bedf68b8f`
+2026-09-22T00:51:51.0291828Z   - submission `84117686-a386-4d9f-8ae8-d310c7131783`
+2026-09-22T00:51:51.7359451Z SHA256 digest of uploaded artifact zip is d05d0451cc471fbfae406b48ce337b8a42e539d4c8bdc6a91f0b765ae217814c
+2026-09-22T00:51:52.8582282Z https://github.com/jjoshua2/prove2me-work/pull/325#issuecomment-5769699442
+
+# The downloaded publisher receipt additionally records registration PUBLISHED
+# and live_status Proved. No independent platform/root poll is claimed.

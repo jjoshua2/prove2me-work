@@ -1,0 +1,59 @@
+{
+  "kind": "offline_corrupted_evidence_checks_not_Lean",
+  "cases": [
+    {
+      "case": "changed solution",
+      "mutated": true,
+      "rejected": true,
+      "reason": "exact repaired solution SHA256"
+    },
+    {
+      "case": "wrong proof commit",
+      "mutated": true,
+      "rejected": true,
+      "reason": "manifest proof identity"
+    },
+    {
+      "case": "failed compile exit",
+      "mutated": true,
+      "rejected": true,
+      "reason": "three recorded zero compile exits"
+    },
+    {
+      "case": "missing axiom report",
+      "mutated": true,
+      "rejected": true,
+      "reason": "driver-compile.log seven exact reports"
+    },
+    {
+      "case": "nonstandard proof axiom",
+      "mutated": true,
+      "rejected": true,
+      "reason": "solution-compile.log all reports standard-only"
+    },
+    {
+      "case": "pending verdict",
+      "mutated": true,
+      "rejected": true,
+      "reason": "recorded publisher acceptance and readback"
+    },
+    {
+      "case": "wrong receipt proof",
+      "mutated": true,
+      "rejected": true,
+      "reason": "receipt proof identity"
+    },
+    {
+      "case": "wrong receipt target",
+      "mutated": true,
+      "rejected": true,
+      "reason": "receipt exact target"
+    },
+    {
+      "case": "malformed receipt identifier",
+      "mutated": true,
+      "rejected": true,
+      "reason": "theorem_id present in recorded receipt"
+    }
+  ]
+}

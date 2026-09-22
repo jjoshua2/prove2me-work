@@ -1,0 +1,41 @@
+{
+  "kind": "rerun_of_unchanged_exact_regression_not_Lean_verification",
+  "all_five_full_outputs_byte_identical": true,
+  "outputs": {
+    "small-report.json": {
+      "bytes": 10400,
+      "sha256": "f45e477d20bf29f24a665ec358a1b5eb29bb0ead0aeed208a386da777d438203",
+      "byte_identical_to_prior_output": true
+    },
+    "small-fixtures.json": {
+      "bytes": 2399500,
+      "sha256": "6aacfce239f98b6dbe213e42eb0ec5eaaa90b4f6a40244f8027a8fa9e5cdfa66",
+      "byte_identical_to_prior_output": true
+    },
+    "large-report.json": {
+      "bytes": 1541,
+      "sha256": "9cbf1c9d95e73209c4687054e088750a7eb34c9742bd008eeb1e56cb73141ab5",
+      "byte_identical_to_prior_output": true
+    },
+    "large-fixtures.json": {
+      "bytes": 331592,
+      "sha256": "fdb67248e13b9cdeffaa1e73c8e269b80909993246af6ab2fda4f582cd14f96b",
+      "byte_identical_to_prior_output": true
+    },
+    "negative-controls.json": {
+      "bytes": 911,
+      "sha256": "97b7c8fdaf9435043d12e6b920fb0487df0099886a4931b199811a186b3a8937",
+      "byte_identical_to_prior_output": true
+    }
+  },
+  "execution": "python3 scripts/test_few_exception_target_routes.py --out /mnt/data/pr325_resume/resume-replay",
+  "models": 23,
+  "routes": 1402,
+  "original_edge_occurrences": 2137,
+  "shortest_edges": 2130,
+  "nonshortest_routes": 7,
+  "nonacquiring_steps": 12,
+  "residual_vertex_codes": 434,
+  "large_edges": 120,
+  "malformed_controls_rejected": 12
+}
