@@ -1,0 +1,15 @@
+{
+  "head_sha": "3d6464bd20561af7915b16a958291013a69195d1",
+  "packets": [
+    {
+      "packet": "target_determining_row_budget",
+      "status": "ACCEPTED",
+      "theorem_id": "a5c47f03-d2a9-41e0-bc11-89ee4e43a726",
+      "submission_id": "6c9b58c7-0a76-4009-9a9a-280a17b504bd",
+      "theorem_name": "Hirsch.target_determining_row_budget_routes",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/target_determining_row_budget"
+    }
+  ]
+}

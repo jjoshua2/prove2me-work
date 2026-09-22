@@ -1,0 +1,70 @@
+{
+  "kind": "derived_GitHub_and_downloaded_artifact_readback_not_platform_receipt",
+  "repository": "jjoshua2/prove2me-work",
+  "pr": 330,
+  "proof_sha": "4493c3f97ff50f04bead9d5c3596bc4e3eeb7af4",
+  "trusted_main_sha": "bfacf0fca8aac4205569070d224ee8cc736ef38d",
+  "coordination_comment": 5773513102,
+  "trigger_comment": 5773867317,
+  "acknowledgement_comment": 5773869906,
+  "no_receipt_comment": 5773891203,
+  "run_id": 35708263100,
+  "jobs": {
+    "gate": {
+      "id": 106682338925,
+      "conclusion": "success"
+    },
+    "verify": {
+      "id": 106682393814,
+      "conclusion": "success"
+    },
+    "publish": {
+      "id": 106682876284,
+      "conclusion": "failure"
+    },
+    "report-verify": {
+      "id": 106682877203,
+      "conclusion": "skipped"
+    }
+  },
+  "lean_version_observed": "4.30.0",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "compile_exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "standard_only_proof_reports_per_log": 8,
+  "hosted_compilation_attempts": 1,
+  "actual_platform_submissions": 0,
+  "theorem_registration_in_this_run": false,
+  "theorem_id": null,
+  "submission_id": null,
+  "ACCEPTED_observed": false,
+  "Proved_observed": false,
+  "local_Lean_compilation": false,
+  "post_gate_source_or_metadata_edits": false,
+  "independent_platform_or_root_poll": false,
+  "full_decoded_verify_publish_logs_read": true,
+  "runner_log_storage": "Selected exact excerpt; complete compiler logs preserved unchanged.",
+  "artifacts": [
+    {
+      "id": 10685985780,
+      "file": "pr330-first-request.zip",
+      "bytes": 312,
+      "sha256": "31cb770de6b3ab860a6aa9a32b4879d9d6be90a702bdb5a00bf4a123e3722e8b",
+      "downloaded_and_rehashed": true
+    },
+    {
+      "id": 10685656513,
+      "file": "pr330-first-verified.zip",
+      "bytes": 38820,
+      "sha256": "2157a68a6598b05706fa0764bd08487194fcd836a4e839dc0639f44bba819eba",
+      "downloaded_and_rehashed": true
+    }
+  ],
+  "publication_artifact_produced": false,
+  "raw_packet_tree": "469b1956e46adfa05086fa2c3956fb5090da72c0",
+  "raw_verified_tree": "114f60c5040ba5741335570e8e370adb60a8c9b8",
+  "checker": "Export-only review/check_packet.py; no Lean execution or live platform polling."
+}

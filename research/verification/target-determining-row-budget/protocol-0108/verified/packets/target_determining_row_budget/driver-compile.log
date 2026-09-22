@@ -1,0 +1,8 @@
+'Hirsch.FewExceptions.small_active_rows' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.TargetDetermining.small_completion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.TargetDetermining.minimum_completion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.TargetDetermining.cost_after_phase' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.TargetDetermining.selected_routes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.TargetDetermining.weight_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.TargetDetermining.optimal_routes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]

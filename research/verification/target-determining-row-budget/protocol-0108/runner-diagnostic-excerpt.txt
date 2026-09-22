@@ -1,0 +1,20 @@
+# Selected exact lines; NOT a complete raw runner archive.
+# Run35727209341. Full decoded verifier/publisher logs were read through cleanup.
+# Full compiler logs are preserved unchanged in verified/packets/target_determining_row_budget/.
+
+2026-09-22T12:27:00.2303259Z 94d919be72964edca3a6a6559bf5e4db6f28f346
+2026-09-22T12:27:01.1771767Z 3d6464bd20561af7915b16a958291013a69195d1
+2026-09-22T12:28:09.6428957Z Lake version 5.0.0-src+d024af0 (Lean version 4.30.0)
+2026-09-22T12:28:09.6567718Z   GITHUB_TOKEN: 
+2026-09-22T12:28:09.6567908Z   PROVE2ME_API_KEY: 
+2026-09-22T12:28:31.0367042Z SHA256 digest of uploaded artifact zip is 24b7ab4674a6e1d12b0fe9689990eee3bfa76518cec230aca819191c75ef41d1
+2026-09-22T12:28:41.9669713Z 94d919be72964edca3a6a6559bf5e4db6f28f346
+2026-09-22T12:28:42.9122640Z SHA256 digest of downloaded artifact is 24b7ab4674a6e1d12b0fe9689990eee3bfa76518cec230aca819191c75ef41d1
+2026-09-22T12:31:49.8595633Z - **Hirsch.target_determining_row_budget_routes**: ACCEPTED
+2026-09-22T12:31:49.8596374Z   - theorem `a5c47f03-d2a9-41e0-bc11-89ee4e43a726`
+2026-09-22T12:31:49.8597106Z   - submission `6c9b58c7-0a76-4009-9a9a-280a17b504bd`
+2026-09-22T12:31:50.6670677Z SHA256 digest of uploaded artifact zip is 09a5d96239f1b401dc9c4a903dbebdc1363e8a60f0d7cc9fc5ec96d59127cc74
+2026-09-22T12:31:52.2839693Z https://github.com/jjoshua2/prove2me-work/pull/330#issuecomment-5776555847
+
+# The unchanged aggregate publisher receipt also records PUBLISHED and Proved.
+# That is the trusted publisher's authenticated readback, not an independent poll.

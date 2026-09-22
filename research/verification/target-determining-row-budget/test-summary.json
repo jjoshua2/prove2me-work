@@ -1,0 +1,18 @@
+{
+  "kind": "derived_exact_test_summary_not_Lean",
+  "models": 19,
+  "totals": {
+    "vertices": 107,
+    "original_rows": 149,
+    "routes": 701,
+    "edges": 817,
+    "shortest_edges": 816,
+    "nonshortest_routes": 1,
+    "strictly_smaller_budgets": 351,
+    "nontrivial_shared_cases": 492,
+    "cases_with_more_than_d_missing_rows": 67,
+    "multi_edge_phases": 37,
+    "nonacquiring_steps": 18,
+    "determining_candidates_checked": 4171
+  }
+}

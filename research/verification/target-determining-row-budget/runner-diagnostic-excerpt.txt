@@ -1,0 +1,16 @@
+# Selected exact runner lines, not a full raw runner log archive
+# Run35708263100. Complete decoded verifier/publisher logs were read through cleanup.
+# All complete compiler logs remain unchanged in the frozen packet.
+
+2026-09-22T09:05:14.6182018Z Lake version 5.0.0-src+d024af0 (Lean version 4.30.0)
+2026-09-22T09:05:14.6382700Z   GITHUB_TOKEN: 
+2026-09-22T09:05:14.6382927Z   PROVE2ME_API_KEY: 
+2026-09-22T09:05:42.0099103Z SHA256 digest of uploaded artifact zip is 2157a68a6598b05706fa0764bd08487194fcd836a4e839dc0639f44bba819eba
+2026-09-22T09:05:52.8187737Z Platform skill version changed; refresh the skill before publishing.
+2026-09-22T09:05:52.8365420Z ##[error]Process completed with exit code 1.
+2026-09-22T09:05:53.0152205Z ##[warning]No files were found with the provided path: _receipts/. No artifacts will be uploaded.
+2026-09-22T09:05:54.2162562Z https://github.com/jjoshua2/prove2me-work/pull/330#issuecomment-5773891203
+
+# The failed refresh response and its returned version were NOT logged.
+# Official workspace SKILL.md separately reads0.10.8 at d26f4afe39dc674c3c91195a80876f0cff354b33.
+# This evidence neither fabricates a receipt nor declares an approved compatibility update.

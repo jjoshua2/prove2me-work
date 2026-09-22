@@ -1,0 +1,93 @@
+{
+  "kind": "derived_GitHub_and_downloaded_artifact_readback_not_new_platform_poll",
+  "repository": "jjoshua2/prove2me-work",
+  "pr": 330,
+  "accepted_head_sha": "3d6464bd20561af7915b16a958291013a69195d1",
+  "original_compiled_proof_sha": "4493c3f97ff50f04bead9d5c3596bc4e3eeb7af4",
+  "trusted_main_sha": "94d919be72964edca3a6a6559bf5e4db6f28f346",
+  "protocol_maintenance_pr": 331,
+  "protocol_maintenance_commit": "937ab55bd3637838b9893bf52bfb27018e96f455",
+  "protocol_review_id": 5277949475,
+  "protocol_review_kind": "same-account COMMENT; not third-party approval",
+  "protocol_version": "0.10.8",
+  "protocol_check": "exact equality retained",
+  "coordination_comment": 5776313682,
+  "trigger_comment": 5776470176,
+  "acknowledgement_comment": 5776473648,
+  "verdict_comment": 5776555847,
+  "verdict_time_utc": "2026-09-22T12:31:51Z",
+  "run_id": 35727209341,
+  "jobs": {
+    "gate": {
+      "id": 106743671083,
+      "conclusion": "success"
+    },
+    "verify": {
+      "id": 106743734481,
+      "conclusion": "success"
+    },
+    "publish": {
+      "id": 106744272146,
+      "conclusion": "success"
+    },
+    "report-verify": {
+      "id": 106744273667,
+      "conclusion": "skipped"
+    }
+  },
+  "lean_version_observed": "4.30.0",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "compile_exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "standard_only_reports_per_full_proof_log": 8,
+  "publication": {
+    "packet": "target_determining_row_budget",
+    "status": "ACCEPTED",
+    "theorem_id": "a5c47f03-d2a9-41e0-bc11-89ee4e43a726",
+    "submission_id": "6c9b58c7-0a76-4009-9a9a-280a17b504bd",
+    "theorem_name": "Hirsch.target_determining_row_budget_routes",
+    "registration": "PUBLISHED",
+    "live_status": "Proved",
+    "path": "research/publication_packets/target_determining_row_budget"
+  },
+  "prior_failed_run_preserved": 35708263100,
+  "total_hosted_compiler_attempts": 2,
+  "actual_platform_proof_submissions": 1,
+  "new_publication_triggers_this_continuation": 1,
+  "source_and_metadata_match_first_attempt": true,
+  "post_gate_source_or_metadata_edits": false,
+  "local_Lean_compilation": false,
+  "independent_platform_or_mission_root_poll": false,
+  "individual_runtime_API_response_bodies_available": false,
+  "full_decoded_verifier_and_publisher_runner_logs_read": true,
+  "runner_log_storage": "Selected exact excerpt only; all complete compiler logs preserved unchanged.",
+  "raw_packet_tree": "c65e8749315b2d48a6bcc2dddd4e13164e5f3f04",
+  "raw_verified_tree": "60a0cbc6eef7954a023c6f9a551f3e61b4321596",
+  "raw_receipts_tree": "52814fcd4fa0937c0c91de862128e4d45f4e63e9",
+  "artifacts": [
+    {
+      "file": "pr330-protocol-0108-request.zip",
+      "id": 10694015731,
+      "bytes": 314,
+      "sha256": "bd2927b2bf6123b472be177035440e76454dce2ca2419669b449f4a0acc0b85b",
+      "downloaded_and_rehashed": true
+    },
+    {
+      "file": "pr330-protocol-0108-verified.zip",
+      "id": 10694395614,
+      "bytes": 38823,
+      "sha256": "24b7ab4674a6e1d12b0fe9689990eee3bfa76518cec230aca819191c75ef41d1",
+      "downloaded_and_rehashed": true
+    },
+    {
+      "file": "pr330-protocol-0108-receipts.zip",
+      "id": 10693916842,
+      "bytes": 907,
+      "sha256": "09a5d96239f1b401dc9c4a903dbebdc1363e8a60f0d7cc9fc5ec96d59127cc74",
+      "downloaded_and_rehashed": true
+    }
+  ]
+}
