@@ -1,0 +1,12 @@
+{
+  "kind": "static_patch_integrity_not_Lean_verification",
+  "source_lines": 1073,
+  "source_bytes": 45943,
+  "source_sha256": "3e366e4f2472806d216e6024978b7efd2014e9b6d12c03136d779f50a865b85d",
+  "source_blob": "6617ad6d6c02ee0f2fa2cbb4b66c6993b42b375d",
+  "previous_source_blob": "47af41dbdda528862c585c522c2452de918e1af3",
+  "public_type_matches_metadata": true,
+  "one_site_patch_round_trip": true,
+  "all_code_before_patch_unchanged": true,
+  "local_lean_compilation": false
+}

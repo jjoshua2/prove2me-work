@@ -1,0 +1,9 @@
+{
+  "kind": "lossless_compression_of_actual_compiler_log_bytes",
+  "logs": {
+    "driver-compile.log": {"bytes": 4825, "sha256": "76c3f9a3d30046fe179d82f77c36bb2835b74d6eb70f7552b2a312b938857d67", "gzip_git_blob": "ae4b91a18f80326db24c3de41e3966ac0cec924a"},
+    "solution-compile.log": {"bytes": 4831, "sha256": "5eceb3b28188c016ffd1bf8b6a1c425f8fa40e50c447edcc645a70a8dc4500a2", "gzip_git_blob": "4d47cfa3c8035b78a262e0120977bf969e298479"},
+    "statement-compile.log": {"bytes": 91, "sha256": "4c124726017cbc98a240f19a13a490f1a8e8345ee1c707e49d21bb889bbd4595"}
+  },
+  "note": "Two detached ZIP-blob transcription attempts were rejected by hash checks and excluded from the branch. Separate gzip blobs preserve the full exact driver and solution logs. The original Actions archives and uncompressed logs remain in the export. No blocked script upload was retried."
+}

@@ -1,0 +1,48 @@
+{
+  "kind": "derived_GitHub_and_artifact_readback_not_independent_platform_poll",
+  "repository": "jjoshua2/prove2me-work",
+  "pr": 336,
+  "proof_sha": "b5c8e991fee4b0673ac4e3078cdc54dd8d11d7a4",
+  "trusted_main_sha": "952c00ef150bedc0b114f7cd428ea90e36daf021",
+  "coordination_comment": 5786261780,
+  "trigger_comment": 5786335824,
+  "acknowledgement_comment": 5786340151,
+  "verdict_comment": 5786411938,
+  "verdict_time_utc": "2026-09-22T23:51:31Z",
+  "run_id": 35798944401,
+  "jobs": {
+    "gate": {"id": 106984619019, "conclusion": "success"},
+    "verify": {"id": 106984672217, "conclusion": "success"},
+    "publish": {"id": 106985040155, "conclusion": "success"},
+    "report-verify": {"id": 106985041266, "conclusion": "skipped"}
+  },
+  "compile_exit_codes": {"driver.lean": 0, "solution.lean": 0, "statement.lean": 0},
+  "standard_only_reports_per_proof_log": 7,
+  "hosted_compiler_attempts": 3,
+  "actual_platform_submissions": 1,
+  "new_triggers_this_continuation": 1,
+  "prior_failed_runs": [35790637527, 35797243242],
+  "local_Lean_compilation": false,
+  "post_gate_source_or_metadata_edits": false,
+  "independent_platform_or_mission_root_poll": false,
+  "full_decoded_runner_logs_read": true,
+  "individual_platform_API_response_bodies_available": false,
+  "lean_version_observed": "4.30.0",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "strict_protocol": "0.10.8",
+  "publication": {
+    "packet": "source_rank_routes",
+    "status": "ACCEPTED",
+    "theorem_id": "0953784a-17e7-4bbd-a3d7-29d1f96b3925",
+    "submission_id": "4321c4cc-1ab7-4e8a-be32-0f811d48da45",
+    "theorem_name": "Hirsch.source_rank_reoptimized_original_routes",
+    "registration": "PUBLISHED",
+    "live_status": "Proved",
+    "path": "research/publication_packets/source_rank_routes"
+  },
+  "artifacts": [
+    {"file": "pr336-third-request.zip", "id": 10725275615, "bytes": 307, "sha256": "b4dfdf8194163b0ca9ef96a76733ee2fa71db77b020298bf45a8824390657ef3"},
+    {"file": "pr336-third-verified.zip", "id": 10724912968, "bytes": 35035, "sha256": "d8dc453bcb0d0612c0af0ce13929c011048e922267b74e7e7029d2a3251056ec"},
+    {"file": "pr336-publication-receipts.zip", "id": 10725461093, "bytes": 911, "sha256": "0b3f3ef60623271bdeee2955e5419ae975b559dd1f943e8d5da151f7d465d318"}
+  ]
+}

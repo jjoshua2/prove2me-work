@@ -1,0 +1,15 @@
+{
+  "head_sha": "b5c8e991fee4b0673ac4e3078cdc54dd8d11d7a4",
+  "packets": [
+    {
+      "packet": "source_rank_routes",
+      "status": "ACCEPTED",
+      "theorem_id": "0953784a-17e7-4bbd-a3d7-29d1f96b3925",
+      "submission_id": "4321c4cc-1ab7-4e8a-be32-0f811d48da45",
+      "theorem_name": "Hirsch.source_rank_reoptimized_original_routes",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/source_rank_routes"
+    }
+  ]
+}
