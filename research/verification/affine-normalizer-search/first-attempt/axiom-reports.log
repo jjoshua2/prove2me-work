@@ -1,0 +1,6 @@
+'Hirsch.NormalizerSearch.compress_tests' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.NormalizerSearch.compress_ties' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.NormalizerSearch.image_card_of_ties' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.NormalizerSearch.anchor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.NormalizerSearch.catalogue' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

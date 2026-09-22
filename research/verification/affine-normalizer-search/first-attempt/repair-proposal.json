@@ -1,0 +1,14 @@
+{
+  "kind": "unapplied_uncompiled_single_site_proposal",
+  "tested_proof": "a3ac7e377ae4a5a902108989f42e0b215214b1dd",
+  "reported_line": 141,
+  "replacement": "Fintype.card_le_of_surjective F hsurj, then Fintype.card_coe",
+  "bytes": 11835,
+  "lines": 263,
+  "blob": "e7b359fae3953d789c936217ce730b7139e361d5",
+  "sha256": "5e37a3c417a051e978bf7cb6f330007eb27a0808dc0530f02ee30c449e1e233c",
+  "applied_to_publication_source": false,
+  "compiled": false,
+  "apply_reverse_roundtrip": true,
+  "public_type_and_other_proofs_unchanged": true
+}

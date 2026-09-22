@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/affine_normalizer_search"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "a3ac7e377ae4a5a902108989f42e0b215214b1dd",
+  "pr": "334"
+}

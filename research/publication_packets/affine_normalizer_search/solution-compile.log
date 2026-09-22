@@ -1,0 +1,18 @@
+_verified/packets/affine_normalizer_search/solution.lean:170:8: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+_verified/packets/affine_normalizer_search/solution.lean:160:4: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+_verified/packets/affine_normalizer_search/solution.lean:160:18: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+_verified/packets/affine_normalizer_search/solution.lean:170:8: warning: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'Hirsch.NormalizerSearch.compress_tests' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.NormalizerSearch.compress_ties' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.NormalizerSearch.image_card_of_ties' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.NormalizerSearch.anchor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.NormalizerSearch.catalogue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]

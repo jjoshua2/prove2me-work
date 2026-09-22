@@ -1,0 +1,17 @@
+{
+  "kind": "derived_summary_of_executed_exact_tests_not_Lean",
+  "models": 20,
+  "vertices": 111,
+  "original_rows": 136,
+  "routes": 721,
+  "edges": 867,
+  "shortest_edges": 862,
+  "nonshortest_routes": 4,
+  "systems": 1300,
+  "positive_systems": 613,
+  "excluded_systems": 687,
+  "exhaustive_rows": 31,
+  "strictly_reduced_rows": 24,
+  "generic_cases": 5,
+  "controls_rejected": 10
+}

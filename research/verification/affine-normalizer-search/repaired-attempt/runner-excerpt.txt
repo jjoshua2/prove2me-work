@@ -1,0 +1,12 @@
+# Selected exact runner lines, not a complete raw runner archive.
+# Both full decoded runner logs were read through cleanup.
+# Full driver/solution/statement compiler logs are preserved unchanged.
+2026-09-22T19:27:39.8225115Z Lake version 5.0.0-src+d024af0 (Lean version 4.30.0)
+2026-09-22T19:27:39.8442991Z   GITHUB_TOKEN: 
+2026-09-22T19:27:39.8443230Z   PROVE2ME_API_KEY: 
+2026-09-22T19:27:58.9638483Z SHA256 digest of uploaded artifact zip is 4160a16a0910e63b9e971eceacc579c1031b27309c4e4c3a8948a1628ecd007b
+2026-09-22T19:31:42.8204847Z - **Hirsch.affine_normalizer_finite_search**: ACCEPTED
+2026-09-22T19:31:42.8205817Z   - theorem `e3e924a7-cae1-4fff-9bdb-1433126cb7f7`
+2026-09-22T19:31:42.8206711Z   - submission `56cc888e-a904-4dff-8695-c0be8e26804d`
+2026-09-22T19:31:43.7714206Z SHA256 digest of uploaded artifact zip is 27486b88c2360637e7e40e655024383d25b4dd6b327c4a98f618f5d558bea372
+2026-09-22T19:31:45.2513872Z https://github.com/jjoshua2/prove2me-work/pull/334#issuecomment-5782697350

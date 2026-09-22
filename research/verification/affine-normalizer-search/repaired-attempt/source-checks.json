@@ -1,0 +1,27 @@
+{
+  "kind": "local_preflight_and_repair_consistency_not_Lean_verification",
+  "proof_sha": "38ddf462561dfeb95b448084ae98c4d4ba83b0e8",
+  "source_blob": "e7b359fae3953d789c936217ce730b7139e361d5",
+  "source_sha256": "5e37a3c417a051e978bf7cb6f330007eb27a0808dc0530f02ee30c449e1e233c",
+  "source_bytes": 11835,
+  "source_lines": 263,
+  "public_type_unchanged": true,
+  "only_saved_repair_applied": true,
+  "local_Lean_compilation": false,
+  "preflight": {
+    "PATH_lean": false,
+    "PATH_lake": false,
+    "PATH_elan": false,
+    "checked_paths": [
+      "/home/oai/.elan",
+      "/root/.elan",
+      "/opt/lean",
+      "/home/oai/prove2me_workspace",
+      "/mnt/data/.lake"
+    ],
+    "releases.lean-lang.org": "DNS resolution failed",
+    "raw.githubusercontent.com": "DNS resolution failed"
+  },
+  "coordination_comment": 5782598899,
+  "trigger_comment": 5782625542
+}

@@ -1,0 +1,12 @@
+{
+  "kind": "static_source_identity_not_Lean_compilation",
+  "main": "165eadd7cfc012c6d251b576ee89351c8fea8b62",
+  "source_lines": 262,
+  "source_bytes": 11791,
+  "source_sha256": "146184c2ffbe787c11e85db3ac572a4b2603aad544fe81799996701158edda7c",
+  "source_blob": "be277e04acf17243362c513c6a54b097cf8f3d55",
+  "public_type_matches_metadata": true,
+  "custom_axioms_or_written_admissions": false,
+  "transitive_report_requests": 6,
+  "local_Lean_compilation": false
+}
