@@ -1,0 +1,10 @@
+{
+  "kind": "derived_offline_consistency_not_Lean_or_live_verification",
+  "status": "PASS",
+  "check_count": 98,
+  "successful_raw_archives": 3,
+  "raw_members_compared": 15,
+  "corruptions_rejected": ["altered proof", "wrong proof SHA", "missing axiom report", "forbidden axiom", "failed compile", "wrong request", "pending receipt", "wrong submission"],
+  "checker": "Export-only review/check_bundle.py; not a committed repository verifier",
+  "note": "The full fixtures and offline report are exported and regenerate; checks neither execute Lean nor authenticate arbitrary JSON."
+}

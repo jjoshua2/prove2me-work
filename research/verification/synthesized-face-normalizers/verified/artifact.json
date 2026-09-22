@@ -1,0 +1,25 @@
+{
+  "head_sha": "dfea7556ebfb0dc458965096a5f8a7b902253cf0",
+  "packets": [
+    {
+      "path": "research/publication_packets/synthesized_face_normalizers",
+      "name": "synthesized_face_normalizers",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "649bc0989faea9d41db45980a6f0a9bdee953451cba44a69579ce20ec8d2b9e2",
+        "driver.lean": "649bc0989faea9d41db45980a6f0a9bdee953451cba44a69579ce20ec8d2b9e2",
+        "statement.lean": "401acab365c328772ca1b830a176066855b68cdd2af4fa1bbc1f6cff77ed11be",
+        "problem.json": "5d1c52b3555f749f19a9d13ca4d1144d671a11a12083fdaac339b4bf24033318",
+        "explanation.md": "165801f5f32f0cd9709a9a5909648f8a6444838aad359132c40ac6c3872278fa"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}

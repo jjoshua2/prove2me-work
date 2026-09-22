@@ -1,0 +1,20 @@
+_verified/packets/synthesized_face_normalizers/solution.lean:1097:8: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+_verified/packets/synthesized_face_normalizers/solution.lean:1087:4: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+_verified/packets/synthesized_face_normalizers/solution.lean:1087:18: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+_verified/packets/synthesized_face_normalizers/solution.lean:1097:8: warning: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'Hirsch.NormalizerSearch.catalogue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.SynthesizedFaces.synthesize' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.SynthesizedFaces.improve_on_face' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.SynthesizedFaces.acquire_on_face' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.SynthesizedFaces.route_for_flag' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.SynthesizedFaces.charges_le_competitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.SynthesizedFaces.optimal_routes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]
