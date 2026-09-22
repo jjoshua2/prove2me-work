@@ -1,0 +1,25 @@
+{
+  "head_sha": "ade253b05303c77211a8e8a1cc84a1f339c59c42",
+  "packets": [
+    {
+      "path": "research/publication_packets/face_local_target_flags",
+      "name": "face_local_target_flags",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "0ff21754450c5ab02cf83504d00a3a5832bf88fa7ba06d14413c06a2de316690",
+        "driver.lean": "0ff21754450c5ab02cf83504d00a3a5832bf88fa7ba06d14413c06a2de316690",
+        "statement.lean": "5c8c4c183f8d91a8c9f4a87faaa49f3d330135ea8f35599db99968c94c754935",
+        "problem.json": "0c567053f648e9c1201d8ce9fbf954e482288b3c57981adfdba3c575875d687a",
+        "explanation.md": "3382f8b4c8e8d4415865c87676c618862c61cba6e4772492f66d5ed37861fa75"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}

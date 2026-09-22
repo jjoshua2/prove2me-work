@@ -1,0 +1,61 @@
+# Extracted compiler diagnostics, not a complete raw runner log
+# Exact tested proof: 2758b9d7b9ad8a393a270b9c2c93b356ecae772f
+# Run 35744801081, verifier job 106803568293, driver exit code 1.
+# Timestamps and linter suggestion bodies omitted; the complete displayed error
+# context and all eight axiom reports are retained. Full decoded job log was
+# read through cleanup. Clean helper reports do not verify the public root.
+
+face_local_target_flags/driver.lean failed to compile:
+_verified/packets/face_local_target_flags/driver.lean:1136:46: warning: This simp argument is unused:
+  Nat.mul_add
+_verified/packets/face_local_target_flags/driver.lean:1136:58: warning: This simp argument is unused:
+  Nat.mul_one
+_verified/packets/face_local_target_flags/driver.lean:1265:78: error: unsolved goals
+d m : ℕ
+C : Finset (Fin d → ℝ)
+A : Fin m → (Fin d → ℝ) →ₗ[ℝ] ℝ
+b : Fin m → ℝ
+hP : (convexHull ℝ) ↑C = {x | ∀ (i : Fin m), (A i) x ≤ b i}
+u v : Fin d → ℝ
+hu : u ∈ Set.extremePoints ℝ {x | ∀ (i : Fin m), (A i) x ≤ b i}
+hv : v ∈ Set.extremePoints ℝ {x | ∀ (i : Fin m), (A i) x ≤ b i}
+V : Finset (Fin d → ℝ) := {x ∈ C | x ∈ Set.extremePoints ℝ {x | ∀ (i : Fin m), (A i) x ≤ b i}}
+T : Finset (Fin m) := {i | (A i) v = b i ∧ (A i) u ≠ b i}
+G : Finset (Fin m) := {i | (A i) u = b i ∧ (A i) v = b i}
+q : List (Fin m) → Finset (Fin m) → List ℕ :=
+  fun t =>
+    List.rec (motive := fun x => Finset (Fin m) → List ℕ) (fun x => [])
+      (fun j x tailCharges H =>
+        ((Finset.image (fun x => (A j) x) ({x ∈ V | ∀ i ∈ H, (A i) x = b i})).card - 1) :: tailCharges (insert j H))
+      t
+hV : Hirsch.TargetRows.vertexSet C A b = V
+hT : Hirsch.TargetRows.missing A b v u = T
+hG : Hirsch.TargetDetermining.shared A b u v = G
+J✝ : List (Fin m)
+hJ : Hirsch.FaceLocal.Eligible A b u v J✝
+p : Hirsch.CoordinateRoute.Route (Hirsch.FewExceptions.Edge A b v) (Hirsch.TargetRows.vertexSet C A b) u v
+hp : p.length ≤ (Hirsch.FaceLocal.charges C A b J✝ (Hirsch.TargetDetermining.shared A b u v)).sum
+hopt :
+  ∀ (R : List (Fin m)),
+    Hirsch.FaceLocal.Eligible A b u v R →
+      (Hirsch.FaceLocal.charges C A b J✝ (Hirsch.TargetDetermining.shared A b u v)).sum ≤
+        (Hirsch.FaceLocal.charges C A b R (Hirsch.TargetDetermining.shared A b u v)).sum
+huniform :
+  ∀ (K : ℕ),
+    (∀ k ∈ Hirsch.FaceLocal.charges C A b J✝ (Hirsch.TargetDetermining.shared A b u v), k ≤ K) →
+      p.length ≤ K * min d (m - d)
+j : Fin m
+J : List (Fin m)
+ih : ∀ (H : Finset (Fin m)), Hirsch.FaceLocal.charges C A b J H = q J H
+H : Finset (Fin m)
+⊢ Finset.image (fun x => (A j) x) ({x ∈ V | ∀ i ∈ H, (A i) x = b i}) =
+    Finset.image (fun x => (A j) x) ({x ∈ V | ∀ i ∈ H, (A i) x = b i})
+
+'Hirsch.TargetDetermining.small_completion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.FaceLocal.face_vertices_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.FaceLocal.acquire_on_face' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.FaceLocal.eligible_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.FaceLocal.route_for_flag' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.FaceLocal.charges_le_global' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.FaceLocal.optimal_flag_routes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

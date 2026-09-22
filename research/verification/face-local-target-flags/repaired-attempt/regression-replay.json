@@ -1,0 +1,30 @@
+{
+  "kind": "rerun_of_unchanged_exact_tests_not_Lean_verification",
+  "outputs": {
+    "small/fixtures.json": {
+      "bytes": 982805,
+      "sha256": "a3600c085078d74192921a6c7072d60e28ce1712e00be56fbbb3d6dc95c7241a",
+      "byte_identical": true
+    },
+    "small/negative-controls.json": {
+      "bytes": 643,
+      "sha256": "f832c40ef3698274aa0fe6855af6c003d01f4dfbc30f677141a63119cc6c1634",
+      "byte_identical": true
+    },
+    "small/report.json": {
+      "bytes": 6091,
+      "sha256": "75ebf0d453421ef377bc27967e8c749e76767c0f6c1e5a76b9d3f1fec99fe668",
+      "byte_identical": true
+    },
+    "large/fixtures.json": {
+      "bytes": 657450,
+      "sha256": "70dd4d756eac80f357c92da08efc9067895c9ff30557a31fb2696b76cd34579d",
+      "byte_identical": true
+    },
+    "large/report.json": {
+      "bytes": 1974,
+      "sha256": "8887d0709b0912e69221735c2b3cdfe707c8dc607d6fffa08ea547dacb38c84b",
+      "byte_identical": true
+    }
+  }
+}

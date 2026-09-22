@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/face_local_target_flags"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "2758b9d7b9ad8a393a270b9c2c93b356ecae772f",
+  "pr": "332"
+}

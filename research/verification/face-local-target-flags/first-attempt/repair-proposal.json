@@ -1,0 +1,14 @@
+{
+  "kind": "unapplied_uncompiled_single_site_repair_proposal",
+  "tested_proof": "2758b9d7b9ad8a393a270b9c2c93b356ecae772f",
+  "tested_source_blob": "e044971a320c27c5b899a961063ae99a2b4cdc6c",
+  "reported_error_line": 1265,
+  "change": "Replace the public wrapper hl rewrite with extensional membership simplification. All mathematical helpers, public type, other proof code, metadata and explanation unchanged.",
+  "proposed_source_lines": 1298,
+  "proposed_source_bytes": 55847,
+  "proposed_source_sha256": "0ff21754450c5ab02cf83504d00a3a5832bf88fa7ba06d14413c06a2de316690",
+  "proposed_source_blob": "7cea8154a7fb8647105e4420b8fef167fac324c5",
+  "patch_apply_reverse_roundtrip": true,
+  "applied_to_publication_source": false,
+  "compiled": false
+}
