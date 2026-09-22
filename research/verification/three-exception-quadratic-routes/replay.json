@@ -1,0 +1,22 @@
+{
+  "kind": "derived_clean_four_script_replay_not_Lean_compilation",
+  "script_count": 4,
+  "exit_code": 0,
+  "outputs": {
+    "report.json": {
+      "bytes": 12349,
+      "sha256": "8eb18b046de51ad6983de83df9508a2430e27963a6cb5899aa4e5bf2be16e926",
+      "byte_identical": true
+    },
+    "fixtures.json": {
+      "bytes": 6256810,
+      "sha256": "9993d77e8c83b026eccd71de3eee05755b7d1919601f1029fbd727ce04dedbf0",
+      "byte_identical": true
+    },
+    "negative-controls.json": {
+      "bytes": 794,
+      "sha256": "e256d4a582eca45985091f357b39e7927c8d3a8df594249db66834cad5f521a0",
+      "byte_identical": true
+    }
+  }
+}

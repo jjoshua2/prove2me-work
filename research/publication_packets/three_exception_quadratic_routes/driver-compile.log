@@ -1,0 +1,7 @@
+'Hirsch.PlanarResidual.planar_vertex_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.SpatialResidual.spatial_row_slice_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.SpatialResidual.spatial_vertex_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.SpatialResidual.residual_card_quadratic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.SpatialResidual.residual_route_quadratic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.SpatialResidual.three_exception_routes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,25 @@
+{
+  "kind": "derived_summary_of_executed_exact_computation_not_Lean",
+  "models": 23,
+  "totals": {
+    "vertices": 163,
+    "rows": 175,
+    "qualifying_targets": 150,
+    "newly_admitted_three_exception_targets": 16,
+    "rejected_targets": 13,
+    "certificates": 271,
+    "nonzero_row_slices_with_more_than_two_vertices": 542,
+    "routes": 2411,
+    "edges": 3810,
+    "shortest_edges": 3736,
+    "nonshortest_routes": 42,
+    "nonacquiring_steps": 124
+  },
+  "certificate_dimensions": {
+    "0": 106,
+    "1": 11,
+    "2": 65,
+    "3": 89
+  },
+  "controls_rejected": 11
+}

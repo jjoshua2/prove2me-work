@@ -1,0 +1,25 @@
+{
+  "head_sha": "ea943ccdbd57e076334521b0616277168da1f54b",
+  "packets": [
+    {
+      "path": "research/publication_packets/three_exception_quadratic_routes",
+      "name": "three_exception_quadratic_routes",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "d6e5d4ff97961f82b6254bb2b3d490fad38caaf48097e2eb879cd34893754c34",
+        "driver.lean": "d6e5d4ff97961f82b6254bb2b3d490fad38caaf48097e2eb879cd34893754c34",
+        "statement.lean": "1fb185cac7e734f267f9cd4a3e2be6d1ce46ede65f8cb5859e0fc7ccf5d35605",
+        "problem.json": "92bb8313009b4111c9ffe7c54f44863b978d9e38d891f1c452546d677d4ce650",
+        "explanation.md": "e2ca5d9a646de9045b68ebdd0e792a69192e720c3bd65251678ec2122c45783a"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}

@@ -1,0 +1,26 @@
+{
+  "kind": "static_source_checks_not_Lean_compilation",
+  "accepted_prefix_bytes": 51946,
+  "accepted_prefix_lines": 1218,
+  "accepted_prefix_unchanged": true,
+  "accepted_five_input_hashes_checked": true,
+  "public_type_exact_match": true,
+  "axiom_report_requests": 7,
+  "files": {
+    "problem.json": {
+      "bytes": 3453,
+      "sha256": "92bb8313009b4111c9ffe7c54f44863b978d9e38d891f1c452546d677d4ce650",
+      "git_blob": "dade77b8c5b05a8ee4271fc97f5e7fcda163ae91"
+    },
+    "solution.lean": {
+      "bytes": 62095,
+      "sha256": "d6e5d4ff97961f82b6254bb2b3d490fad38caaf48097e2eb879cd34893754c34",
+      "git_blob": "1cebe264459e71e49b117d820d21af6e9885a0e1"
+    },
+    "explanation.md": {
+      "bytes": 8345,
+      "sha256": "e2ca5d9a646de9045b68ebdd0e792a69192e720c3bd65251678ec2122c45783a",
+      "git_blob": "a41230f287ae5b3b3c827fe4233764e0ee874f45"
+    }
+  }
+}
