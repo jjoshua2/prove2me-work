@@ -1263,8 +1263,9 @@ theorem solution (d m : ℕ) (C : Finset (Fin d → ℝ))
       have hl : Hirsch.FaceLocal.faceLevels C A b H j =
           (@Finset.filter (Fin d → ℝ) (fun x => ∀ i ∈ H, A i x=b i)
             (fun _ => Classical.propDecidable _) V).image (fun x => A j x) := by
-        unfold Hirsch.FaceLocal.faceLevels Hirsch.FaceLocal.faceVertices
-        rw [hV]
+        ext a
+        simp only [Hirsch.FaceLocal.faceLevels,Hirsch.FaceLocal.faceVertices,
+          Finset.mem_image,Finset.mem_filter,hV]
       change ((Hirsch.FaceLocal.faceLevels C A b H j).card-1) ::
           Hirsch.FaceLocal.charges C A b J (insert j H) = _
       rw [hl,ih] <;> rfl
