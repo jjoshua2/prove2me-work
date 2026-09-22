@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/target_determining_row_budget"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "4493c3f97ff50f04bead9d5c3596bc4e3eeb7af4",
+  "pr": "330"
+}

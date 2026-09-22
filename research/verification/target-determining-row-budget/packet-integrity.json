@@ -1,0 +1,78 @@
+{
+  "kind": "offline_stored_evidence_check_not_Lean_or_live_verification",
+  "status": "PASS",
+  "count": 33,
+  "checks": [
+    "frozen proof identity",
+    "fixed Mathlib revision",
+    "recorded packet completeness flag",
+    "immutable five-input hash map",
+    "solution.lean hash",
+    "driver.lean hash",
+    "statement.lean hash",
+    "problem.json hash",
+    "explanation.md hash",
+    "complete driver equals solution",
+    "recorded compiler audit PASS",
+    "three recorded compilation exits",
+    "audit bound to source hashes",
+    "recorded standard axiom set",
+    "proof admission-token scan",
+    "exact public theorem type",
+    "target metadata identity",
+    "driver-compile.log eight named reports",
+    "driver-compile.log standard-only axioms",
+    "driver-compile.log no recorded proof errors",
+    "solution-compile.log eight named reports",
+    "solution-compile.log standard-only axioms",
+    "solution-compile.log no recorded proof errors",
+    "actual resolved request identity",
+    "actual publication request target",
+    "blocker tied to exact proof and run",
+    "blocker is labelled derived, not a receipt",
+    "recorded failed-closed publisher",
+    "strict guard unchanged",
+    "unknown runtime version not invented",
+    "no invented platform identifiers",
+    "no invented registration or acceptance",
+    "no fabricated receipt file"
+  ],
+  "corruptions": [
+    {
+      "case": "altered proof",
+      "rejected": true
+    },
+    {
+      "case": "wrong proof identity",
+      "rejected": true
+    },
+    {
+      "case": "missing report",
+      "rejected": true
+    },
+    {
+      "case": "forbidden axiom",
+      "rejected": true
+    },
+    {
+      "case": "failed compile",
+      "rejected": true
+    },
+    {
+      "case": "false acceptance",
+      "rejected": true
+    },
+    {
+      "case": "invented submission ID",
+      "rejected": true
+    },
+    {
+      "case": "weakened guard record",
+      "rejected": true
+    },
+    {
+      "case": "invented runtime version",
+      "rejected": true
+    }
+  ]
+}

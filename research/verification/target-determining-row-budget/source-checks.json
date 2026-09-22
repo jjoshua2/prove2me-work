@@ -1,0 +1,18 @@
+{
+  "kind": "static_source_integrity_not_Lean_compilation",
+  "proof_sha": "4493c3f97ff50f04bead9d5c3596bc4e3eeb7af4",
+  "local_Lean_compilation": false,
+  "source_lines": 1343,
+  "source_bytes": 59088,
+  "source_blob": "4202603709626ec3c9ad0bf9922f5c2affbdae53",
+  "source_sha256": "1973de8f135e4c4fe4e58088594627fd2a113ab8067372b6701274af44d1816b",
+  "complete_public_type_matches_metadata": true,
+  "accepted_329_prefix_bytes": 41010,
+  "accepted_329_prefix_lines": 972,
+  "accepted_325_directions_bytes": 458,
+  "accepted_325_selector_bytes": 2219,
+  "all_retained_dependency_bodies_unchanged": true,
+  "both_five_file_dependency_manifests_pass": true,
+  "precommit_uploads": "Two detached transcription mismatches were excluded by hashes before the first commit; neither was compiled or submitted.",
+  "post_gate_source_or_metadata_edits": false
+}

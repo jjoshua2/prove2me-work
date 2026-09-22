@@ -1,0 +1,9 @@
+{
+  "prefix329_bytes": 41010,
+  "prefix329_lines": 972,
+  "directions_bytes": 458,
+  "small_active_rows_bytes": 2219,
+  "all_frozen_hashes_match": true,
+  "source325_commit": "d1476316107a5a52ed7b70f66dcfd0ac45ce3348",
+  "source329_commit": "3cba7be63e63a6c8bf2a3b7885afc796f4443d21"
+}
