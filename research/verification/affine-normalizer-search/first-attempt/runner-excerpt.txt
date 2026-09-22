@@ -1,0 +1,8 @@
+# Selected exact runner lines, not a complete raw runner archive.
+2026-09-22T17:53:14.3497775Z SHA256 digest of downloaded artifact is 3ef84dd2592bd28f74f078835db31c17668c5a0e89cf7c0f5030735d652e4e48
+2026-09-22T17:53:58.8319885Z Lake version 5.0.0-src+d024af0 (Lean version 4.30.0)
+2026-09-22T17:53:58.8552207Z   GITHUB_TOKEN: 
+2026-09-22T17:53:58.8552424Z   PROVE2ME_API_KEY: 
+2026-09-22T17:54:06.3390133Z _verified/packets/affine_normalizer_search/driver.lean:141:8: error(lean.unknownIdentifier): Unknown constant `Finset.card_le_card_of_surjective`
+2026-09-22T17:54:06.3402340Z 'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-22T17:54:06.3555205Z ##[error]Process completed with exit code 1.

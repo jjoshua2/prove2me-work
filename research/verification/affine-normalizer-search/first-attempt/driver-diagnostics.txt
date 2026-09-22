@@ -1,0 +1,17 @@
+# Selected complete compiler error and all requested reports, timestamps omitted.
+# Run35763480309 / verifier106867129911 / tested proofa3ac7e377ae4a5a902108989f42e0b215214b1dd.
+# The complete decoded runner log was read through cleanup. This is not a raw full log.
+
+affine_normalizer_search/driver.lean failed to compile:
+_verified/packets/affine_normalizer_search/driver.lean:141:8: error(lean.unknownIdentifier): Unknown constant `Finset.card_le_card_of_surjective`
+_verified/packets/affine_normalizer_search/driver.lean:169:8: warning: this tactic is never executed
+_verified/packets/affine_normalizer_search/driver.lean:159:4: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+_verified/packets/affine_normalizer_search/driver.lean:159:18: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+_verified/packets/affine_normalizer_search/driver.lean:169:8: warning: 'ring' tactic does nothing
+
+'Hirsch.NormalizerSearch.compress_tests' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.NormalizerSearch.compress_ties' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.NormalizerSearch.image_card_of_ties' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.NormalizerSearch.anchor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.NormalizerSearch.catalogue' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
