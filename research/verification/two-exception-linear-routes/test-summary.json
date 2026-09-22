@@ -1,0 +1,32 @@
+{
+  "kind": "derived_exact_supporting_test_summary_not_Lean_verification",
+  "models": 25,
+  "totals": {
+    "vertices": 181,
+    "rows": 186,
+    "qualifying_targets": 159,
+    "rejected_targets": 22,
+    "incidence_certificates": 238,
+    "planar_vertex_occurrences": 505,
+    "incidences": 1110,
+    "routes": 1876,
+    "edges": 3099,
+    "shortest_edges": 2902,
+    "nonshortest_routes": 71,
+    "nonacquiring_steps": 444
+  },
+  "certificates_by_dimension": {
+    "0": 119,
+    "1": 36,
+    "2": 83
+  },
+  "incidences_by_dimension": {
+    "0": 0,
+    "1": 92,
+    "2": 1018
+  },
+  "negative_controls_rejected": 10,
+  "independent_edge_graph_used_by_route_producer": false,
+  "saved_replay_with_incidence_route_and_edge_producers_disabled": true,
+  "large_graphs_enumerated": false
+}

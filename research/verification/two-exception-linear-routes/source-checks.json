@@ -1,0 +1,21 @@
+{
+  "kind": "static_source_checks_not_Lean_compilation",
+  "public_type_exact_match": true,
+  "accepted_retained_bodies_unchanged": true,
+  "lines": 1252,
+  "bytes": 53878,
+  "sha256": "3469b675403c01a8bb0961961c95bf60316d4931dc1dc005c66c2fc142f23031",
+  "git_blob": "90ee12a3607c25fbf58fe016a5ced05afa47f996",
+  "new_axiom_report_requests": [
+    "Hirsch.PlanarResidual.line_extreme_card",
+    "Hirsch.PlanarResidual.active_nonzero_card",
+    "Hirsch.PlanarResidual.row_slice_card",
+    "Hirsch.PlanarResidual.planar_vertex_card",
+    "Hirsch.PlanarResidual.residual_card_linear",
+    "Hirsch.PlanarResidual.residual_route_linear",
+    "Hirsch.PlanarResidual.two_exception_routes",
+    "solution"
+  ],
+  "local_Lean_compilation": false,
+  "local_toolchain_probe": "No lean/lake in PATH or checked .elan/workspace locations; getent returned no release/raw-host addresses"
+}

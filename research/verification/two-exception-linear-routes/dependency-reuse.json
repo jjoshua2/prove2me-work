@@ -1,0 +1,25 @@
+{
+  "source": "accepted #325",
+  "source_sha256": "10a7817b6e429bdc4254e25deb385a02cc5dae8a7c7afd4335fc06f6306aac08",
+  "omissions": [
+    {
+      "start": "/-- Ordinary original edge, preservation of every acquired target row,",
+      "end": "end Hirsch.TargetRows",
+      "omitted_bytes": 5662,
+      "omitted_lines": 115
+    },
+    {
+      "start": "/-- Select at most dim(N) ORIGINAL active rows which separate all motions in N.",
+      "end": "/-- Acquire all good target rows.",
+      "omitted_bytes": 5280,
+      "omitted_lines": 114
+    },
+    {
+      "start": "/-- Finish within the remaining original face, preserving target locks.",
+      "end": "end Hirsch.FewExceptions",
+      "omitted_bytes": 3127,
+      "omitted_lines": 60
+    }
+  ],
+  "retained_bodies_unchanged": true
+}

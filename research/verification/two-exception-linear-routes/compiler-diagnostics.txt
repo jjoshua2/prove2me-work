@@ -1,0 +1,40 @@
+# Complete compiler error/axiom block transcribed from verifier job 106581853652
+# Run 35675757480; proof c7a6eca15fa16f107e4065392587bea2ffb48ddc.
+# Runner timestamps removed. Full decoded runner log read through cleanup;
+# this is not a full raw runner archive. No verified packet artifact exists.
+
+two_exception_linear_routes/driver.lean failed to compile:
+_verified/packets/two_exception_linear_routes/driver.lean:1069:28: error: Application type mismatch: The argument
+  hker
+has type
+  @Module.finrank ℝ (↥f.ker) Real.semiring f.ker.addCommMonoid f.ker.module ≤ 1
+but is expected to have type
+  @Module.finrank ℝ ?m.275 Real.semiring AddCommGroup.toAddCommMonoid ?m.277 ≤ 1
+in the application
+  line_extreme_card ?m.279 hker
+_verified/packets/two_exception_linear_routes/driver.lean:1189:14: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  i ≥ 0
+  g ≥ 0
+  g - i ≥ -1
+  e ≥ 0
+  e - g ≥ 1
+  c ≥ 0
+  c - e ≥ 1
+  0 ≤ a ≤ 2
+where
+ a := ↑B.card
+ c := ↑D.card
+ e := ↑p.length
+ g := ↑m
+ i := ↑(FewExceptions.residual C A b v B).card
+'Hirsch.PlanarResidual.line_extreme_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.PlanarResidual.active_nonzero_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.PlanarResidual.row_slice_card' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.PlanarResidual.planar_vertex_card' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.PlanarResidual.residual_card_linear' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.PlanarResidual.residual_route_linear' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.PlanarResidual.two_exception_routes' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+
+# Process completed with exit code 1. Publication and report-verify skipped.
