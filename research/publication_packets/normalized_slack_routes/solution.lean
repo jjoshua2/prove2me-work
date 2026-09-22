@@ -1031,7 +1031,8 @@ theorem acquire_row (C : Finset (Fin d → ℝ))
     intro heq
     have hum : score u ∈ below u := by rw [heq]; exact hval u hu
     exact (lt_irrefl (score u)) (Finset.mem_filter.mp hum).2
-  exact ⟨w,hw,hwj,p,by omega⟩
+  have hbound : p.length ≤ S.card-1 := by omega
+  exact ⟨w,hw,hwj,p,hbound⟩
 
 noncomputable def weight (C : Finset (Fin d → ℝ))
     (A : Fin m → (Fin d → ℝ) →ₗ[ℝ] ℝ) (b : Fin m → ℝ)
@@ -1218,8 +1219,13 @@ theorem solution (d m : ℕ) (C : Finset (Fin d → ℝ))
       G,Finset.mem_filter,Finset.mem_univ,true_and]
   have hw : ∀ R, Hirsch.NormalizedSlack.weight C A b D a R=∑ i ∈ R, w i := by
     intro R
+    have hr : ∀ i, Hirsch.NormalizedSlack.ratio A b D a i =
+        (fun x => (b i-A i x)/(a i+D i x)) := by
+      intro i
+      funext x
+      rfl
     simp only [Hirsch.NormalizedSlack.weight,Hirsch.NormalizedSlack.spectrum,
-      Hirsch.NormalizedSlack.ratio,hV,w]
+      hr,hV,w]
   obtain ⟨S,hSsub,hScard,hSdet,hopt⟩ :=
     Hirsch.NormalizedSlack.minimum_completion C A b D a u v hv
   obtain ⟨p,hp⟩ := Hirsch.NormalizedSlack.selected_routes C A b hP D a hpos u v hu hv S hSsub hSdet
