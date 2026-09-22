@@ -1,0 +1,30 @@
+{
+  "333": {
+    "source_blob": "f0a56f9af96ab0cb19a6cdc14bc84f388923e9d7",
+    "five_hashes": {
+      "solution.lean": true,
+      "driver.lean": true,
+      "statement.lean": true,
+      "problem.json": true,
+      "explanation.md": true
+    }
+  },
+  "334": {
+    "source_blob": "e7b359fae3953d789c936217ce730b7139e361d5",
+    "five_hashes": {
+      "solution.lean": true,
+      "driver.lean": true,
+      "statement.lean": true,
+      "problem.json": true,
+      "explanation.md": true
+    }
+  },
+  "core": {
+    "bytes": 38243,
+    "lines": 932
+  },
+  "normalizer_namespace": {
+    "bytes": 10107,
+    "lines": 226
+  }
+}

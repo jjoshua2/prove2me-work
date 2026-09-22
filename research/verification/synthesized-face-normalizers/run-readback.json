@@ -1,0 +1,50 @@
+{
+  "kind": "derived_GitHub_and_artifact_readback_not_new_platform_poll",
+  "repository": "jjoshua2/prove2me-work",
+  "pr": 335,
+  "proof_sha": "dfea7556ebfb0dc458965096a5f8a7b902253cf0",
+  "trusted_main_sha": "3937c728da40564fcbb042cd0ba1f5468f3f3365",
+  "coordination_comment": 5783008527,
+  "trigger_comment": 5783356994,
+  "acknowledgement_comment": 5783360411,
+  "verdict_comment": 5783432437,
+  "verdict_time_utc": "2026-09-22T20:14:59Z",
+  "run_id": 35778524683,
+  "jobs": {
+    "gate": {"id": 106917759855, "conclusion": "success"},
+    "verify": {"id": 106917839842, "conclusion": "success"},
+    "publish": {"id": 106918322232, "conclusion": "success"},
+    "report-verify": {"id": 106918324598, "conclusion": "skipped"}
+  },
+  "compile_exit_codes": {"driver.lean": 0, "solution.lean": 0, "statement.lean": 0},
+  "standard_only_reports_per_proof_log": 8,
+  "lean_version_observed": "4.30.0",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "strict_protocol": "0.10.8",
+  "publication": {
+    "packet": "synthesized_face_normalizers",
+    "status": "ACCEPTED",
+    "theorem_id": "ae38bf3e-aa8c-4ae9-886e-8088c3c0a107",
+    "submission_id": "d6f6978b-1489-4f60-839b-1a704b3cd22c",
+    "theorem_name": "Hirsch.synthesized_face_normalizer_original_routes",
+    "registration": "PUBLISHED",
+    "live_status": "Proved",
+    "path": "research/publication_packets/synthesized_face_normalizers"
+  },
+  "hosted_compiler_attempts": 1,
+  "actual_platform_submissions": 1,
+  "post_gate_source_or_metadata_edits": false,
+  "local_Lean_compilation": false,
+  "independent_platform_or_mission_root_poll": false,
+  "full_decoded_runner_logs_read": true,
+  "stored_runner_logs": "Selected exact excerpt, not a full raw runner archive; complete compiler logs preserved.",
+  "individual_platform_response_bodies_available": false,
+  "raw_packet_tree": "7228e5235400b90da9ae0c8c08462a0ef6fa6159",
+  "raw_verified_tree": "e17926b4a10c149c2122c2139b60bc8cd4358a13",
+  "raw_receipts_tree": "0e1d6b0d3d0a8bca482e97d87b280385ef4b8d90",
+  "artifacts": [
+    {"file": "pr335-first-request.zip", "kind": "request", "id": 10717235589, "bytes": 314, "sha256": "86d03c9eb0613e30d96e23c4b822f99a5658ab6ad4cb6d6e4dd5def33ad92edc", "downloaded_and_rehashed": true},
+    {"file": "pr335-first-verified.zip", "kind": "verified", "id": 10717391510, "bytes": 47190, "sha256": "a06b022930ff2d534e61e91909ca96c7832ad7bbdc2546c0d7d5de355c6f5754", "downloaded_and_rehashed": true},
+    {"file": "pr335-publication-receipts.zip", "kind": "receipts", "id": 10717201455, "bytes": 920, "sha256": "5f11e6854187c00726fb60f91b62f820ac9594d58da51ee04b03f3db7ce3b875", "downloaded_and_rehashed": true}
+  ]
+}

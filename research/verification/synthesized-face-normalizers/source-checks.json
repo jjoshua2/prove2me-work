@@ -1,0 +1,23 @@
+{
+  "solution.lean": {
+    "bytes": 72333,
+    "lines": 1661,
+    "sha256": "649bc0989faea9d41db45980a6f0a9bdee953451cba44a69579ce20ec8d2b9e2",
+    "blob": "cc955b36260ce60e47e0ca845863f8b31d038fa2"
+  },
+  "explanation.md": {
+    "bytes": 12032,
+    "lines": 215,
+    "sha256": "165801f5f32f0cd9709a9a5909648f8a6444838aad359132c40ac6c3872278fa",
+    "blob": "0e60ada626fb08dc9415b21d27c8757ceb97e50b"
+  },
+  "problem.json": {
+    "bytes": 4962,
+    "lines": 15,
+    "sha256": "5d1c52b3555f749f19a9d13ca4d1144d671a11a12083fdaac339b4bf24033318",
+    "blob": "64c6f99bbbae4c87cc44cca86b2add164af2e13e"
+  },
+  "kind": "static_source_integrity_not_Lean",
+  "public_type_matches": true,
+  "local_lean_compilation": false
+}

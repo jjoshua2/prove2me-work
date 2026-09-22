@@ -1,0 +1,15 @@
+{
+  "kind": "exact_script_replay_not_Lean",
+  "outputs": {
+    "report.json": {
+      "bytes": 16859,
+      "sha256": "e191cc86194300aa73affee3686c4bf2aac7b8d759d0c0426c9ad39ad7a7fcdb",
+      "byte_identical": true
+    },
+    "fixtures.json": {
+      "bytes": 12707831,
+      "sha256": "6047170920a0e6897ff66701be1727aaf00a5603f841269f7f331d9399ecdfba",
+      "byte_identical": true
+    }
+  }
+}

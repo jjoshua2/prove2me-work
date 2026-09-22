@@ -1,0 +1,15 @@
+{
+  "head_sha": "dfea7556ebfb0dc458965096a5f8a7b902253cf0",
+  "packets": [
+    {
+      "packet": "synthesized_face_normalizers",
+      "status": "ACCEPTED",
+      "theorem_id": "ae38bf3e-aa8c-4ae9-886e-8088c3c0a107",
+      "submission_id": "d6f6978b-1489-4f60-839b-1a704b3cd22c",
+      "theorem_name": "Hirsch.synthesized_face_normalizer_original_routes",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/synthesized_face_normalizers"
+    }
+  ]
+}

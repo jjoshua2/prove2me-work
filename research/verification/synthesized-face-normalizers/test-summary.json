@@ -1,0 +1,38 @@
+{
+  "kind": "derived_summary_of_executed_exact_tests_not_Lean",
+  "models": 21,
+  "totals": {
+    "dimension": 59,
+    "vertices": 118,
+    "original_rows": 143,
+    "routes": 770,
+    "edges": 936,
+    "shortest_edges": 922,
+    "nonshortest_routes": 11,
+    "candidate_orders": 26566,
+    "better_than_raw_local": 81,
+    "better_than_global_normalized": 154,
+    "better_than_both": 13,
+    "multi_edge_phases": 41,
+    "nonacquiring_steps": 25,
+    "objective_changes": 46,
+    "zero_edge_phases": 72,
+    "normalizers_checked": 10066,
+    "systems": 15840,
+    "positive_systems": 12322,
+    "excluded_systems": 3518,
+    "locally_positive_but_not_globally_positive": 83
+  },
+  "controls": [
+    {"case": "false optimal budget", "rejected": true},
+    {"case": "repeated selected row", "rejected": true},
+    {"case": "wrong planned face", "rejected": true},
+    {"case": "uncharged phase", "rejected": true},
+    {"case": "stationary edge", "rejected": true},
+    {"case": "wrong objective", "rejected": true},
+    {"case": "wrong entry ratio", "rejected": true},
+    {"case": "omitted actual face vertex", "rejected": true},
+    {"case": "false spectrum optimum", "rejected": true},
+    {"case": "false feasibility witness", "rejected": true}
+  ]
+}

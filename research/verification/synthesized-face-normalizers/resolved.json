@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/synthesized_face_normalizers"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "dfea7556ebfb0dc458965096a5f8a7b902253cf0",
+  "pr": "335"
+}
