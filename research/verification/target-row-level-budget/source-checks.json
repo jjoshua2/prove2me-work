@@ -1,0 +1,25 @@
+{
+  "kind": "static_source_integrity_not_Lean_compilation",
+  "public_type_exact_match": true,
+  "retained_accepted_bodies_unchanged": true,
+  "prefix_lines": 778,
+  "prefix_bytes": 31854,
+  "local_Lean_compilation": false,
+  "files": {
+    "explanation.md": {
+      "bytes": 9269,
+      "sha256": "b08d1661dcd6405d9915b080762929f9680765778b432dd8b96dbe4b7c3587b9",
+      "git_blob": "0d95808c3f5e1f74b7c044bef7b6f4c0f2b40c5e"
+    },
+    "problem.json": {
+      "bytes": 3785,
+      "sha256": "bf1282cf8ddd63f9507489899acc29f843220d6aa168cb5e5dac7bc92b0d7d7d",
+      "git_blob": "139ffa415bb84b33d9ef50743a8a33e2e772780b"
+    },
+    "solution.lean": {
+      "bytes": 44146,
+      "sha256": "9ffeb3507bd9455194416ec08f273de93d962e19caf2d67085357c2691469b1c",
+      "git_blob": "60fb981915bbe27d969d91dc73cc842515a4bb4f"
+    }
+  }
+}

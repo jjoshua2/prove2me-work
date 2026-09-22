@@ -1,0 +1,65 @@
+{
+  "kind": "offline_evidence_consistency_not_Lean_or_live_verification",
+  "status": "PASS",
+  "count": 28,
+  "checks": [
+    "exact proof identity",
+    "pinned environment",
+    "recorded publishable",
+    "immutable five-input hashes",
+    "solution.lean digest",
+    "driver.lean digest",
+    "statement.lean digest",
+    "problem.json digest",
+    "explanation.md digest",
+    "recorded audit pass",
+    "three recorded compile exits",
+    "audit input binding",
+    "recorded allowed axioms",
+    "driver equals complete solution",
+    "proof admission-token scan",
+    "target metadata",
+    "exact public theorem type",
+    "driver-compile.log seven complete reports",
+    "driver-compile.log standard-only",
+    "driver-compile.log no proof errors",
+    "solution-compile.log seven complete reports",
+    "solution-compile.log standard-only",
+    "solution-compile.log no proof errors",
+    "receipt proof binding",
+    "single receipt packet",
+    "receipt target binding",
+    "recorded publisher acceptance",
+    "known accepted identifiers"
+  ],
+  "corruptions": [
+    {
+      "case": "altered proof",
+      "rejected": true
+    },
+    {
+      "case": "wrong proof identity",
+      "rejected": true
+    },
+    {
+      "case": "missing report",
+      "rejected": true
+    },
+    {
+      "case": "forbidden axiom",
+      "rejected": true
+    },
+    {
+      "case": "failed compilation",
+      "rejected": true
+    },
+    {
+      "case": "pending receipt",
+      "rejected": true
+    },
+    {
+      "case": "wrong submission",
+      "rejected": true
+    }
+  ]
+}

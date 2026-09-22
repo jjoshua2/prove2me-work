@@ -1,0 +1,45 @@
+{
+  "kind": "exact_product_checks_not_Lean_instances",
+  "cases": [
+    {
+      "dimension": 8,
+      "original_rows": 24,
+      "multilevel_target_rows": 8,
+      "K": 2,
+      "actual_edges": 12,
+      "weighted_bound": 16,
+      "uniform_bound": 32,
+      "full_graph_enumerated": false
+    },
+    {
+      "dimension": 16,
+      "original_rows": 48,
+      "multilevel_target_rows": 16,
+      "K": 2,
+      "actual_edges": 24,
+      "weighted_bound": 32,
+      "uniform_bound": 64,
+      "full_graph_enumerated": false
+    },
+    {
+      "dimension": 32,
+      "original_rows": 96,
+      "multilevel_target_rows": 32,
+      "K": 2,
+      "actual_edges": 48,
+      "weighted_bound": 64,
+      "uniform_bound": 128,
+      "full_graph_enumerated": false
+    },
+    {
+      "dimension": 64,
+      "original_rows": 192,
+      "multilevel_target_rows": 64,
+      "K": 2,
+      "actual_edges": 96,
+      "weighted_bound": 128,
+      "uniform_bound": 256,
+      "full_graph_enumerated": false
+    }
+  ]
+}

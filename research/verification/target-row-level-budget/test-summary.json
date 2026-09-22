@@ -1,0 +1,17 @@
+{
+  "kind": "derived_summary_not_Lean",
+  "models": 17,
+  "totals": {
+    "vertices": 93,
+    "rows": 129,
+    "routes": 601,
+    "edges": 685,
+    "shortest_edges": 684,
+    "nonshortest": 1,
+    "multistep_phases": 37,
+    "nonacquiring_steps": 18,
+    "targets_with_over_three_multilevel_rows": 13
+  },
+  "max_multilevel_target_rows": 8,
+  "controls_rejected": 8
+}

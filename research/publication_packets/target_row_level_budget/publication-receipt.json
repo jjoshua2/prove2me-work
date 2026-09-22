@@ -1,0 +1,15 @@
+{
+  "head_sha": "3cba7be63e63a6c8bf2a3b7885afc796f4443d21",
+  "packets": [
+    {
+      "packet": "target_row_level_budget",
+      "status": "ACCEPTED",
+      "theorem_id": "bf3ff04d-50b5-4999-a1e4-5f6fd973f8a3",
+      "submission_id": "886de773-5dce-4228-9947-2009230d2c01",
+      "theorem_name": "Hirsch.target_row_level_budget_routes",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/target_row_level_budget"
+    }
+  ]
+}

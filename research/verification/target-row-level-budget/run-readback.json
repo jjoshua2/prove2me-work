@@ -1,0 +1,83 @@
+{
+  "kind": "derived_GitHub_and_downloaded_artifact_readback_not_new_platform_poll",
+  "repository": "jjoshua2/prove2me-work",
+  "pr": 329,
+  "proof_sha": "3cba7be63e63a6c8bf2a3b7885afc796f4443d21",
+  "trusted_main_sha": "d579056eaaf36fc86c186133f3cd220c49d9eb08",
+  "coordination_comment": 5770607678,
+  "trigger_comment": 5770715929,
+  "acknowledgement_comment": 5770717441,
+  "verdict_comment": 5770751341,
+  "verdict_time_utc": "2026-09-22T03:23:12Z",
+  "run_id": 35682645528,
+  "jobs": {
+    "gate": {
+      "id": 106602704354,
+      "conclusion": "success"
+    },
+    "verify": {
+      "id": 106602745396,
+      "conclusion": "success"
+    },
+    "publish": {
+      "id": 106603068592,
+      "conclusion": "success"
+    },
+    "report-verify": {
+      "id": 106603069056,
+      "conclusion": "skipped"
+    }
+  },
+  "lean_version_observed": "4.30.0",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "compile_exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "standard_only_proof_reports_per_log": 7,
+  "publication": {
+    "packet": "target_row_level_budget",
+    "status": "ACCEPTED",
+    "theorem_id": "bf3ff04d-50b5-4999-a1e4-5f6fd973f8a3",
+    "submission_id": "886de773-5dce-4228-9947-2009230d2c01",
+    "theorem_name": "Hirsch.target_row_level_budget_routes",
+    "registration": "PUBLISHED",
+    "live_status": "Proved",
+    "path": "research/publication_packets/target_row_level_budget"
+  },
+  "independent_platform_or_mission_root_poll": false,
+  "individual_API_response_bodies_available": false,
+  "hosted_compiler_attempts": 1,
+  "actual_platform_submissions": 1,
+  "post_gate_source_or_metadata_changes": false,
+  "local_Lean_compilation": false,
+  "full_decoded_verifier_publisher_logs_read": true,
+  "runner_log_storage": "Selected exact excerpt; complete compiler logs unchanged",
+  "raw_packet_tree": "d632f35d559f1ece4c3961a8b146f78ed2592fc1",
+  "raw_verified_tree": "4e9cae629af5038b5f091bfad5a4f4497d9bbe66",
+  "raw_receipt_tree": "8929408f83704934d78b934d09e68cf59f294d70",
+  "artifacts": [
+    {
+      "file": "pr329-first-request.zip",
+      "id": 10676020264,
+      "bytes": 309,
+      "sha256": "a699aaeed85c2ec3753e1d677cb50d87007795028c69e87671cabede8f0688da",
+      "downloaded_and_rehashed": true
+    },
+    {
+      "file": "pr329-first-verified.zip",
+      "id": 10674589373,
+      "bytes": 33009,
+      "sha256": "4da39383c189c4c6dce5322cef5e7fda3876458cd961dbd10407509232abd881",
+      "downloaded_and_rehashed": true
+    },
+    {
+      "file": "pr329-publication-receipts.zip",
+      "id": 10675481531,
+      "bytes": 900,
+      "sha256": "3de8db3241c3c7c94b70a31a289cedbcbbd11e424abb0c6c28ca90c5985c6000",
+      "downloaded_and_rehashed": true
+    }
+  ]
+}

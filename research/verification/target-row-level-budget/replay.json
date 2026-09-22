@@ -1,0 +1,31 @@
+{
+  "kind": "clean_four_script_replay_not_Lean_compilation",
+  "script_count": 4,
+  "outputs": {
+    "full/report.json": {
+      "bytes": 6343,
+      "sha256": "984c4da9a44d54946cb2c19dd0344b9f71121d951c345989d02a399dc6a49896",
+      "byte_identical": true
+    },
+    "full/fixtures.json": {
+      "bytes": 1279535,
+      "sha256": "6aa3385ad588fa4dc9b5a00752e6fe90c91b728f32b58e0488dae6b80590d2d6",
+      "byte_identical": true
+    },
+    "full/negative-controls.json": {
+      "bytes": 588,
+      "sha256": "aeec32826bdf5a48356ea49d6283511c8474b52a5406b18727f0443429970694",
+      "byte_identical": true
+    },
+    "products/report.json": {
+      "bytes": 999,
+      "sha256": "ef11240eef19000dcc149bf41ab2e897e378a3be0bd22b418b6c0f22252b25b3",
+      "byte_identical": true
+    },
+    "products/fixtures.json": {
+      "bytes": 350127,
+      "sha256": "c16f226220ee77239ce601f2fd5b1410042800d22eb99cc8d5250ac8712bb1f2",
+      "byte_identical": true
+    }
+  }
+}

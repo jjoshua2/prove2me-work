@@ -1,0 +1,36 @@
+{
+  "controls": [
+    {
+      "name": "missing vertex value",
+      "rejected": true
+    },
+    {
+      "name": "recharged label",
+      "rejected": true
+    },
+    {
+      "name": "wrong phase endpoint",
+      "rejected": true
+    },
+    {
+      "name": "understated original bound",
+      "rejected": true
+    },
+    {
+      "name": "wrong K",
+      "rejected": true
+    },
+    {
+      "name": "stationary edge",
+      "rejected": true
+    },
+    {
+      "name": "zero objective",
+      "rejected": true
+    },
+    {
+      "name": "wrong row values",
+      "rejected": true
+    }
+  ]
+}

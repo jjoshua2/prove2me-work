@@ -1,0 +1,7 @@
+'Hirsch.TargetLevels.route_preserves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.TargetLevels.acquire_row' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.TargetLevels.missing_after_phase' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.TargetLevels.budget_after_phase' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.TargetLevels.weighted_routes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.TargetLevels.budget_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]

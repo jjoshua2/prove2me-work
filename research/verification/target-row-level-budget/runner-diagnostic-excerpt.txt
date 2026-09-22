@@ -1,0 +1,17 @@
+# Selected exact runner lines; not a full raw runner log archive
+# Run35682645528. Full decoded verifier and publisher logs were read through cleanup.
+# All complete compiler logs are preserved unchanged in the frozen packet.
+
+2026-09-22T03:19:41.8947503Z Lake version 5.0.0-src+d024af0 (Lean version 4.30.0)
+2026-09-22T03:19:41.9049134Z   GITHUB_TOKEN: 
+2026-09-22T03:19:41.9049406Z   PROVE2ME_API_KEY: 
+2026-09-22T03:20:00.0356757Z SHA256 digest of uploaded artifact zip is 4da39383c189c4c6dce5322cef5e7fda3876458cd961dbd10407509232abd881
+2026-09-22T03:20:10.1135251Z SHA256 digest of downloaded artifact is 4da39383c189c4c6dce5322cef5e7fda3876458cd961dbd10407509232abd881
+2026-09-22T03:23:10.9959822Z - **Hirsch.target_row_level_budget_routes**: ACCEPTED
+2026-09-22T03:23:10.9960449Z   - theorem `bf3ff04d-50b5-4999-a1e4-5f6fd973f8a3`
+2026-09-22T03:23:10.9960964Z   - submission `886de773-5dce-4228-9947-2009230d2c01`
+2026-09-22T03:23:11.6587698Z SHA256 digest of uploaded artifact zip is 3de8db3241c3c7c94b70a31a289cedbcbbd11e424abb0c6c28ca90c5985c6000
+2026-09-22T03:23:12.8617350Z https://github.com/jjoshua2/prove2me-work/pull/329#issuecomment-5770751341
+
+# The unchanged aggregate receipt also records PUBLISHED and live_status Proved.
+# That is the trusted publisher's authenticated readback, not an independent poll.
