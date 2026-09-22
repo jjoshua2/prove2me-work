@@ -138,7 +138,8 @@ lemma image_card_of_ties {α β γ : Type*} [DecidableEq β] [DecidableEq γ] (C
     apply Subtype.ext
     change g (r a)=b.val
     exact (h (r a) (hrC a) x hx (hrf a)).trans hgx
-  exact Finset.card_le_card_of_surjective hsurj
+  have hc := Fintype.card_le_of_surjective F hsurj
+  simpa only [Fintype.card_coe] using hc
 
 /-- Anchoring at one actual point loses no affine denominator. Its normalized
 ratios differ by one positive common scalar, so every coincidence is retained. -/
