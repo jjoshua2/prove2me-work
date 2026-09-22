@@ -1,0 +1,43 @@
+{
+  "kind": "fresh_exact_regression_replay_not_Lean_verification",
+  "files": {
+    "small-report.json": {
+      "bytes": 5074,
+      "sha256": "d1dfca7f0766938a16fbdc369be9211306e6980325205678e59deef1155fa28f",
+      "byte_identical_to_previous_full_output": true
+    },
+    "small-fixtures.json": {
+      "bytes": 184868,
+      "sha256": "e62c40f2bcaad2b076907fcd21a2a8bc585235e4d21ca61d76316ca40c2f8ebd",
+      "byte_identical_to_previous_full_output": true
+    },
+    "negative-controls.json": {
+      "bytes": 701,
+      "sha256": "98b196b0dd4c2ce332e5e28290ab8584c738d916a22600684c9185aa134d597b",
+      "byte_identical_to_previous_full_output": true
+    },
+    "large-report.json": {
+      "bytes": 1764,
+      "sha256": "ce72e324ce78661d33dc435fb5f5ac0fb74930eae47a86547d1add6554f789bf",
+      "byte_identical_to_previous_full_output": true
+    },
+    "large-fixtures.json": {
+      "bytes": 2361480,
+      "sha256": "474f7ce0ce9bb5b9b8729545a61b76e07492465ee02421f8458e10310398a775",
+      "byte_identical_to_previous_full_output": true
+    }
+  },
+  "small_models": 13,
+  "small_routes": 721,
+  "small_original_edge_occurrences": 1224,
+  "small_shortest_total": 1168,
+  "nonshortest_routes_retained": 56,
+  "large_original_edges": 120,
+  "malformed_controls_rejected": 9,
+  "script_changes": false,
+  "initial_combined_command_timeout_seconds": 45,
+  "initial_large_run_completed_through_ambient_dimension": 32,
+  "subsequent_unchanged_large_run_completed": true,
+  "large_process_still_running": false,
+  "interactive_container_session_supported": false
+}

@@ -1,0 +1,18 @@
+{
+  "kind": "UNAPPLIED_UNCOMPILED_source_review_proposal",
+  "tested_proof_sha": "5d9c065f308255846337d810b27105128ddaa3cf",
+  "tested_blob": "4ecc055d476fa69133903c8eeef8347f04c5e1ca",
+  "proposed_blob": "00c2e4433609aefa71e70659c82b479111fceea6",
+  "proposed_sha256": "2c155db2ecca71efbbd6c401d063e509deb2d5984b8dde15fa65824e5d432149",
+  "proposed_bytes": 71815,
+  "proposed_lines": 1610,
+  "single_site": "extreme_classification positive-roof branch: select the Boolean branch before using its endpoint equality",
+  "declaration_signatures_unchanged": true,
+  "accepted_prefix_unchanged": true,
+  "complete_public_root_statement_and_proof_unchanged": true,
+  "metadata_unchanged": true,
+  "explanation_unchanged": true,
+  "patch_apply_reverse_exact": true,
+  "local_Lean_compilation": false,
+  "publication_source_changed_after_gate": false
+}

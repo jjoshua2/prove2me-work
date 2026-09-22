@@ -1,140 +1,130 @@
-# PR #326: independent affine-roof routes — first full gate failed
+# PR #326: affine-roof routes — second full gate has one reported error
 
-## Current state and exact identity
+## Current lifecycle and exact proof
 
-Keep OPEN/DRAFT. No new theorem has been registered or submitted from this run.
+Keep this existing PR OPEN/DRAFT. Do not merge as accepted, reapply the first
+repair, or repeat either failed publication request. Read STATUS.md, AGENTS.md,
+CLOUD_AGENT.md, SKILL.md, CONTINUE_HIRSCH.md and live heads/comments first.
+#325 is already accepted and merged; its old pending summaries are historical.
+#282 and reserved #210 remain untouched.
+
 Repository: jjoshua2/prove2me-work.
-Branch: proof/independent-affine-roof-routes.
+PR/branch: #326, proof/independent-affine-roof-routes.
 Target: Hirsch.independent_affine_roof_original_routes.
 Packet: research/publication_packets/affine_roof_routes.
-Tested proof: 3fedb7d9ddd9c40235e304ab71db126f52016d9d.
-Base / trusted main: 34696607bb8f6298bb400d9ce9a0903dc078c157.
-Later evidence-only heads do not replace the tested proof identity.
+Current TESTED proof: 5d9c065f308255846337d810b27105128ddaa3cf.
+Trusted main for this run: 7b1db85d8182cf43ddcf6eae30ca77442906e843.
+Later evidence-only commits do not change that tested-source identity.
 
-Actual NEW top-level publication comment 5769724425 was posted and read back.
-Bot acknowledgement 5769725445 resolved that proof to Actions run 35673924236.
-Gate 106576289323 succeeded. Verify 106576318567 failed driver compilation,
-exit 1. Report-verify 106576548751 and publish 106576548916 were skipped.
-Separate solution and statement compilation were not reached. No complete audit,
-verified packet archive, theorem/submission ID, receipt, ACCEPTED or Proved result
-was produced. There was no independent platform/root poll or second trigger.
+Coordination 5769871135 was posted/read back. Actual NEW top-level publication
+request 5769934069 was posted 2026-09-22T01:27:54Z and read back. Acknowledgement
+5769936477 resolved the exact proof to run 35675854643. Gate 106582120479 passed;
+verify 106582157039 failed driver compilation, exit 1. Publish 106582388578 and
+report-verify 106582388664 were skipped. Separate solution/statement compiles
+were not reached. No complete passing audit, verified archive, theorem
+registration, proof submission, theorem/submission ID, ACCEPTED or Proved result
+was produced. No independent platform/root poll occurred.
 
-## Mathematical result intended by the complete candidate
+## Progress relative to the first failed run
 
-The base P is BOTH conv(C), for finite 0/1 C in ambient R^n, and the original m
-halfspaces D_i x<=b_i. Add k INDEPENDENT coordinates with original bounds
-0<=y_j<=c_j+A_j x, where every affine height is strictly positive throughout P.
-For any two ACTUAL extreme points of this ORIGINAL Q, the written argument and
-complete candidate construct a route through actual Q vertices, with distinct
-successive endpoints and whole IsExtreme segments, satisfying L<=n+k and L<=m+k.
-Q has m+2k displayed original inequalities. k is unrestricted and may grow.
+Applied EXACTLY the saved two-file proposal before this gate. It corrected
+comparison parsing, three product-equality inference problems, finite-index
+values and reserved local identifiers. Metadata changed comparison whitespace
+only to match the public type; the accepted prefix and explanation are unchanged.
+The intended mathematical hypotheses and conclusions are unchanged.
 
-Fixed normalized fiber coordinates define affine base sections, deriving that
-an actual Q vertex projects to an actual base vertex. A strict vertical convex
-combination rules out intermediate roof values. Thus the Boolean boundary
-choices are derived, not assumed. Fixed Boolean sections lift entire extreme
-base sets and their full edges. The fiber over a base vertex is extreme; whole
-positive-box coordinate edges transfer to original Q. Hamming induction costs
-at most k fiber edges; the accepted #322 0/1-base theorem supplies at most n
-base edges, lifted along target boundary choices. A separate midpoint/kernel
-argument derives n<=m from the original base rows and an actual base vertex.
+Tested solution: 1608 lines / 71702 bytes.
+Blob: 4ecc055d476fa69133903c8eeef8347f04c5e1ca.
+SHA256: a8bf4aa83140f687318dc3cc6f33a57752c4e612d791a9d480f7b1529b0aae75.
+Problem blob: 97558d6d59e0797d3066ab16a516fcd71c576502.
+Unchanged explanation blob: cc5b18cb13d1ed0c4057a65fd1dbfd0a33a59393.
+The repaired files were read back by exact blobs. The full patch apply/reverse
+and target-type checks passed locally; these were not Lean compilation.
 
-No graph, labels, vertex catalogue, active basis, rank, base walk or cheap
-residual phase is supplied. Nonsimple/lower-dimensional bases, redundant base
-inequalities, zero base/fiber dimensions and equal endpoints remain included.
-The exact H/hull equality, 0/1 base, independent intervals and strict positivity
-are structural premises, not proved for arbitrary carriers. No full graph
-isomorphism, shortestness, all-facet nonrevisiting or polynomial-time H-to-V
-claim is included. This is NOT unrestricted Polynomial Hirsch. The unchanged
-packet explanation gives the full argument and classical attribution.
+The second compiler reports ONE error, at 1148 in extreme_classification.
+Its nonzero-fiber branch has hj : z.2 j != 0 and he : z.2 j = H, but the broad
+simp call rewrites the Boolean test too early and leaves:
 
-## Exact failed source and reported issues
+    H = 0 -> 0 = H.
 
-Tested source: 1601 lines / 71596 bytes; blob
-d87643fecff675dbd12694473f5ba39bcaa7a86b; SHA256
-0b5b6c0ba031d3418a3c25d6a49e8f943bb6a4d9c3519c7aa76dfbbc888d3ef2.
-All three remote packet blobs match the prepared bytes. Accepted #322's first
-973 lines / 41934 bytes are byte-identical; its old public root/final prints are
-omitted, not resubmitted. All five dependency manifest digests pass.
+All earlier error groups are resolved in this run. The four new requested
+reports for lift_extreme, vertical_edge, fiber_route and original_row_count
+now contain only propext, Classical.choice and Quot.sound, as do all five
+inherited finite reports. extreme_classification, roof_routes and solution
+still report failed-elaboration sorryAx. No admission was written, but the
+complete file remains FAILED. A clean helper report is not complete verification.
 
-The compiler reported syntax errors at lines 1051, 1510 (two), 1529 and 1569;
-Prod.ext rfl inference failures at 1069, 1142 and 1179; and Fin value goals at
-1473/1474. Unknown zero_of_positive_mix at 1157/1161 is downstream of its syntax
-error. At the final prints original_row_count and solution are undeclared.
+## Separate next repair: UNAPPLIED and UNCOMPILED
 
-All five inherited finite-proof reports are standard-only. The five emitted new
-reports (extreme_classification, lift_extreme, vertical_edge, fiber_route and
-roof_routes) contain sorryAx from failed elaboration. Neither the new chain nor
-the public root is verified. No admission was written in the candidate source.
-The scoped transcript retains every error header and printed axiom report, with
-selected goal excerpts; timestamps and long contexts are omitted. The complete
-decoded verifier log was read through cleanup, but this is NOT a raw log archive.
+Use second-attempt/proposed-classification-repair.patch under the evidence path.
+It changes only the positive/nonzero branch of extreme_classification. First
+expose bit (if z.2 j = 0 then false else true) * H = z.2 j, select if_neg hj,
+then use he.symm with only bit/if_true/one_mul simplification. This avoids changing
+the test through a simultaneous rewrite. No new positivity or other premise is
+added. All declaration signatures, the accepted prefix, complete public root
+statement AND proof, metadata and explanation remain unchanged.
 
-## Separate UNAPPLIED and UNCOMPILED repair proposal
+Proposed source: 1610 lines / 71815 bytes.
+Proposed blob: 00c2e4433609aefa71e70659c82b479111fceea6.
+Proposed SHA256: 2c155db2ecca71efbbd6c401d063e509deb2d5984b8dde15fa65824e5d432149.
+Forward/reverse patch application reproduces the whole files exactly. This is
+NOT applied to the publication source and NOT compiled. Further errors may
+appear after it. No post-gate source/metadata edit or another trigger occurred.
 
-research/verification/affine-roof-routes/proposed-local-repair.patch changes:
-- comparison whitespace to avoid unintended adjacent notation parsing;
-- three product equalities to apply Prod.ext before solving the first component;
-- the two finite-index value equalities to use complete simplification;
-- reserved local identifier prefix to firstLeg, with secondLeg for the suffix.
+## Mathematical scope remains the same
 
-The proposal also applies the same comparison whitespace to problem.json's
-formal_statement so its text remains matched to the proposed public type. No
-intended binder, mathematical hypothesis or conclusion is changed. Public type
-and root-proof text match the originals after removing whitespace; they are not
-byte-identical and parser/type correctness still requires Lean. The accepted
-973-line dependency prefix and explanation are unchanged.
+P is both a finite 0/1 hull in ambient R^n and its original m halfspaces. Add
+k independent intervals 0<=y_j<=c_j+A_j x with strictly positive heights on P.
+The written argument and candidate derive actual vertex classification, whole
+original horizontal/vertical edges, a Hamming fiber leg of at most k steps,
+and a lifted 0/1 base leg of at most n steps. The target asserts both L<=n+k
+and L<=m+k, against m+2k displayed original inequalities, with k unrestricted.
 
-Proposed source: 1608 lines / 71702 bytes; blob
-4ecc055d476fa69133903c8eeef8347f04c5e1ca; SHA256
-a8bf4aa83140f687318dc3cc6f33a57752c4e612d791a9d480f7b1529b0aae75.
-The complete two-file patch applies and reverses exactly. It is NOT applied to
-the publication inputs and NOT compiled. Further errors may appear. Do not call
-this a passing repair or start a speculative repeated Actions edit loop.
+No supplied labels/catalogue, graph, neighbor, basis, rank, base path or cheap
+residual route is assumed. Nonsimple/lower-dimensional bases, redundant rows,
+n0/k0 and equal endpoints remain. Exact base H/hull equality, 0/1 structure,
+independent intervals and strict positivity remain structural hypotheses; they
+are not proved for arbitrary carriers. No shortestness, all-facet nonrevisiting,
+complete graph-isomorphism or efficient H-to-V assertion. This does not solve
+uniform Polynomial Hirsch. Classical attribution is in the unchanged explanation.
 
-## Executed supporting tests and artifacts
+## Durable evidence and freshly rerun computations
 
-Two new test scripts are committed; their existing #322 reference dependency
-is unchanged. Thirteen small original-H models compare all 554 square active
-systems (264 nonsingular) with 103 actual vertices and 181 edges. The 721 routes
-contain 1224 original-edge occurrences versus 1168 shortest edges: all 56
-nonshortest outputs remain. Tests include nonsimple and lower-dimensional bases,
-signed roof coefficients, a 2^-80 height margin and zero dimensions.
+research/verification/affine-roof-routes/second-attempt/ preserves the complete
+tested packet inputs, prior complete handoff, raw frozen request, single complete
+error context, all twelve axiom reports, and labelled derived source/run/replay
+records. The transcript omits timestamps, linter bodies and setup/cleanup; it is
+NOT a raw full-runner archive. The complete decoded verifier log was read through
+cleanup. No absent compiler artifact or platform API response is fabricated.
 
-Four growing-roof cases (n,k)=(4,4),(8,8),(16,16),(32,32) certify 120 further
-original edges on 16/32/64/128 rows. The 64D case has 32 exceptional roof rows
-and a checked 64-edge route. Its 4,294,967,297 levels per exceptional row and
-2^64 total vertices are WRITTEN formula evaluations, not graph enumeration or
-separate Lean theorems. Sparse original-row right inverses check rank and whole
-support segments. Saved replay disables production. Nine malformed controls
-are rejected; zero-height label collapse remains a structural boundary example.
+Only request artifact 10672499135 was produced: 308 bytes, SHA256
+3698046a2594716d4410623a3474d2b107a0de85b61b964a61190eecf210fb7f.
+Its ZIP was downloaded/rehashed and resolved.json is unchanged. The original
+first failure 35673924236 and all its files remain preserved, including the
+old saved patch (now applied). This is the SECOND hosted compile attempt and
+ONE new trigger this continuation, not a speculative same-turn compiler loop.
 
-A clean three-script workspace reproduces all five full reports/fixtures exactly.
-The 184868-byte small fixture and 2361480-byte large fixture accompany the export;
-committed summaries bind them by hash and the scripts regenerate them. Python
-and JSON are not kernel-verified. These tests are not Lean compilation.
+The unchanged exact scripts ran again: 13 small models, 721 routes / 1224
+original-edge occurrences versus 1168 shortest edges, with all 56 nonshortest
+outputs retained. Four large cases certify another 120 original edges through
+64 dimensions; nine malformed controls fail. All five full reports/fixtures
+match the previous bytes. The first combined local command hit its 45-second
+limit after the 32D large case; the unchanged large script subsequently completed
+all cases. That timeout log remains in the export, not hidden as an initial pass.
+No large graph or exponential level enumeration was performed; those counts
+remain written-family formula evaluations, not extra Lean theorems.
 
-Only request artifact 10671893408 was produced: 307 bytes, SHA256
-50bb976c6d2a0483b2a496a532f38da5ab4b50a562b46e2ba08e1556cddca110.
-It was downloaded and rehashed; its unchanged resolved.json is preserved.
-No missing verified or publication artifact is invented. Derived source, test,
-repair and run records are labelled separately from the request and diagnostics.
+The full fixtures and logs are included in the export and regenerate from the
+two existing scripts and unchanged #322 reference. Python/JSON are not kernel-
+verified. The successful local process has exited; no continuing background job
+or future monitoring is promised.
 
-    python3 scripts/test_affine_roof_routes.py --out /tmp/roofs --stage small
-    python3 scripts/test_affine_roof_routes.py --out /tmp/roofs --stage controls
-    python3 scripts/test_affine_roof_large.py --out /tmp/roofs
+## Exact next action
 
-## Exact next step and ownership
-
-Resume THIS PR and its saved repair after reading the five project instructions
-and current live heads/comments/reviews. Check for later ownership, pending runs
-or accepted results before any write. Apply/review the two-file proposal and
-compile locally if available, then use one complete prepared pinned final gate.
-Keep the original failed inputs and evidence. Do not rename an overlapping target.
-
-Coordination on #325: 5769527466, posted/read back. Its separately owned general
-few-exception proof and repairs were not changed or triggered. #282's triangular
-work, reserved #210 and all other owners' branches are untouched. Local Lean/Lake
-were not found on PATH or in checked home/opt locations and toolchain-host DNS
-failed. Lean 4.30.0 / Mathlib c5ea00351c28e24afc9f0f84379aa41082b1188f, strict
-0.10.7 publication compatibility and verifier/publisher secret isolation are unchanged.
+Resume THIS PR after live ownership/pending checks. Review/apply the single-site
+classification patch, compile locally if a pinned environment is available,
+then use a complete prepared gate. Do not weaken the target or restart the old
+parsing patch. No Lean/Lake/cached toolchain was found in this runtime; DNS to
+toolchain/raw GitHub failed. Preserve Lean4.30.0, Mathlib
+c5ea00351c28e24afc9f0f84379aa41082b1188f and strict0.10.7 publication. Do not alter
+workflows, allowlists, duplicate guards or verifier/publisher credential separation.

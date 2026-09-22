@@ -1,0 +1,78 @@
+{
+  "kind": "derived_GitHub_run_readback_not_platform_receipt",
+  "repository": "jjoshua2/prove2me-work",
+  "pr": 326,
+  "proof_sha": "5d9c065f308255846337d810b27105128ddaa3cf",
+  "base_main_sha": "7b1db85d8182cf43ddcf6eae30ca77442906e843",
+  "coordination_comment": 5769871135,
+  "trigger_comment": 5769934069,
+  "acknowledgement_comment": 5769936477,
+  "run_id": 35675854643,
+  "jobs": {
+    "gate": {
+      "id": 106582120479,
+      "conclusion": "success"
+    },
+    "verify": {
+      "id": 106582157039,
+      "conclusion": "failure"
+    },
+    "publish": {
+      "id": 106582388578,
+      "conclusion": "skipped"
+    },
+    "report-verify": {
+      "id": 106582388664,
+      "conclusion": "skipped"
+    }
+  },
+  "driver_exit_code": 1,
+  "reported_error_sites": [
+    1148
+  ],
+  "clean_new_reports": [
+    "Hirsch.AffineRoofs.lift_extreme",
+    "Hirsch.AffineRoofs.vertical_edge",
+    "Hirsch.AffineRoofs.fiber_route",
+    "Hirsch.AffineRoofs.original_row_count"
+  ],
+  "clean_inherited_reports": 5,
+  "failed_elaboration_reports": [
+    "Hirsch.AffineRoofs.extreme_classification",
+    "Hirsch.AffineRoofs.roof_routes",
+    "solution"
+  ],
+  "failed_elaboration_axiom": "sorryAx",
+  "solution_separate_compile": "not_reached",
+  "statement_separate_compile": "not_reached",
+  "complete_axiom_audit": "not_passed",
+  "Lean_version_observed": "4.30.0",
+  "Mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "protocol_guard_changed": false,
+  "theorem_registration_in_this_run": false,
+  "proof_submission_in_this_run": false,
+  "theorem_id": null,
+  "submission_id": null,
+  "ACCEPTED_observed": false,
+  "Proved_observed": false,
+  "independent_platform_poll": false,
+  "artifacts": [
+    {
+      "id": 10672499135,
+      "name": "prove2me-publish-request",
+      "bytes": 308,
+      "sha256": "3698046a2594716d4410623a3474d2b107a0de85b61b964a61190eecf210fb7f",
+      "downloaded_and_rehashed": true
+    }
+  ],
+  "verified_artifact_produced": false,
+  "publication_receipt_produced": false,
+  "full_decoded_verifier_runner_log_read": true,
+  "committed_diagnostics_scope": "complete single error context and twelve printed reports, without timestamps; linter locations retained but warning bodies omitted; not a full runner archive",
+  "first_failed_run_preserved": 35673924236,
+  "hosted_compile_attempts_for_target": 2,
+  "new_trigger_count_this_continuation": 1,
+  "post_gate_proof_or_metadata_edits": false,
+  "local_Lean_compilation": false,
+  "next_patch_applied_to_publication_source": false
+}

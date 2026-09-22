@@ -1,0 +1,13 @@
+--- a/research/publication_packets/affine_roof_routes/solution.lean
++++ b/research/publication_packets/affine_roof_routes/solution.lean
+@@ -1146,7 +1146,9 @@
+     by_cases hj : z.2 j=0
+     · simp [corner,sectionPoint,bit,hj]
+     · have he : z.2 j=height A c j z.1 := (extreme_fiber P A c hpos z hz j).resolve_left hj
+-      simp [corner,sectionPoint,bit,hj,he]
++      change bit (if z.2 j = 0 then false else true) * height A c j z.1 = z.2 j
++      rw [if_neg hj]
++      simpa only [bit, if_true, one_mul] using he.symm
+ 
+ /-- Boundary equality in a positive convex combination fixes that boundary
+ at each endpoint, even when the two roof heights differ. -/

@@ -1,0 +1,37 @@
+# Scoped error/axiom transcript from run 35675854643, job 106582157039.
+# Exact proof: 5d9c065f308255846337d810b27105128ddaa3cf.
+# Runner timestamps, setup/cleanup and linter warning bodies are omitted.
+# The single complete error context and all twelve axiom reports are retained.
+# This is NOT a full raw runner archive or a passing compiler artifact.
+
+_verified/packets/affine_roof_routes/driver.lean:1148:4: error: unsolved goals
+case neg
+n k : ℕ
+P : Set (Fin n → ℝ)
+A : Fin k → (Fin n → ℝ) →ₗ[ℝ] ℝ
+c : Fin k → ℝ
+hpos : ∀ x ∈ P, ∀ (j : Fin k), 0 < height A c j x
+z : (Fin n → ℝ) × (Fin k → ℝ)
+hz : z ∈ extremePoints ℝ (body P A c)
+j : Fin k
+hj : ¬z.2 j = 0
+he : z.2 j = height A c j z.1
+⊢ height A c j z.1 = 0 → 0 = height A c j z.1
+
+'Hirsch.CoordinateRoute.descend' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.CoordinateRoute.ascend' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.CoordinateRoute.rank_routes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.CoordinateRoute.levelRank_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'finite_coordinate_route_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.AffineRoofs.extreme_classification' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.AffineRoofs.lift_extreme' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.AffineRoofs.vertical_edge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.AffineRoofs.fiber_route' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.AffineRoofs.roof_routes' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.AffineRoofs.original_row_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+
+# The driver exited 1; separate solution/statement compilation was not reached.
+# Linter warnings in the full run were at 116:39, 103:0, 1037:51 and 1149:36.
+# Unlike the first run, original_row_count and solution were declared, but the
+# latter still depends on the failed classification and therefore on sorryAx.
