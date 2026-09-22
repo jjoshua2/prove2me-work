@@ -1,0 +1,14 @@
+{
+  "kind": "source_integrity_not_Lean_compilation",
+  "proof_sha": "8d73bd5b4601c5ee45ea33c9fec0dbc3d217e533",
+  "source_blob": "d02975bf7cb5ee98ab379bb39fe01a347152977e",
+  "source_sha256": "22d684b09b61f86ad59aa07db731d4b17b6ceca30029f50221e37bcaf421d68a",
+  "bytes": 53918,
+  "lines": 1252,
+  "patch_apply_reverse_exact": true,
+  "public_root_type_and_proof_unchanged": true,
+  "accepted_retained_prefix_unchanged": true,
+  "metadata_unchanged": true,
+  "local_lean_compilation": false,
+  "local_toolchain_probe": "No lean/lake/elan on PATH or checked home/opt/workspace locations; release/raw-host DNS unresolved"
+}
