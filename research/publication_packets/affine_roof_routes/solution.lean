@@ -1047,8 +1047,8 @@ lemma body_convex (P : Set (Fin n → ℝ)) (hP : Convex ℝ P)
     add_le_add (mul_le_mul_of_nonneg_left (hx.2 j).2 ha)
       (mul_le_mul_of_nonneg_left (hy.2 j).2 hb)⟩
 
-lemma zero_of_positive_mix (a b s t : ℝ) (ha : 0<a) (hb : 0≤b)
-    (hs : 0≤s) (ht : 0≤t) (he : a*s+b*t=0) : s=0 := by
+lemma zero_of_positive_mix (a b s t : ℝ) (ha : 0<a) (hb : 0 ≤ b)
+    (hs : 0 ≤ s) (ht : 0 ≤ t) (he : a*s+b*t=0) : s=0 := by
   have hp := mul_nonneg ha.le hs
   have hq := mul_nonneg hb ht
   have haz : a*s=0 := by linarith
@@ -1066,7 +1066,8 @@ lemma extreme_base (P : Set (Fin n → ℝ))
     exact ⟨div_nonneg (hz.1.2 j).1 (hpos z.1 hz.1.1 j).le,
       (div_le_one (hpos z.1 hz.1.1 j)).mpr (hz.1.2 j).2⟩
   have hsz : sectionPoint A c s z.1=z := by
-    apply Prod.ext rfl
+    apply Prod.ext
+    · rfl
     funext j
     exact div_mul_cancel₀ _ (ne_of_gt (hpos z.1 hz.1.1 j))
   refine ⟨hz.1.1,?_⟩
@@ -1100,14 +1101,14 @@ lemma extreme_fiber (P : Set (Fin n → ℝ))
     intro i
     by_cases hi : i=j
     · subst i
-      simpa only [a,Function.update_self] using (show 0≤(0:ℝ) ∧ 0≤height A c j z.1 from ⟨le_rfl,hH.le⟩)
+      simpa only [a,Function.update_self] using (show 0 ≤ (0:ℝ) ∧ 0 ≤ height A c j z.1 from ⟨le_rfl,hH.le⟩)
     · simpa only [a,Function.update_of_ne hi] using hz.1.2 i
   have hb : b ∈ body P A c := by
     refine ⟨hz.1.1,?_⟩
     intro i
     by_cases hi : i=j
     · subst i
-      simpa only [b,Function.update_self] using (show 0≤height A c j z.1 ∧ height A c j z.1≤height A c j z.1 from ⟨hH.le,le_rfl⟩)
+      simpa only [b,Function.update_self] using (show 0 ≤ height A c j z.1 ∧ height A c j z.1 ≤ height A c j z.1 from ⟨hH.le,le_rfl⟩)
     · simpa only [b,Function.update_of_ne hi] using hz.1.2 i
   let t := z.2 j / height A c j z.1
   have ht : 0<t ∧ t<1 := ⟨div_pos ht0 hH,(div_lt_one hH).mpr htH⟩
@@ -1139,7 +1140,8 @@ theorem extreme_classification (P : Set (Fin n → ℝ))
   classical
   refine ⟨extreme_base P A c hpos z hz,?_,?_⟩
   · exact fun j => if z.2 j=0 then false else true
-  · apply Prod.ext rfl
+  · apply Prod.ext
+    · rfl
     funext j
     by_cases hj : z.2 j=0
     · simp [corner,sectionPoint,bit,hj]
@@ -1149,7 +1151,7 @@ theorem extreme_classification (P : Set (Fin n → ℝ))
 /-- Boundary equality in a positive convex combination fixes that boundary
 at each endpoint, even when the two roof heights differ. -/
 lemma boundary_mix (b : Bool) (a t U V y z : ℝ)
-    (ha : 0<a) (ht : 0≤t) (hy : 0≤y ∧ y≤U) (hz : 0≤z ∧ z≤V)
+    (ha : 0<a) (ht : 0 ≤ t) (hy : 0 ≤ y ∧ y ≤ U) (hz : 0 ≤ z ∧ z ≤ V)
     (he : a*y+t*z=bit b*(a*U+t*V)) : y=bit b*U := by
   cases b with
   | false =>
@@ -1176,7 +1178,8 @@ theorem lift_extreme (P F : Set (Fin n → ℝ)) (hF : IsExtreme ℝ P F)
     have hebase : a • u.1+b • v.1=x := congrArg Prod.fst he
     have hubase : u.1 ∈ F := hF.2 hu.1 hv.1 hx ⟨a,b,ha,hb,hab,hebase⟩
     refine ⟨u.1,hubase,?_⟩
-    apply Prod.ext rfl
+    apply Prod.ext
+    · rfl
     funext j
     have hj : a*u.2 j+b*v.2 j=bit (bits j)*height A c j x :=
       congrArg (fun p : (Fin n → ℝ) × (Fin k → ℝ) => p.2 j) he
@@ -1234,16 +1237,16 @@ lemma box_edge (H : Fin k → ℝ) (hH : ∀ j, 0<H j)
     (bits : Fin k → Bool) (q : Fin k) :
     let a := fun j => bit (Function.update bits q false j)*H j
     let b := fun j => bit (Function.update bits q true j)*H j
-    a ≠ b ∧ IsExtreme ℝ {y : Fin k → ℝ | ∀ j, 0≤y j ∧ y j≤H j} (segment ℝ a b) := by
+    a ≠ b ∧ IsExtreme ℝ {y : Fin k → ℝ | ∀ j, 0 ≤ y j ∧ y j ≤ H j} (segment ℝ a b) := by
   classical
   let a := fun j => bit (Function.update bits q false j)*H j
   let b := fun j => bit (Function.update bits q true j)*H j
-  have hbnd : ∀ (s : Fin k → Bool) j, 0≤bit (s j)*H j ∧ bit (s j)*H j≤H j := by
+  have hbnd : ∀ (s : Fin k → Bool) j, 0 ≤ bit (s j)*H j ∧ bit (s j)*H j ≤ H j := by
     intro s j
     exact ⟨mul_nonneg (bit_bounds _).1 (hH j).le,
       (mul_le_mul_of_nonneg_right (bit_bounds _).2 (hH j).le).trans_eq (one_mul _)⟩
-  have ha : ∀ j, 0≤a j ∧ a j≤H j := hbnd _
-  have hb : ∀ j, 0≤b j ∧ b j≤H j := hbnd _
+  have ha : ∀ j, 0 ≤ a j ∧ a j ≤ H j := hbnd _
+  have hb : ∀ j, 0 ≤ b j ∧ b j ≤ H j := hbnd _
   have haq : a q=0 := by simp [a,bit]
   have hbq : b q=H q := by simp [b,bit]
   have hne : a≠b := by
@@ -1279,7 +1282,7 @@ lemma box_edge (H : Fin k → ℝ) (hH : ∀ j, 0<H j)
         simpa only [← add_mul,hrl,one_mul] using hh
       exact boundary_mix (bits j) r l _ _ _ _ hr hl.le (hu j) (hv j) humix
     let t' := u q/H q
-    have ht' : 0≤t' ∧ t'≤1 := ⟨div_nonneg (hu q).1 (hH q).le,(div_le_one (hH q)).mpr (hu q).2⟩
+    have ht' : 0 ≤ t' ∧ t' ≤ 1 := ⟨div_nonneg (hu q).1 (hH q).le,(div_le_one (hH q)).mpr (hu q).2⟩
     have htprod : t'*H q=u q := div_mul_cancel₀ _ (ne_of_gt (hH q))
     refine ⟨1-t',t',sub_nonneg.mpr ht'.2,ht'.1,by ring,?_⟩
     funext j
@@ -1296,7 +1299,7 @@ lemma fixed_base_extreme (P : Set (Fin n → ℝ))
     (A : Fin k → (Fin n → ℝ) →ₗ[ℝ] ℝ) (c : Fin k → ℝ)
     (x : Fin n → ℝ) (hx : x ∈ P.extremePoints ℝ)
     (a b : Fin k → ℝ)
-    (he : IsExtreme ℝ {y : Fin k → ℝ | ∀ j,0≤y j ∧ y j≤height A c j x} (segment ℝ a b)) :
+    (he : IsExtreme ℝ {y : Fin k → ℝ | ∀ j,0 ≤ y j ∧ y j ≤ height A c j x} (segment ℝ a b)) :
     IsExtreme ℝ (body P A c) (segment ℝ (x,a) (x,b)) := by
   have hf := fiber_extreme P A c x hx
   apply hf.trans
@@ -1409,13 +1412,13 @@ theorem fiber_route (C : Finset (Fin n → ℝ))
     (a b : Fin k → Bool) :
     ∃ p : CoordinateRoute.Route
       (Edge (body (convexHull ℝ (C : Set (Fin n → ℝ))) A c))
-      (allCorners C A c) (corner A c a x) (corner A c b x), p.length≤k := by
+      (allCorners C A c) (corner A c a x) (corner A c b x), p.length ≤ k := by
   classical
   let diff := fun a : Fin k → Bool => Finset.univ.filter (fun j => a j≠b j)
   have aux : ∀ r : ℕ, ∀ a : Fin k → Bool, (diff a).card=r →
       ∃ p : CoordinateRoute.Route
         (Edge (body (convexHull ℝ (C : Set (Fin n → ℝ))) A c))
-        (allCorners C A c) (corner A c a x) (corner A c b x), p.length≤(diff a).card := by
+        (allCorners C A c) (corner A c a x) (corner A c b x), p.length ≤ (diff a).card := by
     intro r
     induction r using Nat.strong_induction_on with
     | h r ih =>
@@ -1450,7 +1453,7 @@ theorem fiber_route (C : Finset (Fin n → ℝ))
       obtain ⟨p,hp⟩ := ih (diff a').card (by omega) a' rfl
       refine ⟨CoordinateRoute.Route.prepend (corner_member C A c x hx a)
         (vertical_change _ A c hpos x hx a q (b q) hq) p,?_⟩
-      change p.length+1≤(diff a).card
+      change p.length+1 ≤ (diff a).card
       omega
   obtain ⟨p,hp⟩ := aux (diff a).card a rfl
   refine ⟨p,hp.trans ?_⟩
@@ -1470,8 +1473,12 @@ lemma lift_walk (C : Finset (Fin n → ℝ))
       (Edge (body (convexHull ℝ (C : Set (Fin n → ℝ))) A c))
       (allCorners C A c) (corner A c bits x) (corner A c bits y), q.length=L := by
   let idx : ℕ → Fin (L+1) := fun i => ⟨min i L,Nat.lt_succ_of_le (min_le_right i L)⟩
-  have hzero : idx 0=0 := by apply Fin.ext; simp only [idx,Nat.zero_min]
-  have hlast : idx L=Fin.last L := by apply Fin.ext; simp only [idx,min_self]
+  have hzero : idx 0=0 := by
+    apply Fin.ext
+    simp [idx]
+  have hlast : idx L=Fin.last L := by
+    apply Fin.ext
+    simp [idx]
   have hleft : ∀ i : Fin L, idx i.val=i.castSucc := by
     intro i
     apply Fin.ext
@@ -1498,7 +1505,7 @@ theorem roof_routes (C : Finset (Fin n → ℝ))
     (u v : (Fin n → ℝ) × (Fin k → ℝ))
     (hu : u ∈ (body (convexHull ℝ (C : Set (Fin n → ℝ))) A c).extremePoints ℝ)
     (hv : v ∈ (body (convexHull ℝ (C : Set (Fin n → ℝ))) A c).extremePoints ℝ) :
-    ∃ L : ℕ, L≤n+k ∧ ∃ p : Fin (L+1) → ((Fin n → ℝ) × (Fin k → ℝ)),
+    ∃ L : ℕ, L ≤ n+k ∧ ∃ p : Fin (L+1) → ((Fin n → ℝ) × (Fin k → ℝ)),
       p 0=u ∧ p (Fin.last L)=v ∧
       (∀ i, p i ∈ (body (convexHull ℝ (C : Set (Fin n → ℝ))) A c).extremePoints ℝ) ∧
       ∀ i : Fin L, p i.castSucc≠p i.succ ∧
@@ -1507,12 +1514,12 @@ theorem roof_routes (C : Finset (Fin n → ℝ))
   classical
   obtain ⟨huB,a,ha⟩ := extreme_classification _ A c hpos u hu
   obtain ⟨hvB,b,hb⟩ := extreme_classification _ A c hpos v hv
-  obtain ⟨prefix,hprefix⟩ := fiber_route C A c hpos u.1 huB a b
+  obtain ⟨firstLeg,hprefix⟩ := fiber_route C A c hpos u.1 huB a b
   obtain ⟨L,hL,p,hp0,hpL,hpm,hpe⟩ := HullCoordinate.zero_one_routes C h01 u.1 v.1 huB hvB
-  obtain ⟨suffix,hsuffix⟩ := lift_walk C A c hpos b L p u.1 v.1 hp0 hpL hpm hpe
-  let q := prefix.append suffix
+  obtain ⟨secondLeg,hsuffix⟩ := lift_walk C A c hpos b L p u.1 v.1 hp0 hpL hpm hpe
+  let q := firstLeg.append secondLeg
   refine ⟨q.length,?_,fun i => q.point i.val,?_,?_,?_,?_⟩
-  · change prefix.length+suffix.length≤n+k
+  · change firstLeg.length+secondLeg.length ≤ n+k
     omega
   · exact q.first.trans ha
   · exact q.last.trans hb
@@ -1525,18 +1532,18 @@ theorem roof_routes (C : Finset (Fin n → ℝ))
 This derives the count; no full rank, active basis or strict interior is supplied. -/
 lemma original_row_count {m : ℕ}
     (D : Fin m → (Fin n → ℝ) →ₗ[ℝ] ℝ) (b : Fin m → ℝ)
-    (x : Fin n → ℝ) (hx : x ∈ ({x | ∀ i, D i x≤b i} : Set (Fin n → ℝ)).extremePoints ℝ) :
-    n≤m := by
+    (x : Fin n → ℝ) (hx : x ∈ ({x | ∀ i, D i x ≤ b i} : Set (Fin n → ℝ)).extremePoints ℝ) :
+    n ≤ m := by
   let E : (Fin n → ℝ) →ₗ[ℝ] (Fin m → ℝ) :=
     { toFun := fun z i => D i z
       map_add' := by intro y z; funext i; exact map_add (D i) y z
       map_smul' := by intro a z; funext i; exact map_smul (D i) a z }
   have hker : ∀ z : Fin n → ℝ, (∀ i,D i z=0) → z=0 := by
     intro z hz
-    have hp : x+z ∈ ({x | ∀ i,D i x≤b i} : Set (Fin n → ℝ)) := by
+    have hp : x+z ∈ ({x | ∀ i,D i x ≤ b i} : Set (Fin n → ℝ)) := by
       intro i
       simpa only [map_add,hz i,add_zero] using hx.1 i
-    have hn : x-z ∈ ({x | ∀ i,D i x≤b i} : Set (Fin n → ℝ)) := by
+    have hn : x-z ∈ ({x | ∀ i,D i x ≤ b i} : Set (Fin n → ℝ)) := by
       intro i
       simpa only [map_sub,hz i,sub_zero] using hx.1 i
     have he : x+z=x := hx.2 hp hn ⟨(1/2:ℝ),(1/2:ℝ),by norm_num,by norm_num,by norm_num,by module⟩
@@ -1559,14 +1566,14 @@ ORIGINAL-edge route bound. The number of exceptional levels is unrestricted. -/
 theorem solution (n k m : ℕ) (C : Finset (Fin n → ℝ))
     (h01 : ∀ x ∈ C, ∀ j : Fin n, x j=0 ∨ x j=1)
     (D : Fin m → (Fin n → ℝ) →ₗ[ℝ] ℝ) (b : Fin m → ℝ)
-    (hbase : convexHull ℝ (C : Set (Fin n → ℝ))={x | ∀ i,D i x≤b i})
+    (hbase : convexHull ℝ (C : Set (Fin n → ℝ))={x | ∀ i,D i x ≤ b i})
     (A : Fin k → (Fin n → ℝ) →ₗ[ℝ] ℝ) (c : Fin k → ℝ)
     (hpos : ∀ x ∈ convexHull ℝ (C : Set (Fin n → ℝ)), ∀ j,0<c j+A j x)
     (u v : (Fin n → ℝ) × (Fin k → ℝ)) :
     let Q : Set ((Fin n → ℝ) × (Fin k → ℝ)) :=
-      {z | (∀ i,D i z.1≤b i) ∧ ∀ j,0≤z.2 j ∧ z.2 j≤c j+A j z.1}
+      {z | (∀ i,D i z.1 ≤ b i) ∧ ∀ j,0 ≤ z.2 j ∧ z.2 j ≤ c j+A j z.1}
     u ∈ Q.extremePoints ℝ → v ∈ Q.extremePoints ℝ →
-    ∃ L : ℕ, L≤n+k ∧ L≤m+k ∧
+    ∃ L : ℕ, L ≤ n+k ∧ L ≤ m+k ∧
       ∃ p : Fin (L+1) → ((Fin n → ℝ) × (Fin k → ℝ)),
         p 0=u ∧ p (Fin.last L)=v ∧ (∀ i,p i ∈ Q.extremePoints ℝ) ∧
         ∀ i : Fin L, p i.castSucc≠p i.succ ∧
@@ -1576,15 +1583,15 @@ theorem solution (n k m : ℕ) (C : Finset (Fin n → ℝ))
   let P := convexHull ℝ (C : Set (Fin n → ℝ))
   have hQ : Hirsch.AffineRoofs.body P A c =
       {z : (Fin n → ℝ) × (Fin k → ℝ) |
-        (∀ i,D i z.1≤b i) ∧ ∀ j,0≤z.2 j ∧ z.2 j≤c j+A j z.1} := by
+        (∀ i,D i z.1 ≤ b i) ∧ ∀ j,0 ≤ z.2 j ∧ z.2 j ≤ c j+A j z.1} := by
     simp only [Hirsch.AffineRoofs.body,Hirsch.AffineRoofs.height,P,hbase,Set.mem_setOf_eq]
   have hu' : u ∈ (Hirsch.AffineRoofs.body P A c).extremePoints ℝ := hQ.symm ▸ hu
   have hv' : v ∈ (Hirsch.AffineRoofs.body P A c).extremePoints ℝ := hQ.symm ▸ hv
   have huB := Hirsch.AffineRoofs.extreme_base P A c hpos u hu'
-  have huH : u.1 ∈ ({x | ∀ i,D i x≤b i} : Set (Fin n → ℝ)).extremePoints ℝ := by
+  have huH : u.1 ∈ ({x | ∀ i,D i x ≤ b i} : Set (Fin n → ℝ)).extremePoints ℝ := by
     rw [← hbase]
     exact huB
-  have hnm : n≤m := Hirsch.AffineRoofs.original_row_count D b u.1 huH
+  have hnm : n ≤ m := Hirsch.AffineRoofs.original_row_count D b u.1 huH
   obtain ⟨L,hL,p,hp0,hpL,hpm,hpe⟩ := Hirsch.AffineRoofs.roof_routes C h01 A c hpos u v hu' hv'
   refine ⟨L,hL,by omega,p,hp0,hpL,?_,?_⟩
   · intro i
