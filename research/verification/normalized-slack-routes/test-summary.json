@@ -1,0 +1,20 @@
+{
+  "kind": "derived_summary_of_executed_exact_computations_not_Lean",
+  "small_models": 23,
+  "totals": {
+    "vertices": 102,
+    "original_rows": 116,
+    "routes": 564,
+    "edges": 700,
+    "shortest_edges": 694,
+    "nonshortest": 3,
+    "candidates": 724,
+    "multiedge_phases": 57,
+    "nonacquiring_steps": 24,
+    "within_phase_objective_changes": 53
+  },
+  "small_controls_rejected": 8,
+  "family_cases": 8,
+  "family_original_edges": 130,
+  "family_controls_rejected": 6
+}

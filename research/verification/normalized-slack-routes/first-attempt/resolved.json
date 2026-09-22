@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/normalized_slack_routes"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "68a18b866c9a3e2cd3ea8a3f2b9f127d46e312ca",
+  "pr": "333"
+}

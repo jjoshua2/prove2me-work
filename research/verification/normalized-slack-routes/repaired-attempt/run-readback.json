@@ -1,0 +1,90 @@
+{
+  "kind": "derived_GitHub_and_downloaded_receipt_readback_not_new_platform_poll",
+  "pr": 333,
+  "proof_sha": "ecd1384eb8a0b9156286e8a570ee723f3c9fcce8",
+  "trusted_main_sha": "e6b1ce3a6868ed6a25419d756de6b4ba0d58b49f",
+  "coordination_comment": 5780591274,
+  "trigger_comment": 5780679639,
+  "acknowledgement_comment": 5780682287,
+  "run_id": 35758526545,
+  "jobs": {
+    "gate": {
+      "id": 106850341781,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    "verify": {
+      "id": 106850401764,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    "publish": {
+      "id": 106850865078,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    "report-verify": {
+      "id": 106850866599,
+      "status": "completed",
+      "conclusion": "skipped"
+    }
+  },
+  "compile_exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "reports_per_proof_log": 7,
+  "standard_only": true,
+  "final_platform_receipt_observed": true,
+  "theorem_id": "91b72fa6-be54-4e3d-a079-f5bb4e7f050b",
+  "submission_id": "92271d4a-9e89-40d5-8e63-1b792bb31996",
+  "no_independent_platform_poll": true,
+  "new_triggers_this_continuation": 1,
+  "first_failed_run_preserved": 35754815283,
+  "raw_packet_tree": "6cb2ddeaa7b4c50633bdb1cf789af60b207f5681",
+  "raw_verified_tree": "e6b6fffa3e42fab6609de5a2fe27b425e17e3169",
+  "local_Lean_compilation": false,
+  "artifacts": [
+    {
+      "id": 10709805026,
+      "file": "pr333-repaired-verified.zip",
+      "bytes": 38350,
+      "sha256": "d3d05b6cb36f4bc54e4039384766fdde28a927137927874389b1c34061b79a98",
+      "downloaded_and_rehashed": true
+    },
+    {
+      "id": 10707929765,
+      "file": "pr333-repaired-request.zip",
+      "bytes": 310,
+      "sha256": "661d04a8778eea6786c9c0d791258817a7986dc3d2a1cff9af63185b2e89127a",
+      "downloaded_and_rehashed": true
+    },
+    {
+      "id": 10709207165,
+      "file": "pr333-publication-receipts.zip",
+      "bytes": 908,
+      "sha256": "8b7fed7771cf484b3492366f09098b05277abf777f4c134f987ed4bc061e6f8c",
+      "downloaded_and_rehashed": true
+    }
+  ],
+  "publication": {
+    "packet": "normalized_slack_routes",
+    "status": "ACCEPTED",
+    "theorem_id": "91b72fa6-be54-4e3d-a079-f5bb4e7f050b",
+    "submission_id": "92271d4a-9e89-40d5-8e63-1b792bb31996",
+    "theorem_name": "Hirsch.normalized_slack_determining_routes",
+    "registration": "PUBLISHED",
+    "live_status": "Proved",
+    "path": "research/publication_packets/normalized_slack_routes"
+  },
+  "verdict_comment": 5780823072,
+  "verdict_time_utc": "2026-09-22T17:16:48Z",
+  "hosted_compiler_attempts": 2,
+  "actual_proof_submissions": 1,
+  "post_gate_source_or_metadata_edits": false,
+  "raw_receipts_tree": "e92d175ec22e4876254ab8140d3099f60a61131d",
+  "full_decoded_verifier_and_publisher_logs_read": true,
+  "individual_platform_API_bodies_exported": false,
+  "runner_log_storage": "selected exact excerpts; full compiler logs unchanged"
+}

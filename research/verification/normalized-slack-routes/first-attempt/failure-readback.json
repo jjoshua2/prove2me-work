@@ -1,0 +1,94 @@
+{
+  "kind": "derived_GitHub_and_downloaded_request_readback_not_platform_receipt",
+  "repository": "jjoshua2/prove2me-work",
+  "pr": 333,
+  "proof_sha": "68a18b866c9a3e2cd3ea8a3f2b9f127d46e312ca",
+  "trusted_main_sha": "e6b1ce3a6868ed6a25419d756de6b4ba0d58b49f",
+  "source_blob": "cec73e910f915bb2eca51f5e93564e48c39fdc2d",
+  "source_sha256": "5c2fee6a2a2d3c2db51061a3b69251937b1dafd4b7ea068a6973a7d01a1a80ff",
+  "coordination_comment": 5779859675,
+  "trigger_comment": 5780200661,
+  "acknowledgement_comment": 5780204159,
+  "run_id": 35754815283,
+  "jobs": {
+    "gate": {
+      "id": 106837780560,
+      "conclusion": "success"
+    },
+    "verify": {
+      "id": 106837878319,
+      "conclusion": "failure"
+    },
+    "publish": {
+      "id": 106838418507,
+      "conclusion": "skipped"
+    },
+    "report-verify": {
+      "id": 106838419615,
+      "conclusion": "skipped"
+    }
+  },
+  "compile_exit_codes": {
+    "driver.lean": 1,
+    "solution.lean": null,
+    "statement.lean": null
+  },
+  "unreached_compiles": [
+    "solution.lean",
+    "statement.lean"
+  ],
+  "reported_errors": [
+    {
+      "line": 1034,
+      "column": 23,
+      "declaration": "Hirsch.NormalizedSlack.acquire_row",
+      "message": "omega could not prove the goal",
+      "detail": "Local S.card and explicit spectrum.card were separate arithmetic atoms."
+    },
+    {
+      "line": 1219,
+      "column": 75,
+      "declaration": "solution; local hw",
+      "message": "unsolved goals",
+      "detail": "Partial ratio function in Finset.image was not unfolded to the inline lambda."
+    }
+  ],
+  "standard_only_named_reports": [
+    "Hirsch.TargetDetermining.small_completion",
+    "Hirsch.NormalizedSlack.improve_ratio",
+    "Hirsch.NormalizedSlack.minimum_completion",
+    "Hirsch.NormalizedSlack.weight_uniform"
+  ],
+  "reports_containing_sorryAx": [
+    "Hirsch.NormalizedSlack.acquire_row",
+    "Hirsch.NormalizedSlack.selected_routes",
+    "solution"
+  ],
+  "written_admissions": false,
+  "full_packet_verified": false,
+  "lean_version_observed": "4.30.0",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "protocol_unchanged": "0.10.8",
+  "hosted_attempts": 1,
+  "actual_platform_submissions": 0,
+  "theorem_registration": false,
+  "theorem_id": null,
+  "submission_id": null,
+  "ACCEPTED_observed": false,
+  "Proved_observed": false,
+  "local_Lean_compilation": false,
+  "post_gate_source_or_metadata_edits": false,
+  "independent_platform_or_root_poll": false,
+  "full_native_verifier_log_read": true,
+  "committed_log_scope": "Selected compiler diagnostics and relevant aliases, all seven reports, and selected exact runner lines; not a full raw runner archive.",
+  "request_artifact": {
+    "id": 10707054177,
+    "file": "pr333-first-request.zip",
+    "bytes": 309,
+    "sha256": "5840375030bcb352618e479e0130a47156202cee5f03357072d84f054bfa68a6",
+    "downloaded_and_rehashed": true
+  },
+  "verified_artifact_produced": false,
+  "publication_artifact_produced": false,
+  "proposed_repair": "proposed-local-repair.patch; UNAPPLIED to publication source and UNCOMPILED"
+}

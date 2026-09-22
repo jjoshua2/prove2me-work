@@ -1,0 +1,7 @@
+# Selected exact verifier runner lines, not a complete raw runner archive.
+# The complete decoded verifier log was read through cleanup.
+# Full actual driver/solution/statement compiler logs are preserved unchanged.
+2026-09-22T17:07:28.8350535Z Lake version 5.0.0-src+d024af0 (Lean version 4.30.0)
+2026-09-22T17:07:28.8558743Z   GITHUB_TOKEN: 
+2026-09-22T17:07:28.8558976Z   PROVE2ME_API_KEY: 
+2026-09-22T17:07:57.0092381Z SHA256 digest of uploaded artifact zip is d3d05b6cb36f4bc54e4039384766fdde28a927137927874389b1c34061b79a98

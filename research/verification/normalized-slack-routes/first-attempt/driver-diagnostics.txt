@@ -1,0 +1,40 @@
+# Selected compiler diagnostics with timestamps removed; NOT a raw runner log.
+# Frozen proof68a18b866c9a3e2cd3ea8a3f2b9f127d46e312ca, run35754815283.
+# Complete native verifier log was read through cleanup. The full first error,
+# second goal and relevant aliases are retained; other local context and the
+# linter's rendered edit suggestion are omitted. All seven reports follow.
+
+normalized_slack_routes/driver.lean failed to compile:
+_verified/packets/normalized_slack_routes/driver.lean:1034:23: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  g ≥ 1
+  f ≥ 0
+  e ≥ 0
+  e - g ≥ 0
+  c ≥ 0
+  c - e ≥ 0
+  c - f ≤ -1
+where
+ c := ↑(below u).card
+ e := ↑p.length
+ f := ↑S.card
+ g := ↑(spectrum C A b D a j).card
+
+_verified/packets/normalized_slack_routes/driver.lean:1219:75: error: unsolved goals
+# Selected local context:
+w : Fin m → ℕ := fun i => (Finset.image (fun x => (b i - (A i) x) / (a i + (D i) x)) V).card - 1
+hV : Hirsch.TargetRows.vertexSet C A b = V
+R : Finset (Fin m)
+⊢ ∑ x ∈ R, ((Finset.image (Hirsch.NormalizedSlack.ratio A b D a x) V).card - 1) =
+    ∑ x ∈ R, ((Finset.image (fun x_1 => (b x - (A x) x_1) / (a x + (D x) x_1)) V).card - 1)
+
+_verified/packets/normalized_slack_routes/driver.lean:1222:6: warning: This simp argument is unused:
+  Hirsch.NormalizedSlack.ratio
+
+'Hirsch.TargetDetermining.small_completion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.NormalizedSlack.improve_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.NormalizedSlack.acquire_row' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.NormalizedSlack.minimum_completion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.NormalizedSlack.selected_routes' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.NormalizedSlack.weight_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

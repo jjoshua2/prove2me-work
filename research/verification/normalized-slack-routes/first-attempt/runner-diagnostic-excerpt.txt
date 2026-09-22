@@ -1,0 +1,12 @@
+# Selected exact runner lines, NOT a complete raw runner archive.
+# Complete native verifier log was read through cleanup.
+2026-09-22T16:33:09.8726015Z SHA256 digest of downloaded artifact is 5840375030bcb352618e479e0130a47156202cee5f03357072d84f054bfa68a6
+2026-09-22T16:34:09.5581850Z Lake version 5.0.0-src+d024af0 (Lean version 4.30.0)
+2026-09-22T16:34:09.5712433Z   GITHUB_TOKEN: 
+2026-09-22T16:34:09.5712647Z   PROVE2ME_API_KEY: 
+2026-09-22T16:34:21.0078111Z normalized_slack_routes/driver.lean failed to compile:
+2026-09-22T16:34:21.0079244Z _verified/packets/normalized_slack_routes/driver.lean:1034:23: error: omega could not prove the goal:
+2026-09-22T16:34:21.0085972Z _verified/packets/normalized_slack_routes/driver.lean:1219:75: error: unsolved goals
+2026-09-22T16:34:21.0111184Z 'Hirsch.NormalizedSlack.improve_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-22T16:34:21.0117543Z 'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-22T16:34:21.0170257Z ##[error]Process completed with exit code 1.

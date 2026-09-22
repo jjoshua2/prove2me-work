@@ -1,0 +1,14 @@
+{
+  "kind": "source_and_patch_consistency_not_Lean_compilation",
+  "proof_sha": "ecd1384eb8a0b9156286e8a570ee723f3c9fcce8",
+  "source_sha256": "06243abca39cde66c3491ab7ba95248f74de5ca78993b9b9538525c90568746d",
+  "source_blob": "f0a56f9af96ab0cb19a6cdc14bc84f388923e9d7",
+  "source_lines": 1261,
+  "source_bytes": 54933,
+  "matches_saved_proposal": true,
+  "public_type_unchanged": true,
+  "accepted_prefix_unchanged": true,
+  "metadata_and_explanation_unchanged": true,
+  "patch_apply_reverse_roundtrip": true,
+  "local_Lean_compilation": false
+}

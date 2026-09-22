@@ -1,0 +1,17 @@
+{
+  "kind": "offline_consistency_not_Lean_or_live_verification",
+  "status": "PASS",
+  "checks": 73,
+  "raw_members": 15,
+  "manifested_files": 0,
+  "corruptions_rejected": [
+    "altered proof",
+    "wrong frozen proof",
+    "failed compilation",
+    "forbidden axiom",
+    "missing axiom report",
+    "wrong request",
+    "pending verdict",
+    "wrong submission"
+  ]
+}
