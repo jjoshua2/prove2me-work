@@ -1,0 +1,11 @@
+{
+  "kind": "derived_dependency_integrity_not_new_compilation",
+  "source_commit": "cc03202e6f263464af86d58d82a6b3414d097b67",
+  "hashes": {
+    "solution.lean": true,
+    "driver.lean": true,
+    "statement.lean": true,
+    "problem.json": true,
+    "explanation.md": true
+  }
+}

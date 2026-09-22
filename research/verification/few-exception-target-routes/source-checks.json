@@ -1,0 +1,13 @@
+{
+  "kind": "static_source_identity_checks_not_Lean_compilation",
+  "source_blob": "eb9d1ac5034e94b384c708b76c3da7bc463845c9",
+  "source_sha256": "2c4d5644108d23af82fcd2cd472863d5913d5522e8d996a850182f702e5a5301",
+  "source_bytes": 55478,
+  "source_lines": 1264,
+  "accepted_prefix_bytes": 35088,
+  "accepted_prefix_lines": 844,
+  "accepted_prefix_byte_identical": true,
+  "public_type_matches_metadata": true,
+  "local_Lean_compilation": false,
+  "target": "Hirsch.few_exception_target_original_routes"
+}

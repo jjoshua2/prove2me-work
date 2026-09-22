@@ -1,0 +1,76 @@
+{
+  "kind": "derived_supporting_exact_regression_summary_not_Lean",
+  "models": 23,
+  "totals": {
+    "generators": 165,
+    "vertices": 160,
+    "rows": 165,
+    "targets": 160,
+    "new_targets_beyond_one_exception": 80,
+    "certified_residual_vertex_codes": 434,
+    "routes": 1402,
+    "edges": 2137,
+    "shortest_edges": 2130,
+    "nonshortest_routes": 7,
+    "residual_edges": 882,
+    "steps_without_new_target_row": 12
+  },
+  "large_cases": [
+    {
+      "dimension": 8,
+      "exceptions": 2,
+      "rows": 16,
+      "edges": 8,
+      "exception_levels_formula": 65,
+      "residual_dimension_formula": 2,
+      "residual_vertices_formula": 4,
+      "theorem_bound": 296,
+      "original_row_checks": 144,
+      "right_inverse_identities": 968,
+      "steps_without_new_target_row": 0
+    },
+    {
+      "dimension": 16,
+      "exceptions": 2,
+      "rows": 32,
+      "edges": 16,
+      "exception_levels_formula": 16385,
+      "residual_dimension_formula": 2,
+      "residual_vertices_formula": 4,
+      "theorem_bound": 1104,
+      "original_row_checks": 544,
+      "right_inverse_identities": 7952,
+      "steps_without_new_target_row": 0
+    },
+    {
+      "dimension": 32,
+      "exceptions": 3,
+      "rows": 64,
+      "edges": 32,
+      "exception_levels_formula": 536870913,
+      "residual_dimension_formula": 3,
+      "residual_vertices_formula": 8,
+      "theorem_bound": 274656,
+      "original_row_checks": 2112,
+      "right_inverse_identities": 64544,
+      "steps_without_new_target_row": 0
+    },
+    {
+      "dimension": 64,
+      "exceptions": 4,
+      "rows": 128,
+      "edges": 64,
+      "exception_levels_formula": 1152921504606846977,
+      "residual_dimension_formula": 4,
+      "residual_vertices_formula": 16,
+      "theorem_bound": 276922944,
+      "original_row_checks": 8320,
+      "right_inverse_identities": 520256,
+      "steps_without_new_target_row": 0
+    }
+  ],
+  "malformed_controls_rejected": 12,
+  "initial_noop_negative_mutation_corrected_before_final": true,
+  "all_rows_exceptional_boundary_cases": 23,
+  "full_reports_and_fixtures_bundled": true
+}

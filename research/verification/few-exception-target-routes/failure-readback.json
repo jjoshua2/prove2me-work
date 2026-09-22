@@ -1,0 +1,75 @@
+{
+  "kind": "derived_GitHub_failure_readback_not_platform_receipt",
+  "repository": "jjoshua2/prove2me-work",
+  "pr": 325,
+  "proof_sha": "ccf39230fac5e32cf352ccdf853acbeba558f781",
+  "base_and_trusted_main_sha": "34696607bb8f6298bb400d9ce9a0903dc078c157",
+  "coordination_comment": 5769262108,
+  "trigger_comment": 5769409206,
+  "acknowledgement_comment": 5769410615,
+  "run_id": 35671141114,
+  "jobs": {
+    "gate": {
+      "id": 106567634984,
+      "conclusion": "success"
+    },
+    "verify": {
+      "id": 106567673751,
+      "conclusion": "failure"
+    },
+    "report-verify": {
+      "id": 106568033078,
+      "conclusion": "skipped"
+    },
+    "publish": {
+      "id": 106568033516,
+      "conclusion": "skipped"
+    }
+  },
+  "lean_version_observed": "4.30.0",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "driver_exit_code": 1,
+  "solution_separate_compile": "not_reached",
+  "statement_separate_compile": "not_reached",
+  "complete_packet_audit": "not_produced",
+  "reported_error_lines": [
+    965,
+    1011
+  ],
+  "new_standard_only_reports": [
+    "Hirsch.FewExceptions.residual_dimension",
+    "Hirsch.FewExceptions.enter_residual"
+  ],
+  "failed_elaboration_reports_with_sorryAx": [
+    "Hirsch.FewExceptions.small_active_rows",
+    "Hirsch.FewExceptions.residual_card",
+    "Hirsch.FewExceptions.residual_route",
+    "Hirsch.FewExceptions.few_exception_routes",
+    "solution"
+  ],
+  "proof_admissions_written": false,
+  "theorem_registration_in_this_run": false,
+  "proof_submission_in_this_run": false,
+  "platform_theorem_id": null,
+  "platform_submission_id": null,
+  "ACCEPTED_observed": false,
+  "Proved_observed": false,
+  "independent_platform_or_mission_root_poll": false,
+  "verified_packet_artifact_produced": false,
+  "publication_receipt_artifact_produced": false,
+  "artifacts": [
+    {
+      "id": 10669999660,
+      "name": "prove2me-publish-request",
+      "bytes": 307,
+      "sha256": "378dd768e2d56f2c9ba129906548818cfefdb772c4ceeaac6795d833baca2b78",
+      "downloaded_and_rehashed": true
+    }
+  ],
+  "complete_decoded_verifier_runner_log_read": true,
+  "runner_log_preservation": "complete compiler error/axiom block transcribed without runner timestamps; not full raw runner archive",
+  "publication_source_edits_after_gate": false,
+  "additional_trigger_or_rerun": false,
+  "local_Lean_compilation": false,
+  "repair_proposal_applied_to_publication_source": false
+}

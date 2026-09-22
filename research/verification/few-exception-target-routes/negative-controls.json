@@ -1,0 +1,53 @@
+{
+  "kind": "offline_malformed_certificate_controls",
+  "cases": [
+    {
+      "name": "omitted_bad_row",
+      "rejected": true
+    },
+    {
+      "name": "missing_residual_vertex",
+      "rejected": true
+    },
+    {
+      "name": "wrong_dimension",
+      "rejected": true
+    },
+    {
+      "name": "nonseparating_rows",
+      "rejected": true
+    },
+    {
+      "name": "missing_code",
+      "rejected": true
+    },
+    {
+      "name": "incorrect_slot",
+      "rejected": true
+    },
+    {
+      "name": "false_count_bound",
+      "rejected": true
+    },
+    {
+      "name": "false_prefix",
+      "rejected": true
+    },
+    {
+      "name": "wrong_endpoint",
+      "rejected": true
+    },
+    {
+      "name": "zero_support",
+      "rejected": true
+    },
+    {
+      "name": "false_acquired_labels",
+      "rejected": true
+    },
+    {
+      "name": "false_large_vertex",
+      "rejected": true
+    }
+  ]
+}
