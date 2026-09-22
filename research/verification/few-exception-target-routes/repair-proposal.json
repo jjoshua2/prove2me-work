@@ -1,0 +1,24 @@
+{
+  "kind": "UNAPPLIED_UNCOMPILED_local_repair_proposal",
+  "original_blob": "eb9d1ac5034e94b384c708b76c3da7bc463845c9",
+  "repaired_blob": "0dda4d16f141430683f475519c3028f8125af7ca",
+  "repaired_sha256": "10a7817b6e429bdc4254e25deb385a02cc5dae8a7c7afd4335fc06f6306aac08",
+  "repaired_bytes": 55471,
+  "repaired_lines": 1263,
+  "reported_error_lines": [
+    965,
+    1011
+  ],
+  "repairs": [
+    "Explicit source subtype S in congrArg for emb injectivity",
+    "Remove the impossible None=Some branch already discharged by split_ifs"
+  ],
+  "declaration_signatures_unchanged": true,
+  "accepted_prefix_byte_identical": true,
+  "complete_public_root_statement_and_proof_unchanged": true,
+  "metadata_unchanged": true,
+  "patch_apply_reverse_exact": true,
+  "local_Lean_compilation": false,
+  "publication_source_changed_after_gate": false,
+  "local_proposal_review": "An initial uncompiled local draft removed the line after rw at 1005. Exact numbered-source review located the reported redundant tactic at 1011; this proposal instead removes only that final cases branch. The draft was never uploaded or submitted."
+}

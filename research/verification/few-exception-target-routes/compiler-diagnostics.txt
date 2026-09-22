@@ -1,0 +1,28 @@
+# Scoped compiler-diagnostic transcript; runner timestamps removed
+# Source: run 35671141114, verifier job 106567673751.
+# Tested proof: ccf39230fac5e32cf352ccdf853acbeba558f781.
+# The complete decoded verifier runner log was read through cleanup.
+# This is its complete compiler error/axiom block, not a full raw runner archive.
+# No verified-packet archive or complete packet audit was produced.
+
+few_exception_target_routes/driver.lean failed to compile:
+_verified/packets/few_exception_target_routes/driver.lean:965:44: error: Application type mismatch: The argument
+  he
+has type
+  emb i = emb j
+but is expected to have type
+  i = j
+in the application
+  congrArg Subtype.val he
+_verified/packets/few_exception_target_routes/driver.lean:1011:4: error: No goals to be solved
+'Hirsch.FewExceptions.residual_dimension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.FewExceptions.small_active_rows' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.FewExceptions.residual_card' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.FewExceptions.enter_residual' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.FewExceptions.residual_route' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.FewExceptions.few_exception_routes' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+
+# Runner result: Process completed with exit code 1.
+# Lean version reported in setup: 4.30.0.
+# Error block: 2026-09-22T00:16:33.6413301Z through 00:16:33.6427406Z.

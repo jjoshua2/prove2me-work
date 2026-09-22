@@ -1,0 +1,15 @@
+{
+  "kind": "rechecked_frozen_dependency_integrity_not_new_Lean_compilation",
+  "dependency": "accepted PR #323",
+  "five_manifest_hashes": {
+    "solution.lean": true,
+    "driver.lean": true,
+    "statement.lean": true,
+    "problem.json": true,
+    "explanation.md": true
+  },
+  "namespace_prefix_byte_identical": true,
+  "prefix_lines": 844,
+  "prefix_bytes": 35088,
+  "old_public_root_excluded": true
+}

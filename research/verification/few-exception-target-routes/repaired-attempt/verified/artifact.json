@@ -1,0 +1,25 @@
+{
+  "head_sha": "d1476316107a5a52ed7b70f66dcfd0ac45ce3348",
+  "packets": [
+    {
+      "path": "research/publication_packets/few_exception_target_routes",
+      "name": "few_exception_target_routes",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "10a7817b6e429bdc4254e25deb385a02cc5dae8a7c7afd4335fc06f6306aac08",
+        "driver.lean": "10a7817b6e429bdc4254e25deb385a02cc5dae8a7c7afd4335fc06f6306aac08",
+        "statement.lean": "442e5d4ef1691e960133a5617ef20a1dcc8a3403c2c387f2d2a3423cad4974ab",
+        "problem.json": "8de475cac33213b18cf518494b9c4cd8a1b98687fa494e12cbb271e48f564989",
+        "explanation.md": "d15c8cca86bb822f4c46173072b3056d1853b38cb8b5c9cc269fddda59308d2e"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}

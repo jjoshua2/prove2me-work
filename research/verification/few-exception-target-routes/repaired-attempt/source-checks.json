@@ -1,0 +1,15 @@
+{
+  "kind": "static_source_and_patch_checks_not_Lean_compilation",
+  "proof_commit": "d1476316107a5a52ed7b70f66dcfd0ac45ce3348",
+  "source_git_blob": "0dda4d16f141430683f475519c3028f8125af7ca",
+  "sha256": "10a7817b6e429bdc4254e25deb385a02cc5dae8a7c7afd4335fc06f6306aac08",
+  "bytes": 55471,
+  "lines": 1263,
+  "saved_proposal_byte_identical": true,
+  "complete_public_root_statement_and_proof_unchanged": true,
+  "accepted_namespace_prefix_unchanged": true,
+  "public_type_exact_text_matches_metadata": true,
+  "no_admission_tokens": true,
+  "patch_forward_reverse_roundtrip": true,
+  "local_Lean_compilation": false
+}

@@ -1,0 +1,7 @@
+'Hirsch.FewExceptions.residual_dimension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.FewExceptions.small_active_rows' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.FewExceptions.residual_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.FewExceptions.enter_residual' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.FewExceptions.residual_route' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.FewExceptions.few_exception_routes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]

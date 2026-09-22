@@ -1,0 +1,57 @@
+{
+  "kind": "explicit_exact_family_certificates_not_Lean_instances",
+  "models": [
+    {
+      "dimension": 8,
+      "exceptions": 2,
+      "rows": 16,
+      "edges": 8,
+      "exception_levels_formula": 65,
+      "residual_dimension_formula": 2,
+      "residual_vertices_formula": 4,
+      "theorem_bound": 296,
+      "original_row_checks": 144,
+      "right_inverse_identities": 968,
+      "steps_without_new_target_row": 0
+    },
+    {
+      "dimension": 16,
+      "exceptions": 2,
+      "rows": 32,
+      "edges": 16,
+      "exception_levels_formula": 16385,
+      "residual_dimension_formula": 2,
+      "residual_vertices_formula": 4,
+      "theorem_bound": 1104,
+      "original_row_checks": 544,
+      "right_inverse_identities": 7952,
+      "steps_without_new_target_row": 0
+    },
+    {
+      "dimension": 32,
+      "exceptions": 3,
+      "rows": 64,
+      "edges": 32,
+      "exception_levels_formula": 536870913,
+      "residual_dimension_formula": 3,
+      "residual_vertices_formula": 8,
+      "theorem_bound": 274656,
+      "original_row_checks": 2112,
+      "right_inverse_identities": 64544,
+      "steps_without_new_target_row": 0
+    },
+    {
+      "dimension": 64,
+      "exceptions": 4,
+      "rows": 128,
+      "edges": 64,
+      "exception_levels_formula": 1152921504606846977,
+      "residual_dimension_formula": 4,
+      "residual_vertices_formula": 16,
+      "theorem_bound": 276922944,
+      "original_row_checks": 8320,
+      "right_inverse_identities": 520256,
+      "steps_without_new_target_row": 0
+    }
+  ]
+}

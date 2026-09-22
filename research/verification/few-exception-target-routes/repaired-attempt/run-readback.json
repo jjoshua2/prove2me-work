@@ -1,0 +1,83 @@
+{
+  "kind": "derived_run_and_artifact_readback_not_independent_platform_poll",
+  "repository": "jjoshua2/prove2me-work",
+  "pr": 325,
+  "proof_sha": "d1476316107a5a52ed7b70f66dcfd0ac45ce3348",
+  "trusted_main_sha": "34696607bb8f6298bb400d9ce9a0903dc078c157",
+  "coordination_comment": 5769584272,
+  "trigger_comment": 5769632552,
+  "acknowledgement_comment": 5769636335,
+  "verdict_comment": 5769699442,
+  "verdict_time_utc": "2026-09-22T00:51:52Z",
+  "run_id": 35673081377,
+  "jobs": {
+    "gate": {
+      "id": 106573698982,
+      "conclusion": "success"
+    },
+    "verify": {
+      "id": 106573786147,
+      "conclusion": "success"
+    },
+    "publish": {
+      "id": 106574920362,
+      "conclusion": "success"
+    },
+    "report-verify": {
+      "id": 106574921180,
+      "conclusion": "skipped"
+    }
+  },
+  "lean_version_observed": "4.30.0",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "compile_exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "standard_only_proof_reports_per_file": 7,
+  "publication": {
+    "packet": "few_exception_target_routes",
+    "status": "ACCEPTED",
+    "theorem_id": "e8842064-8672-4cea-9e53-6f6bedf68b8f",
+    "submission_id": "84117686-a386-4d9f-8ae8-d310c7131783",
+    "theorem_name": "Hirsch.few_exception_target_original_routes",
+    "registration": "PUBLISHED",
+    "live_status": "Proved",
+    "path": "research/publication_packets/few_exception_target_routes"
+  },
+  "Proved_source": "trusted publisher authenticated readback in the unchanged downloaded receipt",
+  "independent_platform_or_mission_root_poll": false,
+  "individual_API_response_bodies_available": false,
+  "hosted_compile_attempts_for_this_target": 2,
+  "actual_platform_submissions_for_this_target": 1,
+  "new_trigger_count_this_continuation": 1,
+  "original_failed_run_preserved": 35671141114,
+  "post_gate_source_or_metadata_edits": false,
+  "local_Lean_compilation": false,
+  "full_decoded_verify_and_publish_runner_logs_read": true,
+  "runner_log_storage": "scoped exact excerpt only; complete raw compiler logs preserved in verified artifact",
+  "artifacts": [
+    {
+      "file": "pr325-repaired-request.zip",
+      "id": 10671577677,
+      "bytes": 309,
+      "sha256": "5b2170c4e95743ae4062dcedaa3efd3e32385eb70ad1306418c832079ceb1ecc",
+      "downloaded_and_rehashed": true
+    },
+    {
+      "file": "pr325-repaired-verified.zip",
+      "id": 10671827913,
+      "bytes": 38483,
+      "sha256": "55bc5675fdeda940cd599a0a53aad08d41a7aae3b63ccf661cc1564095ffd0e1",
+      "downloaded_and_rehashed": true
+    },
+    {
+      "file": "pr325-publication-receipts.zip",
+      "id": 10672545203,
+      "bytes": 910,
+      "sha256": "d05d0451cc471fbfae406b48ce337b8a42e539d4c8bdc6a91f0b765ae217814c",
+      "downloaded_and_rehashed": true
+    }
+  ]
+}
