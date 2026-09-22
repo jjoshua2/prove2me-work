@@ -1,0 +1,18 @@
+{
+  "kind": "derived_source_and_frozen_artifact_consistency_not_local_Lean_or_live_verification",
+  "proof_sha": "ade253b05303c77211a8e8a1cc84a1f339c59c42",
+  "source_blob": "7cea8154a7fb8647105e4420b8fef167fac324c5",
+  "source_sha256": "0ff21754450c5ab02cf83504d00a3a5832bf88fa7ba06d14413c06a2de316690",
+  "source_bytes": 55847,
+  "source_lines": 1298,
+  "all_five_manifest_hashes_match": true,
+  "matches_saved_proposal": true,
+  "helper_prefix_unchanged": true,
+  "public_type_matches_metadata": true,
+  "metadata_and_explanation_unchanged": true,
+  "three_recorded_compiles_exit_zero": true,
+  "eight_standard_only_reports_in_each_proof_log": true,
+  "local_Lean_compilation": false,
+  "packet_tree": "c25178d2acd6ae5cf09eebff55c533d0cc140ad6",
+  "verified_tree": "7232e6da737d82d67e392d644ec6a464e539f3a4"
+}

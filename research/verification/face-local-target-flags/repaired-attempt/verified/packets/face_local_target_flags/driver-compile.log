@@ -1,0 +1,28 @@
+_verified/packets/face_local_target_flags/driver.lean:1136:46: warning: This simp argument is unused:
+  Nat.mul_add
+
+Hint: Omit it from the simp argument list.
+  simp only [̵L̵i̵s̵t̵.̵s̵u̵m̵_̵c̵o̵n̵s̵,̵L̵i̵s̵t̵.̵l̵e̵n̵g̵t̵h̵_̵c̵o̵n̵s̵,̵N̵a̵t̵.̵m̵u̵l̵_̵a̵d̵d̵,̵N̵a̵t̵.̵m̵u̵l̵_̵o̵n̵e̵,̵N̵a̵t̵.̵m̵u̵l̵_̵s̵u̵c̵c̵]̵[̲L̲i̲s̲t̲.̲s̲u̲m̲_̲c̲o̲n̲s̲,̲ ̲L̲i̲s̲t̲.̲l̲e̲n̲g̲t̲h̲_̲c̲o̲n̲s̲,̲ ̲N̲a̲t̲.̲m̲u̲l̲_̲o̲n̲e̲,̲ ̲N̲a̲t̲.̲m̲u̲l̲_̲s̲u̲c̲c̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+_verified/packets/face_local_target_flags/driver.lean:1136:58: warning: This simp argument is unused:
+  Nat.mul_one
+
+Hint: Omit it from the simp argument list.
+  simp only [̵L̵i̵s̵t̵.̵s̵u̵m̵_̵c̵o̵n̵s̵,̵L̵i̵s̵t̵.̵l̵e̵n̵g̵t̵h̵_̵c̵o̵n̵s̵,̵N̵a̵t̵.̵m̵u̵l̵_̵a̵d̵d̵,̵N̵a̵t̵.̵m̵u̵l̵_̵o̵n̵e̵,̵N̵a̵t̵.̵m̵u̵l̵_̵s̵u̵c̵c̵]̵[̲L̲i̲s̲t̲.̲s̲u̲m̲_̲c̲o̲n̲s̲,̲ ̲L̲i̲s̲t̲.̲l̲e̲n̲g̲t̲h̲_̲c̲o̲n̲s̲,̲ ̲N̲a̲t̲.̲m̲u̲l̲_̲a̲d̲d̲,̲ ̲N̲a̲t̲.̲m̲u̲l̲_̲s̲u̲c̲c̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+_verified/packets/face_local_target_flags/driver.lean:1271:21: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+_verified/packets/face_local_target_flags/driver.lean:1271:21: warning: 'rfl' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'Hirsch.TargetDetermining.small_completion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.FaceLocal.face_vertices_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.FaceLocal.acquire_on_face' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.FaceLocal.eligible_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.FaceLocal.route_for_flag' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.FaceLocal.charges_le_global' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.FaceLocal.optimal_flag_routes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]

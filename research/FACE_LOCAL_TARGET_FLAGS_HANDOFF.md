@@ -1,130 +1,88 @@
-# PR #332: face-local target flags — first gate failed at public wrapper
+# PR #332: optimal face-local target flags — ACCEPTED
 
-Read STATUS.md, AGENTS.md, CLOUD_AGENT.md, SKILL.md, CONTINUE_HIRSCH.md and LIVE
-heads/comments before resuming. #320 and #330 are already accepted/merged.
-This is the distinct face-local continuation, not another submission of either.
-Keep #332 OPEN/DRAFT. The internal construction has seven clean named helper
-reports, but the public solution failed elaboration. No complete passing packet,
-Prove2Me registration, submission, ACCEPTED or Proved result exists from this run.
+Read the five project instructions and LIVE PR state before further work.
+The saved wrapper repair has passed the complete gate and platform publication.
+Do not reapply the patch, repeat the failed gate or submit this accepted target.
+Check the PR lifecycle before any remaining integration action.
 
-## Exact tested identity
+## Exact identity
 
 Repository jjoshua2/prove2me-work; PR #332.
 Branch proof/face-local-target-flags.
 Target Hirsch.face_local_ordered_target_routes.
 Packet research/publication_packets/face_local_target_flags.
-Tested proof2758b9d7b9ad8a393a270b9c2c93b356ecae772f.
-Base/trusted main28d247b919c156696f4b87e1c295f0d86727cd81.
-Source1297 lines/55795 bytes; blobe044971a320c27c5b899a961063ae99a2b4cdc6c;
-SHA256095a943e655a507455037404f750f96e52f671cb3fe68f20432bf09342f9b620.
-Problem772e66d49494e0cdc1b0b073b7d883b0cfc107ca;
-explanation4267c14b072d46e0c1b56eecbb9eaba8a5e5a1f0.
-Later evidence commits do not replace this tested proof identity.
+Frozen accepted proof ade253b05303c77211a8e8a1cc84a1f339c59c42.
+Trusted main 28d247b919c156696f4b87e1c295f0d86727cd81.
+Source 1298 lines / 55847 bytes, blob 7cea8154a7fb8647105e4420b8fef167fac324c5,
+SHA256 0ff21754450c5ab02cf83504d00a3a5832bf88fa7ba06d14413c06a2de316690.
+Later evidence commits do not replace the frozen proof identity.
 
-Coordination5778505922 on #330; actual NEW top-level request5778888834;
-bot acknowledgement5778891809; run35744801081. All posted/read back as applicable.
-Gate106803499029 succeeded; verify106803568293 failed driver compilation, exit1.
-Publish106804105425 and report-verify106804105917 were skipped. Standalone solution
-and separate statement compiles were NOT reached. One hosted attempt, zero
-platform proof submissions. No post-gate proof/metadata edit or further trigger.
+Actual request 5779357704; acknowledgement 5779360455; run 35748456317;
+accepted verdict 5779438697 at 2026-09-22T15:40:58Z. All were read back.
+The raw receipt records PUBLISHED / ACCEPTED / Proved for theorem
+98a47ad2-122d-4507-928a-27acca8a8c1e and submission
+2cc47ff0-ddb3-4cd8-a2a5-972204cc86ea. Proved is the trusted publisher's
+authenticated readback, not a new independent platform/mission-root poll.
 
-## Actual diagnostics and single-site proposal
+## Complete proof status and preserved failure
 
-The only reported error is driver1265:78, inside the public solution's local
-hl equality converting faceLevels to the inline Finset filter/image expression.
-After unfold and rw [hV], the goal displays two identical Finset.image expressions.
-Do not infer full verification from that display or from clean earlier reports.
-The two other diagnostics are unused simp arguments at1136:46/1136:58.
+Driver, standalone solution and exact target statement all exit zero. All eight
+named transitive reports in both proof logs use only propext, Classical.choice
+and Quot.sound; no sorryAx remains. The separate target placeholder is not proof.
+Gate 106816015213, verify 106816078034 and publish 106816806325 succeeded;
+report-verify 106816808178 skipped. Harmless linter warnings remain in raw logs.
 
-All seven named helpers are standard-only: small_completion, face_vertices_exact,
-acquire_on_face, eligible_exists, route_for_flag, charges_le_global and
-optimal_flag_routes. The last is the entire internal optimal-order route theorem.
-The public solution's report still includes sorryAx from FAILED ELABORATION;
-no admission was written in the source. The full packet therefore failed.
+This was the second hosted compiler gate and first actual platform submission.
+The first failed proof 2758b9d7b9ad8a393a270b9c2c93b356ecae772f and run
+35744801081 are preserved in first-attempt/. The prior complete handoff is
+repaired-attempt/previous-handoff.md. The first-gate-evidence.md snapshot stays
+historical, not a statement of the current successful result.
 
-Saved repair, UNAPPLIED to publication source and UNCOMPILED:
-research/verification/face-local-target-flags/first-attempt/proposed-local-repair.patch.
-It replaces only the local hl proof with ext a and explicit membership simp:
+Only local hl changed: extensional membership replaces unfold/rw. All helper
+bodies, signatures, public type, other root proof code and metadata are unchanged.
+No post-gate proof edits occurred. Keep Lean 4.30.0 / Mathlib
+c5ea00351c28e24afc9f0f84379aa41082b1188f and strict protocol 0.10.8 unchanged.
+No local Lean/caches were found and toolchain-host DNS failed; source and Python
+checks were not presented as local compilation.
 
-    ext a
-    simp only [Hirsch.FaceLocal.faceLevels,Hirsch.FaceLocal.faceVertices,
-      Finset.mem_image,Finset.mem_filter,hV]
+## Result and remaining mathematical task
 
-All mathematical helpers, definitions, declaration signatures, public type, other
-proof code, problem.json and explanation.md remain unchanged. Apply/check/reverse
-round trips pass. The proposed1298-line/55847-byte complete source has Git blob
-7cea8154a7fb8647105e4420b8fef167fac324c5, SHA256
-0ff21754450c5ab02cf83504d00a3a5832bf88fa7ba06d14413c06a2de316690.
-Its complete bytes accompany the export; the repository holds the exact patch.
-This is a proposed tactic repair, not a compiler success. Further errors may appear.
+For exact finite H/hull equality in ambient d with m ORIGINAL rows and actual
+vertices u,v, derive a duplicate-free ordered determining completion of the
+shared target equations, with length <= min(d,m-d). Before each selected row,
+restrict ACTUAL original vertices to the shared rows and selected prefix;
+charge that row's distinct values minus one. Construct complete original-edge
+phases and choose an eligible order minimizing the conditional sum. The same
+route satisfies L <= K*min(d,m-d) if each computed local charge is at most K.
 
-Next: recheck live ownership/pending jobs, apply that patch to THIS source and
-review the narrow diff. Compile locally where available, then use one complete
-prepared final gate on this SAME PR and target. Never weaken the statement or
-resubmit accepted dependencies. No second gate was requested in this continuation.
+All acquired target rows remain tight at every edge. Planned faces may exceed
+actual lock faces due incidental acquisitions; zero-edge phases remain. Minimum
+budget is not shortestness. Exact H/hull equality and endpoint extremality remain
+explicit; redundancy, nonsimple/lower-dimensional and zero-dimensional cases
+are retained. No universal small conditional total is proved. The next mission
+obligation is uniform original-input control of useful local costs, not assuming
+that condition or relabelling this standalone acceptance as Polynomial Hirsch.
 
-## Mathematical result being completed
+## Evidence and reproduction
 
-For exact P=conv(C)=the ORIGINAL m halfspaces in ambient d and actual vertices
-u,v, derive a duplicate-free ordered list J of initially missing target rows,
-length<=min(d,m-d), completing the target equations shared by the endpoints.
-Before each selected row, restrict actual original vertices to the shared
-rows and the earlier SELECTED prefix; charge its distinct values there minus1.
-Construct whole genuine original-edge acquisition phases inside those faces,
-and minimize the conditional sum over eligible orders. The same route satisfies
-K*min(d,m-d) when all returned local charges are<=K.
+Packet accepted-evidence.md and publication-receipt.json hold the result.
+repaired-attempt/ preserves all 12 raw verified files, both publisher files,
+request and labelled derived source/run/replay records. Raw archives and full
+small/large fixtures are included in the export. Complete compiler logs are
+unchanged; runner excerpts are explicitly selected, not full raw archives.
 
-The order, rank/determining property, complete phase and original-edge route are
-derived, not supplied as an oracle. Each step preserves ALL acquired target
-rows, including unselected rows. The planned face can be larger than the actual
-lock face due incidental acquisitions; its charge is not claimed an exact
-current-state minimum. Zero-edge phases for incidentally acquired rows remain.
-The helper charges_le_global proves local cost no greater than charging the
-SAME list globally. Minimum budget is not shortest-path optimality.
-
-Exact finite H/hull equality and actual endpoints remain explicit. Redundant,
-nonsimple/lower-dimensional, zero-dimensional and equal-endpoint cases remain.
-No universal small conditional sum is proved. Its K implication retains the
-local-charge condition, so this does NOT solve uniform Polynomial Hirsch.
-No all-facet nonrevisiting, global objective or efficient H-to-V/flag search claim.
-
-## Executed arithmetic and preserved evidence
-
-18 exact small hulls:650 routes/733 original edges versus726 shortest edges;
-7 nonshortest routes,36 multiedge phases and18 nonacquiring steps are retained.
-184 cases improve on the OPTIMAL GLOBAL determining-row budget. The independent
-consumer checks30238 eligible orders, all prefix faces/levels and whole original
-edges. Nine malformed controls fail. Saved replay disables flag/route/edge
-production. These are exact tests, not kernel-verified Python/JSON.
-
-Five known triangular stress cases through64D check124 further original edges
-and reject4 controls. At64D:128 original rows, global determining cost2^64-1,
-local cost64 and a checked64-edge route. Only4D/8D corner spectra are enumerated;
-larger counts use the written recurrence. This is a known-family written/exact
-application, NOT another Lean instance or #282's owned all-vertex classification.
-The adaptive two-level observation from #276 is credited, not claimed novel.
-
-Clean FOUR-script replay reproduces all FIVE complete output files byte-for-byte.
-Both new scripts are committed with two unchanged imports. Full JSON reports,
-fixtures and controls accompany the export and regenerate; repository summaries
-are labelled derived. Commands from the repository root:
+Fresh execution reproduced all five full prior outputs: 650 routes/733 original
+edges, 30238 eligible orders, 184 savings over the optimal global budget, seven
+nonshortest, 36 multiedge phases and 18 nonacquiring steps; nine small controls.
+The five known triangular stress cases add 124 original edges and four controls.
+Their interpretation is written/exact, not another Lean family theorem or #282
+classification. The export-only inspector passes 29 checks and rejects eight
+corruptions; it does not compile Lean or poll Prove2Me.
 
     python3 scripts/test_face_local_flags.py --out /tmp/face-local-small
     python3 scripts/test_face_local_triangular.py --out /tmp/face-local-large
 
-Only request artifact10701287910 was produced:307 bytes, SHA256
-b6c7b873285f5cba5e745482b6282a684d139dc1177e30c0e3d1a385c5fb93dd.
-It was downloaded/rehashed and its exact resolved.json preserved. No verified or
-publication archive, complete passing audit or receipt is fabricated. The whole
-error context and all eight reports are extracted from the decoded verifier log;
-timestamps/linter suggestion bodies are omitted. The separate runner excerpt is
-explicitly selected, not a full raw runner archive. The full log was read through
-cleanup. The original failed inputs are copied under first-attempt/tested/.
-
-Retained932-line/38243-byte accepted dependency blocks are unchanged; all five
-source manifest hashes were checked and the public type matches metadata.
-Local lean/lake/elan and checked caches were absent, toolchain-host DNS failed.
-Hosted Lean4.30.0 was observed; retain Mathlib c5ea00351c28e24afc9f0f84379aa41082b1188f
-and strict protocol0.10.8. No pin, workflow, allowlist, duplicate guard or
-verifier/publisher credential isolation changed. #326,#282,reserved #210 and
-other owners remain untouched. Preserve the first failure when resuming.
+Complete eligible integration of THIS accepted PR if still pending. No further
+publication is needed. Respect #326, #282, reserved #210 and every other live
+assignment. Keep accepted inputs, pins, duplicate guards, allowed actors and
+verifier/publisher secret isolation unchanged.

@@ -1,0 +1,86 @@
+{
+  "kind": "derived_GitHub_and_downloaded_artifact_readback_not_new_platform_poll",
+  "repository": "jjoshua2/prove2me-work",
+  "pr": 332,
+  "proof_sha": "ade253b05303c77211a8e8a1cc84a1f339c59c42",
+  "trusted_main_sha": "28d247b919c156696f4b87e1c295f0d86727cd81",
+  "coordination_comment": 5779246688,
+  "trigger_comment": 5779357704,
+  "acknowledgement_comment": 5779360455,
+  "verdict_comment": 5779438697,
+  "verdict_time_utc": "2026-09-22T15:40:58Z",
+  "run_id": 35748456317,
+  "jobs": {
+    "gate": {
+      "id": 106816015213,
+      "conclusion": "success"
+    },
+    "verify": {
+      "id": 106816078034,
+      "conclusion": "success"
+    },
+    "publish": {
+      "id": 106816806325,
+      "conclusion": "success"
+    },
+    "report-verify": {
+      "id": 106816808178,
+      "conclusion": "skipped"
+    }
+  },
+  "compile_exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "standard_only_named_reports_per_proof_log": 8,
+  "lean_version_observed": "4.30.0",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "protocol_unchanged": "0.10.8",
+  "publication": {
+    "packet": "face_local_target_flags",
+    "status": "ACCEPTED",
+    "theorem_id": "98a47ad2-122d-4507-928a-27acca8a8c1e",
+    "submission_id": "2cc47ff0-ddb3-4cd8-a2a5-972204cc86ea",
+    "theorem_name": "Hirsch.face_local_ordered_target_routes",
+    "registration": "PUBLISHED",
+    "live_status": "Proved",
+    "path": "research/publication_packets/face_local_target_flags"
+  },
+  "hosted_compiler_attempts": 2,
+  "actual_platform_submissions": 1,
+  "new_triggers_this_continuation": 1,
+  "first_failed_run_preserved": 35744801081,
+  "post_gate_source_or_metadata_changes": false,
+  "local_Lean_compilation": false,
+  "independent_platform_or_mission_root_poll": false,
+  "individual_platform_API_response_bodies_available": false,
+  "full_decoded_verify_and_publish_logs_read": true,
+  "runner_log_storage": "Selected exact excerpt only; full compiler logs unmodified",
+  "raw_packet_tree": "c25178d2acd6ae5cf09eebff55c533d0cc140ad6",
+  "raw_verified_tree": "7232e6da737d82d67e392d644ec6a464e539f3a4",
+  "raw_receipts_tree": "48040ca392ff1a4db2a9669b0652ba7e9596211c",
+  "artifacts": [
+    {
+      "file": "pr332-repaired-request.zip",
+      "id": 10703262954,
+      "bytes": 307,
+      "sha256": "d688327c18c84b74dd31de19037ece56db507f5612e4f2d826ee38be9f3e0573",
+      "downloaded_and_rehashed": true
+    },
+    {
+      "file": "pr332-repaired-verified.zip",
+      "id": 10703838121,
+      "bytes": 40244,
+      "sha256": "798ede17e3d9967f677934eb9fe5f13282110791719e34f54de874abe5fa3bce",
+      "downloaded_and_rehashed": true
+    },
+    {
+      "file": "pr332-publication-receipts.zip",
+      "id": 10703938693,
+      "bytes": 905,
+      "sha256": "080f4e1a828f6604f5965bc548d4799da3bcbbf44e5b9741fcfd3f7a5b62856c",
+      "downloaded_and_rehashed": true
+    }
+  ]
+}
