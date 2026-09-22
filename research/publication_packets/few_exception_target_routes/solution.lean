@@ -962,7 +962,7 @@ theorem small_active_rows (A : Fin m → (Fin d → ℝ) →ₗ[ℝ] ℝ)
   let emb : J → S := fun i => ⟨i.val,(Finset.mem_filter.mp i.property).2⟩
   have hemb : Function.Injective emb := by
     intro i j he
-    exact Subtype.ext (congrArg Subtype.val he)
+    exact Subtype.ext (congrArg (fun s : S => s.val) he)
   have hSind : LinearIndependent ℝ (fun i : S => f i.val) := hS
   have hJind : LinearIndependent ℝ (fun i : J => f i.val) := hSind.comp emb hemb
   have hJcard : J.card ≤ Module.finrank ℝ N := by
@@ -1008,7 +1008,6 @@ lemma mem_encodeRows (k : ℕ) (T : Finset (Fin m)) (hT : T.card ≤ k) (a : Fin
     split_ifs at hi with h
     · have he := Option.some.inj hi
       exact he ▸ ((Fintype.equivFin T).symm ⟨i.val,h⟩).property
-    · cases hi
 
 lemma encodeRows_injective (k : ℕ) (S T : Finset (Fin m))
     (hS : S.card ≤ k) (hT : T.card ≤ k)
