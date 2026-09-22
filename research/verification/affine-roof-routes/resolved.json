@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/affine_roof_routes"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "3fedb7d9ddd9c40235e304ab71db126f52016d9d",
+  "pr": "326"
+}

@@ -1,0 +1,52 @@
+{
+  "kind": "derived_exact_supporting_test_summary_not_Lean",
+  "small_models": 13,
+  "small_routes": 721,
+  "small_edge_occurrences": 1224,
+  "small_shortest_total": 1168,
+  "nonshortest_routes": 56,
+  "all_square_systems": 554,
+  "nonsingular_square_systems": 264,
+  "actual_small_vertices": 103,
+  "actual_small_edges": 181,
+  "large_models": 4,
+  "large_original_edges": 120,
+  "large_ambient_dimensions": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "roof_counts": [
+    4,
+    8,
+    16,
+    32
+  ],
+  "negative_controls": 9,
+  "saved_replay_with_production_disabled": true,
+  "clean_three_script_replay_byte_identical": true,
+  "large_graph_enumerated": false,
+  "full_outputs": {
+    "large-fixtures.json": {
+      "bytes": 2361480,
+      "sha256": "474f7ce0ce9bb5b9b8729545a61b76e07492465ee02421f8458e10310398a775"
+    },
+    "large-report.json": {
+      "bytes": 1764,
+      "sha256": "ce72e324ce78661d33dc435fb5f5ac0fb74930eae47a86547d1add6554f789bf"
+    },
+    "negative-controls.json": {
+      "bytes": 701,
+      "sha256": "98b196b0dd4c2ce332e5e28290ab8584c738d916a22600684c9185aa134d597b"
+    },
+    "small-fixtures.json": {
+      "bytes": 184868,
+      "sha256": "e62c40f2bcaad2b076907fcd21a2a8bc585235e4d21ca61d76316ca40c2f8ebd"
+    },
+    "small-report.json": {
+      "bytes": 5074,
+      "sha256": "d1dfca7f0766938a16fbdc369be9211306e6980325205678e59deef1155fa28f"
+    }
+  }
+}
