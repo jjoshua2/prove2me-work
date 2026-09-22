@@ -1,0 +1,19 @@
+{
+  "kind": "derived_summary_of_executed_offline_inspection_not_Lean_or_live_verification",
+  "status": "PASS",
+  "checks": 34,
+  "corrupted_evidence_controls_rejected": 8,
+  "checker_location": "export-only review/check_resumed_packet.py",
+  "full_result_location": "export protocol-0108/packet-integrity.json",
+  "historical_first_attempt_inspector": {
+    "checks": 33,
+    "corruptions_rejected": 9,
+    "rerun_against_original_blocked_bundle": true
+  },
+  "protocol_python_regression": {
+    "script": "scripts/test_prove2me_protocol_0108.py in separately merged PR331",
+    "test_methods": 6,
+    "rejected_version_subcases": 9,
+    "network_or_real_credentials_used": false
+  }
+}

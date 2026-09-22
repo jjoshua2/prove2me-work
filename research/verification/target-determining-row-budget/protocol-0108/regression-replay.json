@@ -1,0 +1,30 @@
+{
+  "kind": "executed_unchanged_regression_replay_not_Lean",
+  "outputs": {
+    "small/report.json": {
+      "bytes": 9031,
+      "sha256": "ff11d668570149c8842bc3947b855c8019ae2592a7406464a5b95822c014e179",
+      "byte_identical": true
+    },
+    "small/fixtures.json": {
+      "bytes": 1661449,
+      "sha256": "1d0af84d2571a84f1638ef32f71a59f4d7ebb0dca5e9aaac95902a0eb0afc244",
+      "byte_identical": true
+    },
+    "small/negative-controls.json": {
+      "bytes": 750,
+      "sha256": "cad08c6444943b6539b0c628281c30ed51e64c167752e7681843785114449cec",
+      "byte_identical": true
+    },
+    "large/report.json": {
+      "bytes": 1951,
+      "sha256": "7bb22568b39a3191453ae700fdc5fc656fbf1a0cedab97d5d53132fccb8c15eb",
+      "byte_identical": true
+    },
+    "large/fixtures.json": {
+      "bytes": 368258,
+      "sha256": "da94aa304055fd92c6cf8c7b30936f5f0e4d4fedd33d4c4a99dc5020e7703a23",
+      "byte_identical": true
+    }
+  }
+}
