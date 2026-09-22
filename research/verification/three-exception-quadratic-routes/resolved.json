@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/three_exception_quadratic_routes"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "ea943ccdbd57e076334521b0616277168da1f54b",
+  "pr": "328"
+}
