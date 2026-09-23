@@ -1,0 +1,6 @@
+'Hirsch.ConvexChainRank.tilt_chain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.ConvexChainRank.rank_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.ConvexChainRank.extreme_tilts' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.ConvexChainRank.reciprocal_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.ConvexChainRank.exact_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]

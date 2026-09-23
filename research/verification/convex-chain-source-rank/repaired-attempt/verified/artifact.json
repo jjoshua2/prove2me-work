@@ -1,0 +1,25 @@
+{
+  "head_sha": "de2e0175d0db46ecc13ccbe6c003efd535da6417",
+  "packets": [
+    {
+      "path": "research/publication_packets/convex_chain_source_rank",
+      "name": "convex_chain_source_rank",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "dc2a830c3da548edd4d1949235fbb5c0eb4f4178e9a5665b5744b74fe5048afe",
+        "driver.lean": "dc2a830c3da548edd4d1949235fbb5c0eb4f4178e9a5665b5744b74fe5048afe",
+        "statement.lean": "834e26aac1023a2041e1ff683dd2c328c85c00f7455e00b76c97850449d272e3",
+        "problem.json": "c1530c158bae07dad2aefb994a0a335cd11d4970be96a7e83dc79bdfa5e8f581",
+        "explanation.md": "486ab5064084f7ffd2b2f2938410353a6dc55cd9cc0f15308491223771e038a5"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}

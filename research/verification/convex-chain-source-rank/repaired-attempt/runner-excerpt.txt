@@ -1,0 +1,12 @@
+# Selected exact verifier runner lines, not a complete raw runner archive.
+# Complete decoded verifier job 107299625558 was read through cleanup.
+2026-09-23T17:29:49.2944080Z Lake version 5.0.0-src+d024af0 (Lean version 4.30.0)
+2026-09-23T17:29:49.3131388Z   GITHUB_TOKEN: 
+2026-09-23T17:29:49.3131619Z   PROVE2ME_API_KEY: 
+2026-09-23T17:30:10.2993892Z SHA256 digest of uploaded artifact zip is 880502f194db29535d4ab5fa08db02f7bb0c05698e522e1c6af17b38be51cf3a
+# Complete decoded publisher job 107300086231 was also read through cleanup.
+2026-09-23T17:30:24.8057713Z SHA256 digest of downloaded artifact is 880502f194db29535d4ab5fa08db02f7bb0c05698e522e1c6af17b38be51cf3a
+2026-09-23T17:38:29.9313965Z - **Hirsch.strict_convex_chain_exact_source_rank**: PUBLISH_PENDING
+2026-09-23T17:38:29.9314647Z   - publish job `cfbe3736-58f8-4c07-9de0-63147127b046`
+2026-09-23T17:38:31.3515771Z SHA256 digest of uploaded artifact zip is 3412bba8dfe2d5ad9d66e5d64ec3e7d23a68381c882fe8100903c4d29222be90
+2026-09-23T17:38:33.9719608Z https://github.com/jjoshua2/prove2me-work/pull/338#issuecomment-5799811983

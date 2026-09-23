@@ -1,0 +1,15 @@
+{
+  "head_sha": "223b5abfc8666393b2b60bec387f4e49d3f626b8",
+  "packets": [
+    {
+      "packet": "convex_chain_source_rank",
+      "status": "ACCEPTED",
+      "theorem_id": "e5c0158b-f340-4262-865a-7f6936b83db1",
+      "submission_id": "a2f3ea44-ec31-41a9-a4da-d3929d79340c",
+      "theorem_name": "Hirsch.strict_convex_chain_exact_source_rank",
+      "registration": "REUSED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/convex_chain_source_rank"
+    }
+  ]
+}

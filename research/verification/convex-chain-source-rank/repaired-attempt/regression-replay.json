@@ -1,0 +1,35 @@
+{
+  "kind": "fresh_exact_rational_replay_not_Lean",
+  "outputs": {
+    "small/report.json": {
+      "bytes": 8849,
+      "sha256": "290d1222f10ce1ef6e16e4066e6df0c867d3b98bb1c8130c5f0e1c9623f31ee5",
+      "byte_identical_to_prior": true
+    },
+    "small/fixtures.json": {
+      "bytes": 70845,
+      "sha256": "85c85edb8c3cb3cd1a94f8e4790c7f4717de9f120bebf0eca5d53dd6a4c428d0",
+      "byte_identical_to_prior": true
+    },
+    "random/report.json": {
+      "bytes": 15833,
+      "sha256": "21f8265efa81b542bdcf50a14700e447517a5acafa2669f5607186ce89aa0785",
+      "byte_identical_to_prior": true
+    },
+    "random/fixtures.json": {
+      "bytes": 1309128,
+      "sha256": "47321b6cf98299d1a5ad7fade10eff8ec6bdd76ec8b628cec99cfea72b16710b",
+      "byte_identical_to_prior": true
+    },
+    "large/report.json": {
+      "bytes": 8067,
+      "sha256": "59f96d92f02858a9390ae07a1218a6fe8d0cd065645210f34335f0eadd7f2337",
+      "byte_identical_to_prior": true
+    },
+    "large/fixtures.json": {
+      "bytes": 1084502,
+      "sha256": "a2a778b4df6c986c6cf2a45484ee046f12af38e2a407676be2a0109679e9e7f8",
+      "byte_identical_to_prior": true
+    }
+  }
+}

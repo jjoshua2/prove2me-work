@@ -1,0 +1,90 @@
+{
+  "kind": "derived_GitHub_and_frozen_artifact_readback_not_independent_platform_poll",
+  "repository": "jjoshua2/prove2me-work",
+  "pr": 338,
+  "proof_sha": "de2e0175d0db46ecc13ccbe6c003efd535da6417",
+  "main_at_gate": "6ee1612a05cede29039c4728825b7d5d255f14a8",
+  "coordination_comment": 5799571254,
+  "trigger_comment": 5799614897,
+  "acknowledgement_comment": 5799618152,
+  "run_id": 35895877060,
+  "verdict_comment": 5799811983,
+  "verdict_time_utc": "2026-09-23T17:38:33Z",
+  "jobs": {
+    "gate": {
+      "id": 107299545331,
+      "conclusion": "success"
+    },
+    "verify": {
+      "id": 107299625558,
+      "conclusion": "success"
+    },
+    "publish": {
+      "id": 107300086231,
+      "conclusion": "success"
+    },
+    "report-verify": {
+      "id": 107300087788,
+      "conclusion": "skipped"
+    }
+  },
+  "compile_exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "standard_only_reports_per_proof_log": 6,
+  "hosted_compiler_attempts": 2,
+  "new_triggers_this_continuation": 1,
+  "actual_platform_submissions": 0,
+  "registration_requests_this_run": 1,
+  "registration_completed": false,
+  "publication": {
+    "packet": "convex_chain_source_rank",
+    "status": "PUBLISH_PENDING",
+    "publish_job_id": "cfbe3736-58f8-4c07-9de0-63147127b046",
+    "theorem_name": "Hirsch.strict_convex_chain_exact_source_rank",
+    "registration": "QUEUED",
+    "reason": "problem registration is still pending; rerun resumes this exact job",
+    "path": "research/publication_packets/convex_chain_source_rank"
+  },
+  "ACCEPTED_observed": false,
+  "Proved_observed": false,
+  "theorem_id": null,
+  "submission_id": null,
+  "local_Lean_compilation": false,
+  "post_gate_source_or_metadata_edits": false,
+  "independent_platform_or_mission_root_poll": false,
+  "full_decoded_verifier_and_publisher_logs_read": true,
+  "raw_individual_platform_API_bodies_available": false,
+  "prior_failed_run": 35886406394,
+  "lean_version_observed": "4.30.0",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "strict_protocol": "0.10.8",
+  "raw_packet_tree": "a2ec59463d950615e8bed3c941f818c5745d9fa4",
+  "raw_verified_tree": "6ffa19ec93120fa641c2bb0a4d3cb18277f6d20a",
+  "raw_receipt_tree": "a261f40878b69d676f2bbaf1a678967c5f34ae41",
+  "artifacts": [
+    {
+      "kind": "request",
+      "file": "pr338-repaired-request.zip",
+      "id": 10766318537,
+      "bytes": 310,
+      "sha256": "2d2ded874633eb6c867c8a127e629ee21f2ea2ae47d08cff7310d856328f1338"
+    },
+    {
+      "kind": "verified",
+      "file": "pr338-repaired-verified.zip",
+      "id": 10767455076,
+      "bytes": 18271,
+      "sha256": "880502f194db29535d4ab5fa08db02f7bb0c05698e522e1c6af17b38be51cf3a"
+    },
+    {
+      "kind": "receipts",
+      "file": "pr338-publication-receipts.zip",
+      "id": 10767710129,
+      "bytes": 932,
+      "sha256": "3412bba8dfe2d5ad9d66e5d64ec3e7d23a68381c882fe8100903c4d29222be90"
+    }
+  ]
+}

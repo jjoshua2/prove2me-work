@@ -1,0 +1,26 @@
+{
+  "kind": "derived_summary_of_executed_exact_tests_not_Lean",
+  "configurations": 24,
+  "totals": {
+    "vertices": 246,
+    "original_rows": 246,
+    "targets": 190,
+    "routes": 2030,
+    "original_edge_occurrences": 11464,
+    "unique_original_steps": 1840,
+    "nonacquiring_unique_steps": 1084,
+    "original_H_pair_systems": 2684,
+    "secant_pair_checks": 20130,
+    "exhaustive_triples": 9188,
+    "reference_arrangement_cells": 9194
+  },
+  "negative_controls": 10,
+  "finite_chain_sizes": [
+    1,
+    2,
+    3,
+    7,
+    20
+  ],
+  "large_scope": "64 vertices in dimension2, eight targets,512 routes/8192 edge occurrences; complete new method run, not a rerun of the old timed-out algorithm"
+}

@@ -1,0 +1,13 @@
+# Selected exact runner lines, not a complete raw runner archive.
+# Full decoded verifier job was read through cleanup.
+2026-09-23T16:06:42.2554019Z SHA256 digest of downloaded artifact is c5f07f8d3fc0a163a879d003a083fa4346d1acb88c7a9aff5d329c6b8b97b689
+2026-09-23T16:08:05.6958318Z Lake version 5.0.0-src+d024af0 (Lean version 4.30.0)
+2026-09-23T16:08:05.7084357Z   GITHUB_TOKEN: 
+2026-09-23T16:08:05.7084595Z   PROVE2ME_API_KEY: 
+2026-09-23T16:08:12.5909034Z convex_chain_source_rank/driver.lean failed to compile:
+2026-09-23T16:08:12.5910604Z _verified/packets/convex_chain_source_rank/driver.lean:104:20: error: unexpected token ':='; expected term
+2026-09-23T16:08:12.5940203Z _verified/packets/convex_chain_source_rank/driver.lean:162:20: error: unexpected token ':='; expected term
+2026-09-23T16:08:12.5957260Z 'Hirsch.ConvexChainRank.extreme_tilts' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-23T16:08:12.5957964Z 'Hirsch.ConvexChainRank.reciprocal_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-23T16:08:12.5959383Z 'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-23T16:08:12.6070156Z ##[error]Process completed with exit code 1.
