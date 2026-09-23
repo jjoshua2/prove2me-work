@@ -1,0 +1,120 @@
+# Complete displayed compiler diagnostics and all six reports, extracted from
+# verifier job107267624342 of run35886406394. Timestamps/setup/cleanup omitted.
+# This is not a complete raw runner archive. Full decoded log was read.
+
+convex_chain_source_rank/driver.lean failed to compile:
+_verified/packets/convex_chain_source_rank/driver.lean:104:20: error: unexpected token ':='; expected term
+_verified/packets/convex_chain_source_rank/driver.lean:104:17: error: Application type mismatch: The argument
+  k
+has type
+  Fin (n + 1)
+of sort `Type` but is expected to have type
+  Type ?u.4533.5304
+of sort `Type (?u.4533.5304 + 1)` in the application
+  @PrincipalSeg k
+_verified/packets/convex_chain_source_rank/driver.lean:102:64: error: unsolved goals
+case hki
+n : ℕ
+w f : Fin (n + 1) → ℝ
+hw : StrictMono w
+hf : StrictChain w f
+k : Fin (n + 1)
+hk : ¬↑k = 0
+p : Fin (n + 1) := ⟨↑k - 1, ⋯⟩
+hpk : p < k
+hdown : ¬f k < f p
+hup : f p ≤ f k
+hside : ∀ (j : Fin (n + 1)), k < j → f k < f j
+i : Fin (n + 1)
+hi : i ∈ ↑(Finset.Ioi k)
+j : Fin (n + 1)
+hj : j ∈ ↑(Finset.Ioi k)
+he : f i = f j
+⊢ PrincipalSeg (fun x1 x2 => sorry) fun x1 x2 => sorry
+
+n : ℕ
+w f : Fin (n + 1) → ℝ
+hw : StrictMono w
+hf : StrictChain w f
+k : Fin (n + 1)
+hk : ¬↑k = 0
+p : Fin (n + 1) := ⟨↑k - 1, ⋯⟩
+hpk : p < k
+hdown : ¬f k < f p
+hup : f p ≤ f k
+hside : ∀ (j : Fin (n + 1)), k < j → f k < f j
+i : Fin (n + 1)
+hi : i ∈ ↑(Finset.Ioi k)
+j : Fin (n + 1)
+hj : j ∈ ↑(Finset.Ioi k)
+he : f i = f j
+hki : PrincipalSeg (fun x1 x2 => sorry) fun x1 x2 => sorry
+⊢ i = j
+_verified/packets/convex_chain_source_rank/driver.lean:98:2: error: unsolved goals
+case neg
+n : ℕ
+w f : Fin (n + 1) → ℝ
+hw : StrictMono w
+hf : StrictChain w f
+k : Fin (n + 1)
+hk : ¬↑k = 0
+p : Fin (n + 1) := ⟨↑k - 1, ⋯⟩
+hpk : p < k
+hdown : ¬f k < f p
+hup : f p ≤ f k
+hside : ∀ (j : Fin (n + 1)), k < j → f k < f j
+hinj : Set.InjOn f ↑(Finset.Ioi k)
+⊢ min (↑k) (n - ↑k) ≤ (above f k).card
+_verified/packets/convex_chain_source_rank/driver.lean:162:20: error: unexpected token ':='; expected term
+_verified/packets/convex_chain_source_rank/driver.lean:162:17: error: Application type mismatch: The argument
+  k
+has type
+  Fin (n + 1)
+of sort `Type` but is expected to have type
+  Type ?u.5516.1261
+of sort `Type (?u.5516.1261 + 1)` in the application
+  @PrincipalSeg k
+_verified/packets/convex_chain_source_rank/driver.lean:159:4: error: unsolved goals
+case hki
+n : ℕ
+f : Fin (n + 1) → ℝ
+hf : StrictMono f
+k i : Fin (n + 1)
+hu : i ∈ Finset.univ
+hz : f i ∈ above f k
+hi : f i ∈ Finset.image f Finset.univ
+hl : f k < f i
+⊢ PrincipalSeg (fun x1 x2 => sorry) fun x1 x2 => sorry
+
+case h.mp
+n : ℕ
+f : Fin (n + 1) → ℝ
+hf : StrictMono f
+k i : Fin (n + 1)
+hu : i ∈ Finset.univ
+hz : f i ∈ above f k
+hi : f i ∈ Finset.image f Finset.univ
+hl : f k < f i
+hki : PrincipalSeg (fun x1 x2 => sorry) fun x1 x2 => sorry
+⊢ f i ∈ Finset.image f (Finset.Ioi k)
+_verified/packets/convex_chain_source_rank/driver.lean:156:48: error: unsolved goals
+case h.mpr
+n : ℕ
+f : Fin (n + 1) → ℝ
+hf : StrictMono f
+k : Fin (n + 1)
+z : ℝ
+⊢ z ∈ Finset.image f (Finset.Ioi k) → z ∈ above f k
+_verified/packets/convex_chain_source_rank/driver.lean:154:32: error: unsolved goals
+n : ℕ
+f : Fin (n + 1) → ℝ
+hf : StrictMono f
+k : Fin (n + 1)
+he : above f k = Finset.image f (Finset.Ioi k)
+⊢ (above f k).card = n - ↑k
+'Hirsch.ConvexChainRank.tilt_chain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.ConvexChainRank.rank_lower_bound' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.ConvexChainRank.extreme_tilts' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.ConvexChainRank.reciprocal_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.ConvexChainRank.exact_rank' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

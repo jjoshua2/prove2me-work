@@ -1,0 +1,29 @@
+{
+  "kind": "executed_script_identities",
+  "scripts": {
+    "convex_chain_closed_rank.py": {
+      "bytes": 3755,
+      "sha256": "338107f685ef00a28e118f53f344097f6b82bb43886cee8d60a33beaf29b5a48",
+      "git_blob": "17440c3c1b0566fa25b2224ed4dcf96e1d697e5e",
+      "new_file": true
+    },
+    "test_inverse_rank_reduction.py": {
+      "bytes": 12308,
+      "sha256": "feae2549473fad5c20deb81357fbcc0387eb6570cff76cdaab503a0ca55df955",
+      "git_blob": "e3d1962afb2d0dd2c16fa7daaa9c84f87b85ba2f",
+      "new_file": false
+    },
+    "inverse_rank_planar.py": {
+      "bytes": 7433,
+      "sha256": "7d1a0fa6cc43d577695691578775943a59b6622d35dadc34b616b8955d7efa3d",
+      "git_blob": "909c44f3f67be800d782f5b4d82615f9b118085d",
+      "new_file": false
+    },
+    "test_convex_chain_closed_rank.py": {
+      "bytes": 9279,
+      "sha256": "59b7528de2672c059302dfcaac31579ee6074a9a58c397b123f54bae9f2d8181",
+      "git_blob": "5ffd955f989715ae1f80cb047bcfe4056e0f2be2",
+      "new_file": true
+    }
+  }
+}

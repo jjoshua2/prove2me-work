@@ -1,0 +1,10 @@
+{
+  "kind": "static_checks_not_Lean",
+  "lines": 351,
+  "bytes": 15116,
+  "sha256": "153682c72d5f9627f7155bb712e61db22fbaa11a2e9cd7d9502bd1c7dc4e7e02",
+  "git_blob": "f38406afe0468a91aac1efd1b7a847e67db05176",
+  "public_type_matches": true,
+  "axiom_reports_requested": 6,
+  "local_Lean_compilation": false
+}

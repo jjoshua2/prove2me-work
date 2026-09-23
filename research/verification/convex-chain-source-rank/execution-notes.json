@@ -1,0 +1,10 @@
+{
+  "exploratory_random_seed": 42,
+  "exploratory_polygons": 50,
+  "exploratory_states": 3934,
+  "exploratory_all_rank_distance_equal": true,
+  "exploratory_not_in_final_regression_totals": true,
+  "initial_test_harness_error": "A malformed-control edit attempted tuple item mutation; changed to tuple replacement before successful complete reports. No mathematical test assertion failed.",
+  "local_compiler_check": "No lean/lake/elan on PATH or within depth4 of /opt,/home/oai,/mnt/data",
+  "network_check": "releases.lean-lang.org and raw.githubusercontent.com DNS failed"
+}

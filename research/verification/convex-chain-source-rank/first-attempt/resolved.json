@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/convex_chain_source_rank"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "e7e191e7d8557d54f2cd296d43308b2d80ff794b",
+  "pr": "338"
+}

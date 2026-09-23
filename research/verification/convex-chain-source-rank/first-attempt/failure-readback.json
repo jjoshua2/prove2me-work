@@ -1,0 +1,75 @@
+{
+  "kind": "derived_GitHub_and_request_readback_not_platform_receipt",
+  "repository": "jjoshua2/prove2me-work",
+  "pr": 338,
+  "proof_sha": "e7e191e7d8557d54f2cd296d43308b2d80ff794b",
+  "trusted_main_sha": "6ee1612a05cede29039c4728825b7d5d255f14a8",
+  "coordination_comment": 5798022577,
+  "trigger_comment": 5798271256,
+  "acknowledgement_comment": 5798274474,
+  "run_id": 35886406394,
+  "jobs": {
+    "gate": {
+      "id": 107267547134,
+      "conclusion": "success"
+    },
+    "verify": {
+      "id": 107267624342,
+      "conclusion": "failure"
+    },
+    "publish": {
+      "id": 107268320514,
+      "conclusion": "skipped"
+    },
+    "report-verify": {
+      "id": 107268321204,
+      "conclusion": "skipped"
+    }
+  },
+  "compile_exit_codes": {
+    "driver.lean": 1,
+    "solution.lean": null,
+    "statement.lean": null
+  },
+  "root_parse_sites": [
+    104,
+    162
+  ],
+  "displayed_error_count": 9,
+  "error_scope": "Two k<i annotations parse as PrincipalSeg, with subsequent unsolved-goal cascades.",
+  "standard_only_reports": [
+    "Hirsch.ConvexChainRank.tilt_chain",
+    "Hirsch.ConvexChainRank.extreme_tilts",
+    "Hirsch.ConvexChainRank.reciprocal_card"
+  ],
+  "public_solution_axioms": [
+    "propext",
+    "sorryAx",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "written_admission": false,
+  "full_packet_verified": false,
+  "hosted_attempts": 1,
+  "actual_platform_submissions": 0,
+  "theorem_registration": false,
+  "theorem_id": null,
+  "submission_id": null,
+  "ACCEPTED_observed": false,
+  "Proved_observed": false,
+  "verified_artifact_produced": false,
+  "publication_artifact_produced": false,
+  "post_gate_source_or_metadata_edits": false,
+  "local_Lean_compilation": false,
+  "independent_platform_poll": false,
+  "lean_version_observed": "4.30.0",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "strict_protocol": "0.10.8",
+  "request_artifact": {
+    "id": 10762459258,
+    "bytes": 312,
+    "sha256": "c5f07f8d3fc0a163a879d003a083fa4346d1acb88c7a9aff5d329c6b8b97b689",
+    "downloaded_and_rehashed": true
+  },
+  "log_scope": "Full decoded verifier log read through cleanup. Complete displayed diagnostics/all six reports extracted with timestamps omitted; selected runner lines are not a full raw archive."
+}

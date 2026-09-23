@@ -1,0 +1,18 @@
+{
+  "kind": "unapplied_uncompiled_two_site_spacing_repair",
+  "tested_proof": "e7e191e7d8557d54f2cd296d43308b2d80ff794b",
+  "reported_parse_lines": [
+    104,
+    162
+  ],
+  "change": "Insert spaces around < in the two k<i annotations which the actual diagnostic parsed as PrincipalSeg.",
+  "source_bytes": 15120,
+  "source_lines": 351,
+  "source_sha256": "dc2a830c3da548edd4d1949235fbb5c0eb4f4178e9a5665b5744b74fe5048afe",
+  "source_blob": "668d5a54143923d16c293393c6affb3ab2759d16",
+  "applied_to_publication_source": false,
+  "compiled": false,
+  "all_other_bytes_unchanged": true,
+  "public_type_unchanged": true,
+  "patch_apply_reverse_roundtrip": true
+}
