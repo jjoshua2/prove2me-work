@@ -1,0 +1,15 @@
+{
+  "head_sha": "6b83644cf7918db9e16c3c1153120c468f2f3146",
+  "packets": [
+    {
+      "packet": "radial_polygon_routes",
+      "status": "ACCEPTED",
+      "theorem_id": "461b1bee-2db8-4db3-acc4-5eeac1f9e0b6",
+      "submission_id": "3a286319-58d8-4f66-9222-c8a7da9669b9",
+      "theorem_name": "Hirsch.actual_planar_vertices_rank_attaining_original_routes",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/radial_polygon_routes"
+    }
+  ]
+}

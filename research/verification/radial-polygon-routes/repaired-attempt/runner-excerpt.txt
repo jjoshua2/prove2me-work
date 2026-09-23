@@ -1,0 +1,11 @@
+# Selected exact runner lines; not a complete raw job archive.
+# Both complete decoded job logs were read through cleanup.
+2026-09-23T21:42:21.9475199Z Lake version 5.0.0-src+d024af0 (Lean version 4.30.0)
+2026-09-23T21:42:21.9643660Z   GITHUB_TOKEN: 
+2026-09-23T21:42:21.9643905Z   PROVE2ME_API_KEY: 
+2026-09-23T21:42:49.5552407Z SHA256 digest of uploaded artifact zip is 7dbb5dd39225a6b68e405d25fa882b3ffd3668f15ad47f04fff2bbccbc0a48c1
+2026-09-23T21:52:44.6437501Z - **Hirsch.actual_planar_vertices_rank_attaining_original_routes**: ACCEPTED
+2026-09-23T21:52:44.6438438Z   - theorem `461b1bee-2db8-4db3-acc4-5eeac1f9e0b6`
+2026-09-23T21:52:44.6439238Z   - submission `3a286319-58d8-4f66-9222-c8a7da9669b9`
+2026-09-23T21:52:45.1729388Z SHA256 digest of uploaded artifact zip is 323e13ecb5b31e57d7e816db261fb9f0321a4c1abccc5b748c6859eed89b2710
+2026-09-23T21:52:46.4159444Z https://github.com/jjoshua2/prove2me-work/pull/339#issuecomment-5803564651

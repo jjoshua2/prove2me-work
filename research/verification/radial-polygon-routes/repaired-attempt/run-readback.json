@@ -1,0 +1,51 @@
+{
+  "kind": "derived_GitHub_and_frozen_artifact_readback_not_independent_platform_poll",
+  "repository": "jjoshua2/prove2me-work",
+  "pr": 339,
+  "proof_sha": "6b83644cf7918db9e16c3c1153120c468f2f3146",
+  "main_at_gate": "e4cb622be8e1cd4f5fd10253669465460c57b735",
+  "coordination_comment": 5803333102,
+  "trigger_comment": 5803419964,
+  "acknowledgement_comment": 5803422646,
+  "run_id": 35923973350,
+  "verdict_comment": 5803564651,
+  "verdict_time_utc": "2026-09-23T21:52:46Z",
+  "jobs": {
+    "gate": {"id": 107394478744, "conclusion": "success"},
+    "verify": {"id": 107394554035, "conclusion": "success"},
+    "publish": {"id": 107394993554, "conclusion": "success"},
+    "report-verify": {"id": 107394995331, "conclusion": "skipped"}
+  },
+  "compile_exit_codes": {"driver.lean": 0, "solution.lean": 0, "statement.lean": 0},
+  "standard_only_reports_per_proof_log": 7,
+  "hosted_compiler_attempts": 2,
+  "actual_platform_submissions": 1,
+  "new_triggers_this_continuation": 1,
+  "prior_failed_run": 35918994272,
+  "local_Lean_compilation": false,
+  "post_gate_source_or_metadata_edits": false,
+  "independent_platform_or_mission_root_poll": false,
+  "full_decoded_verifier_and_publisher_logs_read": true,
+  "raw_individual_platform_API_bodies_available": false,
+  "lean_version_observed": "4.30.0",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "strict_protocol": "0.10.8",
+  "publication": {
+    "packet": "radial_polygon_routes",
+    "status": "ACCEPTED",
+    "theorem_id": "461b1bee-2db8-4db3-acc4-5eeac1f9e0b6",
+    "submission_id": "3a286319-58d8-4f66-9222-c8a7da9669b9",
+    "theorem_name": "Hirsch.actual_planar_vertices_rank_attaining_original_routes",
+    "registration": "PUBLISHED",
+    "live_status": "Proved",
+    "path": "research/publication_packets/radial_polygon_routes"
+  },
+  "raw_packet_tree": "e5ab52f6198a3aaf64e66bb041bf1f10b10d3db2",
+  "raw_verified_tree": "3f7d7372f0ad0de57b8dfca147b6f10aa22422b1",
+  "raw_receipt_tree": "303150dbe9bc04b521c3956f797ee822050e38cf",
+  "artifacts": [
+    {"file": "pr339-repaired-request.zip", "id": 10778092819, "bytes": 310, "sha256": "4c4246652ba43b1c20bf53416ddd281935cf75987ac5ac408617cfb371838074"},
+    {"file": "pr339-repaired-verified.zip", "id": 10778262615, "bytes": 30654, "sha256": "7dbb5dd39225a6b68e405d25fa882b3ffd3668f15ad47f04fff2bbccbc0a48c1"},
+    {"file": "pr339-publication-receipts.zip", "id": 10778314287, "bytes": 944, "sha256": "323e13ecb5b31e57d7e816db261fb9f0321a4c1abccc5b748c6859eed89b2710"}
+  ]
+}

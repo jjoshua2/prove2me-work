@@ -1,78 +1,56 @@
-# PR #339: radial polygon original routes — first gate failed
+# PR #339: original planar-vertex routes are ACCEPTED
 
-Read the five project instructions and LIVE heads/comments before resuming.
-Continue this same PR/target; do not republish accepted #338 or take the separate
-changing-numerator claim5786607495, #326, #282 or reserved #210.
+Read the five project instructions and LIVE heads/comments before continuing.
+The saved four-site repair passed. Do not reapply it or resubmit this theorem.
+Check current PR lifecycle before any remaining integration action. Respect
+#326, #282, reserved #210 and changing-numerator claim 5786607495.
 
+Repository: jjoshua2/prove2me-work; PR #339.
 Branch: proof/radial-polygon-original-routes.
 Packet: research/publication_packets/radial_polygon_routes.
 Target: Hirsch.actual_planar_vertices_rank_attaining_original_routes.
-Tested proof:14f50c6a2ffb47fdce165753a889feb083800004.
-Main at gate:e4cb622be8e1cd4f5fd10253669465460c57b735.
-Source:940 lines/39495 bytes, blob3ed33059e0c0611b61d2f809e796bc8094184503,
-SHA25696b4c2fb43fc03b3143c8155e4bb1771e11675167e09557ba4602443e9576226.
+Frozen accepted proof: 6b83644cf7918db9e16c3c1153120c468f2f3146.
+Source blob: 303dc7e6d2239690dcebde0600acf537124a0363, 937 lines / 39437 bytes.
+SHA256: 1a850ee30cfc49facfb0d9b82acd5659a692c5bd272c3d28a66ed56e320c88f2.
 
-## Outcome and precise next action
+Request 5803419964, acknowledgement 5803422646, run 35923973350 and accepted
+verdict 5803564651 were read back. The raw publisher receipt records PUBLISHED /
+ACCEPTED / Proved for theorem 461b1bee-2db8-4db3-acc4-5eeac1f9e0b6 and submission
+3a286319-58d8-4f66-9222-c8a7da9669b9. Proved is the trusted publisher's authenticated
+readback, not an independent platform or mission-root poll.
 
-Request5802759818, acknowledgement5802762849, run35918994272.
-Gate107377791629 success; verifier107377867035 failed driver compilation.
-Separate solution/statement not reached. Publish107378455630 and
-report-verify107378454193 skipped. One attempt; no registration, proof submission,
-IDs, acceptance or authenticated Proved. The exact inherited rank, new radial mass
-and new secant-edge reports are standard-only; the full public root is not.
+All three compilation stages exited zero; all seven reports in both full proof
+logs are standard-only, including solution. This was the second hosted compiler
+attempt and first actual proof submission. The original failed source and run
+35918994272 remain preserved. Four local proof repairs changed four lines for
+seven, with no declaration/public-type/metadata change. No edits followed the
+passing gate.
 
-Apply the saved FOUR-SITE proposal at first-attempt/proposed-local-repair.patch:
-1. Add one_mul to normalized_interpolation's final simplification (line405).
-2. Replace strict_chord's failed mul_lt_mul_left step and auxiliary product
-   identity with apply (div_lt_iff₀ hx).2, leaving the final nlinarith (line430).
-3. Add local f,w to the ray_edge identity simplification (line687).
-4. Explicitly change Fin zero's lower-bound goal to (0:Nat)<=i.val and use
-   Nat.zero_le (line834).
+The theorem now derives strict inverse-height chain convexity from actual original
+extremality, constructs whole original exposed secant/ray edges, and produces
+finite original-vertex walks of L=min(k,n-k)+1 with 2L<=n+2. The same L attains
+#338's optimized rank. Complete finite-hull vertex data, chosen strict exposure,
+independent coordinates and sorted order remain explicit. The bound counts
+vertices, not original facets; this is planar, not the unrestricted mission.
+Chart selection, H-to-V, facet counting and arbitrary-walk shortestness remain
+separate obligations. Do not silently promote this to a general diameter theorem.
 
-The line431 no-goals error is the second site's cascade. The proposal is NOT
-applied to repository publication inputs and has NOT been compiled. It yields
-937 lines/39437 bytes, computed blob303dc7e6d2239690dcebde0600acf537124a0363,
-SHA2561a850ee30cfc49facfb0d9b82acd5659a692c5bd272c3d28a66ed56e320c88f2.
-Every declaration type, accepted prefix, public hypothesis, metadata file and
-explanation is unchanged. Patch apply/reverse passed, not compilation. Further
-errors may appear. Recheck live ownership/pending state, apply exactly, compile
-locally where available, and request one complete prepared gate on this same PR.
-No second trigger was posted in the initial continuation.
-
-## What this adds and what remains
-
-The proposed proof derives strict chart convexity from ACTUAL original vertex
-extremality, transports lower secants/extreme rays to whole original exposed
-segments and constructs finite original-edge walks attaining #338's exact rank.
-It retains complete finite-hull vertex data, chosen strict target h, independent
-e coordinate and increasing normalized order. It does not assume strict chart
-convexity, supplied edges, a neighbor graph or a short route. L=min(k,n-k)+1
-and2L<=n+2 count original vertices, not facets. The theorem is planar, not a
-uniform arbitrary-dimensional Polynomial Hirsch result. Chart selection/H-to-V,
-formal facet counts and arbitrary-walk shortestness are not conclusions.
-
-## Durable records and reproduction
-
-Current packet note:first-gate-evidence.md. Exact copied failed inputs, resolved
-request, full displayed diagnostic/all seven reports, proposal and derived
-readback are under research/verification/radial-polygon-routes/first-attempt/.
-Source integrity, test summary and replay records are labelled as non-Lean.
-The complete original request ZIP and four test output files are in the export.
-No unavailable verified or publisher artifact was reconstructed.
-
-New test:scripts/test_radial_polygon_geometry.py. Two existing dependencies:
-scripts/test_inverse_rank_reduction.py and scripts/inverse_rank_planar.py.
+Both unchanged rational test scopes were rerun and all four complete files
+reproduce prior bytes: 118 charts, 19012 triples, 750 exposed segments, 632 routes,
+1896 original-edge occurrences and ten rejected controls. The large example has
+32 planar vertices and four targets. The singleton chart is formally covered but
+absent from these fixtures. Python/JSON are not kernel-verified.
 
     python3 scripts/test_radial_polygon_geometry.py --out /tmp/radial-small
     python3 scripts/test_radial_polygon_geometry.py --large --out /tmp/radial-large
 
-Twelve planar models,118 charts,19012 triples,750 exposed segments,632 routes,
-1896 edge occurrences and10 rejected controls. Large means32 vertices/four targets,
-not32 dimensions. Clean three-script replay reproduces all four complete outputs.
-The singleton-chart formal case is not in these executable fixtures. Python and
-JSON are not kernel-verified. No old blocked supporting script is needed.
+The packet contains accepted-evidence.md, the unchanged raw receipt, manifest,
+audit and complete compiler logs. repaired-attempt/ retains all raw verified and
+publisher files, the request, old handoff and labelled derived readbacks. Full
+fixtures, scripts, original Actions ZIPs and the first-failure archive accompany
+the export. The offline checker is not an additional Lean or authentication gate.
 
-No local Lean/Lake/cache was found; toolchain DNS failed. Preserve the actual
-Lean4.30.0/Mathlibc5ea00351c28e24afc9f0f84379aa41082b1188f pin, strict0.10.8,
-accepted source bytes and verifier/publisher isolation. No new proof repair or
-publisher workaround may weaken these boundaries.
+The next conjecture-facing task is original-input control beyond the explicit
+planar chart, or another unowned positive ordinary-edge argument. Keep accepted
+proof bytes, Lean4.30.0/Mathlibc5ea00351c28e24afc9f0f84379aa41082b1188f,
+strict0.10.8, duplicate guards and verifier/publisher isolation unchanged.
