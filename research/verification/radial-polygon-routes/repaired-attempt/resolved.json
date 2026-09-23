@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/radial_polygon_routes"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "6b83644cf7918db9e16c3c1153120c468f2f3146",
+  "pr": "339"
+}

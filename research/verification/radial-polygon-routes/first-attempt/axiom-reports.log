@@ -1,0 +1,7 @@
+'Hirsch.ConvexChainRank.exact_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.RadialPolygon.radial_mass_gt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.RadialPolygon.vertex_chain' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.RadialPolygon.secant_edge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.RadialPolygon.ray_edge' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.RadialPolygon.original_routes' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

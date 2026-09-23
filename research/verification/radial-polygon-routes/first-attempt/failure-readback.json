@@ -1,0 +1,70 @@
+{
+  "kind": "derived_GitHub_and_request_readback_not_platform_receipt",
+  "repository": "jjoshua2/prove2me-work",
+  "pr": 339,
+  "proof_sha": "14f50c6a2ffb47fdce165753a889feb083800004",
+  "main_at_gate": "e4cb622be8e1cd4f5fd10253669465460c57b735",
+  "coordination_comment": 5802499561,
+  "trigger_comment": 5802759818,
+  "acknowledgement_comment": 5802762849,
+  "run_id": 35918994272,
+  "jobs": {
+    "gate": {
+      "id": 107377791629,
+      "conclusion": "success"
+    },
+    "verify": {
+      "id": 107377867035,
+      "conclusion": "failure"
+    },
+    "publish": {
+      "id": 107378455630,
+      "conclusion": "skipped"
+    },
+    "report-verify": {
+      "id": 107378454193,
+      "conclusion": "skipped"
+    }
+  },
+  "compile_exit_codes": {
+    "driver.lean": 1,
+    "solution.lean": null,
+    "statement.lean": null
+  },
+  "reported_error_lines": [405,430,431,687,834],
+  "root_sites": [405,430,687,834],
+  "standard_only_reports": [
+    "Hirsch.ConvexChainRank.exact_rank",
+    "Hirsch.RadialPolygon.radial_mass_gt_one",
+    "Hirsch.RadialPolygon.secant_edge"
+  ],
+  "failed_elaboration_reports": [
+    "Hirsch.RadialPolygon.vertex_chain",
+    "Hirsch.RadialPolygon.ray_edge",
+    "Hirsch.RadialPolygon.original_routes",
+    "solution"
+  ],
+  "written_admission": false,
+  "hosted_attempts": 1,
+  "theorem_registration": false,
+  "actual_platform_submissions": 0,
+  "theorem_id": null,
+  "submission_id": null,
+  "ACCEPTED_observed": false,
+  "Proved_observed": false,
+  "verified_artifact_produced": false,
+  "publication_artifact_produced": false,
+  "post_gate_source_or_metadata_edits": false,
+  "local_Lean_compilation": false,
+  "independent_platform_poll": false,
+  "lean_version_observed": "4.30.0",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "strict_protocol": "0.10.8",
+  "request_artifact": {
+    "id": 10776780823,
+    "bytes": 310,
+    "sha256": "bb6b43a56be40b9d9984edb39ee688d5009957c829ee0ebc0710d38992d4eeca",
+    "downloaded_and_rehashed": true
+  },
+  "log_scope": "Full decoded verifier log read through cleanup; complete displayed compiler diagnostics and all seven reports stored without timestamps. Not a full raw runner archive."
+}

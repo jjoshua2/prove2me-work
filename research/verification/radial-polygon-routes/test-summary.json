@@ -1,0 +1,14 @@
+{
+  "kind": "derived_summary_of_executed_rational_tests_not_Lean",
+  "models": 12,
+  "totals": {
+    "charts": 118,
+    "triples": 19012,
+    "exposed_segments": 750,
+    "routes": 632,
+    "original_edge_occurrences": 1896
+  },
+  "malformed_controls_rejected": 10,
+  "large_scope": "32-vertex planar polygon, four targets",
+  "singleton_chart_tested": false
+}

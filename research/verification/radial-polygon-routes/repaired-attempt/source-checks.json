@@ -1,0 +1,11 @@
+{
+  "kind": "static_repair_checks_not_Lean",
+  "saved_patch_apply_reverse": true,
+  "all_declaration_types_unchanged": true,
+  "public_type_matches_metadata": true,
+  "accepted_chain_prefix_unchanged": true,
+  "source_bytes": 39437,
+  "source_lines": 937,
+  "source_sha256": "1a850ee30cfc49facfb0d9b82acd5659a692c5bd272c3d28a66ed56e320c88f2",
+  "source_blob": "303dc7e6d2239690dcebde0600acf537124a0363"
+}
