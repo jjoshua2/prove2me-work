@@ -267,7 +267,7 @@ theorem solution (d : ℕ) (C S : Finset (Fin d → ℝ))
   · intro z hz hzv w hw hwv
     exact Hirsch.InverseRank.normalized_direction h v z w
       (ne_of_gt (hh z hz hzv)) (ne_of_gt (hh w hw hwv))
-  · obtain ⟨D,hD,he,hu,hr⟩ := Hirsch.InverseRank.optimum C S h v x hSC hv hx hxv hh hhS
+  · obtain ⟨D,hD,he,hu,hr⟩ := Hirsch.InverseRank.optimum C S h v x hSC hv hx hxv hh
     refine ⟨D,hD,?_,?_,?_⟩
     · simpa only [hU,hR] using he
     · simpa only [hU] using hu
