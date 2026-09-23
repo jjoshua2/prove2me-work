@@ -1,97 +1,50 @@
-# PR #337: inverse-affine source-rank reduction — first gate failed
+# PR #337: inverse-affine source-rank reduction is ACCEPTED
 
-Read all five instruction files and live heads/comments before resuming. Continue
-THIS same PR and target. Respect original-row-supported numerator re-selection
-claimed in #336 comment5786607495, #326, #282 and reserved #210. Do not duplicate
-or resubmit #336. Our coordination is5788446473.
+Read the five project instructions and LIVE heads/comments before continuing.
+The saved membership repair passed. Do not reapply it or resubmit this target.
+Check live PR lifecycle before any remaining integration action.
 
-Branch proof/inverse-affine-source-rank; target
-Hirsch.inverse_affine_source_rank_reduction; packet
-research/publication_packets/inverse_affine_source_rank.
-Tested proof631ad17d13be459c7007e2124cc4cbe61ef3299f on main
-fdcfc2aaa487a999ba52b6242dc9c8f01b2e0ec4.
-Source281 lines/12504 bytes, blob5c63e222a3212882708c26962afba5cfef98ac36,
-SHA256ccd8c31d835030f2bc6616dd11f05ff51d39dc5234d1a9aba95895a6252ee29e.
-Evidence commits do not replace this exact tested identity.
+Repository jjoshua2/prove2me-work; PR #337; branch proof/inverse-affine-source-rank.
+Packet research/publication_packets/inverse_affine_source_rank.
+Frozen proof c780b9a13bffe7c861981d6f5376687a486df5e3; source blob
+4d696ef44dbf24d528af1ff80d2d027bbf286153, 281 lines / 12504 bytes.
+Theorem bb1d1d37-0110-4175-992b-cfa634ceeb6b; submission
+209c0f1c-9b5a-4bda-9989-39f60393a627. Request 5795566184, acknowledgement
+5795569792, run 35866161375 and accepted verdict 5795655918 were read back.
+The raw receipt records PUBLISHED/ACCEPTED/Proved. Proved is the trusted publisher's
+authenticated readback, not an independent platform or mission-root poll.
 
-Actual request5788616533; acknowledgement5788619152; run35815653977.
-Gate107036499017 succeeded, verifier107036536235 failed driver compilation.
-Separate solution/statement not reached, publish107036826620 and report-verify
-107036826426 skipped. One compiler attempt, zero registrations/submissions.
-No theorem/submission ID, verified archive, receipt, ACCEPTED or Proved exists.
+All three compiler stages exited zero; all six reports in both complete proof logs
+are standard-only, including public solution. This was the second compiler attempt
+and first actual proof submission. The original failed source/run 35815653977 are
+preserved. The exact net repair changes four lines at two binders; no statement or
+metadata changed. A transient upload typo was hash-detected and corrected before
+the gate. No proof or metadata edits followed the successful gate.
 
-## Exact next repair
+The theorem identifies fixed-strict-numerator source rank with ONE plus an
+unconstrained inverse-affine upper-level optimum and realizes it with a globally
+positive denominator. It also proves normalized differences lie in ker(h).
+Finite S subset C, x and v in S, x!=v, and strict fixed h off v on C remain
+explicit. Applying it to original routes still needs #336's complete vertex/current
+face and exposure facts. The planar search and d-1 parameter interpretation are
+not additional formal implementation/dimension theorems. No uniform polynomial
+bound on the optimum or new route/shortestness theorem follows.
 
-Two errors at59:45 and150:49 pass an image-membership ha to mem_filter. Both follow
-an obtain using the same a,ha names as the outer context. At each site replace
+The next substantive mathematical obligation is an original-input bound on useful
+ranks, or a different positive original-edge argument. Respect changing-numerator
+claim 5786607495, #326, #282, reserved #210 and other live ownership.
 
-    obtain ⟨a,ha,rfl⟩ := Finset.mem_image.mp ha
-    obtain ⟨hai,hal⟩ := Finset.mem_filter.mp ha
-
-with fresh names
-
-    obtain ⟨b,hb,rfl⟩ := Finset.mem_image.mp ha
-    obtain ⟨hai,hal⟩ := Finset.mem_filter.mp hb
-
-Exact patch: research/verification/inverse-affine-source-rank/first-attempt/
-proposed-membership-repair.patch. Four lines replace four; every statement,
-hypothesis and other line remains. UNAPPLIED to publication source, UNCOMPILED.
-Proposed source281 lines/12504 bytes, computed blob
-4d696ef44dbf24d528af1ff80d2d027bbf286153, SHA256
-49ae6b96e113f033df19d195e60f9a96bf3a3ff994de0885eb6140692a4e4083.
-Patch round trip passes. Further compiler errors may appear. The named reports
-for global_positive_shift and normalized_direction are standard-only, but
-upper_shift, lower_card, optimum and public solution contain failed-elaboration
-sorryAx. No admission was written; do not promote clean helpers to acceptance.
-
-After checking live ownership and pending status, apply the exact narrow patch,
-compile locally where available, and use one complete prepared gate on this PR.
-No second gate was triggered in the initial continuation. Do not modify metadata,
-rename the target or loosen hypotheses to obtain compilation.
-
-## Result being completed
-
-For fixed strict h on finite global C and source x!=v in local S subset C,
-inverse heights ell_D(z)=(1+D(z-v))/h(z-v) are affine in D. A common shift D+c*h
-translates all non-target heights and preserves source-relative upper counts,
-while a derived large c makes q_D positive on all C. Positive ratios below the
-source are target zero plus reciprocals of upper inverse heights. Thus the
-source rank is1+min over ALL D of the upper count, with an attaining globally
-positive denominator optimal even against local-positive competitors. Normalized
-pair differences lie in ker(h). The public theorem has finite-data hypotheses;
-original-route application retains #336's complete vertex/common-face geometry.
-No uniform polynomial bound on that minimum is proved. Fixed-numerator scope
-must not be silently extended to a row slack vanishing at other vertices.
-
-The new planar algorithm writes D=t*(-h1,h0)+c*h and exhausts pair crossings plus
-open intervals. Its written real-parameter completeness and exact implementation
-are not a separate Lean theorem. This cost reformulation does not reprove routes,
-optimize changing numerators or assert all-dimensional shortestness.
-
-## Reproduction and limits
+Raw receipt/manifest/audit and complete compiler logs are in the packet; repaired
+attempt evidence retains all verified/publisher files, exact request and previous
+handoff. The export also contains all three original successful ZIPs, first-failure
+history, complete six outputs and the unchanged two-script method. Fresh execution
+reproduced all six outputs and rechecked 77 saved same-numerator states. The earlier
+64-point/eight-target timeout remains excluded; the successful64-point planar case
+covers one target. Python/JSON and the offline inspector are not kernel-verified.
 
     python3 scripts/test_inverse_rank_reduction.py --out /tmp/inverse-small
     python3 scripts/test_inverse_rank_reduction.py --large --only rational_circle24 --out /tmp/inverse-24
     python3 scripts/test_inverse_rank_reduction.py --large --only rational_circle64 --target-count 1 --out /tmp/inverse-64-one
 
-The seven COMPLETED configurations contain526 routes/2792 original edges and
-9600 cells. The prior exact heptagon input completes49 pairs/84 edges. The24-point
-polygon has eight targets; the64-point polygon has ONE, not eight. A separate
-64-point/eight-target run timed out and remains incomplete/excluded. These are
-planar tests, not64D original routes. Ten malformed controls fail and all six
-full outputs reproduce byte-for-byte in a clean two-script workspace. Python,
-JSON and an offline consistency checker are not kernel-verified.
-
-The new files inverse_rank_planar.py and test_inverse_rank_reduction.py implement
-only the new breakpoint method and original support-line checks. Neither old
-blocked supporting script is reuploaded or used by that solver. Full fixtures,
-exact prior-state comparison and raw request ZIP accompany the export; committed
-summaries are labelled derived.
-
-Only request artifact10731426787 exists:312 bytes, SHA256
-f63d8738854a4eb1d8708b67236fad57871a28d91e7dfdead72d33580c7738f2.
-All displayed errors/six reports and selected runner lines are preserved. The
-full decoded log was read, but excerpts are not full raw archives. No unavailable
-artifact is invented. Local Lean/cache unavailable, toolchain DNS failed.
-Retain Lean4.30.0/Mathlibc5ea00351c28e24afc9f0f84379aa41082b1188f, strict0.10.8,
-allowed actors, duplicate guards and verifier/publisher credential isolation.
+Keep Lean4.30.0/Mathlibc5ea00351c28e24afc9f0f84379aa41082b1188f, strict0.10.8,
+accepted proof bytes, allowlists, duplicate guards and verifier/publisher isolation.

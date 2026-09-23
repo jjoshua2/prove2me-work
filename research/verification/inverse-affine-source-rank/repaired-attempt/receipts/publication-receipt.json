@@ -1,0 +1,15 @@
+{
+  "head_sha": "c780b9a13bffe7c861981d6f5376687a486df5e3",
+  "packets": [
+    {
+      "packet": "inverse_affine_source_rank",
+      "status": "ACCEPTED",
+      "theorem_id": "bb1d1d37-0110-4175-992b-cfa634ceeb6b",
+      "submission_id": "209c0f1c-9b5a-4bda-9989-39f60393a627",
+      "theorem_name": "Hirsch.inverse_affine_source_rank_reduction",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/inverse_affine_source_rank"
+    }
+  ]
+}

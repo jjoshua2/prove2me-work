@@ -1,0 +1,11 @@
+{
+  "kind": "static_patch_checks_not_Lean",
+  "source_lines": 281,
+  "source_bytes": 12504,
+  "source_blob": "4d696ef44dbf24d528af1ff80d2d027bbf286153",
+  "source_sha256": "49ae6b96e113f033df19d195e60f9a96bf3a3ff994de0885eb6140692a4e4083",
+  "public_type_matches": true,
+  "saved_patch_round_trip": true,
+  "only_four_line_replacements": true,
+  "local_Lean_compilation": false
+}

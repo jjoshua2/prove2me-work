@@ -1,0 +1,9 @@
+_verified/packets/inverse_affine_source_rank/solution.lean:35:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'Hirsch.InverseRank.upper_shift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.InverseRank.global_positive_shift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.InverseRank.lower_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.InverseRank.optimum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.InverseRank.normalized_direction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]

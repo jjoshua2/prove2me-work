@@ -1,0 +1,14 @@
+# Selected exact verifier runner lines, not a complete raw runner archive.
+# The full decoded verifier log was read through cleanup.
+2026-09-23T13:18:54.5399838Z SHA256 digest of downloaded artifact is 1a99b78d3d4e52c0e6f5396cb9bdc96dceec425152bbfa21280f11c38570dcba
+2026-09-23T13:19:43.4982935Z Lake version 5.0.0-src+d024af0 (Lean version 4.30.0)
+2026-09-23T13:19:43.5146883Z   GITHUB_TOKEN: 
+2026-09-23T13:19:43.5147116Z   PROVE2ME_API_KEY: 
+2026-09-23T13:20:03.5559124Z SHA256 digest of uploaded artifact zip is 7503673d3003e1482385f6723c69f218e21d46c6972469c15d5ff780064534c2
+# The full decoded publisher log was also read through cleanup.
+2026-09-23T13:20:15.7826710Z SHA256 digest of downloaded artifact is 7503673d3003e1482385f6723c69f218e21d46c6972469c15d5ff780064534c2
+2026-09-23T13:24:21.2620180Z - **Hirsch.inverse_affine_source_rank_reduction**: ACCEPTED
+2026-09-23T13:24:21.2620441Z   - theorem `bb1d1d37-0110-4175-992b-cfa634ceeb6b`
+2026-09-23T13:24:21.2620751Z   - submission `209c0f1c-9b5a-4bda-9989-39f60393a627`
+2026-09-23T13:24:22.3231989Z SHA256 digest of uploaded artifact zip is 1aca10c5715f855f4de5e1bd8450b29dfe4b96cf45a63b15a117cc68aef895f3
+2026-09-23T13:24:24.0033780Z https://github.com/jjoshua2/prove2me-work/pull/337#issuecomment-5795655918

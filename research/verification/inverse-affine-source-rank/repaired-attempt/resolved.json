@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/inverse_affine_source_rank"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "c780b9a13bffe7c861981d6f5376687a486df5e3",
+  "pr": "337"
+}
