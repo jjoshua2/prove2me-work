@@ -1,71 +1,65 @@
-# PR #338: proof fully verified; resume pending registration
+# PR #338: accepted exact convex-chain rank
 
-Read the five project instructions and LIVE main/PR/comments before continuing.
-Do not reapply the spacing patch or open a replacement theorem. Respect #326,
-#282, reserved #210 and changing-numerator claim 5786607495.
+Read the five project instructions and LIVE heads/comments before continuing.
+The pending-registration blocker is resolved. Do not reapply the old spacing
+repair, rename this theorem, re-register it or submit its proof again.
 
-Repository jjoshua2/prove2me-work; PR #338 OPEN/DRAFT, unmerged.
-Branch proof/convex-chain-source-rank.
+Repository jjoshua2/prove2me-work; PR338; branch proof/convex-chain-source-rank.
 Packet research/publication_packets/convex_chain_source_rank.
 Target Hirsch.strict_convex_chain_exact_source_rank.
-Verified proof de2e0175d0db46ecc13ccbe6c003efd535da6417.
-Source blob 668d5a54143923d16c293393c6affb3ab2759d16, 351 lines / 15120 bytes,
-SHA256 dc2a830c3da548edd4d1949235fbb5c0eb4f4178e9a5665b5744b74fe5048afe.
-Later evidence commits do not replace this exact verified proof identity.
+Accepted submission commit223b5abfc8666393b2b60bec387f4e49d3f626b8.
+Initial verified proofde2e0175d0db46ecc13ccbe6c003efd535da6417.
+Both have identical proof/metadata bytes. Source351 lines/15120 bytes,
+blob668d5a54143923d16c293393c6affb3ab2759d16, SHA256
+ dc2a830c3da548edd4d1949235fbb5c0eb4f4178e9a5665b5744b74fe5048afe.
 
-## Completed proof; pending platform job
+Theorem e5c0158b-f340-4262-865a-7f6936b83db1.
+Submission a2f3ea44-ec31-41a9-a4da-d3929d79340c.
+New request5801952351; acknowledgement5801955039; run35912718942;
+accepted bot verdict5802016156 at2026-09-23T20:01:26Z.
+Raw publisher receipt: ACCEPTED / registration REUSED / live_status Proved.
+Proved is the trusted publisher's authenticated readback, not an independent poll.
 
-Request 5799614897; acknowledgement 5799618152; run 35895877060;
-bot result 5799811983. All three compiles exit0 and all six reports in BOTH
-full proof logs are standard-only, including solution. No sorryAx remains.
-Only four spaces at two annotations changed; public type and metadata unchanged.
-The first failed run 35886406394 and its diagnostics remain historical evidence.
+Prior registration job cfbe3736-58f8-4c07-9de0-63147127b046 and its QUEUED receipt
+remain historical evidence. The unchanged guarded publisher found the existing
+exact theorem, avoiding a new registration. The run completed the first actual
+proof submission. All three compile stages exit0 and all six reports in both
+full proof logs are standard-only. Three hosted compiler runs overall, two
+passing; no source or metadata change during the resume. No further publication.
 
-The trusted publisher receipt records PUBLISH_PENDING, registration QUEUED,
-existing publish job:
+Check live PR lifecycle before integration. If not already merged, complete only
+normal eligible review and expected-head merge of this existing accepted PR.
+Preserve other-owned #326/#282/reserved #210 and changing-numerator work.
 
-    cfbe3736-58f8-4c07-9de0-63147127b046
+## Scope and next mathematics
 
-No completed registration, theorem/submission ID, actual proof submission,
-ACCEPTED or Proved was returned. Gate, verifier and publisher jobs all succeeded,
-but publisher success here means a pending registration was preserved. This was
-the second compiler attempt; zero actual proof submissions. No second trigger
-was posted in this continuation and no post-gate proof/metadata edit was made.
+The finite-chain theorem proves exact all-real upper-height optimum min(k,n-k),
+one source-independent pair of extreme tilts and reciprocal rank min(k,n-k)+1,
+with twice-rank<=n+2. Ordered abscissas and strict secant convexity remain explicit.
+The original-polygon chart and edge/facet arguments are written/tested, not new
+Lean conclusions of this packet. The mission remains a uniform polynomial bound
+on original ordinary-edge routes for arbitrary carriers. A new step should address
+that actual geometric/rank gap without re-publishing this finite-chain result or
+claiming that a polynomial vertex-inventory bound is a facet-parameter bound.
 
-## Exact next action
+## Evidence and reproduction
 
-Check live receipts and pending ownership first. Resume this same packet with
-the existing trusted publisher; its exact-name/statement/environment job guard
-recovers the existing registration. Do not create a new theorem or disable the
-guard. The normal NEW top-level PR conversation command is:
+packet/accepted-evidence.md and publication-receipt.json hold the current result.
+publication-pending.md and first-gate-evidence.md are historical. All prior raw
+records remain in their original verification directories. New exact verified,
+receipt and request files, previous handoff and derived readback/replay checks
+are in research/verification/convex-chain-source-rank/resumed-publication/.
+Both complete decoded runner logs were read; stored runner excerpts are selected.
+No missing individual platform API body was invented.
 
-    /prove2me publish research/publication_packets/convex_chain_source_rank
-
-This is a future resume instruction, NOT another command posted by this handoff.
-Keep the exact verified packet frozen. The remaining task is registration/proof
-submission and then ordinary eligible integration, not another Lean repair.
-
-## Scope and evidence
-
-The finite-chain theorem proves the exact upper-height optimum min(k,n-k),
-source-independent extreme tilts and reciprocal rank min(k,n-k)+1. Ordered
-abscissas and strict secant convexity remain hypotheses. Original-polygon chart
-and edge/facet geometry remain written/tested, not additional formal output.
-The arbitrary-dimensional original-input polynomial mission remains separate.
-
-Packet publication-pending.md, raw publication-receipt.json, manifest/audit and
-full compiler logs preserve the result. repaired-attempt/ retains all twelve
-verified files, two publisher files, exact request, old handoff and derived
-readbacks. All three original successful-run ZIPs and full test fixtures are
-in the export. Stored runner excerpts are selected, not complete raw archives.
-
-All six outputs from the unchanged four-script suite reproduced prior bytes,
-including the planar64-vertex/eight-target scope. Python/JSON and the offline
-inspector are not kernel-verified. Reproduction:
+All six outputs of the unchanged four-script suite reproduced their prior bytes:
+2030 planar routes/11464 original-edge occurrences and ten malformed/premise
+controls. The64-vertex/eight-target scope completed. Python/JSON and the polygon
+bridge are not kernel-verified. Reproduction:
 
     python3 scripts/test_convex_chain_closed_rank.py --out /tmp/chain-small
     python3 scripts/test_convex_chain_closed_rank.py --random 20 --out /tmp/chain-random
     python3 scripts/test_convex_chain_closed_rank.py --large --out /tmp/chain-large
 
 Keep Lean4.30.0/Mathlibc5ea00351c28e24afc9f0f84379aa41082b1188f, strict0.10.8,
-accepted proof bytes, allowlists, duplicate guards and secret separation unchanged.
+accepted proof bytes, actor allowlists, duplicate guards and secret separation.

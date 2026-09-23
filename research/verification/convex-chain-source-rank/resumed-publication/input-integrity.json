@@ -1,0 +1,13 @@
+{
+  "kind": "derived_frozen_artifact_consistency_not_new_compilation_or_server_authentication",
+  "source_bytes": 15120,
+  "source_lines": 351,
+  "source_blob": "668d5a54143923d16c293393c6affb3ab2759d16",
+  "source_sha256": "dc2a830c3da548edd4d1949235fbb5c0eb4f4178e9a5665b5744b74fe5048afe",
+  "all_five_input_hashes_match": true,
+  "all_five_inputs_byte_identical_to_previous_passing_gate": true,
+  "driver_and_solution_logs_byte_identical_to_previous_gate": true,
+  "standard_only_named_reports_per_log": 6,
+  "three_archive_hashes_match": true,
+  "exact_archive_members_compared": 15
+}

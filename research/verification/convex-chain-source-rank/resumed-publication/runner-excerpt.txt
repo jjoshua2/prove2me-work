@@ -1,0 +1,11 @@
+# Selected exact runner lines, not complete raw runner archives.
+# Both complete decoded verifier and publisher logs were read through cleanup.
+# Complete packet compiler logs are preserved unchanged in verified/.
+2026-09-23T19:58:11.0629413Z Lake version 5.0.0-src+d024af0 (Lean version 4.30.0)
+2026-09-23T19:58:30.8008185Z SHA256 digest of uploaded artifact zip is c5b9e23a964ec404a934ee00675d4b3af2c3dc55d56def83b2482bcc535005cb
+2026-09-23T19:58:38.6394859Z SHA256 digest of downloaded artifact is c5b9e23a964ec404a934ee00675d4b3af2c3dc55d56def83b2482bcc535005cb
+2026-09-23T20:01:24.6998558Z - **Hirsch.strict_convex_chain_exact_source_rank**: ACCEPTED
+2026-09-23T20:01:24.6999165Z   - theorem `e5c0158b-f340-4262-865a-7f6936b83db1`
+2026-09-23T20:01:24.6999719Z   - submission `a2f3ea44-ec31-41a9-a4da-d3929d79340c`
+2026-09-23T20:01:25.1823896Z SHA256 digest of uploaded artifact zip is 9f453bc4a2d63441f787b9a023742bec3b4747d39e505722c9d8478b6cde6bc5
+2026-09-23T20:01:26.5055638Z https://github.com/jjoshua2/prove2me-work/pull/338#issuecomment-5802016156
