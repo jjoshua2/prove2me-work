@@ -1,0 +1,6 @@
+'Hirsch.InverseRank.upper_shift' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.InverseRank.global_positive_shift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.InverseRank.lower_card' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.InverseRank.optimum' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.InverseRank.normalized_direction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

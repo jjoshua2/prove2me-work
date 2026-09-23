@@ -1,0 +1,1 @@
+{"kind":"incomplete_additional_test","case":"rational_circle64","requested_targets":8,"time_limit_seconds":45,"result":"command timed out before report and fixtures were produced","included_in_success_totals":false,"next_scope":"Separate explicit one-target run; does not complete the eight-target run."}

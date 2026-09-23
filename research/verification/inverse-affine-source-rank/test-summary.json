@@ -1,0 +1,20 @@
+{
+  "kind": "derived_summary_of_executed_exact_tests_not_Lean",
+  "completed_configurations": 7,
+  "routes": 526,
+  "original_edges": 2792,
+  "arrangement_cells": 9600,
+  "crossing_pair_checks": 4844,
+  "nonacquiring_steps": 1912,
+  "unshifted_nonpositive_witnesses": 194,
+  "nonshortest_routes_observed": 0,
+  "strict_reoptimization_improvements_observed": 0,
+  "malformed_controls_rejected": 10,
+  "old_same_numerator_states_compared": 77,
+  "heptagon": {"vertices": 7, "targets": 7, "routes": 49, "edges": 84, "cells": 236},
+  "circle24": {"vertices": 24, "targets": 8, "routes": 192, "edges": 1152},
+  "circle64_one_target": {"vertices": 64, "targets": 1, "routes": 64, "edges": 1024},
+  "incomplete_circle64_eight_target_run_excluded": true,
+  "finite_algebra_dimensions": [1,2,3,8,16,64],
+  "note": "All route instances are planar. The finite algebra dimension64 check is not a high-dimensional original-edge route. No universal shortestness claim."
+}

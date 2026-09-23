@@ -1,0 +1,31 @@
+# Extracted complete displayed compiler errors and all six reports.
+# Run35815653977, verifier107036536235. Timestamps/setup/cleanup omitted.
+# Not a complete raw runner log. Driver exit1; solution/statement not reached.
+
+inverse_affine_source_rank/driver.lean failed to compile:
+_verified/packets/inverse_affine_source_rank/driver.lean:35:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+_verified/packets/inverse_affine_source_rank/driver.lean:59:45: error: Application type mismatch: The argument
+  ha
+has type
+  a + c ∈ Finset.image (fun a => a + c) (upper S h D v x)
+but is expected to have type
+  ?m.245 ∈ Finset.filter ?m.242 ?m.244
+in the application
+  Finset.mem_filter.mp ha
+_verified/packets/inverse_affine_source_rank/driver.lean:150:49: error: Application type mismatch: The argument
+  ha
+has type
+  1 / a ∈ Finset.image (fun a => 1 / a) (upper S h D v x)
+but is expected to have type
+  ?m.351 ∈ Finset.filter ?m.348 ?m.350
+in the application
+  Finset.mem_filter.mp ha
+
+'Hirsch.InverseRank.upper_shift' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.InverseRank.global_positive_shift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.InverseRank.lower_card' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.InverseRank.optimum' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.InverseRank.normalized_direction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

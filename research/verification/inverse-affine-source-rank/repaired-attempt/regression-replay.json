@@ -1,0 +1,36 @@
+{
+  "kind": "fresh_exact_rational_execution_not_Lean",
+  "outputs": {
+    "small/report.json": {
+      "bytes": 4653,
+      "sha256": "6de35d9f43f338da6f78b7f023294ef08760d08f5a5cf9044c4ecaeb349f92b6",
+      "byte_identical_to_prior": true
+    },
+    "small/fixtures.json": {
+      "bytes": 862996,
+      "sha256": "a7c8c00f861ee7d758f306c80ade8efdd7b303b007f6c67178f6ed57480d61e3",
+      "byte_identical_to_prior": true
+    },
+    "circle24/report.json": {
+      "bytes": 1922,
+      "sha256": "3089c9cc9609a100fd614115174501f48df9915ac77d1c61a00506f99d848d2d",
+      "byte_identical_to_prior": true
+    },
+    "circle24/fixtures.json": {
+      "bytes": 2310948,
+      "sha256": "f9d635ee7fdca44932628fbeedd3a8d1369e3960bcda3f6d8bc07d750618c23c",
+      "byte_identical_to_prior": true
+    },
+    "circle64_one_target/report.json": {
+      "bytes": 1920,
+      "sha256": "c1738c4bc5c77e60169b6708825646ca736530fd31c1e5836123643d54d5b138",
+      "byte_identical_to_prior": true
+    },
+    "circle64_one_target/fixtures.json": {
+      "bytes": 4659684,
+      "sha256": "0b5098dbca6ed0cbc675d1a9535160cff367310b939e8817c28099d3af38275d",
+      "byte_identical_to_prior": true
+    }
+  },
+  "prior_eight_target_timeout_rerun": false
+}

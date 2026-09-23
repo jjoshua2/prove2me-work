@@ -1,0 +1,24 @@
+--- a/research/publication_packets/inverse_affine_source_rank/solution.lean
++++ b/research/publication_packets/inverse_affine_source_rank/solution.lean
+@@ -55,8 +55,8 @@
+     rw [hs,he] at hal
+     linarith
+   · intro ha
+-    obtain ⟨a,ha,rfl⟩ := Finset.mem_image.mp ha
+-    obtain ⟨hai,hal⟩ := Finset.mem_filter.mp ha
++    obtain ⟨b,hb,rfl⟩ := Finset.mem_image.mp ha
++    obtain ⟨hai,hal⟩ := Finset.mem_filter.mp hb
+     obtain ⟨z,hz,rfl⟩ := Finset.mem_image.mp hai
+     have hzS := (Finset.mem_erase.mp hz).2
+     have hzv := (Finset.mem_erase.mp hz).1
+@@ -146,8 +146,8 @@
+       rcases Finset.mem_insert.mp ha with ha | ha
+       · subst a
+         exact Finset.mem_filter.mpr ⟨Finset.mem_image.mpr ⟨v,hv,rvzero⟩,rxpos⟩
+-      · obtain ⟨a,ha,rfl⟩ := Finset.mem_image.mp ha
+-        obtain ⟨hai,hal⟩ := Finset.mem_filter.mp ha
++      · obtain ⟨b,hb,rfl⟩ := Finset.mem_image.mp ha
++        obtain ⟨hai,hal⟩ := Finset.mem_filter.mp hb
+         obtain ⟨z,hz,rfl⟩ := Finset.mem_image.mp hai
+         have hzS := (Finset.mem_erase.mp hz).2
+         have hzv := (Finset.mem_erase.mp hz).1

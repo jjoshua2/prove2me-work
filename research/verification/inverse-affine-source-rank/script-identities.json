@@ -1,0 +1,16 @@
+{
+  "kind": "executed_script_identities",
+  "files": {
+    "inverse_rank_planar.py": {
+      "bytes": 7433,
+      "sha256": "7d1a0fa6cc43d577695691578775943a59b6622d35dadc34b616b8955d7efa3d",
+      "blob": "909c44f3f67be800d782f5b4d82615f9b118085d"
+    },
+    "test_inverse_rank_reduction.py": {
+      "bytes": 12308,
+      "sha256": "feae2549473fad5c20deb81357fbcc0387eb6570cff76cdaab503a0ca55df955",
+      "blob": "e3d1962afb2d0dd2c16fa7daaa9c84f87b85ba2f"
+    }
+  },
+  "final_change": "One replay comment clarified that original-edge production is not called, rather than monkeypatched; no executable lines changed. Final exact small replay repeats both output bytes."
+}

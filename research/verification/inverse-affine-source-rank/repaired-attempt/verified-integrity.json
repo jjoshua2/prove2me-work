@@ -1,0 +1,20 @@
+{
+  "kind": "derived_frozen_artifact_consistency_not_independent_compilation",
+  "all_five_manifest_hashes_match": true,
+  "source_matches_saved_proposal": true,
+  "public_type_matches_metadata": true,
+  "metadata_explanation_unchanged": true,
+  "reports": [
+    {
+      "file": "driver-compile.log",
+      "report_count": 6,
+      "all_standard_only": true
+    },
+    {
+      "file": "solution-compile.log",
+      "report_count": 6,
+      "all_standard_only": true
+    }
+  ],
+  "driver_equals_solution": true
+}

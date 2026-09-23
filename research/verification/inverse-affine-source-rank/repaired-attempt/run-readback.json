@@ -1,0 +1,87 @@
+{
+  "kind": "derived_GitHub_and_frozen_artifact_readback_not_independent_platform_poll",
+  "repository": "jjoshua2/prove2me-work",
+  "pr": 337,
+  "proof_sha": "c780b9a13bffe7c861981d6f5376687a486df5e3",
+  "trusted_main_sha": "fdcfc2aaa487a999ba52b6242dc9c8f01b2e0ec4",
+  "coordination_comment": 5795495674,
+  "trigger_comment": 5795566184,
+  "acknowledgement_comment": 5795569792,
+  "run_id": 35866161375,
+  "prior_failed_run": 35815653977,
+  "local_Lean_compilation": false,
+  "artifacts": [
+    {
+      "file": "pr337-repaired-request.zip",
+      "id": 10751603573,
+      "bytes": 312,
+      "sha256": "1a99b78d3d4e52c0e6f5396cb9bdc96dceec425152bbfa21280f11c38570dcba"
+    },
+    {
+      "file": "pr337-repaired-verified.zip",
+      "id": 10752134575,
+      "bytes": 17182,
+      "sha256": "7503673d3003e1482385f6723c69f218e21d46c6972469c15d5ff780064534c2"
+    },
+    {
+      "file": "pr337-publication-receipts.zip",
+      "id": 10753080054,
+      "bytes": 908,
+      "sha256": "1aca10c5715f855f4de5e1bd8450b29dfe4b96cf45a63b15a117cc68aef895f3"
+    }
+  ],
+  "verdict_comment": 5795655918,
+  "verdict_time_utc": "2026-09-23T13:24:23Z",
+  "jobs": {
+    "gate": {
+      "id": 107198161647,
+      "conclusion": "success"
+    },
+    "verify": {
+      "id": 107198245897,
+      "conclusion": "success"
+    },
+    "publish": {
+      "id": 107198764895,
+      "conclusion": "success"
+    },
+    "report-verify": {
+      "id": 107198766340,
+      "conclusion": "skipped"
+    }
+  },
+  "compile_exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "standard_only_reports_per_proof_log": 6,
+  "publication": {
+    "packet": "inverse_affine_source_rank",
+    "status": "ACCEPTED",
+    "theorem_id": "bb1d1d37-0110-4175-992b-cfa634ceeb6b",
+    "submission_id": "209c0f1c-9b5a-4bda-9989-39f60393a627",
+    "theorem_name": "Hirsch.inverse_affine_source_rank_reduction",
+    "registration": "PUBLISHED",
+    "live_status": "Proved",
+    "path": "research/publication_packets/inverse_affine_source_rank"
+  },
+  "hosted_compiler_attempts": 2,
+  "actual_platform_submissions": 1,
+  "new_triggers_this_continuation": 1,
+  "post_gate_source_or_metadata_edits": false,
+  "independent_platform_or_mission_root_poll": false,
+  "full_decoded_runner_logs_read": true,
+  "individual_platform_API_response_bodies_available": false,
+  "lean_version_observed": "4.30.0",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "strict_protocol": "0.10.8",
+  "serialization_correction": {
+    "transient_commit": "936d91e54ae098efb84bff3b951d176ac995901a",
+    "transient_blob": "e7d1deb0754c1976bfd8866986fbc1660c3442b1",
+    "error": "Unintended extra hhS argument while serializing the contents update",
+    "caught_by_source_hash": true,
+    "removed_before_any_gate": true,
+    "final_source_matches_saved_proposal": true
+  }
+}

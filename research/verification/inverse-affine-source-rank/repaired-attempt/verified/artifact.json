@@ -1,0 +1,25 @@
+{
+  "head_sha": "c780b9a13bffe7c861981d6f5376687a486df5e3",
+  "packets": [
+    {
+      "path": "research/publication_packets/inverse_affine_source_rank",
+      "name": "inverse_affine_source_rank",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "49ae6b96e113f033df19d195e60f9a96bf3a3ff994de0885eb6140692a4e4083",
+        "driver.lean": "49ae6b96e113f033df19d195e60f9a96bf3a3ff994de0885eb6140692a4e4083",
+        "statement.lean": "df6c0cc4b84b5f541dae5a10f5c82edf9e7f0408ffd38f18a293ee6122394978",
+        "problem.json": "0a9bfb44ffd8b4047b56d2e5e68baf479581fa744b2c80fdb96a6142d4493edc",
+        "explanation.md": "7ab3eabbf05c167811ad7c4a42c0cf64720e0ddbac09312cab6b7ab2a5b59fc5"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}
