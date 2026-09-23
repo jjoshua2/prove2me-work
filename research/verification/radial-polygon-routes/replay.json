@@ -1,0 +1,25 @@
+{
+  "kind": "executed_exact_rational_replay_not_Lean",
+  "outputs": {
+    "small/report.json": {
+      "bytes": 3564,
+      "sha256": "0e2785ca4f24c77b29041a74224dec0ca26e4e78ee5b71041f6261a7f074e637",
+      "byte_identical": true
+    },
+    "small/fixtures.json": {
+      "bytes": 550414,
+      "sha256": "18c480bab75546ff62b3f9516b55533d8e2b10dfa6ef94d018e62dae9498efa5",
+      "byte_identical": true
+    },
+    "large/report.json": {
+      "bytes": 473,
+      "sha256": "422f8e3d3803d0f729b79804dfc712e91cf5cc9bbf4572ebe8a36761dff46d78",
+      "byte_identical": true
+    },
+    "large/fixtures.json": {
+      "bytes": 2541958,
+      "sha256": "16af4038f8c19f8ae46688d9fca94de2bf02f9df39f517c6ab627ddacb5b2426",
+      "byte_identical": true
+    }
+  }
+}

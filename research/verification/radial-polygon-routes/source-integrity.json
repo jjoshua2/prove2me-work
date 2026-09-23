@@ -1,0 +1,14 @@
+{
+  "kind": "static_source_integrity_not_Lean_compilation",
+  "proof_sha": "14f50c6a2ffb47fdce165753a889feb083800004",
+  "inputs": {
+    "solution.lean": {"bytes":39495,"sha256":"96b4c2fb43fc03b3143c8155e4bb1771e11675167e09557ba4602443e9576226","git_blob":"3ed33059e0c0611b61d2f809e796bc8094184503"},
+    "problem.json": {"bytes":4062,"sha256":"84cd1d6e06aba69db2b3c823661257e6562d1f4f60c49627ea14b671bb637a9c","git_blob":"ae3c74708cb685b5557de138ecc7710bb4ec2dd0"},
+    "explanation.md": {"bytes":9675,"sha256":"fd204e3fac1ec013946e981bd0fc26b465050b197ec537f057208a80b951c0c7","git_blob":"8c36b8d19848de5b82497057b076facbf4a6ffc2"}
+  },
+  "exact_public_type_matches": true,
+  "accepted_chain_prefix": {"bytes":12486,"lines":297,"sha256":"93b00f51c9f6d3c02a56e4996a4ac205e3ba988245d8bb4c30ffccbba54441d9"},
+  "support_wrapper": {"bytes":1916,"sha256":"887abe4510e535a65983bda49dd027aafecba5577dfde1589ca4270b96b32eb3"},
+  "local_Lean_compilation": false,
+  "new_test_script": {"bytes":10281,"sha256":"b2f345a5b70163e092a83fda8b2ceb995a0e0a20bf88127487be874ed8066414","git_blob":"a30679e39c6703038b38d80177ba55dd713f747c"}
+}

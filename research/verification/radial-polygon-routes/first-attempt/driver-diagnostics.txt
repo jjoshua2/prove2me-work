@@ -1,0 +1,52 @@
+# Full displayed compiler diagnostics and all seven axiom reports.
+# Timestamps removed; setup/cleanup and runtime logs omitted.
+# This is NOT the full raw job log.
+# Run35918994272; verifier107377867035; proof14f50c6a2ffb47fdce165753a889feb083800004.
+
+radial_polygon_routes/driver.lean failed to compile:
+_verified/packets/radial_polygon_routes/driver.lean:371:8: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+_verified/packets/radial_polygon_routes/driver.lean:371:8: warning: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+_verified/packets/radial_polygon_routes/driver.lean:405:4: error: Type mismatch: After simplification, term
+  Eq.symm hw
+ has type
+  e (x - v) * (h (x - v))⁻¹ = r * (e (u - v) * (h (u - v))⁻¹) + s * (e (y - v) * (h (y - v))⁻¹)
+but is expected to have type
+  e (x - v) * (1 * (h (x - v))⁻¹) = r * (e (u - v) * (1 * (h (u - v))⁻¹)) + s * (e (y - v) * (1 * (h (y - v))⁻¹))
+_verified/packets/radial_polygon_routes/driver.lean:430:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  MulRightStrictMono ℝ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+_verified/packets/radial_polygon_routes/driver.lean:431:2: error: No goals to be solved
+_verified/packets/radial_polygon_routes/driver.lean:606:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+_verified/packets/radial_polygon_routes/driver.lean:687:4: error: Type mismatch: After simplification, term
+  line_eval h e v (p i) (hpos i) s (-s * w j)
+ has type
+  (s • e + -(s * w j) • h) (p i) + -(s • e + -(s * w j) • h) v =
+    h (p i + -v) * (s * (e (p i + -v) / h (p i + -v)) + -(s * w j))
+but is expected to have type
+  f (p i) + -f v = h (p i + -v) * (s * w i + -(s * w j))
+_verified/packets/radial_polygon_routes/driver.lean:834:76: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  c ≥ 0
+  b ≥ 0
+  b - c ≤ 0
+  a ≥ 0
+  a - b ≥ 1
+  a - c ≤ 0
+where
+ a := ↑↑0
+ b := ↑↑i
+ c := ↑n
+'Hirsch.ConvexChainRank.exact_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.RadialPolygon.radial_mass_gt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.RadialPolygon.vertex_chain' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.RadialPolygon.secant_edge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.RadialPolygon.ray_edge' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.RadialPolygon.original_routes' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

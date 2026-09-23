@@ -1,0 +1,22 @@
+{
+  "kind": "unapplied_uncompiled_four_site_repair_proposal",
+  "tested_proof": "14f50c6a2ffb47fdce165753a889feb083800004",
+  "reported_root_lines": [405,430,687,834],
+  "cascade_error_line": 431,
+  "source_bytes": 39437,
+  "source_lines": 937,
+  "source_sha256": "1a850ee30cfc49facfb0d9b82acd5659a692c5bd272c3d28a66ed56e320c88f2",
+  "source_blob": "303dc7e6d2239690dcebde0600acf537124a0363",
+  "exact_public_type_unchanged": true,
+  "accepted_dependencies_unchanged": true,
+  "metadata_and_explanation_unchanged": true,
+  "patch_apply_reverse_roundtrip": true,
+  "applied_to_publication_source": false,
+  "compiled": false,
+  "changes": [
+    "Add one_mul to normalized coordinate simplification",
+    "Use positive-denominator div_lt_iff rather than an inapplicable multiplicative-order lemma",
+    "Unfold local f,w in the ray functional identity",
+    "Expose the natural value of Fin zero before the lower-bound proof"
+  ]
+}
