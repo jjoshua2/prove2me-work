@@ -101,7 +101,7 @@ theorem rank_lower_bound (w f : Fin (n+1) → ℝ) (hw : StrictMono w)
       exact right_step w f hw hf p k j hpk hkj hup
     have hinj : Set.InjOn f (Finset.Ioi k : Set (Fin (n+1))) := by
       intro i hi j hj he
-      have hki : k<i := Finset.mem_Ioi.mp hi
+      have hki : k < i := Finset.mem_Ioi.mp hi
       have hkj : k<j := Finset.mem_Ioi.mp hj
       rcases lt_trichotomy i j with hij | hij | hji
       · exact False.elim ((ne_of_lt (right_step w f hw hf k i j hki hij
@@ -159,7 +159,7 @@ lemma above_mono (f : Fin (n+1) → ℝ) (hf : StrictMono f) (k : Fin (n+1)) :
     · intro hz
       obtain ⟨hi,hl⟩ := Finset.mem_filter.mp hz
       obtain ⟨i,hu,rfl⟩ := Finset.mem_image.mp hi
-      have hki : k<i := by
+      have hki : k < i := by
         by_contra hn
         exact (not_le_of_gt hl) (hf.monotone (le_of_not_gt hn))
       exact Finset.mem_image.mpr ⟨i,Finset.mem_Ioi.mpr hki,rfl⟩
