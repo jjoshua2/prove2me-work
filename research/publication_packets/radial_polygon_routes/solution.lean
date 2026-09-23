@@ -402,7 +402,7 @@ lemma normalized_interpolation (h e : Form)
       div_mul_cancel₀ _ (ne_of_gt hy),mul_one,mul_one,hrs]
   · change e ((1/h (x-v)) • (x-v)) =
       e (r • ((1/h (u-v)) • (u-v))+s • ((1/h (y-v)) • (y-v)))
-    simpa only [map_add,map_smul,smul_eq_mul,one_div,div_eq_mul_inv,mul_comm] using hw.symm
+    simpa only [map_add,map_smul,smul_eq_mul,one_div,div_eq_mul_inv,one_mul,mul_comm] using hw.symm
 
 /-- Extremality forces the inverse-height point strictly below every chord
 between original vertices whose normalized horizontal coordinates bracket it. -/
@@ -427,10 +427,7 @@ theorem strict_chord (P : Set Point) (hP : Convex ℝ P) (h e : Form)
   have hm := radial_mass_gt_one P hP v u x y hv huP hyP hxP hvx hux hyx
     (h (x-v)*r*(1/h (u-v))) (h (x-v)*s*(1/h (y-v)))
     (by positivity) (by positivity) heq
-  apply (mul_lt_mul_left hx).mp
-  have he : h (x-v)*(1/h (x-v))=1 := by
-    rw [mul_comm]; exact div_mul_cancel₀ _ (ne_of_gt hx)
-  rw [he]
+  apply (div_lt_iff₀ hx).2
   nlinarith
 
 /-- Strict chain convexity is DERIVED from original vertex extremality. -/
@@ -684,7 +681,7 @@ lemma ray_edge {n : ℕ} (v : Point) (p : Fin (n+1) → Point) (h e : Form)
   let f : Form := s • e+(-s*w j) • h
   have hs : ∀ i, f (p i)-f v=h (p i-v)*(s*w i-s*w j) := by
     intro i
-    simpa only [sub_eq_add_neg,neg_mul] using line_eval h e v (p i) (hpos i) s (-s*w j)
+    simpa only [f,w,sub_eq_add_neg,neg_mul] using line_eval h e v (p i) (hpos i) s (-s*w j)
   have hj : f (p j)=f v := by
     have hh := hs j
     rw [sub_self,mul_zero] at hh
@@ -831,7 +828,7 @@ theorem original_routes {n : ℕ} (P : Set Point) (v : Point) (p : Fin (n+1) →
   have hlo : IsExposed ℝ P (segment ℝ (p 0) v) := by
     rw [hP]
     have hh := ray_edge v p h e hpos 0 (-1)
-      (fun i => by have hi := hw.monotone (show (0 : Fin (n+1)) ≤ i from by omega); linarith)
+      (fun i => by have hi := hw.monotone (show (0 : Fin (n+1)) ≤ i from by change (0 : ℕ) ≤ i.val; exact Nat.zero_le _); linarith)
       (fun i he => hw.injective (by linarith))
     simpa only [segment_symm] using hh
   have hhi : IsExposed ℝ P (segment ℝ (p (Fin.last n)) v) := by
