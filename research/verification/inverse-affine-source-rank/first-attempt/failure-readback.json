@@ -1,0 +1,82 @@
+{
+  "kind": "derived_GitHub_and_request_readback_not_platform_receipt",
+  "repository": "jjoshua2/prove2me-work",
+  "pr": 337,
+  "proof_sha": "631ad17d13be459c7007e2124cc4cbe61ef3299f",
+  "trusted_main_sha": "fdcfc2aaa487a999ba52b6242dc9c8f01b2e0ec4",
+  "coordination_comment": 5788446473,
+  "trigger_comment": 5788616533,
+  "acknowledgement_comment": 5788619152,
+  "run_id": 35815653977,
+  "jobs": {
+    "gate": {
+      "id": 107036499017,
+      "conclusion": "success"
+    },
+    "verify": {
+      "id": 107036536235,
+      "conclusion": "failure"
+    },
+    "publish": {
+      "id": 107036826620,
+      "conclusion": "skipped"
+    },
+    "report-verify": {
+      "id": 107036826426,
+      "conclusion": "skipped"
+    }
+  },
+  "compile_exit_codes": {
+    "driver.lean": 1,
+    "solution.lean": null,
+    "statement.lean": null
+  },
+  "reported_errors": [
+    {
+      "line": 59,
+      "column": 45,
+      "site": "upper_shift",
+      "message": "mem_filter receives the outer image membership ha"
+    },
+    {
+      "line": 150,
+      "column": 49,
+      "site": "lower_card",
+      "message": "mem_filter receives the outer inverse-image membership ha"
+    }
+  ],
+  "standard_only_reports": [
+    "Hirsch.InverseRank.global_positive_shift",
+    "Hirsch.InverseRank.normalized_direction"
+  ],
+  "public_solution_axioms": [
+    "propext",
+    "sorryAx",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "written_admission": false,
+  "full_packet_verified": false,
+  "hosted_attempts": 1,
+  "actual_platform_submissions": 0,
+  "theorem_registration": false,
+  "theorem_id": null,
+  "submission_id": null,
+  "ACCEPTED_observed": false,
+  "Proved_observed": false,
+  "verified_artifact_produced": false,
+  "publication_artifact_produced": false,
+  "post_gate_source_or_metadata_edits": false,
+  "local_Lean_compilation": false,
+  "independent_platform_poll": false,
+  "lean_version_observed": "4.30.0",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "strict_protocol": "0.10.8",
+  "request_artifact": {
+    "id": 10731426787,
+    "bytes": 312,
+    "sha256": "f63d8738854a4eb1d8708b67236fad57871a28d91e7dfdead72d33580c7738f2",
+    "downloaded_and_rehashed": true
+  },
+  "runner_log_scope": "Full decoded verifier log read through cleanup; all displayed diagnostics/reports extracted with timestamps removed and separate selected runner excerpt. No full raw runner archive claimed."
+}

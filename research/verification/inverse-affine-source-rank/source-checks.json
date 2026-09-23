@@ -1,0 +1,12 @@
+{
+  "kind": "static_integrity_not_Lean_compilation",
+  "bytes": 12504,
+  "lines": 281,
+  "sha256": "ccd8c31d835030f2bc6616dd11f05ff51d39dc5234d1a9aba95895a6252ee29e",
+  "blob": "5c63e222a3212882708c26962afba5cfef98ac36",
+  "exact_public_type_matches": true,
+  "imports": [
+    "Mathlib"
+  ],
+  "local_Lean_compilation": false
+}

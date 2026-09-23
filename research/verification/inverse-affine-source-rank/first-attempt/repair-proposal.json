@@ -1,0 +1,18 @@
+{
+  "kind": "unapplied_uncompiled_two_site_binder_repair",
+  "tested_proof": "631ad17d13be459c7007e2124cc4cbe61ef3299f",
+  "changes": "Use fresh b,hb in each image preimage decomposition, then pass hb to mem_filter. No other code or public statement changes.",
+  "reported_error_lines": [
+    59,
+    150
+  ],
+  "additions": 4,
+  "deletions": 4,
+  "source_bytes": 12504,
+  "source_lines": 281,
+  "source_blob": "4d696ef44dbf24d528af1ff80d2d027bbf286153",
+  "source_sha256": "49ae6b96e113f033df19d195e60f9a96bf3a3ff994de0885eb6140692a4e4083",
+  "patch_apply_reverse_roundtrip": true,
+  "applied_to_publication_source": false,
+  "compiled": false
+}

@@ -1,0 +1,12 @@
+# Selected exact runner lines, not a full raw runner archive.
+# The complete decoded verifier log was read through cleanup.
+2026-09-23T03:46:39.2707185Z SHA256 digest of downloaded artifact is f63d8738854a4eb1d8708b67236fad57871a28d91e7dfdead72d33580c7738f2
+2026-09-23T03:47:51.2274266Z Lake version 5.0.0-src+d024af0 (Lean version 4.30.0)
+2026-09-23T03:47:51.2376345Z   GITHUB_TOKEN: 
+2026-09-23T03:47:51.2376576Z   PROVE2ME_API_KEY: 
+2026-09-23T03:47:57.6842953Z _verified/packets/inverse_affine_source_rank/driver.lean:59:45: error: Application type mismatch: The argument
+2026-09-23T03:47:57.6863544Z _verified/packets/inverse_affine_source_rank/driver.lean:150:49: error: Application type mismatch: The argument
+2026-09-23T03:47:57.6867814Z 'Hirsch.InverseRank.global_positive_shift' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-23T03:47:57.6870098Z 'Hirsch.InverseRank.normalized_direction' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-23T03:47:57.6871012Z 'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-23T03:47:57.6984556Z ##[error]Process completed with exit code 1.
