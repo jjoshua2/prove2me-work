@@ -55,8 +55,8 @@ theorem upper_shift (S : Finset (Fin d → ℝ)) (h D : Slope d)
     rw [hs,he] at hal
     linarith
   · intro ha
-    obtain ⟨a,ha,rfl⟩ := Finset.mem_image.mp ha
-    obtain ⟨hai,hal⟩ := Finset.mem_filter.mp ha
+    obtain ⟨b,hb,rfl⟩ := Finset.mem_image.mp ha
+    obtain ⟨hai,hal⟩ := Finset.mem_filter.mp hb
     obtain ⟨z,hz,rfl⟩ := Finset.mem_image.mp hai
     have hzS := (Finset.mem_erase.mp hz).2
     have hzv := (Finset.mem_erase.mp hz).1
@@ -146,8 +146,8 @@ theorem lower_card (S : Finset (Fin d → ℝ)) (h D : Slope d)
       rcases Finset.mem_insert.mp ha with ha | ha
       · subst a
         exact Finset.mem_filter.mpr ⟨Finset.mem_image.mpr ⟨v,hv,rvzero⟩,rxpos⟩
-      · obtain ⟨a,ha,rfl⟩ := Finset.mem_image.mp ha
-        obtain ⟨hai,hal⟩ := Finset.mem_filter.mp ha
+      · obtain ⟨b,hb,rfl⟩ := Finset.mem_image.mp ha
+        obtain ⟨hai,hal⟩ := Finset.mem_filter.mp hb
         obtain ⟨z,hz,rfl⟩ := Finset.mem_image.mp hai
         have hzS := (Finset.mem_erase.mp hz).2
         have hzv := (Finset.mem_erase.mp hz).1
@@ -267,7 +267,7 @@ theorem solution (d : ℕ) (C S : Finset (Fin d → ℝ))
   · intro z hz hzv w hw hwv
     exact Hirsch.InverseRank.normalized_direction h v z w
       (ne_of_gt (hh z hz hzv)) (ne_of_gt (hh w hw hwv))
-  · obtain ⟨D,hD,he,hu,hr⟩ := Hirsch.InverseRank.optimum C S h v x hSC hv hx hxv hh
+  · obtain ⟨D,hD,he,hu,hr⟩ := Hirsch.InverseRank.optimum C S h v x hSC hv hx hxv hh hhS
     refine ⟨D,hD,?_,?_,?_⟩
     · simpa only [hU,hR] using he
     · simpa only [hU] using hu
