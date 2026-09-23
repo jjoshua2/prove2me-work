@@ -1,0 +1,25 @@
+{
+  "kind": "static_repair_checks_not_Lean",
+  "source_blob": "668d5a54143923d16c293393c6affb3ab2759d16",
+  "source_sha256": "dc2a830c3da548edd4d1949235fbb5c0eb4f4178e9a5665b5744b74fe5048afe",
+  "source_lines": 351,
+  "source_bytes": 15120,
+  "exact_saved_patch": true,
+  "only_four_spaces_added": true,
+  "public_type_unchanged": true,
+  "metadata_unchanged": true,
+  "local_lean_compilation": false,
+  "local_preflight": {
+    "executables_found": [],
+    "checked_locations": [
+      "PATH",
+      "/opt",
+      "/home/oai",
+      "/mnt/data"
+    ],
+    "dns_failures": [
+      "releases.lean-lang.org",
+      "raw.githubusercontent.com"
+    ]
+  }
+}

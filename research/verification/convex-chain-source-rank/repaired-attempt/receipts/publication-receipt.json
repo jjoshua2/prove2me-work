@@ -1,0 +1,14 @@
+{
+  "head_sha": "de2e0175d0db46ecc13ccbe6c003efd535da6417",
+  "packets": [
+    {
+      "packet": "convex_chain_source_rank",
+      "status": "PUBLISH_PENDING",
+      "publish_job_id": "cfbe3736-58f8-4c07-9de0-63147127b046",
+      "theorem_name": "Hirsch.strict_convex_chain_exact_source_rank",
+      "registration": "QUEUED",
+      "reason": "problem registration is still pending; rerun resumes this exact job",
+      "path": "research/publication_packets/convex_chain_source_rank"
+    }
+  ]
+}
