@@ -1131,7 +1131,7 @@ theorem vertex_bound (m : ℕ) (A : Fin m → Form) (b : Fin m → ℝ)
       _ ≤ ∑ _i ∈ I, 2 := by
         apply Finset.sum_le_sum
         intro i hi
-        exact PlanarResidual.row_slice_card A b N (by omega) V hV
+        exact PlanarResidual.row_slice_card A b N hdim.le V hV
           (fun _ _ _ _ => Submodule.mem_top) i (Finset.mem_filter.mp hi).2
       _ = 2 * I.card := by simp [Nat.mul_comm]
   have hI : I.card ≤ m := by
@@ -1191,7 +1191,8 @@ lemma independent_coordinate (h : Form) (hn : h ≠ 0) :
     have ha : a = 0 := (mul_eq_zero.mp ha2).elim id id
     have hb : b = 0 := (mul_eq_zero.mp hb2).elim id id
     apply hn
-    ext z
+    apply LinearMap.ext
+    intro z
     have hz := form_coordinates h z
     change h z = a * z 0 + b * z 1 at hz
     change h z = 0
@@ -1248,7 +1249,7 @@ lemma normalized_injective (P : Set Point) (hP : Convex ℝ P)
   by_contra hne
   have hleft : 1 / h (x - v) < 1 / h (y - v) := by
     have hh := RadialPolygon.strict_chord P hP h e hinj v y x y hv
-      (hV y hyS).1 (hV y hyS).1 (hV x hxS) hxv.symm hne.symm hne.symm
+      (hV y hyS).1 (hV y hyS).1 (hV x hxS) hxv.symm (Ne.symm hne) (Ne.symm hne)
       hypos hxpos hypos 1 0 (by norm_num) (by norm_num) (by norm_num)
       (by simpa only [one_mul, zero_mul, add_zero] using he.symm)
     simpa only [one_mul, zero_mul, add_zero] using hh
@@ -1291,6 +1292,7 @@ lemma sorted_enumeration {α : Type*} [DecidableEq α] (S : Finset α)
       exact Finset.mem_image.mpr ⟨i, Finset.mem_univ _, hf (hp i) hx he⟩
   have hmono : StrictMono (fun i => f (p i)) := by
     intro i j hij
+    change f (p i) < f (p j)
     rw [hfval i, hfval j]
     exact o.strictMono hij
   have hc : T.card = S.card := Finset.card_image_of_injOn hf
