@@ -182,6 +182,7 @@ lemma scaled_tight (f : (Fin d → ℝ) →ₗ[ℝ] ℝ) (b : ℝ)
   · intro hx
     have he : f y / a = b - f v := by linarith
     have hh := congrArg (fun z : ℝ => z * a) he
+    change (f y / a) * a = (b - f v) * a at hh
     rw [div_mul_cancel₀ _ (ne_of_gt ha)] at hh
     nlinarith
   · intro hy
