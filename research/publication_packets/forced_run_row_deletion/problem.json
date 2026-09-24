@@ -1,0 +1,15 @@
+{
+  "theorem_name": "Hirsch.forced_edge_runs_survive_row_deletion",
+  "theorem_title": "Forced-run interiors survive original-row deletion with at most two boundary exceptions",
+  "formal_statement": "theorem Hirsch.forced_edge_runs_survive_row_deletion (d m n : ℕ)\n    (A : Fin m → (Fin d → ℝ) →ₗ[ℝ] ℝ) (b : Fin m → ℝ)\n    (v : Fin d → ℝ)\n    (hv : v ∈ ({x | ∀ i, A i x ≤ b i} : Set (Fin d → ℝ)).extremePoints ℝ)\n    (J : Finset (Fin m)) (p : Fin (n+3) → (Fin d → ℝ))\n    (hp : ∀ i, p i ∈ ({x | ∀ j, A j x ≤ b j} : Set (Fin d → ℝ)).extremePoints ℝ)\n    (hinj : Function.Injective p) (hnv : ∀ i, p i ≠ v)\n    (hE : ∀ i : Fin (n+2), IsExposed ℝ {x : Fin d → ℝ | ∀ j, A j x ≤ b j}\n      (segment ℝ (p i.castSucc) (p i.succ)))\n    (hforced : ∀ (t : Fin (n+2)) i, A i v < b i → A i (p t.castSucc) = b i →\n      A i (p t.succ) = b i → i ∈ J) :\n    let Q : Set (Fin d → ℝ) := {x | ∀ i, A i v = b i ∨ i ∈ J → A i x ≤ b i}\n    let r := fun i : Fin (n+1) => p i.succ.castSucc\n    Function.Injective r ∧\n    (∀ i, r i ∈ Q.extremePoints ℝ ∧ IsExposed ℝ Q {r i}) ∧\n    (∀ i : Fin n, IsExposed ℝ Q (segment ℝ (r i.castSucc) (r i.succ)) ∧\n      Q ∩ {x | ∃ s : ℝ, x = r i.castSucc + s • (r i.succ - r i.castSucc)} =\n        segment ℝ (r i.castSucc) (r i.succ)) ∧\n    (∀ i : Fin (n+2), Q ∩ {x | ∃ s : ℝ, x = p i.castSucc + s • (p i.succ - p i.castSucc)} ≠\n      segment ℝ (p i.castSucc) (p i.succ) → i.val = 0 ∨ i.val = n+1) := by sorry\n",
+  "preamble": "import Mathlib\nopen scoped BigOperators\nset_option autoImplicit false",
+  "env": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "natural_language_statement": "In an arbitrary finite real H-system, take an actual extreme target and an injective sequence of n+3 actual original vertices different from it, with n+2 genuine exposed connecting edges. Retain all target-tight original rows and a set J containing every target-slack common-tight row of every edge in this run. Derive that all n+1 interior vertices are exposed and extreme in the relaxation. The explicit trimmed sequence is injective and its n connecting segments are unchanged whole exposed edges of the relaxed body; their full relaxed affine-line sections equal those same original segments. Any original run edge whose line section grows must be first or last. No relaxed-vertex survival or rank hypothesis is supplied. The simple forced run is input, not a constructed globally short route. No polynomial bound on run lengths or their number, and no geodesicity or Polynomial Hirsch conclusion is claimed. No boundedness, full-dimensionality or finite-hull assumption is required.",
+  "source": "Geometric continuation of accepted PR344: exact exposed carriers and original-line recovery, plus classical exposed-face intersection and one-dimensional extreme-endpoint geometry. The accepted namespace prefix is copied without proof edits and its public target is not resubmitted.",
+  "tags": [
+    "hirsch-conjecture",
+    "convex-geometry",
+    "routing",
+    "formalization"
+  ]
+}
