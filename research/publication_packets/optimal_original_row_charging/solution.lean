@@ -279,7 +279,7 @@ theorem optimum (S : Fin N → Finset (Fin m)) (I : Finset (Fin m))
         obtain ⟨i, hi⟩ := hS t
         have hiJ := (Finset.mem_filter.mp ht).2 hi
         rw [hJE] at hiJ
-        exact Finset.not_mem_empty i hiJ
+        simpa using hiJ
       rw [hFE, Finset.card_empty] at hJ
       omega
     exact ⟨J, hJI, hne, hJ, (capacity_iff S I hSI K).mp hK J hJI⟩
