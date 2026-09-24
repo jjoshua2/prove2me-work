@@ -1,0 +1,10 @@
+# Selected exact runner lines, not a complete raw runner archive.
+# Full decoded verifier job 107462479535 was read through cleanup.
+2026-09-24T02:02:27.5386112Z SHA256 digest of downloaded artifact is 11b02eb860e35393a11532d8ed51e015da481aed967828a19cba3c3c146323f1
+2026-09-24T02:03:46.8845122Z Lake version 5.0.0-src+d024af0 (Lean version 4.30.0)
+2026-09-24T02:03:46.8984065Z   GITHUB_TOKEN: 
+2026-09-24T02:03:46.8984246Z   PROVE2ME_API_KEY: 
+2026-09-24T02:03:54.8953761Z _verified/packets/radial_original_row_envelope/driver.lean:185:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+2026-09-24T02:03:54.8960942Z 'Hirsch.RadialRowEnvelope.exposed_edge_row' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-24T02:03:54.8961404Z 'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-24T02:03:54.9039022Z ##[error]Process completed with exit code 1.

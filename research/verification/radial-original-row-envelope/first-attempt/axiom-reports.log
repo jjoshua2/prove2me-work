@@ -1,0 +1,8 @@
+'Hirsch.RadialRowEnvelope.epigraph_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.RadialRowEnvelope.strict_on_body' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.RadialRowEnvelope.ray_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.RadialRowEnvelope.non_target_active' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.RadialRowEnvelope.vertex_envelope' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.RadialRowEnvelope.vertex_injective' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.RadialRowEnvelope.exposed_edge_row' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

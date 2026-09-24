@@ -1,0 +1,32 @@
+# Complete displayed compiler error context and all eight axiom reports.
+# Run 35945514083; verifier 107462479535; proof 3db31f9347cdb9e1b3aab9cd27d57dcba58917ab.
+# Timestamps, a single unused-simp-argument warning, and setup/cleanup omitted.
+# This is an extracted diagnostic transcript, NOT a full raw runner archive.
+# Driver exit 1; standalone solution and exact target-statement checks not reached.
+
+radial_original_row_envelope/driver.lean failed to compile:
+_verified/packets/radial_original_row_envelope/driver.lean:185:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.106 / a * a
+in the target expression
+  (fun z => z * a) (f y / a) = (fun z => z * a) (b - f v)
+
+case mp
+d : ℕ
+f : (Fin d → ℝ) →ₗ[ℝ] ℝ
+b : ℝ
+v y : Fin d → ℝ
+a : ℝ
+ha : 0 < a
+hx : f v + f y / a = b
+he : f y / a = b - f v
+hh : (fun z => z * a) (f y / a) = (fun z => z * a) (b - f v)
+⊢ f y = a * (b - f v)
+
+'Hirsch.RadialRowEnvelope.epigraph_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.RadialRowEnvelope.strict_on_body' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.RadialRowEnvelope.ray_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.RadialRowEnvelope.non_target_active' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.RadialRowEnvelope.vertex_envelope' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.RadialRowEnvelope.vertex_injective' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.RadialRowEnvelope.exposed_edge_row' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

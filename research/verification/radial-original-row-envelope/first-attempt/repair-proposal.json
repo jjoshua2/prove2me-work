@@ -1,0 +1,20 @@
+{
+  "kind": "unapplied_uncompiled_single_site_beta_reduction_proposal",
+  "tested_proof": "3db31f9347cdb9e1b3aab9cd27d57dcba58917ab",
+  "reported_error_line": 185,
+  "reported_error_column": 8,
+  "source_bytes": 24594,
+  "source_lines": 561,
+  "source_blob": "5aa85241c966d6a2ebfc355f0f911f1a66754e22",
+  "source_sha256": "2cc1309ad076230fb3af3dada0d4059764c41dbf909e856be17b7dfeec863c5f",
+  "additions": 1,
+  "deletions": 0,
+  "complete_public_root_unchanged": true,
+  "all_declaration_statements_unchanged": true,
+  "accepted_helpers_unchanged": true,
+  "metadata_and_explanation_unchanged": true,
+  "patch_apply_reverse_roundtrip": true,
+  "applied_to_publication_source": false,
+  "compiled": false,
+  "change": "Expose the beta-reduced congrArg equality at hh before the existing division cancellation rewrite."
+}
