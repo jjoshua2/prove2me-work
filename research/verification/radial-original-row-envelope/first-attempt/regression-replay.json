@@ -1,0 +1,25 @@
+{
+  "kind": "executed_fresh_exact_rational_tests_not_Lean",
+  "outputs": {
+    "small/report.json": {
+      "bytes": 7729,
+      "sha256": "d2cf455d9aad7f55b15eab0a539d0df893960879bc4dda03bd1f51c481b25c5e",
+      "byte_identical_to_supplied": true
+    },
+    "small/fixtures.json": {
+      "bytes": 451157,
+      "sha256": "900bb5b0530e117443e86bd94eb872b165b9ca974b2a7197b8847749db3fa510",
+      "byte_identical_to_supplied": true
+    },
+    "large/report.json": {
+      "bytes": 2440,
+      "sha256": "106b5b6c380a43585e2dca63a2bbd72d35115a2fcc5bfdfeed596d2034689730",
+      "byte_identical_to_supplied": true
+    },
+    "large/fixtures.json": {
+      "bytes": 432885,
+      "sha256": "12c88aa996d5a68dc50a33c25efb470288abfefd86deb76463f82951b1b504ed",
+      "byte_identical_to_supplied": true
+    }
+  }
+}
