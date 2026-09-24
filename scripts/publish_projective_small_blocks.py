@@ -26,7 +26,7 @@ class VersionCheckedAPI(API):
             headers={'Content-Type': 'application/json'}, method='POST')
         with self.opener.open(req, timeout=45) as response:
             data = json.load(response)
-        if data.get('version') != '0.10.8':
+        if data.get('version') != '0.10.9':
             raise RuntimeError('Platform skill version changed; refresh the skill before publishing.')
         self.token = data['access_token']
         self.expires = float(data.get('expires_at', time.time() + 3500))
