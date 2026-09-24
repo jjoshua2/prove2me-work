@@ -1,0 +1,16 @@
+{
+  "kind": "derived_historical_protocol_stop_not_platform_receipt",
+  "proof_sha": "f9a606ff784dc8882473ac6e8cd9d80e548d2d38",
+  "run_id": 36031864783,
+  "complete_compilation": true,
+  "ACCEPTED": false,
+  "actual_platform_submissions": 0,
+  "no_receipt_comment": 5818627848,
+  "publisher_job": 107742976462,
+  "message": "Platform skill version changed; refresh the skill before publishing.",
+  "response_version_logged": false,
+  "resolved_by_separate_maintenance_pr": 345,
+  "maintenance_merge": "10468186f549e7aece26b923a2c9342b22c42944",
+  "request_archive": {"id":10823320571,"bytes":308,"sha256":"831696cdca459bc351220a165d47e222d9180fe97c5dc072cbe3089a65aeb122"},
+  "verified_archive": {"id":10823925511,"bytes":19644,"sha256":"b5db132fe270400ffcc1051f0eaf0f7fa9b44a75113ce8ed68c998bfb1defb2c"}
+}

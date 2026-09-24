@@ -1,71 +1,66 @@
-# PR344: forced-edge deletion — one scalar identity remains
+# PR344: forced-edge row deletion is ACCEPTED
 
-Read the current five project instructions, live main, PR head/comments and
-ownership before continuing. Resume this SAME target; respect #326/#282,
-reserved #210 and all other active claims. Do not redo accepted #343.
+Read current main, project instructions, live PR lifecycle and ownership first.
+Do not reapply the scalar repair, repeat protocol maintenance or resubmit this
+theorem. Respect #326/#282, reserved #210 and other live assignments.
 
-Branch: proof/forced-edge-row-deletion.
-Packet: research/publication_packets/forced_edge_row_deletion.
 Target: Hirsch.forced_original_edges_survive_row_deletion.
-Tested proof:d85aea5893d68d54bff16a9c86832cceded1f336.
-Source381 lines/16108 bytes, blob9755f146f1739e60ec5ba7c642804f7a63f73f53,
-SHA25640a73f82531077c56a451d07836ad79a612fff4bc693ac46ad26b606627ca4dd.
-Main at gate:60fce04c2cb45b7e1f9087b9ebd8630f16c1f051.
+Packet: research/publication_packets/forced_edge_row_deletion.
+Branch: proof/forced-edge-row-deletion.
+Frozen accepted proof:f9a606ff784dc8882473ac6e8cd9d80e548d2d38.
+Theorem:ee659ed9-1c3d-4169-acf8-f1db5af75838.
+Submission:a12c4ef6-e7d4-48ce-af5e-7cb1059ae5fb.
+Request5818926132; acknowledgement5818929044; run36034487100;
+verdict5818997831 at2026-09-24T17:32:56Z.
+The raw receipt records PUBLISHED/ACCEPTED/Proved; Proved is the trusted
+publisher's authenticated readback, not an independent fresh platform poll.
 
-Coordination5815792776; request5816084645; acknowledgement5816088496;
-run36013003665. Gate107678228843 passed; verify107678296812 failed at199:19.
-Publish107678827440/report107678827174 skipped. Standalone solution/statement
-not reached. One hosted attempt; no registration, actual proof submission,
-IDs, verified artifact, receipt, ACCEPTED or Proved. No second trigger.
+All three compiler stages pass; all five reports in both proof logs are
+standard-only. Source382 lines/16120 bytes, blob387280cd1b07c65480a4fefa34148c24a15c5aed,
+SHA256727f300d80bb3cd09147d7ca46810a2a066e99a48c5a52705e63c1559f1914fd.
+The final proof change was only rfl after the scalar simplification. Public
+root, accepted helpers, metadata and explanation remain frozen.
 
-## Exact next proof action
+The first run36013003665 failed compilation. Run36031864783 passed compilation
+but stopped at the old protocol guard. Separately reviewed maintenance #345
+merged as10468186f549e7aece26b923a2c9342b22c42944; it retains exact-version rejection
+at0.11.0. The successful operational resume uses the SAME frozen proof. These
+are three compiler gates and one actual platform proof submission, not three
+submissions. No licensing status/acceptance call was made. Earlier-contribution
+license grants require explicit owner authorization; do not infer it here.
 
-Apply first-attempt/proposed-scalar-identity-repair.patch. In map_smul' for the
-sum of common-active rows, keep the existing simp only and append rfl before
-its closing brace. The reported goal differs only by (RingHom.id R) c versus c.
-The proposal adds one proof line, preserving every declaration signature,
-accepted helper, complete public root statement/proof and metadata file.
+## Mathematical result and next obligation
 
-Proposed382 lines/16120 bytes, computed blob
-387280cd1b07c65480a4fefa34148c24a15c5aed, SHA256
-727f300d80bb3cd09147d7ca46810a2a066e99a48c5a52705e63c1559f1914fd.
-This is UNAPPLIED and UNCOMPILED. Apply/reverse checks pass, not Lean. Further
-errors may appear. Recheck live pending/ownership state, apply exactly, compile
-locally when available, then use one prepared complete pinned gate. Never
-weaken the target or rename it to get around this local proof error.
+Hall-forced original edges lift to exposed line sections of the relaxation
+retaining target-tight rows plus J. Intersection with the original P recovers
+each old edge exactly, so distinct geometric edges cannot merge. The common-
+active affine line and summed-row exposing functional are derived. Old endpoints
+may disappear as relaxed vertices and extensions may be rays. No boundedness,
+full dimension, finite-hull representation or vertex catalogue is required.
 
-## Verified helpers and mathematical boundary
+The forced-label hypothesis selects edges; it is not a small-carrier-count
+assumption. Repeated occurrences are not made distinct. No polynomial congestion
+or original-route construction follows merely from this injection. Select a
+specific unowned positive obligation controlling these carriers along a chosen
+original ordinary-edge route. Do not replace the missing bound by a new premise
+or count all auxiliary carriers as though that solved the original mission.
 
-active_kernel_direction and active_equations_iff_line have standard-only
-reports. They derive the common-active kernel and affine line of an actual
-original exposed edge, without a full-dimensionality or rank premise.
-common_slice_exposed, retained_edge_extension and solution retain failed-
-elaboration sorryAx. No admission was written; the whole packet is not verified.
+## Evidence and reproduction
 
-The complete candidate lifts Hall-forced original edges to exposed affine-line
-sections of the relaxation keeping target-tight rows plus J. Reinsertion
-recovers each original edge exactly, giving nonmerging of distinct geometric
-edges. Old endpoints may cease to be vertices and extensions may be rays.
-The condition S_e subset J specifies forced edges, not a small-congestion bound.
-No polynomial carrier count or original-route construction is concluded.
-
-## Reproduction and stored evidence
+Current packet:accepted-evidence.md and publication-receipt.json.
+Raw successful files:research/verification/forced-edge-row-deletion/accepted-run/raw/.
+Raw protocol stop:research/verification/forced-edge-row-deletion/protocol-stop/raw/.
+Original first-attempt/ remains unchanged. The previous handoff is preserved
+under accepted-run/previous-handoff.md. Check current PR metadata for integration.
 
     python3 scripts/test_row_deletion_edges.py --out /tmp/deletion-small
     python3 scripts/test_row_deletion_edges.py --large --out /tmp/deletion-large
 
-The new script imports the unchanged committed PR343 test_optimal_row_charging.py,
-not the previously blocked script. Nine small models:7638 carriers/62212 probes,
-3268 rays,3285 enlargements,3290 lost endpoints;8 rejected controls. Four selected
-8/16/32/64D models add116 carriers/812 probes, not complete graphs. All four full
-outputs match a clean two-script replay. Python/JSON are not kernel-verified.
+Both unchanged suites reran with four byte-identical outputs:7638 small carriers,
+62212 probes,116 selected high-dimensional carriers and812 probes;8 controls.
+Python/JSON and offline archive checks are not kernel-verified. Complete outputs,
+all successful original ZIPs, protocol history and the initial failure archive
+accompany the export. No local Lean run or full raw runner archive is claimed.
 
-Packet first-gate-evidence.md and research/verification/forced-edge-row-deletion/
-first-attempt/ preserve exact failed inputs, full displayed error/five reports,
-raw resolved request, proposed patch and labelled derived readbacks. The export
-includes the original request ZIP, full proposed source, complete fixtures and
-both runnable scripts. Only request artifact10812524834 exists,307 bytes,
-SHA2563553ac8c499aeb674324d737b52a70b63ba398dcb51dab26a24dad33f633db91.
-Diagnostic excerpts are not full raw runner archives; no publication receipt
-exists. Local compiler/cache absent, toolchain DNS failed. Retain Lean4.30.0,
-Mathlibc5ea00351c28e24afc9f0f84379aa41082b1188f, strict0.10.9 and all safeguards.
+Preserve Lean4.30.0/Mathlibc5ea00351c28e24afc9f0f84379aa41082b1188f, strict reviewed
+0.11.0, accepted inputs, duplicate guards and verifier/publisher secret separation.

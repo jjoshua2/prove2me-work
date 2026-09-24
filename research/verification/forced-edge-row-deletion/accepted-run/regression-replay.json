@@ -1,0 +1,9 @@
+{
+  "kind": "fresh_geometric_execution_not_Lean",
+  "outputs": {
+    "small/report.json": {"bytes":3262,"sha256":"09be99cfe079ae5cebdff48fd75438fabd229345521e68a5350b4c658d5768f4","byte_identical_to_prior":true},
+    "small/fixtures.json": {"bytes":7913915,"sha256":"7f871f02e94ece6ebdff7feda01f7de2637def8a49c287bdc11c6a3e38748c87","byte_identical_to_prior":true},
+    "large/report.json": {"bytes":1364,"sha256":"e7c684cabf46e1bedff878efa7dfdbe7e37da7ef4f000d77d83bbad3ae0b096b","byte_identical_to_prior":true},
+    "large/fixtures.json": {"bytes":860929,"sha256":"1f6f8fb5309b9db7a5d0f75c9e2777e4e6926c307ff490719596efa70efccd40","byte_identical_to_prior":true}
+  }
+}

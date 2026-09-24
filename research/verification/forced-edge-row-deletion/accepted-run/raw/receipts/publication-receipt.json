@@ -1,0 +1,15 @@
+{
+  "head_sha": "f9a606ff784dc8882473ac6e8cd9d80e548d2d38",
+  "packets": [
+    {
+      "packet": "forced_edge_row_deletion",
+      "status": "ACCEPTED",
+      "theorem_id": "ee659ed9-1c3d-4169-acf8-f1db5af75838",
+      "submission_id": "a12c4ef6-e7d4-48ce-af5e-7cb1059ae5fb",
+      "theorem_name": "Hirsch.forced_original_edges_survive_row_deletion",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/forced_edge_row_deletion"
+    }
+  ]
+}
