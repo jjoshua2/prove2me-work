@@ -1,82 +1,67 @@
-# PR #340: chart-free planar original-row half bound — first gate failed
+# PR #340: original-row planar half bound is ACCEPTED
 
-Read the five project instructions and LIVE heads/comments before resuming.
-Continue this SAME PR/target. Do not redo accepted #339 or the obsolete #320
-assignment. Respect #326, #282, reserved #210 and changing-numerator ownership.
+Read the five project instructions and LIVE main/PR/comments before continuing.
+Do not reapply the four-site repair or resubmit this accepted target. Check live
+PR lifecycle before any remaining ordinary integration action. Respect #326,
+#282, reserved #210, changing-numerator ownership and every other live claim.
 
+Repository: jjoshua2/prove2me-work. PR:340.
 Branch: proof/planar-original-half-bound.
 Packet: research/publication_packets/planar_original_half_bound.
 Target: Hirsch.planar_original_halfspace_half_bound.
-Tested proof: f06b42d02ba51e1d3b712d8f245acae455494e73.
-Main at gate: cc0d237ea750f6e3cbb63decc99d776a00f41f2b.
-Source: 1392 lines / 58551 bytes, blob a73661cea8141a2f934138e061fa432afbbedb3f,
-SHA256 a2d412a073e87addb663d52d78897e8de9d2f3310bddc15216757be19b67a383.
-Evidence-only commits do not replace this tested proof identity.
-
-## Outcome
-
-Request 5804972626; acknowledgement 5804974991; run 35936462095.
-Gate107434487042 succeeded. Verify107434542974 failed driver compilation, exit1.
-Standalone solution/statement not reached; publish107434853477 and
-report-verify107434853488 skipped. One hosted attempt; zero registration requests
-or proof submissions, no IDs/receipt/ACCEPTED/Proved. No second gate was posted.
-
-Inherited original_routes and new complete_vertices have standard-only reports.
-All six other reports, including public solution, retain failed-elaboration
-sorryAx. No admission was written. Complete vertex-hull recovery is verified;
-the entire original-row route theorem is not.
-
-## Exact next repair
-
-Saved patch: research/verification/planar-original-half-bound/first-attempt/
-proposed-local-repair.patch. Four sites, five additions/three deletions:
-
-1. At1134 pass hdim.le explicitly to PlanarResidual.row_slice_card.
-2. At1194 replace ext z with apply LinearMap.ext; intro z, retaining z as a point.
-   The two displayed errors refer to its applications at1196.
-3. At1251 replace both hne.symm occurrences with (Ne.symm hne).
-4. At1294 insert change f (p i) < f (p j) before rewriting hfval.
-
-Proposal is UNAPPLIED to the publication source and UNCOMPILED. It yields
-1394 lines / 58613 bytes, computed blob7476b40e159e3cae9f346c6b116c40471f160e4c,
+Accepted proof:6c08becac3a895c2245b567670c4345af00f60af.
+Source:1394 lines/58613 bytes, blob7476b40e159e3cae9f346c6b116c40471f160e4c,
 SHA25647324761cc298df950d242cf4b884836e05a021cdecc7dc73f60fe1c7f8777a3.
-Apply/check/reverse passes. All declaration statements, accepted1095-line prefix,
-complete public root (statement and proof), metadata and explanation are unchanged.
-Further errors may appear. Recheck live ownership/pending requests, apply exactly,
-compile locally where possible, and use one prepared complete gate on this PR.
-Never rename the theorem or weaken assumptions to get a passing compilation.
 
-## What this closes and what it does not
+Theorem21a3f083-3ba6-4077-bb22-9a09eef37804; submission
+5ffcb3ce-594b-406b-b024-23d4f09156d1. The raw publisher receipt records
+PUBLISHED/ACCEPTED/Proved. Proved is the trusted publisher's authenticated
+readback, not an independent fresh platform/mission-root poll.
+Request5805457316; acknowledgement5805461985; run35940253176;
+accepted verdict5805521566 at2026-09-24T00:57:53Z. All three compiler stages
+exit0 and all eight reports in both complete proof logs are standard-only.
+This was the second compiler attempt and first actual platform proof submission.
 
-The proposed theorem uses only exact conv(C)=the original m planar inequalities
-and actual extreme endpoints. It derives actual vertex completeness, exposure,
-independent coordinate, normalized injectivity and sorted chart. Ambient-plane
-incidence counting gives |V|<=m, and accepted #339 yields an original exposed-edge
-route with 2L<=m. Original rows, not a supplied expanded vertex inventory, govern
-this bound. Redundant generators/rows, zero rows, points, segments and equal
-endpoints remain included. The result is planar, not the arbitrary-dimensional
-mission. Exact finite-hull/H equality and endpoint extremality remain explicit.
-No formal shortestness, efficient H-to-V, facet-lattice or locking claim is made.
+The exact saved patch changes four local proof sites, five additions/three
+deletions. Every declaration statement, accepted prefix, full public root and
+metadata file is unchanged. No source/metadata edits followed the successful
+gate. The initial failed source/run35936462095 and its diagnostics remain in
+first-attempt/. That history is not an instruction to repeat a completed repair.
 
-## Reproduction and evidence
+## Mathematical result and remaining mission
+
+The complete theorem derives an original exposed-edge route with 2L<=m from
+exact conv(C)=the ORIGINAL m planar halfspaces and actual extreme endpoints.
+Complete vertices, strict exposure, independent coordinate and sorted chart
+are outputs. Ambient-plane incidences give |V|<=m, and original-edge geometry
+supplies 2L<=|V|. Redundant generators/rows, zero rows, points/segments and equal
+endpoints remain included. The remaining explicit constraints are ambient
+dimension TWO, exact finite-hull/H equality and actual extreme endpoints.
+
+This finishes this planar original-input result, not the arbitrary-dimensional
+mission. Select a concrete unowned positive original-edge obligation using live
+research handoffs, rather than adding equivalent planar wrappers or resubmitting
+accepted results. Uniform original-input control beyond the plane remains needed.
+No efficient H-to-V, formal facet-lattice, arbitrary-walk shortestness or target-
+locking claim was added.
+
+## Durable records and reproduction
+
+Packet accepted-evidence.md, verified-evidence.md, publication-receipt.json,
+manifest/audit and complete compiler logs preserve the result. repaired-attempt/
+retains raw verified and publisher files, the exact request, prior handoff and
+labelled derived source/run/replay records. Original ZIPs, complete test outputs,
+first-failure bundle and an offline checker accompany the export.
 
     python3 scripts/test_planar_original_input.py --out /tmp/planar-small
     python3 scripts/test_planar_original_input.py --large --out /tmp/planar-large
 
-One standard-library script; 15 planar models,430 routes/1434 edge occurrences,
-64 equal endpoints,103 redundant generators,28 zero rows and11 rejected controls.
-Both complete report/fixture pairs repeated byte-for-byte in a clean workspace.
-Python/JSON are not kernel-verified. Large means32 planar vertices/four targets.
+Fresh execution reproduced all four complete outputs:15 planar models,430 routes,
+1434 edge occurrences,64 equal endpoints,103 redundant generators,28 zero rows
+and11 rejected controls. Python/JSON and the offline checker are not kernel-
+verified. The large test is32 planar vertices/four targets, not32 dimensions.
 
-Packet first-gate-evidence.md and first-attempt/ preserve exact failed inputs,
-all displayed errors/eight reports, exact resolved request and derived readback.
-Only request artifact10782913821 exists:313 bytes,SHA256
-fd49dabb0ccac7317d8cf77bdeee39ca8a990492fc26d96e596aef754ad4c499.
-The export contains that original ZIP, full test outputs and full uncompiled
-proposal. Extracted diagnostics omit linter/setup/timestamp material; they are
-not the whole raw runner log, which was read through cleanup.
-
-Keep Lean4.30.0/Mathlibc5ea00351c28e24afc9f0f84379aa41082b1188f, strict0.10.8,
-accepted proof bytes, duplicate guards and secret-free verifier/trusted-publisher
-separation. Local compiler/cache was absent and toolchain-host DNS failed; those
-facts do not authorize changing the environment or bypassing a blocked action.
+Local Lean/Lake/Elan and checked caches were unavailable, and toolchain-host DNS
+failed. Actual compilation is the pinned hosted run. Preserve Lean4.30.0,
+Mathlibc5ea00351c28e24afc9f0f84379aa41082b1188f, strict0.10.8, accepted proof
+bytes, allowed actors, duplicate guards and verifier/publisher secret separation.

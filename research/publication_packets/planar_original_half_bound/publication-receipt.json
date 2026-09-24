@@ -1,0 +1,15 @@
+{
+  "head_sha": "6c08becac3a895c2245b567670c4345af00f60af",
+  "packets": [
+    {
+      "packet": "planar_original_half_bound",
+      "status": "ACCEPTED",
+      "theorem_id": "21a3f083-3ba6-4077-bb22-9a09eef37804",
+      "submission_id": "5ffcb3ce-594b-406b-b024-23d4f09156d1",
+      "theorem_name": "Hirsch.planar_original_halfspace_half_bound",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/planar_original_half_bound"
+    }
+  ]
+}

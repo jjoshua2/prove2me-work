@@ -1,0 +1,27 @@
+_verified/packets/planar_original_half_bound/driver.lean:371:8: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+_verified/packets/planar_original_half_bound/driver.lean:371:8: warning: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+_verified/packets/planar_original_half_bound/driver.lean:603:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+_verified/packets/planar_original_half_bound/driver.lean:1108:52: warning: This simp argument is unused:
+  Module.finrank_pi
+
+Hint: Omit it from the simp argument list.
+  simp [N,̵ ̵M̵o̵d̵u̵l̵e̵.̵f̵i̵n̵r̵a̵n̵k̵_̵p̵i̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+_verified/packets/planar_original_half_bound/driver.lean:1326:32: warning: Try `simp at hp` instead of `simpa using hp`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+'Hirsch.RadialPolygon.original_routes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.PlanarOriginalInput.vertex_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.PlanarOriginalInput.complete_vertices' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.PlanarOriginalInput.independent_coordinate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.PlanarOriginalInput.normalized_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.PlanarOriginalInput.sorted_enumeration' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.PlanarOriginalInput.half_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]

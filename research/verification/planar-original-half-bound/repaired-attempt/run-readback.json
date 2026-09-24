@@ -1,0 +1,91 @@
+{
+  "kind": "derived_readback_not_raw_GitHub_response",
+  "repository": "jjoshua2/prove2me-work",
+  "pr": 340,
+  "main_at_start": "cc0d237ea750f6e3cbb63decc99d776a00f41f2b",
+  "prior_evidence_head": "d2c77fe15fc20a4846643ba5b8099eaa75c3f7d3",
+  "proof_sha": "6c08becac3a895c2245b567670c4345af00f60af",
+  "proof_tree": "fb031513e8f50c31648da573d8ea87679c225788",
+  "coordination_comment": 5805409036,
+  "trigger_comment": 5805457316,
+  "registration_observed": true,
+  "acceptance_observed": true,
+  "local_Lean_compilation": false,
+  "new_publication_requests_this_continuation": 1,
+  "acknowledgement_comment": 5805461985,
+  "run_id": 35940253176,
+  "artifacts": [
+    {
+      "kind": "request",
+      "file": "pr340-repaired-request.zip",
+      "id": 10784354279,
+      "bytes": 313,
+      "sha256": "f3ff9d414692aafe1aa0f5b975e1d6adac320f5b3b24325fca5a8d4e2d03fdea"
+    },
+    {
+      "kind": "verified",
+      "file": "pr340-repaired-verified.zip",
+      "id": 10784667103,
+      "bytes": 40547,
+      "sha256": "7f52f23f589d57e0ff7e3464e9e65f409580a4dec040a341631e6a844edd7a8e"
+    },
+    {
+      "kind": "receipts",
+      "file": "pr340-publication-receipts.zip",
+      "id": 10785120515,
+      "bytes": 907,
+      "sha256": "731f1b652aa0dae24dc3a7ca4b97000d382b938f718f21b3c73a343b24b9117a"
+    }
+  ],
+  "compile_exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "standard_only_reports_per_proof_log": 8,
+  "hosted_compiler_attempts": 2,
+  "post_gate_source_or_metadata_edits": false,
+  "verifier_log_read_through_cleanup": true,
+  "lean_version_observed": "4.30.0",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "strict_protocol": "0.10.8",
+  "publication": {
+    "packet": "planar_original_half_bound",
+    "status": "ACCEPTED",
+    "theorem_id": "21a3f083-3ba6-4077-bb22-9a09eef37804",
+    "submission_id": "5ffcb3ce-594b-406b-b024-23d4f09156d1",
+    "theorem_name": "Hirsch.planar_original_halfspace_half_bound",
+    "registration": "PUBLISHED",
+    "live_status": "Proved",
+    "path": "research/publication_packets/planar_original_half_bound"
+  },
+  "Proved_from_trusted_publisher": true,
+  "independent_platform_poll": false,
+  "verdict_comment": 5805521566,
+  "verdict_time_utc": "2026-09-24T00:57:53Z",
+  "publisher_log_read_through_cleanup": true,
+  "raw_individual_platform_API_bodies_available": false,
+  "actual_platform_submissions": 1,
+  "prior_failed_run": 35936462095,
+  "jobs": {
+    "gate": {
+      "id": 107446368967,
+      "conclusion": "success"
+    },
+    "verify": {
+      "id": 107446479011,
+      "conclusion": "success"
+    },
+    "publish": {
+      "id": 107446769028,
+      "conclusion": "success"
+    },
+    "report-verify": {
+      "id": 107446769897,
+      "conclusion": "skipped"
+    }
+  },
+  "raw_verified_tree": "50075f5161e4c949c4816672f9d0738d7392f06f",
+  "raw_verified_packet_tree": "63b5500b9ae0353e4eb424a7c953306688c4f62e",
+  "raw_receipt_tree": "e7c8fd4596c60b15f83518162c7fc218bb36af14"
+}
