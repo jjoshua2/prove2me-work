@@ -1,0 +1,17 @@
+{
+  "kind": "unapplied_uncompiled_repair_proposal",
+  "source_bytes": 14566,
+  "source_lines": 356,
+  "source_blob": "1344d0a53a5dd6b45d5c08583a1a9b856dbb382d",
+  "source_sha256": "1f062f05c02f14cd713d64e3cfa467758b4d85f2bd7fd4e9e8be21acb569bdb9",
+  "all_declaration_statements_unchanged": true,
+  "accepted_helpers_unchanged": true,
+  "public_type_unchanged": true,
+  "public_proof_changed": true,
+  "metadata_unchanged": true,
+  "patch_roundtrip": true,
+  "applied_to_publication_source": false,
+  "compiled": false,
+  "additions": 28,
+  "deletions": 17
+}

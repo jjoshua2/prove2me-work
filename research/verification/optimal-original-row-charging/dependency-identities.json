@@ -1,0 +1,21 @@
+{
+  "accepted_source_sha256": "2cc1309ad076230fb3af3dada0d4059764c41dbf909e856be17b7dfeec863c5f",
+  "helpers": {
+    "finite_margin": {
+      "bytes": 1075,
+      "sha256": "3621b4ea39fd786c483f87a3a4bc35de38069c4f78505f085a5776b3dd44e20a"
+    },
+    "forward_tangent_feasible": {
+      "bytes": 934,
+      "sha256": "c6f4d69e65400d549738c5826da4b47161234b938523cd22deb2cc2a0f494535"
+    },
+    "exposed_edge_row": {
+      "bytes": 1621,
+      "sha256": "5d2cb0078965bfb90f31dec77f292cba681a44db4461a484f40d71ebec91193b"
+    },
+    "extreme_not_in_other_segment": {
+      "bytes": 786,
+      "sha256": "eae7b74d7a03397787e22ce1bdd85a5a00a6386b42b312523d46eeea5b9883be"
+    }
+  }
+}

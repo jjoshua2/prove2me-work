@@ -1,0 +1,19 @@
+{
+  "kind": "unapplied_uncompiled_single_line_repair",
+  "tested_proof": "a59329c6d365be307e73b11ea42122019593ef91",
+  "source_bytes": 14549,
+  "source_lines": 356,
+  "source_blob": "87d719f1cde8a87c29a90cfd7d6bfec4801ce7e7",
+  "source_sha256": "d3228b6e74e04152953b153a5859a02b24d16bb4a7054ba874bc340133a03c76",
+  "additions": 1,
+  "deletions": 1,
+  "line": 282,
+  "change": "Replace unavailable Finset.not_mem_empty with simpa using hiJ",
+  "public_type_unchanged": true,
+  "public_proof_unchanged": true,
+  "accepted_helpers_unchanged": true,
+  "metadata_unchanged": true,
+  "patch_roundtrip": true,
+  "applied_to_publication_source": false,
+  "compiled": false
+}

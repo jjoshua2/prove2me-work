@@ -1,0 +1,13 @@
+{
+  "kind": "static_repair_checks_not_Lean",
+  "source_blob": "1344d0a53a5dd6b45d5c08583a1a9b856dbb382d",
+  "sha256": "1f062f05c02f14cd713d64e3cfa467758b4d85f2bd7fd4e9e8be21acb569bdb9",
+  "bytes": 14566,
+  "lines": 356,
+  "exact_saved_patch": true,
+  "patch_apply_reverse_pass": true,
+  "public_type_unchanged": true,
+  "type_matches_metadata": true,
+  "accepted_helpers_unchanged": true,
+  "local_Lean_compilation": false
+}

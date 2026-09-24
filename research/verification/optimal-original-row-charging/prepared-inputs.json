@@ -1,0 +1,20 @@
+{
+  "solution.lean": {
+    "bytes": 14453,
+    "lines": 345,
+    "sha256": "796e8df8257a7643ea80f7983b5787dfbb3fe449087447a6dd812367dcc6bf37",
+    "git_blob": "4e68e6ea665e5e57002fa7fd0808cef4c8c4601d"
+  },
+  "problem.json": {
+    "bytes": 3275,
+    "lines": 15,
+    "sha256": "26a89efb862d0ffaf99f28247d859b8b2a2a7101d57f27a6c69d47ea66f4df41",
+    "git_blob": "483189ca86108049f6b0ad57cd584d4b8e7f08b6"
+  },
+  "explanation.md": {
+    "bytes": 11222,
+    "lines": 203,
+    "sha256": "a510e6d7482285301cd7f37f4cd141ce812c088b620b5a304604f66175f8fcd9",
+    "git_blob": "411905dcc15b675785028c98106a1333fb410109"
+  }
+}

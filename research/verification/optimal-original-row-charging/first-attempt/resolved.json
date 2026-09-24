@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/optimal_original_row_charging"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "0df4d0d81d317c9858876aad5308f3c3dc952d6b",
+  "pr": "343"
+}

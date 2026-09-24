@@ -1,0 +1,125 @@
+# Extracted displayed compiler errors and all five transitive axiom reports.
+# Run35998089588; verifier107627828683; proof0df4d0d81d317c9858876aad5308f3c3dc952d6b.
+# Timestamps, the push_neg deprecation warning, and setup/cleanup omitted.
+# This is the compilation-error transcript, NOT the full raw runner archive.
+
+optimal_original_row_charging/driver.lean failed to compile:
+_verified/packets/optimal_original_row_charging/driver.lean:204:18: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (?s ×ˢ ?t).card
+in the target expression
+  E.card ≤ (J.product Finset.univ).card
+
+N m : ℕ
+S : Fin N → Finset (Fin m)
+I : Finset (Fin m)
+hSI : ∀ (t : Fin N), S t ⊆ I
+k : ℕ
+hcap : ∀ J ⊆ I, (forced S J).card ≤ k * J.card
+T : Fin N → Finset (Fin m × Fin k) := fun t => (S t).product Finset.univ
+E : Finset (Fin N)
+J : Finset (Fin m) := E.biUnion S
+hJI : J ⊆ I
+hEF : E ⊆ forced S J
+hslots : E.biUnion T = J.product Finset.univ
+⊢ E.card ≤ (J.product Finset.univ).card
+
+_verified/packets/optimal_original_row_charging/driver.lean:277:14: error(lean.unknownIdentifier): Unknown constant `Finset.eq_empty_iff_forall_not_mem.mpr`
+_verified/packets/optimal_original_row_charging/driver.lean:278:14: error: No goals to be solved
+_verified/packets/optimal_original_row_charging/driver.lean:329:53: error: synthesized type class instance is not definitionally equal to expression inferred by typing rules, synthesized
+  fun a => instDecidableAnd
+inferred
+  fun x => Classical.propDecidable ((fun i => (A i) v < b i ∧ (A i) (u t) = b i ∧ (A i) (w t) = b i) x)
+_verified/packets/optimal_original_row_charging/driver.lean:336:14: error: synthesized type class instance is not definitionally equal to expression inferred by typing rules, synthesized
+  fun a => instDecidableAnd
+inferred
+  fun x => Classical.propDecidable ((fun i => (A i) v < b i ∧ (A i) (u t) = b i ∧ (A i) (w t) = b i) x)
+_verified/packets/optimal_original_row_charging/driver.lean:337:72: error: Tactic `rfl` failed: The left-hand side
+  Hirsch.CapacitatedRows.forced S J
+is not definitionally equal to the right-hand side
+  F J
+
+d m N : ℕ
+A : Fin m → (Fin d → ℝ) →ₗ[ℝ] ℝ
+b : Fin m → ℝ
+v : Fin d → ℝ
+hv : v ∈ Set.extremePoints ℝ {x | ∀ (i : Fin m), (A i) x ≤ b i}
+u w : Fin N → Fin d → ℝ
+hu : ∀ (t : Fin N), u t ∈ Set.extremePoints ℝ {x | ∀ (i : Fin m), (A i) x ≤ b i}
+hw : ∀ (t : Fin N), w t ∈ Set.extremePoints ℝ {x | ∀ (i : Fin m), (A i) x ≤ b i}
+huv : ∀ (t : Fin N), u t ≠ v
+hwv : ∀ (t : Fin N), w t ≠ v
+huw : ∀ (t : Fin N), u t ≠ w t
+hE : ∀ (t : Fin N), IsExposed ℝ {x | ∀ (i : Fin m), (A i) x ≤ b i} (segment ℝ (u t) (w t))
+I : Finset (Fin m) := {i | (A i) v < b i}
+S : Fin N → Finset (Fin m) := fun t => {i | (A i) v < b i ∧ (A i) (u t) = b i ∧ (A i) (w t) = b i}
+F : Finset (Fin m) → Finset (Fin N) := fun J => {t | S t ⊆ J}
+Cap : ℕ → Prop := fun k => ∃ f, (∀ (t : Fin N), f t ∈ S t) ∧ ∀ (i : Fin m), {t | f t = i}.card ≤ k
+hSI : ∀ (t : Fin N), S t ⊆ I
+hS : ∀ (t : Fin N), (S t).Nonempty
+J : Finset (Fin m)
+⊢ Hirsch.CapacitatedRows.forced S J = F J
+
+_verified/packets/optimal_original_row_charging/driver.lean:338:78: error: Tactic `rfl` failed: The left-hand side
+  Hirsch.CapacitatedRows.Capacity S k
+is not definitionally equal to the right-hand side
+  Cap k
+
+d m N : ℕ
+A : Fin m → (Fin d → ℝ) →ₗ[ℝ] ℝ
+b : Fin m → ℝ
+v : Fin d → ℝ
+hv : v ∈ Set.extremePoints ℝ {x | ∀ (i : Fin m), (A i) x ≤ b i}
+u w : Fin N → Fin d → ℝ
+hu : ∀ (t : Fin N), u t ∈ Set.extremePoints ℝ {x | ∀ (i : Fin m), (A i) x ≤ b i}
+hw : ∀ (t : Fin N), w t ∈ Set.extremePoints ℝ {x | ∀ (i : Fin m), (A i) x ≤ b i}
+huv : ∀ (t : Fin N), u t ≠ v
+hwv : ∀ (t : Fin N), w t ≠ v
+huw : ∀ (t : Fin N), u t ≠ w t
+hE : ∀ (t : Fin N), IsExposed ℝ {x | ∀ (i : Fin m), (A i) x ≤ b i} (segment ℝ (u t) (w t))
+I : Finset (Fin m) := {i | (A i) v < b i}
+S : Fin N → Finset (Fin m) := fun t => {i | (A i) v < b i ∧ (A i) (u t) = b i ∧ (A i) (w t) = b i}
+F : Finset (Fin m) → Finset (Fin N) := fun J => {t | S t ⊆ J}
+Cap : ℕ → Prop := fun k => ∃ f, (∀ (t : Fin N), f t ∈ S t) ∧ ∀ (i : Fin m), {t | f t = i}.card ≤ k
+hSI : ∀ (t : Fin N), S t ⊆ I
+hS : ∀ (t : Fin N), (S t).Nonempty
+hF : ∀ (J : Finset (Fin m)), Hirsch.CapacitatedRows.forced S J = F J
+k : ℕ
+⊢ Hirsch.CapacitatedRows.Capacity S k ↔ Cap k
+
+_verified/packets/optimal_original_row_charging/driver.lean:339:2: error: Type mismatch: After simplification, term
+  Hirsch.CapacitatedRows.optimum S I hSI hS
+ has type
+  ∃ K ≤ N,
+    N ≤ K * I.card ∧
+      Cap K ∧
+        (∀ (k : ℕ), Cap k ↔ K ≤ k) ∧
+          (∀ (k : ℕ), Cap k ↔ ∀ J ⊆ I, (F J).card ≤ k * J.card) ∧
+            ∀ k < K, ∃ J ⊆ I, J.Nonempty ∧ k * J.card < (F J).card ∧ (F J).card ≤ K * J.card
+but is expected to have type
+  ∃ K ≤ N,
+    N ≤ K * {i | (A i) v < b i}.card ∧
+      (∃ f,
+          (∀ (t : Fin N), f t ∈ {i | (A i) v < b i ∧ (A i) (u t) = b i ∧ (A i) (w t) = b i}) ∧
+            ∀ (i : Fin m), {t | f t = i}.card ≤ K) ∧
+        (∀ (k : ℕ),
+            (∃ f,
+                (∀ (t : Fin N), f t ∈ {i | (A i) v < b i ∧ (A i) (u t) = b i ∧ (A i) (w t) = b i}) ∧
+                  ∀ (i : Fin m), {t | f t = i}.card ≤ k) ↔
+              K ≤ k) ∧
+          (∀ (k : ℕ),
+              (∃ f,
+                  (∀ (t : Fin N), f t ∈ {i | (A i) v < b i ∧ (A i) (u t) = b i ∧ (A i) (w t) = b i}) ∧
+                    ∀ (i : Fin m), {t | f t = i}.card ≤ k) ↔
+                ∀ J ⊆ {i | (A i) v < b i},
+                  {x | {i | (A i) v < b i ∧ (A i) (u x) = b i ∧ (A i) (w x) = b i} ⊆ J}.card ≤ k * J.card) ∧
+            ∀ k < K,
+              ∃ J ⊆ {i | (A i) v < b i},
+                J.Nonempty ∧
+                  k * J.card < {x | {i | (A i) v < b i ∧ (A i) (u x) = b i ∧ (A i) (w x) = b i} ⊆ J}.card ∧
+                    {x | {i | (A i) v < b i ∧ (A i) (u x) = b i ∧ (A i) (w x) = b i} ⊆ J}.card ≤ K * J.card
+
+'Hirsch.RadialRowEnvelope.exposed_edge_row' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.CapacitatedRows.forced_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.CapacitatedRows.capacity_iff' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.CapacitatedRows.optimum' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
