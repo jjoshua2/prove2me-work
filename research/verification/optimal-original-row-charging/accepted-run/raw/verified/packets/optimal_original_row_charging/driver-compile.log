@@ -1,0 +1,18 @@
+_verified/packets/optimal_original_row_charging/driver.lean:271:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+_verified/packets/optimal_original_row_charging/driver.lean:282:8: warning: Try `simp at hiJ` instead of `simpa using hiJ`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+_verified/packets/optimal_original_row_charging/driver.lean:298:47: warning: unused variable `huw`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'Hirsch.RadialRowEnvelope.exposed_edge_row' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.CapacitatedRows.forced_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.CapacitatedRows.capacity_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.CapacitatedRows.optimum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]

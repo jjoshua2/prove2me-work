@@ -1,0 +1,9 @@
+{
+  "kind": "fresh_execution_not_Lean",
+  "outputs": {
+    "small/report.json": {"bytes":15725,"sha256":"e13a119baeae858d71f6687e8a95a91bcaae88b26280df5bdb2cab704a8abe53","byte_identical_to_prior":true},
+    "small/fixtures.json": {"bytes":398585,"sha256":"e418f9e346613de952783b0d5fb3f1afbd92921e01a8e841965fe76fd73aa037","byte_identical_to_prior":true},
+    "large/report.json": {"bytes":1273,"sha256":"d3547150fea5fa67b3c1a996ec791c909255b4d5c0b6d1abca628b46eee13b89","byte_identical_to_prior":true},
+    "large/fixtures.json": {"bytes":371286,"sha256":"db248308e2cbe283eb22f3600617ba2f40e4e34dedc817d471080f3045fd9d44","byte_identical_to_prior":true}
+  }
+}

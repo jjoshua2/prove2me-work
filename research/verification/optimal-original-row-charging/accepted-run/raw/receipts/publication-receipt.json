@@ -1,0 +1,15 @@
+{
+  "head_sha": "0568508f461b614fd0a6f7a6bad5decee1e2a540",
+  "packets": [
+    {
+      "packet": "optimal_original_row_charging",
+      "status": "ACCEPTED",
+      "theorem_id": "c686867d-29b6-4c57-a9fa-59852b51c051",
+      "submission_id": "98759442-081e-4d9a-b0b6-f59cf4f51140",
+      "theorem_name": "Hirsch.optimal_original_row_edge_charging",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/optimal_original_row_charging"
+    }
+  ]
+}
