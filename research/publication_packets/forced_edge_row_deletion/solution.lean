@@ -198,7 +198,8 @@ lemma common_slice_exposed (A : Fin m → (Fin d → ℝ) →ₗ[ℝ] ℝ)
         simp only [map_add, Finset.sum_add_distrib]
       map_smul' := by
         intro c x
-        simp only [map_smul, smul_eq_mul, Finset.mul_sum] }
+        simp only [map_smul, smul_eq_mul, Finset.mul_sum]
+        rfl }
   have hle : ∀ z ∈ relaxed A b keep, ∀ i ∈ T, A i z ≤ A i u := by
     intro z hz i hi
     have ht := (Finset.mem_filter.mp hi).2
