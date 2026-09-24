@@ -1,0 +1,15 @@
+{
+  "kind": "static_source_and_dependency_identity_not_Lean_compilation",
+  "proof_sha": "f06b42d02ba51e1d3b712d8f245acae455494e73",
+  "inputs": {
+    "solution.lean": {"bytes":58551,"lines":1392,"sha256":"a2d412a073e87addb663d52d78897e8de9d2f3310bddc15216757be19b67a383","git_blob":"a73661cea8141a2f934138e061fa432afbbedb3f"},
+    "problem.json": {"bytes":2523,"lines":15,"sha256":"f4906adcb4dee8823d07f6dc17f7ec7741aebaa1f7d71cbc8a024c795b85435d","git_blob":"a26132ebf0cc993852154601110132edf2f09a8a"},
+    "explanation.md": {"bytes":9281,"lines":170,"sha256":"cd820036bb5410574e7db856564c43f98498a8b2198f2c02ac7d2ea94b0dc36c","git_blob":"b9c1a773d9cc3a77267f3565bcd506e17e8a5225"}
+  },
+  "exact_public_type_matches": true,
+  "local_Lean_compilation": false,
+  "accepted_dependencies_unchanged": true,
+  "accepted_prefix": {"bytes":45268,"lines":1095,"sha256":"8792263362536276d8c09eab30b209a7cb82f07206e8fa23c1aece8249ff5ae6","git_blob":"17b5524529d707eff3c152377386bb38ea7bae16"},
+  "test_script": {"bytes":10654,"lines":217,"sha256":"bcdfd5dee5d15cb69f685c2d91cde376f7c3f44ac6b39df869d8dddb5abd5383","git_blob":"5c62b3bcc5d063246ed0afe554271e19172ca2e7"},
+  "excluded_detached_upload": {"blob":"2bc8e162ade824ab3e89e5905d71f9f3d36f6530","error":"Five-byte Fin type transcription omission","caught_by_hash":true,"committed":false,"submitted_to_compiler":false,"final_committed_source_matches_prepared":true}
+}

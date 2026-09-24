@@ -1,0 +1,19 @@
+{
+  "kind": "derived_summary_of_executed_exact_tests_not_Lean",
+  "models": 15,
+  "totals": {
+    "vertices": 92,
+    "rows": 150,
+    "generators": 195,
+    "targets": 64,
+    "routes": 430,
+    "edge_occurrences": 1434,
+    "equal_endpoint_routes": 64,
+    "nonzero_incidences": 213,
+    "zero_rows": 28,
+    "redundant_generator_count": 103
+  },
+  "malformed_controls_rejected": 11,
+  "large_scope": "32-vertex planar polygon, four targets, 36 original rows",
+  "segment_and_point_tested": true
+}

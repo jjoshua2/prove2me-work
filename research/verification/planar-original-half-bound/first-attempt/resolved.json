@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/planar_original_half_bound"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "f06b42d02ba51e1d3b712d8f245acae455494e73",
+  "pr": "340"
+}

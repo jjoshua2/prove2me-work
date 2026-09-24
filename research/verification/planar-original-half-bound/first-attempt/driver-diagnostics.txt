@@ -1,0 +1,65 @@
+# Extracted complete displayed compiler errors and all eight axiom reports.
+# Run35936462095; verifier107434542974; proof f06b42d02ba51e1d3b712d8f245acae455494e73.
+# Timestamps, linter warnings/hints and setup/cleanup omitted. NOT a full raw runner archive.
+# Driver exit1; standalone solution and exact target statement were not reached.
+
+planar_original_half_bound/driver.lean failed to compile:
+_verified/packets/planar_original_half_bound/driver.lean:1134:54: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  c ≥ 3
+  a ≥ 0
+where
+ a := ↑(∑ i ∈ I, {x ∈ V | (A i) x = b i}.card)
+ c := ↑(Module.finrank ℝ ↥N)
+_verified/packets/planar_original_half_bound/driver.lean:1196:21: error: Function expected at
+  z
+but this term has type
+  Fin 2
+
+Note: Expected a function because this term is being applied to the argument
+  0
+_verified/packets/planar_original_half_bound/driver.lean:1196:31: error: Function expected at
+  z
+but this term has type
+  Fin 2
+
+Note: Expected a function because this term is being applied to the argument
+  1
+_verified/packets/planar_original_half_bound/driver.lean:1251:56: error(lean.invalidField): Invalid field `symm`: The environment does not contain `Function.symm`, so it is not possible to project the field `symm` from an expression
+  hne
+of type `x = y → False`
+_verified/packets/planar_original_half_bound/driver.lean:1251:65: error(lean.invalidField): Invalid field `symm`: The environment does not contain `Function.symm`, so it is not possible to project the field `symm` from an expression
+  hne
+of type `x = y → False`
+_verified/packets/planar_original_half_bound/driver.lean:1294:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  f (p i)
+in the target expression
+  (fun i => f (p i)) i < (fun i => f (p i)) j
+
+α : Type u_1
+inst✝ : DecidableEq α
+S : Finset α
+f : α → ℝ
+hne : S.Nonempty
+hf : InjOn f ↑S
+T : Finset ℝ := Finset.image f S
+hTne : T.Nonempty
+n : ℕ := T.card - 1
+hT : T.card = n + 1
+o : Fin (n + 1) ≃o ↥T := T.orderIsoOfFin hT
+p : Fin (n + 1) → α
+hp : ∀ (i : Fin (n + 1)), p i ∈ S
+hfval : ∀ (i : Fin (n + 1)), f (p i) = ↑(o i)
+himage : Finset.image p Finset.univ = S
+i j : Fin (n + 1)
+hij : i < j
+⊢ (fun i => f (p i)) i < (fun i => f (p i)) j
+
+'Hirsch.RadialPolygon.original_routes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.PlanarOriginalInput.vertex_bound' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.PlanarOriginalInput.complete_vertices' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.PlanarOriginalInput.independent_coordinate' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.PlanarOriginalInput.normalized_injective' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.PlanarOriginalInput.sorted_enumeration' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.PlanarOriginalInput.half_bound' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
