@@ -1,0 +1,14 @@
+{
+  "source_commit": "f9a606ff784dc8882473ac6e8cd9d80e548d2d38",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "public_dependencies": {},
+  "source_blobs": {},
+  "sha256": {
+    "solution.lean": "727f300d80bb3cd09147d7ca46810a2a066e99a48c5a52705e63c1559f1914fd",
+    "driver.lean": "727f300d80bb3cd09147d7ca46810a2a066e99a48c5a52705e63c1559f1914fd",
+    "statement.lean": "1ff56970e81ac10689bde9b0810ee7707ce6b93490c13b8507f78cadb8ed9a29",
+    "problem.json": "cc5269d60e19772300365d04d207ff99b317ed30ac8247ca73bdb1f77992c93e",
+    "explanation.md": "213863052973cde468b95de7865614f45587ab2e71390e94c0344ffefa840901"
+  },
+  "publishable": true
+}

@@ -1,0 +1,18 @@
+{
+  "kind": "unapplied_uncompiled_scalar_identity_repair",
+  "tested_proof": "d85aea5893d68d54bff16a9c86832cceded1f336",
+  "reported_error_line": 199,
+  "reported_error_column": 19,
+  "edited_line": 201,
+  "bytes": 16120,
+  "lines": 382,
+  "blob": "387280cd1b07c65480a4fefa34148c24a15c5aed",
+  "sha256": "727f300d80bb3cd09147d7ca46810a2a066e99a48c5a52705e63c1559f1914fd",
+  "patch_apply_reverse": true,
+  "public_root_unchanged": true,
+  "all_signatures_unchanged": true,
+  "accepted_helpers_unchanged": true,
+  "metadata_unchanged": true,
+  "applied_to_publication_source": false,
+  "compiled": false
+}

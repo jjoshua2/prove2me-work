@@ -1,0 +1,7 @@
+{
+  "source_sha256": "d3228b6e74e04152953b153a5859a02b24d16bb4a7054ba874bc340133a03c76",
+  "helpers": {
+    "finite_margin": {"bytes":1074,"sha256":"8501b813548d92eaaf4c648747bbe42b749b04326f5ead6ab2e399f66b5f3202","exact":true},
+    "extreme_not_in_other_segment": {"bytes":785,"sha256":"77e2aac3c0e6fb8f61b958026d4443d547c6c9d14adb5d651ed0e78ba52f9b25","exact":true}
+  }
+}

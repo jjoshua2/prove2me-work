@@ -1,0 +1,73 @@
+{
+  "kind": "derived_GitHub_and_artifact_readback_not_raw_platform_response",
+  "repository": "jjoshua2/prove2me-work",
+  "pr": 344,
+  "proof_sha": "f9a606ff784dc8882473ac6e8cd9d80e548d2d38",
+  "source_blob": "387280cd1b07c65480a4fefa34148c24a15c5aed",
+  "source_sha256": "727f300d80bb3cd09147d7ca46810a2a066e99a48c5a52705e63c1559f1914fd",
+  "source_bytes": 16120,
+  "source_lines": 382,
+  "first_failed_compiler_run": 36013003665,
+  "protocol_stopped_run": 36031864783,
+  "protocol_stopped_request": 5818600314,
+  "protocol_stopped_acknowledgement": 5818602734,
+  "protocol_stopped_no_receipt_comment": 5818627848,
+  "request_comment": 5818926132,
+  "acknowledgement_comment": 5818929044,
+  "run_id": 36034487100,
+  "accepted_comment": 5818997831,
+  "accepted_at_utc": "2026-09-24T17:32:56Z",
+  "maintenance_pr": 345,
+  "maintenance_head": "837723a174f9be994e487a5a64de45c17749afef",
+  "maintenance_merge": "10468186f549e7aece26b923a2c9342b22c42944",
+  "maintenance_comment_review": 5307859922,
+  "independent_third_party_review": false,
+  "strict_protocol": "0.11.0",
+  "licensing_acceptance_requested": false,
+  "licensing_status_queried": false,
+  "theorem_id": "ee659ed9-1c3d-4169-acf8-f1db5af75838",
+  "submission_id": "a12c4ef6-e7d4-48ce-af5e-7cb1059ae5fb",
+  "registration": "PUBLISHED",
+  "status": "ACCEPTED",
+  "publisher_live_readback": "Proved",
+  "actual_platform_submissions": 1,
+  "hosted_compiler_gates": 3,
+  "distinct_proof_versions": 2,
+  "new_top_level_requests_this_continuation": 2,
+  "second_request_reason": "Operational resume after separately reviewed protocol maintenance; identical proof",
+  "independent_platform_poll": false,
+  "local_Lean_compilation": false,
+  "compiler_exit_codes": {
+    "driver.lean": 0,
+    "solution.lean": 0,
+    "statement.lean": 0
+  },
+  "standard_only_reports_per_proof_log": 5,
+  "post_verification_source_or_metadata_edits": false,
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "lean_version": "4.30.0",
+  "raw_successful_files": 15,
+  "raw_tree": "0a5b4bb938ca3483ee834166142a44bfe7869f14",
+  "protocol_stop_raw_tree": "e7142e3eafb9adb9df1a8d551fd75269d91510f6",
+  "geometric_tests_rerun": true,
+  "complete_test_outputs_identical": true,
+  "archives": {
+    "request": {
+      "id": 10823779048,
+      "bytes": 308,
+      "sha256": "291b987e961a91474b3811341f597554c5120ae2636de519af37d779281b8696"
+    },
+    "verified": {
+      "id": 10823389613,
+      "bytes": 19644,
+      "sha256": "10e59a6fe5cb52e2fd955c06b6e95c223ddd0f7445bf8c7fc48dcd347fe6c389"
+    },
+    "receipts": {
+      "id": 10824920049,
+      "bytes": 915,
+      "sha256": "d4da20847fadd3693f9b9619cc39623eebf773c796d61b711dda231f9771105f"
+    }
+  },
+  "full_runner_archive_preserved": false,
+  "raw_individual_platform_API_bodies_preserved": false
+}

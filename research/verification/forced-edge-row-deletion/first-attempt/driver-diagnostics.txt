@@ -1,0 +1,22 @@
+# Complete displayed compiler error and all five transitive reports.
+# Run36013003665; verifier107678296812; proofd85aea5893d68d54bff16a9c86832cceded1f336.
+# Timestamps/setup/cache/cleanup omitted. Not a full raw runner archive.
+
+forced_edge_row_deletion/driver.lean failed to compile:
+_verified/packets/forced_edge_row_deletion/driver.lean:199:19: error: unsolved goals
+d m : ℕ
+A : Fin m → (Fin d → ℝ) →ₗ[ℝ] ℝ
+b : Fin m → ℝ
+u w : Fin d → ℝ
+keep : Fin m → Prop
+hu : u ∈ body A b
+hkeep : ∀ (i : Fin m), (A i) u = b i ∧ (A i) w = b i → keep i
+T : Finset (Fin m) := {i | (A i) u = b i ∧ (A i) w = b i}
+c : ℝ
+x : Fin d → ℝ
+⊢ ∑ x_1 ∈ T, c * (A x_1) x = ∑ i ∈ T, (RingHom.id ℝ) c * (A i) x
+'Hirsch.RowDeletionEdges.active_kernel_direction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.RowDeletionEdges.active_equations_iff_line' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.RowDeletionEdges.common_slice_exposed' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.RowDeletionEdges.retained_edge_extension' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

@@ -1,0 +1,6 @@
+{
+  "solution.lean": {"bytes":16108,"lines":381,"sha256":"40a73f82531077c56a451d07836ad79a612fff4bc693ac46ad26b606627ca4dd","blob":"9755f146f1739e60ec5ba7c642804f7a63f73f53"},
+  "problem.json": {"bytes":3394,"lines":15,"sha256":"cc5269d60e19772300365d04d207ff99b317ed30ac8247ca73bdb1f77992c93e","blob":"1daa3981d6b52c3ae4e8d9ccf6d512affdfd848c"},
+  "explanation.md": {"bytes":11239,"lines":198,"sha256":"213863052973cde468b95de7865614f45587ab2e71390e94c0344ffefa840901","blob":"42fd794ffa48bf9105062f5b9378d3a02c21140f"},
+  "test_row_deletion_edges.py": {"bytes":9394,"lines":172,"sha256":"9cc64dc097614cc7f216013f74a029de291c0cb9a8f5731da39abac5b92b2969","blob":"c45c6be380ed1371bfdcd416a400b754b1e1e388"}
+}
