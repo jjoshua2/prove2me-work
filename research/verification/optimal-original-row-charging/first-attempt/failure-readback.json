@@ -1,0 +1,78 @@
+{
+  "kind": "derived_GitHub_and_frozen_request_readback_not_platform_receipt",
+  "repository": "jjoshua2/prove2me-work",
+  "pr": 343,
+  "proof_sha": "0df4d0d81d317c9858876aad5308f3c3dc952d6b",
+  "main_at_gate": "b59bda5572a09cdfba2ebac74a6cb275281136c7",
+  "coordination_comment": 5813719775,
+  "trigger_comment": 5813901345,
+  "acknowledgement_comment": 5813905359,
+  "run_id": 35998089588,
+  "jobs": {
+    "gate": {
+      "id": 107627746296,
+      "conclusion": "success"
+    },
+    "verify": {
+      "id": 107627828683,
+      "conclusion": "failure"
+    },
+    "publish": {
+      "id": 107628256923,
+      "conclusion": "skipped"
+    },
+    "report-verify": {
+      "id": 107628257669,
+      "conclusion": "skipped"
+    }
+  },
+  "compiler_exit_codes": {
+    "driver.lean": 1,
+    "solution.lean": null,
+    "statement.lean": null
+  },
+  "error_lines": [
+    204,
+    277,
+    278,
+    329,
+    336,
+    337,
+    338,
+    339
+  ],
+  "standard_only_reports": [
+    "Hirsch.RadialRowEnvelope.exposed_edge_row",
+    "Hirsch.CapacitatedRows.forced_le"
+  ],
+  "failed_elaboration_reports": [
+    "Hirsch.CapacitatedRows.capacity_iff",
+    "Hirsch.CapacitatedRows.optimum",
+    "solution"
+  ],
+  "written_admission": false,
+  "full_packet_verified": false,
+  "hosted_attempts": 1,
+  "registration_requests": 0,
+  "actual_platform_submissions": 0,
+  "theorem_id": null,
+  "submission_id": null,
+  "ACCEPTED_observed": false,
+  "Proved_observed": false,
+  "verified_artifact_produced": false,
+  "publication_artifact_produced": false,
+  "post_gate_source_or_metadata_edits": false,
+  "local_Lean_compilation": false,
+  "independent_platform_poll": false,
+  "lean_version_observed": "4.30.0",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "strict_protocol": "0.10.9",
+  "request_artifact": {
+    "id": 10806004749,
+    "file": "pr343-first-request.zip",
+    "bytes": 316,
+    "sha256": "460c61231c8164672216a6947990adfe277fd3fbb45208dfe03138edac6c6012",
+    "downloaded_and_rehashed": true
+  },
+  "log_scope": "Complete decoded verifier log read through cleanup. Displayed errors and contexts plus all five reports extracted; timestamps, push_neg deprecation warning and setup/cleanup omitted. Not a full raw runner archive."
+}

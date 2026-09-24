@@ -1,0 +1,23 @@
+{
+  "kind": "derived_summary_of_executed_tests_not_Lean",
+  "generic": {
+    "eligible_set_families": 2928,
+    "brute_assignments_checked": 22968
+  },
+  "small_totals": {
+    "ledgers": 63,
+    "edge_occurrences": 1153,
+    "strictly_improved_over_greedy": 46
+  },
+  "large_totals": {
+    "ledgers": 4,
+    "edge_occurrences": 116,
+    "strictly_improved_over_greedy": 4
+  },
+  "total_ledgers": 67,
+  "total_edge_occurrences": 1269,
+  "malformed_controls_rejected": 9,
+  "original_H_square_systems": 843,
+  "selected_high_dimensional_graphs_enumerated": false,
+  "complete_outputs_in_export": true
+}

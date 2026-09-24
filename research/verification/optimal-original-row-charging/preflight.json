@@ -1,0 +1,17 @@
+{
+  "executables": {
+    "lean": null,
+    "lake": null,
+    "elan": null
+  },
+  "checked_installations": {
+    "/home/oai/.elan/bin/lean": false,
+    "/root/.elan/bin/lean": false,
+    "/opt/lean/bin/lean": false,
+    "/home/oai/prove2me_workspace/.lake": false
+  },
+  "dns": {
+    "raw.githubusercontent.com": "[Errno -3] Temporary failure in name resolution",
+    "releases.lean-lang.org": "[Errno -3] Temporary failure in name resolution"
+  }
+}
