@@ -1,0 +1,25 @@
+{
+  "head_sha": "3a8ac361ca2a02f9e3c51205daec5f34446a0dca",
+  "packets": [
+    {
+      "path": "research/publication_packets/radial_original_row_envelope",
+      "name": "radial_original_row_envelope",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "2cc1309ad076230fb3af3dada0d4059764c41dbf909e856be17b7dfeec863c5f",
+        "driver.lean": "2cc1309ad076230fb3af3dada0d4059764c41dbf909e856be17b7dfeec863c5f",
+        "statement.lean": "6cd5b402d4102c0cbe7f2da18b1ce92680cf7765f9742cef98bc186dc811b2a7",
+        "problem.json": "9c83d642bc6623a72025c9d6bc8458219644850aa603fe323f7410e39f9c49e0",
+        "explanation.md": "5085317122fd16db04ecae177b077379c17a48b844d7bde227620a556a64b707"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}

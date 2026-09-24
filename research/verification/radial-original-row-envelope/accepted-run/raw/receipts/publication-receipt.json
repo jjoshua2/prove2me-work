@@ -1,0 +1,15 @@
+{
+  "head_sha": "3a8ac361ca2a02f9e3c51205daec5f34446a0dca",
+  "packets": [
+    {
+      "packet": "radial_original_row_envelope",
+      "status": "ACCEPTED",
+      "theorem_id": "b14806b3-8f55-41f5-a98a-8e668394a960",
+      "submission_id": "ccc4850c-ffa8-4e0a-8cec-dd856d7c530c",
+      "theorem_name": "Hirsch.original_row_radial_max_envelope",
+      "registration": "PUBLISHED",
+      "live_status": "Proved",
+      "path": "research/publication_packets/radial_original_row_envelope"
+    }
+  ]
+}

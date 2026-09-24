@@ -1,0 +1,15 @@
+_verified/packets/radial_original_row_envelope/driver.lean:160:45: warning: This simp argument is unused:
+  one_div
+
+Hint: Omit it from the simp argument list.
+  simp only [map_add, map_smul, smul_eq_mul, o̵n̵e̵_̵div,̵ ̵d̵i̵v̵_eq_mul_inv]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'Hirsch.RadialRowEnvelope.epigraph_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.RadialRowEnvelope.strict_on_body' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.RadialRowEnvelope.ray_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.RadialRowEnvelope.non_target_active' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.RadialRowEnvelope.vertex_envelope' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.RadialRowEnvelope.vertex_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.RadialRowEnvelope.exposed_edge_row' depends on axioms: [propext, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, Classical.choice, Quot.sound]
