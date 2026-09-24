@@ -1,0 +1,9 @@
+{
+  "kind": "derived_summary_of_executed_exact_tests_not_Lean",
+  "small_models": 9,
+  "small_totals": {"charts":7638,"probes":62212,"rays":3268,"enlarged":3285,"lost_endpoints":3290,"distinct_carrier_checks":7638},
+  "large_models": 4,
+  "large_totals": {"charts":116,"probes":812,"rays":116,"enlarged":116,"lost_endpoints":116,"distinct_carrier_checks":116},
+  "original_square_systems": 946,
+  "rejected_controls": 8
+}

@@ -1,0 +1,5 @@
+'Hirsch.RowDeletionEdges.active_kernel_direction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.RowDeletionEdges.active_equations_iff_line' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.RowDeletionEdges.common_slice_exposed' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.RowDeletionEdges.retained_edge_extension' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/forced_edge_row_deletion"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "d85aea5893d68d54bff16a9c86832cceded1f336",
+  "pr": "344"
+}
