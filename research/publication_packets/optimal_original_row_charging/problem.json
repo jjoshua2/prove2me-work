@@ -1,0 +1,15 @@
+{
+  "theorem_name": "Hirsch.optimal_original_row_edge_charging",
+  "theorem_title": "Optimal original-row edge charging with exact forced-overload certificates",
+  "formal_statement": "theorem Hirsch.optimal_original_row_edge_charging (d m N : ℕ)\n    (A : Fin m → (Fin d → ℝ) →ₗ[ℝ] ℝ) (b : Fin m → ℝ)\n    (v : Fin d → ℝ)\n    (hv : v ∈ ({x | ∀ i, A i x ≤ b i} : Set (Fin d → ℝ)).extremePoints ℝ)\n    (u w : Fin N → (Fin d → ℝ))\n    (hu : ∀ t, u t ∈ ({x | ∀ i, A i x ≤ b i} : Set (Fin d → ℝ)).extremePoints ℝ)\n    (hw : ∀ t, w t ∈ ({x | ∀ i, A i x ≤ b i} : Set (Fin d → ℝ)).extremePoints ℝ)\n    (huv : ∀ t, u t ≠ v) (hwv : ∀ t, w t ≠ v) (huw : ∀ t, u t ≠ w t)\n    (hE : ∀ t, IsExposed ℝ {x : Fin d → ℝ | ∀ i, A i x ≤ b i}\n      (segment ℝ (u t) (w t))) :\n    let I := @Finset.filter (Fin m) (fun i => A i v < b i)\n      (fun _ => Classical.propDecidable _) Finset.univ\n    let S := fun t : Fin N => @Finset.filter (Fin m)\n      (fun i => A i v < b i ∧ A i (u t) = b i ∧ A i (w t) = b i)\n      (fun _ => Classical.propDecidable _) Finset.univ\n    let F := fun J : Finset (Fin m) => @Finset.filter (Fin N) (fun t => S t ⊆ J)\n      (fun _ => Classical.propDecidable _) Finset.univ\n    let Cap := fun k : ℕ => ∃ f : Fin N → Fin m, (∀ t, f t ∈ S t) ∧\n      ∀ i : Fin m, (@Finset.filter (Fin N) (fun t => f t = i)\n        (fun _ => Classical.propDecidable _) Finset.univ).card ≤ k\n    ∃ K : ℕ, K ≤ N ∧ N ≤ K * I.card ∧ Cap K ∧\n      (∀ k : ℕ, Cap k ↔ K ≤ k) ∧\n      (∀ k : ℕ, Cap k ↔ ∀ J ⊆ I, (F J).card ≤ k * J.card) ∧\n      (∀ k : ℕ, k < K → ∃ J : Finset (Fin m), J ⊆ I ∧ J.Nonempty ∧\n        k * J.card < (F J).card ∧ (F J).card ≤ K * J.card) := by sorry\n",
+  "preamble": "import Mathlib\nopen scoped BigOperators\nset_option autoImplicit false",
+  "env": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "natural_language_statement": "For any finite original real H-system in arbitrary dimension, an actual target vertex, and a finite family of nondegenerate exposed original edges with actual endpoints distinct from the target, derive all eligible original supporting rows and an optimal integral row assignment minimizing maximum load. Capacity k is feasible exactly when every subset J of target-slack original rows contains at most k times its cardinality many edge occurrences whose entire eligible set lies in J. Derive the least capacity K, an attaining assignment, K<=N and N<=K*|I|, and a nonempty original-row overload witness for every k<K. Edge occurrences are input, possibly repeated; no route construction, polynomial bound on K or Polynomial Hirsch conclusion is claimed. Boundedness and a vertex catalogue are not required.",
+  "source": "Classical capacitated Hall applied to original exposed-edge supporting labels derived using the exact accepted PR341 geometric helpers. Mathlib Hall theorem is reused at the existing pin. This is an exact assignment/obstruction certificate, not a new matching theorem or an assumed small-capacity routing property.",
+  "tags": [
+    "hirsch-conjecture",
+    "convex-geometry",
+    "matching-theory",
+    "formalization"
+  ]
+}
