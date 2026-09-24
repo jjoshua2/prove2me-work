@@ -1,0 +1,12 @@
+# Selected exact verifier runner lines, not a full raw job archive.
+# The complete decoded verifier job107446479011 was read through cleanup.
+2026-09-24T00:51:55.8163386Z Lake version 5.0.0-src+d024af0 (Lean version 4.30.0)
+2026-09-24T00:51:55.8373935Z   GITHUB_TOKEN: 
+2026-09-24T00:51:55.8374359Z   PROVE2ME_API_KEY: 
+2026-09-24T00:52:28.3853413Z SHA256 digest of uploaded artifact zip is 7f52f23f589d57e0ff7e3464e9e65f409580a4dec040a341631e6a844edd7a8e
+# Complete decoded publisher job107446769028 was also read through cleanup.
+2026-09-24T00:57:50.6363700Z - **Hirsch.planar_original_halfspace_half_bound**: ACCEPTED
+2026-09-24T00:57:50.6364118Z   - theorem `21a3f083-3ba6-4077-bb22-9a09eef37804`
+2026-09-24T00:57:50.6364715Z   - submission `5ffcb3ce-594b-406b-b024-23d4f09156d1`
+2026-09-24T00:57:51.2724005Z SHA256 digest of uploaded artifact zip is 731f1b652aa0dae24dc3a7ca4b97000d382b938f718f21b3c73a343b24b9117a
+2026-09-24T00:57:53.4889965Z https://github.com/jjoshua2/prove2me-work/pull/340#issuecomment-5805521566

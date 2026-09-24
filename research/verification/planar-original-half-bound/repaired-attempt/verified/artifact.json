@@ -1,0 +1,25 @@
+{
+  "head_sha": "6c08becac3a895c2245b567670c4345af00f60af",
+  "packets": [
+    {
+      "path": "research/publication_packets/planar_original_half_bound",
+      "name": "planar_original_half_bound",
+      "publishable": true,
+      "sha256": {
+        "solution.lean": "47324761cc298df950d242cf4b884836e05a021cdecc7dc73f60fe1c7f8777a3",
+        "driver.lean": "47324761cc298df950d242cf4b884836e05a021cdecc7dc73f60fe1c7f8777a3",
+        "statement.lean": "9f0cc1e9b21a9e84fa06a3d6ea3f57b54a702f2612a23b138d48920281dd1cce",
+        "problem.json": "f4906adcb4dee8823d07f6dc17f7ec7741aebaa1f7d71cbc8a024c795b85435d",
+        "explanation.md": "cd820036bb5410574e7db856564c43f98498a8b2198f2c02ac7d2ea94b0dc36c"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "targets": [],
+  "target_results": [],
+  "module_only": false
+}

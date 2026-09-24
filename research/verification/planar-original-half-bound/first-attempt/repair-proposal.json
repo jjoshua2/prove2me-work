@@ -1,0 +1,24 @@
+{
+  "kind": "unapplied_uncompiled_four_site_repair_proposal",
+  "tested_proof": "f06b42d02ba51e1d3b712d8f245acae455494e73",
+  "root_sites": [1134,1196,1251,1294],
+  "source_lines": 1394,
+  "source_bytes": 58613,
+  "source_blob": "7476b40e159e3cae9f346c6b116c40471f160e4c",
+  "source_sha256": "47324761cc298df950d242cf4b884836e05a021cdecc7dc73f60fe1c7f8777a3",
+  "additions": 5,
+  "deletions": 3,
+  "patch_apply_reverse_roundtrip": true,
+  "accepted_prefix_unchanged": true,
+  "declaration_statements_unchanged": true,
+  "complete_public_root_unchanged": true,
+  "metadata_and_explanation_unchanged": true,
+  "applied_to_publication_source": false,
+  "compiled": false,
+  "changes": [
+    "Pass hdim.le explicitly to the row-slice bound",
+    "Apply LinearMap.ext explicitly before introducing the point variable",
+    "Use explicit Ne.symm rather than a failed Function.symm field lookup",
+    "Expose the beta-reduced ordered-value goal before rewriting"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "kind": "static_patch_integrity_not_Lean_compilation",
+  "source_bytes": 58613,
+  "source_lines": 1394,
+  "blob": "7476b40e159e3cae9f346c6b116c40471f160e4c",
+  "sha256": "47324761cc298df950d242cf4b884836e05a021cdecc7dc73f60fe1c7f8777a3",
+  "patch_roundtrip": true,
+  "public_root_unchanged": true,
+  "accepted_prefix_unchanged": true,
+  "exact_public_type_matches": true,
+  "local_Lean_compilation": false
+}

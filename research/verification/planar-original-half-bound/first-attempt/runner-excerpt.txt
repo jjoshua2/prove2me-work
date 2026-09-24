@@ -1,0 +1,9 @@
+# Selected exact verifier runner lines, not a full raw runner archive.
+# The complete decoded job107434542974 was read through cleanup.
+2026-09-24T00:02:03.4787379Z SHA256 digest of downloaded artifact is fd49dabb0ccac7317d8cf77bdeee39ca8a990492fc26d96e596aef754ad4c499
+2026-09-24T00:02:49.9298166Z Lake version 5.0.0-src+d024af0 (Lean version 4.30.0)
+2026-09-24T00:02:49.9922172Z   GITHUB_TOKEN: 
+2026-09-24T00:02:49.9922416Z   PROVE2ME_API_KEY: 
+2026-09-24T00:03:04.7802025Z 'Hirsch.PlanarOriginalInput.complete_vertices' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-24T00:03:04.7807863Z 'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-24T00:03:04.7879457Z ##[error]Process completed with exit code 1.
