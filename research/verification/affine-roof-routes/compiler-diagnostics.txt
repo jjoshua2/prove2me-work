@@ -1,0 +1,61 @@
+# Scoped compiler transcript from run 35673924236, verifier 106576318567
+# Proof 3fedb7d9ddd9c40235e304ab71db126f52016d9d. Runner timestamps removed.
+# All compiler error headers and all printed axiom reports are retained below.
+# Long local goal contexts and setup/cache/cleanup logs are omitted. This is NOT
+# a full raw runner archive. The complete decoded verifier log was read through cleanup.
+# Lean version observed: 4.30.0. Driver exit code: 1.
+
+affine_roof_routes/driver.lean failed to compile:
+_verified/packets/affine_roof_routes/driver.lean:116:39: warning: try 'simp' instead of 'simpa'
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+_verified/packets/affine_roof_routes/driver.lean:103:0: warning: automatically included section variable(s) unused in theorem `Hirsch.CoordinateRoute.descend`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+'Hirsch.CoordinateRoute.descend' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.CoordinateRoute.ascend' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.CoordinateRoute.rank_routes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Hirsch.CoordinateRoute.levelRank_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'finite_coordinate_route_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+_verified/packets/affine_roof_routes/driver.lean:1037:51: warning: unused variable `j`
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+_verified/packets/affine_roof_routes/driver.lean:1051:13: error: unexpected token ')'; expected term
+_verified/packets/affine_roof_routes/driver.lean:1069:4: error: Tactic `apply` failed: could not unify the conclusion of `Prod.ext rfl`
+  ?m.123 = ?m.123
+with the goal
+  sectionPoint A c s z.1 = z
+Note: The full type of `Prod.ext rfl` is
+  ?m.123.2 = ?m.123.2 → ?m.123 = ?m.123
+_verified/packets/affine_roof_routes/driver.lean:1142:4: error: Tactic `apply` failed: could not unify the conclusion of `Prod.ext rfl`
+  ?m.68 = ?m.68
+with the goal
+  corner A c (fun j => if z.2 j = 0 then false else true) z.1 = z
+Note: The full type of `Prod.ext rfl` is
+  ?m.68.2 = ?m.68.2 → ?m.68 = ?m.68
+_verified/packets/affine_roof_routes/driver.lean:1157:10: error(lean.unknownIdentifier): Unknown identifier `zero_of_positive_mix`
+_verified/packets/affine_roof_routes/driver.lean:1161:15: error(lean.unknownIdentifier): Unknown identifier `zero_of_positive_mix`
+_verified/packets/affine_roof_routes/driver.lean:1179:4: error: Tactic `apply` failed: could not unify the conclusion of `Prod.ext rfl`
+  ?m.222 = ?m.222
+with the goal
+  corner A c bits u.1 = u
+Note: The full type of `Prod.ext rfl` is
+  ?m.222.2 = ?m.222.2 → ?m.222 = ?m.222
+_verified/packets/affine_roof_routes/driver.lean:1473:26: error: unsolved goals
+⊢ 0 = ↑0
+_verified/packets/affine_roof_routes/driver.lean:1474:35: error: unsolved goals
+⊢ L = ↑(Fin.last L)
+_verified/packets/affine_roof_routes/driver.lean:1510:10: error: unexpected token 'prefix'; expected '⟩'
+_verified/packets/affine_roof_routes/driver.lean:1510:16: error: unexpected token ','; expected ':'
+_verified/packets/affine_roof_routes/driver.lean:1529:7: error: unexpected token ':='; expected term
+_verified/packets/affine_roof_routes/driver.lean:1569:24: error: unexpected token '+'; expected term
+'Hirsch.AffineRoofs.extreme_classification' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.AffineRoofs.lift_extreme' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.AffineRoofs.vertical_edge' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.AffineRoofs.fiber_route' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Hirsch.AffineRoofs.roof_routes' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+_verified/packets/affine_roof_routes/driver.lean:1600:14: error(lean.unknownIdentifier): Unknown constant `Hirsch.AffineRoofs.original_row_count`
+_verified/packets/affine_roof_routes/driver.lean:1601:14: error(lean.unknownIdentifier): Unknown constant `solution`
+
+# Runner result: Process completed with exit code 1.
+# Separate solution/statement compilation, aggregate audit and publication were not reached.

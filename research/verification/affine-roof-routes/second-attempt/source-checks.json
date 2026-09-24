@@ -1,0 +1,15 @@
+{
+  "kind": "source_checks_not_Lean_verification",
+  "saved_two_file_patch_applied_and_reversed_exactly": true,
+  "repaired_source_blob": "4ecc055d476fa69133903c8eeef8347f04c5e1ca",
+  "repaired_source_sha256": "a8bf4aa83140f687318dc3cc6f33a57752c4e612d791a9d480f7b1529b0aae75",
+  "repaired_problem_blob": "97558d6d59e0797d3066ab16a516fcd71c576502",
+  "explanation_blob_unchanged": "cc5b18cb13d1ed0c4057a65fd1dbfd0a33a59393",
+  "accepted_prefix_lines": 973,
+  "accepted_prefix_bytes": 41934,
+  "accepted_prefix_unchanged": true,
+  "metadata_only_comparison_whitespace_changed": true,
+  "public_type_text_matches_metadata": true,
+  "no_admission_tokens": true,
+  "local_Lean_compilation": false
+}

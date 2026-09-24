@@ -1,0 +1,87 @@
+{
+  "kind": "derived_GitHub_failure_readback_not_platform_receipt",
+  "repository": "jjoshua2/prove2me-work",
+  "pr": 326,
+  "proof_sha": "3fedb7d9ddd9c40235e304ab71db126f52016d9d",
+  "trusted_main_sha": "34696607bb8f6298bb400d9ce9a0903dc078c157",
+  "coordination_comment": 5769527466,
+  "trigger_comment": 5769724425,
+  "acknowledgement_comment": 5769725445,
+  "run_id": 35673924236,
+  "jobs": {
+    "gate": {
+      "id": 106576289323,
+      "conclusion": "success"
+    },
+    "verify": {
+      "id": 106576318567,
+      "conclusion": "failure"
+    },
+    "report-verify": {
+      "id": 106576548751,
+      "conclusion": "skipped"
+    },
+    "publish": {
+      "id": 106576548916,
+      "conclusion": "skipped"
+    }
+  },
+  "driver_exit_code": 1,
+  "separate_solution_compile": "not_reached",
+  "statement_compile": "not_reached",
+  "complete_audit": "not_produced",
+  "inherited_standard_only_reports": 5,
+  "new_reports_with_sorryAx": [
+    "extreme_classification",
+    "lift_extreme",
+    "vertical_edge",
+    "fiber_route",
+    "roof_routes"
+  ],
+  "missing_declarations": [
+    "original_row_count",
+    "solution"
+  ],
+  "reported_error_lines": [
+    1051,
+    1069,
+    1142,
+    1157,
+    1161,
+    1179,
+    1473,
+    1474,
+    1510,
+    1510,
+    1529,
+    1569,
+    1600,
+    1601
+  ],
+  "lean_version_observed": "4.30.0",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "theorem_registration_in_this_run": false,
+  "proof_submission_in_this_run": false,
+  "theorem_id": null,
+  "submission_id": null,
+  "ACCEPTED_observed": false,
+  "Proved_observed": false,
+  "independent_platform_poll": false,
+  "artifacts": [
+    {
+      "id": 10671893408,
+      "name": "prove2me-publish-request",
+      "bytes": 307,
+      "sha256": "50bb976c6d2a0483b2a496a532f38da5ab4b50a562b46e2ba08e1556cddca110",
+      "downloaded_and_rehashed": true
+    }
+  ],
+  "verified_artifact_produced": false,
+  "receipt_artifact_produced": false,
+  "full_decoded_verifier_log_read": true,
+  "committed_diagnostics": "all error headers and axiom reports; selected goal excerpts; timestamps/long contexts omitted, not raw runner archive",
+  "postgate_publication_source_edits": false,
+  "second_gate_or_rerun": false,
+  "local_Lean_compilation": false,
+  "proposal_applied_to_publication_source": false
+}

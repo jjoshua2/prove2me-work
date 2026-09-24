@@ -1,0 +1,43 @@
+{
+  "kind": "static_source_and_exact_tests_not_Lean_compilation",
+  "base_sha": "34696607bb8f6298bb400d9ce9a0903dc078c157",
+  "source_bytes": 71596,
+  "source_lines": 1601,
+  "source_sha256": "0b5b6c0ba031d3418a3c25d6a49e8f943bb6a4d9c3519c7aa76dfbbc888d3ef2",
+  "source_git_blob": "d87643fecff675dbd12694473f5ba39bcaa7a86b",
+  "accepted_prefix_byte_identical": true,
+  "target_type_exact": true,
+  "source_admission_scan_pass": true,
+  "local_lean_available": false,
+  "local_lean_checked": [
+    "PATH lean",
+    "PATH lake",
+    "$HOME/.elan",
+    "$HOME/prove2me_workspace",
+    "/opt/lean*"
+  ],
+  "network_preflight": "DNS failures for raw.githubusercontent.com and releases.lean-lang.org",
+  "small_models": 13,
+  "small_totals": {
+    "base_vertices": 33,
+    "vertices": 103,
+    "edges": 181,
+    "full_active_systems": 554,
+    "nonsingular_systems": 264,
+    "routes": 721,
+    "edge_occurrences": 1224,
+    "shortest_total": 1168,
+    "nonshortest": 56,
+    "base_nonsimple_vertices": 6
+  },
+  "large_models": 4,
+  "large_original_edges": 120,
+  "negative_controls": 9,
+  "large_graph_enumerated": false,
+  "pregate_old_source_blob": "471972211a76d5377ac25dc38ced609e3443f843",
+  "pregate_change": "explicit Boolean boundary simplification; no target, hypotheses or dependency changes",
+  "proof_sha": "3fedb7d9ddd9c40235e304ab71db126f52016d9d",
+  "all_three_remote_blobs_match": true,
+  "new_axiom_print_commands": 7,
+  "inherited_axiom_print_commands": 5
+}

@@ -1,0 +1,18 @@
+{
+  "kind": "UNAPPLIED_UNCOMPILED_repair_proposal",
+  "source_bytes": 71702,
+  "source_lines": 1608,
+  "source_sha256": "a8bf4aa83140f687318dc3cc6f33a57752c4e612d791a9d480f7b1529b0aae75",
+  "source_blob": "4ecc055d476fa69133903c8eeef8347f04c5e1ca",
+  "original_source_blob": "d87643fecff675dbd12694473f5ba39bcaa7a86b",
+  "accepted_dependency_prefix_byte_identical": true,
+  "public_proof_body_unchanged": false,
+  "problem_json_change": "comparison whitespace only; exact reformatted public type remains matched",
+  "patch_roundtrip": true,
+  "local_lean_compilation": false,
+  "publication_source_changed_after_gate": false,
+  "further_errors_possible": true,
+  "public_statement_text_equal_after_whitespace_removal": true,
+  "public_proof_body_unchanged_except_whitespace": true,
+  "signature_changes": "Whitespace around comparisons only; intended mathematical binders, hypotheses and conclusions unchanged. Parser/type correctness awaits Lean."
+}
