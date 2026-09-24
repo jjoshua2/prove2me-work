@@ -201,7 +201,7 @@ theorem capacity_iff (S : Fin N → Finset (Fin m)) (I : Finset (Fin m))
       have hslots : E.biUnion T = J.product (Finset.univ : Finset (Fin k)) := by
         ext z
         simp [T, J]
-      rw [hslots, Finset.card_product, Finset.card_univ, Fintype.card_fin]
+      rw [hslots, Finset.product_eq_sprod, Finset.card_product, Finset.card_univ, Fintype.card_fin]
       exact (Finset.card_le_card hEF).trans (by simpa only [Nat.mul_comm] using hcap J hJI)
     obtain ⟨g, hginj, hg⟩ :=
       (Finset.all_card_le_biUnion_card_iff_exists_injective T).mp hHall
@@ -274,8 +274,8 @@ theorem optimum (S : Fin N → Finset (Fin m)) (I : Finset (Fin m))
       by_contra hn
       have hJE : J = ∅ := Finset.not_nonempty_iff_eq_empty.mp hn
       have hFE : forced S J = ∅ := by
-        apply Finset.eq_empty_iff_forall_not_mem.mpr
-        intro t ht
+        apply Finset.not_nonempty_iff_eq_empty.mp
+        rintro ⟨t, ht⟩
         obtain ⟨i, hi⟩ := hS t
         have hiJ := (Finset.mem_filter.mp ht).2 hi
         rw [hJE] at hiJ
@@ -314,28 +314,39 @@ theorem solution (d m N : ℕ)
       (∀ k : ℕ, k < K → ∃ J : Finset (Fin m), J ⊆ I ∧ J.Nonempty ∧
         k * J.card < (F J).card ∧ (F J).card ≤ K * J.card) := by
   classical
-  let I := @Finset.filter (Fin m) (fun i => A i v < b i)
-    (fun _ => Classical.propDecidable _) Finset.univ
-  let S := fun t : Fin N => @Finset.filter (Fin m)
-    (fun i => A i v < b i ∧ A i (u t) = b i ∧ A i (w t) = b i)
-    (fun _ => Classical.propDecidable _) Finset.univ
-  let F := fun J : Finset (Fin m) => @Finset.filter (Fin N) (fun t => S t ⊆ J)
-    (fun _ => Classical.propDecidable _) Finset.univ
-  let Cap := fun k : ℕ => ∃ f : Fin N → Fin m, (∀ t, f t ∈ S t) ∧
-    ∀ i : Fin m, (@Finset.filter (Fin N) (fun t => f t = i)
-      (fun _ => Classical.propDecidable _) Finset.univ).card ≤ k
+  intro I S F Cap
+  have hImem : ∀ i, i ∈ I ↔ A i v < b i := by
+    intro i
+    simp only [I, Finset.mem_filter, Finset.mem_univ, true_and]
+  have hSmem : ∀ t i, i ∈ S t ↔
+      A i v < b i ∧ A i (u t) = b i ∧ A i (w t) = b i := by
+    intro t i
+    simp only [S, Finset.mem_filter, Finset.mem_univ, true_and]
   have hSI : ∀ t, S t ⊆ I := by
     intro t i hi
-    exact Finset.mem_filter.mpr ⟨Finset.mem_univ _, (Finset.mem_filter.mp hi).2.1⟩
+    exact (hImem i).mpr ((hSmem t i).mp hi).1
   have hS : ∀ t, (S t).Nonempty := by
     intro t
     have hout := Hirsch.RadialRowEnvelope.extreme_not_in_other_segment A b v
       (u t) (w t) hv (hu t).1 (hw t).1 (huv t) (hwv t)
     obtain ⟨i, hi⟩ := Hirsch.RadialRowEnvelope.exposed_edge_row A b v
       (u t) (w t) hv.1 (hu t).1 (hw t).1 (hE t) hout
-    exact ⟨i, Finset.mem_filter.mpr ⟨Finset.mem_univ _, hi⟩⟩
-  have hF : ∀ J, Hirsch.CapacitatedRows.forced S J = F J := by intro J; rfl
-  have hCap : ∀ k, Hirsch.CapacitatedRows.Capacity S k ↔ Cap k := by intro k; rfl
+    exact ⟨i, (hSmem t i).mpr hi⟩
+  have hF : ∀ J, Hirsch.CapacitatedRows.forced S J = F J := by
+    intro J
+    ext t
+    simp only [Hirsch.CapacitatedRows.forced, F, Finset.mem_filter]
+  have hload : ∀ (f : Fin N → Fin m) (i : Fin m), Hirsch.CapacitatedRows.load f i =
+      (@Finset.filter (Fin N) (fun t => f t = i)
+        (fun _ => Classical.propDecidable _) Finset.univ).card := by
+    intro f i
+    unfold Hirsch.CapacitatedRows.load
+    congr 1
+    ext t
+    simp only [Finset.mem_filter]
+  have hCap : ∀ k, Hirsch.CapacitatedRows.Capacity S k ↔ Cap k := by
+    intro k
+    simp only [Hirsch.CapacitatedRows.Capacity, Cap, hload]
   simpa only [hF, hCap] using Hirsch.CapacitatedRows.optimum S I hSI hS
 
 #print axioms Hirsch.RadialRowEnvelope.exposed_edge_row
