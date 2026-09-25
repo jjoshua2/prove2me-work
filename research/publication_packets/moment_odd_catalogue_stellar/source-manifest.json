@@ -1,0 +1,18 @@
+{
+  "status": "CORRECTED_ONE_DIAGNOSED_NORMALIZATION; final gate pending",
+  "lean_toolchain": "leanprover/lean4:v4.30.0",
+  "mathlib_rev": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "files": {
+    "solution.lean": "abc6478c79e19c9010da6b80ad3c278e504b7cf1a5b87ef03136ba0a6f0fcc2c",
+    "problem.json": "875e5f4ab95e9d4040d0a17d9d918bda910207487d4ee5cdc2fbc1729f444662",
+    "explanation.md": "81602ce1db64211914190d6bc1fe15ba2eea8740e188c6dcbe7dd1f0d0a0589b"
+  },
+  "accepted_sources": {
+    "moment_namespaces_from_pr288": "0cb180af7915af3e9da23aee512e4f5930b389a876b4bb6e014c3e69ea467ae6",
+    "interleaved_namespace_from_pr287": "f94f741869ca14b3bea3a506cab5f09083dc54ab",
+    "stellar_namespace_from_pr281": "2b579f45c887c6ccc44b1caaf2a0686c90c9634fd080cb4010af36da18f83959"
+  },
+  "dependency_note": "Actual accepted proof namespaces reused. One unused binder in MomentBarycentric.original_nonfaces is named hi instead of underscore; this cosmetic change does not alter statements or proof steps. Interleaved and stellar namespace bodies are unchanged.",
+  "first_failed_proof_sha": "b5b6086f23046dcfec1dde23fcef400d5407e491",
+  "first_failed_run": 35178680553
+}
