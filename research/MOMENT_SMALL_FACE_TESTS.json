@@ -1,0 +1,78 @@
+{
+  "large_samples": [
+    {
+      "dimension": 16,
+      "full_vertex_graph_enumerated": false,
+      "original_rows": 33,
+      "point_numerator_denominator_bits": 108,
+      "selected_tight_rows": 8,
+      "strict_remaining_rows": 25
+    },
+    {
+      "dimension": 32,
+      "full_vertex_graph_enumerated": false,
+      "original_rows": 65,
+      "point_numerator_denominator_bits": 257,
+      "selected_tight_rows": 16,
+      "strict_remaining_rows": 49
+    },
+    {
+      "dimension": 64,
+      "full_vertex_graph_enumerated": false,
+      "original_rows": 129,
+      "point_numerator_denominator_bits": 685,
+      "selected_tight_rows": 32,
+      "strict_remaining_rows": 97
+    }
+  ],
+  "lean_compilation_performed": false,
+  "negative_controls": [
+    "wrong_point",
+    "wrong_normalizer",
+    "wrong_tight_labels",
+    "wrong_polynomial",
+    "duplicate_parameters",
+    "boolean_label",
+    "floating_coordinate",
+    "entire_parameter_set",
+    "too_many_selected",
+    "empty_parameter_type"
+  ],
+  "producer_disabled_audits": 26,
+  "proper_subset_application": [
+    {
+      "candidate_incompatible_sets": 4,
+      "distinct_immediate_proper_faces_certified": 6,
+      "k": 2,
+      "whole_set_infeasibility_proved_by_this_test": false
+    },
+    {
+      "candidate_incompatible_sets": 15,
+      "distinct_immediate_proper_faces_certified": 20,
+      "k": 3,
+      "whole_set_infeasibility_proved_by_this_test": false
+    },
+    {
+      "candidate_incompatible_sets": 56,
+      "distinct_immediate_proper_faces_certified": 70,
+      "k": 4,
+      "whole_set_infeasibility_proved_by_this_test": false
+    }
+  ],
+  "public_statement_matches_solution": true,
+  "scope": "exact rational arithmetic and signature tests, NOT Lean verification",
+  "small_tests": {
+    "coefficient_probes": 86426,
+    "empty_face_instances": 8,
+    "instances": 3671,
+    "original_inequalities": 60104,
+    "strict_inequalities": 47106,
+    "zero_dimension_instances": 1
+  },
+  "sources": {
+    "research/publication_packets/moment_small_face_witnesses/problem.json": "20cd7998bbd61a98d3b501bc6203a27b5cfb1350060633a72d960a0f33b0d139",
+    "research/publication_packets/moment_small_face_witnesses/solution.lean": "95341bb2cfb6aff23e8ba0f5017b6b894818330aca4c1c97b16946535b4c50a0",
+    "scripts/test_moment_small_faces.py": "592e31d15feb3c07dcfc3d5f81cb031ab9134a349973e01cfcdf5489769b44c5"
+  },
+  "status": "PASS"
+}

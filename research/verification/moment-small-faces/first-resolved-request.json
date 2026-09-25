@@ -1,0 +1,11 @@
+{
+  "actor": "jjoshua2",
+  "action": "publish",
+  "packets": [
+    "research/publication_packets/moment_small_face_witnesses"
+  ],
+  "targets": [],
+  "module_only": false,
+  "head_sha": "612c7278ef785e649b3b9eb137b15e2c3e861e2d",
+  "pr": "285"
+}
