@@ -1,0 +1,43 @@
+{
+  "record_kind": "derived from actual GitHub Actions compiler log, not a fresh compiler run",
+  "run_id": 34805680795,
+  "job_id": 103857017355,
+  "proof_sha": "ec27a65d1b3a647c69a5527c7552c99b1515d418",
+  "status": "COMPILE_FAILED",
+  "publication": "SKIPPED_NO_REGISTRATION_OR_SUBMISSION",
+  "errors": [
+    {
+      "line": 1280,
+      "kind": "rewrite hypothesis still contains applied lambda",
+      "repair": "explicit beta-normalizing change at he"
+    },
+    {
+      "line": 1390,
+      "kind": "first endpoint goal still contains applied path lambda",
+      "repair": "congrArg for translation of h0"
+    },
+    {
+      "line": 1391,
+      "kind": "last endpoint goal still contains applied path lambda",
+      "repair": "congrArg for translation of h1"
+    }
+  ],
+  "unchanged": [
+    "every public and helper statement",
+    "all assumptions",
+    "problem.json",
+    "factor bound",
+    "zero-step membership",
+    "whole-sum edge conclusion",
+    "explanation.md"
+  ],
+  "original_solution_sha256": "ddd695d237e0c4b74d4f500d9190e7cc47202616d63ad99975599498598718f6",
+  "corrected_solution_sha256": "05cd2756d449434c21fca91b5750e2edce99d557129808645307ac3a76076b9d",
+  "local_compiler_available": false,
+  "upstream_printouts_with_standard_axioms": [
+    "HirschEnvelopeSequence.exists_bounded_crossing_sequence",
+    "HirschConstructedFibre.route_of_generic_line"
+  ],
+  "root_passed": false,
+  "failed_proof_axiom_note": "sorryAx appeared only through Lean error recovery; it is not a passing audit or an intentional admitted proof"
+}

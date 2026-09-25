@@ -1,0 +1,16 @@
+{
+  "status": "targeted repair of three beta-normalization rewrite sites; not locally compiled",
+  "files": {
+    "solution.lean": "05cd2756d449434c21fca91b5750e2edce99d557129808645307ac3a76076b9d",
+    "problem.json": "e383c4817ee8bb784be19142b4d61383afc1591eb5a8178caaca7eb2288d1b41",
+    "explanation.md": "fc1a936d50cc0d8a678024ba1fd8f5a287f423ea83f018ee84b1881dfa57e420"
+  },
+  "verified_scalar_source_sha256": "c26a8737a7d2b3c697b9b5a197f0733b3129f2ad60b16071adb6f15e3a5ec8dc",
+  "verified_scalar_run": 34804405107,
+  "new_modules": {
+    "PolynomialFiniteAffineSequenceCore.lean": "0c6dc002cb9fe3361c3105efeefc5bb29debad03bbb43a88237233358e85bb2b",
+    "PolynomialFiniteEnvelopeSequence.lean": "68257610595581fcee214714805e1314afc3fdc7459609ea31794ef5afb9f229",
+    "PolynomialConstructedFibreRoutes.lean": "56b0f11fedfe64e63bb77be7995be159c1f42b47fe78602ef313752a385a10c9"
+  },
+  "bundle_module_candidates": "not committed or separately module-build verified; full proof bodies are in the submitted standalone source"
+}
