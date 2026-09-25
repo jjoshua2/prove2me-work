@@ -1,0 +1,13 @@
+# Separated adjacent pairs: a constructed bounded original-edge walk
+
+Each endpoint is specified only by k ordered disjoint adjacent pairs of original labels. A paired-root polynomial is nonnegative at every original node; its full-label mean is strictly positive because 2k<m leaves an unselected node. Negative positive-degree coefficients divided by that mean construct a feasible point with exactly those 2k rows tight. The accepted moment-vertex theorem makes it an actual extreme point.
+
+For pair starts b_i, choose the earliest start not equal to 2i. Earlier pairs are already packed. Strict separation forces b_i>2i, so decrementing it by one keeps all pairs disjoint and in range. The support loses b_i+1 and gains b_i-1, retaining exactly 2k-1 original rows. The accepted whole-common-slice theorem therefore proves an exposed original edge with distinct endpoints.
+
+The natural potential sum_i b_i decreases by exactly one at every shift. Strong induction constructs the entire finite packing route to the canonical starts 0,2,...,2k-2, rather than assuming a move sequence. Each start is below m, so this route has at most k*m moves. Concatenating one endpoint's packing route with the reverse of the other's gives the public bound 2*k*m. Reversal and concatenation include the zero-length case and every original-edge property.
+
+This extends the accepted consecutive-window corridor to separated pairs. It does not claim that every admissible root set has this line-pair form. In particular the catalogue's wrapping negative-mean vertices are outside this public statement. The walk through a common anchor may repeat vertices or be much longer than shortest; neither global injectivity nor nonrevisiting is asserted. The classical cyclic-polar diameter theory has much sharper bounds; this is a formal constructive interface, not a new classical diameter estimate or a proof of Polynomial Hirsch.
+
+The standalone proof reuses the exact accepted namespace prefix through Hirsch.MomentEdges, then proves the support/cardinality, generalized root construction, legal move, well-founded path and concatenation. The target has imports/open/settings only, explicit original formulas, and no assumed short path, feasible intermediate vertices, or edge oracle. Five final axiom printouts are included.
+
+Local Lean/Lake is unavailable and the current toolchain-host DNS check fails. Exact rational tests and source review are not Lean compilation. The user requests one prepared final top-level publication comment on the open same-repository PR. Preserve the actual compiler/axiom/platform outcome; do not convert an issued comment or failed run into acceptance. No pin, workflow, protocol, allowlist or trusted verify/publish secret separation changes.
