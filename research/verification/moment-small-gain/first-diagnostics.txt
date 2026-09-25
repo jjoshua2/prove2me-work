@@ -1,0 +1,61 @@
+Selected EXACT lines from decoded job105714762470, run35380332439.
+This is an EXCERPT, not the full runner log. Bracketed omissions are explicit.
+
+2026-09-18T18:28:49.7980971Z Lake version 5.0.0-src+d024af0 (Lean version 4.30.0)
+2026-09-18T18:30:12.9785997Z moment_six_row_small_gain/driver.lean failed to compile:
+[... inherited linter warnings ...]
+2026-09-18T18:30:12.9807216Z _verified/packets/moment_six_row_small_gain/driver.lean:585:34: error: No goals to be solved
+[... five repetitions at this location ...]
+2026-09-18T18:30:12.9813960Z _verified/packets/moment_six_row_small_gain/driver.lean:582:14: error: (kernel) declaration has metavariables '_private._verified.packets.moment_six_row_small_gain.driver.0.Hirsch.SmallGain.nodes_injective'
+[... ring hints ...]
+2026-09-18T18:30:12.9828632Z _verified/packets/moment_six_row_small_gain/driver.lean:595:45: error: unsolved goals
+2026-09-18T18:30:12.9829442Z case «3».«2»
+[... unchanged parameter hypotheses ...]
+2026-09-18T18:30:12.9834094Z ⊢ 1 + e ^ 2 * (2 - e ^ 2 * 7)⁻¹ * 4 + (2 - e ^ 2 * 7)⁻¹ = -(e ^ 2 * (2 - e ^ 2 * 7)⁻¹ * 3) + (2 - e ^ 2 * 7)⁻¹ * 3
+[... corresponding cases 3.3 and 3.4 ...]
+2026-09-18T18:30:12.9846271Z _verified/packets/moment_six_row_small_gain/driver.lean:607:38: error: No goals to be solved
+[... repeated closed-goal diagnostics ...]
+2026-09-18T18:30:12.9850700Z _verified/packets/moment_six_row_small_gain/driver.lean:610:38: error: No goals to be solved
+[... repeated closed-goal diagnostics ...]
+2026-09-18T18:30:12.9855515Z _verified/packets/moment_six_row_small_gain/driver.lean:635:34: error: unsolved goals
+[... local context ...]
+2026-09-18T18:30:12.9859459Z ⊢ {2, 3}.card = 2
+[... other finite-cardinality cases and ring hints ...]
+2026-09-18T18:30:12.9879078Z _verified/packets/moment_six_row_small_gain/driver.lean:691:70: error: unsolved goals
+[... expanded polynomial contains unreduced vector applications ...]
+2026-09-18T18:30:12.9883122Z     -(e * 45) + e * z 0 * ![-1, 0, e, e * 2, e * 3, 1] 3 * 18 + e * z 0 * ![-1, 0, e, e * 2, e * 3, 1] 2 * 27 +
+[... two full coordinate expansions ...]
+2026-09-18T18:30:13.0021222Z _verified/packets/moment_six_row_small_gain/driver.lean:711:38: error: unsolved goals
+[... local context ...]
+2026-09-18T18:30:13.0024680Z ⊢ (insert 2 ({3} ∩ {1, 2})).card + 1 = 2
+2026-09-18T18:30:13.0025100Z _verified/packets/moment_six_row_small_gain/driver.lean:712:38: error: unsolved goals
+[... local context ...]
+2026-09-18T18:30:13.0030224Z ⊢ ({2, 3} ∩ ![{2, 3}, {1, 2}, {3, 4}, {0, 5}, {0, 1}] 2).card + 1 = 2
+2026-09-18T18:30:13.0030686Z _verified/packets/moment_six_row_small_gain/driver.lean:720:26: error: unsolved goals
+[... finite membership branches ...]
+2026-09-18T18:30:13.0063132Z hi : 1 = 2 ∨ 1 = 3
+2026-09-18T18:30:13.0063651Z ⊢ 1 = 2
+[... remaining finite branches ...]
+2026-09-18T18:30:13.0098407Z _verified/packets/moment_six_row_small_gain/driver.lean:730:28: error: unsolved goals
+[... unreduced vector membership branches ...]
+2026-09-18T18:30:13.0156537Z _verified/packets/moment_six_row_small_gain/driver.lean:790:2: error: unsolved goals
+[... score expression contains unreduced Matrix.vecCons/node applications ...]
+2026-09-18T18:30:13.0205913Z _verified/packets/moment_six_row_small_gain/driver.lean:793:2: error: unsolved goals
+[... local context ...]
+2026-09-18T18:30:13.0208951Z ⊢ e * 6 - e * ![-1, 0, e, e * 2, e * 3, 1] 5 * 6 + e ^ 2 * 12 = e ^ 2 * 12
+[... other score branch and harmless linter warnings ...]
+2026-09-18T18:30:13.0254578Z _verified/packets/moment_six_row_small_gain/driver.lean:846:20: error: Type mismatch
+2026-09-18T18:30:13.0254683Z   (point_geometry e he he4 ?m.585).left
+2026-09-18T18:30:13.0254771Z has type
+2026-09-18T18:30:13.0255031Z   pt e ?m.585 ∈ extremePoints ℝ {x | ∀ (i : Fin 6), row (nodes e) x i ≤ 1}
+2026-09-18T18:30:13.0255144Z but is expected to have type
+2026-09-18T18:30:13.0255437Z   r ((fun i => i) ⟨0, ⋯⟩) ∈ extremePoints ℝ {x | ∀ (j : Fin 6), row (nodes e) x j ≤ 1}
+[... corresponding remaining route indices ...]
+2026-09-18T18:30:13.0259592Z _verified/packets/moment_six_row_small_gain/driver.lean:850:34: error: unsolved goals
+2026-09-18T18:30:13.0260810Z _verified/packets/moment_six_row_small_gain/driver.lean:852:34: error: unsolved goals
+[... local context ...]
+2026-09-18T18:30:13.0272635Z _verified/packets/moment_six_row_small_gain/driver.lean:854:34: error: unsolved goals
+[... local context and failed dependent axiom printouts ...]
+2026-09-18T18:30:13.0275931Z 'Hirsch.SmallGain.gain_bounds' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+2026-09-18T18:30:13.0276828Z 'solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound, Hirsch.SmallGain.nodes_injective]
+2026-09-18T18:30:13.0287866Z ##[error]Process completed with exit code 1.

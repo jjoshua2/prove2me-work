@@ -1,0 +1,37 @@
+{
+  "kind": "derived_authenticated_publication_readback",
+  "pr": 304,
+  "proof_head": "ac447cd1aa424a3ec0300ca237e32c20a76bbdda",
+  "unchanged_compiled_source_commit": "e991bc9b85bc60381f1b5fea283f4538dfaaa228",
+  "trusted_main": "ec1f9940496d8cb0ed9308ede632d0ec3b62de67",
+  "maintenance_pr": 305,
+  "run_id": 35391838355,
+  "trigger_comment": 5735814901,
+  "acknowledgement_comment": 5735817052,
+  "verdict_comment": 5735894829,
+  "theorem_id": "9771bc05-8eb9-4606-a21e-79715873624e",
+  "submission_id": "07282fd9-6960-4e2e-bb91-c94a4d994362",
+  "authenticated_status": "ACCEPTED",
+  "publisher_live_status": "Proved",
+  "jobs": {
+    "gate": {"id": 105751735333, "conclusion": "success"},
+    "verify": {"id": 105751791130, "conclusion": "success"},
+    "publish": {"id": 105752391163, "conclusion": "success"},
+    "report-verify": {"id": 105752392862, "conclusion": "skipped"}
+  },
+  "compile_exit_codes": {"driver.lean": 0, "solution.lean": 0, "statement.lean": 0},
+  "axioms": ["propext", "Classical.choice", "Quot.sound"],
+  "audited_declarations": 5,
+  "all_five_frozen_files_unchanged": true,
+  "all_three_new_archive_hashes_match": true,
+  "first_actual_platform_submission": true,
+  "compiler_gates_overall": 4,
+  "new_triggers_this_continuation": 1,
+  "separate_direct_platform_poll": false,
+  "raw_individual_platform_response_bodies_exported": false,
+  "artifacts": [
+    {"id": 10566168625, "file": "pr304-protocol-resume-request.zip", "bytes": 312, "sha256": "e2204b59697e3d9a45d2dbca0dd02b84277e5443a54cbb12da025a287db68a01"},
+    {"id": 10565754385, "file": "pr304-protocol-resume-verified.zip", "bytes": 30231, "sha256": "5e86d4ef3d6f6e6e5ebeea63e720525100e8c204019ba4a6fe39c4db70706ba8"},
+    {"id": 10565648959, "file": "pr304-accepted-publication.zip", "bytes": 928, "sha256": "86d7b868bbd2924469979154996e45b76129f9825411b36eeb9d882b5fd75901"}
+  ]
+}

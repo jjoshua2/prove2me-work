@@ -1,0 +1,52 @@
+{
+  "kind": "derived_failed_compiler_gate",
+  "pr": 304,
+  "run_id": 35380332439,
+  "verify_job_id": 105714762470,
+  "proof_head": "f84d79808cf6fafab2e02027d5f0af81446f223a",
+  "trusted_main": "d6e667d1d2ffa4eaa012e941fadec2898b6f9c5c",
+  "trigger_comment": 5734429736,
+  "acknowledgement_comment": 5734431801,
+  "driver_exit_code": 1,
+  "jobs": {
+    "gate": "success",
+    "verify": "failure",
+    "publish": "skipped",
+    "report-verify": "skipped"
+  },
+  "diagnostic_groups": [
+    {
+      "lines": [582, 585, 607, 610],
+      "issue": "No goals after multi-location finite-case simplification; failed nodes_injective declaration has metavariables"
+    },
+    {
+      "lines": [595],
+      "issue": "Three target slack identities retain the inverse of 2-e^2*7 instead of clearing the known nonzero denominator"
+    },
+    {
+      "lines": [635, 711, 712, 720, 730, 850, 852, 854],
+      "issue": "Concrete Finset cardinalities, intersections and Fin memberships not reduced"
+    },
+    {
+      "lines": [691, 790, 793],
+      "issue": "Vector/node applications remain opaque during ring normalization"
+    },
+    {
+      "lines": [846],
+      "issue": "Route point index metavariable not inferred through local vector definition"
+    }
+  ],
+  "printed_new_declarations": 5,
+  "passing_new_public_axiom_audit": false,
+  "all_five_printed_new_declarations_contain_sorryAx": true,
+  "nodes_injective_failure_is_not_an_allowed_new_axiom": true,
+  "solution_unchanged_after_gate": true,
+  "second_trigger_posted": false,
+  "theorem_id": null,
+  "submission_id": null,
+  "verified_artifact": null,
+  "publication_receipt": null,
+  "request_artifact": 10562007847,
+  "request_zip_sha256": "eb8e78e7bf47d8eb3c3e9c2f0a56c64965f08886a33eb066ffeba8985d403ba8",
+  "scope": "Failure evidence only; no platform registration, ACCEPTED or live Proved result."
+}

@@ -1,0 +1,19 @@
+Selected exact lines from publisher job105752391163, run35391838355.
+This is an EXCERPT, not the complete raw runner log. The complete log was inspected.
+
+2026-09-18T20:32:59.0366883Z ec1f9940496d8cb0ed9308ede632d0ec3b62de67
+2026-09-18T20:33:00.2078610Z SHA256 digest of downloaded artifact is 5e86d4ef3d6f6e6e5ebeea63e720525100e8c204019ba4a6fe39c4db70706ba8
+[... trusted publisher invocation and platform calls ...]
+2026-09-18T20:37:48.6229888Z ## Prove2Me publication
+2026-09-18T20:37:48.6230741Z Head SHA: `ac447cd1aa424a3ec0300ca237e32c20a76bbdda`
+2026-09-18T20:37:48.6231622Z Actions run: https://github.com/jjoshua2/prove2me-work/actions/runs/35391838355
+2026-09-18T20:37:48.6232664Z - **Hirsch.moment_six_row_no_uniform_local_contraction**: ACCEPTED
+2026-09-18T20:37:48.6234067Z   - theorem `9771bc05-8eb9-4606-a21e-79715873624e`
+2026-09-18T20:37:48.6235096Z   - submission `07282fd9-6960-4e2e-bb91-c94a4d994362`
+2026-09-18T20:37:48.6236084Z   - `research/publication_packets/moment_six_row_small_gain`
+[... archive upload ...]
+2026-09-18T20:37:49.5057436Z Uploaded bytes 928
+2026-09-18T20:37:49.5869497Z SHA256 digest of uploaded artifact zip is 86d7b868bbd2924469979154996e45b76129f9825411b36eeb9d882b5fd75901
+2026-09-18T20:37:49.8573970Z Artifact prove2me-publication-receipts.zip successfully finalized. Artifact ID 10565648959
+[... verdict comment posted ...]
+2026-09-18T20:37:51.0083753Z https://github.com/jjoshua2/prove2me-work/pull/304#issuecomment-5735894829
